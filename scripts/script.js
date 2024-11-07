@@ -34,9 +34,11 @@ fetchAllRepos()
         listItem.className = 'list-group-item list-group-item-action';
         listItem.href = repo.html_url;
         listItem.target = '_blank';
+        const createdAt = new Date(repo.created_at).toLocaleDateString(); // Форматируем дату
         listItem.innerHTML = `
           <h5 class="mb-1 text-primary">${repo.name}</h5>
           <p class="mb-1">${repo.description || 'No description'}</p>
+          <small class="text-muted">Created on: ${createdAt}</small> <!-- Добавляем дату создания -->
         `;
         repoList.appendChild(listItem);
       });
@@ -49,4 +51,5 @@ fetchAllRepos()
     errorMessage.textContent = error.message;
     repoList.appendChild(errorMessage);
   });
+
 
