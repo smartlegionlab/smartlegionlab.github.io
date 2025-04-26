@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Smart Legion Lab</title>
@@ -11,14 +12,15 @@
         }
         .repo-card {
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: none;
             border-left: 4px solid;
             margin-bottom: 20px;
+            height: 100%;
         }
         .repo-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         .repo-header {
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -50,6 +52,16 @@
         }
         .repo-title {
             font-weight: 600;
+        }
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .repo-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -108,15 +120,11 @@ let reposLoaded = false;
 let isVisible = false;
 
 // Colors for different repo types
-const repoColors = {
-    primary: 'primary',
-    secondary: 'secondary',
-    success: 'success',
-    danger: 'danger',
-    warning: 'warning',
-    info: 'info',
-    dark: 'dark'
-};
+const repoColors = [
+    'primary', 'secondary', 'success', 'danger',
+    'warning', 'info', 'dark', 'primary',
+    'secondary', 'success', 'danger'
+];
 
 // Language colors (similar to GitHub)
 const languageColors = {
@@ -154,11 +162,6 @@ async function fetchAllRepos() {
     return allRepos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 }
 
-function getRandomColor() {
-    const colors = Object.values(repoColors);
-    return colors[Math.floor(Math.random() * colors.length)];
-}
-
 function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -176,19 +179,16 @@ function displayRepos(repos) {
         `;
         repoList.appendChild(noReposAlert);
     } else {
-        const row = document.createElement('div');
-        row.className = 'row row-cols-1 row-cols-md-2 g-4';
+        const grid = document.createElement('div');
+        grid.className = 'repo-grid';
 
         repos.forEach((repo, index) => {
-            const color = getRandomColor();
-            const col = document.createElement('div');
-            col.className = 'col';
-
+            const color = repoColors[index % repoColors.length];
             const card = document.createElement('div');
-            card.className = `card repo-card border-${color} h-100`;
+            card.className = `card repo-card border-${color}`;
 
             const cardBody = document.createElement('div');
-            cardBody.className = 'card-body';
+            cardBody.className = 'card-body d-flex flex-column';
 
             // Header with title and stats
             const header = document.createElement('div');
@@ -218,7 +218,7 @@ function displayRepos(repos) {
 
             // Description
             const description = document.createElement('p');
-            description.className = 'my-3';
+            description.className = 'my-3 flex-grow-1';
             description.textContent = repo.description || 'No description provided';
 
             // Language and tags
@@ -267,11 +267,10 @@ function displayRepos(repos) {
             if (tags.hasChildNodes()) cardBody.appendChild(tags);
             cardBody.appendChild(footer);
             card.appendChild(cardBody);
-            col.appendChild(card);
-            row.appendChild(col);
+            grid.appendChild(card);
         });
 
-        repoList.appendChild(row);
+        repoList.appendChild(grid);
 
         // Add footer with repo count
         const footer = document.createElement('div');
