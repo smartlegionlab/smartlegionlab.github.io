@@ -9,6 +9,9 @@
         a {
             text-decoration: none;
         }
+        .repo-alert {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -42,16 +45,135 @@
     <h2 class="text-center display-6">Open source projects: </h2>
     <div class="text-center">
         <br>
-    <button id="showRepos" class="btn btn-dark">Show Repositories</button>
+    <button id="showRepos" class="btn btn-dark"><i class="bi bi-github"></i> Show Repositories</button>
     </div>
     <hr>
-    <div id="repo-list" class="list-group"></div>
+    <div id="repo-list" class="d-none">
+        <div class="text-center py-3">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Loading repositories...</p>
+        </div>
+    </div>
 
 </div>
 <br>
 <br>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="scripts/script.js"></script>
+<script>
+const username = 'smartlegionlab';
+const url = `https://api.github.com/users/${username}/repos?per_page=100`;
+const repoList = document.getElementById('repo-list');
+const showReposButton = document.getElementById('showRepos');
+let reposLoaded = false;
+let isVisible = false;
+
+async function fetchAllRepos() {
+  let allRepos = [];
+  let page = 1;
+  let hasMoreRepos = true;
+
+  while (hasMoreRepos) {
+    const response = await fetch(`${url}&page=${page}`);
+    if (!response.ok) {
+      throw new Error('Failed to load repositories. Please check your username or try again later.');
+    }
+    const repos = await response.json();
+    allRepos = allRepos.concat(repos);
+    hasMoreRepos = repos.length > 0;
+    page++;
+  }
+
+  return allRepos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+}
+
+function displayRepos(repos) {
+  repoList.innerHTML = '';
+
+  if (repos.length === 0) {
+    const noReposAlert = document.createElement('div');
+    noReposAlert.className = 'alert alert-secondary text-center';
+    noReposAlert.innerHTML = `
+      <i class="bi bi-github fs-1"></i>
+      <p class="mt-2">No repositories found</p>
+    `;
+    repoList.appendChild(noReposAlert);
+  } else {
+    repos.forEach(repo => {
+      const alert = document.createElement('div');
+      alert.className = 'alert alert-primary repo-alert mb-3';
+      alert.role = 'alert';
+
+      const lastUpdated = new Date(repo.pushed_at).toLocaleDateString();
+
+      alert.innerHTML = `
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <h5 class="mb-1">
+              <a href="${repo.html_url}" target="_blank" class="text-decoration-none">${repo.name}</a>
+              ${repo.fork ? '<span class="badge bg-secondary ms-2">Fork</span>' : ''}
+            </h5>
+            <small class="text-muted">Last updated: ${lastUpdated}</small>
+          </div>
+          <div>
+            <span class="badge bg-dark me-1"><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
+            <span class="badge bg-secondary"><i class="bi bi-diagram-2"></i> ${repo.forks_count}</span>
+          </div>
+        </div>
+        <hr>
+        <p class="mb-2">${repo.description || '<span class="text-muted">No description</span>'}</p>
+        <div class="d-flex flex-wrap gap-1 mt-2">
+          ${repo.language ? `<span class="badge bg-info">${repo.language}</span>` : ''}
+          ${repo.license ? `<span class="badge bg-warning text-dark">${repo.license.spdx_id || repo.license.name}</span>` : ''}
+          ${repo.archived ? '<span class="badge bg-danger">Archived</span>' : ''}
+        </div>
+      `;
+
+      repoList.appendChild(alert);
+    });
+
+    // Add a footer with repo count
+    const footer = document.createElement('div');
+    footer.className = 'text-center text-muted mt-3 mb-4';
+    footer.textContent = `Showing ${repos.length} repositories`;
+    repoList.appendChild(footer);
+  }
+}
+
+showReposButton.addEventListener('click', async () => {
+  if (!isVisible) {
+    // Show loading state
+    repoList.classList.remove('d-none');
+    showReposButton.disabled = true;
+    showReposButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
+
+    try {
+      if (!reposLoaded) {
+        const repos = await fetchAllRepos();
+        displayRepos(repos);
+        reposLoaded = true;
+      }
+
+      showReposButton.innerHTML = '<i class="bi bi-eye-slash"></i> Hide Repositories';
+      isVisible = true;
+    } catch (error) {
+      repoList.innerHTML = `
+        <div class="alert alert-danger" role="alert">
+          <i class="bi bi-exclamation-triangle-fill"></i> ${error.message}
+        </div>
+      `;
+      showReposButton.innerHTML = '<i class="bi bi-github"></i> Try Again';
+    } finally {
+      showReposButton.disabled = false;
+    }
+  } else {
+    repoList.classList.add('d-none');
+    showReposButton.innerHTML = '<i class="bi bi-github"></i> Show Repositories';
+    isVisible = false;
+  }
+});
+</script>
 </body>
 </html>
