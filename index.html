@@ -63,6 +63,47 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Skills section styles */
+        .skills-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #343a40;
+            text-align: center;
+        }
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .skill-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        .skill-percent {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +134,85 @@
 
     <hr class="my-4">
 
+    <!-- Skills Section -->
+    <div class="skills-section">
+        <h3 class="skill-title"><i class="bi bi-tools"></i> My Skills</h3>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Python</span>
+                <span class="skill-percent">95%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="95"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Django</span>
+                <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="90"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Flask</span>
+                <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="85"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>JavaScript</span>
+                <span class="skill-percent">75%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="75"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>HTML/CSS</span>
+                <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="80"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>SQL</span>
+                <span class="skill-percent">85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="85"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-name">
+                <span>Git</span>
+                <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-percent="90"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
     <h2 class="text-center display-6 mb-4">Open source projects</h2>
+
     <div class="text-center">
         <button id="showRepos" class="btn btn-dark btn-lg shadow-sm px-4">
             <i class="bi bi-github"></i> Show Repositories
@@ -112,6 +231,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+// Skills animation
+document.addEventListener('DOMContentLoaded', function() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+
+    skillBars.forEach(bar => {
+        const percent = bar.getAttribute('data-percent');
+        bar.style.width = percent + '%';
+    });
+});
+
 const username = 'smartlegionlab';
 const url = `https://api.github.com/users/${username}/repos?per_page=100`;
 const repoList = document.getElementById('repo-list');
