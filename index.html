@@ -235,9 +235,17 @@ function displayArticles(articles) {
 
 document.getElementById('showArticles').addEventListener('click', async () => {
     const articlesList = document.getElementById('articles-list');
+    const repoList = document.getElementById('repo-list');
     const showArticlesButton = document.getElementById('showArticles');
+    const showReposButton = document.getElementById('showRepos');
 
     if (!articlesVisible) {
+        if (isVisible) {
+            repoList.classList.add('d-none');
+            showReposButton.innerHTML = '<i class="bi bi-github"></i> Show Repositories';
+            isVisible = false;
+        }
+
         articlesList.classList.remove('d-none');
         showArticlesButton.disabled = true;
         showArticlesButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
@@ -274,13 +282,11 @@ const showReposButton = document.getElementById('showRepos');
 let reposLoaded = false;
 let isVisible = false;
 
-
 const repoColors = [
     'primary', 'secondary', 'success', 'danger',
     'warning', 'info', 'dark', 'primary',
     'secondary', 'success', 'danger'
 ];
-
 
 const languageColors = {
     'Python': '#3572A5',
@@ -433,7 +439,18 @@ function displayRepos(repos) {
 }
 
 showReposButton.addEventListener('click', async () => {
+    const articlesList = document.getElementById('articles-list');
+    const repoList = document.getElementById('repo-list');
+    const showReposButton = document.getElementById('showRepos');
+    const showArticlesButton = document.getElementById('showArticles');
+
     if (!isVisible) {
+        if (articlesVisible) {
+            articlesList.classList.add('d-none');
+            showArticlesButton.innerHTML = '<i class="bi bi-journal-text"></i> Show Articles';
+            articlesVisible = false;
+        }
+
         repoList.classList.remove('d-none');
         showReposButton.disabled = true;
         showReposButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
