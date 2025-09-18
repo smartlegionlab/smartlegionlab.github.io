@@ -96,9 +96,12 @@
 
     <h2 class="text-center display-6 mb-4">Open source projects</h2>
     <div class="text-center">
-        <button id="showRepos" class="btn btn-dark btn-lg shadow-sm px-4">
+        <button id="showRepos" class="btn btn-sm btn-dark btn-lg shadow-sm px-4">
             <i class="bi bi-github"></i> Show Repositories
         </button>
+        <button id="showArticles" class="btn btn-sm btn-warning btn-lg shadow-sm px-4">
+        <i class="bi bi-journal-text"></i> Show Articles
+    </button>
     </div>
 
     <div id="repo-list" class="d-none mt-4">
@@ -109,25 +112,176 @@
             <p class="mt-3 text-muted">Loading repositories...</p>
         </div>
     </div>
+
+    <div id="articles-list" class="d-none mt-4">
+    <div class="text-center py-4">
+        <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 text-muted">Loading articles...</p>
+    </div>
+</div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 const username = 'smartlegionlab';
+const devToUsername = 'smartlegionlab';
+const articlesUrl = `https://dev.to/api/articles?username=${devToUsername}&per_page=100`;
+
+let articlesLoaded = false;
+let articlesVisible = false;
+
+async function fetchArticles() {
+    const response = await fetch(articlesUrl);
+    if (!response.ok) throw new Error('Failed to load articles. Please try again later.');
+    return await response.json();
+}
+
+function formatArticleDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+
+function displayArticles(articles) {
+    const articlesList = document.getElementById('articles-list');
+    articlesList.innerHTML = '';
+
+    if (articles.length === 0) {
+        const noArticlesAlert = document.createElement('div');
+        noArticlesAlert.className = 'alert alert-secondary text-center';
+        noArticlesAlert.innerHTML = `
+            <i class="bi bi-journal fs-1"></i>
+            <p class="mt-2">No articles found</p>
+        `;
+        articlesList.appendChild(noArticlesAlert);
+    } else {
+        const grid = document.createElement('div');
+        grid.className = 'repo-grid';
+
+        articles.forEach((article, index) => {
+            const color = repoColors[index % repoColors.length];
+            const card = document.createElement('div');
+            card.className = `card repo-card border-${color}`;
+
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body d-flex flex-column';
+
+            const header = document.createElement('div');
+            header.className = 'repo-header';
+
+            const titleLink = document.createElement('a');
+            titleLink.href = article.url;
+            titleLink.target = '_blank';
+            titleLink.className = 'repo-title text-decoration-none';
+            titleLink.innerHTML = `
+                <h5 class="mb-0 text-${color}">
+                    ${article.title}
+                </h5>
+            `;
+
+            header.appendChild(titleLink);
+
+            const description = document.createElement('p');
+            description.className = 'my-3 flex-grow-1';
+            description.textContent = article.description || 'No description provided';
+
+            const tags = document.createElement('div');
+            tags.className = 'mb-3';
+
+            if (article.tag_list && article.tag_list.length > 0) {
+                article.tag_list.forEach(tag => {
+                    const tagElement = document.createElement('span');
+                    tagElement.className = 'repo-tag bg-light text-dark border';
+                    tagElement.textContent = `#${tag}`;
+                    tags.appendChild(tagElement);
+                });
+            }
+
+            const footer = document.createElement('div');
+            footer.className = 'repo-footer text-muted d-flex justify-content-between';
+            footer.innerHTML = `
+                <small>
+                    <i class="bi ${article.positive_reactions_count > 0 ? 'bi-heart-fill text-danger' : 'bi-heart'}"></i>
+                    ${article.positive_reactions_count}
+                    <i class="bi bi-chat ms-2"></i> ${article.comments_count}
+                </small>
+                <small><i class="bi bi-clock"></i> ${formatArticleDate(article.published_at)}</small>
+            `;
+
+            cardBody.appendChild(header);
+            cardBody.appendChild(description);
+            if (tags.hasChildNodes()) cardBody.appendChild(tags);
+            cardBody.appendChild(footer);
+            card.appendChild(cardBody);
+            grid.appendChild(card);
+        });
+
+        articlesList.appendChild(grid);
+
+        const footer = document.createElement('div');
+        footer.className = 'text-center text-muted mt-4 mb-2';
+        footer.innerHTML = `
+            <i class="bi bi-info-circle"></i> Showing ${articles.length} articles
+        `;
+        articlesList.appendChild(footer);
+    }
+}
+
+document.getElementById('showArticles').addEventListener('click', async () => {
+    const articlesList = document.getElementById('articles-list');
+    const showArticlesButton = document.getElementById('showArticles');
+
+    if (!articlesVisible) {
+        articlesList.classList.remove('d-none');
+        showArticlesButton.disabled = true;
+        showArticlesButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
+
+        try {
+            if (!articlesLoaded) {
+                const articles = await fetchArticles();
+                displayArticles(articles);
+                articlesLoaded = true;
+            }
+
+            showArticlesButton.innerHTML = '<i class="bi bi-eye-slash"></i> Hide Articles';
+            articlesVisible = true;
+        } catch (error) {
+            articlesList.innerHTML = `
+                <div class="alert alert-danger shadow-sm" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill"></i> ${error.message}
+                </div>
+            `;
+            showArticlesButton.innerHTML = '<i class="bi bi-journal-text"></i> Try Again';
+        } finally {
+            showArticlesButton.disabled = false;
+        }
+    } else {
+        articlesList.classList.add('d-none');
+        showArticlesButton.innerHTML = '<i class="bi bi-journal-text"></i> Show Articles';
+        articlesVisible = false;
+    }
+});
+
 const url = `https://api.github.com/users/${username}/repos?per_page=100`;
 const repoList = document.getElementById('repo-list');
 const showReposButton = document.getElementById('showRepos');
 let reposLoaded = false;
 let isVisible = false;
 
-// Colors for different repo types
+
 const repoColors = [
     'primary', 'secondary', 'success', 'danger',
     'warning', 'info', 'dark', 'primary',
     'secondary', 'success', 'danger'
 ];
 
-// Language colors (similar to GitHub)
+
 const languageColors = {
     'Python': '#3572A5',
     'JavaScript': '#f1e05a',
@@ -191,7 +345,6 @@ function displayRepos(repos) {
             const cardBody = document.createElement('div');
             cardBody.className = 'card-body d-flex flex-column';
 
-            // Header with title and stats
             const header = document.createElement('div');
             header.className = 'repo-header d-flex justify-content-between align-items-start';
 
@@ -217,12 +370,10 @@ function displayRepos(repos) {
             header.appendChild(titleLink);
             header.appendChild(stats);
 
-            // Description
             const description = document.createElement('p');
             description.className = 'my-3 flex-grow-1';
             description.textContent = repo.description || 'No description provided';
 
-            // Language and tags
             const tags = document.createElement('div');
             tags.className = 'mb-3';
 
@@ -253,7 +404,6 @@ function displayRepos(repos) {
                 });
             }
 
-            // Footer with update date
             const footer = document.createElement('div');
             footer.className = 'repo-footer text-muted';
             footer.innerHTML = `
@@ -273,7 +423,6 @@ function displayRepos(repos) {
 
         repoList.appendChild(grid);
 
-        // Add footer with repo count
         const footer = document.createElement('div');
         footer.className = 'text-center text-muted mt-4 mb-2';
         footer.innerHTML = `
@@ -285,7 +434,6 @@ function displayRepos(repos) {
 
 showReposButton.addEventListener('click', async () => {
     if (!isVisible) {
-        // Show loading state
         repoList.classList.remove('d-none');
         showReposButton.disabled = true;
         showReposButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
