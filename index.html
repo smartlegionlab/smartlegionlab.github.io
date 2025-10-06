@@ -5,483 +5,1303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <title>Smart Legion Lab</title>
+    <title>Alexander Suvorov - Security Researcher & Python/Django Architect</title>
     <style>
-        a {
-            text-decoration: none;
+        :root {
+            --primary: #0d1117;
+            --secondary: #161b22;
+            --accent: #0d6efd;
+            --accent-dark: #0b5ed7;
+            --text-light: #f8f9fa;
+            --text-muted: #8b949e;
+            --border: #30363d;
         }
-        .repo-card {
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+
+        .main-container {
+            background: var(--secondary);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto 20px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+        }
+
+        .academic-badge {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 10px 5px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .research-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: none;
-            border-left: 4px solid;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-        .repo-card:hover {
+
+        .research-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+            border-color: var(--accent-dark);
         }
-        .repo-header {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
+
+        .doi-badge {
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
         }
-        .repo-footer {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            padding-top: 10px;
-            margin-top: 10px;
+
+        .stats-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stats-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-tag {
+            background: rgba(13, 110, 253, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            padding: 6px 15px;
+            margin: 5px;
+            font-size: 0.85rem;
+            display: inline-block;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-tabs .nav-link.active {
+            background: var(--accent);
+            color: white;
+            border: 1px solid var(--accent);
+            border-bottom-color: var(--accent);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--text-muted);
+            border: 1px solid transparent;
+            border-radius: 10px 10px 0 0;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: var(--text-light);
+            border-color: var(--border);
+        }
+
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-section:nth-child(even) {
+            background: rgba(13, 17, 23, 0.5);
+        }
+
+        .tab-content {
+            background: transparent;
+        }
+
+        .card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+
+        .btn-outline-primary {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .alert {
+            background: rgba(13, 110, 253, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--text-light);
+        }
+
+        .paradigm-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Improved research card styles */
+        .research-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .research-description {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .research-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .research-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.75rem;
+            background: rgba(13, 110, 253, 0.05);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .research-metadata {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .metadata-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
             font-size: 0.85rem;
         }
-        .repo-stats span {
-            margin-right: 10px;
+
+        .metadata-label {
+            color: var(--text-muted);
+            font-weight: 500;
         }
-        .repo-language {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
+
+        .metadata-value {
+            color: var(--text-light);
+            font-family: monospace;
         }
-        .repo-tag {
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            display: inline-block;
+
+        .btn-group-sm .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
         }
-        .repo-title {
+
+        /* Vertical metrics styles */
+        .metrics-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(13, 110, 253, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .metric-item:hover {
+            background: rgba(13, 110, 253, 0.1);
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+
+        .metric-icon-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .metric-content {
+            flex: 1;
+        }
+
+        .metric-number {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Paper effect for main container */
+        .paper-container {
+            background: var(--secondary);
+            border-radius: 20px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(255, 255, 255, 0.1) inset;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .paper-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.02) 50%,
+                transparent 100%);
+            pointer-events: none;
+        }
+
+        /* About Me Cards */
+        .about-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .about-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.15);
+            border-color: var(--accent-dark);
+        }
+
+        .about-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .about-title {
+            font-size: 1.25rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
+
+        /* Improved Repository Cards */
         .repo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
+            gap: 1.5rem;
         }
+
+        .repo-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+            border-color: var(--accent-dark);
+        }
+
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .repo-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .repo-title:hover {
+            color: var(--accent-dark);
+        }
+
+        .repo-stats {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .repo-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .repo-description {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        .repo-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .repo-language {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .language-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .repo-updated {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .repo-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .repo-badge {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+        }
+
+        /* Expertise Grid Styles */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .expertise-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+            border-color: var(--accent-dark);
+        }
+
+        .expertise-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .expertise-icon-main {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .expertise-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .expertise-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(13, 110, 253, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            background: rgba(13, 110, 253, 0.08);
+            transform: translateX(5px);
+        }
+
+        .expertise-item-icon {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .expertise-item-content {
+            flex: 1;
+        }
+
+        .expertise-item-title {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .expertise-item-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
             .repo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .repo-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .repo-stats {
+                align-self: flex-start;
+            }
+
+            .expertise-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand lead" href="index.html">Smart Legion <sup class="text-primary">Lab</sup></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
-
-<div class="container" style="margin-top: 80px;">
-    <div class="text-center">
-        <h1 class="display-4">Smart Legion <sup class="text-primary">Lab</sup></h1>
-        <p class="lead"><strong>Python/Django architect. Full cycle: from architecture to production</strong></p>
-        <p class="lead"><strong>Development of packages, libraries, console, graphical and web applications on Python.</strong></p>
-        <p class="lead"><strong>Independent Security Researcher | Author of <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm">The Pointer-Based Security Paradigm</a> (Alexander Suvorov)</strong></p>
-        <hr>
-        <p class="lead">
-            I am a developer specializing in creating web applications, libraries, console and graphical applications, as well as bots for Telegram and VK using Python.
-        </p>
-        <hr>
-        <div class="btn-group btn-group-sm shadow-sm" role="group">
-            <a target="_blank" href="https://github.com/smartlegionlab/" class="btn btn-dark"><i class="bi bi-github"></i> Github</a>
-            <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-primary"><i class="bi bi-git"></i> Pypi</a>
-            <a target="_blank" href="https://dev.to/smartlegionlab" class="btn btn-warning"><i class="bi bi-git"></i> Dev.to</a>
-            <a target="_blank" href="https://t.me/smartlegionlabbot" class="btn btn-secondary"><i class="bi bi-telegram"></i> Telegram Bot</a>
-        </div>
-    </div>
-
-    <hr class="my-4">
-
-    <h2 class="text-center display-6 mb-4">Open source projects</h2>
-    <div class="text-center">
-        <button id="showRepos" class="btn btn-sm btn-dark btn-lg shadow-sm px-4">
-            <i class="bi bi-github"></i> Show Repositories
-        </button>
-        <button id="showArticles" class="btn btn-sm btn-warning btn-lg shadow-sm px-4">
-        <i class="bi bi-journal-text"></i> Show Articles
-    </button>
-    </div>
-
-    <div id="repo-list" class="d-none mt-4">
-        <div class="text-center py-4">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
+<div class="container">
+    <div class="paper-container">
+        <div class="hero-section">
+            <div class="container position-relative">
+                <div class="profile-image">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">Alexander Suvorov</h1>
+                <p class="lead mb-4">Security Researcher & Python/Django Architect</p>
+                <div class="mb-4">
+                    <span class="academic-badge">Paradigm Creator</span>
+                    <span class="academic-badge">Security Architect</span>
+                    <span class="academic-badge">Published Researcher</span>
+                    <span class="academic-badge">Full-Stack Developer</span>
+                    <span class="academic-badge">Python/Django Architect</span>
+                </div>
+                <div class="btn-group">
+                    <a href="#research" class="btn btn-outline-light btn-lg">View Research</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact</a>
+                </div>
             </div>
-            <p class="mt-3 text-muted">Loading repositories...</p>
+        </div>
+
+        <div class="content-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-search"></i> Research Focus</h3>
+                            <p class="mb-0">
+                                I am a computer scientist and security researcher focused on fundamental paradigm shifts
+                                in digital security and information theory. My work challenges conventional approaches
+                                by proposing architectural and ontological transformations that redefine how we think
+                                about data protection and information transmission.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-code-slash"></i> Technical Expertise</h3>
+                            <p class="mb-0">
+                                As a <strong>Python/Django Architect</strong>, I specialize in full-cycle development -
+                                from initial architecture
+                                to production deployment. I build everything from console applications and libraries to
+                                complex
+                                web applications and APIs, with a focus on security, scalability, and maintainability.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-lightbulb"></i> Research Impact</h3>
+                            <p class="mb-0">
+                                I created the <a class="text-decoration-none"
+                                                 href="https://doi.org/10.5281/zenodo.17204738"><strong>Pointer-Based
+                                Security Paradigm</strong></a> and <a class="text-decoration-none"
+                                                                      href="https://doi.org/10.5281/zenodo.17264327"><strong>Local
+                                Data Regeneration Paradigm</strong></a>,
+                                which have gained significant academic attention with proven impact through publication
+                                metrics, community engagement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card research-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center mb-3">Research & Development Metrics</h5>
+
+                                <div class="metrics-stack">
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-cloud-download"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number" id="total-downloads">0</div>
+                                            <div class="metric-label">Paper Downloads</div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-github"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number">40+</div>
+                                            <div class="metric-label">Public Repos</div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-box-seam"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number">25+</div>
+                                            <div class="metric-label">PyPI Packages</div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-download"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number">15K+</div>
+                                            <div class="metric-label">Monthly Downloads</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <small class="text-muted">Across research publications & open source
+                                        projects</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="research">
+            <div class="container">
+                <h2 class="section-title">Research Paradigms</h2>
+
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card research-card">
+                            <div class="card-body d-flex flex-column">
+                                <div class="research-header text-center">
+                                    <i class="bi bi-shield-check paradigm-icon"></i>
+                                    <h4 class="research-title">Pointer-Based Security Paradigm</h4>
+                                    <p class="research-subtitle">Architectural Shift from Data Protection to Data
+                                        Non-Existence</p>
+                                </div>
+
+                                <p class="research-description">
+                                    A fundamental rethinking of digital security architecture that eliminates vulnerable
+                                    data existence rather than protecting it through conventional encryption and access
+                                    control mechanisms.
+                                </p>
+
+                                <div class="research-links">
+                                    <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
+                                    <div class="btn-group btn-group-sm d-flex flex-wrap">
+                                        <a href="https://doi.org/10.5281/zenodo.17204738"
+                                           class="btn btn-outline-primary me-1 mb-1">
+                                            <i class="bi bi-journal-text"></i> Paper
+                                        </a>
+                                        <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm"
+                                           class="btn btn-outline-primary me-1 mb-1">
+                                            <i class="bi bi-github"></i> Code
+                                        </a>
+                                        <a href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82"
+                                           class="btn btn-outline-primary mb-1">
+                                            <i class="bi bi-file-text"></i> Article
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="research-stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stats-number" id="pointer-views">0</div>
+                                        <div class="stats-label">Views</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stats-number" id="pointer-downloads">0</div>
+                                        <div class="stats-label">Downloads</div>
+                                    </div>
+                                </div>
+
+                                <div class="research-metadata">
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">DOI:</span>
+                                        <span class="metadata-value">10.5281/zenodo.17204738</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Published:</span>
+                                        <span class="metadata-value">September 26, 2024</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Status:</span>
+                                        <span class="metadata-value">🔬 Theoretical Research</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="card research-card">
+                            <div class="card-body d-flex flex-column">
+                                <div class="research-header text-center">
+                                    <i class="bi bi-arrow-repeat paradigm-icon"></i>
+                                    <h4 class="research-title">Local Data Regeneration Paradigm</h4>
+                                    <p class="research-subtitle">Ontological Shift from Data Transmission to Synchronous
+                                        State Discovery</p>
+                                </div>
+
+                                <p class="research-description">
+                                    Fundamental theoretical work proposing an alternative to classical information
+                                    transmission, where data is regenerated locally through synchronized computation
+                                    rather than physically transferred across networks.
+                                </p>
+
+                                <div class="research-links">
+                                    <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
+                                    <div class="btn-group btn-group-sm d-flex flex-wrap">
+                                        <a href="https://doi.org/10.5281/zenodo.17264327"
+                                           class="btn btn-outline-primary me-1 mb-1">
+                                            <i class="bi bi-journal-text"></i> Paper
+                                        </a>
+                                        <a href="https://github.com/smartlegionlab/local-data-regeneration-paradigm"
+                                           class="btn btn-outline-primary me-1 mb-1">
+                                            <i class="bi bi-github"></i> Code
+                                        </a>
+                                        <a href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-state-21e"
+                                           class="btn btn-outline-primary mb-1">
+                                            <i class="bi bi-file-text"></i> Article
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="research-stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stats-number" id="localdata-views">0</div>
+                                        <div class="stats-label">Views</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stats-number" id="localdata-downloads">0</div>
+                                        <div class="stats-label">Downloads</div>
+                                    </div>
+                                </div>
+
+                                <div class="research-metadata">
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">DOI:</span>
+                                        <span class="metadata-value">10.5281/zenodo.17264327</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Published:</span>
+                                        <span class="metadata-value">October 4, 2024</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Status:</span>
+                                        <span class="metadata-value">🔬 Theoretical Research</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" style="background: rgba(13, 17, 23, 0.5);">
+            <div class="container">
+                <h2 class="section-title">Additional Content</h2>
+
+                <ul class="nav nav-tabs mb-4" id="contentTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#repositories">Code Repositories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#articles">Technical Articles</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="repositories">
+                        <div id="repo-list" class="text-center py-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading repositories...</span>
+                            </div>
+                            <p class="mt-3 text-muted">Loading repositories...</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="articles">
+                        <div id="articles-list" class="text-center py-4">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading articles...</span>
+                            </div>
+                            <p class="mt-3 text-muted">Loading technical articles...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="container">
+                <h2 class="section-title">Areas of Expertise</h2>
+
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-header">
+                            <i class="bi bi-mortarboard expertise-icon-main"></i>
+                            <h3 class="expertise-title">Research & Academia</h3>
+                            <p class="expertise-subtitle">Theoretical Foundations & Academic Research</p>
+                        </div>
+
+                        <div class="expertise-items">
+                            <div class="expertise-item">
+                                <i class="bi bi-lightbulb expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Paradigm Development</div>
+                                    <div class="expertise-item-desc">Creating fundamental theoretical frameworks and
+                                        conceptual models
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-journal-text expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Academic Publishing</div>
+                                    <div class="expertise-item-desc">Peer-reviewed research papers and scientific
+                                        publications
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-cpu expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Theoretical Computer Science</div>
+                                    <div class="expertise-item-desc">Advanced algorithms, complexity theory, and
+                                        computational models
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-diagram-3 expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Information Theory</div>
+                                    <div class="expertise-item-desc">Data transmission, compression, and information
+                                        processing theory
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-shield-check expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Security Architecture</div>
+                                    <div class="expertise-item-desc">System-level security design and threat modeling
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-key expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Cryptography Research</div>
+                                    <div class="expertise-item-desc">Advanced cryptographic protocols and security
+                                        analysis
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card">
+                        <div class="expertise-header">
+                            <i class="bi bi-tools expertise-icon-main"></i>
+                            <h3 class="expertise-title">Technical Development</h3>
+                            <p class="expertise-subtitle">Practical Implementation & Software Engineering</p>
+                        </div>
+
+                        <div class="expertise-items">
+                            <div class="expertise-item">
+                                <i class="bi bi-braces expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Python Architecture</div>
+                                    <div class="expertise-item-desc">Scalable system design and software architecture
+                                        patterns
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-gear expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Django Framework</div>
+                                    <div class="expertise-item-desc">Full-stack web application development and REST
+                                        APIs
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-diagram-2 expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">System Design</div>
+                                    <div class="expertise-item-desc">End-to-end system architecture and infrastructure
+                                        planning
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-plug expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">API Development</div>
+                                    <div class="expertise-item-desc">RESTful APIs, microservices, and integration
+                                        patterns
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-shield expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Security Research</div>
+                                    <div class="expertise-item-desc">Vulnerability analysis, penetration testing, and
+                                        security audits
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-layers expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Full-Stack Development</div>
+                                    <div class="expertise-item-desc">Frontend to backend complete solution development
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <i class="bi bi-database expertise-item-icon"></i>
+                                <div class="expertise-item-content">
+                                    <div class="expertise-item-title">Database Design</div>
+                                    <div class="expertise-item-desc">SQL/NoSQL database architecture and performance
+                                        optimization
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="contact">
+            <div class="container text-center">
+                <h2 class="section-title text-center">Get In Touch</h2>
+                <p class="lead mb-4">Interested in collaboration, research discussion, or opportunities?</p>
+                <div class="btn-group flex-wrap justify-content-center">
+                    <a target="_blank" href="https://github.com/smartlegionlab" class="btn contact-btn me-2 mb-2">
+                        <i class="bi bi-github"></i> GitHub
+                    </a>
+                    <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738" class="btn contact-btn me-2 mb-2">
+                        <i class="bi bi-journal-text"></i> Research
+                    </a>
+                    <a target="_blank" href="https://dev.to/smartlegionlab" class="btn contact-btn me-2 mb-2">
+                        <i class="bi bi-file-text"></i> Dev.to
+                    </a>
+                    <a target="_blank" href="mailto:smartlegionlab@gmail.com" class="btn contact-btn me-2 mb-2">
+                        <i class="bi bi-envelope"></i> Email
+                    </a>
+                    <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn contact-btn mb-2">
+                        <i class="bi bi-box-seam"></i> PyPI
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div id="articles-list" class="d-none mt-4">
-    <div class="text-center py-4">
-        <div class="spinner-border text-warning" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <p class="mt-3 text-muted">Loading articles...</p>
-    </div>
-</div>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const username = 'smartlegionlab';
-const devToUsername = 'smartlegionlab';
-const articlesUrl = `https://dev.to/api/articles?username=${devToUsername}&per_page=100`;
+    const GITHUB_USERNAME = 'smartlegionlab';
+    const DEVTO_USERNAME = 'smartlegionlab';
 
-let articlesLoaded = false;
-let articlesVisible = false;
+    const RESEARCH_STATS = {
+        pointerParadigm: {
+            views: 130,
+            downloads: 110
+        },
+        localDataParadigm: {
+            views: 40,
+            downloads: 30
+        }
+    };
 
-async function fetchArticles() {
-    const response = await fetch(articlesUrl);
-    if (!response.ok) throw new Error('Failed to load articles. Please try again later.');
-    return await response.json();
-}
+    const TOTAL_DOWNLOADS = RESEARCH_STATS.pointerParadigm.downloads + RESEARCH_STATS.localDataParadigm.downloads;
 
-function formatArticleDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-}
+    function updateResearchStats() {
+        document.getElementById('total-downloads').textContent = TOTAL_DOWNLOADS;
 
-function displayArticles(articles) {
-    const articlesList = document.getElementById('articles-list');
-    articlesList.innerHTML = '';
+        document.getElementById('pointer-views').textContent = RESEARCH_STATS.pointerParadigm.views + '+';
+        document.getElementById('pointer-downloads').textContent = RESEARCH_STATS.pointerParadigm.downloads;
 
-    if (articles.length === 0) {
-        const noArticlesAlert = document.createElement('div');
-        noArticlesAlert.className = 'alert alert-secondary text-center';
-        noArticlesAlert.innerHTML = `
-            <i class="bi bi-journal fs-1"></i>
-            <p class="mt-2">No articles found</p>
-        `;
-        articlesList.appendChild(noArticlesAlert);
-    } else {
+        document.getElementById('localdata-views').textContent = RESEARCH_STATS.localDataParadigm.views + '+';
+        document.getElementById('localdata-downloads').textContent = RESEARCH_STATS.localDataParadigm.downloads;
+    }
+
+    const languageColors = {
+        'Python': '#3572A5',
+        'JavaScript': '#f1e05a',
+        'HTML': '#e34c26',
+        'CSS': '#563d7c',
+        'TypeScript': '#2b7489',
+        'Shell': '#89e051',
+        'Dockerfile': '#384d54',
+        'Jupyter Notebook': '#DA5B0B',
+        'PHP': '#4F5D95',
+        'Java': '#b07219',
+        'C++': '#f34b7d',
+        'C#': '#178600',
+        'Ruby': '#701516',
+        'Go': '#00ADD8',
+        'Rust': '#dea584'
+    };
+
+    async function fetchRepositories() {
+        let allRepos = [];
+        let page = 1;
+        let hasMoreRepos = true;
+
+        while (hasMoreRepos) {
+            const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100&page=${page}`);
+            if (!response.ok) throw new Error('Failed to load repositories');
+            const repos = await response.json();
+            allRepos = allRepos.concat(repos);
+            hasMoreRepos = repos.length === 100;
+            page++;
+        }
+
+        return allRepos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+    }
+
+    function displayRepositories(repos) {
+        const container = document.getElementById('repo-list');
+        container.innerHTML = '';
+
+        const filteredRepos = repos.filter(repo => !repo.archived);
+
+        if (filteredRepos.length === 0) {
+            container.innerHTML = '<div class="alert alert-info">No active repositories found.</div>';
+            return;
+        }
+
         const grid = document.createElement('div');
         grid.className = 'repo-grid';
 
-        articles.forEach((article, index) => {
-            const color = repoColors[index % repoColors.length];
+        filteredRepos.forEach(repo => {
             const card = document.createElement('div');
-            card.className = `card repo-card border-${color}`;
+            card.className = 'repo-card';
 
-            const cardBody = document.createElement('div');
-            cardBody.className = 'card-body d-flex flex-column';
+            const langColor = languageColors[repo.language] || '#8b949e';
 
-            const header = document.createElement('div');
-            header.className = 'repo-header';
+            card.innerHTML = `
+                <div class="repo-badges">
+                    ${repo.fork ? '<span class="repo-badge bg-secondary">Fork</span>' : ''}
+                    ${repo.archived ? '<span class="repo-badge bg-danger">Archived</span>' : ''}
+                </div>
 
-            const titleLink = document.createElement('a');
-            titleLink.href = article.url;
-            titleLink.target = '_blank';
-            titleLink.className = 'repo-title text-decoration-none';
-            titleLink.innerHTML = `
-                <h5 class="mb-0 text-${color}">
-                    ${article.title}
-                </h5>
+                <div class="repo-header">
+                    <a href="${repo.html_url}" target="_blank" class="repo-title">
+                        ${repo.name}
+                    </a>
+                    <div class="repo-stats">
+                        <span class="repo-stat" title="Stars">
+                            <i class="bi bi-star"></i> ${repo.stargazers_count}
+                        </span>
+                        <span class="repo-stat" title="Forks">
+                            <i class="bi bi-diagram-2"></i> ${repo.forks_count}
+                        </span>
+                    </div>
+                </div>
+
+                <p class="repo-description">${repo.description || 'No description provided'}</p>
+
+                <div class="repo-footer">
+                    <div class="repo-language">
+                        ${repo.language ? `
+                            <span class="language-dot" style="background-color: ${langColor}"></span>
+                            ${repo.language}
+                        ` : ''}
+                    </div>
+                    <div class="repo-updated">
+                        Updated ${new Date(repo.updated_at).toLocaleDateString()}
+                    </div>
+                </div>
             `;
 
-            header.appendChild(titleLink);
-
-            const description = document.createElement('p');
-            description.className = 'my-3 flex-grow-1';
-            description.textContent = article.description || 'No description provided';
-
-            const tags = document.createElement('div');
-            tags.className = 'mb-3';
-
-            if (article.tag_list && article.tag_list.length > 0) {
-                article.tag_list.forEach(tag => {
-                    const tagElement = document.createElement('span');
-                    tagElement.className = 'repo-tag bg-light text-dark border';
-                    tagElement.textContent = `#${tag}`;
-                    tags.appendChild(tagElement);
-                });
-            }
-
-            const footer = document.createElement('div');
-            footer.className = 'repo-footer text-muted d-flex justify-content-between';
-            footer.innerHTML = `
-                <small>
-                    <i class="bi ${article.positive_reactions_count > 0 ? 'bi-heart-fill text-danger' : 'bi-heart'}"></i>
-                    ${article.positive_reactions_count}
-                    <i class="bi bi-chat ms-2"></i> ${article.comments_count}
-                </small>
-                <small><i class="bi bi-clock"></i> ${formatArticleDate(article.published_at)}</small>
-            `;
-
-            cardBody.appendChild(header);
-            cardBody.appendChild(description);
-            if (tags.hasChildNodes()) cardBody.appendChild(tags);
-            cardBody.appendChild(footer);
-            card.appendChild(cardBody);
             grid.appendChild(card);
         });
 
-        articlesList.appendChild(grid);
-
-        const footer = document.createElement('div');
-        footer.className = 'text-center text-muted mt-4 mb-2';
-        footer.innerHTML = `
-            <i class="bi bi-info-circle"></i> Showing ${articles.length} articles
-        `;
-        articlesList.appendChild(footer);
+        container.appendChild(grid);
     }
-}
 
-document.getElementById('showArticles').addEventListener('click', async () => {
-    const articlesList = document.getElementById('articles-list');
-    const repoList = document.getElementById('repo-list');
-    const showArticlesButton = document.getElementById('showArticles');
-    const showReposButton = document.getElementById('showRepos');
+    async function fetchArticles() {
+        const response = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}`);
+        if (!response.ok) throw new Error('Failed to load articles');
+        return await response.json();
+    }
 
-    if (!articlesVisible) {
-        if (isVisible) {
-            repoList.classList.add('d-none');
-            showReposButton.innerHTML = '<i class="bi bi-github"></i> Show Repositories';
-            isVisible = false;
+    function displayArticles(articles) {
+        const container = document.getElementById('articles-list');
+        container.innerHTML = '';
+
+        if (articles.length === 0) {
+            container.innerHTML = '<div class="alert alert-info">No articles found.</div>';
+            return;
         }
 
-        articlesList.classList.remove('d-none');
-        showArticlesButton.disabled = true;
-        showArticlesButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
+        articles.forEach(article => {
+            const card = document.createElement('div');
+            card.className = 'card research-card mb-3';
 
-        try {
-            if (!articlesLoaded) {
+            card.innerHTML = `
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <a href="${article.url}" target="_blank" class="text-decoration-none text-accent">${article.title}</a>
+                    </h6>
+                    <p class="card-text small mt-2">${article.description}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            <i class="bi bi-heart"></i> ${article.positive_reactions_count}
+                            <i class="bi bi-chat ms-2"></i> ${article.comments_count}
+                        </small>
+                        <small class="text-muted">
+                            ${new Date(article.published_at).toLocaleDateString()}
+                        </small>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(card);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', async function() {
+        updateResearchStats();
+
+        document.querySelector('a[href="#repositories"]').addEventListener('shown.bs.tab', async function() {
+            try {
+                const repos = await fetchRepositories();
+                displayRepositories(repos);
+            } catch (error) {
+                document.getElementById('repo-list').innerHTML = `
+                    <div class="alert alert-danger">Error loading repositories: ${error.message}</div>
+                `;
+            }
+        });
+
+        document.querySelector('a[href="#articles"]').addEventListener('shown.bs.tab', async function() {
+            try {
                 const articles = await fetchArticles();
                 displayArticles(articles);
-                articlesLoaded = true;
-            }
-
-            showArticlesButton.innerHTML = '<i class="bi bi-eye-slash"></i> Hide Articles';
-            articlesVisible = true;
-        } catch (error) {
-            articlesList.innerHTML = `
-                <div class="alert alert-danger shadow-sm" role="alert">
-                    <i class="bi bi-exclamation-triangle-fill"></i> ${error.message}
-                </div>
-            `;
-            showArticlesButton.innerHTML = '<i class="bi bi-journal-text"></i> Try Again';
-        } finally {
-            showArticlesButton.disabled = false;
-        }
-    } else {
-        articlesList.classList.add('d-none');
-        showArticlesButton.innerHTML = '<i class="bi bi-journal-text"></i> Show Articles';
-        articlesVisible = false;
-    }
-});
-
-const url = `https://api.github.com/users/${username}/repos?per_page=100`;
-const repoList = document.getElementById('repo-list');
-const showReposButton = document.getElementById('showRepos');
-let reposLoaded = false;
-let isVisible = false;
-
-const repoColors = [
-    'primary', 'secondary', 'success', 'danger',
-    'warning', 'info', 'dark', 'primary',
-    'secondary', 'success', 'danger'
-];
-
-const languageColors = {
-    'Python': '#3572A5',
-    'JavaScript': '#f1e05a',
-    'HTML': '#e34c26',
-    'CSS': '#563d7c',
-    'TypeScript': '#2b7489',
-    'Shell': '#89e051',
-    'Dockerfile': '#384d54',
-    'Jupyter Notebook': '#DA5B0B',
-    'PHP': '#4F5D95',
-    'Java': '#b07219',
-    'C++': '#f34b7d',
-    'C#': '#178600',
-    'Ruby': '#701516',
-    'Go': '#00ADD8',
-    'Rust': '#dea584'
-};
-
-async function fetchAllRepos() {
-    let allRepos = [];
-    let page = 1;
-    let hasMoreRepos = true;
-
-    while (hasMoreRepos) {
-        const response = await fetch(`${url}&page=${page}`);
-        if (!response.ok) throw new Error('Failed to load repositories. Please try again later.');
-        const repos = await response.json();
-        allRepos = allRepos.concat(repos);
-        hasMoreRepos = repos.length > 0;
-        page++;
-    }
-
-    return allRepos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-}
-
-function displayRepos(repos) {
-    repoList.innerHTML = '';
-
-    if (repos.length === 0) {
-        const noReposAlert = document.createElement('div');
-        noReposAlert.className = 'alert alert-secondary text-center';
-        noReposAlert.innerHTML = `
-            <i class="bi bi-github fs-1"></i>
-            <p class="mt-2">No repositories found</p>
-        `;
-        repoList.appendChild(noReposAlert);
-    } else {
-        const grid = document.createElement('div');
-        grid.className = 'repo-grid';
-
-        repos.forEach((repo, index) => {
-            const color = repoColors[index % repoColors.length];
-            const card = document.createElement('div');
-            card.className = `card repo-card border-${color}`;
-
-            const cardBody = document.createElement('div');
-            cardBody.className = 'card-body d-flex flex-column';
-
-            const header = document.createElement('div');
-            header.className = 'repo-header d-flex justify-content-between align-items-start';
-
-            const titleLink = document.createElement('a');
-            titleLink.href = repo.html_url;
-            titleLink.target = '_blank';
-            titleLink.className = 'repo-title text-decoration-none';
-            titleLink.innerHTML = `
-                <h5 class="mb-0 text-${color}">
-                    ${repo.name}
-                    ${repo.fork ? '<span class="badge bg-secondary ms-2">Fork</span>' : ''}
-                    ${repo.archived ? '<span class="badge bg-danger ms-2">Archived</span>' : ''}
-                </h5>
-            `;
-
-            const stats = document.createElement('div');
-            stats.className = 'repo-stats text-end';
-            stats.innerHTML = `
-                <span class="text-muted" title="Stars"><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
-                <span class="text-muted" title="Forks"><i class="bi bi-diagram-2"></i> ${repo.forks_count}</span>
-            `;
-
-            header.appendChild(titleLink);
-            header.appendChild(stats);
-
-            const description = document.createElement('p');
-            description.className = 'my-3 flex-grow-1';
-            description.textContent = repo.description || 'No description provided';
-
-            const tags = document.createElement('div');
-            tags.className = 'mb-3';
-
-            if (repo.language) {
-                const langColor = languageColors[repo.language] || '#ccc';
-                const langTag = document.createElement('span');
-                langTag.className = 'repo-tag';
-                langTag.innerHTML = `
-                    <span class="repo-language" style="background-color: ${langColor}"></span>
-                    ${repo.language}
+            } catch (error) {
+                document.getElementById('articles-list').innerHTML = `
+                    <div class="alert alert-danger">Error loading articles: ${error.message}</div>
                 `;
-                tags.appendChild(langTag);
             }
-
-            if (repo.license) {
-                const licenseTag = document.createElement('span');
-                licenseTag.className = 'repo-tag bg-light text-dark border';
-                licenseTag.textContent = repo.license.spdx_id || repo.license.name;
-                tags.appendChild(licenseTag);
-            }
-
-            if (repo.topics && repo.topics.length > 0) {
-                repo.topics.forEach(topic => {
-                    const topicTag = document.createElement('span');
-                    topicTag.className = 'repo-tag bg-light text-dark border';
-                    topicTag.textContent = topic;
-                    tags.appendChild(topicTag);
-                });
-            }
-
-            const footer = document.createElement('div');
-            footer.className = 'repo-footer text-muted';
-            footer.innerHTML = `
-                <small><i class="bi bi-clock"></i> Updated ${formatDate(repo.pushed_at)}</small>
-                <a href="${repo.html_url}" target="_blank" class="float-end text-decoration-none">
-                    <small>View on GitHub <i class="bi bi-box-arrow-up-right"></i></small>
-                </a>
-            `;
-
-            cardBody.appendChild(header);
-            cardBody.appendChild(description);
-            if (tags.hasChildNodes()) cardBody.appendChild(tags);
-            cardBody.appendChild(footer);
-            card.appendChild(cardBody);
-            grid.appendChild(card);
         });
 
-        repoList.appendChild(grid);
-
-        const footer = document.createElement('div');
-        footer.className = 'text-center text-muted mt-4 mb-2';
-        footer.innerHTML = `
-            <i class="bi bi-info-circle"></i> Showing ${repos.length} repositories
-        `;
-        repoList.appendChild(footer);
-    }
-}
-
-showReposButton.addEventListener('click', async () => {
-    const articlesList = document.getElementById('articles-list');
-    const repoList = document.getElementById('repo-list');
-    const showReposButton = document.getElementById('showRepos');
-    const showArticlesButton = document.getElementById('showArticles');
-
-    if (!isVisible) {
-        if (articlesVisible) {
-            articlesList.classList.add('d-none');
-            showArticlesButton.innerHTML = '<i class="bi bi-journal-text"></i> Show Articles';
-            articlesVisible = false;
-        }
-
-        repoList.classList.remove('d-none');
-        showReposButton.disabled = true;
-        showReposButton.innerHTML = '<i class="bi bi-hourglass"></i> Loading...';
-
         try {
-            if (!reposLoaded) {
-                const repos = await fetchAllRepos();
-                displayRepos(repos);
-                reposLoaded = true;
-            }
-
-            showReposButton.innerHTML = '<i class="bi bi-eye-slash"></i> Hide Repositories';
-            isVisible = true;
+            const repos = await fetchRepositories();
+            displayRepositories(repos);
         } catch (error) {
-            repoList.innerHTML = `
-                <div class="alert alert-danger shadow-sm" role="alert">
-                    <i class="bi bi-exclamation-triangle-fill"></i> ${error.message}
-                </div>
+            document.getElementById('repo-list').innerHTML = `
+                <div class="alert alert-danger">Error loading repositories: ${error.message}</div>
             `;
-            showReposButton.innerHTML = '<i class="bi bi-github"></i> Try Again';
-        } finally {
-            showReposButton.disabled = false;
         }
-    } else {
-        repoList.classList.add('d-none');
-        showReposButton.innerHTML = '<i class="bi bi-github"></i> Show Repositories';
-        isVisible = false;
-    }
-});
+    });
 </script>
 </body>
 </html>
