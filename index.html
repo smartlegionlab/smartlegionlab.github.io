@@ -1630,40 +1630,89 @@
         return await response.json();
     }
 
-    function displayArticles(articles) {
-        const container = document.getElementById('articles-list');
-        container.innerHTML = '';
+function displayArticles(articles) {
+    const container = document.getElementById('articles-list');
+    container.innerHTML = '';
 
-        if (articles.length === 0) {
-            container.innerHTML = '<div class="alert alert-info">No articles found.</div>';
-            return;
-        }
+    if (articles.length === 0) {
+        container.innerHTML = '<div class="alert alert-info">No articles found.</div>';
+        return;
+    }
 
-        articles.forEach(article => {
-            const card = document.createElement('div');
-            card.className = 'card research-card mb-3';
+    const grid = document.createElement('div');
+    grid.className = 'repo-grid';
 
-            card.innerHTML = `
-                <div class="card-body">
-                    <h6 class="card-title">
-                        <a href="${article.url}" target="_blank" class="text-decoration-none text-accent">${article.title}</a>
-                    </h6>
-                    <p class="card-text small mt-2">${article.description}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">
-                            <i class="bi bi-heart"></i> ${article.positive_reactions_count}
-                            <i class="bi bi-chat ms-2"></i> ${article.comments_count}
-                        </small>
-                        <small class="text-muted">
-                            ${new Date(article.published_at).toLocaleDateString()}
-                        </small>
+    articles.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'repo-card';
+
+        const publishedDate = formatDate(article.published_at);
+        const readTime = article.reading_time_minutes ? `${article.reading_time_minutes} min read` : '';
+
+        card.innerHTML = `
+            <div class="repo-badges">
+                ${article.positive_reactions_count > 10 ? '<span class="repo-badge bg-success">Popular</span>' : ''}
+                ${article.comments_count > 5 ? '<span class="repo-badge bg-info">Active Discussion</span>' : ''}
+            </div>
+
+            <div class="repo-header">
+                <div class="repo-title-section">
+                    <a href="${article.url}" target="_blank" class="repo-title">
+                        ${article.title}
+                    </a>
+                    <div class="repo-owner">
+                        <i class="bi bi-person"></i> ${article.user.name || DEVTO_USERNAME}
                     </div>
                 </div>
-            `;
+                <div class="repo-stats">
+                    <span class="repo-stat" title="Likes">
+                        <i class="bi bi-heart"></i> ${article.positive_reactions_count}
+                    </span>
+                    <span class="repo-stat" title="Comments">
+                        <i class="bi bi-chat"></i> ${article.comments_count}
+                    </span>
+                </div>
+            </div>
 
-            container.appendChild(card);
-        });
-    }
+            <p class="repo-description">${article.description || 'No description provided'}</p>
+
+            ${article.tag_list && article.tag_list.length > 0 ? `
+                <div class="repo-topics">
+                    ${article.tag_list.slice(0, 5).map(tag => `
+                        <span class="repo-topic">${tag}</span>
+                    `).join('')}
+                </div>
+            ` : ''}
+
+            <div class="repo-meta">
+                <div class="repo-meta-item">
+                    <i class="bi bi-calendar"></i> Published: ${publishedDate}
+                </div>
+                ${readTime ? `
+                    <div class="repo-meta-item">
+                        <i class="bi bi-clock"></i> ${readTime}
+                    </div>
+                ` : ''}
+                <div class="repo-meta-item">
+                    <i class="bi bi-eye"></i> ${article.page_views_count || 0} views
+                </div>
+            </div>
+
+            <div class="repo-footer">
+                <div class="repo-updated">
+                    <i class="bi bi-tags"></i> ${article.tag_list ? article.tag_list.length : 0} tags
+                </div>
+                <a href="${article.url}" target="_blank" class="repo-action">
+                    <i class="bi bi-box-arrow-up-right"></i> Read Article
+                </a>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+}
 
     document.addEventListener('DOMContentLoaded', async function() {
         updateResearchStats();
