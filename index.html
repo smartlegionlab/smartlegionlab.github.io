@@ -1349,6 +1349,10 @@
 
     const TOTAL_DOWNLOADS = RESEARCH_STATS.pointerParadigm.downloads + RESEARCH_STATS.localDataParadigm.downloads;
 
+    let currentRepoPage = 1;
+    const reposPerPage = 6;
+    let allRepositories = [];
+
     function updateResearchStats() {
         document.getElementById('total-downloads').textContent = TOTAL_DOWNLOADS;
 
@@ -1478,7 +1482,17 @@
         });
     }
 
-    function displayRepositories(repos) {
+    function changeRepoPage(page) {
+        const filteredRepos = allRepositories.filter(repo => !repo.archived);
+        const totalPages = Math.ceil(filteredRepos.length / reposPerPage);
+
+        if (page >= 1 && page <= totalPages) {
+            currentRepoPage = page;
+            displayRepositories();
+        }
+    }
+
+    function displayRepositories(repos = allRepositories) {
         const container = document.getElementById('repo-list');
         container.innerHTML = '';
 
@@ -1489,10 +1503,15 @@
             return;
         }
 
+        const totalPages = Math.ceil(filteredRepos.length / reposPerPage);
+        const startIndex = (currentRepoPage - 1) * reposPerPage;
+        const endIndex = startIndex + reposPerPage;
+        const reposToShow = filteredRepos.slice(startIndex, endIndex);
+
         const grid = document.createElement('div');
         grid.className = 'repo-grid';
 
-        filteredRepos.forEach(repo => {
+        reposToShow.forEach(repo => {
             const card = document.createElement('div');
             card.className = 'repo-card';
 
@@ -1577,6 +1596,32 @@
         });
 
         container.appendChild(grid);
+
+        if (filteredRepos.length > reposPerPage) {
+            const pagination = document.createElement('div');
+            pagination.className = 'd-flex justify-content-center align-items-center mt-4';
+
+            pagination.innerHTML = `
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary ${currentRepoPage === 1 ? 'disabled' : ''}"
+                            onclick="changeRepoPage(${currentRepoPage - 1})" ${currentRepoPage === 1 ? 'disabled' : ''}>
+                        <i class="bi bi-chevron-left"></i> Previous
+                    </button>
+                    <button type="button" class="btn btn-outline-primary disabled">
+                        Page ${currentRepoPage} of ${totalPages}
+                    </button>
+                    <button type="button" class="btn btn-outline-primary ${currentRepoPage === totalPages ? 'disabled' : ''}"
+                            onclick="changeRepoPage(${currentRepoPage + 1})" ${currentRepoPage === totalPages ? 'disabled' : ''}>
+                        Next <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="ms-3 text-muted small">
+                    Showing ${startIndex + 1}-${Math.min(endIndex, filteredRepos.length)} of ${filteredRepos.length} repositories
+                </div>
+            `;
+
+            container.appendChild(pagination);
+        }
     }
 
     async function fetchArticles() {
@@ -1626,8 +1671,11 @@
 
         document.querySelector('a[href="#repos-tab"]').addEventListener('shown.bs.tab', async function() {
             try {
-                const repos = await fetchRepositories();
-                displayRepositories(repos);
+                if (allRepositories.length === 0) {
+                    allRepositories = await fetchRepositories();
+                }
+                currentRepoPage = 1;
+                displayRepositories();
             } catch (error) {
                 document.getElementById('repo-list').innerHTML = `
                     <div class="alert alert-danger">Error loading repositories: ${error.message}</div>
@@ -1647,8 +1695,8 @@
         });
 
         try {
-            const repos = await fetchRepositories();
-            displayRepositories(repos);
+            allRepositories = await fetchRepositories();
+            displayRepositories();
         } catch (error) {
             document.getElementById('repo-list').innerHTML = `
                 <div class="alert alert-danger">Error loading repositories: ${error.message}</div>
