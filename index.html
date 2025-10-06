@@ -1597,31 +1597,40 @@
 
         container.appendChild(grid);
 
-        if (filteredRepos.length > reposPerPage) {
-            const pagination = document.createElement('div');
-            pagination.className = 'd-flex justify-content-center align-items-center mt-4';
+if (filteredRepos.length > reposPerPage) {
+    const pagination = document.createElement('div');
+    pagination.className = 'd-flex justify-content-between align-items-center mb-4';
 
-            pagination.innerHTML = `
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-primary ${currentRepoPage === 1 ? 'disabled' : ''}"
-                            onclick="changeRepoPage(${currentRepoPage - 1})" ${currentRepoPage === 1 ? 'disabled' : ''}>
-                        <i class="bi bi-chevron-left"></i> Previous
-                    </button>
-                    <button type="button" class="btn btn-outline-primary disabled">
-                        Page ${currentRepoPage} of ${totalPages}
-                    </button>
-                    <button type="button" class="btn btn-outline-primary ${currentRepoPage === totalPages ? 'disabled' : ''}"
-                            onclick="changeRepoPage(${currentRepoPage + 1})" ${currentRepoPage === totalPages ? 'disabled' : ''}>
-                        Next <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
-                <div class="ms-3 text-muted small">
-                    Showing ${startIndex + 1}-${Math.min(endIndex, filteredRepos.length)} of ${filteredRepos.length} repositories
-                </div>
-            `;
+    pagination.innerHTML = `
+        <div class="text-muted small">
+            Showing ${startIndex + 1}-${Math.min(endIndex, filteredRepos.length)} of ${filteredRepos.length} repositories
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary ${currentRepoPage === 1 ? 'disabled' : ''}"
+                    onclick="changeRepoPage(${currentRepoPage - 1})" ${currentRepoPage === 1 ? 'disabled' : ''}>
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button type="button" class="btn btn-outline-primary disabled">
+                ${currentRepoPage}/${totalPages}
+            </button>
+            <button type="button" class="btn btn-outline-primary ${currentRepoPage === totalPages ? 'disabled' : ''}"
+                    onclick="changeRepoPage(${currentRepoPage + 1})" ${currentRepoPage === totalPages ? 'disabled' : ''}>
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+    `;
 
-            container.appendChild(pagination);
-        }
+    container.insertBefore(pagination, grid);
+} else {
+    const counter = document.createElement('div');
+    counter.className = 'd-flex justify-content-between align-items-center mb-4';
+    counter.innerHTML = `
+        <div class="text-muted small">
+            ${filteredRepos.length} repositories
+        </div>
+    `;
+    container.insertBefore(counter, grid);
+}
     }
 
     async function fetchArticles() {
@@ -1693,9 +1702,6 @@ function displayArticles(articles) {
                         <i class="bi bi-clock"></i> ${readTime}
                     </div>
                 ` : ''}
-                <div class="repo-meta-item">
-                    <i class="bi bi-eye"></i> ${article.page_views_count || 0} views
-                </div>
             </div>
 
             <div class="repo-footer">
