@@ -1,28 +1,33 @@
 const GITHUB_USERNAME = 'smartlegionlab';
-const DEVTO_USERNAME = 'smartlegionlab';
+const DEVTO_USERNAME = GITHUB_USERNAME;
 
 const RESEARCH_STATS = {
     pointerParadigm: {
-        views: 120,
-        downloads: 115
+        views: 121,
+        downloads: 116
     },
     localDataParadigm: {
-        views: 41,
-        downloads: 37
+        views: 42,
+        downloads: 38
     }
 };
 
 const TOTAL_DOWNLOADS = RESEARCH_STATS.pointerParadigm.downloads + RESEARCH_STATS.localDataParadigm.downloads;
 
+const EXCLUDED_REPOSITORIES = [
+    'smartlegionlab.github.io',
+    'smartlegionlab',
+];
+
 function updateResearchStats() {
     const headerStats = document.querySelectorAll('.stats-row .stat:first-child .stat-number');
     if (headerStats.length > 0) {
-        headerStats[0].textContent = TOTAL_DOWNLOADS;
+        headerStats[0].textContent = TOTAL_DOWNLOADS + '+';
     }
 
     const metricElement = document.getElementById('total-downloads-metric');
     if (metricElement) {
-        metricElement.textContent = TOTAL_DOWNLOADS;
+        metricElement.textContent = TOTAL_DOWNLOADS + '+';
     }
 
     const pointerViews = document.getElementById('pointer-views');
@@ -173,7 +178,9 @@ function displayRepositories(repos = allRepositories) {
     const container = document.getElementById('repo-list');
     container.innerHTML = '';
 
-    const filteredRepos = repos.filter(repo => !repo.archived);
+    const filteredRepos = repos.filter(repo =>
+        !repo.archived && !EXCLUDED_REPOSITORIES.includes(repo.name)
+    );
 
     if (filteredRepos.length === 0) {
         container.innerHTML = '<div class="alert alert-info">No active repositories found.</div>';
