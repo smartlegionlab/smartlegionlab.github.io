@@ -86,8 +86,8 @@ function initScrollFeatures() {
     }
 
     function updateActiveNav() {
+        const scrollPosition = window.scrollY + 100;
         let currentSection = '';
-        const scrollPosition = window.pageYOffset + 100;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -98,7 +98,7 @@ function initScrollFeatures() {
             }
         });
 
-        if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 50) {
+        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) {
             currentSection = sections[sections.length - 1].id;
         }
 

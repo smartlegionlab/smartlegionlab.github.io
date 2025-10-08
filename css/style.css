@@ -1263,3 +1263,7 @@
         font-size: 1.5rem;
     }
 }
+
+.content-section, .professional-header {
+    scroll-margin-top: 80px;
+}
