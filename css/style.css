@@ -1264,6 +1264,130 @@
     }
 }
 
-.content-section, .professional-header {
-    scroll-margin-top: 80px;
+    .content-section, .professional-header {
+        scroll-margin-top: 80px;
+    }
+
+.vertical-progress-nav {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    min-height: 400px;
+    max-height: 600px;
+}
+
+.progress-track {
+    width: 4px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    overflow: visible;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-dark));
+    border-radius: 2px;
+    transition: height 0.15s ease;
+    z-index: 1;
+}
+
+.progress-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 3px solid var(--secondary);
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.progress-marker.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+.progress-marker.filled {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.progress-marker:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateX(-50%) scale(1.4);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.3);
+}
+
+.progress-marker::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.progress-marker:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(-5px);
+}
+
+@media (max-width: 768px) {
+    .vertical-progress-nav {
+        right: 15px;
+        height: 60vh;
+        min-height: 300px;
+        max-height: 500px;
+    }
+
+    .progress-track {
+        width: 3px;
+    }
+
+    .progress-marker {
+        width: 12px;
+        height: 12px;
+        border-width: 2px;
+    }
+
+    .progress-marker::after {
+        right: 18px;
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+.quick-nav {
+    display: none !important;
 }

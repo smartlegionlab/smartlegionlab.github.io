@@ -145,22 +145,6 @@ class ParticleBackground {
         }
     }
 
-    setParticleColor(rgbString) {
-        this.particleColor = rgbString;
-        this.drawParticles();
-    }
-
-    setLineColor(rgbString) {
-        this.lineColor = rgbString;
-        this.drawParticles();
-    }
-
-    setColors(particleRGB, lineRGB) {
-        this.particleColor = particleRGB;
-        this.lineColor = lineRGB;
-        this.drawParticles();
-    }
-
     setupEventListeners() {
         let resizeTimeout;
         window.addEventListener('resize', () => {
@@ -175,6 +159,161 @@ class ParticleBackground {
 
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             this.stopAnimation();
+        }
+    }
+}
+
+class VerticalProgressNav {
+    constructor() {
+        this.sections = [];
+        this.progressFill = null;
+        this.markers = [];
+        this.scrollOffset = 80;
+        this.init();
+    }
+
+    init() {
+        this.createProgressBar();
+        this.setupSections();
+        this.setupEventListeners();
+        this.updateAll();
+    }
+
+    createProgressBar() {
+        const nav = document.createElement('div');
+        nav.className = 'vertical-progress-nav';
+
+        const track = document.createElement('div');
+        track.className = 'progress-track';
+
+        this.progressFill = document.createElement('div');
+        this.progressFill.className = 'progress-fill';
+
+        track.appendChild(this.progressFill);
+        nav.appendChild(track);
+
+        const sections = ['hero', 'about', 'research', 'repositories', 'expertise', 'contact'];
+        const labels = ['Home', 'About', 'Research', 'Repositories', 'Expertise', 'Contact'];
+
+        sections.forEach((sectionId, index) => {
+            const marker = document.createElement('div');
+            marker.className = 'progress-marker';
+            marker.dataset.section = sectionId;
+            marker.dataset.tooltip = labels[index];
+            marker.dataset.index = index;
+
+            marker.addEventListener('click', () => {
+                this.scrollToSection(sectionId);
+            });
+
+            track.appendChild(marker);
+            this.markers.push(marker);
+        });
+
+        document.body.appendChild(nav);
+    }
+
+    setupSections() {
+        this.sections = [
+            'hero', 'about', 'research', 'repositories', 'expertise', 'contact'
+        ].map(id => document.getElementById(id)).filter(Boolean);
+    }
+
+    setupEventListeners() {
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                this.updateAll();
+            }, 16);
+        });
+
+        window.addEventListener('resize', () => {
+            setTimeout(() => this.updateAll(), 100);
+        });
+    }
+
+    updateAll() {
+        this.updateProgress();
+        this.updateMarkers();
+    }
+
+    updateProgress() {
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const totalScrollable = documentHeight - windowHeight;
+
+        const progress = totalScrollable > 0 ? (scrollTop / totalScrollable) * 100 : 0;
+
+        if (this.progressFill) {
+            this.progressFill.style.height = Math.min(Math.max(progress, 0), 100) + '%';
+        }
+    }
+
+    updateMarkers() {
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const totalScrollable = documentHeight - windowHeight;
+
+        const isAtBottom = scrollTop + windowHeight >= documentHeight - 50;
+
+        let activeSection = '';
+
+        if (isAtBottom) {
+            activeSection = this.sections[this.sections.length - 1].id;
+        } else {
+            for (let i = 0; i < this.sections.length; i++) {
+                const section = this.sections[i];
+                const sectionTop = section.offsetTop - this.scrollOffset;
+
+                if (scrollTop >= sectionTop && scrollTop < sectionTop + section.offsetHeight) {
+                    activeSection = section.id;
+                    break;
+                }
+            }
+
+            if (!activeSection && this.sections.length > 0) {
+                activeSection = this.sections[0].id;
+            }
+        }
+
+        this.markers.forEach(marker => {
+            const sectionId = marker.dataset.section;
+            const section = document.getElementById(sectionId);
+
+            if (!section) return;
+
+            const sectionTop = section.offsetTop - this.scrollOffset;
+            const sectionProgress = totalScrollable > 0 ? (Math.max(sectionTop, 0) / totalScrollable) * 100 : 0;
+            const currentProgress = totalScrollable > 0 ? (scrollTop / totalScrollable) * 100 : 0;
+
+            const nav = document.querySelector('.vertical-progress-nav');
+            const navHeight = nav.offsetHeight;
+            const markerPosition = (sectionProgress / 100) * navHeight;
+            marker.style.top = Math.max(8, Math.min(markerPosition, navHeight - 8)) + 'px';
+
+            marker.classList.remove('active', 'filled');
+
+            if (sectionId === activeSection) {
+                marker.classList.add('active');
+            }
+
+            if (currentProgress >= sectionProgress) {
+                marker.classList.add('filled');
+            }
+        });
+    }
+
+    scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const offsetTop = section.offsetTop - this.scrollOffset;
+            window.scrollTo({
+                top: Math.max(offsetTop, 0),
+                behavior: 'smooth'
+            });
         }
     }
 }
@@ -243,6 +382,43 @@ function updateResearchStats() {
     if (localdataDownloads) localdataDownloads.textContent = RESEARCH_STATS.localDataParadigm.downloads;
 }
 
+function initScrollFeatures() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollProgress = document.querySelector('.scroll-progress-bar');
+
+    new VerticalProgressNav();
+
+    function toggleScrollToTop() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    }
+
+    function updateScrollProgress() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+        const scrollTop = window.pageYOffset;
+        const progress = (scrollTop / documentHeight) * 100;
+        if (scrollProgress) {
+            scrollProgress.style.width = progress + '%';
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        toggleScrollToTop();
+        updateScrollProgress();
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    toggleScrollToTop();
+    updateScrollProgress();
+}
+
 const languageColors = {
     'Python': '#3572A5',
     'JavaScript': '#f1e05a',
@@ -264,81 +440,6 @@ const languageColors = {
 let currentRepoPage = 1;
 const reposPerPage = 6;
 let allRepositories = [];
-
-function initScrollFeatures() {
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    const scrollProgress = document.querySelector('.scroll-progress-bar');
-    const navDots = document.querySelectorAll('.nav-dot');
-    const sections = document.querySelectorAll('.content-section, .professional-header');
-
-    function toggleScrollToTop() {
-        if (window.pageYOffset > 300) {
-            scrollToTopBtn.classList.add('show');
-        } else {
-            scrollToTopBtn.classList.remove('show');
-        }
-    }
-
-    function updateScrollProgress() {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
-        const scrollTop = window.pageYOffset;
-        const progress = (scrollTop / documentHeight) * 100;
-        scrollProgress.style.width = progress + '%';
-    }
-
-    function updateActiveNav() {
-        const scrollPosition = window.scrollY + 100;
-        let currentSection = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                currentSection = section.id;
-            }
-        });
-
-        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) {
-            currentSection = sections[sections.length - 1].id;
-        }
-
-        navDots.forEach(dot => {
-            dot.classList.remove('active');
-            if (dot.dataset.section === currentSection) {
-                dot.classList.add('active');
-            }
-        });
-    }
-
-    function scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    window.addEventListener('scroll', () => {
-        toggleScrollToTop();
-        updateScrollProgress();
-        updateActiveNav();
-    });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    navDots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            scrollToSection(dot.dataset.section);
-        });
-    });
-
-    toggleScrollToTop();
-    updateScrollProgress();
-    updateActiveNav();
-}
 
 async function fetchRepositories() {
     let allRepos = [];
@@ -606,10 +707,8 @@ function displayArticles(articles) {
     container.appendChild(grid);
 }
 
-
 document.addEventListener('DOMContentLoaded', async function() {
     new ParticleBackground();
-
     updateResearchStats();
     initScrollFeatures();
     initCounters();
