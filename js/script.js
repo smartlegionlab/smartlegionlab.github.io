@@ -3,12 +3,12 @@ const DEVTO_USERNAME = GITHUB_USERNAME;
 
 const RESEARCH_STATS = {
     pointerParadigm: {
-        views: 121,
-        downloads: 116
+        views: 128,
+        downloads: 123
     },
     localDataParadigm: {
-        views: 42,
-        downloads: 38
+        views: 48,
+        downloads: 44
     }
 };
 
