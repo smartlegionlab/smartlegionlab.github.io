@@ -19,15 +19,57 @@ const EXCLUDED_REPOSITORIES = [
     'smartlegionlab',
 ];
 
+function animateValue(element, start, end, duration) {
+    const startTime = performance.now();
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOut(progress);
+        const current = Math.floor(start + (end - start) * eased);
+
+        element.textContent = current.toLocaleString();
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = end + '+';
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+function initCounters() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const text = element.textContent;
+                const value = parseInt(text);
+                if (!isNaN(value)) {
+                    animateValue(element, 0, value, 1500);
+                }
+                observer.unobserve(element);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.stat-number, .stats-number, .metric-number').forEach(el => {
+        observer.observe(el);
+    });
+}
+
 function updateResearchStats() {
     const headerStats = document.querySelectorAll('.stats-row .stat:first-child .stat-number');
     if (headerStats.length > 0) {
-        headerStats[0].textContent = TOTAL_DOWNLOADS + '+';
+        headerStats[0].textContent = TOTAL_DOWNLOADS;
     }
 
     const metricElement = document.getElementById('total-downloads-metric');
     if (metricElement) {
-        metricElement.textContent = TOTAL_DOWNLOADS + '+';
+        metricElement.textContent = TOTAL_DOWNLOADS;
     }
 
     const pointerViews = document.getElementById('pointer-views');
@@ -407,6 +449,7 @@ function displayArticles(articles) {
 document.addEventListener('DOMContentLoaded', async function() {
     updateResearchStats();
     initScrollFeatures();
+    initCounters();
 
     document.querySelector('a[href="#repos-tab"]').addEventListener('shown.bs.tab', async function() {
         try {
