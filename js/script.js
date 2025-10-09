@@ -21,6 +21,14 @@ const EXCLUDED_REPOSITORIES = [
 
 class ParticleBackground {
     constructor() {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                        window.innerWidth <= 768;
+
+        if (isMobile) {
+            this.isMobile = true;
+            return;
+        }
+
         if (window.particleBackgroundInstance) {
             return window.particleBackgroundInstance;
         }
@@ -30,6 +38,7 @@ class ParticleBackground {
         this.particlesArray = [];
         this.animationId = null;
         this.isPaused = false;
+        this.isMobile = false;
         this.particleColor = '13, 110, 253';
         this.lineColor = '255, 255, 255';
 
@@ -39,6 +48,10 @@ class ParticleBackground {
     }
 
     init() {
+        if (this.isMobile) {
+            return;
+        }
+
         const oldCanvas = document.getElementById('particle-canvas');
         if (oldCanvas) {
             oldCanvas.remove();
@@ -68,18 +81,22 @@ class ParticleBackground {
     }
 
     getParticleCount() {
-        if (window.innerWidth < 768) return 40;
-        if (window.innerWidth < 1024) return 80;
-        return 120;
+        if (this.isMobile) return 0;
+        if (window.innerWidth < 1024) return 60;
+        return 100;
     }
 
     handleResize() {
+        if (this.isMobile || !this.canvas) return;
+
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.createParticles();
     }
 
     createParticles() {
+        if (this.isMobile) return;
+
         this.particlesArray = [];
         const count = this.getParticleCount();
 
@@ -95,6 +112,8 @@ class ParticleBackground {
     }
 
     updateParticles() {
+        if (this.isMobile) return;
+
         for (let particle of this.particlesArray) {
             particle.x += particle.speedX;
             particle.y += particle.speedY;
@@ -107,6 +126,8 @@ class ParticleBackground {
     }
 
     drawParticles() {
+        if (this.isMobile || !this.ctx) return;
+
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.ctx.fillStyle = `rgba(${this.particleColor}, 0.8)`;
@@ -120,6 +141,8 @@ class ParticleBackground {
     }
 
     drawConnections() {
+        if (this.isMobile) return;
+
         for (let i = 0; i < this.particlesArray.length; i++) {
             for (let j = i + 1; j < this.particlesArray.length; j++) {
                 const dx = this.particlesArray[i].x - this.particlesArray[j].x;
@@ -140,7 +163,7 @@ class ParticleBackground {
     }
 
     animate() {
-        if (this.isPaused) return;
+        if (this.isPaused || this.isMobile) return;
 
         this.updateParticles();
         this.drawParticles();
@@ -148,6 +171,8 @@ class ParticleBackground {
     }
 
     startAnimation() {
+        if (this.isMobile) return;
+
         this.isPaused = false;
         if (this.animationId) {
             cancelAnimationFrame(this.animationId);
@@ -164,6 +189,8 @@ class ParticleBackground {
     }
 
     setupEventListeners() {
+        if (this.isMobile) return;
+
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -172,7 +199,7 @@ class ParticleBackground {
 
         document.addEventListener('visibilitychange', () => {
             this.isPaused = document.hidden;
-            if (!this.isPaused) {
+            if (!this.isPaused && !this.isMobile) {
                 this.startAnimation();
             }
         });
