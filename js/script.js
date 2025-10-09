@@ -21,19 +21,29 @@ const EXCLUDED_REPOSITORIES = [
 
 class ParticleBackground {
     constructor() {
+        if (window.particleBackgroundInstance) {
+            return window.particleBackgroundInstance;
+        }
+
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.particlesArray = [];
         this.animationId = null;
         this.isPaused = false;
-
         this.particleColor = '13, 110, 253';
         this.lineColor = '255, 255, 255';
+
+        window.particleBackgroundInstance = this;
 
         this.init();
     }
 
     init() {
+        const oldCanvas = document.getElementById('particle-canvas');
+        if (oldCanvas) {
+            oldCanvas.remove();
+        }
+
         this.canvas.id = 'particle-canvas';
         this.canvas.style.cssText = `
             position: fixed;
@@ -46,10 +56,14 @@ class ParticleBackground {
         `;
         document.body.prepend(this.canvas);
 
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+
         this.handleResize();
         this.createParticles();
         this.startAnimation();
-
         this.setupEventListeners();
     }
 
@@ -135,6 +149,9 @@ class ParticleBackground {
 
     startAnimation() {
         this.isPaused = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+        }
         this.animate();
     }
 
@@ -142,6 +159,7 @@ class ParticleBackground {
         this.isPaused = true;
         if (this.animationId) {
             cancelAnimationFrame(this.animationId);
+            this.animationId = null;
         }
     }
 
@@ -154,12 +172,22 @@ class ParticleBackground {
 
         document.addEventListener('visibilitychange', () => {
             this.isPaused = document.hidden;
-            if (!this.isPaused) this.animate();
+            if (!this.isPaused) {
+                this.startAnimation();
+            }
         });
 
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             this.stopAnimation();
         }
+    }
+
+    destroy() {
+        this.stopAnimation();
+        if (this.canvas && this.canvas.parentNode) {
+            this.canvas.parentNode.removeChild(this.canvas);
+        }
+        window.particleBackgroundInstance = null;
     }
 }
 
@@ -708,7 +736,12 @@ function displayArticles(articles) {
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
-    new ParticleBackground();
+    const particleBg = new ParticleBackground();
+
+    window.addEventListener('beforeunload', () => {
+        particleBg.destroy();
+    });
+
     updateResearchStats();
     initScrollFeatures();
     initCounters();
