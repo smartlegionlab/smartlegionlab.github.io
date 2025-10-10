@@ -760,10 +760,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
 
+    let allArticles = [];
+
     document.querySelector('a[href="#articles-tab"]').addEventListener('shown.bs.tab', async function() {
         try {
-            const articles = await fetchArticles();
-            displayArticles(articles);
+            if (allArticles.length === 0) {
+                allArticles = await fetchArticles();
+            }
+            displayArticles(allArticles);
         } catch (error) {
             document.getElementById('articles-list').innerHTML = `
                 <div class="alert alert-danger">Error loading articles: ${error.message}</div>
