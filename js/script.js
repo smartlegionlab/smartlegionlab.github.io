@@ -3,12 +3,12 @@ const DEVTO_USERNAME = GITHUB_USERNAME;
 
 const RESEARCH_STATS = {
     pointerParadigm: {
-        views: 128,
-        downloads: 123
+        views: 131,
+        downloads: 126
     },
     localDataParadigm: {
-        views: 48,
-        downloads: 44
+        views: 51,
+        downloads: 47
     }
 };
 
@@ -492,9 +492,8 @@ const languageColors = {
     'Rust': '#dea584'
 };
 
-let currentRepoPage = 1;
-const reposPerPage = 6;
 let allRepositories = [];
+let visibleRepos = 6;
 
 async function fetchRepositories() {
     let allRepos = [];
@@ -522,14 +521,9 @@ function formatDate(dateString) {
     });
 }
 
-function changeRepoPage(page) {
-    const filteredRepos = allRepositories.filter(repo => !repo.archived);
-    const totalPages = Math.ceil(filteredRepos.length / reposPerPage);
-
-    if (page >= 1 && page <= totalPages) {
-        currentRepoPage = page;
-        displayRepositories();
-    }
+function loadMoreRepos() {
+    visibleRepos += 6;
+    displayRepositories();
 }
 
 function displayRepositories(repos = allRepositories) {
@@ -545,10 +539,8 @@ function displayRepositories(repos = allRepositories) {
         return;
     }
 
-    const totalPages = Math.ceil(filteredRepos.length / reposPerPage);
-    const startIndex = (currentRepoPage - 1) * reposPerPage;
-    const endIndex = startIndex + reposPerPage;
-    const reposToShow = filteredRepos.slice(startIndex, endIndex);
+    const reposToShow = filteredRepos.slice(0, visibleRepos);
+    const hasMoreRepos = visibleRepos < filteredRepos.length;
 
     const grid = document.createElement('div');
     grid.className = 'repo-grid';
@@ -639,40 +631,21 @@ function displayRepositories(repos = allRepositories) {
 
     container.appendChild(grid);
 
-    if (filteredRepos.length > reposPerPage) {
-        const pagination = document.createElement('div');
-        pagination.className = 'd-flex justify-content-between align-items-center mb-4';
+    const footer = document.createElement('div');
+    footer.className = 'd-flex flex-column align-items-center gap-3 mt-4';
 
-        pagination.innerHTML = `
-            <div class="text-muted small">
-                Showing ${startIndex + 1}-${Math.min(endIndex, filteredRepos.length)} of ${filteredRepos.length} repositories
-            </div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-primary ${currentRepoPage === 1 ? 'disabled' : ''}"
-                        onclick="changeRepoPage(${currentRepoPage - 1})" ${currentRepoPage === 1 ? 'disabled' : ''}>
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <button type="button" class="btn btn-outline-primary disabled">
-                    ${currentRepoPage}/${totalPages}
-                </button>
-                <button type="button" class="btn btn-outline-primary ${currentRepoPage === totalPages ? 'disabled' : ''}"
-                        onclick="changeRepoPage(${currentRepoPage + 1})" ${currentRepoPage === totalPages ? 'disabled' : ''}>
-                    <i class="bi bi-chevron-right"></i>
-                </button>
-            </div>
-        `;
+    footer.innerHTML = `
+        <div class="text-muted small">
+            Showing ${reposToShow.length} of ${filteredRepos.length} repositories
+        </div>
+        ${hasMoreRepos ? `
+            <button class="btn btn-outline-primary" onclick="loadMoreRepos()">
+                <i class="bi bi-plus-circle"></i> Load More
+            </button>
+        ` : ''}
+    `;
 
-        container.insertBefore(pagination, grid);
-    } else {
-        const counter = document.createElement('div');
-        counter.className = 'd-flex justify-content-between align-items-center mb-4';
-        counter.innerHTML = `
-            <div class="text-muted small">
-                ${filteredRepos.length} repositories
-            </div>
-        `;
-        container.insertBefore(counter, grid);
-    }
+    container.appendChild(footer);
 }
 
 async function fetchArticles() {
@@ -778,7 +751,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             if (allRepositories.length === 0) {
                 allRepositories = await fetchRepositories();
             }
-            currentRepoPage = 1;
+            visibleRepos = 6;
             displayRepositories();
         } catch (error) {
             document.getElementById('repo-list').innerHTML = `
