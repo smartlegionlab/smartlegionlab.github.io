@@ -69,3 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = new PortfolioApp();
     repositoryManager = app.repositoryManager;
 });
+
+window.addEventListener('resize', () => {
+    const grid = document.querySelector('.repo-grid');
+    if (grid && window.innerWidth <= 768) {
+        grid.style.padding = '0 15px';
+        const cards = grid.querySelectorAll('.repo-card');
+        cards.forEach(card => {
+            card.style.width = '100%';
+            card.style.margin = '0';
+        });
+    }
+});

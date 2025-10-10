@@ -1382,3 +1382,56 @@ body {
     color: var(--accent-dark);
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    #repo-list {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .repo-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        margin: 0 !important;
+        padding: 0 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .repo-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+    }
+
+    #repo-list .d-flex.flex-column {
+        width: 100% !important;
+        padding: 0 15px !important;
+        margin: 1rem 0 0 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    #repo-list .btn-outline-primary {
+        width: 100% !important;
+        max-width: 200px !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .repo-grid {
+        padding: 0 10px !important;
+    }
+
+    #repo-list .d-flex.flex-column {
+        padding: 0 10px !important;
+    }
+
+    .repo-card {
+        padding: 0.8rem !important;
+    }
+}

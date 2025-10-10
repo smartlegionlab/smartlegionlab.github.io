@@ -42,6 +42,11 @@ class RepositoryManager {
 
         newRepos.forEach((repo, index) => {
             const card = this.createRepoCard(repo);
+
+            card.style.width = '100%';
+            card.style.margin = '0';
+            card.style.boxSizing = 'border-box';
+
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'all 0.5s ease';
@@ -70,16 +75,24 @@ class RepositoryManager {
 
         const footer = document.createElement('div');
         footer.className = 'd-flex flex-column align-items-center gap-3 mt-4';
+        footer.style.width = '100%';
+        footer.style.boxSizing = 'border-box';
+
+        if (window.innerWidth <= 768) {
+            footer.style.padding = '0 15px';
+        }
+
         footer.innerHTML = `
-            <div class="text-muted small">
+            <div class="text-muted small text-center w-100">
                 Showing ${Math.min(this.visibleRepos, filteredRepos.length)} of ${filteredRepos.length} repositories
             </div>
             ${hasMoreRepos ? `
-                <button class="btn btn-outline-primary" onclick="repositoryManager.loadMoreRepos()">
+                <button class="btn btn-outline-primary" onclick="repositoryManager.loadMoreRepos()" style="min-width: 140px; width: 100%; max-width: 200px;">
                     <i class="bi bi-plus-circle"></i> Load More
                 </button>
             ` : ''}
         `;
+
         container.appendChild(footer);
     }
 
@@ -92,15 +105,18 @@ class RepositoryManager {
         );
 
         if (filteredRepos.length === 0) {
-            container.innerHTML = '<div class="alert alert-info">No active repositories found.</div>';
+            container.innerHTML = '<div class="alert alert-info text-center mx-3">No active repositories found.</div>';
             return;
         }
 
         const reposToShow = filteredRepos.slice(0, this.visibleRepos);
-        const hasMoreRepos = this.visibleRepos < filteredRepos.length;
 
         const grid = document.createElement('div');
         grid.className = 'repo-grid';
+
+        if (window.innerWidth <= 768) {
+            grid.classList.add('mobile-grid');
+        }
 
         reposToShow.forEach(repo => {
             const card = this.createRepoCard(repo);
@@ -108,7 +124,7 @@ class RepositoryManager {
         });
 
         container.appendChild(grid);
-        this.addReposFooter(container, reposToShow.length, filteredRepos.length, hasMoreRepos);
+        this.updateReposFooter();
     }
 
     createRepoCard(repo) {
@@ -186,7 +202,7 @@ class RepositoryManager {
                     <i class="bi bi-clock"></i> Last updated ${Utils.formatDate(repo.pushed_at)}
                 </div>
                 <a href="${repo.html_url}" target="_blank" class="repo-action">
-                    <i class="bi bi-box-arrow-up-right"></i> View Repository
+                    <i class="bi bi-box-arrow-up-right"></i> View
                 </a>
             </div>
         `;

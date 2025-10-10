@@ -3,8 +3,8 @@ const CONFIG = {
     DEVTO_USERNAME: 'smartlegionlab',
     EXCLUDED_REPOSITORIES: ['smartlegionlab.github.io', 'smartlegionlab'],
     RESEARCH_STATS: {
-        pointerParadigm: { views: 134, downloads: 129 },
-        localDataParadigm: { views: 53, downloads: 49 }
+        pointerParadigm: { views: 136, downloads: 131 },
+        localDataParadigm: { views: 56, downloads: 52 }
     },
     SCROLL_OFFSET: 80
 };
