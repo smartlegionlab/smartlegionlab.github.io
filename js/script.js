@@ -735,6 +735,33 @@ function displayArticles(articles) {
     container.appendChild(grid);
 }
 
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 100);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.research-card, .about-card, .expertise-card').forEach((el, index) => {
+        el.classList.add('fade-in-up', 'stagger-delay');
+        observer.observe(el);
+    });
+
+    document.querySelectorAll('.content-section').forEach(section => {
+        const children = section.querySelectorAll('.card, .about-card, .expertise-card');
+        children.forEach((child, idx) => {
+            child.style.transitionDelay = `${idx * 0.1}s`;
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     const particleBg = new ParticleBackground();
 
@@ -745,6 +772,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     updateResearchStats();
     initScrollFeatures();
     initCounters();
+    initScrollAnimations();
+
 
     document.querySelector('a[href="#repos-tab"]').addEventListener('shown.bs.tab', async function() {
         try {
