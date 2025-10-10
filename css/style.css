@@ -1478,3 +1478,59 @@
     color: white !important;
     background: rgba(13, 110, 253, 0.1) !important;
 }
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .vertical-progress-nav {
+        height: 50vh !important;
+        min-height: 250px !important;
+        max-height: 400px !important;
+        right: 10px !important;
+    }
+
+    .progress-track {
+        width: 2px !important;
+    }
+
+    .progress-marker {
+        width: 10px !important;
+        height: 10px !important;
+        border-width: 2px !important;
+    }
+
+    .progress-marker::after {
+        right: 15px !important;
+        padding: 4px 8px !important;
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .vertical-progress-nav {
+        height: 70vh !important;
+        min-height: 200px !important;
+        max-height: 300px !important;
+        right: 8px !important;
+    }
+
+    .progress-track {
+        width: 2px !important;
+    }
+
+    .progress-marker {
+        width: 8px !important;
+        height: 8px !important;
+        border-width: 1px !important;
+    }
+
+    .progress-marker::after {
+        right: 12px !important;
+        padding: 3px 6px !important;
+        font-size: 0.65rem !important;
+    }
+}
+
+@media (max-height: 500px) {
+    .vertical-progress-nav {
+        display: none !important;
+    }
+}
