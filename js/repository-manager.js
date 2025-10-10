@@ -30,7 +30,57 @@ class RepositoryManager {
 
     loadMoreRepos() {
         this.visibleRepos += 6;
-        this.displayRepositories();
+
+        const container = document.getElementById('repo-list');
+        const grid = container.querySelector('.repo-grid');
+
+        const filteredRepos = this.allRepositories.filter(repo =>
+            !repo.archived && !CONFIG.EXCLUDED_REPOSITORIES.includes(repo.name)
+        );
+
+        const newRepos = filteredRepos.slice(this.visibleRepos - 6, this.visibleRepos);
+
+        newRepos.forEach((repo, index) => {
+            const card = this.createRepoCard(repo);
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+
+            grid.appendChild(card);
+
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+
+        this.updateReposFooter();
+    }
+
+    updateReposFooter() {
+        const container = document.getElementById('repo-list');
+        const oldFooter = container.querySelector('.d-flex.flex-column');
+        if (oldFooter) oldFooter.remove();
+
+        const filteredRepos = this.allRepositories.filter(repo =>
+            !repo.archived && !CONFIG.EXCLUDED_REPOSITORIES.includes(repo.name)
+        );
+
+        const hasMoreRepos = this.visibleRepos < filteredRepos.length;
+
+        const footer = document.createElement('div');
+        footer.className = 'd-flex flex-column align-items-center gap-3 mt-4';
+        footer.innerHTML = `
+            <div class="text-muted small">
+                Showing ${Math.min(this.visibleRepos, filteredRepos.length)} of ${filteredRepos.length} repositories
+            </div>
+            ${hasMoreRepos ? `
+                <button class="btn btn-outline-primary" onclick="repositoryManager.loadMoreRepos()">
+                    <i class="bi bi-plus-circle"></i> Load More
+                </button>
+            ` : ''}
+        `;
+        container.appendChild(footer);
     }
 
     displayRepositories(repos = this.allRepositories) {

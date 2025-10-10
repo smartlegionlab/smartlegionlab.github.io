@@ -855,10 +855,6 @@ body {
     transition: width 0.1s ease;
 }
 
-.quick-nav {
-    display: none !important;
-}
-
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
