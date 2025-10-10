@@ -26,12 +26,14 @@ class CitationManager {
     init() {
         document.addEventListener('click', (e) => {
             if (e.target.closest('.citation-btn')) {
+                e.preventDefault();
                 const button = e.target.closest('.citation-btn');
                 const paperId = button.dataset.doi;
                 this.showCitationModal(paperId);
             }
 
             if (e.target.closest('.copy-btn')) {
+                e.preventDefault();
                 this.copyToClipboard(e.target.closest('.copy-btn'));
             }
         });
@@ -72,51 +74,53 @@ class CitationManager {
         const safeId = paperId.replace(/[^a-zA-Z0-9]/g, '-');
 
         const modalHTML = `
-            <div class="modal fade" id="citationModal" tabindex="-1">
+            <div class="modal fade" id="citationModal" tabindex="-1" data-bs-backdrop="static">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header border-secondary">
                             <h5 class="modal-title text-light">
                                 <i class="bi bi-quote me-2"></i>Cite Research
                             </h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <ul class="nav nav-tabs citation-tabs mb-3">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#bibtex-${safeId}">BibTeX</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#apa-${safeId}">APA</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#mla-${safeId}">MLA</a>
-                                </li>
-                            </ul>
+                        <div class="modal-body p-3">
+                            <div class="citation-tabs-container">
+                                <div class="nav nav-tabs citation-tabs mb-3" role="tablist">
+                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#bibtex-${safeId}" type="button" role="tab">
+                                        BibTeX
+                                    </button>
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#apa-${safeId}" type="button" role="tab">
+                                        APA
+                                    </button>
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#mla-${safeId}" type="button" role="tab">
+                                        MLA
+                                    </button>
+                                </div>
 
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="bibtex-${safeId}">
-                                    <div class="citation-format">
-                                        <button class="copy-btn" data-text="${this.generateBibTeX(paper).replace(/"/g, '&quot;')}">
-                                            <i class="bi bi-clipboard"></i> Copy
-                                        </button>
-                                        <pre class="citation-text">${this.generateBibTeX(paper)}</pre>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="bibtex-${safeId}" role="tabpanel">
+                                        <div class="citation-format">
+                                            <button class="copy-btn" data-text="${this.generateBibTeX(paper).replace(/"/g, '&quot;')}">
+                                                <i class="bi bi-clipboard"></i> Copy
+                                            </button>
+                                            <pre class="citation-text">${this.generateBibTeX(paper)}</pre>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="apa-${safeId}">
-                                    <div class="citation-format">
-                                        <button class="copy-btn" data-text="${this.generateAPA(paper).replace(/"/g, '&quot;')}">
-                                            <i class="bi bi-clipboard"></i> Copy
-                                        </button>
-                                        <p class="citation-text">${this.generateAPA(paper)}</p>
+                                    <div class="tab-pane fade" id="apa-${safeId}" role="tabpanel">
+                                        <div class="citation-format">
+                                            <button class="copy-btn" data-text="${this.generateAPA(paper).replace(/"/g, '&quot;')}">
+                                                <i class="bi bi-clipboard"></i> Copy
+                                            </button>
+                                            <p class="citation-text">${this.generateAPA(paper)}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="mla-${safeId}">
-                                    <div class="citation-format">
-                                        <button class="copy-btn" data-text="${this.generateMLA(paper).replace(/"/g, '&quot;')}">
-                                            <i class="bi bi-clipboard"></i> Copy
-                                        </button>
-                                        <p class="citation-text">${this.generateMLA(paper)}</p>
+                                    <div class="tab-pane fade" id="mla-${safeId}" role="tabpanel">
+                                        <div class="citation-format">
+                                            <button class="copy-btn" data-text="${this.generateMLA(paper).replace(/"/g, '&quot;')}">
+                                                <i class="bi bi-clipboard"></i> Copy
+                                            </button>
+                                            <p class="citation-text">${this.generateMLA(paper)}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -127,32 +131,22 @@ class CitationManager {
         `;
 
         const oldModal = document.getElementById('citationModal');
-        if (oldModal) oldModal.remove();
+        if (oldModal) {
+            const bsModal = bootstrap.Modal.getInstance(oldModal);
+            if (bsModal) bsModal.hide();
+            oldModal.remove();
+        }
 
         document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-        const modal = new bootstrap.Modal(document.getElementById('citationModal'));
-        modal.show();
-
         const modalElement = document.getElementById('citationModal');
-        modalElement.addEventListener('shown.bs.modal', () => {
-            const tabLinks = modalElement.querySelectorAll('.citation-tabs .nav-link');
-            tabLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = this.getAttribute('href');
+        const modal = new bootstrap.Modal(modalElement);
 
-                    tabLinks.forEach(l => l.classList.remove('active'));
-                    modalElement.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
-
-                    this.classList.add('active');
-                    const targetPane = modalElement.querySelector(target);
-                    if (targetPane) {
-                        targetPane.classList.add('show', 'active');
-                    }
-                });
-            });
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            modalElement.remove();
         });
+
+        modal.show();
     }
 
     async copyToClipboard(button) {
@@ -161,16 +155,56 @@ class CitationManager {
             await navigator.clipboard.writeText(text);
 
             const originalHTML = button.innerHTML;
+            const originalBg = button.style.background;
+
+            button.innerHTML = '<i class="bi bi-check"></i> Copied!';
+            button.style.background = '#198754';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.style.background = originalBg;
+                button.disabled = false;
+            }, 1500);
+
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            this.fallbackCopyToClipboard(text, button);
+        }
+    }
+
+    fallbackCopyToClipboard(text, button) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            document.execCommand('copy');
+
+            const originalHTML = button.innerHTML;
             button.innerHTML = '<i class="bi bi-check"></i> Copied!';
             button.style.background = '#198754';
 
             setTimeout(() => {
                 button.innerHTML = originalHTML;
                 button.style.background = '';
-            }, 2000);
-
+            }, 1500);
         } catch (err) {
-            console.error('Failed to copy:', err);
+            console.error('Fallback copy failed:', err);
+            button.innerHTML = '<i class="bi bi-x"></i> Error';
+            button.style.background = '#dc3545';
+
+            setTimeout(() => {
+                button.innerHTML = '<i class="bi bi-clipboard"></i> Copy';
+                button.style.background = '';
+            }, 1500);
+        } finally {
+            document.body.removeChild(textArea);
         }
     }
 }
