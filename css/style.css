@@ -1506,10 +1506,12 @@
 
 @media (max-width: 768px) and (orientation: landscape) {
     .vertical-progress-nav {
-        height: 70vh !important;
-        min-height: 200px !important;
-        max-height: 300px !important;
+        height: 60vh !important;
+        min-height: 180px !important;
+        max-height: 250px !important;
         right: 8px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
 
     .progress-track {
@@ -1529,7 +1531,7 @@
     }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 400px) {
     .vertical-progress-nav {
         display: none !important;
     }
