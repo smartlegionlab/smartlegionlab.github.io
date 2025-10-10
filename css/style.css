@@ -1358,3 +1358,27 @@ body {
         display: none !important;
     }
 }
+
+.highlight-primary {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.highlight-accent {
+    color: var(--text-light);
+    font-weight: 500;
+    background: linear-gradient(135deg, transparent 0%, rgba(13, 110, 253, 0.1) 100%);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+}
+
+.highlight-muted {
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.highlight-primary:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
