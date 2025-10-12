@@ -42,13 +42,13 @@
 
     <title>Alexander Suvorov - Security Researcher & Python/Django Architect</title>
 </head>
-<body>
+<body role="document">
 <div class="scroll-progress">
     <div class="scroll-progress-bar"></div>
 </div>
 
-<button class="scroll-to-top" id="scrollToTop">
-    <i class="bi bi-chevron-up"></i>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
 </button>
 
 <div class="container">
@@ -60,7 +60,7 @@
                         <div class="avatar-container">
                             <div class="profile-avatar">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
-                                     class="bi bi-incognito text-dark" viewBox="0 0 16 16">
+                                     class="bi bi-incognito text-dark" viewBox="0 0 16 16" aria-hidden="true">
                                     <path fill-rule="evenodd"
                                           d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
                                 </svg>
@@ -99,25 +99,25 @@
                         </div>
                     </div>
 
-                    <nav class="navigation">
-                        <a href="#about" class="nav-btn">
-                            <i class="bi bi-person"></i>
+                    <nav class="navigation" aria-label="Main navigation">
+                        <a href="#about" class="nav-btn" aria-label="Go to About section">
+                            <i class="bi bi-person" aria-hidden="true"></i>
                             <span>About</span>
                         </a>
-                        <a href="#research" class="nav-btn">
-                            <i class="bi bi-journal-text"></i>
+                        <a href="#research" class="nav-btn" aria-label="Go to Research section">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
                             <span>Research</span>
                         </a>
-                        <a href="#repositories" class="nav-btn">
-                            <i class="bi bi-github"></i>
+                        <a href="#repositories" class="nav-btn" aria-label="Go to Repositories section">
+                            <i class="bi bi-github" aria-hidden="true"></i>
                             <span>Repos</span>
                         </a>
-                        <a href="#expertise" class="nav-btn">
-                            <i class="bi bi-mortarboard"></i>
+                        <a href="#expertise" class="nav-btn" aria-label="Go to Expertise section">
+                            <i class="bi bi-mortarboard" aria-hidden="true"></i>
                             <span>Expertise</span>
                         </a>
-                        <a href="#contact" class="nav-btn">
-                            <i class="bi bi-envelope"></i>
+                        <a href="#contact" class="nav-btn" aria-label="Go to Contact section">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
                             <span>Contact</span>
                         </a>
                     </nav>
@@ -131,7 +131,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="about-card">
-                            <h3 class="about-title"><i class="bi bi-search"></i> Research Focus</h3>
+                            <h3 class="about-title"><i class="bi bi-search" aria-hidden="true"></i> Research Focus</h3>
                             <p class="mb-0">
                                 I am a <span class="highlight-accent">computer scientist</span> and <span
                                     class="highlight-accent">security researcher</span> focused on fundamental <span
@@ -148,7 +148,7 @@
                         </div>
 
                         <div class="about-card">
-                            <h3 class="about-title"><i class="bi bi-code-slash"></i> Technical Expertise</h3>
+                            <h3 class="about-title"><i class="bi bi-code-slash" aria-hidden="true"></i> Technical Expertise</h3>
                             <p class="mb-0">
                                 As a <strong class="highlight-primary">Python/Django Architect</strong>, I specialize in
                                 <span class="highlight-accent">full-cycle development</span> -
@@ -164,7 +164,7 @@
                         </div>
 
                         <div class="about-card">
-                            <h3 class="about-title"><i class="bi bi-lightbulb"></i> Research Impact</h3>
+                            <h3 class="about-title"><i class="bi bi-lightbulb" aria-hidden="true"></i> Research Impact</h3>
                             <p class="mb-0">
                                 I created the <a target="_blank" class="text-decoration-none highlight-primary"
                                                  href="https://doi.org/10.5281/zenodo.17204738"><strong>Pointer-Based
@@ -180,7 +180,7 @@
                         </div>
 
                         <div class="about-card">
-                            <h3 class="about-title"><i class="bi bi-terminal"></i> Development Environment</h3>
+                            <h3 class="about-title"><i class="bi bi-terminal" aria-hidden="true"></i> Development Environment</h3>
                             <p class="mb-0">
                                 I work extensively with <span class="highlight-primary">Linux systems</span>,
                                 primarily using <span class="highlight-accent">Arch Linux</span> for development.
@@ -195,12 +195,12 @@
                     <div class="col-lg-4">
                         <div class="card research-card">
                             <div class="card-body">
-                                <h5 class="card-title text-center mb-3">Research & Development Metrics</h5>
+                                <h3 class="card-title text-center mb-3">Research & Development Metrics</h3>
 
                                 <div class="metrics-stack">
                                     <div class="metric-item">
                                         <div class="metric-icon-small">
-                                            <i class="bi bi-cloud-download"></i>
+                                            <i class="bi bi-cloud-download" aria-hidden="true"></i>
                                         </div>
                                         <div class="metric-content">
                                             <div class="metric-number" id="total-downloads-metric">0</div>
@@ -210,7 +210,7 @@
                                     <hr>
                                     <div class="metric-item">
                                         <div class="metric-icon-small">
-                                            <i class="bi bi-github"></i>
+                                            <i class="bi bi-github" aria-hidden="true"></i>
                                         </div>
                                         <div class="metric-content">
                                             <div class="metric-number">0</div>
@@ -220,7 +220,7 @@
                                     <hr>
                                     <div class="metric-item">
                                         <div class="metric-icon-small">
-                                            <i class="bi bi-box-seam"></i>
+                                            <i class="bi bi-box-seam" aria-hidden="true"></i>
                                         </div>
                                         <div class="metric-content">
                                             <div class="metric-number">0</div>
@@ -230,7 +230,7 @@
                                     <hr>
                                     <div class="metric-item">
                                         <div class="metric-icon-small">
-                                            <i class="bi bi-download"></i>
+                                            <i class="bi bi-download" aria-hidden="true"></i>
                                         </div>
                                         <div class="metric-content">
                                             <div class="metric-number">0</div>
@@ -259,8 +259,8 @@
                 <div class="card research-card">
                     <div class="card-body d-flex flex-column">
                         <div class="research-header text-center">
-                            <i class="bi bi-shield-check paradigm-icon"></i>
-                            <h4 class="research-title">Pointer-Based Security Paradigm</h4>
+                            <i class="bi bi-shield-check paradigm-icon" aria-hidden="true"></i>
+                            <h3 class="research-title">Pointer-Based Security Paradigm</h3>
                             <p class="research-subtitle">Architectural Shift from Data Protection to Data Non-Existence</p>
                         </div>
 
@@ -278,24 +278,24 @@
                             <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
                             <div class="btn-group btn-group-sm d-flex flex-wrap">
                                 <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738"
-                                   class="btn btn-outline-primary me-1 mb-1">
-                                    <i class="bi bi-journal-text"></i> Paper
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Pointer-Based Security Paradigm paper">
+                                    <i class="bi bi-journal-text" aria-hidden="true"></i> Paper
                                 </a>
                                 <a target="_blank"
                                    href="https://github.com/smartlegionlab/pointer-based-security-paradigm"
-                                   class="btn btn-outline-primary me-1 mb-1">
-                                    <i class="bi bi-github"></i> Code
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="View Pointer-Based Security Paradigm code on GitHub">
+                                    <i class="bi bi-github" aria-hidden="true"></i> Code
                                 </a>
                                 <a target="_blank"
                                    href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82"
-                                   class="btn btn-outline-primary me-1 mb-1">
-                                    <i class="bi bi-file-text"></i> Article
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Pointer-Based Security Paradigm article on Dev.to">
+                                    <i class="bi bi-file-text" aria-hidden="true"></i> Article
                                 </a>
                                 <a target="_blank"
                                    href="https://zenodo.org/records/17204738/files/suvorov-the-pointer-based-security-paradigm-v2.pdf?download=1"
-                                   class="btn btn-outline-primary me-1 mb-1">
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Download Pointer-Based Security Paradigm PDF">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true">
                                         <path fill-rule="evenodd"
                                               d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
                                     </svg>
@@ -305,15 +305,15 @@
                         </div>
 
                         <div class="citation-tabs-container mt-3">
-                            <ul class="nav nav-tabs citation-tabs mb-3">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#pointer-bibtex">BibTeX</a>
+                            <ul class="nav nav-tabs citation-tabs mb-3" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#pointer-bibtex" role="tab" aria-selected="true">BibTeX</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#pointer-apa">APA</a>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pointer-apa" role="tab" aria-selected="false">APA</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#pointer-mla">MLA</a>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pointer-mla" role="tab" aria-selected="false">MLA</a>
                                 </li>
                             </ul>
 
@@ -331,7 +331,7 @@
   doi          = {10.5281/zenodo.17204738},
   url          = {https://doi.org/10.5281/zenodo.17204738},
 }">
-                                            <i class="bi bi-clipboard"></i> Copy
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
                                         </button>
                                         <pre class="citation-text">@misc{suvorov_2025_17204738,
   author       = {Suvorov, Alexander},
@@ -349,7 +349,7 @@
                                 <div class="tab-pane fade" id="pointer-apa">
                                     <div class="citation-format">
                                         <button class="copy-btn" data-text="Suvorov, A. (2025). The Pointer-Based Security Paradigm: Architectural Shift from Data Protection to Data Non-Existence. Zenodo. https://doi.org/10.5281/zenodo.17204738">
-                                            <i class="bi bi-clipboard"></i> Copy
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
                                         </button>
                                         <p class="citation-text">Suvorov, A. (2025). The Pointer-Based Security Paradigm: Architectural Shift from Data Protection to Data Non-Existence. Zenodo. https://doi.org/10.5281/zenodo.17204738</p>
                                     </div>
@@ -357,7 +357,7 @@
                                 <div class="tab-pane fade" id="pointer-mla">
                                     <div class="citation-format">
                                         <button class="copy-btn" data-text="Suvorov, A. The Pointer-based Security Paradigm: Architectural Shift from Data Protection to Data Non-existence. Zenodo, 26 September 2025 г., https://doi.org/10.5281/zenodo.17204738.">
-                                            <i class="bi bi-clipboard"></i> Copy
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
                                         </button>
                                         <p class="citation-text">Suvorov, A. The Pointer-based Security Paradigm: Architectural Shift from Data Protection to Data Non-existence. Zenodo, 26 September 2025 г., https://doi.org/10.5281/zenodo.17204738.</p>
                                     </div>
@@ -404,8 +404,8 @@
                 <div class="card research-card">
                     <div class="card-body d-flex flex-column">
                         <div class="research-header text-center">
-                            <i class="bi bi-arrow-repeat paradigm-icon"></i>
-                            <h4 class="research-title">Local Data Regeneration Paradigm</h4>
+                            <i class="bi bi-arrow-repeat paradigm-icon" aria-hidden="true"></i>
+                            <h3 class="research-title">Local Data Regeneration Paradigm</h3>
                             <p class="research-subtitle">Ontological Shift from Data Transmission to Synchronous State Discovery</p>
                         </div>
 
@@ -421,24 +421,24 @@
                             <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
                             <div class="btn-group btn-group-sm d-flex flex-wrap">
                                 <a target="_blank" href="https://doi.org/10.5281/zenodo.17264327"
-                                   class="btn btn-outline-primary me-1 mb-1">
-                                    <i class="bi bi-journal-text"></i> Paper
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Local Data Regeneration Paradigm paper">
+                                    <i class="bi bi-journal-text" aria-hidden="true"></i> Paper
                                 </a>
                                 <a target="_blank"
                                    href="https://github.com/smartlegionlab/local-data-regeneration-paradigm"
-                                   class="btn btn-outline-primary me-1 mb-1">
-                                    <i class="bi bi-github"></i> Code
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="View Local Data Regeneration Paradigm code on GitHub">
+                                    <i class="bi bi-github" aria-hidden="true"></i> Code
                                 </a>
                                 <a target="_blank"
                                    href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-state-21e"
-                                   class="btn btn-outline-primary me-1 mb-1">
-                                    <i class="bi bi-file-text"></i> Article
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Local Data Regeneration Paradigm article on Dev.to">
+                                    <i class="bi bi-file-text" aria-hidden="true"></i> Article
                                 </a>
                                 <a target="_blank"
                                    href="https://zenodo.org/records/17264327/files/suvorov-the-local-data-regeneration-paradigm.pdf?download=1"
-                                   class="btn btn-outline-primary me-1 mb-1">
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Download Local Data Regeneration Paradigm PDF">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16">
+                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true">
                                         <path fill-rule="evenodd"
                                               d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
                                     </svg>
@@ -448,15 +448,15 @@
                         </div>
 
                         <div class="citation-tabs-container mt-3">
-                            <ul class="nav nav-tabs citation-tabs mb-3">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#localdata-bibtex">BibTeX</a>
+                            <ul class="nav nav-tabs citation-tabs mb-3" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#localdata-bibtex" role="tab" aria-selected="true">BibTeX</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#localdata-apa">APA</a>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#localdata-apa" role="tab" aria-selected="false">APA</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#localdata-mla">MLA</a>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#localdata-mla" role="tab" aria-selected="false">MLA</a>
                                 </li>
                             </ul>
 
@@ -475,7 +475,7 @@
   doi          = {10.5281/zenodo.17264327},
   url          = {https://doi.org/10.5281/zenodo.17264327},
 }">
-                                            <i class="bi bi-clipboard"></i> Copy
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
                                         </button>
                                         <pre class="citation-text">@misc{suvorov_2025_17264327,
   author       = {Suvorov, Alexander},
@@ -494,7 +494,7 @@
                                 <div class="tab-pane fade" id="localdata-apa">
                                     <div class="citation-format">
                                         <button class="copy-btn" data-text="Suvorov, A. (2025). The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo. https://doi.org/10.5281/zenodo.17264327">
-                                            <i class="bi bi-clipboard"></i> Copy
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
                                         </button>
                                         <p class="citation-text">Suvorov, A. (2025). The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo. https://doi.org/10.5281/zenodo.17264327</p>
                                     </div>
@@ -502,7 +502,7 @@
                                 <div class="tab-pane fade" id="localdata-mla">
                                     <div class="citation-format">
                                         <button class="copy-btn" data-text="Suvorov, A. The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo, 4 October 2025 г., https://doi.org/10.5281/zenodo.17264327.">
-                                            <i class="bi bi-clipboard"></i> Copy
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
                                         </button>
                                         <p class="citation-text">Suvorov, A. The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo, 4 October 2025 г., https://doi.org/10.5281/zenodo.17264327.</p>
                                     </div>
@@ -551,16 +551,16 @@
                 <p class="text-light">Also available on academic platforms:</p>
                 <div class="btn-group">
                     <a target="_blank" href="https://orcid.org/0009-0006-3427-9611"
-                       class="btn btn-outline-primary btn-sm">
-                        <i class="bi bi-person-badge"></i> ORCID
+                       class="btn btn-outline-primary btn-sm" aria-label="View ORCID profile">
+                        <i class="bi bi-person-badge" aria-hidden="true"></i> ORCID
                     </a>
                     <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738"
-                       class="btn btn-outline-primary btn-sm">
-                        <i class="bi bi-archive"></i> Zenodo
+                       class="btn btn-outline-primary btn-sm" aria-label="View research on Zenodo">
+                        <i class="bi bi-archive" aria-hidden="true"></i> Zenodo
                     </a>
                     <a target="_blank" href="https://independent.academia.edu/smartlegionlab"
-                       class="btn btn-outline-primary btn-sm">
-                        <i class="bi bi-mortarboard"></i> Academia.edu
+                       class="btn btn-outline-primary btn-sm" aria-label="View Academia.edu profile">
+                        <i class="bi bi-mortarboard" aria-hidden="true"></i> Academia.edu
                     </a>
                 </div>
             </div>
@@ -573,12 +573,12 @@
             <div class="container">
                 <h2 class="section-title">Additional Content</h2>
 
-                <ul class="nav nav-tabs mb-4" id="contentTabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#repos-tab">Repositories</a>
+                <ul class="nav nav-tabs mb-4" id="contentTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#repos-tab" role="tab" aria-selected="true">Repositories</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#articles-tab">Articles</a>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" href="#articles-tab" role="tab" aria-selected="false">Articles</a>
                     </li>
                 </ul>
 
@@ -586,7 +586,7 @@
                     <div class="tab-pane fade show active" id="repos-tab">
                         <div class="container-fluid px-0">
                             <div id="repo-list" class="text-center py-4">
-                                <div class="spinner-border text-primary" role="status">
+                                <div class="spinner-border text-primary" role="status" aria-hidden="true">
                                     <span class="visually-hidden">Loading repositories...</span>
                                 </div>
                                 <p class="mt-3 text-muted">Loading repositories...</p>
@@ -597,7 +597,7 @@
                     <div class="tab-pane fade" id="articles-tab">
                         <div class="container-fluid px-0">
                             <div id="articles-list" class="text-center py-4">
-                                <div class="spinner-border text-primary" role="status">
+                                <div class="spinner-border text-primary" role="status" aria-hidden="true">
                                     <span class="visually-hidden">Loading articles...</span>
                                 </div>
                                 <p class="mt-3 text-muted">Loading technical articles...</p>
@@ -615,14 +615,14 @@
                 <div class="expertise-grid">
                     <div class="expertise-card">
                         <div class="expertise-header">
-                            <i class="bi bi-mortarboard expertise-icon-main"></i>
+                            <i class="bi bi-mortarboard expertise-icon-main" aria-hidden="true"></i>
                             <h3 class="expertise-title">Research & Academia</h3>
                             <p class="expertise-subtitle">Theoretical Foundations & Academic Research</p>
                         </div>
 
                         <div class="expertise-items">
                             <div class="expertise-item">
-                                <i class="bi bi-lightbulb expertise-item-icon"></i>
+                                <i class="bi bi-lightbulb expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Paradigm Development</div>
                                     <div class="expertise-item-desc">Creating fundamental theoretical frameworks and
@@ -631,7 +631,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-journal-text expertise-item-icon"></i>
+                                <i class="bi bi-journal-text expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Academic Publishing</div>
                                     <div class="expertise-item-desc">Peer-reviewed research papers and scientific
@@ -640,7 +640,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-cpu expertise-item-icon"></i>
+                                <i class="bi bi-cpu expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Theoretical Computer Science</div>
                                     <div class="expertise-item-desc">Advanced algorithms, complexity theory, and
@@ -649,7 +649,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-diagram-3 expertise-item-icon"></i>
+                                <i class="bi bi-diagram-3 expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Information Theory</div>
                                     <div class="expertise-item-desc">Data transmission, compression, and information
@@ -658,7 +658,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-shield-check expertise-item-icon"></i>
+                                <i class="bi bi-shield-check expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Security Architecture</div>
                                     <div class="expertise-item-desc">System-level security design and threat modeling
@@ -666,7 +666,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-key expertise-item-icon"></i>
+                                <i class="bi bi-key expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Cryptography Research</div>
                                     <div class="expertise-item-desc">Advanced cryptographic protocols and security
@@ -679,14 +679,14 @@
 
                     <div class="expertise-card">
                         <div class="expertise-header">
-                            <i class="bi bi-tools expertise-icon-main"></i>
+                            <i class="bi bi-tools expertise-icon-main" aria-hidden="true"></i>
                             <h3 class="expertise-title">Technical Development</h3>
                             <p class="expertise-subtitle">Practical Implementation & Software Engineering</p>
                         </div>
 
                         <div class="expertise-items">
                             <div class="expertise-item">
-                                <i class="bi bi-braces expertise-item-icon"></i>
+                                <i class="bi bi-braces expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Python Architecture</div>
                                     <div class="expertise-item-desc">Scalable system design and software architecture
@@ -695,7 +695,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-gear expertise-item-icon"></i>
+                                <i class="bi bi-gear expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Django Framework</div>
                                     <div class="expertise-item-desc">Full-stack web application development and REST
@@ -704,7 +704,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-diagram-2 expertise-item-icon"></i>
+                                <i class="bi bi-diagram-2 expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">System Design</div>
                                     <div class="expertise-item-desc">End-to-end system architecture and infrastructure
@@ -713,7 +713,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-plug expertise-item-icon"></i>
+                                <i class="bi bi-plug expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">API Development</div>
                                     <div class="expertise-item-desc">RESTful APIs, microservices, and integration
@@ -722,7 +722,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-shield expertise-item-icon"></i>
+                                <i class="bi bi-shield expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Security Research</div>
                                     <div class="expertise-item-desc">Vulnerability analysis, penetration testing, and
@@ -731,7 +731,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-layers expertise-item-icon"></i>
+                                <i class="bi bi-layers expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Full-Stack Development</div>
                                     <div class="expertise-item-desc">Frontend to backend complete solution development
@@ -739,7 +739,7 @@
                                 </div>
                             </div>
                             <div class="expertise-item">
-                                <i class="bi bi-table expertise-item-icon"></i>
+                                <i class="bi bi-table expertise-item-icon" aria-hidden="true"></i>
                                 <div class="expertise-item-content">
                                     <div class="expertise-item-title">Database Design</div>
                                     <div class="expertise-item-desc">SQL/NoSQL database architecture and performance
@@ -762,27 +762,27 @@
                     and <span class="text-secondary">full-time positions</span>.
                 <hr>
                 <div class="btn-group flex-wrap justify-content-center">
-                    <a target="_blank" href="mailto:smartlegionlab@gmail.com" class="btn contact-btn me-2 mb-2">
-                        <i class="bi bi-envelope"></i> Email
+                    <a target="_blank" href="mailto:smartlegionlab@gmail.com" class="btn contact-btn me-2 mb-2" aria-label="Send email">
+                        <i class="bi bi-envelope" aria-hidden="true"></i> Email
                     </a>
-                    <a target="_blank" href="https://github.com/smartlegionlab" class="btn contact-btn me-2 mb-2">
-                        <i class="bi bi-github"></i> GitHub
+                    <a target="_blank" href="https://github.com/smartlegionlab" class="btn contact-btn me-2 mb-2" aria-label="View GitHub profile">
+                        <i class="bi bi-github" aria-hidden="true"></i> GitHub
                     </a>
-                    <a target="_blank" href="https://orcid.org/0009-0006-3427-9611" class="btn contact-btn me-2 mb-2">
-                        <i class="bi bi-person-badge"></i>
+                    <a target="_blank" href="https://orcid.org/0009-0006-3427-9611" class="btn contact-btn me-2 mb-2" aria-label="View ORCID profile">
+                        <i class="bi bi-person-badge" aria-hidden="true"></i>
                         ORCID
                     </a>
-                    <a target="_blank" href="https://independent.academia.edu/smartlegionlab" class="btn contact-btn me-2 mb-2">
-                        <i class="bi bi-mortarboard"></i> Academia.edu
+                    <a target="_blank" href="https://independent.academia.edu/smartlegionlab" class="btn contact-btn me-2 mb-2" aria-label="View Academia.edu profile">
+                        <i class="bi bi-mortarboard" aria-hidden="true"></i> Academia.edu
                     </a>
-                    <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738" class="btn contact-btn me-2 mb-2">
-                        <i class="bi bi-journal-text"></i> Research
+                    <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738" class="btn contact-btn me-2 mb-2" aria-label="View research publications">
+                        <i class="bi bi-journal-text" aria-hidden="true"></i> Research
                     </a>
-                    <a target="_blank" href="https://dev.to/smartlegionlab" class="btn contact-btn me-2 mb-2">
-                        <i class="bi bi-file-text"></i> Dev.to
+                    <a target="_blank" href="https://dev.to/smartlegionlab" class="btn contact-btn me-2 mb-2" aria-label="Read technical articles on Dev.to">
+                        <i class="bi bi-file-text" aria-hidden="true"></i> Dev.to
                     </a>
-                    <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn contact-btn mb-2">
-                        <i class="bi bi-box-seam"></i> PyPI
+                    <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn contact-btn mb-2" aria-label="View PyPI packages">
+                        <i class="bi bi-box-seam" aria-hidden="true"></i> PyPI
                     </a>
                 </div>
             </div>
