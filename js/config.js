@@ -26,5 +26,13 @@ const CONFIG = {
             TTL: 2 * 60 * 60 * 1000,
             KEY: 'devto_articles_cache'
         }
+    },
+    ZENODO: {
+        RECORDS: {
+            POINTER_PARADIGM: '17204738',
+            LOCAL_DATA_PARADIGM: '17264327'
+        },
+        CACHE_TTL: 2 * 60 * 60 * 1000,
+        CACHE_KEY: 'zenodo_stats_cache'
     }
 };

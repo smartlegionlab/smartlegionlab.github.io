@@ -38,6 +38,8 @@ class PortfolioApp {
 
         this.statsManager = new StatsManager();
 
+        this.zenodoManager = new ZenodoManager(this.statsManager);
+
         console.log('✅ Core functionality loaded');
     }
 
@@ -59,6 +61,10 @@ class PortfolioApp {
         this.repositoryManager.initLazyLoading();
 
         this.animationManager.initLazy();
+
+        setTimeout(() => {
+            this.zenodoManager.loadStats();
+        }, 1000);
 
         this.setupTabHandlers();
 
@@ -90,4 +96,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 100);
 
     window.repositoryManager = app.repositoryManager;
+    window.zenodoManager = app.zenodoManager;
 });
