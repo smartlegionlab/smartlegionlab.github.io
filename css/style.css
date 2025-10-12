@@ -1599,3 +1599,23 @@ body {
         visibility: visible !important;
     }
 }
+
+.repo-badge {
+    background: rgba(13, 110, 253, 0.1) !important;
+    border: 1px solid var(--accent) !important;
+    color: var(--accent) !important;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+}
+
+#research .research-card {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+#research .fade-in-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

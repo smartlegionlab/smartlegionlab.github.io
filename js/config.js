@@ -17,6 +17,32 @@ const CONFIG = {
 
     SCROLL_OFFSET: 80,
 
+    PYPI_PACKAGES: [
+        'smartpasslib',
+        'clipassman',
+        'clipassgen',
+        'smart-tsp-solver',
+        'smart-tsp-benchmark',
+        'smart-2fa-secure',
+        'babylonian-image-library',
+        'smart-babylon-library',
+        'commandman',
+        'smartpathlibrary',
+        'smartexecutorlib',
+        'climan',
+        'github-ssh-key',
+        'commandpack',
+        'smartprinter',
+        'smartcliapp',
+        'commandex',
+        'smartrandom',
+        'smarttextdecorator',
+        'smartauthen',
+        'smart-redis-storage',
+        'smart-text-randomizer',
+        'smart-ip-info',
+    ],
+
     CACHE_CONFIG: {
         REPOSITORIES: {
             TTL: 60 * 60 * 1000,
@@ -25,7 +51,8 @@ const CONFIG = {
         ARTICLES: {
             TTL: 2 * 60 * 60 * 1000,
             KEY: 'devto_articles_cache'
-        }
+        },
+        PYPI: { TTL: 4 * 60 * 60 * 1000, KEY: 'pypi_packages_cache' }
     },
     ZENODO: {
         RECORDS: {

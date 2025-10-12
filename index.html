@@ -36,7 +36,6 @@
     <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
     <link rel="icon" type="image/svg+xml"
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
 
@@ -83,7 +82,7 @@
                     <div class="stats-row">
                         <div class="stat">
                             <div class="stat-number">0</div>
-                            <div class="stat-label">Paper Downloads</div>
+                            <div class="stat-label">Unique Paper Downloads</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">0</div>
@@ -204,7 +203,7 @@
                                         </div>
                                         <div class="metric-content">
                                             <div class="metric-number" id="total-downloads-metric">0</div>
-                                            <div class="metric-label">Paper Downloads</div>
+                                            <div class="metric-label">Unique Paper Downloads</div>
                                         </div>
                                     </div>
                                     <hr>
@@ -368,7 +367,7 @@
                         <div class="research-stats-grid">
                             <div class="stat-item">
                                 <div class="stats-number" id="pointer-views">0</div>
-                                <div class="stats-label">Views</div>
+                                <div class="stats-label">Unique Views</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stats-number" id="pointer-downloads">0</div>
@@ -377,7 +376,7 @@
                         </div>
 
                         <div class="research-metadata">
-                            <p class="text-center text-light">Over <span class="text-danger">100+ views</span>
+                            <p class="text-center text-light">Over <span class="text-danger">100+ unique views</span>
                                 and <span class="text-danger">downloads</span> on <a
                                         target="_blank"
                                         href="https://doi.org/10.5281/zenodo.17204738">Zenodo</a> in
@@ -513,7 +512,7 @@
                         <div class="research-stats-grid">
                             <div class="stat-item">
                                 <div class="stats-number" id="localdata-views">0</div>
-                                <div class="stats-label">Views</div>
+                                <div class="stats-label">Unique Views</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stats-number" id="localdata-downloads">0</div>
@@ -522,7 +521,7 @@
                         </div>
 
                         <div class="research-metadata">
-                            <p class="text-center text-light">Over <span class="text-danger">50+ views</span>
+                            <p class="text-center text-light">Over <span class="text-danger">50+ unique views</span>
                                 and <span class="text-danger">downloads</span> on <a
                                         target="_blank"
                                         href="https://doi.org/10.5281/zenodo.17264327">Zenodo</a> in
@@ -578,6 +577,9 @@
                         <a class="nav-link active" data-bs-toggle="tab" href="#repos-tab" role="tab" aria-selected="true">Repositories</a>
                     </li>
                     <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" href="#pypi-tab" role="tab">PyPI Packages</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
                         <a class="nav-link" data-bs-toggle="tab" href="#articles-tab" role="tab" aria-selected="false">Articles</a>
                     </li>
                 </ul>
@@ -604,6 +606,18 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="tab-pane fade" id="pypi-tab">
+                        <div class="container-fluid px-0">
+                            <div id="pypi-list" class="text-center py-4">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading PyPI packages...</span>
+                                </div>
+                                <p class="mt-3 text-muted">Click to load PyPI packages...</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -800,6 +814,8 @@
 <script src="js/zenodo-manager.js"></script>
 <script src="js/repository-manager.js"></script>
 <script src="js/article-manager.js"></script>
+<script src="js/pypi-cache.js"></script>
+<script src="js/pypi-manager.js"></script>
 <script src="js/particle-background.js"></script>
 <script src="js/vertical-progress-nav.js"></script>
 <script src="js/citation-manager.js"></script>

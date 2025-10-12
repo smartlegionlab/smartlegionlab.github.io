@@ -8,6 +8,7 @@ class PortfolioApp {
         };
         this.currentStage = this.loadingStages.CORE;
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        this.pypiManager = new PyPIManager();
     }
 
     async init() {
@@ -80,6 +81,16 @@ class PortfolioApp {
                 }
             });
         }
+
+        const pypiTab = document.querySelector('a[href="#pypi-tab"]');
+        if (pypiTab) {
+            pypiTab.addEventListener('shown.bs.tab', async () => {
+                if (!this.pypiManager.hasLoaded && !this.pypiManager.isLoading) {
+                    await this.pypiManager.loadPackages();
+                }
+            });
+        }
+
     }
 }
 
@@ -97,4 +108,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     window.repositoryManager = app.repositoryManager;
     window.zenodoManager = app.zenodoManager;
+    window.pypiManager = app.pypiManager;
 });
