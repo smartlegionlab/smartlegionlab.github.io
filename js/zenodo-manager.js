@@ -20,7 +20,7 @@ class ZenodoManager {
                 downloads: data.stats.unique_downloads || 0
             };
         } catch (error) {
-            console.error(`❌ Error fetching Zenodo record ${recordId}:`, error);
+            console.error(`🌐 Zenodo record ${recordId} fetch failed:`, error.message);
             throw error;
         }
     }
@@ -39,11 +39,11 @@ class ZenodoManager {
                 localDataParadigm: localDataStats
             };
 
-            console.log('✅ Zenodo stats fetched successfully:', stats);
+            console.log('✅ Zenodo stats fetched successfully');
             return stats;
 
         } catch (error) {
-            console.error('❌ Error fetching Zenodo stats:', error);
+            console.error('🌐 Zenodo API unavailable, using fallback');
             throw error;
         }
     }
@@ -57,14 +57,14 @@ class ZenodoManager {
         try {
             const freshCache = ZenodoCache.getCachedStats();
             if (freshCache) {
-                console.log('📦 Using fresh Zenodo cache - NO API CALL');
+                console.log('📦 Using cached Zenodo data');
                 this.stats = freshCache;
                 this.statsManager.updateFromZenodo(freshCache);
                 this.hasLoaded = true;
                 return;
             }
 
-            console.log('📡 No fresh cache, fetching from Zenodo API...');
+            console.log('🌐 Fetching fresh Zenodo data...');
             const freshStats = await this.fetchAllStats();
 
             this.stats = freshStats;
@@ -73,17 +73,14 @@ class ZenodoManager {
             this.hasLoaded = true;
 
         } catch (error) {
-            console.error('❌ Error loading Zenodo stats:', error);
-
             const staleCache = ZenodoCache.getStaleStats();
             if (staleCache && staleCache.data) {
-                console.log('🔄 Using stale Zenodo cache as fallback');
+                console.log('🔄 Using stale cache (API unavailable)');
                 this.stats = staleCache.data;
                 this.statsManager.updateFromZenodo(staleCache.data);
                 this.hasLoaded = true;
-                this.showCacheWarning(staleCache.isExpired);
             } else {
-                console.log('⚡ Fallback to config values (already set)');
+                console.log('⚡ Using config values (no cache available)');
                 this.hasLoaded = true;
             }
         } finally {

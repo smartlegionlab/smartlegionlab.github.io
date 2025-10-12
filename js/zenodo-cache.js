@@ -18,23 +18,15 @@ class ZenodoCache {
     static getCachedStats() {
         try {
             const cached = localStorage.getItem(this.CACHE_KEY);
-            if (!cached) {
-                console.log('📦 No Zenodo cache found');
-                return null;
-            }
+            if (!cached) return null;
 
             const cacheData = JSON.parse(cached);
             const isExpired = Date.now() - cacheData.timestamp > this.CACHE_TTL;
 
-            if (isExpired) {
-                console.log('📦 Zenodo cache expired');
-                return null;
-            }
+            if (isExpired) return null;
 
-            console.log('📦 Fresh Zenodo cache available');
             return cacheData.data;
         } catch (error) {
-            console.warn('⚠️ Error reading Zenodo cache:', error);
             return null;
         }
     }
@@ -45,15 +37,11 @@ class ZenodoCache {
             if (!cached) return null;
 
             const cacheData = JSON.parse(cached);
-            const isExpired = Date.now() - cacheData.timestamp > this.CACHE_TTL;
-
-            console.log(`📦 ${isExpired ? 'Expired Zenodo cache' : 'Fresh Zenodo cache'} available for fallback`);
             return {
                 data: cacheData.data,
-                isExpired: isExpired
+                isExpired: Date.now() - cacheData.timestamp > this.CACHE_TTL
             };
         } catch (error) {
-            console.warn('⚠️ Error reading stale Zenodo cache:', error);
             return null;
         }
     }
