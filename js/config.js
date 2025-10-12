@@ -1,7 +1,7 @@
 const CONFIG = {
     GITHUB_USERNAME: 'smartlegionlab',
     DEVTO_USERNAME: 'smartlegionlab',
-    EXCLUDED_REPOSITORIES: ['smartlegionlab.github.io', 'smartlegionlab'],
+    EXCLUDED_REPOSITORIES: ['smartlegionlab'],
 
     COUNTERS: {
         PAPER_DOWNLOADS: 208,
