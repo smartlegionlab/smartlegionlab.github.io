@@ -103,3 +103,8 @@ Modern, responsive website showcasing Alexander Suvorov's scientific research an
 - **ORCID**: Academic profile integration
 
 The website represents a modern academic portfolio that combines scientific rigor with cutting-edge web technologies and excellent user experience, now featuring comprehensive package management and distribution metrics.
+
+---
+
+![logo_mobile](https://github.com/smartlegionlab/smartlegionlab.github.io/raw/master/data/images/mobile.png)
+![logo_pc](https://github.com/smartlegionlab/smartlegionlab.github.io/raw/master/data/images/pc.png)
