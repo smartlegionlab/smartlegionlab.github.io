@@ -37,7 +37,6 @@ class RepositoryManager {
             return repos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
         } catch (error) {
-            console.error('❌ Error fetching repositories:', error);
             throw error;
         }
     }
@@ -321,7 +320,6 @@ class LazyRepositoryManager extends RepositoryManager {
             }
         }
     }
-
 
     showCacheWarning(isExpired = false) {
         const container = document.getElementById('repo-list');

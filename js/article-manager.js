@@ -19,7 +19,6 @@ class ArticleManager {
             return articles;
 
         } catch (error) {
-            console.error('❌ Error fetching articles:', error);
             throw error;
         }
     }
