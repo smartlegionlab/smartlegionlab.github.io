@@ -16,8 +16,8 @@ class ZenodoManager {
 
             const data = await response.json();
             return {
-                views: data.stats.views || 0,
-                downloads: data.stats.downloads || 0
+                views: data.stats.unique_views || 0,
+                downloads: data.stats.unique_downloads || 0
             };
         } catch (error) {
             console.error(`❌ Error fetching Zenodo record ${recordId}:`, error);
