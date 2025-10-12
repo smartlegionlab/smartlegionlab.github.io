@@ -1,6 +1,6 @@
 # 🌐 Alexander Suvorov - Academic Portfolio
 
-Professional website portfolio of a Security Researcher and Python/Django Architect.
+Professional [website portfolio](https://smartlegionlab.github.io) of a Security Researcher and Python/Django Architect.
 
 ## 🎯 About the Project
 
