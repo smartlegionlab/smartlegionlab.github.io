@@ -11,8 +11,6 @@ class ArticleManager {
 
     displayArticles(articles) {
         const container = document.getElementById('articles-list');
-        if (!container) return;
-
         container.innerHTML = '';
 
         if (articles.length === 0) {
@@ -25,20 +23,10 @@ class ArticleManager {
 
         articles.forEach(article => {
             const card = this.createArticleCard(article);
-            card.style.opacity = '1';
-            card.style.visibility = 'visible';
             grid.appendChild(card);
         });
 
         container.appendChild(grid);
-
-        setTimeout(() => {
-            const cards = container.querySelectorAll('.repo-card');
-            cards.forEach((card, index) => {
-                card.classList.add('fade-in-up', 'stagger-delay', 'visible');
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        }, 50);
     }
 
     createArticleCard(article) {
@@ -118,7 +106,7 @@ class LazyArticleManager extends ArticleManager {
         if (this.isLoading || this.hasLoaded) return;
 
         this.isLoading = true;
-        console.log('🚀 Loading articles on tab activation...');
+        console.log('🚀 Loading articles...');
 
         try {
             this.showLoadingState();
@@ -127,14 +115,40 @@ class LazyArticleManager extends ArticleManager {
             this.displayArticles(this.allArticles);
             this.hasLoaded = true;
 
-            console.log('✅ Articles loaded on demand');
+            console.log('✅ Articles loaded successfully');
 
         } catch (error) {
-            console.error('Error loading articles:', error);
-            this.showErrorState();
+            console.error('❌ Error loading articles:', error);
+            this.showErrorState(error);
         } finally {
             this.isLoading = false;
         }
+    }
+
+    showErrorState(error) {
+        const container = document.getElementById('articles-list');
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="alert alert-danger">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <strong>❌ Failed to Load Articles</strong>
+                        <div class="small mt-1">Could not load articles from Dev.to. Please try again.</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger ms-3" onclick="window.portfolioApp.articleManager.retryLoad()">
+                        <i class="bi bi-arrow-clockwise"></i> Try Again
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    async retryLoad() {
+        if (this.isLoading) return;
+
+        this.hasLoaded = false;
+        await this.loadArticles();
     }
 
     showLoadingState() {
@@ -149,31 +163,5 @@ class LazyArticleManager extends ArticleManager {
                 </div>
             `;
         }
-    }
-
-    showErrorState() {
-        const container = document.getElementById('articles-list');
-        if (container) {
-            container.innerHTML = `
-                <div class="alert alert-danger">
-                    <i class="bi bi-exclamation-triangle"></i>
-                    Failed to load articles.
-                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="window.portfolioApp.articleManager.loadArticles()">
-                        Retry
-                    </button>
-                </div>
-            `;
-        }
-    }
-
-    displayArticles(articles) {
-        super.displayArticles(articles);
-
-        setTimeout(() => {
-            document.querySelectorAll('#articles-list .repo-card').forEach((card, index) => {
-                card.classList.add('fade-in-up', 'stagger-delay');
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        }, 100);
     }
 }

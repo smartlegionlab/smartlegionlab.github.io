@@ -3,29 +3,43 @@ class RepositoryManager {
         this.allRepositories = [];
         this.visibleRepos = 6;
         this.languageColors = {
-            'Python': '#3572A5', 'JavaScript': '#f1e05a', 'HTML': '#e34c26',
-            'CSS': '#563d7c', 'TypeScript': '#2b7489', 'Shell': '#89e051',
-            'Dockerfile': '#384d54', 'Jupyter Notebook': '#DA5B0B', 'PHP': '#4F5D95',
-            'Java': '#b07219', 'C++': '#f34b7d', 'C#': '#178600',
-            'Ruby': '#701516', 'Go': '#00ADD8', 'Rust': '#dea584'
+            'Python': '#3572A5',
+            'JavaScript': '#f1e05a',
+            'HTML': '#e34c26',
+            'CSS': '#563d7c',
+            'TypeScript': '#2b7489',
+            'Shell': '#89e051',
+            'Dockerfile': '#384d54',
+            'Jupyter Notebook': '#DA5B0B',
+            'PHP': '#4F5D95',
+            'Java': '#b07219',
+            'C++': '#f34b7d',
+            'C#': '#178600',
+            'Ruby': '#701516',
+            'Go': '#00ADD8',
+            'Rust': '#dea584'
         };
     }
 
     async fetchRepositories() {
-        let allRepos = [];
-        let page = 1;
-        let hasMoreRepos = true;
+        console.log(`📡 Fetching repositories for user: ${CONFIG.GITHUB_USERNAME}`);
 
-        while (hasMoreRepos) {
-            const response = await fetch(`https://api.github.com/users/${CONFIG.GITHUB_USERNAME}/repos?sort=updated&per_page=100&page=${page}`);
-            if (!response.ok) throw new Error('Failed to load repositories');
+        try {
+            const response = await fetch(`https://api.github.com/users/${CONFIG.GITHUB_USERNAME}/repos?sort=updated&per_page=100&page=1`);
+
+            if (!response.ok) {
+                throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+            }
+
             const repos = await response.json();
-            allRepos = allRepos.concat(repos);
-            hasMoreRepos = repos.length === 100;
-            page++;
-        }
+            console.log(`✅ Successfully fetched ${repos.length} repositories`);
 
-        return allRepos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+            return repos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+
+        } catch (error) {
+            console.error('❌ Error fetching repositories:', error);
+            throw error;
+        }
     }
 
     loadMoreRepos() {
@@ -122,8 +136,6 @@ class RepositoryManager {
 
         reposToShow.forEach(repo => {
             const card = this.createRepoCard(repo);
-            card.style.opacity = '1';
-            card.style.visibility = 'visible';
             grid.appendChild(card);
         });
 
@@ -257,27 +269,77 @@ class LazyRepositoryManager extends RepositoryManager {
         if (this.isLoading || this.hasLoadedRepos) return;
 
         this.isLoading = true;
-        console.log('🚀 Starting lazy loading of repositories...');
+        console.log('🚀 Loading repositories...');
 
         try {
             this.showSkeletonLoader();
 
-            this.allRepositories = await this.fetchRepositories();
+            const cachedRepos = RepositoryCache.getCachedRepos();
+            if (cachedRepos && cachedRepos.length > 0) {
+                console.log('📦 Using cached repositories');
+                this.allRepositories = cachedRepos;
+                this.displayRepositories();
+                this.hasLoadedRepos = true;
+            }
+
+            console.log('📡 Fetching fresh data from GitHub...');
+            const freshRepos = await this.fetchRepositories();
+
+            this.allRepositories = freshRepos;
+            RepositoryCache.saveRepos(freshRepos);
             this.displayRepositories();
             this.hasLoadedRepos = true;
+
+            console.log('✅ Repositories loaded successfully');
+
+        } catch (error) {
+            console.error('❌ Error loading repositories:', error);
+
+            if (!this.hasLoadedRepos) {
+                this.showErrorState(error);
+            }
+        } finally {
+            this.isLoading = false;
 
             if (this.repoObserver) {
                 this.repoObserver.disconnect();
             }
-
-            console.log('✅ Repositories loaded via lazy loading');
-
-        } catch (error) {
-            console.error('Error loading repositories:', error);
-            this.showErrorState();
-        } finally {
-            this.isLoading = false;
         }
+    }
+
+    showErrorState(error) {
+        const container = document.getElementById('repo-list');
+        if (!container) return;
+
+        const errorType = ErrorHandler.analyzeError(error);
+        const errorInfo = ErrorHandler.getErrorMessage(errorType);
+
+        container.innerHTML = `
+            <div class="alert alert-danger">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <strong>${errorInfo.title}</strong>
+                        <div class="small mt-1">${errorInfo.message}</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger ms-3" onclick="window.repositoryManager.retryLoad()">
+                        <i class="bi bi-arrow-clockwise"></i> ${errorInfo.action}
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    async retryLoad() {
+        if (this.isLoading) return;
+
+        this.hasLoadedRepos = false;
+
+        const container = document.getElementById('repo-list');
+        if (container) {
+            container.innerHTML = '';
+        }
+
+        await this.loadRepositories();
     }
 
     showSkeletonLoader() {
@@ -296,31 +358,5 @@ class LazyRepositoryManager extends RepositoryManager {
                 `).join('')}
             </div>
         `;
-    }
-
-    showErrorState() {
-        const container = document.getElementById('repo-list');
-        if (container) {
-            container.innerHTML = `
-                <div class="alert alert-danger">
-                    <i class="bi bi-exclamation-triangle"></i>
-                    Failed to load repositories.
-                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="window.repositoryManager.loadRepositories()">
-                        Retry
-                    </button>
-                </div>
-            `;
-        }
-    }
-
-    displayRepositories(repos = this.allRepositories) {
-        super.displayRepositories(repos);
-
-        setTimeout(() => {
-            document.querySelectorAll('.repo-card:not(.skeleton-card)').forEach((card, index) => {
-                card.classList.add('fade-in-up', 'stagger-delay');
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        }, 100);
     }
 }
