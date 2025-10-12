@@ -27,6 +27,14 @@ class ArticleManager {
         });
 
         container.appendChild(grid);
+
+        setTimeout(() => {
+            const cards = container.querySelectorAll('.repo-card');
+            cards.forEach((card, index) => {
+                card.classList.add('fade-in-up', 'stagger-delay', 'visible');
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }, 50);
     }
 
     createArticleCard(article) {

@@ -70,6 +70,7 @@ class RepositoryCache {
         try {
             const cached = localStorage.getItem(this.CACHE_KEY);
             if (!cached) {
+                console.log('📦 No cache found');
                 return null;
             }
 
@@ -78,15 +79,36 @@ class RepositoryCache {
             const isExpired = Date.now() - cacheData.timestamp > this.CACHE_TTL;
 
             if (isExpired) {
-                this.clearCache();
+                console.log('📦 Cache expired');
                 return null;
             }
 
-            console.log('📦 Loading repositories from cache');
+            console.log('📦 Fresh cache available');
             return cacheData.data;
         } catch (error) {
             console.warn('⚠️ Error reading cache:', error);
-            this.clearCache();
+            return null;
+        }
+    }
+
+    static getStaleCache() {
+        try {
+            const cached = localStorage.getItem(this.CACHE_KEY);
+            if (!cached) {
+                return null;
+            }
+
+            const cacheData = JSON.parse(cached);
+            const isExpired = Date.now() - cacheData.timestamp > this.CACHE_TTL;
+
+            console.log(`📦 ${isExpired ? 'Expired cache' : 'Fresh cache'} available for fallback`);
+
+            return {
+                data: cacheData.data,
+                isExpired: isExpired
+            };
+        } catch (error) {
+            console.warn('⚠️ Error reading stale cache:', error);
             return null;
         }
     }
@@ -94,6 +116,7 @@ class RepositoryCache {
     static clearCache() {
         try {
             localStorage.removeItem(this.CACHE_KEY);
+            console.log('🗑️ Cache cleared');
         } catch (error) {
             console.warn('⚠️ Error clearing cache:', error);
         }
