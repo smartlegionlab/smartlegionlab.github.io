@@ -134,3 +134,90 @@ class RepositoryCache {
         }
     }
 }
+
+class ArticleCache {
+    static CACHE_KEY = 'devto_articles_cache';
+    static CACHE_TTL = 2 * 60 * 60 * 1000;
+
+    static saveArticles(articles) {
+        try {
+            const cacheData = {
+                data: articles,
+                timestamp: Date.now(),
+                username: CONFIG.DEVTO_USERNAME
+            };
+            localStorage.setItem(this.CACHE_KEY, JSON.stringify(cacheData));
+            console.log('✅ Articles cached successfully');
+        } catch (error) {
+            console.warn('⚠️ Could not cache articles:', error);
+        }
+    }
+
+    static getCachedArticles() {
+        try {
+            const cached = localStorage.getItem(this.CACHE_KEY);
+            if (!cached) {
+                console.log('📦 No articles cache found');
+                return null;
+            }
+
+            const cacheData = JSON.parse(cached);
+
+            const isExpired = Date.now() - cacheData.timestamp > this.CACHE_TTL;
+
+            if (isExpired) {
+                console.log('📦 Articles cache expired');
+                return null;
+            }
+
+            console.log('📦 Fresh articles cache available');
+            return cacheData.data;
+        } catch (error) {
+            console.warn('⚠️ Error reading articles cache:', error);
+            return null;
+        }
+    }
+
+    static getStaleArticles() {
+        try {
+            const cached = localStorage.getItem(this.CACHE_KEY);
+            if (!cached) {
+                return null;
+            }
+
+            const cacheData = JSON.parse(cached);
+            const isExpired = Date.now() - cacheData.timestamp > this.CACHE_TTL;
+
+            console.log(`📦 ${isExpired ? 'Expired articles cache' : 'Fresh articles cache'} available for fallback`);
+
+            return {
+                data: cacheData.data,
+                isExpired: isExpired
+            };
+        } catch (error) {
+            console.warn('⚠️ Error reading stale articles cache:', error);
+            return null;
+        }
+    }
+
+    static clearArticlesCache() {
+        try {
+            localStorage.removeItem(this.CACHE_KEY);
+            console.log('🗑️ Articles cache cleared');
+        } catch (error) {
+            console.warn('⚠️ Error clearing articles cache:', error);
+        }
+    }
+
+    static getArticlesCacheAge() {
+        try {
+            const cached = localStorage.getItem(this.CACHE_KEY);
+            if (!cached) return null;
+
+            const cacheData = JSON.parse(cached);
+            return Date.now() - cacheData.timestamp;
+        } catch (error) {
+            return null;
+        }
+    }
+}

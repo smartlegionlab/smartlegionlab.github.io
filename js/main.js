@@ -69,7 +69,7 @@ class PortfolioApp {
         const articlesTab = document.querySelector('a[href="#articles-tab"]');
         if (articlesTab) {
             articlesTab.addEventListener('shown.bs.tab', async () => {
-                if (!this.articleManager.hasLoaded) {
+                if (!this.articleManager.hasLoaded && !this.articleManager.isLoading) {
                     await this.articleManager.loadArticles();
                 }
             });
