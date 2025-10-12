@@ -2,10 +2,19 @@ const CONFIG = {
     GITHUB_USERNAME: 'smartlegionlab',
     DEVTO_USERNAME: 'smartlegionlab',
     EXCLUDED_REPOSITORIES: ['smartlegionlab.github.io', 'smartlegionlab'],
-    RESEARCH_STATS: {
-        pointerParadigm: { views: 151, downloads: 143 },
-        localDataParadigm: { views: 69, downloads: 65 }
+
+    COUNTERS: {
+        PAPER_DOWNLOADS: 208,
+        PUBLIC_REPOS: 35,
+        PRODUCTION_PACKAGES: 20,
+        MONTHLY_DOWNLOADS: 15000,
+
+        RESEARCH_STATS: {
+            pointerParadigm: { views: 151, downloads: 143 },
+            localDataParadigm: { views: 69, downloads: 65 }
+        }
     },
+
     SCROLL_OFFSET: 80,
 
     CACHE_CONFIG: {
