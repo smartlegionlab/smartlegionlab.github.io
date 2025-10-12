@@ -49,8 +49,8 @@ class ErrorHandler {
 }
 
 class RepositoryCache {
-    static CACHE_KEY = 'github_repos_cache';
-    static CACHE_TTL = 60 * 60 * 1000;
+    static get CACHE_KEY() { return CONFIG.CACHE_CONFIG.REPOSITORIES.KEY; }
+    static get CACHE_TTL() { return CONFIG.CACHE_CONFIG.REPOSITORIES.TTL; }
 
     static saveRepos(repos) {
         try {
@@ -136,8 +136,8 @@ class RepositoryCache {
 }
 
 class ArticleCache {
-    static CACHE_KEY = 'devto_articles_cache';
-    static CACHE_TTL = 2 * 60 * 60 * 1000;
+    static get CACHE_KEY() { return CONFIG.CACHE_CONFIG.ARTICLES.KEY; }
+    static get CACHE_TTL() { return CONFIG.CACHE_CONFIG.ARTICLES.TTL; }
 
     static saveArticles(articles) {
         try {
