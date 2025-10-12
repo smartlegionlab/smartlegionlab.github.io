@@ -1497,3 +1497,105 @@ body {
         transform: rotate(45deg) translateX(100%);
     }
 }
+
+
+.skeleton-card {
+    background: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 0;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skeleton-line {
+    background: linear-gradient(90deg, var(--border) 25%, rgba(255,255,255,0.1) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.skeleton-title {
+    height: 20px;
+    width: 70%;
+}
+
+.skeleton-text {
+    height: 14px;
+    width: 90%;
+}
+
+.skeleton-text-short {
+    height: 14px;
+    width: 60%;
+}
+
+.skeleton-meta {
+    height: 12px;
+    width: 40%;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-delay:nth-child(1) { transition-delay: 0.1s; }
+.stagger-delay:nth-child(2) { transition-delay: 0.2s; }
+.stagger-delay:nth-child(3) { transition-delay: 0.3s; }
+.stagger-delay:nth-child(4) { transition-delay: 0.4s; }
+.stagger-delay:nth-child(5) { transition-delay: 0.5s; }
+.stagger-delay:nth-child(6) { transition-delay: 0.6s; }
+
+#repo-list, #articles-list {
+    min-height: 200px;
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.5rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+@media (max-width: 768px) {
+    .repo-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        margin: 0 !important;
+        padding: 0 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .repo-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}

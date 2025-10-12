@@ -1,83 +1,93 @@
 class PortfolioApp {
     constructor() {
-        this.repositoryManager = new RepositoryManager();
-        this.articleManager = new ArticleManager();
-        this.statsManager = new StatsManager();
-        this.citationManager = new CitationManager();
-        this.init();
+        this.loadingStages = {
+            CORE: 1,
+            VISUAL: 2,
+            CONTENT: 3,
+            LAZY: 4
+        };
+        this.currentStage = this.loadingStages.CORE;
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     }
 
     async init() {
-        const particleBg = new ParticleBackground();
-        new VerticalProgressNav();
-        new ScrollManager();
-        new AnimationManager();
+        await this.executeLoadingPipeline();
+    }
+
+    async executeLoadingPipeline() {
+        try {
+            await this.loadCoreFunctionality();
+
+            await this.loadVisualEffects();
+
+            this.setupLazyLoading();
+
+            console.log('✅ Portfolio app fully loaded with priority system');
+        } catch (error) {
+            console.error('Error in loading pipeline:', error);
+        }
+    }
+
+    async loadCoreFunctionality() {
+        this.scrollManager = new ScrollManager();
+        this.scrollManager.init();
+
+        this.progressNav = new VerticalProgressNav();
+
+        this.citationManager = new CitationManager();
+
+        this.statsManager = new StatsManager();
+
+        console.log('✅ Core functionality loaded');
+    }
+
+    async loadVisualEffects() {
+        if (!this.isMobile) {
+            this.particleBg = new ParticleBackground();
+        }
+
+        this.animationManager = new PriorityAnimationManager();
+        this.animationManager.initImmediate();
+
+        console.log('✅ Visual effects loaded');
+    }
+
+    setupLazyLoading() {
+        this.repositoryManager = new LazyRepositoryManager();
+        this.articleManager = new LazyArticleManager();
+
+        this.repositoryManager.initLazyLoading();
+
+        this.animationManager.initLazy();
 
         this.setupTabHandlers();
 
-        await this.loadInitialData();
-
-        window.addEventListener('beforeunload', () => {
-            particleBg.destroy();
-        });
+        console.log('✅ Lazy loading setup complete');
     }
 
     setupTabHandlers() {
-        document.querySelector('a[href="#repos-tab"]').addEventListener('shown.bs.tab', async () => {
-            try {
-                if (this.repositoryManager.allRepositories.length === 0) {
-                    this.repositoryManager.allRepositories = await this.repositoryManager.fetchRepositories();
+        const articlesTab = document.querySelector('a[href="#articles-tab"]');
+        if (articlesTab) {
+            articlesTab.addEventListener('shown.bs.tab', async () => {
+                if (!this.articleManager.hasLoaded) {
+                    await this.articleManager.loadArticles();
                 }
-                this.repositoryManager.visibleRepos = 6;
-                this.repositoryManager.displayRepositories();
-            } catch (error) {
-                document.getElementById('repo-list').innerHTML = `
-                    <div class="alert alert-danger">Error loading repositories: ${error.message}</div>
-                `;
-            }
-        });
-
-        document.querySelector('a[href="#articles-tab"]').addEventListener('shown.bs.tab', async () => {
-            try {
-                if (this.articleManager.allArticles.length === 0) {
-                    this.articleManager.allArticles = await this.articleManager.fetchArticles();
-                }
-                this.articleManager.displayArticles(this.articleManager.allArticles);
-            } catch (error) {
-                document.getElementById('articles-list').innerHTML = `
-                    <div class="alert alert-danger">Error loading articles: ${error.message}</div>
-                `;
-            }
-        });
-    }
-
-    async loadInitialData() {
-        try {
-            this.repositoryManager.allRepositories = await this.repositoryManager.fetchRepositories();
-            this.repositoryManager.displayRepositories();
-        } catch (error) {
-            document.getElementById('repo-list').innerHTML = `
-                <div class="alert alert-danger">Error loading repositories: ${error.message}</div>
-            `;
+            });
         }
     }
 }
 
-let repositoryManager;
+document.addEventListener('DOMContentLoaded', async () => {
+    document.body.style.opacity = '0';
 
-document.addEventListener('DOMContentLoaded', () => {
     const app = new PortfolioApp();
-    repositoryManager = app.repositoryManager;
-});
+    window.portfolioApp = app;
+    await app.init();
 
-window.addEventListener('resize', () => {
-    const grid = document.querySelector('.repo-grid');
-    if (grid && window.innerWidth <= 768) {
-        grid.style.padding = '0 15px';
-        const cards = grid.querySelectorAll('.repo-card');
-        cards.forEach(card => {
-            card.style.width = '100%';
-            card.style.margin = '0';
-        });
-    }
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.3s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+
+    window.repositoryManager = app.repositoryManager;
 });

@@ -11,6 +11,8 @@ class ArticleManager {
 
     displayArticles(articles) {
         const container = document.getElementById('articles-list');
+        if (!container) return;
+
         container.innerHTML = '';
 
         if (articles.length === 0) {
@@ -23,10 +25,20 @@ class ArticleManager {
 
         articles.forEach(article => {
             const card = this.createArticleCard(article);
+            card.style.opacity = '1';
+            card.style.visibility = 'visible';
             grid.appendChild(card);
         });
 
         container.appendChild(grid);
+
+        setTimeout(() => {
+            const cards = container.querySelectorAll('.repo-card');
+            cards.forEach((card, index) => {
+                card.classList.add('fade-in-up', 'stagger-delay', 'visible');
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }, 50);
     }
 
     createArticleCard(article) {
@@ -92,5 +104,76 @@ class ArticleManager {
         `;
 
         return card;
+    }
+}
+
+class LazyArticleManager extends ArticleManager {
+    constructor() {
+        super();
+        this.hasLoaded = false;
+        this.isLoading = false;
+    }
+
+    async loadArticles() {
+        if (this.isLoading || this.hasLoaded) return;
+
+        this.isLoading = true;
+        console.log('🚀 Loading articles on tab activation...');
+
+        try {
+            this.showLoadingState();
+
+            this.allArticles = await this.fetchArticles();
+            this.displayArticles(this.allArticles);
+            this.hasLoaded = true;
+
+            console.log('✅ Articles loaded on demand');
+
+        } catch (error) {
+            console.error('Error loading articles:', error);
+            this.showErrorState();
+        } finally {
+            this.isLoading = false;
+        }
+    }
+
+    showLoadingState() {
+        const container = document.getElementById('articles-list');
+        if (container) {
+            container.innerHTML = `
+                <div class="text-center py-4">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading articles...</span>
+                    </div>
+                    <p class="mt-3 text-muted">Loading technical articles...</p>
+                </div>
+            `;
+        }
+    }
+
+    showErrorState() {
+        const container = document.getElementById('articles-list');
+        if (container) {
+            container.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    Failed to load articles.
+                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="window.portfolioApp.articleManager.loadArticles()">
+                        Retry
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    displayArticles(articles) {
+        super.displayArticles(articles);
+
+        setTimeout(() => {
+            document.querySelectorAll('#articles-list .repo-card').forEach((card, index) => {
+                card.classList.add('fade-in-up', 'stagger-delay');
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }, 100);
     }
 }

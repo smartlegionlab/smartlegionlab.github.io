@@ -98,6 +98,8 @@ class RepositoryManager {
 
     displayRepositories(repos = this.allRepositories) {
         const container = document.getElementById('repo-list');
+        if (!container) return;
+
         container.innerHTML = '';
 
         const filteredRepos = repos.filter(repo =>
@@ -120,11 +122,21 @@ class RepositoryManager {
 
         reposToShow.forEach(repo => {
             const card = this.createRepoCard(repo);
+            card.style.opacity = '1';
+            card.style.visibility = 'visible';
             grid.appendChild(card);
         });
 
         container.appendChild(grid);
         this.updateReposFooter();
+
+        setTimeout(() => {
+            const cards = container.querySelectorAll('.repo-card');
+            cards.forEach((card, index) => {
+                card.classList.add('fade-in-up', 'stagger-delay', 'visible');
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }, 50);
     }
 
     createRepoCard(repo) {
@@ -209,20 +221,106 @@ class RepositoryManager {
 
         return card;
     }
+}
 
-    addReposFooter(container, showing, total, hasMore) {
-        const footer = document.createElement('div');
-        footer.className = 'd-flex flex-column align-items-center gap-3 mt-4';
-        footer.innerHTML = `
-            <div class="text-muted small">
-                Showing ${showing} of ${total} repositories
+class LazyRepositoryManager extends RepositoryManager {
+    constructor() {
+        super();
+        this.hasLoadedRepos = false;
+        this.isLoading = false;
+        this.repoObserver = null;
+    }
+
+    initLazyLoading() {
+        this.setupIntersectionObserver();
+    }
+
+    setupIntersectionObserver() {
+        this.repoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !this.hasLoadedRepos && !this.isLoading) {
+                    this.loadRepositories();
+                }
+            });
+        }, {
+            rootMargin: '300px',
+            threshold: 0
+        });
+
+        const repoSection = document.getElementById('repositories');
+        if (repoSection) {
+            this.repoObserver.observe(repoSection);
+        }
+    }
+
+    async loadRepositories() {
+        if (this.isLoading || this.hasLoadedRepos) return;
+
+        this.isLoading = true;
+        console.log('🚀 Starting lazy loading of repositories...');
+
+        try {
+            this.showSkeletonLoader();
+
+            this.allRepositories = await this.fetchRepositories();
+            this.displayRepositories();
+            this.hasLoadedRepos = true;
+
+            if (this.repoObserver) {
+                this.repoObserver.disconnect();
+            }
+
+            console.log('✅ Repositories loaded via lazy loading');
+
+        } catch (error) {
+            console.error('Error loading repositories:', error);
+            this.showErrorState();
+        } finally {
+            this.isLoading = false;
+        }
+    }
+
+    showSkeletonLoader() {
+        const container = document.getElementById('repo-list');
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="repo-grid">
+                ${Array(6).fill(0).map(() => `
+                    <div class="repo-card skeleton-card">
+                        <div class="skeleton-line skeleton-title"></div>
+                        <div class="skeleton-line skeleton-text"></div>
+                        <div class="skeleton-line skeleton-text-short"></div>
+                        <div class="skeleton-line skeleton-meta"></div>
+                    </div>
+                `).join('')}
             </div>
-            ${hasMore ? `
-                <button class="btn btn-outline-primary" onclick="repositoryManager.loadMoreRepos()">
-                    <i class="bi bi-plus-circle"></i> Load More
-                </button>
-            ` : ''}
         `;
-        container.appendChild(footer);
+    }
+
+    showErrorState() {
+        const container = document.getElementById('repo-list');
+        if (container) {
+            container.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    Failed to load repositories.
+                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="window.repositoryManager.loadRepositories()">
+                        Retry
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    displayRepositories(repos = this.allRepositories) {
+        super.displayRepositories(repos);
+
+        setTimeout(() => {
+            document.querySelectorAll('.repo-card:not(.skeleton-card)').forEach((card, index) => {
+                card.classList.add('fade-in-up', 'stagger-delay');
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }, 100);
     }
 }
