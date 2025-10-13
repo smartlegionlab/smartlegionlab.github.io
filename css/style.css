@@ -1619,3 +1619,233 @@ body {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.opportunity-card {
+    background: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.opportunity-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(13, 110, 253, 0.25);
+    border-color: var(--accent-dark);
+}
+
+.opportunity-card:hover::before {
+    transform: scaleX(1);
+}
+
+.opportunity-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.opportunity-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.opportunity-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.opportunity-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.opportunity-content {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.opportunity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.opportunity-item:hover {
+    background: rgba(13, 110, 253, 0.1);
+    border-color: var(--accent);
+    transform: translateX(5px);
+}
+
+.opportunity-item i {
+    font-size: 1.1rem;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.opportunity-item span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.opportunity-status {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.status-badge {
+    display: inline-block;
+    background: rgba(13, 110, 253, 0.15);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(13, 110, 253, 0);
+    }
+}
+
+.contact-actions {
+    background: rgba(13, 110, 253, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+}
+
+.contact-actions .lead {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.text-accent {
+    color: var(--accent) !important;
+}
+
+@media (max-width: 768px) {
+    .opportunities-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .opportunity-card {
+        padding: 1.5rem;
+    }
+
+    .contact-actions {
+        padding: 1.5rem;
+    }
+
+    .contact-actions .lead {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .opportunity-card {
+        padding: 1.25rem;
+    }
+
+    .opportunity-item {
+        padding: 0.6rem;
+    }
+
+    .opportunity-item span {
+        font-size: 0.85rem;
+    }
+
+    .contact-actions {
+        padding: 1rem;
+    }
+}
+
+.contact-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.contact-btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .contact-buttons-container {
+        gap: 0.6rem;
+    }
+
+    .contact-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+}
