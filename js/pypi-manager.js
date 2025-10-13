@@ -326,7 +326,7 @@ class PyPIManager {
                 </div>
             </div>
 
-            <div class="repo-footer">
+            <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
                 <a href="${pkg.project_url}" target="_blank" class="repo-action" title="View on PyPI">
                     <i class="bi bi-box-arrow-up-right"></i> View on PyPI
                 </a>
