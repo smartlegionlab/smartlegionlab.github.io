@@ -52,6 +52,8 @@ class PortfolioApp {
         this.animationManager = new PriorityAnimationManager();
         this.animationManager.initImmediate();
 
+        this.setupParadigmAnimations();
+
         console.log('✅ Visual effects loaded');
     }
 
@@ -90,7 +92,36 @@ class PortfolioApp {
                 }
             });
         }
+    }
 
+    setupParadigmAnimations() {
+        document.getElementById('playTimelinePointer')?.addEventListener('click', function() {
+            const container = this.closest('.paradigm-timeline');
+            const items = container.querySelectorAll('.timeline-item');
+
+            items.forEach(item => item.classList.remove('active'));
+
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('active');
+                }, index * 600);
+            });
+        });
+
+        document.getElementById('playTimelineLocalData')?.addEventListener('click', function() {
+            const container = this.closest('.paradigm-timeline');
+            const items = container.querySelectorAll('.timeline-item');
+
+            items.forEach(item => item.classList.remove('active'));
+
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('active');
+                }, index * 600);
+            });
+        });
+
+        console.log('✅ Paradigm animations initialized');
     }
 }
 

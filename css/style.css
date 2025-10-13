@@ -1849,3 +1849,51 @@ body {
         font-size: 0.85rem;
     }
 }
+
+.paradigm-timeline {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-container {
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    opacity: 0.3;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -2.1rem;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 3px solid var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.timeline-item.active .timeline-marker {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+}
+
+.timeline-content h6 {
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
