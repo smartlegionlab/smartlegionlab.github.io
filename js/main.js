@@ -61,7 +61,13 @@ class PortfolioApp {
         this.repositoryManager = new LazyRepositoryManager();
         this.articleManager = new LazyArticleManager();
 
-        this.repositoryManager.initLazyLoading();
+         if (document.readyState === 'complete') {
+            this.repositoryManager.loadRepositories();
+        } else {
+            window.addEventListener('load', () => {
+                this.repositoryManager.loadRepositories();
+            });
+        }
 
         this.animationManager.initLazy();
 
