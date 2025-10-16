@@ -4,14 +4,14 @@ const CONFIG = {
     EXCLUDED_REPOSITORIES: ['smartlegionlab'],
 
     COUNTERS: {
-        PAPER_DOWNLOADS: 208,
+        PAPER_DOWNLOADS: 250,
         PUBLIC_REPOS: 35,
         PRODUCTION_PACKAGES: 20,
         MONTHLY_DOWNLOADS: 15000,
 
         RESEARCH_STATS: {
-            pointerParadigm: { views: 151, downloads: 143 },
-            localDataParadigm: { views: 69, downloads: 65 }
+            pointerParadigm: { views: 180, downloads: 168 },
+            localDataParadigm: { views: 99, downloads: 93 }
         }
     },
 

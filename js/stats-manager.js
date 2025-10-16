@@ -34,7 +34,7 @@ class StatsManager {
     updateHeaderStats(totalDownloads) {
         const stats = document.querySelectorAll('.stats-row .stat');
         if (stats.length >= 4) {
-            stats[0].querySelector('.stat-number').textContent = totalDownloads;
+            stats[0].querySelector('.stat-number').textContent = totalDownloads + '+';
             stats[1].querySelector('.stat-number').textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
             stats[2].querySelector('.stat-number').textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
             stats[3].querySelector('.stat-number').textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
@@ -49,7 +49,7 @@ class StatsManager {
 
         const metrics = document.querySelectorAll('.metric-item .metric-number');
         if (metrics.length >= 4) {
-            metrics[0].textContent = totalDownloads;
+            metrics[0].textContent = totalDownloads + '+';
             metrics[1].textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
             metrics[2].textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
             metrics[3].textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
