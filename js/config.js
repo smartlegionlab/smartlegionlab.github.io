@@ -11,7 +11,8 @@ const CONFIG = {
 
         RESEARCH_STATS: {
             pointerParadigm: { views: 180, downloads: 168 },
-            localDataParadigm: { views: 99, downloads: 93 }
+            localDataParadigm: { views: 99, downloads: 93 },
+            deterministicEngine: { views: 75, downloads: 62 }
         }
     },
 
@@ -57,7 +58,8 @@ const CONFIG = {
     ZENODO: {
         RECORDS: {
             POINTER_PARADIGM: '17204738',
-            LOCAL_DATA_PARADIGM: '17264327'
+            LOCAL_DATA_PARADIGM: '17264327',
+            DETERMINISTIC_ENGINE: '17383447'
         },
         CACHE_TTL: 2 * 60 * 60 * 1000,
         CACHE_KEY: 'zenodo_stats_cache'

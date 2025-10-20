@@ -20,13 +20,19 @@ class StatsManager {
         const pointerDownloads = document.getElementById('pointer-downloads');
         const localdataViews = document.getElementById('localdata-views');
         const localdataDownloads = document.getElementById('localdata-downloads');
+        const engineViews = document.getElementById('engine-views');
+        const engineDownloads = document.getElementById('engine-downloads');
 
         if (pointerViews) pointerViews.textContent = stats.pointerParadigm.views;
         if (pointerDownloads) pointerDownloads.textContent = stats.pointerParadigm.downloads;
         if (localdataViews) localdataViews.textContent = stats.localDataParadigm.views;
         if (localdataDownloads) localdataDownloads.textContent = stats.localDataParadigm.downloads;
+        if (engineViews) engineViews.textContent = stats.deterministicEngine.views;
+        if (engineDownloads) engineDownloads.textContent = stats.deterministicEngine.downloads;
 
-        const totalDownloads = stats.pointerParadigm.downloads + stats.localDataParadigm.downloads;
+        const totalDownloads = stats.pointerParadigm.downloads +
+                              stats.localDataParadigm.downloads +
+                              stats.deterministicEngine.downloads;
         this.updateHeaderStats(totalDownloads);
         this.updateMetricsStats(totalDownloads);
     }

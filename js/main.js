@@ -127,6 +127,19 @@ class PortfolioApp {
             });
         });
 
+        document.getElementById('playTimelineEngine')?.addEventListener('click', function() {
+            const container = this.closest('.paradigm-timeline');
+            const items = container.querySelectorAll('.timeline-item');
+
+            items.forEach(item => item.classList.remove('active'));
+
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('active');
+                }, index * 600);
+            });
+        });
+
         console.log('✅ Paradigm animations initialized');
     }
 }

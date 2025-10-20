@@ -1898,3 +1898,15 @@ body {
     margin-bottom: 0.25rem;
     font-weight: 600;
 }
+
+#research hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 3rem 0;
+    opacity: 0.3;
+}
+
+#research hr:last-of-type {
+    margin-bottom: 0;
+}
