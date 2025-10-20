@@ -43,7 +43,7 @@ class StatsManager {
             stats[0].querySelector('.stat-number').textContent = totalDownloads + '+';
             stats[1].querySelector('.stat-number').textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
             stats[2].querySelector('.stat-number').textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
-            stats[3].querySelector('.stat-number').textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
+            stats[3].querySelector('.stat-number').textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + 'K+';
         }
     }
 
@@ -58,7 +58,7 @@ class StatsManager {
             metrics[0].textContent = totalDownloads + '+';
             metrics[1].textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
             metrics[2].textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
-            metrics[3].textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
+            metrics[3].textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + 'K+';
         }
     }
 
