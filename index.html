@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alexander Suvorov - Software Architect, Paradigms Author</title>
+    <meta name="description" content="Software Architect and Author of Pointer-Based Security & Local Data Regeneration paradigms. Published researcher.">
+    <meta name="author" content="Alexander Suvorov">
+    <meta name="copyright" content="Alexander Suvorov">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/">
+    <link rel="author" href="https://orcid.org/0009-0006-3427-9611">
+
+    <meta property="og:title" content="Alexander Suvorov - Software Architect, Paradigms Author">
+    <meta property="og:description" content="Software Architect and Author of Pointer-Based Security and Local Data Regeneration paradigms. Published researcher.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/">
+    <meta property="og:site_name" content="Alexander Suvorov - Research & Development">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alexander Suvorov",
+      "url": "https://smartlegionlab.ru/",
+      "jobTitle": "Software Architect, Paradigms Author",
+      "description": "Software Architect and Author of Pointer-Based Security and Local Data Regeneration paradigms",
+      "sameAs": [
+        "https://github.com/smartlegionlab",
+        "https://orcid.org/0009-0006-3427-9611",
+        "https://doi.org/10.5281/zenodo.17204738",
+        "https://doi.org/10.5281/zenodo.17264327",
+        "https://doi.org/10.5281/zenodo.17383447",
+        "https://independent.academia.edu/smartlegionlab",
+        "https://dev.to/smartlegionlab",
+        "https://pypi.org/user/smartlegionlab/"
+      ]
+    }
+    </script>
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body role="document">
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+
+<div class="container">
+    <div class="paper-container">
+        <header class="professional-header" id="hero">
+            <div class="container">
+                <div class="header-content">
+                    <div class="main-profile-row">
+                        <div class="avatar-container">
+                            <div class="profile-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
+                                     class="bi bi-incognito text-dark" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                          d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="name">Alexander Suvorov</h1>
+                            <p class="title">Software Architect | Author of Pointer-Based Security & Local Data
+                                Regeneration Paradigms</p>
+                            <div class="badges">
+                                <span class="badge">Software Architect</span>
+                                <span class="badge">Paradigms Author</span>
+                                <span class="badge">Security Researcher</span>
+                                <span class="badge">Python/Django</span>
+                                <span class="badge">Published Researcher</span>
+                                <span class="badge">Deterministic Systems</span>
+                                <span class="badge">Linux Systems</span>
+                                <span class="badge">Game Technology</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat">
+                            <div class="stat-number">350+</div>
+                            <div class="stat-label">Unique Paper Downloads</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">35+</div>
+                            <div class="stat-label">Public Repos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">PYPI Packages</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15000+</div>
+                            <div class="stat-label">Monthly Downloads</div>
+                        </div>
+                    </div>
+
+                    <nav class="navigation" aria-label="Main navigation">
+                        <a href="#about" class="nav-btn" aria-label="Go to About section">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                            <span>About</span>
+                        </a>
+                        <a href="#research" class="nav-btn" aria-label="Go to Research section">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                            <span>Research</span>
+                        </a>
+                        <a href="#repositories" class="nav-btn" aria-label="Go to Repositories section">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                            <span>Repos</span>
+                        </a>
+                        <a href="#expertise" class="nav-btn" aria-label="Go to Expertise section">
+                            <i class="bi bi-mortarboard" aria-hidden="true"></i>
+                            <span>Expertise</span>
+                        </a>
+                        <a href="#contact" class="nav-btn" aria-label="Go to Contact section">
+                            <i class="bi bi-envelope" aria-hidden="true"></i>
+                            <span>Contact</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-section" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-search" aria-hidden="true"></i> Research Focus</h3>
+                            <p class="mb-0">
+                                I am a <span class="highlight-accent">software architect</span> and <span
+                                    class="highlight-accent">researcher</span> who creates
+                                <span class="highlight-primary">new approaches</span> to <span class="highlight-accent">digital security</span>
+                                and
+                                <span class="highlight-accent">data transmission</span>. My work introduces
+                                <span class="highlight-primary">architectural transformations</span> that change how
+                                systems handle
+                                sensitive information, moving from <span class="highlight-muted">data protection</span>
+                                to
+                                <span class="highlight-primary">data non-existence</span>.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-code-slash" aria-hidden="true"></i> Technical Expertise</h3>
+                            <p class="mb-0">
+                                As a <strong class="highlight-primary">Python/Django Architect</strong>, I specialize in
+                                <span class="highlight-accent">full-cycle development</span> -
+                                from <span class="highlight-muted">initial architecture</span>
+                                to <span class="highlight-muted">production deployment</span>. I build everything from
+                                <span class="highlight-muted">console applications</span> and <span
+                                    class="highlight-muted">libraries</span> to
+                                <span class="highlight-accent">complex web applications</span> and <span
+                                    class="highlight-accent">APIs</span>, with a focus on <span
+                                    class="highlight-primary">security</span>, <span class="highlight-primary">scalability</span>,
+                                and <span class="highlight-primary">maintainability</span>.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-lightbulb" aria-hidden="true"></i> Research Impact</h3>
+                            <p class="mb-0">
+                                I created the <a target="_blank" class="text-decoration-none highlight-primary"
+                                                 href="https://doi.org/10.5281/zenodo.17204738"><strong>Pointer-Based
+                                Security Paradigm</strong></a> and
+                                <a target="_blank" class="text-decoration-none highlight-primary"
+                                   href="https://doi.org/10.5281/zenodo.17264327"><strong>Local Data Regeneration
+                                    Paradigm</strong></a>,
+                                which offer <span class="highlight-primary">new ways to approach security and data transmission</span>.
+                                These paradigms are <span class="highlight-accent">publicly available</span> and include
+                                <span class="highlight-muted">working implementations</span> that demonstrate their
+                                feasibility.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-terminal" aria-hidden="true"></i> Development Environment</h3>
+                            <p class="mb-0">
+                                I work extensively with <span class="highlight-primary">Linux systems</span>,
+                                primarily using <span class="highlight-accent">Arch Linux</span> for development.
+                                This environment provides the <span
+                                    class="highlight-accent">flexibility and control</span>
+                                needed for <span class="highlight-primary">advanced security research</span> and
+                                <span class="highlight-primary">system-level programming</span>.
+                            </p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i> Scalability
+                                & Performance</h3>
+                            <p class="mb-0">
+                                I specialize in building systems that handle <span class="highlight-accent">massive scale</span>
+                                -
+                                from <span class="highlight-primary">1.3M+ operations per second</span> in deterministic
+                                engines to
+                                <span class="highlight-primary">social networks supporting real-time interactions</span>.
+                                My architectures
+                                consistently achieve <span class="highlight-accent">90% reduction in infrastructure costs</span>
+                                while
+                                maintaining <span class="highlight-primary">cryptographic verification</span> and
+                                <span class="highlight-primary">mathematical fairness</span>.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card research-card">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-3">Research & Development Metrics</h3>
+
+                                <div class="metrics-stack">
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-cloud-download" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number" id="total-downloads-metric">350+</div>
+                                            <div class="metric-label">Unique Paper Downloads</div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-github" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number">35+</div>
+                                            <div class="metric-label">Public Repos</div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number">20+</div>
+                                            <div class="metric-label">PYPI Packages</div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="metric-item">
+                                        <div class="metric-icon-small">
+                                            <i class="bi bi-download" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="metric-content">
+                                            <div class="metric-number">15000+</div>
+                                            <div class="metric-label">Monthly Downloads</div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <small class="text-muted">Across research publications & open source
+                                        projects</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="research">
+    <div class="container">
+        <h2 class="section-title">Research Paradigms</h2>
+
+        <div>
+            <div class="">
+                <div class="card research-card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="research-header text-center">
+                            <i class="bi bi-shield-check paradigm-icon" aria-hidden="true"></i>
+                            <h3 class="research-title">Pointer-Based Security Paradigm</h3>
+                            <p class="research-subtitle">Architectural Shift from Data Protection to Data Non-Existence</p>
+                        </div>
+
+                        <p class="research-description">
+                            A fundamental <span class="highlight-primary">rethinking of digital security architecture</span>
+                            that
+                            <span class="highlight-accent">eliminates vulnerable data existence</span> rather
+                            than
+                            <span class="highlight-muted">protecting it through conventional encryption</span>
+                            and
+                            <span class="highlight-muted">access control mechanisms</span>.
+                        </p>
+
+                        <div class="research-links">
+                            <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
+                            <div class="btn-group btn-group-sm d-flex flex-wrap">
+                                <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Pointer-Based Security Paradigm paper">
+                                    <i class="bi bi-journal-text" aria-hidden="true"></i> Paper
+                                </a>
+                                <a target="_blank"
+                                   href="https://github.com/smartlegionlab/pointer-based-security-paradigm"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="View Pointer-Based Security Paradigm code on GitHub">
+                                    <i class="bi bi-github" aria-hidden="true"></i> Code
+                                </a>
+                                <a target="_blank"
+                                   href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Pointer-Based Security Paradigm article on Dev.to">
+                                    <i class="bi bi-file-text" aria-hidden="true"></i> Article
+                                </a>
+                                <a target="_blank"
+                                   href="https://zenodo.org/records/17204738/files/suvorov-the-pointer-based-security-paradigm-v2.pdf?download=1"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Download Pointer-Based Security Paradigm PDF">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                                    </svg>
+                                    PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="citation-tabs-container mt-3">
+                            <ul class="nav nav-tabs citation-tabs mb-3" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#pointer-bibtex" role="tab" aria-selected="true">BibTeX</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pointer-apa" role="tab" aria-selected="false">APA</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#pointer-mla" role="tab" aria-selected="false">MLA</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="pointer-bibtex">
+                                    <div class="citation-format">
+                                        <button class="copy-btn" data-text="@misc{suvorov_2025_17204738,
+  author       = {Suvorov, Alexander},
+  title        = {The Pointer-Based Security Paradigm: Architectural
+                   Shift from Data Protection to Data Non-Existence
+                  },
+  month        = sep,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17204738},
+  url          = {https://doi.org/10.5281/zenodo.17204738},
+}">
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                                        </button>
+                                        <pre class="citation-text">@misc{suvorov_2025_17204738,
+  author       = {Suvorov, Alexander},
+  title        = {The Pointer-Based Security Paradigm: Architectural
+                   Shift from Data Protection to Data Non-Existence
+                  },
+  month        = sep,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17204738},
+  url          = {https://doi.org/10.5281/zenodo.17204738},
+}</pre>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pointer-apa">
+                                    <div class="citation-format">
+                                        <button class="copy-btn" data-text="Suvorov, A. (2025). The Pointer-Based Security Paradigm: Architectural Shift from Data Protection to Data Non-Existence. Zenodo. https://doi.org/10.5281/zenodo.17204738">
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                                        </button>
+                                        <p class="citation-text">Suvorov, A. (2025). The Pointer-Based Security Paradigm: Architectural Shift from Data Protection to Data Non-Existence. Zenodo. https://doi.org/10.5281/zenodo.17204738</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pointer-mla">
+                                    <div class="citation-format">
+                                        <button class="copy-btn" data-text="Suvorov, A. The Pointer-based Security Paradigm: Architectural Shift from Data Protection to Data Non-existence. Zenodo, 26 September 2025 г., https://doi.org/10.5281/zenodo.17204738.">
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                                        </button>
+                                        <p class="citation-text">Suvorov, A. The Pointer-based Security Paradigm: Architectural Shift from Data Protection to Data Non-existence. Zenodo, 26 September 2025 г., https://doi.org/10.5281/zenodo.17204738.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="research-stats-grid">
+                            <div class="stat-item">
+                                <div class="stats-number" id="pointer-views"></div>
+                                <div class="stats-label">Unique Views</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stats-number" id="pointer-downloads"></div>
+                                <div class="stats-label">Unique Downloads</div>
+                            </div>
+                        </div>
+
+                        <div class="research-metadata">
+                            <p class="text-center text-light">Over <span class="text-danger">100+ unique views</span>
+                                and <span class="text-danger">unique downloads</span> on <a
+                                        target="_blank"
+                                        href="https://doi.org/10.5281/zenodo.17204738">Zenodo</a> in
+                                the <span class="text-danger">first week</span> alone</p>
+                            <hr>
+                            <div class="metadata-item">
+                                <span class="metadata-label">DOI:</span>
+                                <span class="metadata-value">10.5281/zenodo.17204738</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Published:</span>
+                                <span class="metadata-value">September 26, 2025</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Status:</span>
+                                <span class="metadata-value">🔬 Theoretical Research</span>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="research-card mt-4">
+                            <div class="card-body">
+                                <h3 class="text-accent mb-3">🔬 Proof of Concept Validation</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>Core Principles Proven</strong>
+                                                <div class="text-muted small">All three paradigm transformations
+                                                    validated
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>Architectural Elimination</strong>
+                                                <div class="text-muted small">Attack surfaces eliminated at
+                                                    architectural level
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>Zero Data Transmission</strong>
+                                                <div class="text-muted small">Only discovery coordinates exchanged</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>No Secret Storage</strong>
+                                                <div class="text-muted small">Deterministic regeneration eliminates
+                                                    credential databases
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-dark mt-3 mb-0">
+                                    <div class="text-center">
+                                        <p class="lead text-success">Deterministic Game Engine</p>
+                                        <p class="lead">Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms</p>
+                                        <a href="https://zenodo.org/records/17383447" class="text-decoration-none">Paper</a> | <a href="https://github.com/smartlegionlab/deterministic-game-engine-report" class="text-decoration-none">Github</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="">
+                <div class="card research-card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="research-header text-center">
+                            <i class="bi bi-arrow-repeat paradigm-icon" aria-hidden="true"></i>
+                            <h3 class="research-title">Local Data Regeneration Paradigm</h3>
+                            <p class="research-subtitle">Ontological Shift from Data Transmission to Synchronous State Discovery</p>
+                        </div>
+
+                        <p class="research-description">
+                            <span class="highlight-primary">Fundamental theoretical work</span> proposing an alternative to
+                            <span class="highlight-muted">classical information transmission</span>, where
+                            <span class="highlight-accent">data is regenerated locally</span> through
+                            <span class="highlight-primary">synchronized computation</span> rather than
+                            <span class="highlight-muted">physically transferred across networks</span>.
+                        </p>
+
+                        <div class="research-links">
+                            <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
+                            <div class="btn-group btn-group-sm d-flex flex-wrap">
+                                <a target="_blank" href="https://doi.org/10.5281/zenodo.17264327"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Local Data Regeneration Paradigm paper">
+                                    <i class="bi bi-journal-text" aria-hidden="true"></i> Paper
+                                </a>
+                                <a target="_blank"
+                                   href="https://github.com/smartlegionlab/local-data-regeneration-paradigm"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="View Local Data Regeneration Paradigm code on GitHub">
+                                    <i class="bi bi-github" aria-hidden="true"></i> Code
+                                </a>
+                                <a target="_blank"
+                                   href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-state-21e"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Local Data Regeneration Paradigm article on Dev.to">
+                                    <i class="bi bi-file-text" aria-hidden="true"></i> Article
+                                </a>
+                                <a target="_blank"
+                                   href="https://zenodo.org/records/17264327/files/suvorov-the-local-data-regeneration-paradigm.pdf?download=1"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Download Local Data Regeneration Paradigm PDF">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                                    </svg>
+                                    PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="citation-tabs-container mt-3">
+                            <ul class="nav nav-tabs citation-tabs mb-3" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#localdata-bibtex" role="tab" aria-selected="true">BibTeX</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#localdata-apa" role="tab" aria-selected="false">APA</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#localdata-mla" role="tab" aria-selected="false">MLA</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="localdata-bibtex">
+                                    <div class="citation-format">
+                                        <button class="copy-btn" data-text="@misc{suvorov_2025_17264327,
+  author       = {Suvorov, Alexander},
+  title        = {The Local Data Regeneration Paradigm: Ontological
+                   Shift from Data Transmission to Synchronous State
+                   Discovery
+                  },
+  month        = oct,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17264327},
+  url          = {https://doi.org/10.5281/zenodo.17264327},
+}">
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                                        </button>
+                                        <pre class="citation-text">@misc{suvorov_2025_17264327,
+  author       = {Suvorov, Alexander},
+  title        = {The Local Data Regeneration Paradigm: Ontological
+                   Shift from Data Transmission to Synchronous State
+                   Discovery
+                  },
+  month        = oct,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17264327},
+  url          = {https://doi.org/10.5281/zenodo.17264327},
+}</pre>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="localdata-apa">
+                                    <div class="citation-format">
+                                        <button class="copy-btn" data-text="Suvorov, A. (2025). The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo. https://doi.org/10.5281/zenodo.17264327">
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                                        </button>
+                                        <p class="citation-text">Suvorov, A. (2025). The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo. https://doi.org/10.5281/zenodo.17264327</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="localdata-mla">
+                                    <div class="citation-format">
+                                        <button class="copy-btn" data-text="Suvorov, A. The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo, 4 October 2025 г., https://doi.org/10.5281/zenodo.17264327.">
+                                            <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                                        </button>
+                                        <p class="citation-text">Suvorov, A. The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo, 4 October 2025 г., https://doi.org/10.5281/zenodo.17264327.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="research-stats-grid">
+                            <div class="stat-item">
+                                <div class="stats-number" id="localdata-views"></div>
+                                <div class="stats-label">Unique Views</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stats-number" id="localdata-downloads"></div>
+                                <div class="stats-label">Unique Downloads</div>
+                            </div>
+                        </div>
+
+                        <div class="research-metadata">
+                            <div class="metadata-item">
+                                <span class="metadata-label">DOI:</span>
+                                <span class="metadata-value">10.5281/zenodo.17264327</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Published:</span>
+                                <span class="metadata-value">October 4, 2025</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Status:</span>
+                                <span class="metadata-value">🔬 Theoretical Research</span>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="research-card mt-4">
+                            <div class="card-body">
+                                <h3 class="text-accent mb-3">🔬 Proof of Concept Validation</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>Core Principles Proven</strong>
+                                                <div class="text-muted small">All three paradigm postulates validated
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>Synchronous Discovery</strong>
+                                                <div class="text-muted small">Data emerges through local computation
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>Universal Architecture</strong>
+                                                <div class="text-muted small">Works across platforms and systems</div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start mb-3">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                               aria-hidden="true"></i>
+                                            <div>
+                                                <strong>State Coordination</strong>
+                                                <div class="text-muted small">Communication as pointer synchronization
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-dark mt-3 mb-0">
+                                    <div class="text-center">
+                                        <p class="lead text-success">Deterministic Game Engine</p>
+                                        <p class="lead">Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms</p>
+                                        <a href="https://zenodo.org/records/17383447" class="text-decoration-none">Paper</a> | <a href="https://github.com/smartlegionlab/deterministic-game-engine-report" class="text-decoration-none">Github</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="">
+                <div class="card research-card">
+                    <div class="card-body d-flex flex-column">
+                        <div class="research-header text-center">
+                            <i class="bi bi-cpu paradigm-icon" aria-hidden="true"></i>
+                            <h3 class="research-title">Deterministic Game Engine</h3>
+                            <p class="research-subtitle">Practical Implementation of Security & Regeneration
+                                Paradigms</p>
+                        </div>
+
+                        <p class="research-description">
+                            A <span class="highlight-primary">research prototype</span> demonstrating the practical
+                            feasibility of both
+                            <span class="highlight-accent">Pointer-Based Security</span> and
+                            <span class="highlight-accent">Local Data Regeneration</span> paradigms through a
+                            deterministic game engine architecture with
+                            <span class="highlight-primary">O(1) state access</span> and
+                            <span class="highlight-primary">mathematical verification</span> capabilities.
+                        </p>
+
+                        <div class="research-links">
+                            <strong class="text-accent d-block mb-2">🔗 Research Links:</strong>
+                            <div class="btn-group btn-group-sm d-flex flex-wrap">
+                                <a target="_blank" href="https://doi.org/10.5281/zenodo.17383447"
+                                   class="btn btn-outline-primary me-1 mb-1"
+                                   aria-label="Read Deterministic Game Engine paper">
+                                    <i class="bi bi-journal-text" aria-hidden="true"></i> Paper
+                                </a>
+                                <a target="_blank"
+                                   href="https://github.com/smartlegionlab/deterministic-game-engine-report"
+                                   class="btn btn-outline-primary me-1 mb-1"
+                                   aria-label="View Deterministic Game Engine code on GitHub">
+                                    <i class="bi bi-github" aria-hidden="true"></i> Code
+                                </a>
+                                <a target="_blank"
+                                   href="https://dev.to/smartlegionlab/deterministic-game-engine-practical-validation-of-pointer-based-security-and-local-data-408l"
+                                   class="btn btn-outline-primary me-1 mb-1" aria-label="Read Deterministic Game Engine article on Dev.to">
+                                    <i class="bi bi-file-text" aria-hidden="true"></i> Article
+                                </a>
+                                <a target="_blank"
+                                   href="https://zenodo.org/records/17383447/files/suvorov-smart-deterministic-game-engine-report-en.pdf?download=1"
+                                   class="btn btn-outline-primary me-1 mb-1"
+                                   aria-label="Download Deterministic Game Engine PDF">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         fill="currentColor" class="bi bi-filetype-pdf" viewBox="0 0 16 16"
+                                         aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z"/>
+                                    </svg>
+                                    PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="citation-tabs-container mt-3">
+                            <ul class="nav nav-tabs citation-tabs mb-3" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#engine-bibtex" role="tab"
+                                       aria-selected="true">BibTeX</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#engine-apa" role="tab"
+                                       aria-selected="false">APA</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#engine-mla" role="tab"
+                                       aria-selected="false">MLA</a>
+                                </li>
+                            </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="engine-bibtex">
+                        <div class="citation-format">
+                            <button class="copy-btn" data-text="@misc{suvorov_2025_17383447,
+  author       = {Suvorov, Alexander},
+  title        = {Deterministic Game Engine: Practical
+                   Implementation of Pointer-Based Security and Local
+                   Data Regeneration Paradigms
+                  },
+  month        = oct,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17383447},
+  url          = {https://doi.org/10.5281/zenodo.17383447},
+}">
+                                <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                            </button>
+                            <pre class="citation-text">@misc{suvorov_2025_17383447,
+  author       = {Suvorov, Alexander},
+  title        = {Deterministic Game Engine: Practical
+                   Implementation of Pointer-Based Security and Local
+                   Data Regeneration Paradigms
+                  },
+  month        = oct,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17383447},
+  url          = {https://doi.org/10.5281/zenodo.17383447},
+}</pre>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="engine-apa">
+                        <div class="citation-format">
+                            <button class="copy-btn"
+                                    data-text="Suvorov, A. (2025). Deterministic Game Engine: Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms. Zenodo. https://doi.org/10.5281/zenodo.17383447">
+                                <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                            </button>
+                            <p class="citation-text">Suvorov, A. (2025). Deterministic Game Engine: Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms. Zenodo. https://doi.org/10.5281/zenodo.17383447</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="engine-mla">
+                        <div class="citation-format">
+                            <button class="copy-btn"
+                                    data-text="Suvorov, A. Deterministic Game Engine: Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms. Zenodo, 18 октябрь 2025 г., https://doi.org/10.5281/zenodo.17383447.">
+                                <i class="bi bi-clipboard" aria-hidden="true"></i> Copy
+                            </button>
+                            <p class="citation-text">Suvorov, A. Deterministic Game Engine: Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms. Zenodo, 18 октябрь 2025 г., https://doi.org/10.5281/zenodo.17383447.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-stats-grid">
+                <div class="stat-item">
+                    <div class="stats-number" id="engine-views"></div>
+                    <div class="stats-label">Unique Views</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stats-number" id="engine-downloads"></div>
+                    <div class="stats-label">Unique Downloads</div>
+                </div>
+            </div>
+
+            <div class="research-metadata">
+                <div class="metadata-item">
+                    <span class="metadata-label">DOI:</span>
+                    <span class="metadata-value">10.5281/zenodo.17383447</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Published:</span>
+                    <span class="metadata-value">October 18, 2025</span>
+                </div>
+                <div class="metadata-item">
+                    <span class="metadata-label">Status:</span>
+                    <span class="metadata-value">🔬 Experimental Validation</span>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="research-card mt-4">
+                <div class="card-body">
+                    <h3 class="text-accent mb-3">🔬 Experimental Validation Results</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                   aria-hidden="true"></i>
+                                <div>
+                                    <strong>O(1) State Access</strong>
+                                    <div class="text-muted small">Constant-time access across all positions</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                   aria-hidden="true"></i>
+                                <div>
+                                    <strong>Mass Simulation</strong>
+                                    <div class="text-muted small">2.9M operations/second demonstrated</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                   aria-hidden="true"></i>
+                                <div>
+                                    <strong>Mathematical Verification</strong>
+                                    <div class="text-muted small">Cryptographic proof of system integrity</div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"
+                                   aria-hidden="true"></i>
+                                <div>
+                                    <strong>Paradigm Integration</strong>
+                                    <div class="text-muted small">Both security and regeneration principles validated
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="paradigms-evolution-section mt-5">
+    <h3 class="section-title text-center mb-5">🚀 Paradigms Evolution</h3>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="evolution-card">
+                <div class="evolution-header">
+                    <i class="bi bi-shield-check evolution-icon" aria-hidden="true"></i>
+                    <h4 class="evolution-title">Pointer-Based Security</h4>
+                    <p class="evolution-subtitle">Architectural Security Transformation</p>
+                </div>
+                <div class="paradigm-timeline">
+                    <div class="timeline-container">
+                        <div class="timeline-item" data-step="1">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Theoretical Foundation</h5>
+                                <p class="text-muted small">Conceptual shift from data protection to data non-existence</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="2">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Architectural Framework</h5>
+                                <p class="text-muted small">Three fundamental transformations in security architecture</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="3">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Experimental Validation</h5>
+                                <p class="text-muted small">Proof-of-concept confirming paradigm feasibility</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary mt-3 w-100" id="playTimelinePointer">
+                        <i class="bi bi-play-circle" aria-hidden="true"></i> Animate Evolution
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="evolution-card">
+                <div class="evolution-header">
+                    <i class="bi bi-arrow-repeat evolution-icon" aria-hidden="true"></i>
+                    <h4 class="evolution-title">Local Data Regeneration</h4>
+                    <p class="evolution-subtitle">Information Theory Transformation</p>
+                </div>
+                <div class="paradigm-timeline">
+                    <div class="timeline-container">
+                        <div class="timeline-item" data-step="1">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Ontological Foundation</h5>
+                                <p class="text-muted small">Reconceptualizing data as discoverable state</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="2">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Theoretical Framework</h5>
+                                <p class="text-muted small">Three postulates of local data regeneration</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="3">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Implementation Validation</h5>
+                                <p class="text-muted small">Proof-of-concept confirming paradigm feasibility</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary mt-3 w-100" id="playTimelineLocalData">
+                        <i class="bi bi-play-circle" aria-hidden="true"></i> Animate Evolution
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="evolution-card">
+                <div class="evolution-header">
+                    <i class="bi bi-cpu evolution-icon" aria-hidden="true"></i>
+                    <h4 class="evolution-title">Deterministic Engine</h4>
+                    <p class="evolution-subtitle">Practical Implementation</p>
+                </div>
+                <div class="paradigm-timeline">
+                    <div class="timeline-container">
+                        <div class="timeline-item" data-step="1">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Pointer-Based Security</h5>
+                                <p class="text-muted small">Theoretical foundation for data non-existence</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="2">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Local Data Regeneration</h5>
+                                <p class="text-muted small">Ontological shift from transmission to discovery</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-step="3">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h5>Practical Implementation</h5>
+                                <p class="text-muted small">Experimental validation through deterministic engine</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary mt-3 w-100" id="playTimelineEngine">
+                        <i class="bi bi-play-circle" aria-hidden="true"></i> Animate Evolution
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <hr>
+
+            <div class="text-center mt-4">
+                <p class="text-light">Also available on academic platforms:</p>
+                <div class="btn-group">
+                    <a target="_blank" href="https://orcid.org/0009-0006-3427-9611"
+                       class="btn btn-outline-primary btn-sm" aria-label="View ORCID profile">
+                        <i class="bi bi-person-badge" aria-hidden="true"></i> ORCID
+                    </a>
+                    <a target="_blank" href="https://zenodo.org/records/17383447"
+                       class="btn btn-outline-primary btn-sm" aria-label="View research on Zenodo">
+                        <i class="bi bi-archive" aria-hidden="true"></i> Zenodo
+                    </a>
+                    <a target="_blank" href="https://independent.academia.edu/smartlegionlab"
+                       class="btn btn-outline-primary btn-sm" aria-label="View Academia.edu profile">
+                        <i class="bi bi-mortarboard" aria-hidden="true"></i> Academia.edu
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+        <div class="content-section" style="background: rgba(13, 17, 23, 0.5);" id="repositories">
+            <div class="container">
+                <h2 class="section-title">Additional Content</h2>
+
+                <ul class="nav nav-tabs mb-4" id="contentTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#repos-tab" role="tab" aria-selected="true">Repositories</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" href="#pypi-tab" role="tab">PyPI Packages</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" href="#articles-tab" role="tab" aria-selected="false">Articles</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="repos-tab">
+                        <div class="container-fluid px-0">
+                            <div id="repo-list" class="text-center py-4">
+                                <div class="spinner-border text-primary" role="status" aria-hidden="true">
+                                    <span class="visually-hidden">Loading repositories...</span>
+                                </div>
+                                <p class="mt-3 text-muted">Loading repositories...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="articles-tab">
+                        <div class="container-fluid px-0">
+                            <div id="articles-list" class="text-center py-4">
+                                <div class="spinner-border text-primary" role="status" aria-hidden="true">
+                                    <span class="visually-hidden">Loading articles...</span>
+                                </div>
+                                <p class="mt-3 text-muted">Loading technical articles...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pypi-tab">
+                        <div class="container-fluid px-0">
+                            <div id="pypi-list" class="text-center py-4">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading PyPI packages...</span>
+                                </div>
+                                <p class="mt-3 text-muted">Click to load PyPI packages...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="expertise">
+            <div class="container">
+                <h2 class="section-title">Areas of Expertise</h2>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="expertise-card">
+                            <div class="expertise-header">
+                                <i class="bi bi-stack expertise-icon-main" aria-hidden="true"></i>
+                                <h3 class="expertise-title">Software Architecture & Development</h3>
+                                <p class="expertise-subtitle">System Design & Implementation</p>
+                            </div>
+                            <div class="expertise-items">
+                                <div class="expertise-item">
+                                    <i class="bi bi-braces expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Python/Django Architecture</div>
+                                        <div class="expertise-item-desc">Scalable backend systems, REST APIs,
+                                            microservices
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-database expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Database Architecture</div>
+                                        <div class="expertise-item-desc">PostgreSQL optimization, Redis caching, query
+                                            performance
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-front expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Frontend Development</div>
+                                        <div class="expertise-item-desc">JavaScript, responsive design, real-time
+                                            interfaces
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-plug expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">System Integration</div>
+                                        <div class="expertise-item-desc">Third-party APIs, messaging
+                                            platforms
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-graph-up expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Performance Optimization</div>
+                                        <div class="expertise-item-desc">High-load systems, bottleneck analysis, scaling
+                                            solutions
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="expertise-card">
+                            <div class="expertise-header">
+                                <i class="bi bi-joystick expertise-icon-main" aria-hidden="true"></i>
+                                <h3 class="expertise-title">Game Technology & Algorithms</h3>
+                                <p class="expertise-subtitle">Deterministic Systems & Advanced Computation</p>
+                            </div>
+                            <div class="expertise-items">
+                                <div class="expertise-item">
+                                    <i class="bi bi-cpu expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Deterministic Engines</div>
+                                        <div class="expertise-item-desc">O(1) state access, cryptographic verification,
+                                            server cost reduction
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-infinity expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Procedural Generation</div>
+                                        <div class="expertise-item-desc">Infinite worlds, dynamic content,
+                                            memory-efficient algorithms
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-calculator expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Advanced Algorithms</div>
+                                        <div class="expertise-item-desc">TSP solvers, optimization problems,
+                                            computational geometry
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-shield-check expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Game Security</div>
+                                        <div class="expertise-item-desc">Cryptographic verification, cheat prevention,
+                                            fair play systems
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-speedometer2 expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Real-time Systems</div>
+                                        <div class="expertise-item-desc">Mass simulation, decision engines, live
+                                            synchronization
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="expertise-card">
+                            <div class="expertise-header">
+                                <i class="bi bi-lightbulb expertise-icon-main" aria-hidden="true"></i>
+                                <h3 class="expertise-title">Research & Security Innovation</h3>
+                                <p class="expertise-subtitle">Paradigm Development & Security Architecture</p>
+                            </div>
+                            <div class="expertise-items">
+                                <div class="expertise-item">
+                                    <i class="bi bi-journal-text expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Academic Research</div>
+                                        <div class="expertise-item-desc">Published papers, theoretical frameworks,
+                                            paradigms development
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-shield expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Security Paradigms</div>
+                                        <div class="expertise-item-desc">Pointer-based security, architectural security,
+                                            data non-existence
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-key expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Security Systems</div>
+                                        <div class="expertise-item-desc">Authentication, verification, secure
+                                            communication protocols
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-diagram-3 expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Information Theory</div>
+                                        <div class="expertise-item-desc">Local data regeneration, synchronous discovery,
+                                            alternative transmission models
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="bi bi-graph-up-arrow expertise-item-icon" aria-hidden="true"></i>
+                                    <div class="expertise-item-content">
+                                        <div class="expertise-item-title">Research Leadership</div>
+                                        <div class="expertise-item-desc">Paradigm development, innovation strategy,
+                                            technical research
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opportunities-grid mb-5">
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <i class="bi bi-cpu opportunity-icon" aria-hidden="true"></i>
+                            <h3 class="opportunity-title">Software Architecture & Development</h3>
+                            <p class="opportunity-subtitle">System Design & Implementation</p>
+                        </div>
+                        <div class="opportunity-content">
+                            <div class="opportunity-item">
+                                <i class="bi bi-braces text-accent" aria-hidden="true"></i>
+                                <span>Python/Django System Architecture</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-layers text-accent" aria-hidden="true"></i>
+                                <span>Full-Stack Solution Development</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-building text-accent" aria-hidden="true"></i>
+                                <span>Enterprise System Design</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-graph-up text-accent" aria-hidden="true"></i>
+                                <span>Highload Backend Systems</span>
+                            </div>
+                        </div>
+                        <div class="opportunity-status">
+                            <span class="status-badge">🚀 From Concept to Production</span>
+                        </div>
+                    </div>
+
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <i class="bi bi-joystick opportunity-icon" aria-hidden="true"></i>
+                            <h3 class="opportunity-title">Game Technology & Algorithms</h3>
+                            <p class="opportunity-subtitle">Deterministic Engines & Cryptographic Verification</p>
+                        </div>
+                        <div class="opportunity-content">
+                            <div class="opportunity-item">
+                                <i class="bi bi-lightning-charge text-accent" aria-hidden="true"></i>
+                                <span>Deterministic Engines with O(1) State Access</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-shield-check text-accent" aria-hidden="true"></i>
+                                <span>Cryptographic Game Verification</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-infinity text-accent" aria-hidden="true"></i>
+                                <span>Procedural Generation & Infinite Worlds</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-graph-down-arrow text-accent" aria-hidden="true"></i>
+                                <span>Efficient Backend Architecture</span>
+                            </div>
+                        </div>
+                        <div class="opportunity-status">
+                            <span class="status-badge">🎮 Advanced Game Technology</span>
+                        </div>
+                    </div>
+
+                    <div class="opportunity-card">
+                        <div class="opportunity-header">
+                            <i class="bi bi-lightbulb opportunity-icon" aria-hidden="true"></i>
+                            <h3 class="opportunity-title">Research & Security Innovation</h3>
+                            <p class="opportunity-subtitle">Paradigm Development & Security Research</p>
+                        </div>
+                        <div class="opportunity-content">
+                            <div class="opportunity-item">
+                                <i class="bi bi-diagram-3 text-accent" aria-hidden="true"></i>
+                                <span>New Security Paradigms Development</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-rocket-takeoff text-accent" aria-hidden="true"></i>
+                                <span>Algorithm Research & Innovation</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-shield-plus text-accent" aria-hidden="true"></i>
+                                <span>Security Architecture Design</span>
+                            </div>
+                            <div class="opportunity-item">
+                                <i class="bi bi-gear text-accent" aria-hidden="true"></i>
+                                <span>Technical Research Leadership</span>
+                            </div>
+                        </div>
+                        <div class="opportunity-status">
+                            <span class="status-badge">🔬 Published Researcher</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section" id="contact">
+            <div class="container">
+                <h2 class="section-title text-center">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+
+                        <div class="contact-actions">
+                            <div class="contact-buttons-container">
+                                <a target="_blank" href="mailto:smartlegionlab@gmail.com"
+                                   class="contact-btn" aria-label="Send email">
+                                    <i class="bi bi-envelope" aria-hidden="true"></i>
+                                    <span>Email</span>
+                                </a>
+                                <a target="_blank" href="https://github.com/smartlegionlab"
+                                   class="contact-btn" aria-label="View GitHub profile">
+                                    <i class="bi bi-github" aria-hidden="true"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a target="_blank" href="https://orcid.org/0009-0006-3427-9611"
+                                   class="contact-btn" aria-label="View ORCID profile">
+                                    <i class="bi bi-person-badge" aria-hidden="true"></i>
+                                    <span>ORCID</span>
+                                </a>
+                                <a target="_blank" href="https://independent.academia.edu/smartlegionlab"
+                                   class="contact-btn" aria-label="View Academia.edu profile">
+                                    <i class="bi bi-mortarboard" aria-hidden="true"></i>
+                                    <span>Academia</span>
+                                </a>
+                                <a target="_blank" href="https://zenodo.org/records/17383447"
+                                   class="contact-btn" aria-label="View research publications">
+                                    <i class="bi bi-journal-text" aria-hidden="true"></i>
+                                    <span>Research</span>
+                                </a>
+                                <a target="_blank" href="https://dev.to/smartlegionlab"
+                                   class="contact-btn" aria-label="Read technical articles on Dev.to">
+                                    <i class="bi bi-file-text" aria-hidden="true"></i>
+                                    <span>Dev.to</span>
+                                </a>
+                                <a target="_blank" href="https://pypi.org/user/smartlegionlab/"
+                                   class="contact-btn" aria-label="View PyPI packages">
+                                    <i class="bi bi-box-seam" aria-hidden="true"></i>
+                                    <span>PyPI</span>
+                                </a>
+                            </div>
+                        <hr>
+                            <p class="lead text-center mb-4 text-light">
+                                Interested in <span class="text-primary">new approaches to system architecture</span>,
+                                <span class="text-success">security paradigms</span>, or
+                                <span class="text-warning">deterministic systems</span>?
+                                <br><strong class="text-info">Let's discuss how these concepts can apply to your
+                                projects.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/error-handler.js"></script>
+<script src="js/zenodo-cache.js"></script>
+<script src="js/stats-manager.js"></script>
+<script src="js/zenodo-manager.js"></script>
+<script src="js/repository-manager.js"></script>
+<script src="js/article-manager.js"></script>
+<script src="js/pypi-cache.js"></script>
+<script src="js/pypi-manager.js"></script>
+<script src="js/particle-background.js"></script>
+<script src="js/vertical-progress-nav.js"></script>
+<script src="js/citation-manager.js"></script>
+<script src="js/scroll-manager.js"></script>
+<script src="js/animation-manager.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
