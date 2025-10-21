@@ -1,6 +1,6 @@
 # 🌐 Alexander Suvorov - Academic Portfolio
 
-Professional [website portfolio](https://smartlegionlab.ru) of a Full-Stack Architect & Security Researcher | Paradigms Creator.
+Professional [website portfolio](https://smartlegionlab.ru) of Alexander Suvorov - Software Architect, Paradigms Author.
 
 ## 🎯 About the Project
 
