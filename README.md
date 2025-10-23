@@ -108,3 +108,9 @@ The website represents a modern academic portfolio that combines scientific rigo
 
 ![logo_mobile](https://github.com/smartlegionlab/smartlegionlab.github.io/raw/master/data/images/mobile.png)
 ![logo_pc](https://github.com/smartlegionlab/smartlegionlab.github.io/raw/master/data/images/pc.png)
+
+---
+
+## Version
+
+`v1.1.0`
