@@ -2184,3 +2184,105 @@ hr:last-of-type {
     font-size: 0.9rem;
     margin: 0;
 }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.stat {
+    text-align: center;
+    padding: 1rem 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.stat:hover {
+    transform: translateY(-2px);
+}
+
+.stat-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+@media (max-width: 1024px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .stat-number {
+        margin-bottom: 0;
+        min-width: 120px;
+    }
+    
+    .stat-label {
+        text-align: right;
+        flex: 1;
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-row {
+        padding: 1.25rem;
+        gap: 0.6rem;
+    }
+    
+    .stat {
+        padding: 0.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.2rem;
+        min-width: 110px;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-row {
+        padding: 1rem;
+    }
+    
+    .stat {
+        padding: 0.7rem;
+    }
+    
+    .stat-number {
+        font-size: 1.1rem;
+        min-width: 100px;
+    }
+}
