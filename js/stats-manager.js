@@ -47,9 +47,34 @@ class StatsManager {
                              stats.localDataParadigm.total_downloads +
                              stats.deterministicEngine.total_downloads;
 
-        const headerElement = document.getElementById('total-downloads-header');
-        if (headerElement) {
-            headerElement.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
+        const totalUniqueViews = stats.pointerParadigm.unique_views +
+                               stats.localDataParadigm.unique_views +
+                               stats.deterministicEngine.unique_views;
+        
+        const totalViews = stats.pointerParadigm.total_views +
+                         stats.localDataParadigm.total_views +
+                         stats.deterministicEngine.total_views;
+
+        const headerDownloads = document.getElementById('header-downloads');
+        const headerViews = document.getElementById('header-views');
+        const headerRepos = document.getElementById('header-repos');
+        const headerPypi = document.getElementById('header-pypi');
+        const headerMonthly = document.getElementById('header-monthly');
+
+        if (headerDownloads) {
+            headerDownloads.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
+        }
+        if (headerViews) {
+            headerViews.innerHTML = `${totalUniqueViews}+<span class="text-primary" style="opacity: 0.7;">/${totalViews}+</span>`;
+        }
+        if (headerRepos) {
+            headerRepos.textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
+        }
+        if (headerPypi) {
+            headerPypi.textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
+        }
+        if (headerMonthly) {
+            headerMonthly.textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
         }
     }
 
@@ -70,20 +95,26 @@ class StatsManager {
                          stats.localDataParadigm.total_views +
                          stats.deterministicEngine.total_views;
 
-        const downloadsMetric = document.getElementById('total-downloads-metric');
-        if (downloadsMetric) {
-            downloadsMetric.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
-        }
+        const metricDownloads = document.getElementById('metric-downloads');
+        const metricViews = document.getElementById('metric-views');
+        const metricRepos = document.getElementById('metric-repos');
+        const metricPypi = document.getElementById('metric-pypi');
+        const metricMonthly = document.getElementById('metric-monthly');
 
-        const viewsMetric = document.getElementById('total-views-metric');
-        if (viewsMetric) {
-            viewsMetric.innerHTML = `${totalUniqueViews}+<span class="text-primary" style="opacity: 0.7;">/${totalViews}+</span>`;
+        if (metricDownloads) {
+            metricDownloads.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
         }
-
-        const metrics = document.querySelectorAll('.metric-item .metric-number');
-        if (metrics.length >= 4) {
-            metrics[2].textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
-            metrics[3].textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
+        if (metricViews) {
+            metricViews.innerHTML = `${totalUniqueViews}+<span class="text-primary" style="opacity: 0.7;">/${totalViews}+</span>`;
+        }
+        if (metricRepos) {
+            metricRepos.textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
+        }
+        if (metricPypi) {
+            metricPypi.textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
+        }
+        if (metricMonthly) {
+            metricMonthly.textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
         }
     }
 
