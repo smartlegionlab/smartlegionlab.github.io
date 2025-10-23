@@ -6,7 +6,7 @@ const CONFIG = {
     COUNTERS: {
         PUBLIC_REPOS: 35,
         PRODUCTION_PACKAGES: 20,
-        MONTHLY_DOWNLOADS: 15000,
+        MONTHLY_DOWNLOADS: 15,
 
         RESEARCH_STATS: {
             pointerParadigm: { 

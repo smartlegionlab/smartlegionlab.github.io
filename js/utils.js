@@ -23,7 +23,11 @@ class Utils {
             if (progress < 1) {
                 requestAnimationFrame(update);
             } else {
-                element.textContent = end + '+';
+                if (element.id === 'metric-monthly' || element.id === 'header-monthly') {
+                    element.textContent = end + 'K+';
+                } else {
+                    element.textContent = end + '+';
+                }
             }
         }
 

@@ -74,7 +74,7 @@ class StatsManager {
             headerPypi.textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
         }
         if (headerMonthly) {
-            headerMonthly.textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
+            headerMonthly.textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + 'K+';
         }
     }
 
@@ -114,7 +114,7 @@ class StatsManager {
             metricPypi.textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
         }
         if (metricMonthly) {
-            metricMonthly.textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
+            metricMonthly.textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + 'K+';
         }
     }
 
