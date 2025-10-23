@@ -1,3 +1,5 @@
+
+
 class StatsManager {
     constructor() {
         this.initializeFromCacheOrConfig();
@@ -16,49 +18,72 @@ class StatsManager {
     }
 
     updateAllStats(stats) {
-        const pointerViews = document.getElementById('pointer-views');
-        const pointerDownloads = document.getElementById('pointer-downloads');
-        const localdataViews = document.getElementById('localdata-views');
-        const localdataDownloads = document.getElementById('localdata-downloads');
-        const engineViews = document.getElementById('engine-views');
-        const engineDownloads = document.getElementById('engine-downloads');
+        this.updateParadigmStats('pointer', stats.pointerParadigm);
+        this.updateParadigmStats('localdata', stats.localDataParadigm);
+        this.updateParadigmStats('engine', stats.deterministicEngine);
 
-        if (pointerViews) pointerViews.textContent = stats.pointerParadigm.views;
-        if (pointerDownloads) pointerDownloads.textContent = stats.pointerParadigm.downloads;
-        if (localdataViews) localdataViews.textContent = stats.localDataParadigm.views;
-        if (localdataDownloads) localdataDownloads.textContent = stats.localDataParadigm.downloads;
-        if (engineViews) engineViews.textContent = stats.deterministicEngine.views;
-        if (engineDownloads) engineDownloads.textContent = stats.deterministicEngine.downloads;
-
-        const totalDownloads = stats.pointerParadigm.downloads +
-                              stats.localDataParadigm.downloads +
-                              stats.deterministicEngine.downloads;
-        this.updateHeaderStats(totalDownloads);
-        this.updateMetricsStats(totalDownloads);
+        this.updateHeaderStats(stats);
+        this.updateMetricsStats(stats);
     }
 
-    updateHeaderStats(totalDownloads) {
-        const stats = document.querySelectorAll('.stats-row .stat');
-        if (stats.length >= 4) {
-            stats[0].querySelector('.stat-number').textContent = totalDownloads + '+';
-            stats[1].querySelector('.stat-number').textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
-            stats[2].querySelector('.stat-number').textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
-            stats[3].querySelector('.stat-number').textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
+    updateParadigmStats(prefix, stats) {
+        const viewsElement = document.getElementById(`${prefix}-views`);
+        const downloadsElement = document.getElementById(`${prefix}-downloads`);
+
+        if (viewsElement) {
+            viewsElement.innerHTML = `${stats.unique_views}<span class="text-primary" style="opacity: 0.7;">/${stats.total_views}</span>`;
+        }
+        if (downloadsElement) {
+            downloadsElement.innerHTML = `${stats.unique_downloads}<span class="text-primary" style="opacity: 0.7;">/${stats.total_downloads}</span>`;
         }
     }
 
-    updateMetricsStats(totalDownloads) {
-        const metricElement = document.getElementById('total-downloads-metric');
-        if (metricElement) {
-            metricElement.textContent = totalDownloads;
+    updateHeaderStats(stats) {
+        const totalUniqueDownloads = stats.pointerParadigm.unique_downloads +
+                                   stats.localDataParadigm.unique_downloads +
+                                   stats.deterministicEngine.unique_downloads;
+        
+        const totalDownloads = stats.pointerParadigm.total_downloads +
+                             stats.localDataParadigm.total_downloads +
+                             stats.deterministicEngine.total_downloads;
+
+        const headerElement = document.getElementById('total-downloads-header');
+        if (headerElement) {
+            headerElement.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
+        }
+    }
+
+    updateMetricsStats(stats) {
+        const totalUniqueDownloads = stats.pointerParadigm.unique_downloads +
+                                   stats.localDataParadigm.unique_downloads +
+                                   stats.deterministicEngine.unique_downloads;
+        
+        const totalDownloads = stats.pointerParadigm.total_downloads +
+                             stats.localDataParadigm.total_downloads +
+                             stats.deterministicEngine.total_downloads;
+
+        const totalUniqueViews = stats.pointerParadigm.unique_views +
+                               stats.localDataParadigm.unique_views +
+                               stats.deterministicEngine.unique_views;
+        
+        const totalViews = stats.pointerParadigm.total_views +
+                         stats.localDataParadigm.total_views +
+                         stats.deterministicEngine.total_views;
+
+        const downloadsMetric = document.getElementById('total-downloads-metric');
+        if (downloadsMetric) {
+            downloadsMetric.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
+        }
+
+        const viewsMetric = document.getElementById('total-views-metric');
+        if (viewsMetric) {
+            viewsMetric.innerHTML = `${totalUniqueViews}+<span class="text-primary" style="opacity: 0.7;">/${totalViews}+</span>`;
         }
 
         const metrics = document.querySelectorAll('.metric-item .metric-number');
         if (metrics.length >= 4) {
-            metrics[0].textContent = totalDownloads + '+';
-            metrics[1].textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
-            metrics[2].textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
-            metrics[3].textContent = CONFIG.COUNTERS.MONTHLY_DOWNLOADS + '+';
+            metrics[2].textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
+            metrics[3].textContent = CONFIG.COUNTERS.PRODUCTION_PACKAGES + '+';
         }
     }
 

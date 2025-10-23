@@ -15,9 +15,12 @@ class ZenodoManager {
             }
 
             const data = await response.json();
+            
             return {
-                views: data.stats.unique_views || 0,
-                downloads: data.stats.unique_downloads || 0
+                unique_views: data.stats.unique_views || 0,
+                unique_downloads: data.stats.unique_downloads || 0,
+                total_views: data.stats.views || 0,
+                total_downloads: data.stats.downloads || 0
             };
         } catch (error) {
             console.error(`🌐 Zenodo record ${recordId} fetch failed:`, error.message);

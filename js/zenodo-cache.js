@@ -1,3 +1,5 @@
+
+
 class ZenodoCache {
     static get CACHE_KEY() { return CONFIG.ZENODO.CACHE_KEY; }
     static get CACHE_TTL() { return CONFIG.ZENODO.CACHE_TTL; }
@@ -5,7 +7,26 @@ class ZenodoCache {
     static saveStats(stats) {
         try {
             const cacheData = {
-                data: stats,
+                data: {
+                    pointerParadigm: {
+                        unique_views: stats.pointerParadigm.unique_views,
+                        unique_downloads: stats.pointerParadigm.unique_downloads,
+                        total_views: stats.pointerParadigm.total_views,
+                        total_downloads: stats.pointerParadigm.total_downloads
+                    },
+                    localDataParadigm: {
+                        unique_views: stats.localDataParadigm.unique_views,
+                        unique_downloads: stats.localDataParadigm.unique_downloads,
+                        total_views: stats.localDataParadigm.total_views,
+                        total_downloads: stats.localDataParadigm.total_downloads
+                    },
+                    deterministicEngine: {
+                        unique_views: stats.deterministicEngine.unique_views,
+                        unique_downloads: stats.deterministicEngine.unique_downloads,
+                        total_views: stats.deterministicEngine.total_views,
+                        total_downloads: stats.deterministicEngine.total_downloads
+                    }
+                },
                 timestamp: Date.now()
             };
             localStorage.setItem(this.CACHE_KEY, JSON.stringify(cacheData));
