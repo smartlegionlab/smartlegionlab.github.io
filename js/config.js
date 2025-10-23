@@ -4,15 +4,29 @@ const CONFIG = {
     EXCLUDED_REPOSITORIES: ['smartlegionlab'],
 
     COUNTERS: {
-        PAPER_DOWNLOADS: 340,
         PUBLIC_REPOS: 35,
         PRODUCTION_PACKAGES: 20,
         MONTHLY_DOWNLOADS: 15000,
 
         RESEARCH_STATS: {
-            pointerParadigm: { views: 205, downloads: 192 },
-            localDataParadigm: { views: 126, downloads: 120 },
-            deterministicEngine: { views: 43, downloads: 28 }
+            pointerParadigm: { 
+                unique_views: 211, 
+                unique_downloads: 193,
+                total_views: 400, 
+                total_downloads: 420 
+            },
+            localDataParadigm: { 
+                unique_views: 129, 
+                unique_downloads: 121,
+                total_views: 197, 
+                total_downloads: 211 
+            },
+            deterministicEngine: { 
+                unique_views: 45, 
+                unique_downloads: 29,
+                total_views: 79, 
+                total_downloads: 75 
+            }
         }
     },
 
@@ -53,8 +67,12 @@ const CONFIG = {
             TTL: 2 * 60 * 60 * 1000,
             KEY: 'devto_articles_cache'
         },
-        PYPI: { TTL: 24 * 60 * 60 * 1000, KEY: 'pypi_packages_cache' }
+        PYPI: { 
+            TTL: 24 * 60 * 60 * 1000, 
+            KEY: 'pypi_packages_cache' 
+        }
     },
+    
     ZENODO: {
         RECORDS: {
             POINTER_PARADIGM: '17204738',
