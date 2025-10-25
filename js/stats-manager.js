@@ -42,18 +42,10 @@ class StatsManager {
         const totalUniqueDownloads = stats.pointerParadigm.unique_downloads +
                                    stats.localDataParadigm.unique_downloads +
                                    stats.deterministicEngine.unique_downloads;
-        
-        const totalDownloads = stats.pointerParadigm.total_downloads +
-                             stats.localDataParadigm.total_downloads +
-                             stats.deterministicEngine.total_downloads;
 
         const totalUniqueViews = stats.pointerParadigm.unique_views +
                                stats.localDataParadigm.unique_views +
                                stats.deterministicEngine.unique_views;
-        
-        const totalViews = stats.pointerParadigm.total_views +
-                         stats.localDataParadigm.total_views +
-                         stats.deterministicEngine.total_views;
 
         const headerDownloads = document.getElementById('header-downloads');
         const headerViews = document.getElementById('header-views');
@@ -62,10 +54,10 @@ class StatsManager {
         const headerMonthly = document.getElementById('header-monthly');
 
         if (headerDownloads) {
-            headerDownloads.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
+            headerDownloads.innerHTML = `${totalUniqueDownloads}+`;
         }
         if (headerViews) {
-            headerViews.innerHTML = `${totalUniqueViews}+<span class="text-primary" style="opacity: 0.7;">/${totalViews}+</span>`;
+            headerViews.innerHTML = `${totalUniqueViews}+`;
         }
         if (headerRepos) {
             headerRepos.textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';
@@ -96,16 +88,24 @@ class StatsManager {
                          stats.deterministicEngine.total_views;
 
         const metricDownloads = document.getElementById('metric-downloads');
+        const totalMetricDownloads = document.getElementById('total-metric-downloads');
         const metricViews = document.getElementById('metric-views');
+        const totalMetricViews = document.getElementById('total-metric-views');
         const metricRepos = document.getElementById('metric-repos');
         const metricPypi = document.getElementById('metric-pypi');
         const metricMonthly = document.getElementById('metric-monthly');
 
         if (metricDownloads) {
-            metricDownloads.innerHTML = `${totalUniqueDownloads}+<span class="text-primary" style="opacity: 0.7;">/${totalDownloads}+</span>`;
+            metricDownloads.innerHTML = `${totalUniqueDownloads}+`;
+        }
+        if (totalMetricDownloads) {
+            totalMetricDownloads.innerHTML = `${totalDownloads}+`;
         }
         if (metricViews) {
-            metricViews.innerHTML = `${totalUniqueViews}+<span class="text-primary" style="opacity: 0.7;">/${totalViews}+</span>`;
+            metricViews.innerHTML = `${totalUniqueViews}+`;
+        }
+        if (totalMetricViews) {
+            totalMetricViews.innerHTML = `${totalViews}+`;
         }
         if (metricRepos) {
             metricRepos.textContent = CONFIG.COUNTERS.PUBLIC_REPOS + '+';

@@ -56,8 +56,6 @@ class PriorityAnimationManager {
                     const element = entry.target;
                     
                     const noAnimationIds = [
-                        'header-downloads', 'header-views',
-                        'metric-downloads', 'metric-views',
                         'pointer-views', 'pointer-downloads',
                         'localdata-views', 'localdata-downloads', 
                         'engine-views', 'engine-downloads'
