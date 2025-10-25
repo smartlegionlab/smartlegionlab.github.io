@@ -1,5 +1,3 @@
-
-
 class PriorityAnimationManager {
     constructor() {
         this.hasInitializedLazy = false;
@@ -54,18 +52,6 @@ class PriorityAnimationManager {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const element = entry.target;
-                    
-                    const noAnimationIds = [
-                        'pointer-views', 'pointer-downloads',
-                        'localdata-views', 'localdata-downloads', 
-                        'engine-views', 'engine-downloads'
-                    ];
-                    
-                    if (noAnimationIds.includes(element.id)) {
-                        observer.unobserve(element);
-                        return;
-                    }
-
                     const text = element.textContent;
                     const value = parseInt(text.replace(/[^0-9]/g, ''));
                     if (!isNaN(value)) {

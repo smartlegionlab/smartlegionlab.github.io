@@ -1,12 +1,5 @@
 class PortfolioApp {
     constructor() {
-        this.loadingStages = {
-            CORE: 1,
-            VISUAL: 2,
-            CONTENT: 3,
-            LAZY: 4
-        };
-        this.currentStage = this.loadingStages.CORE;
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
         this.pypiManager = new PyPIManager();
     }
@@ -18,12 +11,9 @@ class PortfolioApp {
     async executeLoadingPipeline() {
         try {
             await this.loadCoreFunctionality();
-
             await this.loadVisualEffects();
-
             this.setupLazyLoading();
-
-            console.log('✅ Portfolio app fully loaded with priority system');
+            console.log('✅ Portfolio app fully loaded');
         } catch (error) {
             console.error('Error in loading pipeline:', error);
         }
@@ -34,12 +24,6 @@ class PortfolioApp {
         this.scrollManager.init();
 
         this.progressNav = new VerticalProgressNav();
-
-        this.citationManager = new CitationManager();
-
-        this.statsManager = new StatsManager();
-
-        this.zenodoManager = new ZenodoManager(this.statsManager);
 
         console.log('✅ Core functionality loaded');
     }
@@ -52,8 +36,6 @@ class PortfolioApp {
         this.animationManager = new PriorityAnimationManager();
         this.animationManager.initImmediate();
 
-        this.setupParadigmAnimations();
-
         console.log('✅ Visual effects loaded');
     }
 
@@ -61,7 +43,7 @@ class PortfolioApp {
         this.repositoryManager = new LazyRepositoryManager();
         this.articleManager = new LazyArticleManager();
 
-         if (document.readyState === 'complete') {
+        if (document.readyState === 'complete') {
             this.repositoryManager.loadRepositories();
         } else {
             window.addEventListener('load', () => {
@@ -70,11 +52,6 @@ class PortfolioApp {
         }
 
         this.animationManager.initLazy();
-
-        setTimeout(() => {
-            this.zenodoManager.loadStats();
-        }, 1000);
-
         this.setupTabHandlers();
 
         console.log('✅ Lazy loading setup complete');
@@ -99,49 +76,6 @@ class PortfolioApp {
             });
         }
     }
-
-    setupParadigmAnimations() {
-        document.getElementById('playTimelinePointer')?.addEventListener('click', function() {
-            const container = this.closest('.paradigm-timeline');
-            const items = container.querySelectorAll('.timeline-item');
-
-            items.forEach(item => item.classList.remove('active'));
-
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('active');
-                }, index * 600);
-            });
-        });
-
-        document.getElementById('playTimelineLocalData')?.addEventListener('click', function() {
-            const container = this.closest('.paradigm-timeline');
-            const items = container.querySelectorAll('.timeline-item');
-
-            items.forEach(item => item.classList.remove('active'));
-
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('active');
-                }, index * 600);
-            });
-        });
-
-        document.getElementById('playTimelineEngine')?.addEventListener('click', function() {
-            const container = this.closest('.paradigm-timeline');
-            const items = container.querySelectorAll('.timeline-item');
-
-            items.forEach(item => item.classList.remove('active'));
-
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('active');
-                }, index * 600);
-            });
-        });
-
-        console.log('✅ Paradigm animations initialized');
-    }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -157,6 +91,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 100);
 
     window.repositoryManager = app.repositoryManager;
-    window.zenodoManager = app.zenodoManager;
     window.pypiManager = app.pypiManager;
 });

@@ -1,10 +1,11 @@
-# 🌐 Alexander Suvorov - Academic Portfolio
+# 🌐 Alexander Suvorov - Technical Portfolio
 
-Professional [website portfolio](https://smartlegionlab.ru) of Alexander Suvorov - Software Architect, Paradigms Author.
+**Research Website**: [alexander-suvorov.ru](https://alexander-suvorov.ru)  
+**Technical Portfolio**: [smartlegionlab.ru](https://smartlegionlab.ru)
 
 ## 🎯 About the Project
 
-Modern, responsive website showcasing Alexander Suvorov's scientific research and technical expertise. The site combines academic rigor with contemporary web technologies.
+Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise in Python development, system architecture, and open-source contributions. The site combines professional presentation with real-time data from various developer platforms.
 
 ## ✨ Key Features
 
@@ -15,102 +16,112 @@ Modern, responsive website showcasing Alexander Suvorov's scientific research an
 - **Interactive navigation** with vertical progress bar
 - **Professional typography** and visual hierarchy
 
-### 🔬 Scientific Content
-- **Two research paradigms** with complete meta-information
-- **Citation system** supporting BibTeX, APA, MLA formats
-- **Zenodo integration** for publication statistics
-- **Academic profiles** (ORCID, Academia.edu)
-- **Real-time research metrics**
-
 ### 💻 Technical Capabilities
-- **Dynamic GitHub repositories** loading with caching
-- **Dev.to integration** for technical articles
-- **PyPI packages** integration with download statistics
-- **Skeleton loaders** for enhanced UX
-- **Optimized performance** with lazy loading
-- **Error handling** and graceful degradation
+- **Dynamic GitHub repositories** loading with intelligent caching
+- **Dev.to integration** for technical articles and tutorials
+- **PyPI packages** integration with package management
+- **Skeleton loaders** for enhanced user experience
+- **Optimized performance** with lazy loading strategies
+- **Robust error handling** and graceful degradation
 
-### 📦 Package Management
-- **20+ PyPI packages** with real-time download stats
-- **Automatic caching** for fast loading
-- **Package metadata** with version tracking
-- **Download badges** from shields.io
+### 📦 Package & Project Management
+- **20+ PyPI packages** with installation commands
+- **35+ GitHub repositories** with real-time statistics
+- **Automatic caching** for fast loading and offline support
+- **Project metadata** with technologies and descriptions
+- **Repository filtering** and categorization
 
 ### 🛠 Technology Stack
 
 **Frontend:**
-- HTML5 with semantic markup
+- HTML5 with semantic markup and accessibility
 - CSS3 with custom properties (CSS Variables)
 - Bootstrap 5 + Bootstrap Icons
 - Vanilla JavaScript (ES6+)
 
-**Integrations:**
-- GitHub REST API
-- Dev.to API
-- Zenodo API
-- PyPI API
-- ORCID integration
+**API Integrations:**
+- GitHub REST API (repositories)
+- Dev.to API (technical articles)
+- PyPI API (package information)
 
 **Performance Features:**
 - LocalStorage caching (repos, articles, packages)
-- Priority content loading
-- Optimized for slow networks
-- Progressive Enhancement
+- Priority-based content loading
+- Optimized for various network conditions
+- Progressive Enhancement approach
 
 ## 🎯 Main Sections
 
-1. **Hero Section** - Introduction with key statistics
-2. **About Me** - Professional biography and expertise
-3. **Research Paradigms** - Scientific publications and paradigms
-4. **Repositories & Articles** - Dynamic content from GitHub and Dev.to
-5. **PyPI Packages** - Python packages with download statistics
-6. **Areas of Expertise** - Detailed skills and competencies
-7. **Contact** - Professional contacts and social networks
+1. **Hero Section** - Professional introduction with key metrics
+2. **Professional Profile** - Expertise and career overview
+3. **Key Innovations** - Research and paradigm development
+4. **Projects & Contributions** - Dynamic content from GitHub, PyPI, and Dev.to
+5. **Areas of Expertise** - Detailed skills and competencies
+6. **Core Skills** - Technical stack and capabilities
+7. **Contact** - Professional network and communication channels
 
 ## 🔧 Architectural Features
 
-- **Modular structure** of JavaScript classes
-- **State management system** for caching
-- **Observer Pattern** for lazy loading
-- **Error Boundary** concept for fault tolerance
-- **Accessibility-first** approach (ARIA attributes, semantic HTML)
-- **Unified caching strategy** across all data sources
+- **Modular JavaScript architecture** with specialized managers
+- **Unified caching system** across all data sources
+- **Observer Pattern** for efficient lazy loading
+- **Error Boundary concept** for fault tolerance
+- **Accessibility-first approach** (ARIA attributes, semantic HTML)
+- **Mobile-first responsive design**
 
 ## 🎨 Unique Elements
 
-- **Animated avatar** with morphing effect
-- **Vertical navigation** with progress indicator
-- **Interactive research cards** with hover effects
-- **Citation system** with one-click copying
-- **Package download badges** with live statistics
-- **Particle background** for desktop version
+- **Animated avatar** with morphing effects
+- **Vertical progress navigation** with section tracking
+- **Interactive project cards** with hover animations
+- **Tab-based content organization** for different platforms
+- **Professional statistics** with animated counters
+- **Particle background system** for desktop enhancement
 
 ## 📱 Optimizations
 
-- **Mobile-first** approach
-- **Optimized images** (SVG icons)
-- **Minimized API requests** with intelligent caching
-- **Lazy loading** for all dynamic content
-- **Performance monitoring** via console
+- **Mobile-first responsive design**
+- **Optimized vector graphics** (SVG icons)
+- **Minimized API requests** through intelligent caching
+- **Lazy loading implementation** for all dynamic content
+- **Performance monitoring** and debugging
 - **Graceful degradation** for API failures
 
 ## 🚀 Live Integrations
 
-- **GitHub**: 35+ public repositories
-- **Dev.to**: Technical articles and tutorials  
-- **PyPI**: 20+ published packages with download metrics
-- **Zenodo**: Research paper statistics
-- **ORCID**: Academic profile integration
+- **GitHub**: 35+ public repositories with stars, forks, and metadata
+- **Dev.to**: Technical articles and programming tutorials
+- **PyPI**: 20+ published Python packages with installation guides
+- **Real-time statistics**: Download counts, repository metrics, and engagement data
 
-The website represents a modern academic portfolio that combines scientific rigor with cutting-edge web technologies and excellent user experience, now featuring comprehensive package management and distribution metrics.
+## 🎯 Professional Focus
+
+The portfolio emphasizes:
+- **Python & Django Architecture**
+- **System Design & Scalability**
+- **Performance Optimization**
+- **Open Source Contributions**
+- **Technical Leadership**
+- **Full-Stack Development**
+
+The website represents a modern technical portfolio that combines professional presentation with real-time data integration and excellent user experience, specifically tailored for software architecture and development roles.
 
 ---
 
-![logo_mobile](https://github.com/smartlegionlab/smartlegionlab.github.io/raw/master/data/images/mobile.png)
-![logo_pc](https://github.com/smartlegionlab/smartlegionlab.github.io/raw/master/data/images/pc.png)
+![Research Portfolio](https://github.com/smartlegionlab/alexander-suvorov.ru/blob/master/images/technical_portfolio.png)
 
 ---
 
 ## Version
 
-`v1.1.0`
+`v2.0.0` - Technical Portfolio Release
+
+## Key Changes from v1.2.1:
+- ✅ Removed academic/research focus
+- ✅ Emphasized technical and professional aspects
+- ✅ Updated to reflect Python/Django architecture expertise
+- ✅ Maintained all technical integrations (GitHub, PyPI, Dev.to)
+- ✅ Focused on software development and system architecture
+- ✅ Kept all functional features and optimizations
+
+
