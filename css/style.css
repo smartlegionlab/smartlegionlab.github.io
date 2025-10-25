@@ -2458,3 +2458,17 @@ hr:last-of-type {
         padding: 0.6rem;
     }
 }
+
+.vertical-progress-nav {
+    height: 70vh;
+    min-height: 400px;
+    max-height: none !important;
+}
+
+@media (min-width: 1200px) {
+    .vertical-progress-nav {
+        height: 85vh;
+        min-height: 550px;
+        max-height: none !important;
+    }
+}

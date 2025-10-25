@@ -26,8 +26,8 @@ class VerticalProgressNav {
         track.appendChild(this.progressFill);
         nav.appendChild(track);
 
-        const sections = ['hero', 'about', 'research', 'repositories', 'expertise', 'contact'];
-        const labels = ['Home', 'About', 'Research', 'Repositories', 'Expertise', 'Contact'];
+        const sections = ['hero', 'about', 'research', 'repositories', 'expertise', 'technologies', 'contact'];
+        const labels = ['Home', 'About', 'Research', 'Repositories', 'Expertise', 'Technologies', 'Contact'];
 
         sections.forEach((sectionId, index) => {
             const marker = document.createElement('div');
@@ -49,7 +49,7 @@ class VerticalProgressNav {
 
     setupSections() {
         this.sections = [
-            'hero', 'about', 'research', 'repositories', 'expertise', 'contact'
+            'hero', 'about', 'research', 'repositories', 'expertise', 'technologies', 'contact'
         ].map(id => document.getElementById(id)).filter(Boolean);
     }
 
