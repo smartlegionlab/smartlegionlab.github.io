@@ -108,7 +108,7 @@ The website represents a modern technical portfolio that combines professional p
 
 ---
 
-![Research Portfolio](https://github.com/smartlegionlab/alexander-suvorov.ru/blob/master/images/technical_portfolio.png)
+![Research Portfolio](https://github.com/smartlegionlab/alexander-suvorov/blob/master/images/technical_portfolio.png)
 
 ---
 
