@@ -1,7 +1,7 @@
 # 🌐 Alexander Suvorov - Technical Portfolio
 
-**Research Website**: [alexander-suvorov.ru](https://alexander-suvorov.ru)  
 **Technical Portfolio**: [smartlegionlab.ru](https://smartlegionlab.ru)
+**Academic Portfolio**: [alexander-suvorov.ru](https://alexander-suvorov.ru)  
 
 ## 🎯 About the Project
 
