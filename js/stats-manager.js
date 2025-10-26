@@ -1,6 +1,6 @@
 class StatsManager {
     constructor() {
-        this.initializeFromCacheOrConfig();
+        this.updateAllStats();
     }
 
     updateAllStats(stats) {

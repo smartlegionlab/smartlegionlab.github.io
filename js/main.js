@@ -2,6 +2,7 @@ class PortfolioApp {
     constructor() {
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
         this.pypiManager = new PyPIManager();
+        this.statsManager = new StatsManager();
     }
 
     async init() {

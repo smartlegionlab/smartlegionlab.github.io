@@ -114,4 +114,4 @@ The website represents a modern technical portfolio that combines professional p
 
 ## Version
 
-`v2.0.4` - Technical Portfolio Release
+`v2.1.0` - Technical Portfolio Release
