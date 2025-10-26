@@ -1608,6 +1608,30 @@ hr:last-of-type {
     transform: translateY(0);
 }
 
+.citation-tabs-container {
+    margin-top: 1rem;
+}
+
+.citation-text {
+    color: white;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.citation-format {
+    background: rgba(13, 110, 253, 0.1);
+    border: 1px solid var(--accent);
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: 8px;
+}
+
 .stagger-delay:nth-child(1) { transition-delay: 0.1s; }
 .stagger-delay:nth-child(2) { transition-delay: 0.2s; }
 .stagger-delay:nth-child(3) { transition-delay: 0.3s; }

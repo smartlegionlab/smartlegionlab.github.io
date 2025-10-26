@@ -309,20 +309,8 @@ class PyPIManager {
             <p class="repo-description">${pkg.summary}</p>
 
             <div class="citation-tabs-container mt-3">
-                <div class="citation-format" style="position: relative; padding-right: 70px;">
-                    <button class="copy-btn" style="
-                        position: absolute;
-                        top: 8px;
-                        right: 8px;
-                        background: transparent;
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                        color: rgba(255, 255, 255, 0.3);
-                        transition: all 0.3s ease;
-                        opacity: 0.3;
-                    " data-text="pip install ${pkg.name}">
-                        <i class="bi bi-clipboard"></i> Copy
-                    </button>
-                    <pre class="citation-text">pip install ${pkg.name}</pre>
+                <div class="citation-format text-center" style="position: relative;">
+                    <p class="citation-text">pip install ${pkg.name}</p>
                 </div>
             </div>
 
@@ -332,20 +320,6 @@ class PyPIManager {
                 </a>
             </div>
         `;
-
-        const copyBtn = card.querySelector('.copy-btn');
-        copyBtn.addEventListener('mouseenter', function() {
-            this.style.background = 'var(--accent)';
-            this.style.color = 'white';
-            this.style.borderColor = 'var(--accent)';
-            this.style.opacity = '1';
-        });
-        copyBtn.addEventListener('mouseleave', function() {
-            this.style.background = 'transparent';
-            this.style.color = 'rgba(255, 255, 255, 0.3)';
-            this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-            this.style.opacity = '0.3';
-        });
 
         return card;
     }
