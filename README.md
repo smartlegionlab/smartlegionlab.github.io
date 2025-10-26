@@ -114,14 +114,4 @@ The website represents a modern technical portfolio that combines professional p
 
 ## Version
 
-`v2.0.0` - Technical Portfolio Release
-
-## Key Changes from v1.2.1:
-- ✅ Removed academic/research focus
-- ✅ Emphasized technical and professional aspects
-- ✅ Updated to reflect Python/Django architecture expertise
-- ✅ Maintained all technical integrations (GitHub, PyPI, Dev.to)
-- ✅ Focused on software development and system architecture
-- ✅ Kept all functional features and optimizations
-
-
+`v2.0.2` - Technical Portfolio Release
