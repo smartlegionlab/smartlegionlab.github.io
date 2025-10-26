@@ -27,7 +27,7 @@ class VerticalProgressNav {
         nav.appendChild(track);
 
         const sections = ['hero', 'about', 'research', 'repositories', 'expertise', 'skills', 'contact'];
-        const labels = ['Home', 'About', 'Research', 'Repositories', 'Expertise', 'Skills', 'Contact'];
+        const labels = ['Home', 'About', 'Innovations', 'Projects', 'Expertise', 'Skills', 'Contact'];
 
         sections.forEach((sectionId, index) => {
             const marker = document.createElement('div');
