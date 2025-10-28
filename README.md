@@ -110,8 +110,3 @@ The website represents a modern technical portfolio that combines professional p
 
 ![Research Portfolio](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/technical_portfolio.png)
 
----
-
-## Version
-
-`v2.1.0` - Technical Portfolio Release
