@@ -4,9 +4,11 @@ const CONFIG = {
     EXCLUDED_REPOSITORIES: ['smartlegionlab'],
 
     COUNTERS: {
-        PUBLIC_REPOS: 35,
+        PUBLIC_REPOS: 40,
         PRODUCTION_PACKAGES: 20,
-        MONTHLY_DOWNLOADS: 15
+        MONTHLY_DOWNLOADS: 15,
+        EXPERIENCE_YEARS: 10,
+        PROJECTS_DELIVERED: 250,
     },
 
     SCROLL_OFFSET: 80,
