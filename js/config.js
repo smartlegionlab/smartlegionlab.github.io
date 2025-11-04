@@ -36,7 +36,6 @@ const CONFIG = {
         'smartauthen',
         'smart-redis-storage',
         'smart-text-randomizer',
-        'smart-ip-info',
     ],
 
     CACHE_CONFIG: {
