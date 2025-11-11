@@ -109,5 +109,4 @@ The website represents a modern technical portfolio that combines professional p
 
 ---
 
-![Research Portfolio](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/technical_portfolio.png)
-
+![Technical Portfolio](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/technical_portfolio.png)
