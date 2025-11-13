@@ -10,7 +10,7 @@
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: var(--primary);
     color: var(--text-light);
     min-height: 100vh;
     scroll-behavior: smooth;
@@ -29,7 +29,7 @@ body {
 
 .scroll-progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+    background: var(--accent-dark);
     width: 0%;
     transition: width 0.1s ease;
 }
@@ -74,7 +74,6 @@ body {
 
 .paper-container {
     background: var(--secondary);
-    border-radius: 20px;
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.3),
         0 1px 3px rgba(255, 255, 255, 0.1) inset;
@@ -92,10 +91,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.02) 50%,
-        transparent 100%);
+    background: rgba(255, 255, 255, 0.02) 50%;
     pointer-events: none;
 }
 
@@ -126,7 +122,7 @@ body {
 }
 
 .professional-header {
-    background: linear-gradient(135deg, var(--primary) 0%, #0a0e14 100%);
+    background: var(--primary);
     color: white;
     padding: 50px 0;
     position: relative;
@@ -141,10 +137,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background:
-        radial-gradient(circle at 20% 80%, rgba(13, 110, 253, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(13, 110, 253, 0.05) 0%, transparent 50%),
-        linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+    background: rgba(255, 255, 255, 0.02);
     pointer-events: none;
 }
 
@@ -168,7 +161,7 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    background: var(--accent-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,10 +183,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent);
+    background: rgba(255, 255, 255, 0.1);
     transform: rotate(45deg);
     animation: avatarShine 3s ease-in-out infinite;
 }
@@ -608,7 +598,7 @@ body {
 .highlight-accent {
     color: var(--text-light);
     font-weight: 500;
-    background: linear-gradient(135deg, transparent 0%, rgba(13, 110, 253, 0.1) 100%);
+    background: rgba(13, 110, 253, 0.1);
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
 }
@@ -658,7 +648,7 @@ body {
     left: 0;
     width: 100%;
     height: 0%;
-    background: linear-gradient(to bottom, var(--accent), var(--accent-dark));
+    background: var(--accent-dark);
     border-radius: 2px;
     transition: height 0.15s ease;
     z-index: 1;
@@ -992,7 +982,7 @@ hr:last-of-type {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+    background: var(--accent-dark);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -1561,7 +1551,7 @@ hr:last-of-type {
 }
 
 .skeleton-line {
-    background: linear-gradient(90deg, var(--border) 25%, rgba(255,255,255,0.1) 50%, var(--border) 75%);
+    background: rgba(255,255,255,0.1);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
     border-radius: 4px;
@@ -1660,7 +1650,7 @@ hr:last-of-type {
 .professional-header {
     padding: 40px 0 30px 0;
     margin-top: 0;
-    background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(10, 14, 20, 0.9) 100%);
+    background: rgba(13, 17, 23, 0.95);
     backdrop-filter: blur(10px);
 }
 
