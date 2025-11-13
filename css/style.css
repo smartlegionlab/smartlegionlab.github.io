@@ -1699,3 +1699,7 @@ hr:last-of-type {
     border: none;
     padding: 1rem 0;
 }
+
+body { background-attachment: fixed; }
+.content-section, .content-section:nth-child(even) { background: transparent !important; }
+* { backdrop-filter: none !important; }
