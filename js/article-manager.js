@@ -7,7 +7,7 @@ class ArticleManager {
         console.log(`📡 Fetching articles for user: ${CONFIG.DEVTO_USERNAME}`);
 
         try {
-            const response = await fetch(`https://dev.to/api/articles?username=${CONFIG.DEVTO_USERNAME}`);
+            const response = await fetch(`https://dev.to/api/articles?username=${CONFIG.DEVTO_USERNAME}&per_page=100`);
 
             if (!response.ok) {
                 throw new Error(`Dev.to API error: ${response.status} ${response.statusText}`);
