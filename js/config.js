@@ -11,7 +11,7 @@ const CONFIG = {
         PROJECTS_DELIVERED: 250,
     },
 
-    SCROLL_OFFSET: 80,
+    SCROLL_OFFSET: 0,
 
     PYPI_PACKAGES: [
         'smartpasslib',

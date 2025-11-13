@@ -938,10 +938,6 @@ body {
     }
 }
 
-.content-section, .professional-header {
-    scroll-margin-top: 80px;
-}
-
 hr {
     border: none;
     height: 2px;
