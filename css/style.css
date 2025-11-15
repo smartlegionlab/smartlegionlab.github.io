@@ -1695,3 +1695,31 @@ body { background-attachment: fixed; }
         display: none !important;
     }
 }
+
+@media (max-width: 768px) {
+    #research .row {
+        display: flex !important;
+        flex-direction: column !important;
+        margin: 0 !important;
+    }
+    
+    #research .col-md-3 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    #research .research-card {
+        margin: 0 auto !important;
+        max-width: 400px !important;
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #research .col-md-3 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
