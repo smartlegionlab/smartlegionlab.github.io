@@ -23,9 +23,6 @@ class PortfolioApp {
     async loadCoreFunctionality() {
         this.scrollManager = new ScrollManager();
         this.scrollManager.init();
-
-        this.progressNav = new VerticalProgressNav();
-
         console.log('✅ Core functionality loaded');
     }
 
