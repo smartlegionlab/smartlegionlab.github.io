@@ -174,14 +174,14 @@ class RepositoryManager {
                     </div>
                 </div>
                 <div class="repo-stats">
-                    <span class="repo-stat" title="Stars">
+                    <span class="repo-stat text-warning" title="Stars">
                         <i class="bi bi-star"></i> ${repo.stargazers_count}
                     </span>
-                    <span class="repo-stat" title="Forks">
+                    <span class="repo-stat text-info" title="Forks">
                         <i class="bi bi-diagram-2"></i> ${repo.forks_count}
                     </span>
                     ${repo.watchers_count > 0 ? `
-                        <span class="repo-stat" title="Watchers">
+                        <span class="repo-stat text-primary" title="Watchers">
                             <i class="bi bi-eye"></i> ${repo.watchers_count}
                         </span>
                     ` : ''}

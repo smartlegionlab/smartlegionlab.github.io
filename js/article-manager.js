@@ -78,14 +78,14 @@ class ArticleManager {
                     </div>
                 </div>
                 <div class="repo-stats">
-                    <span class="repo-stat" title="Likes">
+                    <span class="repo-stat text-danger" title="Likes">
                         <i class="bi bi-heart"></i> ${article.positive_reactions_count}
                     </span>
-                    <span class="repo-stat" title="Comments">
+                    <span class="repo-stat text-info" title="Comments">
                         <i class="bi bi-chat"></i> ${article.comments_count}
                     </span>
                     ${article.public_reactions_count > 0 ? `
-                        <span class="repo-stat" title="Reactions">
+                        <span class="repo-stat text-warning" title="Reactions">
                             <i class="bi bi-emoji-smile"></i> ${article.public_reactions_count}
                         </span>
                     ` : ''}
