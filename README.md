@@ -59,7 +59,7 @@ Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise 
 4. **Projects & Contributions** - Dynamic content from GitHub, PyPI, and Dev.to
 5. **Areas of Expertise** - Detailed skills and competencies
 6. **Core Skills** - Technical stack and capabilities
-7. **Contact** - Professional network and communication channels
+7. **Contacts** - Professional network and communication channels
 
 ## 🔧 Architectural Features
 
