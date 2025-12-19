@@ -53,7 +53,6 @@ body {
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
-    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
 }
 
 .scroll-to-top.show {
@@ -64,7 +63,7 @@ body {
 .scroll-to-top:hover {
     background: var(--accent-dark);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.6);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
 }
 
 .container {
@@ -168,7 +167,7 @@ body {
     font-size: 2.5rem;
     color: white;
     border: 3px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
     opacity: 0;
     transform: scale(0);
     animation: avatarMorph 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s forwards;
@@ -334,7 +333,6 @@ body {
     background: var(--primary);
     border: 1px solid var(--border);
     border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     margin-bottom: 25px;
     border-left: 4px solid var(--accent);
@@ -345,7 +343,7 @@ body {
 
 .research-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     border-color: var(--accent-dark);
 }
 
@@ -361,7 +359,7 @@ body {
 
 .about-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.15);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     border-color: var(--accent-dark);
 }
 
@@ -376,7 +374,7 @@ body {
 
 .expertise-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     border-color: var(--accent-dark);
 }
 
@@ -547,7 +545,7 @@ body {
 .contact-btn:hover {
     background: var(--accent-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     color: white;
 }
 
@@ -855,7 +853,7 @@ hr:last-of-type {
 
 .opportunity-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(13, 110, 253, 0.25);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     border-color: var(--accent-dark);
 }
 
@@ -977,7 +975,7 @@ hr:last-of-type {
 
 .skill-category:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     border-color: var(--accent-dark);
 }
 
@@ -1217,7 +1215,7 @@ hr:last-of-type {
 
 .repo-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.2);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     border-color: var(--accent-dark);
 }
 
@@ -1650,7 +1648,7 @@ body { background-attachment: fixed; }
     background: rgba(13, 110, 253, 0.25);
     border-color: var(--accent);
     color: var(--accent);
-    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     transform: translateY(-2px);
 }
 
@@ -1658,7 +1656,7 @@ body { background-attachment: fixed; }
     background: var(--accent);
     border-color: var(--accent);
     color: white;
-    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
     transform: scale(1.05);
 }
 
@@ -1682,7 +1680,7 @@ body { background-attachment: fixed; }
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1003;
     pointer-events: none;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 .mobile-nav-btn::before {
