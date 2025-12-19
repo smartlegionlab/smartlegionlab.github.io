@@ -1069,9 +1069,9 @@ hr:last-of-type {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 932px) {
     .opportunities-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important; 
         gap: 1.5rem;
     }
 
