@@ -7,7 +7,7 @@ class PyPIManager {
     }
 
     async fetchAllPackages() {
-        console.log('📡 Fetching PyPI packages from local file...');
+        console.log('📡 Fetching PyPI packages from data file...');
 
         try {
             const response = await fetch('/data/pypi.json');
@@ -93,7 +93,7 @@ class PyPIManager {
         try {
             this.showLoadingState();
 
-            console.log('📡 Fetching from local file...');
+            console.log('📡 Fetching data from file...');
             const freshPackages = await this.fetchAllPackages();
 
             this.allPackages = freshPackages;

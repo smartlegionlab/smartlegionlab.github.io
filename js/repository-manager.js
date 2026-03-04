@@ -22,7 +22,7 @@ class RepositoryManager {
     }
 
     async fetchRepositories() {
-        console.log(`📡 Fetching repositories from local file...`);
+        console.log(`📡 Fetching repositories from data file...`);
 
         try {
             const response = await fetch('/data/repos.json');
@@ -274,7 +274,7 @@ class LazyRepositoryManager extends RepositoryManager {
         try {
             this.showSkeletonLoader();
 
-            console.log('📡 Fetching from local file...');
+            console.log('📡 Fetching data from file...');
             const freshRepos = await this.fetchRepositories();
 
             this.allRepositories = freshRepos;

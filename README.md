@@ -6,7 +6,7 @@
 
 ## 🎯 About the Project
 
-Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise in Python development, system architecture, and open-source contributions. The site combines professional presentation with real-time data from various developer platforms.
+Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise in Python development, system architecture, and open-source contributions. The site combines professional presentation with automated data updates via GitHub Actions.
 
 ## ✨ Key Features
 
@@ -14,49 +14,52 @@ Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise 
 - **Dark theme** with gradient backgrounds and accent colors
 - **Fully responsive design** for all devices
 - **Animated elements** and smooth transitions
-- **Interactive navigation** with vertical progress bar
+- **Interactive navigation** with scroll progress bar
 - **Professional typography** and visual hierarchy
 
-### 💻 Technical Capabilities
-- **Dynamic GitHub repositories** loading with intelligent caching
-- **Dev.to integration** for technical articles and tutorials
-- **PyPI packages** integration with package management
-- **Skeleton loaders** for enhanced user experience
-- **Optimized performance** with lazy loading strategies
-- **Robust error handling** and graceful degradation
+### 💻 Technical Implementation
+- **Static site** hosted on GitHub Pages (zero cost)
+- **GitHub Actions** for automated data collection (daily updates)
+- **Local JSON files** for all dynamic content
+- **No server-side code** - pure HTML/CSS/JavaScript
 
-### 📦 Package & Project Management
-- **20+ PyPI packages** with installation commands
-- **35+ GitHub repositories** with real-time statistics
-- **Automatic caching** for fast loading and offline support
-- **Project metadata** with technologies and descriptions
-- **Repository filtering** and categorization
+### 📊 Data Sources & Automation
+- **GitHub repositories**: Auto-fetched daily via GitHub Actions
+- **Dev.to articles**: Auto-fetched daily via GitHub Actions
+- **PyPI packages**: Auto-fetched daily via GitHub Actions
+- **All data stored** in `/data/*.json` files
+- **Zero client-side API calls** - everything from local files
 
-### 🛠 Technology Stack
+### 📦 Content Display
+- **25+ PyPI packages** with installation commands
+- **50+ GitHub repositories** with real-time statistics
+- **Technical articles** from Dev.to
+- **Research publications** with DOI links
+
+## 🛠 Technology Stack
 
 **Frontend:**
-- HTML5 with semantic markup and accessibility
-- CSS3 with custom properties (CSS Variables)
+- HTML5 with semantic markup
+- CSS3 with custom properties
 - Bootstrap 5 + Bootstrap Icons
 - Vanilla JavaScript (ES6+)
 
-**API Integrations:**
-- GitHub REST API (repositories)
-- Dev.to API (technical articles)
-- PyPI API (package information)
+**Automation:**
+- GitHub Actions (Python scripts)
+- Daily scheduled updates
+- Automatic commits to repository
 
-**Performance Features:**
-- LocalStorage caching (repos, articles, packages)
-- Priority-based content loading
-- Optimized for various network conditions
-- Progressive Enhancement approach
+**Data Format:**
+- JSON files in `/data/` directory
+- No external API calls from client
+- Fast loading from same domain
 
 ## 🎯 Main Sections
 
 1. **Hero Section** - Professional introduction with key metrics
 2. **Professional Profile** - Expertise and career overview
-3. **Key Innovations** - Research and paradigm development
-4. **Projects & Contributions** - Dynamic content from GitHub, PyPI, and Dev.to
+3. **Research & Paradigms** - Published academic work
+4. **Projects & Contributions** - GitHub, PyPI, and Dev.to content
 5. **Areas of Expertise** - Detailed skills and competencies
 6. **Core Skills** - Technical stack and capabilities
 7. **Contacts** - Professional network and communication channels
@@ -64,48 +67,87 @@ Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise 
 ## 🔧 Architectural Features
 
 - **Modular JavaScript architecture** with specialized managers
-- **Unified caching system** across all data sources
-- **Observer Pattern** for efficient lazy loading
-- **Error Boundary concept** for fault tolerance
-- **Accessibility-first approach** (ARIA attributes, semantic HTML)
+- **Skeleton loaders** for smooth content loading
+- **Intersection Observer** for lazy animations
 - **Mobile-first responsive design**
+- **Graceful error handling** with user-friendly messages
 
 ## 🎨 Unique Elements
 
 - **Animated avatar** with morphing effects
-- **Vertical progress navigation** with section tracking
-- **Interactive project cards** with hover animations
-- **Tab-based content organization** for different platforms
-- **Professional statistics** with animated counters
-- **Particle background system** for desktop enhancement
+- **Scroll progress bar** for navigation
+- **Interactive cards** with hover animations
+- **Tab-based organization** for different platforms
+- **Animated statistics counters**
+- **Particle background** (desktop only)
 
 ## 📱 Optimizations
 
 - **Mobile-first responsive design**
-- **Optimized vector graphics** (SVG icons)
-- **Minimized API requests** through intelligent caching
-- **Lazy loading implementation** for all dynamic content
-- **Performance monitoring** and debugging
-- **Graceful degradation** for API failures
+- **No external API calls** from browser
+- **Local JSON files** for all content
+- **Optimized SVG icons**
+- **Lazy loading animations**
+- **Smooth transitions**
 
-## 🚀 Live Integrations
+## 🤖 How It Works
 
-- **GitHub**: 35+ public repositories with stars, forks, and metadata
-- **Dev.to**: Technical articles and programming tutorials
-- **PyPI**: 20+ published Python packages with installation guides
-- **Real-time statistics**: Download counts, repository metrics, and engagement data
+1. **GitHub Actions** runs daily (or on demand)
+2. **Python scripts** fetch data from:
+   - GitHub API (repositories)
+   - Dev.to API (articles)
+   - PyPI API (packages)
+3. **JSON files** are updated in `/data/` directory
+4. **Site redeploys** automatically to GitHub Pages
+5. **Visitors** get fast content from local files
 
-## 🎯 Professional Focus
+## 📁 Repository Structure
 
-The portfolio emphasizes:
-- **Python & Django Architecture**
-- **System Design & Scalability**
-- **Performance Optimization**
-- **Open Source Contributions**
-- **Technical Leadership**
-- **Full-Stack Development**
+```
+/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── main.js
+│   ├── config.js
+│   ├── utils.js
+│   ├── repository-manager.js
+│   ├── article-manager.js
+│   ├── pypi-manager.js
+│   ├── scroll-manager.js
+│   ├── animation-manager.js
+│   ├── particle-background.js
+│   └── stats-manager.js
+├── data/
+│   ├── repos.json (auto-generated)
+│   ├── articles.json (auto-generated)
+│   └── pypi.json (auto-generated)
+└── .github/workflows/
+    └── update-data.yml
+```
 
-The website represents a modern technical portfolio that combines professional presentation with real-time data integration and excellent user experience, specifically tailored for software architecture and development roles.
+## 🚀 Local Development
+
+1. Clone the repository
+2. Start a local server:
+   ```bash
+   python -m http.server 8000
+   ```
+3. Open `http://localhost:8000`
+
+## 🔄 Manual Data Update
+
+To force update all data:
+1. Go to GitHub repository → Actions tab
+2. Select "Update Data" workflow
+3. Click "Run workflow"
+
+## 📊 Live Data
+
+- **GitHub**: 50+ public repositories
+- **Dev.to**: Technical articles
+- **PyPI**: 25+ published Python packages
 
 ---
 

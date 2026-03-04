@@ -4,7 +4,7 @@ class ArticleManager {
     }
 
     async fetchArticles() {
-        console.log(`📡 Fetching articles from local file...`);
+        console.log(`📡 Fetching articles from data file...`);
 
         try {
             const response = await fetch('/data/articles.json');
@@ -150,7 +150,7 @@ class LazyArticleManager extends ArticleManager {
         try {
             this.showLoadingState();
 
-            console.log('📡 Fetching from local file...');
+            console.log('📡 Fetching data from file...');
             const freshArticles = await this.fetchArticles();
 
             this.allArticles = freshArticles;
