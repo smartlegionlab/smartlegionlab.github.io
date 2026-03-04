@@ -37,20 +37,5 @@ const CONFIG = {
         'smart-redis-storage',
         'smart-text-randomizer',
         'smart-repository-manager-core'
-    ],
-
-    CACHE_CONFIG: {
-        REPOSITORIES: {
-            TTL: 24 * 60 * 60 * 1000,
-            KEY: 'github_repos_cache'
-        },
-        ARTICLES: {
-            TTL: 2 * 60 * 60 * 1000,
-            KEY: 'devto_articles_cache'
-        },
-        PYPI: {
-            TTL: 24 * 60 * 60 * 1000,
-            KEY: 'pypi_packages_cache'
-        }
-    }
+    ]
 };
