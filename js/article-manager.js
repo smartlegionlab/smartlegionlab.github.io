@@ -4,21 +4,22 @@ class ArticleManager {
     }
 
     async fetchArticles() {
-        console.log(`📡 Fetching articles for user: ${CONFIG.DEVTO_USERNAME}`);
+        console.log(`📡 Fetching articles from local file...`);
 
         try {
-            const response = await fetch(`https://dev.to/api/articles?username=${CONFIG.DEVTO_USERNAME}&per_page=100`);
+            const response = await fetch('/data/articles.json');
 
             if (!response.ok) {
-                throw new Error(`Dev.to API error: ${response.status} ${response.statusText}`);
+                throw new Error(`Failed to load articles.json: ${response.status} ${response.statusText}`);
             }
 
             const articles = await response.json();
-            console.log(`✅ Successfully fetched ${articles.length} articles`);
+            console.log(`✅ Successfully loaded ${articles.length} articles from file`);
 
             return articles;
 
         } catch (error) {
+            console.error('❌ Error loading articles:', error);
             throw error;
         }
     }
@@ -138,7 +139,6 @@ class LazyArticleManager extends ArticleManager {
         super();
         this.hasLoaded = false;
         this.isLoading = false;
-        this.usedCache = false;
     }
 
     async loadArticles() {
@@ -150,100 +150,36 @@ class LazyArticleManager extends ArticleManager {
         try {
             this.showLoadingState();
 
-            const freshCache = ArticleCache.getCachedArticles();
-            if (freshCache && freshCache.length > 0) {
-                console.log('📦 Using fresh articles cache - NO API CALL');
-                this.allArticles = freshCache;
-                this.displayArticles(this.allArticles);
-                this.hasLoaded = true;
-                this.usedCache = true;
-
-                console.log('✅ Articles loaded from cache successfully');
-                return;
-            }
-
-            console.log('📡 No fresh articles cache available, fetching from Dev.to API...');
+            console.log('📡 Fetching from local file...');
             const freshArticles = await this.fetchArticles();
 
             this.allArticles = freshArticles;
-            ArticleCache.saveArticles(freshArticles);
             this.displayArticles(this.allArticles);
             this.hasLoaded = true;
-            this.usedCache = false;
 
-            console.log('✅ Articles loaded from API successfully');
+            console.log('✅ Articles loaded successfully');
 
         } catch (error) {
             console.error('❌ Error loading articles:', error);
-
-            const staleCache = ArticleCache.getStaleArticles();
-            if (staleCache && staleCache.data && staleCache.data.length > 0) {
-                console.log('🔄 Using stale articles cache as fallback');
-                this.allArticles = staleCache.data;
-                this.displayArticles(this.allArticles);
-                this.hasLoaded = true;
-                this.usedCache = true;
-                this.showCacheWarning(staleCache.isExpired);
-            } else {
-                this.showErrorState(error);
-            }
+            this.showErrorState(error);
         } finally {
             this.isLoading = false;
         }
-    }
-
-    showCacheWarning(isExpired = false) {
-        const container = document.getElementById('articles-list');
-        if (!container) return;
-
-        const cacheAge = ArticleCache.getArticlesCacheAge();
-        const hoursAgo = cacheAge ? Math.round(cacheAge / 3600000) : 'unknown';
-        const minutesAgo = cacheAge ? Math.round(cacheAge / 60000) : 'unknown';
-
-        let timeText;
-        if (cacheAge < 3600000) {
-            timeText = `${minutesAgo} minutes ago`;
-        } else {
-            timeText = `${hoursAgo} hours ago`;
-        }
-
-        const warning = document.createElement('div');
-        warning.className = 'alert alert-warning mb-3';
-        warning.innerHTML = `
-            <div class="d-flex align-items-center">
-                <i class="bi bi-clock-history me-2"></i>
-                <div class="flex-grow-1">
-                    <strong>Showing Cached Articles</strong>
-                    <div class="small">${isExpired ? 'Data may be outdated' : 'Loaded from cache'}. Last updated ${timeText}.</div>
-                </div>
-                <button class="btn btn-sm btn-outline-warning ms-3" onclick="window.portfolioApp.articleManager.forceRefresh()">
-                    <i class="bi bi-arrow-clockwise"></i> Refresh
-                </button>
-            </div>
-        `;
-
-        container.prepend(warning);
     }
 
     showErrorState(error) {
         const container = document.getElementById('articles-list');
         if (!container) return;
 
-        const errorType = ErrorHandler.analyzeError(error);
-        const errorInfo = ErrorHandler.getErrorMessage(errorType);
-
-        const customMessage = errorInfo.message.replace('repositories', 'articles');
-        const customTitle = errorInfo.title.replace('GitHub', 'Dev.to');
-
         container.innerHTML = `
             <div class="alert alert-danger">
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
-                        <strong>${customTitle}</strong>
-                        <div class="small mt-1">${customMessage}</div>
+                        <strong>❌ Error Loading Articles</strong>
+                        <div class="small mt-1">${error.message || 'Failed to load articles from file'}</div>
                     </div>
-                    <button class="btn btn-sm btn-outline-danger ms-3" onclick="window.portfolioApp.articleManager.forceRefresh()">
-                        <i class="bi bi-arrow-clockwise"></i> ${errorInfo.action}
+                    <button class="btn btn-sm btn-outline-danger ms-3" onclick="window.location.reload()">
+                        <i class="bi bi-arrow-clockwise"></i> Reload
                     </button>
                 </div>
             </div>
@@ -255,9 +191,7 @@ class LazyArticleManager extends ArticleManager {
 
         console.log('🔄 Manual articles refresh requested...');
 
-        ArticleCache.clearArticlesCache();
         this.hasLoaded = false;
-        this.usedCache = false;
 
         const container = document.getElementById('articles-list');
         if (container) {
@@ -265,10 +199,6 @@ class LazyArticleManager extends ArticleManager {
         }
 
         await this.loadArticles();
-    }
-
-    async retryLoad() {
-        await this.forceRefresh();
     }
 
     showLoadingState() {

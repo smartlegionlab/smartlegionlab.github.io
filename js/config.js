@@ -36,6 +36,7 @@ const CONFIG = {
         'smartauthen',
         'smart-redis-storage',
         'smart-text-randomizer',
+        'smart-repository-manager-core'
     ],
 
     CACHE_CONFIG: {
