@@ -22,21 +22,22 @@ class RepositoryManager {
     }
 
     async fetchRepositories() {
-        console.log(`📡 Fetching repositories for user: ${CONFIG.GITHUB_USERNAME}`);
+        console.log(`📡 Fetching repositories from local file...`);
 
         try {
-            const response = await fetch(`/data/repos.json`);
-
+            const response = await fetch('/data/repos.json');
+            
             if (!response.ok) {
-                throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+                throw new Error(`Failed to load repos.json: ${response.status} ${response.statusText}`);
             }
 
             const repos = await response.json();
-            console.log(`✅ Successfully fetched ${repos.length} repositories`);
+            console.log(`✅ Successfully loaded ${repos.length} repositories from file`);
 
             return repos.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
         } catch (error) {
+            console.error('❌ Error loading repositories:', error);
             throw error;
         }
     }
@@ -100,7 +101,7 @@ class RepositoryManager {
                 Showing ${Math.min(this.visibleRepos, filteredRepos.length)} of ${filteredRepos.length} repositories
             </div>
             ${hasMoreRepos ? `
-                <button class="btn btn-outline-primary" onclick="repositoryManager.loadMoreRepos()" style="min-width: 140px; width: 100%; max-width: 200px;">
+                <button class="btn btn-outline-primary" onclick="window.repositoryManager.loadMoreRepos()" style="min-width: 140px; width: 100%; max-width: 200px;">
                     <i class="bi bi-plus-circle"></i> Load More
                 </button>
             ` : ''}
@@ -240,8 +241,6 @@ class LazyRepositoryManager extends RepositoryManager {
         this.hasLoadedRepos = false;
         this.isLoading = false;
         this.repoObserver = null;
-        this.usedCache = false;
-        this.lastCacheCheck = 0;
     }
 
     initLazyLoading() {
@@ -275,43 +274,18 @@ class LazyRepositoryManager extends RepositoryManager {
         try {
             this.showSkeletonLoader();
 
-            const freshCache = RepositoryCache.getCachedRepos();
-            if (freshCache && freshCache.length > 0) {
-                console.log('📦 Using fresh cache - NO API CALL');
-                this.allRepositories = freshCache;
-                this.displayRepositories();
-                this.hasLoadedRepos = true;
-                this.usedCache = true;
-
-                console.log('✅ Loaded from cache successfully');
-                return;
-            }
-
-            console.log('📡 No fresh cache available, fetching from GitHub API...');
+            console.log('📡 Fetching from local file...');
             const freshRepos = await this.fetchRepositories();
 
             this.allRepositories = freshRepos;
-            RepositoryCache.saveRepos(freshRepos);
             this.displayRepositories();
             this.hasLoadedRepos = true;
-            this.usedCache = false;
 
-            console.log('✅ Repositories loaded from API successfully');
+            console.log('✅ Repositories loaded successfully');
 
         } catch (error) {
             console.error('❌ Error loading repositories:', error);
-
-            const staleCache = RepositoryCache.getStaleCache();
-            if (staleCache && staleCache.data && staleCache.data.length > 0) {
-                console.log('🔄 Using stale cache as fallback');
-                this.allRepositories = staleCache.data;
-                this.displayRepositories();
-                this.hasLoadedRepos = true;
-                this.usedCache = true;
-                this.showCacheWarning(staleCache.isExpired);
-            } else {
-                this.showErrorState(error);
-            }
+            this.showErrorState(error);
         } finally {
             this.isLoading = false;
 
@@ -321,55 +295,19 @@ class LazyRepositoryManager extends RepositoryManager {
         }
     }
 
-    showCacheWarning(isExpired = false) {
-        const container = document.getElementById('repo-list');
-        if (!container) return;
-
-        const cacheAge = RepositoryCache.getCacheAge();
-        const hoursAgo = cacheAge ? Math.round(cacheAge / 3600000) : 'unknown';
-        const minutesAgo = cacheAge ? Math.round(cacheAge / 60000) : 'unknown';
-
-        let timeText;
-        if (cacheAge < 3600000) {
-            timeText = `${minutesAgo} minutes ago`;
-        } else {
-            timeText = `${hoursAgo} hours ago`;
-        }
-
-        const warning = document.createElement('div');
-        warning.className = 'alert alert-warning mb-3';
-        warning.innerHTML = `
-            <div class="d-flex align-items-center">
-                <i class="bi bi-clock-history me-2"></i>
-                <div class="flex-grow-1">
-                    <strong>Showing Cached Data</strong>
-                    <div class="small">${isExpired ? 'Data may be outdated' : 'Loaded from cache'}. Last updated ${timeText}.</div>
-                </div>
-                <button class="btn btn-sm btn-outline-warning ms-3" onclick="window.repositoryManager.forceRefresh()">
-                    <i class="bi bi-arrow-clockwise"></i> Refresh
-                </button>
-            </div>
-        `;
-
-        container.prepend(warning);
-    }
-
     showErrorState(error) {
         const container = document.getElementById('repo-list');
         if (!container) return;
-
-        const errorType = ErrorHandler.analyzeError(error);
-        const errorInfo = ErrorHandler.getErrorMessage(errorType);
 
         container.innerHTML = `
             <div class="alert alert-danger">
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
-                        <strong>${errorInfo.title}</strong>
-                        <div class="small mt-1">${errorInfo.message}</div>
+                        <strong>❌ Error Loading Repositories</strong>
+                        <div class="small mt-1">${error.message || 'Failed to load repositories from file'}</div>
                     </div>
-                    <button class="btn btn-sm btn-outline-danger ms-3" onclick="window.repositoryManager.forceRefresh()">
-                        <i class="bi bi-arrow-clockwise"></i> ${errorInfo.action}
+                    <button class="btn btn-sm btn-outline-danger ms-3" onclick="window.location.reload()">
+                        <i class="bi bi-arrow-clockwise"></i> Reload
                     </button>
                 </div>
             </div>
@@ -381,9 +319,7 @@ class LazyRepositoryManager extends RepositoryManager {
 
         console.log('🔄 Manual refresh requested...');
 
-        RepositoryCache.clearCache();
         this.hasLoadedRepos = false;
-        this.usedCache = false;
 
         const container = document.getElementById('repo-list');
         if (container) {
@@ -391,10 +327,6 @@ class LazyRepositoryManager extends RepositoryManager {
         }
 
         await this.loadRepositories();
-    }
-
-    async retryLoad() {
-        await this.forceRefresh();
     }
 
     showSkeletonLoader() {
