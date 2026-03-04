@@ -94,26 +94,17 @@ class PyPIManager {
     }
 
     async fetchAllPackages() {
-        console.log('📡 Fetching all PyPI packages...');
-
+        console.log('📡 Fetching PyPI packages from local file...');
         try {
-            const packages = await Promise.all(
-                CONFIG.PYPI_PACKAGES.map(packageName =>
-                    this.fetchPackageInfo(packageName)
-                )
-            );
-
-            const sortedPackages = packages.sort((a, b) => {
-                if (a.is_valid && !b.is_valid) return -1;
-                if (!a.is_valid && b.is_valid) return 1;
-                return 0;
-            });
-
-            console.log(`✅ Successfully fetched ${packages.filter(p => p.is_valid).length} valid packages`);
-            return sortedPackages;
-
+            const response = await fetch('/data/pypi.json');
+            if (!response.ok) {
+                throw new Error(`Failed to load pypi.json: ${response.status}`);
+            }
+            const packages = await response.json();
+            console.log(`✅ Successfully loaded ${packages.length} packages from file`);
+            return packages;
         } catch (error) {
-            console.error('❌ Error fetching PyPI packages:', error);
+            console.error('❌ Error loading pypi.json:', error);
             throw error;
         }
     }

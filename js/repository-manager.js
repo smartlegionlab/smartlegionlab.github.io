@@ -25,7 +25,7 @@ class RepositoryManager {
         console.log(`📡 Fetching repositories for user: ${CONFIG.GITHUB_USERNAME}`);
 
         try {
-            const response = await fetch(`https://api.github.com/users/${CONFIG.GITHUB_USERNAME}/repos?sort=updated&per_page=100&page=1`);
+            const response = await fetch(`/data/repos.json`);
 
             if (!response.ok) {
                 throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
