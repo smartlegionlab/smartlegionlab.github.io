@@ -1874,3 +1874,24 @@ body { background-attachment: fixed; }
         display: none !important;
     }
 }
+
+.nav-btn.active,
+.nav-btn.active:hover {
+    background: var(--accent) !important;
+    color: white !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.9) !important;
+}
+
+.mobile-nav-btn.active,
+.mobile-nav-btn.active:hover {
+    background: var(--accent) !important;
+    color: white !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.9) !important;
+}
+
+.nav-btn.active i,
+.mobile-nav-btn.active i {
+    color: white !important;
+}

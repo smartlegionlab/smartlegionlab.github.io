@@ -155,3 +155,8 @@ class ParticleBackground {
         window.particleBackgroundInstance = null;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    new ParticleBackground();
+});
