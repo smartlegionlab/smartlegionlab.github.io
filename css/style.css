@@ -1594,7 +1594,7 @@ body { background-attachment: fixed; }
     background: rgba(13, 17, 23, 0.98);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(15px);
-    z-index: 1002;
+    z-index: 9999;
     padding: 6px 10px;
 }
 
@@ -1678,7 +1678,7 @@ body { background-attachment: fixed; }
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1003;
+    z-index: 9999;
     pointer-events: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
@@ -1695,7 +1695,7 @@ body { background-attachment: fixed; }
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1004;
+    z-index: 9999;
     pointer-events: none;
 }
 
