@@ -2101,3 +2101,19 @@ a.premium-card {
         font-size: 1.1rem;
     }
 }
+
+.description-item {
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.4rem;
+    background: rgba(13, 110, 253, 0.03);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.description-item:hover {
+    background: rgba(13, 110, 253, 0.08);
+    border-color: var(--accent);
+    transform: translateX(3px);
+}
