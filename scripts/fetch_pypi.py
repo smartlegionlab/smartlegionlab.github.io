@@ -75,12 +75,20 @@ def fetch_all_packages():
         
         time.sleep(0.5)
     
+    all_failed = all(p.get('error', True) for p in results)
+    
+    if all_failed:
+        print("⚠️ Error: All PyPI requests failed")
+        print("✅ Existing data preserved.")
+        return
+    
+    os.makedirs('data', exist_ok=True)
+    
     with open('data/pypi.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     
     successful = len([p for p in results if not p.get('error')])
     failed = len([p for p in results if p.get('error')])
-    
     print(f"✅ Saved {successful} successful and {failed} failed packages to data/pypi.json")
 
 
