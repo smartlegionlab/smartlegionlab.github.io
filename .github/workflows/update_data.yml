@@ -27,12 +27,15 @@ jobs:
 
       - name: Fetch GitHub repos
         run: python scripts/fetch_github.py
+        continue-on-error: true
 
       - name: Fetch Dev.to articles
         run: python scripts/fetch_devto.py
+        continue-on-error: true
 
       - name: Fetch PyPI packages
         run: python scripts/fetch_pypi.py
+        continue-on-error: true
 
       - name: Commit and push changes
         run: |
