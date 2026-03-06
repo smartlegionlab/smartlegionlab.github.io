@@ -91,12 +91,11 @@
                             </a>
                         </div>
                         
-                        <div id="pypi-list" class="text-center py-4">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading packages...</span>
-                            </div>
-                            <p class="mt-3 text-muted">Loading PyPI packages...</p>
+                        <!-- PACKAGE_CARDS_START -->
+                        <div class="repo-grid" id="pypi-list">
+                            
                         </div>
+                        <!-- PACKAGE_CARDS_END -->
                     </div>
                 </div>
                 
@@ -120,16 +119,9 @@
     <script src="js/scroll-manager.js"></script>
     <script src="js/animation-manager.js"></script>
     <script src="js/stats-manager.js"></script>
-    <script src="js/pypi-manager.js"></script>
     <script src="js/active-nav.js"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const pypiManager = new PyPIManager();
-            pypiManager.visiblePackages = 100;
-            pypiManager.loadPackages();
-        });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -91,12 +91,11 @@
                             </a>
                         </div>
                         
-                        <div id="repo-list" class="text-center py-4">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading repositories...</span>
-                            </div>
-                            <p class="mt-3 text-muted">Loading repositories...</p>
+                        <!-- REPO_CARDS_START -->
+                        <div class="repo-grid" id="repo-list">
+                            
                         </div>
+                        <!-- REPO_CARDS_END -->
                     </div>
                 </div>
                 
@@ -120,27 +119,9 @@
     <script src="js/scroll-manager.js"></script>
     <script src="js/animation-manager.js"></script>
     <script src="js/stats-manager.js"></script>
-    <script src="js/repository-manager.js"></script>
     <script src="js/active-nav.js"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const repoManager = new RepositoryManager();
-            repoManager.visibleRepos = 100;
-            repoManager.fetchRepositories()
-                .then(repos => {
-                    repoManager.allRepositories = repos;
-                    repoManager.displayRepositories();
-                })
-                .catch(error => {
-                    document.getElementById('repo-list').innerHTML = `
-                        <div class="alert alert-danger">
-                            Error loading repositories: ${error.message}
-                        </div>
-                    `;
-                });
-        });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
