@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
-from pathlib import Path
+
+from bs4 import BeautifulSoup
 
 
 def format_date(date_string):
@@ -157,75 +158,82 @@ def generate_package_cards(packages, limit=100):
 
 def update_html_with_id(html_file, container_id, cards_html):
     with open(html_file, 'r', encoding='utf-8') as f:
-        content = f.read()
+        soup = BeautifulSoup(f.read(), 'html.parser')
     
-    id_pattern = f'id="{container_id}"'
-    id_pos = content.find(id_pattern)
-    
-    if id_pos == -1:
-        print(f"❌ ID '{container_id}' не найден в {html_file}")
+    container = soup.find(id=container_id)
+    if not container:
+        print(f"❌ ID '{container_id}' не найден")
         return False
     
-    div_start = content.rfind('<div', 0, id_pos)
-    if div_start == -1:
-        print(f"❌ No div with id found '{container_id}'")
-        return False
-    
-    div_depth = 1
-    pos = content.find('>', div_start) + 1
-    while pos < len(content) and div_depth > 0:
-        next_open = content.find('<div', pos)
-        next_close = content.find('</div>', pos)
-        
-        if next_close == -1:
-            break
-            
-        if next_open != -1 and next_open < next_close:
-            div_depth += 1
-            pos = next_open + 5
-        else:
-            div_depth -= 1
-            if div_depth == 0:
-                div_end = next_close + 6
-                break
-            pos = next_close + 6
-    
-    if 'div_end' not in locals():
-        print(f"❌ No closing tag found for container")
-        return False
-    
-    new_content = (content[:div_start] + 
-                   f'<div id="{container_id}" class="repo-grid">\n' + 
-                   cards_html + '\n        </div>' + 
-                   content[div_end:])
+    container.clear()
+    new_cards = BeautifulSoup(cards_html, 'html.parser')
+    for card in new_cards.children:
+        if card.name:
+            container.append(card)
     
     with open(html_file, 'w', encoding='utf-8') as f:
-        f.write(new_content)
+        f.write(soup.prettify())
     
     print(f"✅ Updated {html_file}")
     return True
 
 
 def main():
-    with open('data/repos.json', 'r', encoding='utf-8') as f: 
-        repos = json.load(f)
-    with open('data/articles.json', 'r', encoding='utf-8') as f: 
-        articles = json.load(f)
-    with open('data/pypi.json', 'r', encoding='utf-8') as f: 
-        packages = json.load(f)
+    repos = []
+    articles = []
+    packages = []
     
-    repos = [r for r in repos if not r.get('archived')]
-    repos.sort(key=lambda x: x.get('pushed_at', ''), reverse=True)
-    articles.sort(key=lambda x: x.get('published_at', ''), reverse=True)
-    packages = [p for p in packages if not p.get('error')]
+    try:
+        with open('data/repos.json', 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            if content:
+                repos = json.loads(content)
+            else:
+                print("⚠️  data/repos.json is empty")
+    except FileNotFoundError:
+        print("⚠️  data/repos.json not found")
+    except json.JSONDecodeError as e:
+        print(f"⚠️  data/repos.json is corrupted: {e}")
     
-    repo_cards = generate_repo_cards(repos)
-    article_cards = generate_article_cards(articles)
-    package_cards = generate_package_cards(packages)
+    try:
+        with open('data/articles.json', 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            if content:
+                articles = json.loads(content)
+            else:
+                print("⚠️  data/articles.json is empty")
+    except FileNotFoundError:
+        print("⚠️  data/articles.json not found")
+    except json.JSONDecodeError as e:
+        print(f"⚠️  data/articles.json is corrupted: {e}")
     
-    update_html_with_id('projects.html', 'repos-container', repo_cards)
-    update_html_with_id('articles.html', 'articles-container', article_cards)
-    update_html_with_id('packages.html', 'packages-container', package_cards)
+    try:
+        with open('data/pypi.json', 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            if content:
+                packages = json.loads(content)
+            else:
+                print("⚠️  data/pypi.json is empty")
+    except FileNotFoundError:
+        print("⚠️  data/pypi.json not found")
+    except json.JSONDecodeError as e:
+        print(f"⚠️  data/pypi.json is corrupted: {e}")
+    
+    if repos:
+        repos = [r for r in repos if not r.get('archived')]
+        repos.sort(key=lambda x: x.get('pushed_at', ''), reverse=True)
+        repo_cards = generate_repo_cards(repos)
+        update_html_with_id('projects.html', 'repos-container', repo_cards)
+    
+    if articles:
+        articles.sort(key=lambda x: x.get('published_at', ''), reverse=True)
+        article_cards = generate_article_cards(articles)
+        update_html_with_id('articles.html', 'articles-container', article_cards)
+    
+    if packages:
+        packages = [p for p in packages if not p.get('error')]
+        package_cards = generate_package_cards(packages)
+        update_html_with_id('packages.html', 'packages-container', package_cards)
     
     print('✅ All pages have been updated!')
 

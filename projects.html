@@ -1,134 +1,5162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>GitHub Projects - Alexander Suvorov</title>
-    <meta name="description" content="GitHub projects and open source contributions by Alexander Suvorov">
-    
-    <link rel="canonical" href="https://smartlegionlab.ru/projects.html">
-    <link rel="author" href="https://github.com/smartlegionlab">
-    
-    <meta property="og:title" content="GitHub Projects - Alexander Suvorov">
-    <meta property="og:description" content="Open source repositories and tools">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.ru/projects.html">
-    
-    <meta name="theme-color" content="#0d1117">
-    
-    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-</head>
-<body>
-    <div class="scroll-progress">
-        <div class="scroll-progress-bar"></div>
-    </div>
-    
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="bi bi-chevron-up"></i>
-    </button>
-    
-    <div class="container">
-        <div class="paper-container">
-            
-            <header class="professional-header">
-                <div class="container">
-                    <div class="header-content">
-                        <div class="main-profile-row">
-                            <div class="avatar-container">
-                                <div class="profile-avatar">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
-                                        <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="profile-info">
-                                <h1 class="name">Alexander Suvorov</h1>
-                                <p class="title">GitHub Projects & Open Source</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            
-            <main>
-                <nav class="mobile-navigation" id="mobileNav">
-                    <div class="mobile-nav-container">
-                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
-                            <i class="bi bi-house" aria-hidden="true"></i>
-                        </a>
-                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
-                            <i class="bi bi-person" aria-hidden="true"></i>
-                        </a>
-                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
-                            <i class="bi bi-gear" aria-hidden="true"></i>
-                        </a>
-                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
-                            <i class="bi bi-github" aria-hidden="true"></i>
-                        </a>
-                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
-                            <i class="bi bi-journal-text" aria-hidden="true"></i>
-                        </a>
-                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
-                            <i class="bi bi-box-seam" aria-hidden="true"></i>
-                        </a>
-                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
-                            <i class="bi bi-file-text" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </nav>
-                <div class="content-section" id="repositories">
-                    <div class="container">
-                        <h2 class="section-title">GitHub Repositories</h2>
-                        
-                        <div class="text-end mb-3">
-                            <a href="https://github.com/smartlegionlab" target="_blank" class="btn btn-outline-primary">
-                                <i class="bi bi-github"></i> View All on GitHub
-                            </a>
-                        </div>
-                        
-                        <div id="repos-container" class="repo-grid">
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="content-section">
-                    <div class="container text-center">
-                        <footer>
-                            <p class="text-muted">
-                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
-                            </p>
-                        </footer>
-                    </div>
-                </div>
-            </main>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   GitHub Projects - Alexander Suvorov
+  </title>
+  <meta content="GitHub projects and open source contributions by Alexander Suvorov" name="description"/>
+  <link href="https://smartlegionlab.ru/projects.html" rel="canonical"/>
+  <link href="https://github.com/smartlegionlab" rel="author"/>
+  <meta content="GitHub Projects - Alexander Suvorov" property="og:title"/>
+  <meta content="Open source repositories and tools" property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://smartlegionlab.ru/projects.html" property="og:url"/>
+  <meta content="#0d1117" name="theme-color"/>
+  <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;defs&gt;&lt;linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'&gt;&lt;stop offset='0%' stop-color='%230d6efd'/&gt;&lt;stop offset='100%' stop-color='%230b5ed7'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/&gt;&lt;path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <div class="scroll-progress">
+   <div class="scroll-progress-bar">
+   </div>
+  </div>
+  <button class="scroll-to-top" id="scrollToTop">
+   <i class="bi bi-chevron-up">
+   </i>
+  </button>
+  <div class="container">
+   <div class="paper-container">
+    <header class="professional-header">
+     <div class="container">
+      <div class="header-content">
+       <div class="main-profile-row">
+        <div class="avatar-container">
+         <div class="profile-avatar">
+          <svg class="bi bi-incognito text-dark" height="64" viewbox="0 0 16 16" width="64" xmlns="http://www.w3.org/2000/svg">
+           <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5">
+           </path>
+          </svg>
+         </div>
         </div>
-    </div>
-    
-    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/particle-background.js"></script>
-    <script src="js/scroll-manager.js"></script>
-    <script src="js/animation-manager.js"></script>
-    <script src="js/stats-manager.js"></script>
-    <script src="js/active-nav.js"></script>
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        <div class="profile-info">
+         <h1 class="name">
+          Alexander Suvorov
+         </h1>
+         <p class="title">
+          GitHub Projects &amp; Open Source
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main>
+     <nav class="mobile-navigation" id="mobileNav">
+      <div class="mobile-nav-container">
+       <a aria-label="Go to Home page" class="mobile-nav-btn" href="/">
+        <i aria-hidden="true" class="bi bi-house">
+        </i>
+       </a>
+       <a aria-label="Go to About page" class="mobile-nav-btn" href="/about.html">
+        <i aria-hidden="true" class="bi bi-person">
+        </i>
+       </a>
+       <a aria-label="Go to Skills page" class="mobile-nav-btn" href="/skills.html">
+        <i aria-hidden="true" class="bi bi-gear">
+        </i>
+       </a>
+       <a aria-label="Go to Projects page" class="mobile-nav-btn" href="/projects.html">
+        <i aria-hidden="true" class="bi bi-github">
+        </i>
+       </a>
+       <a aria-label="Go to Research page" class="mobile-nav-btn" href="/research.html">
+        <i aria-hidden="true" class="bi bi-journal-text">
+        </i>
+       </a>
+       <a aria-label="Go to Packages page" class="mobile-nav-btn" href="/packages.html">
+        <i aria-hidden="true" class="bi bi-box-seam">
+        </i>
+       </a>
+       <a aria-label="Go to Articles page" class="mobile-nav-btn" href="/articles.html">
+        <i aria-hidden="true" class="bi bi-file-text">
+        </i>
+       </a>
+      </div>
+     </nav>
+     <div class="content-section" id="repositories">
+      <div class="container">
+       <h2 class="section-title">
+        GitHub Repositories
+       </h2>
+       <div class="text-end mb-3">
+        <a class="btn btn-outline-primary" href="https://github.com/smartlegionlab" target="_blank">
+         <i class="bi bi-github">
+         </i>
+         View All on GitHub
+        </a>
+       </div>
+       <div class="repo-grid" id="repos-container">
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+            smartlegionlab.github.io
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Modern, responsive technical portfolio showcasing Alexander Suvorov's expertise in Python development, system architecture, and open-source contributions. The site combines professional presentation with real-time data from various developer platforms.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           academic-website
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           portfolio
+          </span>
+          <span class="repo-topic">
+           portfolio-site
+          </span>
+          <span class="repo-topic">
+           portfolio-website
+          </span>
+          <span class="repo-topic">
+           protfolio-project
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #e34c26">
+            </span>
+            HTML
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 15, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 06, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           2.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Mar 06, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/alexander-suvorov" target="_blank">
+            alexander-suvorov
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Academic research portfolio showcasing Alexander Suvorov's groundbreaking work in security paradigms and information theory. The site presents published research with real-time metrics from academic platforms.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           academic-website
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov-paradigms
+          </span>
+          <span class="repo-topic">
+           portfolio
+          </span>
+          <span class="repo-topic">
+           portfolio-project
+          </span>
+          <span class="repo-topic">
+           portfolio-site
+          </span>
+          <span class="repo-topic">
+           portfolio-website
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #e34c26">
+            </span>
+            HTML
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 25, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 06, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.6 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Mar 06, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/alexander-suvorov" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/github-repos-backup-tools" target="_blank">
+            github-repos-backup-tools
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A professional, modular solution for automatically cloning and backing up GitHub repositories and GIST files.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           github-app
+          </span>
+          <span class="repo-topic">
+           github-utilities
+          </span>
+          <span class="repo-topic">
+           python-app
+          </span>
+          <span class="repo-topic">
+           python-application
+          </span>
+          <span class="repo-topic">
+           repository-clone
+          </span>
+          <span class="repo-topic">
+           repository-cloning
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 18, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 04, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Mar 04, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/github-repos-backup-tools" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-repository-manager-gui" target="_blank">
+            smart-repository-manager-gui
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A powerful tool for managing GitHub repositories with advanced synchronization capabilities.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           gui-application
+          </span>
+          <span class="repo-topic">
+           gui-application-python
+          </span>
+          <span class="repo-topic">
+           linux-gui-applications
+          </span>
+          <span class="repo-topic">
+           python-gui-apps
+          </span>
+          <span class="repo-topic">
+           repository-manager
+          </span>
+          <span class="repo-topic">
+           smart-repository-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Feb 12, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 04, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.5 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Mar 04, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-repository-manager-gui" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-project-manager" target="_blank">
+            smart-project-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Project Manager is a desktop application for comprehensive project and task management.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           desktop-application
+          </span>
+          <span class="repo-topic">
+           project-manager
+          </span>
+          <span class="repo-topic">
+           python-applications
+          </span>
+          <span class="repo-topic">
+           smart-project-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 25, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 04, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           4.5 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Mar 04, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-project-manager" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-pip-collector" target="_blank">
+            smart-pip-collector
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          None
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Feb 27, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 05, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 27, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-pip-collector" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-file-duplicate-manager" target="_blank">
+            smart-file-duplicate-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart File Duplicate Manager is an app for finding and managing duplicate files. It's written in Python using PyQt6.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           duplicate-cleaner
+          </span>
+          <span class="repo-topic">
+           duplicate-detection
+          </span>
+          <span class="repo-topic">
+           python-apps
+          </span>
+          <span class="repo-topic">
+           smart-file-duplicate-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Feb 15, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 05, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.7 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 26, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-file-duplicate-manager" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-repository-manager-cli" target="_blank">
+            smart-repository-manager-cli
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A comprehensive command-line tool for managing GitHub repositories with advanced synchronization, SSH configuration management, and intelligent local repository management.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           github
+          </span>
+          <span class="repo-topic">
+           github-api
+          </span>
+          <span class="repo-topic">
+           github-repository-manager
+          </span>
+          <span class="repo-topic">
+           python-cli-app
+          </span>
+          <span class="repo-topic">
+           smart-repository-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 27, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 20, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.6 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 20, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-repository-manager-cli" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank">
+            smart-repository-manager-core
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A Python library for managing Git repositories with intelligent synchronization, SSH configuration validation, and GitHub integration.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           github-repository-manager
+          </span>
+          <span class="repo-topic">
+           smart-repository-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 26, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 20, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 20, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-password-manager-desktop" target="_blank">
+            smart-password-manager-desktop
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform desktop manager for deterministic smart passwords. Generate, manage, and retrieve passwords without storing them. Your secret phrase is the only key you need.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov-paradigms
+          </span>
+          <span class="repo-topic">
+           local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           python-application
+          </span>
+          <span class="repo-topic">
+           smart-password
+          </span>
+          <span class="repo-topic">
+           smart-password-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           smartpasslib
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 14, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 19, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           6.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 19, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-password-manager-desktop" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/clipassman" target="_blank">
+            clipassman
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov-paradigms
+          </span>
+          <span class="repo-topic">
+           console-app
+          </span>
+          <span class="repo-topic">
+           console-application
+          </span>
+          <span class="repo-topic">
+           local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           smart-password-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           smartpasslib
+          </span>
+          <span class="repo-topic">
+           smartpassword
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 30, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 18, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.9 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 18, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/clipassman" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartpasslib" target="_blank">
+            smartpasslib
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Passwords Library: Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           password-generator
+          </span>
+          <span class="repo-topic">
+           password-manager
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-libraries
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smart-password
+          </span>
+          <span class="repo-topic">
+           smart-password-generator
+          </span>
+          <span class="repo-topic">
+           smart-password-lib
+          </span>
+          <span class="repo-topic">
+           smart-password-library
+          </span>
+          <span class="repo-topic">
+           smart-password-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 14, 2021
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 18, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.7 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 18, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartpasslib" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-text-randomizer" target="_blank">
+            smart-text-randomizer
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Text Randomizer.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jul 30, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 11, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 11, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-text-randomizer" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartprinter" target="_blank">
+            smartprinter
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform smart printer for console applications.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cli-app
+          </span>
+          <span class="repo-topic">
+           cli-application
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-libraries
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           python-package
+          </span>
+          <span class="repo-topic">
+           python-packages
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 08, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 11, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 11, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartprinter" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-password-manager" target="_blank">
+            smart-password-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Password Manager web version.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cryptography
+          </span>
+          <span class="repo-topic">
+           new-paradigm
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           security
+          </span>
+          <span class="repo-topic">
+           smart-password-generator
+          </span>
+          <span class="repo-topic">
+           smart-password-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Aug 31, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 06, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.4 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 06, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-password-manager" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-social-network" target="_blank">
+            smart-social-network
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Modern Django-Powered Social Network Platform. A comprehensive, feature-rich social networking platform built from the ground up with Django. Smart Social Network offers a complete suite of social features with real-time interactions.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           django-social-network
+          </span>
+          <span class="repo-topic">
+           django-web-application
+          </span>
+          <span class="repo-topic">
+           smart-social-network
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           social-network
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #e34c26">
+            </span>
+            HTML
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Sep 18, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 06, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           3.8 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Feb 06, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-social-network" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/clipassgen" target="_blank">
+            clipassgen
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            9
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            9
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cli-app
+          </span>
+          <span class="repo-topic">
+           cli-application
+          </span>
+          <span class="repo-topic">
+           cli-applications
+          </span>
+          <span class="repo-topic">
+           cli-password-generator
+          </span>
+          <span class="repo-topic">
+           linux
+          </span>
+          <span class="repo-topic">
+           linux-cli
+          </span>
+          <span class="repo-topic">
+           pass-gen
+          </span>
+          <span class="repo-topic">
+           password-generator
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           python-cli
+          </span>
+          <span class="repo-topic">
+           smart-password
+          </span>
+          <span class="repo-topic">
+           smart-password-generator
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           smartpassgen
+          </span>
+          <span class="repo-topic">
+           smartpasslib
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+          <span class="repo-topic">
+           termux-password-generating-tool
+          </span>
+          <span class="repo-topic">
+           termux-tools
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 15, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jan 26, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.4 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jan 26, 2026
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/clipassgen" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-task-manager" target="_blank">
+            smart-task-manager
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A modern desktop task management application built with Python and PyQt5, featuring an intuitive dark theme interface, priority-based organization, and automatic data persistence.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           smart-task-manager
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           task-manager
+          </span>
+          <span class="repo-topic">
+           todoapp
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 05, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 02, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Dec 24, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-task-manager" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartlegionlab" target="_blank">
+            smartlegionlab
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Software Architect | Author of Pointer-Based Security &amp; Local Data Regeneration Paradigms.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 01, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Dec 03, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           2.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Dec 03, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartlegionlab" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/babylonian-image-library" target="_blank">
+            babylonian-image-library
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A deterministic infinite image library generator inspired by Borges' 'The Library of Babel'. Generate unique, deterministic images based on coordinate systems without storing image data.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           babilonian-library
+          </span>
+          <span class="repo-topic">
+           babylon
+          </span>
+          <span class="repo-topic">
+           deterministic
+          </span>
+          <span class="repo-topic">
+           local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Mar 22, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Dec 06, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           6.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 29, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/babylonian-image-library" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-babylon-library" target="_blank">
+            smart-babylon-library
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A deterministic infinite library generator inspired by Borges' "The Library of Babel". Generate unique, deterministic books and pages based on coordinate systems without storing any data.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov-paradigms
+          </span>
+          <span class="repo-topic">
+           babel-library
+          </span>
+          <span class="repo-topic">
+           babylon
+          </span>
+          <span class="repo-topic">
+           babylon-library
+          </span>
+          <span class="repo-topic">
+           local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           python-babylon
+          </span>
+          <span class="repo-topic">
+           python-babylon-library
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Mar 20, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 29, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 29, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-babylon-library" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-tsp-solver" target="_blank">
+            smart-tsp-solver
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristics. Sometimes outperforms classical methods by **~25%** on real and clustered data by using spatial intelligence and adaptive strategies.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           smart-tsp-solver
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           tsp
+          </span>
+          <span class="repo-topic">
+           tsp-problem
+          </span>
+          <span class="repo-topic">
+           tsp-python
+          </span>
+          <span class="repo-topic">
+           tsp-solver
+          </span>
+          <span class="repo-topic">
+           tsp-solver-python
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Aug 23, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 28, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           1.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 16, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-tsp-solver" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/deterministic-game-engine-report" target="_blank">
+            deterministic-game-engine-report
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Practical Implementation of Pointer-Based Security and Local Data Regeneration Paradigms
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           deterministic-game-engine
+          </span>
+          <span class="repo-topic">
+           paradigms
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           the-local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           the-pointer-based-security-paradigm
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #8b949e">
+            </span>
+            TeX
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 19, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 15, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/deterministic-game-engine-report" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank">
+            pointer-based-security-paradigm
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          The Pointer-Based Security Paradigm: Architectural Shift from Data Protection to Data Non-Existence
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov-security-paradigm
+          </span>
+          <span class="repo-topic">
+           deterministic-game-en
+          </span>
+          <span class="repo-topic">
+           deterministic-game-engine
+          </span>
+          <span class="repo-topic">
+           paradigm
+          </span>
+          <span class="repo-topic">
+           paradigms
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           privacy
+          </span>
+          <span class="repo-topic">
+           security
+          </span>
+          <span class="repo-topic">
+           security-paradigm
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           suvorov-the-pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           the-pointer-based-security-paradigm
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #8b949e">
+            </span>
+            TeX
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Sep 28, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 15, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" target="_blank">
+            local-data-regeneration-paradigm
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          The Local Data Regeneration Paradigm Ontological Shift from Data Transmission to Synchronous State Discovery
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov-paradigm
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov-paradigms
+          </span>
+          <span class="repo-topic">
+           local-data-regeneration-paradigm
+          </span>
+          <span class="repo-topic">
+           paradigm
+          </span>
+          <span class="repo-topic">
+           paradigms
+          </span>
+          <span class="repo-topic">
+           pointer-based-security-paradigm
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #8b949e">
+            </span>
+            TeX
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 04, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 15, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank">
+            position-candidate-hypothesis-paradigm
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            0
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Position-Candidate-Hypothesis (PCH) is a theoretical paradigm for structural-statistical analysis of NP-complete problems.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           alexander-suvorov-paradigm
+          </span>
+          <span class="repo-topic">
+           alexander-suvorov-paradigms
+          </span>
+          <span class="repo-topic">
+           algorithms
+          </span>
+          <span class="repo-topic">
+           np-problem
+          </span>
+          <span class="repo-topic">
+           paradigms
+          </span>
+          <span class="repo-topic">
+           pch-paradigm
+          </span>
+          <span class="repo-topic">
+           research
+          </span>
+          <span class="repo-topic">
+           research-paper
+          </span>
+          <span class="repo-topic">
+           research-project
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #8b949e">
+            </span>
+            TeX
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 05, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Feb 15, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.4 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 15, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-todo-app-local" target="_blank">
+            smart-todo-app-local
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart ToDo App is a modern, full-featured web-based task management application built with pure Python and JavaScript. The application offers an intuitive interface with dark theme and a complete set of features for productive task management.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           local-todo-app
+          </span>
+          <span class="repo-topic">
+           python-application
+          </span>
+          <span class="repo-topic">
+           smart-todo-app
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           todoapp
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #f1e05a">
+            </span>
+            JavaScript
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 29, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 15, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 15, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-todo-app-local" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-todo-app-desktop" target="_blank">
+            smart-todo-app-desktop
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Modern desktop Todo application with powerful features.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           desktop-app
+          </span>
+          <span class="repo-topic">
+           flet-app
+          </span>
+          <span class="repo-topic">
+           python-desktop-application
+          </span>
+          <span class="repo-topic">
+           python-flet
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           todoapp
+          </span>
+          <span class="repo-topic">
+           todolist
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 19, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 11, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Nov 11, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-todo-app-desktop" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-legion-lab-library" target="_blank">
+            smart-legion-lab-library
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Legion Lab Library
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 28, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-legion-lab-library" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-tsp-oracle" target="_blank">
+            smart-tsp-oracle
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Python. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           smart-tsp-oracle
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           tsp
+          </span>
+          <span class="repo-topic">
+           tsp-oracle
+          </span>
+          <span class="repo-topic">
+           tsp-problem
+          </span>
+          <span class="repo-topic">
+           tsp-solver
+          </span>
+          <span class="repo-topic">
+           tsp-solver-python
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Aug 24, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 28, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-tsp-oracle" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-redis-storage" target="_blank">
+            smart-redis-storage
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Redis storage manager. CRUD (Create, Read, Update, Delete) for Redis.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           django
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python-redis
+          </span>
+          <span class="repo-topic">
+           python-redis-storage
+          </span>
+          <span class="repo-topic">
+           python-scripts
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           redis
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 13, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Oct 28, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 28, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-redis-storage" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/todo-app-tg-bot" target="_blank">
+            todo-app-tg-bot
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          ToDo app. Asynchronous Telegram bot.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           asincio
+          </span>
+          <span class="repo-topic">
+           python-app
+          </span>
+          <span class="repo-topic">
+           python-application
+          </span>
+          <span class="repo-topic">
+           python-telegeam-bot
+          </span>
+          <span class="repo-topic">
+           python-telegram-bot
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           telegram-bot
+          </span>
+          <span class="repo-topic">
+           telegram-bots
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+          <span class="repo-topic">
+           termux-telegram
+          </span>
+          <span class="repo-topic">
+           tg-bot
+          </span>
+          <span class="repo-topic">
+           todo
+          </span>
+          <span class="repo-topic">
+           todoapp
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 05, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Oct 28, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 28, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/todo-app-tg-bot" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/personal-telegram-bot" target="_blank">
+            personal-telegram-bot
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Personal telegram bot for you or your company: Universal, asynchronous telegram bot for your company or personal use.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Oct 16, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Oct 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/personal-telegram-bot" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/SmartPasswordGenerator" target="_blank">
+            SmartPasswordGenerator
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Console Smart and Default password generator for Windows.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #178600">
+            </span>
+            C#
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 16, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Sep 16, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.3 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Sep 16, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/SmartPasswordGenerator" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-tsp-benchmark" target="_blank">
+            smart-tsp-benchmark
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Benchmarking Framework - Professional-grade testing infrastructure with configurable scenarios and detailed metrics
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           python-tsp
+          </span>
+          <span class="repo-topic">
+           python-tsp-benchmark
+          </span>
+          <span class="repo-topic">
+           smart-tsp-benchmark
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           tsp
+          </span>
+          <span class="repo-topic">
+           tsp-benchmark
+          </span>
+          <span class="repo-topic">
+           tsp-problem
+          </span>
+          <span class="repo-topic">
+           tsp-solver
+          </span>
+          <span class="repo-topic">
+           tsp-solver-python
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Aug 23, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.6 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Sep 16, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-tsp-benchmark" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank">
+            exact-tsp-solver
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Go. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           exact-tsp-solver
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           tsp
+          </span>
+          <span class="repo-topic">
+           tsp-oracle
+          </span>
+          <span class="repo-topic">
+           tsp-problem
+          </span>
+          <span class="repo-topic">
+           tsp-solver
+          </span>
+          <span class="repo-topic">
+           tsp-solver-go
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #00ADD8">
+            </span>
+            Go
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Aug 23, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Sep 15, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smart-2fa-secure" target="_blank">
+            smart-2fa-secure
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            4
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Advanced Two-Factor Authentication system with enhanced security features.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           2fa
+          </span>
+          <span class="repo-topic">
+           django
+          </span>
+          <span class="repo-topic">
+           django-2fa
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-two-factor-authenticator
+          </span>
+          <span class="repo-topic">
+           secure
+          </span>
+          <span class="repo-topic">
+           security
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           two-factor-authentication
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 11, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 14, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Aug 24, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smart-2fa-secure" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/commandex" target="_blank">
+            commandex
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            8
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            8
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           command-execution
+          </span>
+          <span class="repo-topic">
+           command-executor
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-libraries
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           python-package
+          </span>
+          <span class="repo-topic">
+           python-packages
+          </span>
+          <span class="repo-topic">
+           python-scripts
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 08, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jul 28, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jul 28, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/commandex" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/commandman" target="_blank">
+            commandman
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform console command manager.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 15, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/commandman" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartpathlibrary" target="_blank">
+            smartpathlibrary
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform library for working with paths to files and folders.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 15, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartpathlibrary" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartexecutorlib" target="_blank">
+            smartexecutorlib
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Command executor
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 15, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartexecutorlib" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/climan" target="_blank">
+            climan
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform config and manager for click console utilities.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cli
+          </span>
+          <span class="repo-topic">
+           cli-app
+          </span>
+          <span class="repo-topic">
+           cli-applications
+          </span>
+          <span class="repo-topic">
+           cli-utilities
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Sep 13, 2021
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/climan" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/github-ssh-key" target="_blank">
+            github-ssh-key
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Simplifies the cloning of private GitHub repositories, for example on Termux or on a server.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cli-app
+          </span>
+          <span class="repo-topic">
+           git-clone
+          </span>
+          <span class="repo-topic">
+           git-cloner
+          </span>
+          <span class="repo-topic">
+           github-ssh
+          </span>
+          <span class="repo-topic">
+           github-ssh-key
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           python-cli-app
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+          <span class="repo-topic">
+           termux-tool
+          </span>
+          <span class="repo-topic">
+           termux-tools
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 13, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Aug 11, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/github-ssh-key" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/commandpack" target="_blank">
+            commandpack
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            7
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            7
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A package of modules for working with commands, command packages.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           execute-command
+          </span>
+          <span class="repo-topic">
+           executor
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 08, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.1 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/commandpack" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartcliapp" target="_blank">
+            smartcliapp
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform library of tools for creating console applications, based on the click library.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           click
+          </span>
+          <span class="repo-topic">
+           console-app
+          </span>
+          <span class="repo-topic">
+           console-application
+          </span>
+          <span class="repo-topic">
+           console-utility
+          </span>
+          <span class="repo-topic">
+           python-cli
+          </span>
+          <span class="repo-topic">
+           python-click
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+          <span class="repo-topic">
+           termux-tools
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 08, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 10, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartcliapp" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartrandom" target="_blank">
+            smartrandom
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform Random Data Generators.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           code-generator
+          </span>
+          <span class="repo-topic">
+           password-generator
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python-script
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           random
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 14, 2023
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 13, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.5 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 13, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartrandom" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smarttextdecorator" target="_blank">
+            smarttextdecorator
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart text decorator.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cli-app
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python-lib
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           text-decoration
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 30, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 12, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 12, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smarttextdecorator" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/smartauthen" target="_blank">
+            smartauthen
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart, simple, lightweight, secure cross-platform authentication for any application.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           auth
+          </span>
+          <span class="repo-topic">
+           authentication
+          </span>
+          <span class="repo-topic">
+           pypi
+          </span>
+          <span class="repo-topic">
+           pypi-package
+          </span>
+          <span class="repo-topic">
+           pypi-packages
+          </span>
+          <span class="repo-topic">
+           python-libraries
+          </span>
+          <span class="repo-topic">
+           python-library
+          </span>
+          <span class="repo-topic">
+           python-package
+          </span>
+          <span class="repo-topic">
+           python-packages
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smart-auth
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           termux
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: May 08, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Jun 12, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.2 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Jun 12, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/smartauthen" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/qr-codes-generator" target="_blank">
+            qr-codes-generator
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Qr codes generator.
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 23, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 26, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 26, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/qr-codes-generator" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/todo-app-cli" target="_blank">
+            todo-app-cli
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            6
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            6
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Console ToDo app. The ToDo console app is a simple and easy-to-use task management tool that works on the command line. It allows users to easily add, delete, edit, and view their tasks without the distraction of complex graphical interfaces.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           cli-app
+          </span>
+          <span class="repo-topic">
+           cli-todo
+          </span>
+          <span class="repo-topic">
+           linux-cli
+          </span>
+          <span class="repo-topic">
+           python-app
+          </span>
+          <span class="repo-topic">
+           python-todo
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+          <span class="repo-topic">
+           todoapp
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Sep 26, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Mar 02, 2026
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.4 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Apr 26, 2025
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/todo-app-cli" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/blockchain" target="_blank">
+            blockchain
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          This project is an implementation of a blockchain in Python,  which includes core features such as block creation, transaction processing, and a consensus algorithm.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           blockchain
+          </span>
+          <span class="repo-topic">
+           blockchain-technology
+          </span>
+          <span class="repo-topic">
+           flask-application
+          </span>
+          <span class="repo-topic">
+           flask-blockchain
+          </span>
+          <span class="repo-topic">
+           python-blockchain
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegiolab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Dec 13, 2021
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 16, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 29, 2024
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/blockchain" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/python-patterns" target="_blank">
+            python-patterns
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            3
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            2
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A collection of design patterns and idioms in Python.
+         </p>
+         <div class="repo-topics">
+          <span class="repo-topic">
+           python
+          </span>
+          <span class="repo-topic">
+           python-patterns
+          </span>
+          <span class="repo-topic">
+           python3
+          </span>
+          <span class="repo-topic">
+           smartlegionlab
+          </span>
+         </div>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Nov 03, 2021
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Nov 16, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Oct 29, 2024
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/python-patterns" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-badges">
+         </div>
+         <div class="repo-header">
+          <div class="repo-title-section">
+           <a class="repo-title" href="https://github.com/smartlegionlab/clitodo" target="_blank">
+            clitodo
+           </a>
+           <div class="repo-owner">
+            <i class="bi bi-person">
+            </i>
+            smartlegionlab
+           </div>
+          </div>
+          <div class="repo-stats">
+           <span class="repo-stat text-warning">
+            <i class="bi bi-star">
+            </i>
+            5
+           </span>
+           <span class="repo-stat text-info">
+            <i class="bi bi-diagram-2">
+            </i>
+            1
+           </span>
+           <span class="repo-stat text-primary">
+            <i class="bi bi-eye">
+            </i>
+            5
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Console task manager
+         </p>
+         <div class="repo-meta">
+          <div class="repo-meta-item">
+           <div class="repo-language">
+            <span class="language-dot" style="background-color: #3572A5">
+            </span>
+            Python
+           </div>
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-calendar">
+           </i>
+           Created: Jun 15, 2024
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-arrow-clockwise">
+           </i>
+           Updated: Apr 03, 2025
+          </div>
+          <div class="repo-meta-item">
+           <i class="bi bi-hdd">
+           </i>
+           0.0 MB
+          </div>
+         </div>
+         <div class="repo-footer">
+          <div class="repo-updated">
+           <i class="bi bi-clock">
+           </i>
+           Last updated Sep 26, 2024
+          </div>
+          <a class="repo-action" href="https://github.com/smartlegionlab/clitodo" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="content-section">
+      <div class="container text-center">
+       <footer>
+        <p class="text-muted">
+         ©
+         <span id="currentYear">
+         </span>
+         <a href="https://github.com/smartlegionlab" target="_blank">
+          Alexander Suvorov
+         </a>
+        </p>
+       </footer>
+      </div>
+     </div>
+    </main>
+   </div>
+  </div>
+  <script src="css/bootstrap/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/config.js">
+  </script>
+  <script src="js/utils.js">
+  </script>
+  <script src="js/particle-background.js">
+  </script>
+  <script src="js/scroll-manager.js">
+  </script>
+  <script src="js/animation-manager.js">
+  </script>
+  <script src="js/stats-manager.js">
+  </script>
+  <script src="js/active-nav.js">
+  </script>
+  <script>
+   document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
             if (typeof ScrollManager !== 'undefined') {
                 new ScrollManager();
             } else {
                 console.error('ScrollManager not found');
             }
         });
-    </script>
-</body>
+  </script>
+ </body>
 </html>

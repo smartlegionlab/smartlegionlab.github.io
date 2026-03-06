@@ -1,134 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>PyPI Packages - Alexander Suvorov</title>
-    <meta name="description" content="Python packages on PyPI by Alexander Suvorov">
-    
-    <link rel="canonical" href="https://smartlegionlab.ru/packages.html">
-    <link rel="author" href="https://github.com/smartlegionlab">
-    
-    <meta property="og:title" content="PyPI Packages - Alexander Suvorov">
-    <meta property="og:description" content="Python packages for various purposes">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.ru/packages.html">
-    
-    <meta name="theme-color" content="#0d1117">
-    
-    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-</head>
-<body>
-    <div class="scroll-progress">
-        <div class="scroll-progress-bar"></div>
-    </div>
-    
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="bi bi-chevron-up"></i>
-    </button>
-    
-    <div class="container">
-        <div class="paper-container">
-            
-            <header class="professional-header">
-                <div class="container">
-                    <div class="header-content">
-                        <div class="main-profile-row">
-                            <div class="avatar-container">
-                                <div class="profile-avatar">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
-                                        <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="profile-info">
-                                <h1 class="name">Alexander Suvorov</h1>
-                                <p class="title">PyPI Packages & Python Libraries</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            
-            <main>
-                <nav class="mobile-navigation" id="mobileNav">
-                    <div class="mobile-nav-container">
-                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
-                            <i class="bi bi-house" aria-hidden="true"></i>
-                        </a>
-                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
-                            <i class="bi bi-person" aria-hidden="true"></i>
-                        </a>
-                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
-                            <i class="bi bi-gear" aria-hidden="true"></i>
-                        </a>
-                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
-                            <i class="bi bi-github" aria-hidden="true"></i>
-                        </a>
-                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
-                            <i class="bi bi-journal-text" aria-hidden="true"></i>
-                        </a>
-                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
-                            <i class="bi bi-box-seam" aria-hidden="true"></i>
-                        </a>
-                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
-                            <i class="bi bi-file-text" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </nav>
-                <div class="content-section">
-                    <div class="container">
-                        <h2 class="section-title">PyPI Packages</h2>
-                        
-                        <div class="text-end mb-3">
-                            <a href="https://pypi.org/user/smartlegionlab/" target="_blank" class="btn btn-outline-primary">
-                                <i class="bi bi-box-seam"></i> View All on PyPI
-                            </a>
-                        </div>
-                        
-                        <div id="packages-container" class="repo-grid">
-                            
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="content-section">
-                    <div class="container text-center">
-                        <footer>
-                            <p class="text-muted">
-                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
-                            </p>
-                        </footer>
-                    </div>
-                </div>
-            </main>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   PyPI Packages - Alexander Suvorov
+  </title>
+  <meta content="Python packages on PyPI by Alexander Suvorov" name="description"/>
+  <link href="https://smartlegionlab.ru/packages.html" rel="canonical"/>
+  <link href="https://github.com/smartlegionlab" rel="author"/>
+  <meta content="PyPI Packages - Alexander Suvorov" property="og:title"/>
+  <meta content="Python packages for various purposes" property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://smartlegionlab.ru/packages.html" property="og:url"/>
+  <meta content="#0d1117" name="theme-color"/>
+  <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;defs&gt;&lt;linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'&gt;&lt;stop offset='0%' stop-color='%230d6efd'/&gt;&lt;stop offset='100%' stop-color='%230b5ed7'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/&gt;&lt;path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <div class="scroll-progress">
+   <div class="scroll-progress-bar">
+   </div>
+  </div>
+  <button class="scroll-to-top" id="scrollToTop">
+   <i class="bi bi-chevron-up">
+   </i>
+  </button>
+  <div class="container">
+   <div class="paper-container">
+    <header class="professional-header">
+     <div class="container">
+      <div class="header-content">
+       <div class="main-profile-row">
+        <div class="avatar-container">
+         <div class="profile-avatar">
+          <svg class="bi bi-incognito text-dark" height="64" viewbox="0 0 16 16" width="64" xmlns="http://www.w3.org/2000/svg">
+           <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5">
+           </path>
+          </svg>
+         </div>
         </div>
-    </div>
-    
-    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/particle-background.js"></script>
-    <script src="js/scroll-manager.js"></script>
-    <script src="js/animation-manager.js"></script>
-    <script src="js/stats-manager.js"></script>
-    <script src="js/active-nav.js"></script>
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        <div class="profile-info">
+         <h1 class="name">
+          Alexander Suvorov
+         </h1>
+         <p class="title">
+          PyPI Packages &amp; Python Libraries
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </header>
+    <main>
+     <nav class="mobile-navigation" id="mobileNav">
+      <div class="mobile-nav-container">
+       <a aria-label="Go to Home page" class="mobile-nav-btn" href="/">
+        <i aria-hidden="true" class="bi bi-house">
+        </i>
+       </a>
+       <a aria-label="Go to About page" class="mobile-nav-btn" href="/about.html">
+        <i aria-hidden="true" class="bi bi-person">
+        </i>
+       </a>
+       <a aria-label="Go to Skills page" class="mobile-nav-btn" href="/skills.html">
+        <i aria-hidden="true" class="bi bi-gear">
+        </i>
+       </a>
+       <a aria-label="Go to Projects page" class="mobile-nav-btn" href="/projects.html">
+        <i aria-hidden="true" class="bi bi-github">
+        </i>
+       </a>
+       <a aria-label="Go to Research page" class="mobile-nav-btn" href="/research.html">
+        <i aria-hidden="true" class="bi bi-journal-text">
+        </i>
+       </a>
+       <a aria-label="Go to Packages page" class="mobile-nav-btn" href="/packages.html">
+        <i aria-hidden="true" class="bi bi-box-seam">
+        </i>
+       </a>
+       <a aria-label="Go to Articles page" class="mobile-nav-btn" href="/articles.html">
+        <i aria-hidden="true" class="bi bi-file-text">
+        </i>
+       </a>
+      </div>
+     </nav>
+     <div class="content-section">
+      <div class="container">
+       <h2 class="section-title">
+        PyPI Packages
+       </h2>
+       <div class="text-end mb-3">
+        <a class="btn btn-outline-primary" href="https://pypi.org/user/smartlegionlab/" target="_blank">
+         <i class="bi bi-box-seam">
+         </i>
+         View All on PyPI
+        </a>
+       </div>
+       <div class="repo-grid" id="packages-container">
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartpasslib/" target="_blank">
+            smartpasslib
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v2.2.0
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Passwords Library: Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartpasslib
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartpasslib/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/clipassman/" target="_blank">
+            clipassman
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v2.2.0
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install clipassman
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/clipassman/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/clipassgen/" target="_blank">
+            clipassgen
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v2.1.4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install clipassgen
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/clipassgen/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-tsp-solver/" target="_blank">
+            smart-tsp-solver
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v1.0.0
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by ~25% on real-world clustered data while maintaining practical computational efficiency.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-tsp-solver
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-tsp-solver/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-tsp-benchmark/" target="_blank">
+            smart-tsp-benchmark
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v1.0.0
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart TSP Benchmark is a professional algorithm testing infrastructure with customizable scenarios and detailed metrics.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-tsp-benchmark
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-tsp-benchmark/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-2fa-secure/" target="_blank">
+            smart-2fa-secure
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.2.3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Advanced Two-Factor Authentication system with enhanced security features.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-2fa-secure
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-2fa-secure/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/babylonian-image-library/" target="_blank">
+            babylonian-image-library
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v1.0.0
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A deterministic infinite image library generator inspired by Borges' 'The Library of Babel'. Generate unique, deterministic images based on coordinate systems without storing image data.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install babylonian-image-library
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/babylonian-image-library/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-babylon-library/" target="_blank">
+            smart-babylon-library
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v1.1.0
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Babylon Library. A deterministic infinite library generator. Generate unique, deterministic books and pages based on coordinate systems without storing any data.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-babylon-library
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-babylon-library/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/commandman/" target="_blank">
+            commandman
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.5.2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Console utility for working with command packages. Storage, execution, autorun.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install commandman
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/commandman/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartpathlibrary/" target="_blank">
+            smartpathlibrary
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.1.3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Library for working with paths to files and folders.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartpathlibrary
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartpathlibrary/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartexecutorlib/" target="_blank">
+            smartexecutorlib
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.1.1
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart executors.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartexecutorlib
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartexecutorlib/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/climan/" target="_blank">
+            climan
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.3.1
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform config and manager for click console utilities.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install climan
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/climan/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/github-ssh-key/" target="_blank">
+            github-ssh-key
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.4.2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          GitHub ssh key manager. Console utility for creating, getting, testing, using public ssh keys for GitHub.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install github-ssh-key
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/github-ssh-key/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/commandpack/" target="_blank">
+            commandpack
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.3.2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install commandpack
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/commandpack/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartprinter/" target="_blank">
+            smartprinter
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.3.2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform smart printer for console applications
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartprinter
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartprinter/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartcliapp/" target="_blank">
+            smartcliapp
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.4.2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Cross-platform library of tools for creating console applications, based on the click library.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartcliapp
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartcliapp/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/commandex/" target="_blank">
+            commandex
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.3.1
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install commandex
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/commandex/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartrandom/" target="_blank">
+            smartrandom
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.3.1
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Random data generators. Allows you to generate random strings of a given length from letters, numbers and symbols, as well as randomize text. Helps generate passwords, service codes (for example, for sending via SMS), hashes and much more. Generates smart, recoverable passwords.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartrandom
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartrandom/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smarttextdecorator/" target="_blank">
+            smarttextdecorator
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.1.3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          A cross-platform library for decorating strings and displaying them beautifully in the console. Generates and displays lines to the full width of the console with the specified text and a placeholder character. Generates and displays a line with the specified text, decorated at the top and bottom with filler characters along the length of the line. Use for beautiful design of console applications.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smarttextdecorator
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smarttextdecorator/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smartauthen/" target="_blank">
+            smartauthen
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.2.4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart, simple, lightweight, secure cross-platform authentication for any application.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smartauthen
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smartauthen/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-redis-storage/" target="_blank">
+            smart-redis-storage
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.2.3
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Convenient work with Redis.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-redis-storage
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-redis-storage/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-text-randomizer/" target="_blank">
+            smart-text-randomizer
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.0.4
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Text Randomizer.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-text-randomizer
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-text-randomizer/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+        <div class="repo-card">
+         <div class="repo-header">
+          <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+           <a class="repo-title" href="https://pypi.org/project/smart-repository-manager-core/" target="_blank">
+            smart-repository-manager-core
+           </a>
+           <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">
+            v0.3.2
+           </span>
+          </div>
+         </div>
+         <p class="repo-description">
+          Smart Repository Manager Core - A Python library for managing Git repositories with intelligent synchronization, SSH configuration validation, and GitHub integration.
+         </p>
+         <div class="citation-tabs-container mt-3">
+          <div class="citation-format text-center">
+           <p class="citation-text">
+            pip install smart-repository-manager-core
+           </p>
+          </div>
+         </div>
+         <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
+          <a class="repo-action" href="https://pypi.org/project/smart-repository-manager-core/" target="_blank">
+           <i class="bi bi-box-arrow-up-right">
+           </i>
+           View on PyPI
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="content-section">
+      <div class="container text-center">
+       <footer>
+        <p class="text-muted">
+         ©
+         <span id="currentYear">
+         </span>
+         <a href="https://github.com/smartlegionlab" target="_blank">
+          Alexander Suvorov
+         </a>
+        </p>
+       </footer>
+      </div>
+     </div>
+    </main>
+   </div>
+  </div>
+  <script src="css/bootstrap/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="js/config.js">
+  </script>
+  <script src="js/utils.js">
+  </script>
+  <script src="js/particle-background.js">
+  </script>
+  <script src="js/scroll-manager.js">
+  </script>
+  <script src="js/animation-manager.js">
+  </script>
+  <script src="js/stats-manager.js">
+  </script>
+  <script src="js/active-nav.js">
+  </script>
+  <script>
+   document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
             if (typeof ScrollManager !== 'undefined') {
                 new ScrollManager();
             } else {
                 console.error('ScrollManager not found');
             }
         });
-    </script>
-</body>
+  </script>
+ </body>
 </html>
