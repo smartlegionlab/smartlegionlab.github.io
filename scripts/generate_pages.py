@@ -24,6 +24,14 @@ def generate_article_cards(articles, limit=100):
         has_discussion = article.get('comments_count', 0) > 5
         author_name = article.get('user', {}).get('name', 'Alexander Suvorov')
 
+        topics_block = ''
+        if article.get('tag_list'):
+            tag_spans = ''.join([f'<span class="repo-topic" title="{tag}">{tag}</span>'
+                                for tag in article.get('tag_list', [])[:5]])
+            if len(article.get('tag_list', [])) > 5:
+                tag_spans += f'<span class="repo-topic">+{len(article["tag_list"]) - 5} more</span>'
+            topics_block = f'<div class="repo-topics">{tag_spans}</div>'
+
         card = f'''        <div class="repo-card">
             <div class="repo-badges">
                 {f'<span class="repo-badge bg-success">Popular</span>' if is_popular else ''}
@@ -50,12 +58,7 @@ def generate_article_cards(articles, limit=100):
                 </div>
             </div>
             <p class="repo-description">{article.get('description', 'No description provided')}</p>
-            {f'''
-            <div class="repo-topics">
-                {''.join([f'<span class="repo-topic" title="{tag}">{tag}</span>' for tag in article.get('tag_list', [])[:5]])}
-                {f'<span class="repo-topic">+{len(article["tag_list"]) - 5} more</span>' if len(article.get('tag_list', [])) > 5 else ''}
-            </div>
-            ''' if article.get('tag_list') else ''}
+            {topics_block}
             <div class="repo-meta">
                 <div class="repo-meta-item">
                     <i class="bi bi-calendar"></i> Published: {published_date}
