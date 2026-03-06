@@ -14,85 +14,85 @@ class ParticleBackground {
         this.isPaused = false;
 
         this.techWords = [
-        'ARCH', 'Artix', 'Manjaro', 'Garuda', 'EndeavourOS',
-        'Gentoo', 'LFS', 'Void', 'NixOS', 'Slackware',
-        'Debian', 'Ubuntu', 'Fedora', 'openSUSE', 'Red Hat',
-        'macOS', 'FreeBSD', 'OpenBSD', 'NetBSD',
-        'Windows', 'WSL', 'WINE', 'Proton', 'Bottles',
-        
-        'Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'C#', 'PHP', 'Ruby', 
-        'Go', 'Rust', 'Swift', 'Kotlin', 'Zig', 'Nim', 'Crystal', 'D',
-        'Haskell', 'Scala', 'Elixir', 'Erlang', 'Clojure', 'F#', 'OCaml',
-        'Lua', 'Perl', 'R', 'Julia', 'MATLAB', 'Bash', 'Zsh', 'Fish',
-        'Assembly', 'COBOL', 'Fortran', 'Lisp', 'Prolog', 'Racket',
-        
-        'React', 'Vue', 'Angular', 'Svelte', 'Solid', 'Qwik',
-        'Django', 'Flask', 'FastAPI', 'Spring', 'Laravel', 'Symfony',
-        'Rails', 'Phoenix', 'Actix', 'Rocket', 'Tauri', 'Electron',
-        'PyTorch', 'TensorFlow', 'JAX', 'Transformers', 'LangChain',
-        
-        'Docker', 'Podman', 'Kubernetes', 'k3s', 'Rancher',
-        'Git', 'GitHub', 'GitLab', 'Gitea', 'Codeberg',
-        'Neovim', 'Vim', 'Emacs', 'Helix', 'Kakoune',
-        'VS Code', 'Codium', 'Sublime', 'IntelliJ', 'CLion',
-        'Postman', 'Insomnia', 'Bruno', 'HTTPie', 'curl', 'wget',
-        
-        'PostgreSQL', 'MySQL', 'MariaDB', 'SQLite', 'DuckDB',
-        'MongoDB', 'Redis', 'Memcached', 'Dragonfly', 'KeyDB',
-        'ClickHouse', 'TimescaleDB', 'InfluxDB', 'Prometheus',
-        'Elasticsearch', 'Cassandra', 'ScyllaDB', 'Neo4j',
-        
-        'AWS', 'Azure', 'GCP', 'DigitalOcean', 'Hetzner', 'Linode',
-        'Cloudflare', 'Vercel', 'Netlify', 'Railway', 'Fly.io',
-        
-        'API', 'REST', 'GraphQL', 'tRPC', 'WebSocket', 'SSE',
-        'HTTP/2', 'HTTP/3', 'QUIC', 'TCP/IP', 'UDP', 'ICMP',
-        'JSON', 'YAML', 'TOML', 'XML', 'Protobuf', 'Avro',
-        'JWT', 'OAuth', 'OIDC', 'SAML', 'LDAP', 'Kerberos',
-        
-        'Microservices', 'Monolith', 'Serverless', 'Edge',
-        'Clean Architecture', 'DDD', 'CQRS', 'Event Sourcing',
-        'MVC', 'MVP', 'MVVM', 'VIPER', 'Redux', 'Zustand',
-        
-        'Make', 'CMake', 'Meson', 'Ninja', 'Bazel',
-        'GitHub Actions', 'GitLab CI', 'Jenkins', 'Drone', 'Woodpecker',
-        'Ansible', 'Terraform', 'Packer', 'Vagrant', 'Pulumi',
-        
-        'pip', 'pipx', 'poetry', 'pdm', 'uv',
-        'venv', 'virtualenv', 'conda', 'mamba', 'micromamba',
-        'NumPy', 'Pandas', 'Polars', 'Pyspark', 'Dask',
-        'Jupyter', 'IPython', 'Colab', 'Kaggle',
-        
-        'npm', 'yarn', 'pnpm', 'bun', 'deno',
-        'webpack', 'Vite', 'esbuild', 'Rollup', 'Parcel',
-        'Babel', 'SWC', 'tsc', 'ESLint', 'Prettier',
-        'Node.js', 'Bun', 'Deno', 'npm', 'yarn',
-        
-        'X11', 'Xorg', 'Wayland', 'Sway', 'Hyprland', 'River', 'DWL',
-        'Qt', 'GTK', 'wxWidgets', 'FLTK', 'IUP',
-        'KDE Plasma', 'GNOME', 'XFCE', 'LXQt', 'Cinnamon', 'MATE',
-        
-        'Alacritty', 'Kitty', 'WezTerm', 'Foot', 'ST',
-        'Bash', 'Zsh', 'Fish', 'NuShell', 'Elvish', 'Xonsh',
-        
-        'systemd', 'OpenRC', 'runit', 's6', 'dinit',
-        'GRUB', 'systemd-boot', 'rEFInd', 'Limine',
-        'iptables', 'nftables', 'firewalld', 'ufw',
-        
-        'LXC', 'LXD', 'Incus', 'Proxmox', 'QEMU', 'KVM',
-        'VirtualBox', 'VMware', 'Xen', 'bhyve',
-        'Flatpak', 'Snap', 'AppImage', 'Distrobox',
-        
-        'ext4', 'XFS', 'Btrfs', 'ZFS', 'F2FS', 'NTFS-3G',
-        'LUKS', 'LVM', 'RAID', 'mdadm',
-        
-        'x86_64', 'ARM', 'AArch64', 'RISC-V', 'MIPS', 'PowerPC',
-        'AMD64', 'i386', 'ARMv7', 'ARMv8',
-        
-        'SELinux', 'AppArmor', 'Tomoyo', 'Smack',
-        'GnuPG', 'OpenPGP', 'age', 'sops',
-        'OpenSSL', 'LibreSSL', 'GnuTLS', 'mbed TLS'
-    ];
+            'Arch', 'Artix', 'Manjaro', 'Garuda', 'EndeavourOS',
+            'Gentoo', 'LFS', 'Void', 'NixOS', 'Slackware',
+            'Debian', 'Ubuntu', 'Fedora', 'openSUSE',
+            'FreeBSD', 'OpenBSD', 'NetBSD',
+            'WSL', 'WINE', 'Proton', 'Bottles',
+            
+            'Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'C#', 'PHP', 'Ruby', 
+            'Go', 'Rust', 'Swift', 'Kotlin', 'Zig', 'Nim', 'Crystal', 'D',
+            'Haskell', 'Scala', 'Elixir', 'Erlang', 'Clojure', 'F#', 'OCaml',
+            'Lua', 'Perl', 'R', 'Julia', 'Bash', 'Zsh', 'Fish',
+            'Assembly', 'COBOL', 'Fortran', 'Lisp', 'Prolog', 'Racket',
+            
+            'React', 'Vue', 'Angular', 'Svelte', 'Solid', 'Qwik',
+            'Django', 'Flask', 'FastAPI', 'Spring', 'Laravel', 'Symfony',
+            'Rails', 'Phoenix', 'Actix', 'Rocket', 'Tauri', 'Electron',
+            'PyTorch', 'TensorFlow', 'JAX', 'Transformers', 'LangChain',
+            
+            'Docker', 'Podman', 'Kubernetes', 'k3s', 'Rancher',
+            'Git', 'GitLab', 'Gitea', 'Codeberg',
+            'Neovim', 'Vim', 'Emacs', 'Helix', 'Kakoune',
+            'Codium', 'Sublime',
+            'curl', 'wget',
+            
+            'PostgreSQL', 'MySQL', 'MariaDB', 'SQLite', 'DuckDB',
+            'MongoDB', 'Redis', 'Memcached', 'Dragonfly', 'KeyDB',
+            'ClickHouse', 'TimescaleDB', 'InfluxDB', 'Prometheus',
+            'Elasticsearch', 'Cassandra', 'ScyllaDB', 'Neo4j',
+            
+            'DigitalOcean', 'Hetzner', 'Linode',
+            'Vercel', 'Netlify', 'Railway', 'Fly.io',
+            
+            'REST', 'GraphQL', 'tRPC', 'WebSocket', 'SSE',
+            'HTTP/2', 'HTTP/3', 'QUIC', 'TCP/IP', 'UDP', 'ICMP',
+            'JSON', 'YAML', 'TOML', 'XML', 'Protobuf', 'Avro',
+            'JWT', 'OAuth', 'OIDC', 'SAML', 'LDAP', 'Kerberos',
+            
+            'Microservices', 'Monolith', 'Serverless', 'Edge',
+            'Clean Architecture', 'DDD', 'CQRS', 'Event Sourcing',
+            'MVC', 'MVP', 'MVVM', 'VIPER', 'Redux', 'Zustand',
+            
+            'Make', 'CMake', 'Meson', 'Ninja', 'Bazel',
+            'GitHub Actions', 'Jenkins', 'Drone', 'Woodpecker',
+            'Ansible', 'Terraform', 'Packer', 'Vagrant', 'Pulumi',
+            
+            'pip', 'pipx', 'poetry', 'pdm', 'uv',
+            'venv', 'virtualenv', 'conda', 'mamba', 'micromamba',
+            'NumPy', 'Pandas', 'Polars', 'Pyspark', 'Dask',
+            'Jupyter', 'IPython', 'Colab', 'Kaggle',
+            
+            'npm', 'yarn', 'pnpm', 'bun', 'deno',
+            'webpack', 'Vite', 'esbuild', 'Rollup', 'Parcel',
+            'Babel', 'SWC', 'tsc', 'ESLint', 'Prettier',
+            'Node.js', 'Bun', 'Deno',
+            
+            'X11', 'Xorg', 'Wayland', 'Sway', 'Hyprland', 'River', 'DWL',
+            'Qt', 'GTK', 'wxWidgets', 'FLTK', 'IUP',
+            'KDE Plasma', 'GNOME', 'XFCE', 'LXQt', 'Cinnamon', 'MATE',
+            
+            'Alacritty', 'Kitty', 'WezTerm', 'Foot', 'ST',
+            'Bash', 'Zsh', 'Fish', 'NuShell', 'Elvish', 'Xonsh',
+            
+            'systemd', 'OpenRC', 'runit', 's6', 'dinit',
+            'GRUB', 'systemd-boot', 'rEFInd', 'Limine',
+            'iptables', 'nftables', 'firewalld', 'ufw',
+            
+            'LXC', 'LXD', 'Incus', 'Proxmox', 'QEMU', 'KVM',
+            'VirtualBox', 'Xen', 'bhyve',
+            'Flatpak', 'Snap', 'AppImage', 'Distrobox',
+            
+            'ext4', 'XFS', 'Btrfs', 'ZFS', 'F2FS', 'NTFS-3G',
+            'LUKS', 'LVM', 'RAID', 'mdadm',
+            
+            'x86_64', 'ARM', 'AArch64', 'RISC-V', 'MIPS', 'PowerPC',
+            'AMD64', 'i386', 'ARMv7', 'ARMv8',
+            
+            'SELinux', 'AppArmor', 'Tomoyo', 'Smack',
+            'GnuPG', 'OpenPGP', 'age', 'sops',
+            'OpenSSL', 'LibreSSL', 'GnuTLS', 'mbed TLS'
+        ];
 
         window.particleBackgroundInstance = this;
         this.init();
