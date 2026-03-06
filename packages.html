@@ -19,15 +19,14 @@
   <link href="css/style.css" rel="stylesheet"/>
   <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;defs&gt;&lt;linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'&gt;&lt;stop offset='0%' stop-color='%230d6efd'/&gt;&lt;stop offset='100%' stop-color='%230b5ed7'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/&gt;&lt;path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
   <style>
-   .citation-tabs-container {
+   .package-tabs-container {
         margin: 1rem 0 0 0;
         width: 100%;
     }
 
-    .citation-format {
+    .package-format {
         background: rgba(13, 110, 253, 0.1);
         border: 1px solid var(--accent);
-        border-radius: 8px;
         padding: 0;
         margin: 0;
         display: flex;
@@ -37,14 +36,15 @@
         transition: all 0.2s;
     }
 
-    .citation-format:hover {
+    .package-format:hover {
         border-color: var(--accent);
         box-shadow: 0 2px 8px rgba(13, 110, 253, 0.2);
     }
 
-    .citation-command {
+    .pip-command {
         font-family: 'SF Mono', 'Fira Code', monospace;
         color: var(--accent);
+        font-size: 0.8rem;
         line-height: 1.5;
         word-break: break-word;
         flex: 1;
@@ -92,7 +92,7 @@
     }
 
     @media (max-width: 576px) {
-        .citation-command {
+        .pip-command {
             font-size: 0.85rem;
             padding: 10px 12px;
         }
@@ -181,7 +181,7 @@
         <a class="btn btn-outline-primary" href="https://pypi.org/user/smartlegionlab/" target="_blank">
          <i class="bi bi-box-seam">
          </i>
-         View All on PyPI
+         View All on PyPI <span class="bi bi-arrow-right"></span>
         </a>
        </div>
        <div class="repo-grid" id="packages-container">
@@ -199,9 +199,9 @@
          <p class="repo-description">
           Smart Passwords Library: Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartpasslib
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartpasslib', this)" title="Copy to clipboard">
@@ -232,9 +232,9 @@
          <p class="repo-description">
           Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install clipassman
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install clipassman', this)" title="Copy to clipboard">
@@ -265,9 +265,9 @@
          <p class="repo-description">
           clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install clipassgen
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install clipassgen', this)" title="Copy to clipboard">
@@ -298,9 +298,9 @@
          <p class="repo-description">
           A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by ~25% on real-world clustered data while maintaining practical computational efficiency.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-tsp-solver
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-tsp-solver', this)" title="Copy to clipboard">
@@ -331,9 +331,9 @@
          <p class="repo-description">
           Smart TSP Benchmark is a professional algorithm testing infrastructure with customizable scenarios and detailed metrics.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-tsp-benchmark
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-tsp-benchmark', this)" title="Copy to clipboard">
@@ -364,9 +364,9 @@
          <p class="repo-description">
           Advanced Two-Factor Authentication system with enhanced security features.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-2fa-secure
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-2fa-secure', this)" title="Copy to clipboard">
@@ -397,9 +397,9 @@
          <p class="repo-description">
           A deterministic infinite image library generator inspired by Borges' 'The Library of Babel'. Generate unique, deterministic images based on coordinate systems without storing image data.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install babylonian-image-library
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install babylonian-image-library', this)" title="Copy to clipboard">
@@ -430,9 +430,9 @@
          <p class="repo-description">
           Smart Babylon Library. A deterministic infinite library generator. Generate unique, deterministic books and pages based on coordinate systems without storing any data.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-babylon-library
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-babylon-library', this)" title="Copy to clipboard">
@@ -463,9 +463,9 @@
          <p class="repo-description">
           Console utility for working with command packages. Storage, execution, autorun.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install commandman
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install commandman', this)" title="Copy to clipboard">
@@ -496,9 +496,9 @@
          <p class="repo-description">
           Library for working with paths to files and folders.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartpathlibrary
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartpathlibrary', this)" title="Copy to clipboard">
@@ -529,9 +529,9 @@
          <p class="repo-description">
           Smart executors.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartexecutorlib
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartexecutorlib', this)" title="Copy to clipboard">
@@ -562,9 +562,9 @@
          <p class="repo-description">
           Cross-platform config and manager for click console utilities.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install climan
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install climan', this)" title="Copy to clipboard">
@@ -595,9 +595,9 @@
          <p class="repo-description">
           GitHub ssh key manager. Console utility for creating, getting, testing, using public ssh keys for GitHub.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install github-ssh-key
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install github-ssh-key', this)" title="Copy to clipboard">
@@ -628,9 +628,9 @@
          <p class="repo-description">
           A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install commandpack
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install commandpack', this)" title="Copy to clipboard">
@@ -661,9 +661,9 @@
          <p class="repo-description">
           Cross-platform smart printer for console applications
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartprinter
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartprinter', this)" title="Copy to clipboard">
@@ -694,9 +694,9 @@
          <p class="repo-description">
           Cross-platform library of tools for creating console applications, based on the click library.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartcliapp
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartcliapp', this)" title="Copy to clipboard">
@@ -727,9 +727,9 @@
          <p class="repo-description">
           A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install commandex
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install commandex', this)" title="Copy to clipboard">
@@ -760,9 +760,9 @@
          <p class="repo-description">
           Random data generators. Allows you to generate random strings of a given length from letters, numbers and symbols, as well as randomize text. Helps generate passwords, service codes (for example, for sending via SMS), hashes and much more. Generates smart, recoverable passwords.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartrandom
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartrandom', this)" title="Copy to clipboard">
@@ -793,9 +793,9 @@
          <p class="repo-description">
           A cross-platform library for decorating strings and displaying them beautifully in the console. Generates and displays lines to the full width of the console with the specified text and a placeholder character. Generates and displays a line with the specified text, decorated at the top and bottom with filler characters along the length of the line. Use for beautiful design of console applications.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smarttextdecorator
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smarttextdecorator', this)" title="Copy to clipboard">
@@ -826,9 +826,9 @@
          <p class="repo-description">
           Smart, simple, lightweight, secure cross-platform authentication for any application.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smartauthen
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartauthen', this)" title="Copy to clipboard">
@@ -859,9 +859,9 @@
          <p class="repo-description">
           Convenient work with Redis.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-redis-storage
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-redis-storage', this)" title="Copy to clipboard">
@@ -892,9 +892,9 @@
          <p class="repo-description">
           Smart Text Randomizer.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-text-randomizer
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-text-randomizer', this)" title="Copy to clipboard">
@@ -925,9 +925,9 @@
          <p class="repo-description">
           Smart Repository Manager Core - A Python library for managing Git repositories with intelligent synchronization, SSH configuration validation, and GitHub integration.
          </p>
-         <div class="citation-tabs-container">
-          <div class="citation-format">
-           <span class="citation-command">
+         <div class="package-tabs-container">
+          <div class="package-format">
+           <span class="pip-command">
             pip install smart-repository-manager-core
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-repository-manager-core', this)" title="Copy to clipboard">

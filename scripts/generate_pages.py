@@ -149,9 +149,9 @@ def generate_package_cards(packages, limit=100):
             
             <p class="repo-description">{pkg.get('summary', pkg.get('description', 'No description available'))}</p>
             
-            <div class="citation-tabs-container">
-                <div class="citation-format">
-                    <span class="citation-command">pip install {pkg['name']}</span>
+            <div class="package-tabs-container">
+                <div class="package-format">
+                    <span class="pip-command">pip install {pkg['name']}</span>
                     <button class="copy-btn" onclick="copyToClipboard('pip install {pkg['name']}', this)" title="Copy to clipboard">
                         <i class="bi bi-clipboard"></i>
                     </button>
