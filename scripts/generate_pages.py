@@ -143,7 +143,7 @@ def generate_package_cards(packages, limit=100):
             <div class="repo-header">
                 <div class="repo-title-section" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                     <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="repo-title">{pkg['name']}</a>
-                    <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">v{pkg.get('version', '?')}</span>
+                    <span class="pip-badge text-warning" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent);">v{pkg.get('version', '?')}</span>
                 </div>
             </div>
             

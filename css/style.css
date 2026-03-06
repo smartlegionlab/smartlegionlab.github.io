@@ -2117,3 +2117,11 @@ a.premium-card {
     border-color: var(--accent);
     transform: translateX(3px);
 }
+
+.pip-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    background: rgba(13, 110, 253, 0.1) !important;
+    border: 1px solid yellow !important;
+}
