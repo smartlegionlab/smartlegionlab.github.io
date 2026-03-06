@@ -146,10 +146,22 @@ def generate_package_cards(packages, limit=100):
                     <span class="repo-badge" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent); color: var(--accent);">v{pkg.get('version', '?')}</span>
                 </div>
             </div>
+            
             <p class="repo-description">{pkg.get('summary', pkg.get('description', 'No description available'))}</p>
-            <div class="citation-tabs-container mt-3"><div class="citation-format text-center"><p class="citation-text">pip install {pkg['name']}</p></div></div>
+            
+            <div class="citation-tabs-container">
+                <div class="citation-format">
+                    <span class="citation-text">pip install {pkg['name']}</span>
+                    <button class="copy-btn" onclick="copyToClipboard('pip install {pkg['name']}', this)" title="Copy to clipboard">
+                        <i class="bi bi-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+            
             <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
-                <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="repo-action"><i class="bi bi-box-arrow-up-right"></i> View on PyPI</a>
+                <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="repo-action">
+                    <i class="bi bi-box-arrow-up-right"></i> View on PyPI
+                </a>
             </div>
         </div>'''
         cards.append(card)
@@ -162,7 +174,7 @@ def update_html_with_id(html_file, container_id, cards_html):
     
     container = soup.find(id=container_id)
     if not container:
-        print(f"❌ ID '{container_id}' не найден")
+        print(f"❌ ID '{container_id}' not found")
         return False
     
     container.clear()
@@ -235,7 +247,7 @@ def main():
         package_cards = generate_package_cards(packages)
         update_html_with_id('packages.html', 'packages-container', package_cards)
     
-    print('✅ All pages have been updated!')
+    print('✅ Done!')
 
 
 if __name__ == '__main__':
