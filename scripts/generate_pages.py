@@ -151,7 +151,7 @@ def generate_package_cards(packages, limit=100):
             
             <div class="citation-tabs-container">
                 <div class="citation-format">
-                    <span class="citation-text">pip install {pkg['name']}</span>
+                    <span class="citation-command">pip install {pkg['name']}</span>
                     <button class="copy-btn" onclick="copyToClipboard('pip install {pkg['name']}', this)" title="Copy to clipboard">
                         <i class="bi bi-clipboard"></i>
                     </button>

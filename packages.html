@@ -20,18 +20,18 @@
   <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;defs&gt;&lt;linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'&gt;&lt;stop offset='0%' stop-color='%230d6efd'/&gt;&lt;stop offset='100%' stop-color='%230b5ed7'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/&gt;&lt;path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
   <style>
    .citation-tabs-container {
-        margin: 1rem 0 0 0 !important;
+        margin: 1rem 0 0 0;
         width: 100%;
     }
 
     .citation-format {
-        background: var(--card-bg-light);
-        border: 1px solid var(--border-color);
+        background: rgba(13, 110, 253, 0.1);
+        border: 1px solid var(--accent);
         border-radius: 8px;
-        padding: 0 !important;
+        padding: 0;
         margin: 0;
-        display: flex !important;
-        align-items: stretch !important;
+        display: flex;
+        align-items: stretch;
         width: 100%;
         overflow: hidden;
         transition: all 0.2s;
@@ -39,46 +39,46 @@
 
     .citation-format:hover {
         border-color: var(--accent);
-        box-shadow: 0 2px 8px rgba(13, 110, 253, 0.1);
+        box-shadow: 0 2px 8px rgba(13, 110, 253, 0.2);
     }
 
-    .citation-text {
+    .citation-command {
         font-family: 'SF Mono', 'Fira Code', monospace;
-        font-size: 0.95rem;
         color: var(--accent);
-        margin: 0 !important;
-        padding: 12px 16px !important;
         line-height: 1.5;
         word-break: break-word;
         flex: 1;
+        padding: 3px;
         background: transparent;
+        margin: 0;
     }
 
     .copy-btn {
-        background: transparent !important;
-        border: none !important;
-        border-left: 1px solid var(--border-color) !important;
-        color: var(--text-secondary) !important;
-        cursor: pointer !important;
-        padding: 0 16px !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        font-size: 1.1rem !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        transition: all 0.2s ease !important;
+        background: transparent;
+        border: none;
+        border-left: 1px solid var(--accent);
+        color: var(--accent);
+        cursor: pointer;
+        padding: 0 20px;
+        margin: 0;
+        border-radius: 0;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
         min-width: 50px;
     }
 
     .copy-btn:hover {
-        background: rgba(13, 110, 253, 0.05) !important;
-        color: var(--accent) !important;
+        background: var(--accent);
+        color: white;
     }
 
     .copy-btn.copied {
-        color: #28a745 !important;
-        background: rgba(40, 167, 69, 0.05) !important;
+        background: rgba(13, 110, 253, 0.1);
+        color: white;
+        border-color: rgba(13, 110, 253, 0.1);
     }
 
     .copy-btn.copied i {
@@ -91,22 +91,14 @@
         100% { transform: scale(1); }
     }
 
-    [data-theme="dark"] .citation-format {
-        background: var(--card-bg-dark);
-    }
-
-    [data-theme="dark"] .copy-btn:hover {
-        background: rgba(13, 110, 253, 0.15) !important;
-    }
-
     @media (max-width: 576px) {
-        .citation-text {
+        .citation-command {
             font-size: 0.85rem;
-            padding: 10px 12px !important;
+            padding: 10px 12px;
         }
-        
+
         .copy-btn {
-            padding: 0 12px !important;
+            padding: 0 15px;
             min-width: 44px;
         }
     }
@@ -209,7 +201,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartpasslib
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartpasslib', this)" title="Copy to clipboard">
@@ -242,7 +234,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install clipassman
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install clipassman', this)" title="Copy to clipboard">
@@ -275,7 +267,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install clipassgen
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install clipassgen', this)" title="Copy to clipboard">
@@ -308,7 +300,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-tsp-solver
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-tsp-solver', this)" title="Copy to clipboard">
@@ -341,7 +333,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-tsp-benchmark
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-tsp-benchmark', this)" title="Copy to clipboard">
@@ -374,7 +366,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-2fa-secure
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-2fa-secure', this)" title="Copy to clipboard">
@@ -407,7 +399,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install babylonian-image-library
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install babylonian-image-library', this)" title="Copy to clipboard">
@@ -440,7 +432,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-babylon-library
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-babylon-library', this)" title="Copy to clipboard">
@@ -473,7 +465,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install commandman
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install commandman', this)" title="Copy to clipboard">
@@ -506,7 +498,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartpathlibrary
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartpathlibrary', this)" title="Copy to clipboard">
@@ -539,7 +531,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartexecutorlib
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartexecutorlib', this)" title="Copy to clipboard">
@@ -572,7 +564,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install climan
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install climan', this)" title="Copy to clipboard">
@@ -605,7 +597,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install github-ssh-key
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install github-ssh-key', this)" title="Copy to clipboard">
@@ -638,7 +630,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install commandpack
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install commandpack', this)" title="Copy to clipboard">
@@ -671,7 +663,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartprinter
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartprinter', this)" title="Copy to clipboard">
@@ -704,7 +696,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartcliapp
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartcliapp', this)" title="Copy to clipboard">
@@ -737,7 +729,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install commandex
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install commandex', this)" title="Copy to clipboard">
@@ -770,7 +762,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartrandom
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartrandom', this)" title="Copy to clipboard">
@@ -803,7 +795,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smarttextdecorator
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smarttextdecorator', this)" title="Copy to clipboard">
@@ -836,7 +828,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smartauthen
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smartauthen', this)" title="Copy to clipboard">
@@ -869,7 +861,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-redis-storage
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-redis-storage', this)" title="Copy to clipboard">
@@ -902,7 +894,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-text-randomizer
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-text-randomizer', this)" title="Copy to clipboard">
@@ -935,7 +927,7 @@
          </p>
          <div class="citation-tabs-container">
           <div class="citation-format">
-           <span class="citation-text">
+           <span class="citation-command">
             pip install smart-repository-manager-core
            </span>
            <button class="copy-btn" onclick="copyToClipboard('pip install smart-repository-manager-core', this)" title="Copy to clipboard">
