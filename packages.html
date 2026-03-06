@@ -172,10 +172,12 @@
        </a>
       </div>
      </nav>
-        <br>
-         <div class="description-item">
-             <p class="text-center" style="font-size: 20px">Python packages on PyPI by Alexander Suvorov</p>
-         </div>
+     <br/>
+     <div class="description-item">
+      <p class="text-center" style="font-size: 20px">
+       Python packages on PyPI by Alexander Suvorov
+      </p>
+     </div>
      <div class="content-section">
       <div class="container">
        <h2 class="section-title">
@@ -1046,8 +1048,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const copyBtn = e.target.closest('.copy-btn');
         if (copyBtn) {
             e.preventDefault();
-            const citationBlock = copyBtn.closest('.citation-format');
-            const textElement = citationBlock.querySelector('.citation-text');
+            const packageBlock = copyBtn.closest('.package-format');
+            const textElement = packageBlock.querySelector('.pip-command');
             if (textElement) {
                 const textToCopy = textElement.textContent.trim();
                 window.copyToClipboard(textToCopy, copyBtn);
