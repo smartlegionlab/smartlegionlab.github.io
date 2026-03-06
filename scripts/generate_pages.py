@@ -23,7 +23,7 @@ def generate_article_cards(articles, limit=100):
         is_popular = article.get('positive_reactions_count', 0) > 10
         has_discussion = article.get('comments_count', 0) > 5
         author_name = article.get('user', {}).get('name', 'Alexander Suvorov')
-        
+
         card = f'''        <div class="repo-card">
             <div class="repo-badges">
                 {f'<span class="repo-badge bg-success">Popular</span>' if is_popular else ''}
@@ -46,11 +46,7 @@ def generate_article_cards(articles, limit=100):
                     <span class="repo-stat text-info" title="Comments">
                         <i class="bi bi-chat"></i> {article.get('comments_count', 0)}
                     </span>
-                    {f'''
-                    <span class="repo-stat text-warning" title="Reactions">
-                        <i class="bi bi-emoji-smile"></i> {article.get('public_reactions_count', 0)}
-                    </span>
-                    ''' if article.get('public_reactions_count', 0) > 0 else ''}
+                    {f'<span class="repo-stat text-warning" title="Reactions"><i class="bi bi-emoji-smile"></i> {article.get("public_reactions_count", 0)}</span>' if article.get('public_reactions_count', 0) > 0 else ''}
                 </div>
             </div>
             <p class="repo-description">{article.get('description', 'No description provided')}</p>
@@ -64,16 +60,8 @@ def generate_article_cards(articles, limit=100):
                 <div class="repo-meta-item">
                     <i class="bi bi-calendar"></i> Published: {published_date}
                 </div>
-                {f'''
-                <div class="repo-meta-item">
-                    <i class="bi bi-clock"></i> {read_time_html}
-                </div>
-                ''' if read_time_html else ''}
-                {f'''
-                <div class="repo-meta-item">
-                    <i class="bi bi-eye"></i> {article.get('page_views_count', 0)} views
-                </div>
-                ''' if article.get('page_views_count', 0) > 0 else ''}
+                {f'<div class="repo-meta-item"><i class="bi bi-clock"></i> {read_time_html}</div>' if read_time_html else ''}
+                {f'<div class="repo-meta-item"><i class="bi bi-eye"></i> {article.get("page_views_count", 0)} views</div>' if article.get('page_views_count', 0) > 0 else ''}
             </div>
             <div class="repo-footer">
                 <div class="repo-updated">
@@ -97,7 +85,7 @@ def generate_repo_cards(repos, limit=100):
         'PHP': '#4F5D95', 'Java': '#b07219', 'C++': '#f34b7d',
         'C#': '#178600', 'Ruby': '#701516', 'Go': '#00ADD8', 'Rust': '#dea584'
     }
-    
+
     for repo in repos[:limit]:
         if repo.get('archived'): continue
         color = colors.get(repo.get('language'), '#8b949e')
@@ -146,9 +134,9 @@ def generate_package_cards(packages, limit=100):
                     <span class="pip-badge text-warning" style="background: rgba(13, 110, 253, 0.1); border: 1px solid var(--accent);">v{pkg.get('version', '?')}</span>
                 </div>
             </div>
-            
+
             <p class="repo-description">{pkg.get('summary', pkg.get('description', 'No description available'))}</p>
-            
+
             <div class="package-tabs-container">
                 <div class="package-format">
                     <span class="pip-command">pip install {pkg['name']}</span>
@@ -157,7 +145,7 @@ def generate_package_cards(packages, limit=100):
                     </button>
                 </div>
             </div>
-            
+
             <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
                 <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="repo-action">
                     <i class="bi bi-box-arrow-up-right"></i> View on PyPI
@@ -171,21 +159,21 @@ def generate_package_cards(packages, limit=100):
 def update_html_with_id(html_file, container_id, cards_html):
     with open(html_file, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f.read(), 'html.parser')
-    
+
     container = soup.find(id=container_id)
     if not container:
         print(f"❌ ID '{container_id}' not found")
         return False
-    
+
     container.clear()
     new_cards = BeautifulSoup(cards_html, 'html.parser')
     for card in new_cards.children:
         if card.name:
             container.append(card)
-    
+
     with open(html_file, 'w', encoding='utf-8') as f:
         f.write(soup.prettify())
-    
+
     print(f"✅ Updated {html_file}")
     return True
 
@@ -194,7 +182,7 @@ def main():
     repos = []
     articles = []
     packages = []
-    
+
     try:
         with open('data/repos.json', 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -206,7 +194,7 @@ def main():
         print("⚠️  data/repos.json not found")
     except json.JSONDecodeError as e:
         print(f"⚠️  data/repos.json is corrupted: {e}")
-    
+
     try:
         with open('data/articles.json', 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -218,7 +206,7 @@ def main():
         print("⚠️  data/articles.json not found")
     except json.JSONDecodeError as e:
         print(f"⚠️  data/articles.json is corrupted: {e}")
-    
+
     try:
         with open('data/pypi.json', 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -230,23 +218,23 @@ def main():
         print("⚠️  data/pypi.json not found")
     except json.JSONDecodeError as e:
         print(f"⚠️  data/pypi.json is corrupted: {e}")
-    
+
     if repos:
         repos = [r for r in repos if not r.get('archived')]
         repos.sort(key=lambda x: x.get('pushed_at', ''), reverse=True)
         repo_cards = generate_repo_cards(repos)
         update_html_with_id('projects.html', 'repos-container', repo_cards)
-    
+
     if articles:
         articles.sort(key=lambda x: x.get('published_at', ''), reverse=True)
         article_cards = generate_article_cards(articles)
         update_html_with_id('articles.html', 'articles-container', article_cards)
-    
+
     if packages:
         packages = [p for p in packages if not p.get('error')]
         package_cards = generate_package_cards(packages)
         update_html_with_id('packages.html', 'packages-container', package_cards)
-    
+
     print('✅ Done!')
 
 
