@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from pathlib import Path
 
 
 def format_date(date_string):
@@ -154,10 +155,64 @@ def generate_package_cards(packages, limit=100):
     return '\n'.join(cards)
 
 
+def update_html_with_id(html_file, container_id, cards_html):
+    with open(html_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    id_pattern = f'id="{container_id}"'
+    id_pos = content.find(id_pattern)
+    
+    if id_pos == -1:
+        print(f"❌ ID '{container_id}' не найден в {html_file}")
+        return False
+    
+    div_start = content.rfind('<div', 0, id_pos)
+    if div_start == -1:
+        print(f"❌ No div with id found '{container_id}'")
+        return False
+    
+    div_depth = 1
+    pos = content.find('>', div_start) + 1
+    while pos < len(content) and div_depth > 0:
+        next_open = content.find('<div', pos)
+        next_close = content.find('</div>', pos)
+        
+        if next_close == -1:
+            break
+            
+        if next_open != -1 and next_open < next_close:
+            div_depth += 1
+            pos = next_open + 5
+        else:
+            div_depth -= 1
+            if div_depth == 0:
+                div_end = next_close + 6
+                break
+            pos = next_close + 6
+    
+    if 'div_end' not in locals():
+        print(f"❌ No closing tag found for container")
+        return False
+    
+    new_content = (content[:div_start] + 
+                   f'<div id="{container_id}" class="repo-grid">\n' + 
+                   cards_html + '\n        </div>' + 
+                   content[div_end:])
+    
+    with open(html_file, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    
+    print(f"✅ Updated {html_file}")
+    return True
+
+
 def main():
-    with open('data/repos.json') as f: repos = json.load(f)
-    with open('data/articles.json') as f: articles = json.load(f)
-    with open('data/pypi.json') as f: packages = json.load(f)
+    with open('data/repos.json', 'r', encoding='utf-8') as f: 
+        repos = json.load(f)
+    with open('data/articles.json', 'r', encoding='utf-8') as f: 
+        articles = json.load(f)
+    with open('data/pypi.json', 'r', encoding='utf-8') as f: 
+        packages = json.load(f)
     
     repos = [r for r in repos if not r.get('archived')]
     repos.sort(key=lambda x: x.get('pushed_at', ''), reverse=True)
@@ -168,70 +223,11 @@ def main():
     article_cards = generate_article_cards(articles)
     package_cards = generate_package_cards(packages)
     
-    with open('projects.html', 'r') as f:
-        content = f.read()
+    update_html_with_id('projects.html', 'repos-container', repo_cards)
+    update_html_with_id('articles.html', 'articles-container', article_cards)
+    update_html_with_id('packages.html', 'packages-container', package_cards)
     
-    start_marker = '<!-- REPO_CARDS_START -->'
-    end_marker = '<!-- REPO_CARDS_END -->'
-    
-    start_idx = content.find(start_marker)
-    end_idx = content.find(end_marker)
-    
-    if start_idx != -1 and end_idx != -1:
-        div_start = content.find('<div class="repo-grid">', start_idx)
-        div_end = content.rfind('</div>', div_start, end_idx)
-        
-        if div_start != -1 and div_end != -1:
-            new_content = (content[:div_start + len('<div class="repo-grid">')] + 
-                          '\n' + repo_cards + '\n        ' +
-                          content[div_end:])
-            with open('projects.html', 'w') as f:
-                f.write(new_content)
-            print('✅ Updated projects.html')
-    
-    with open('articles.html', 'r') as f:
-        content = f.read()
-    
-    start_marker = '<!-- ARTICLE_CARDS_START -->'
-    end_marker = '<!-- ARTICLE_CARDS_END -->'
-    
-    start_idx = content.find(start_marker)
-    end_idx = content.find(end_marker)
-    
-    if start_idx != -1 and end_idx != -1:
-        div_start = content.find('<div class="repo-grid">', start_idx)
-        div_end = content.rfind('</div>', div_start, end_idx)
-        
-        if div_start != -1 and div_end != -1:
-            new_content = (content[:div_start + len('<div class="repo-grid">')] + 
-                          '\n' + article_cards + '\n        ' +
-                          content[div_end:])
-            with open('articles.html', 'w') as f:
-                f.write(new_content)
-            print('✅ Updated articles.html')
-    
-    with open('packages.html', 'r') as f:
-        content = f.read()
-    
-    start_marker = '<!-- PACKAGE_CARDS_START -->'
-    end_marker = '<!-- PACKAGE_CARDS_END -->'
-    
-    start_idx = content.find(start_marker)
-    end_idx = content.find(end_marker)
-    
-    if start_idx != -1 and end_idx != -1:
-        div_start = content.find('<div class="repo-grid">', start_idx)
-        div_end = content.rfind('</div>', div_start, end_idx)
-        
-        if div_start != -1 and div_end != -1:
-            new_content = (content[:div_start + len('<div class="repo-grid">')] + 
-                          '\n' + package_cards + '\n        ' +
-                          content[div_end:])
-            with open('packages.html', 'w') as f:
-                f.write(new_content)
-            print('✅ Updated packages.html')
-    
-    print('All pages have been updated!')
+    print('✅ All pages have been updated!')
 
 
 if __name__ == '__main__':
