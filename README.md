@@ -1,13 +1,15 @@
-# 🌐 Alexander Suvorov - Technical Portfolio <sup>v3.2.5</sup>
+# 🌐 Alexander Suvorov - Automated Technical Portfolio <sup>v3.3.0</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![Academic Portfolio](https://img.shields.io/badge/Academic-alexander--suvorov.ru-purple?style=for-the-badge&logo=google-scholar)](https://alexander-suvorov.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/)
 [![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/network/members)
+[![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub%20Actions-blue?logo=github-actions)](https://github.com/features/actions)
+[![Python](https://img.shields.io/badge/Python-3.8+-green?logo=python)](https://python.org)
+[![Static Site](https://img.shields.io/badge/Hosting-GitHub%20Pages-orange?logo=github)](https://pages.github.com)
 
-Modern, responsive technical portfolio showcasing expertise in **Python development**, **system architecture**, and **open-source contributions**. The site combines professional presentation with automated data updates via GitHub Actions.
+**Modern, self-updating technical portfolio** showcasing expertise in **Python development**, **system architecture**, and **open-source contributions**. This isn't just a static site—it's a fully automated ecosystem that fetches live data and builds itself daily.
 
 ![Portfolio Preview](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/technical_portfolio.png)
 
@@ -77,7 +79,7 @@ This site is **fully automated** — it builds and updates itself daily without 
 ### 💡 Why This Matters
 
 > **"Build once, deploy manually" is so 2010.  
-> "Build automatically, host for free" is 2025.**
+> "Build automatically, host for free" is 2026.**
 
 This architecture demonstrates that you can run a **professional, dynamic-looking website** with zero infrastructure costs, zero maintenance, and zero security headaches — just smart automation and free tier services.
 
@@ -89,306 +91,171 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 
 ---
 
-## 📋 Table of Contents
-- [✨ Key Features](#-key-features)
-- [🛠 Technology Stack](#-technology-stack)
-- [📁 Project Structure](#-project-structure)
-- [🎯 Main Sections](#-main-sections)
-- [🤖 Automation Pipeline](#-automation-pipeline)
-- [📊 Data Sources](#-data-sources)
-- [🚀 Local Development](#-local-development)
-- [🔧 Manual Data Update](#-manual-data-update)
-- [📱 Performance Optimizations](#-performance-optimizations)
-- [📄 License](#-license)
-- [🤝 Contributing](#-contributing)
-- [📬 Contact](#-contact)
+## 🛠 Technology Stack: Under the Hood
 
----
-
-## ✨ Key Features
-
-### 🎨 Design & Interface
-- **Dark theme** with gradient backgrounds and accent colors
-- **Fully responsive design** for all devices
-- **Animated elements** and smooth transitions
-- **Interactive navigation** with scroll progress bar
-- **Particle background** with rotating tech keywords (desktop only)
-- **Professional typography** and visual hierarchy
-
-### 💻 Technical Implementation
-- **Static site** hosted on GitHub Pages (zero cost)
-- **GitHub Actions** for automated data collection (daily updates)
-- **Local JSON files** for all dynamic content
-- **No server-side code** - pure HTML/CSS/JavaScript
-- **Modular JavaScript architecture** with specialized managers
-
-### 📦 Content Display
-- **25+ PyPI packages** with one-click installation commands
-- **50+ GitHub repositories** with real-time statistics
-- **Technical articles** from Dev.to with engagement metrics
-- **Research publications** with DOI links and Zenodo integration
-
----
-
-## 🛠 Technology Stack
-
-### Frontend
+### Frontend: The User Experience
 | Technology | Purpose |
 |------------|---------|
-| HTML5 | Semantic markup |
-| CSS3 | Custom properties, animations |
-| Bootstrap 5 | Responsive grid, components |
-| Bootstrap Icons | Icon library |
-| Vanilla JavaScript (ES6+) | Core functionality |
+| **HTML5** | Semantic, accessible markup |
+| **CSS3** | Custom properties, keyframe animations, responsive design |
+| **Bootstrap 5** | Robust grid system and pre-built components |
+| **Bootstrap Icons** | Consistent, lightweight icon set |
+| **Vanilla JavaScript (ES6+)** | No bloat. Modular classes for particles, scroll, animations, and active nav. |
 
-### Automation
-| Tool | Purpose |
-|------|---------|
-| GitHub Actions | Scheduled data updates |
-| Python 3.x | Data fetching scripts |
-| BeautifulSoup4 | HTML parsing for updates |
-| Requests | API communication |
+### Build System & Automation: The Engine
+| Tool/Library | Purpose |
+|--------------|---------|
+| **GitHub Actions** | The cron job that runs the entire show daily. |
+| **Python 3.8+** | Core language for all build scripts. |
+| **Jinja2** | Powerful templating engine to generate 70+ detail pages from a single template. |
+| **BeautifulSoup4** | Parses and surgically updates the main HTML files (`projects.html`, etc.) with fresh data. |
+| **Requests** | Fetches data from GitHub, PyPI, and Dev.to APIs. |
+| **Markdown** | Converts PyPI package descriptions from markdown to beautiful HTML for detail pages. |
+| **Pygments** | Provides syntax highlighting for code blocks in those markdown descriptions. |
+| **Temporary Directory + `shutil.move()`** | Implements the **atomic deployment** strategy. |
 
-### Data Format
-- **JSON** files stored in `/data/` directory
-- **Zero external API calls** from client-side
-- **Fast loading** from same domain
+### Data Sources
+| Source | API Endpoint | Data Fetched |
+|--------|--------------|--------------|
+| **GitHub** | `api.github.com/users/smartlegionlab/repos` | Repo names, descriptions, stars, forks, languages, topics, dates. |
+| **PyPI** | `pypi.org/pypi/{package_name}/json` | Version, summary, full description (in markdown), project URLs. |
+| **Dev.to** | `dev.to/api/articles?username=smartlegionlab` | Titles, descriptions, tags, reactions, comments, reading time. |
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure: A Deep Dive
 
 ```
 /
-├── index.html                 # Home page
-├── about.html                 # Professional profile
-├── skills.html                # Technical competencies
-├── projects.html              # GitHub repositories
-├── research.html              # Academic research
-├── packages.html              # PyPI packages
-├── articles.html              # Dev.to articles
-├── sitemap.xml                # SEO sitemap
+├── .github/workflows/
+│   └── update_data.yml        # The daily cron job configuration
 │
-├── css/
-│   ├── style.css              # Main stylesheet
-│   └── bootstrap/             # Bootstrap framework
+├── scripts/                    # The brains of the operation
+│   ├── fetch_github.py         # Fetches repo data, handles errors
+│   ├── fetch_devto.py          # Fetches article data
+│   ├── fetch_pypi.py           # Fetches package data with rate limiting
+│   ├── generate_pages.py       # Updates main pages (projects.html, etc.) with cards
+│   └── generate_repo_pages.py  # THE BIG ONE: Generates 50+ detail pages + sitemap atomically
 │
-├── js/
-│   ├── main.js                # Application entry point
-│   ├── config.js              # Global configuration
-│   ├── utils.js               # Utility functions
-│   ├── active-nav.js          # Navigation highlighting
-│   ├── scroll-manager.js      # Scroll progress, to-top button
-│   ├── animation-manager.js   # Priority-based animations
-│   ├── particle-background.js # Canvas particle system
-│   ├── stats-manager.js       # Statistics counters
-│   ├── repository-manager.js  # GitHub repo handling
-│   ├── article-manager.js     # Dev.to article handling
-│   └── pypi-manager.js        # PyPI package handling
+├── templates/                   # Templates for the detail pages
+│   ├── repo_template.html       # Jinja2 template for every GitHub repo page
+│   └── package_template.html    # Jinja2 template for every PyPI package page
 │
-├── data/
-│   ├── repos.json             # Auto-generated GitHub data
-│   ├── articles.json          # Auto-generated Dev.to data
-│   └── pypi.json              # Auto-generated PyPI data
+├── data/                        # Auto-generated JSON data (cached from APIs)
+│   ├── repos.json
+│   ├── articles.json
+│   └── pypi.json
 │
-└── .github/workflows/
-    └── update_data.yml        # Daily automation workflow
+├── js/                           # Modular front-end logic
+│   ├── active-nav.js             # Highlights current page in navigation
+│   ├── animation-manager.js      # Controls priority-based animations (avatar, scroll)
+│   ├── particle-background.js    # Canvas-based animated tech word background
+│   ├── scroll-manager.js         # Handles scroll-to-top button and progress bar
+│   └── config.js                 # Global config (usernames, counters)
+│
+├── css/                          # Styles
+│   ├── style.css                 # All custom styles (dark theme, cards, animations)
+│   └── bootstrap/                # Full Bootstrap framework
+│
+├── repositories/                  # OUTPUT: Dynamically generated GitHub repo pages
+│   ├── smartpasslib.html
+│   ├── clipassman.html
+│   └── ... (50+ files)
+│
+├── packages/                      # OUTPUT: Dynamically generated PyPI package pages
+│   ├── smartpasslib.html
+│   └── ... (20+ files)
+│
+├── research/                      # Research pages
+│   ├── pointer-based-security.html
+│   ├── local-data-regeneration.html
+│   ├── deterministic-game-engine.html
+│   └── position-candidate-hypothesis.html
+│
+├── index.html                     # Home page
+├── about.html                     # Professional profile
+├── projects.html                  # Main GitHub repo listing (auto-updated)
+├── packages.html                  # Main PyPI package listing (auto-updated)
+├── articles.html                  # Main Dev.to article listing (auto-updated)
+├── research.html                  # Academic research overview
+├── skills.html                    # Technical skills
+└── sitemap.xml                    # AUTO-GENERATED sitemap for all 80+ pages
 ```
 
 ---
 
-## 🎯 Main Sections
+## 🎯 The Main Sections: What You'll See
 
-### 1. **Hero Section**
-Professional introduction with key metrics:
-- 10+ years experience
-- 350+ projects delivered
-- 50+ open source repositories
-- 20+ PyPI packages
-- 7K+ commits
-
-### 2. **Professional Profile**
-- Technical leadership experience
-- Business impact metrics
-- Published research overview
-
-### 3. **Research & Paradigms**
-- **Pointer-Based Security**: Architectural shift from data protection to data non-existence
-- **Local Data Regeneration**: Ontological shift from data transmission to synchronous state discovery
-- **Deterministic Game Engine**: Practical implementation of security paradigms
-- **Position-Candidate-Hypothesis**: New research direction for NP-complete problems
-
-### 4. **Projects & Contributions**
-- **GitHub**: 50+ public repositories with star/fork counts
-- **PyPI**: 25+ Python packages with installation commands
-- **Dev.to**: Technical articles with engagement metrics
-
-### 5. **Areas of Expertise**
-- Practical Development (Web apps, Desktop/CLI, Algorithms)
-- System Architecture (Scalable design, Security, Performance)
-- Research & Innovation (Academic papers, Paradigms)
-
-### 6. **Core Skills**
-- Backend: Python, Django, DRF, Flask, FastAPI, Celery
-- Databases: PostgreSQL, Redis, MySQL/MariaDB
-- Infrastructure: Docker, Linux, Git
-- Development: JavaScript, HTML/CSS, Bootstrap, Algorithms
-
-### 7. **Contact**
-- Email
-- GitHub
-- Academic Portfolio
-- Dev.to
-- PyPI
+- **Hero Section**: Professional introduction with key metrics (Experience, Projects, Repos).
+- **Professional Profile**: Technical leadership, business impact, and published research.
+- **Research & Paradigms**: Cards linking to detailed pages for groundbreaking concepts (Pointer-Based Security, PCH, etc.).
+- **Automated Project Showcase**:
+    - **Projects (`projects.html`)**: A grid of GitHub repos with live stats (stars, forks), topics, and a "View" button linking to its dedicated detail page.
+    - **Packages (`packages.html`)**: A grid of PyPI packages with descriptions, version badges, and a one-click `pip install` button that copies the command to your clipboard.
+    - **Articles (`articles.html`)**: A grid of Dev.to articles with engagement metrics.
+- **Detailed Project, Package and Research Pages**:
+    - **Repository Pages (`/repositories/*.html`)**: A full-page deep dive into a single repo, including all metadata, topics, and a direct link to GitHub.
+    - **Package Pages (`/packages/*.html`)**: A full-page view of a PyPI package, showing its full README (markdown rendered!), version, and a "View on PyPI" link.
+    - **Research Pages (`/research/*.html`)**: A full-page view of a research paradigms.
 
 ---
 
-## 🤖 Automation Pipeline
+## 🚀 Local Development & Manual Build
 
-### GitHub Actions Workflow (`.github/workflows/update_data.yml`)
-
-```yaml
-name: Update Data
-
-on:
-  schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
-
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
-
-      - name: Fetch GitHub repos
-        run: python scripts/fetch_github.py
-        continue-on-error: true
-
-      - name: Fetch Dev.to articles
-        run: python scripts/fetch_devto.py
-        continue-on-error: true
-
-      - name: Fetch PyPI packages
-        run: python scripts/fetch_pypi.py
-        continue-on-error: true
-
-      - name: Generate HTML pages
-        run: python scripts/generate_pages.py
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/ projects.html articles.html packages.html
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update data and pages $(date +'%Y-%m-%d')"
-          git push
-```
-
-### Python Scripts
-
-| Script              | Purpose | API Source |
-|---------------------|---------|------------|
-| `fetch_github.py`   | Fetch repository data | GitHub API |
-| `fetch_devto.py`    | Fetch article data | Dev.to API |
-| `fetch_pypi.py`     | Fetch package metadata | PyPI JSON API |
-| `generate_pages.py` | Update HTML with fetched data | BeautifulSoup4 |
-
----
-
-## 📊 Data Sources
-
-### GitHub Repositories
-- **Endpoint**: `https://api.github.com/users/smartlegionlab/repos`
-- **Data**: Repository names, descriptions, stars, forks, languages, topics
-- **Filtering**: Archived repositories excluded
-
-### Dev.to Articles
-- **Endpoint**: `https://dev.to/api/articles?username=smartlegionlab`
-- **Data**: Titles, descriptions, tags, reactions, comments, reading time
-- **Sorting**: By publication date (newest first)
-
-### PyPI Packages
-- **Endpoint**: `https://pypi.org/pypi/{package_name}/json`
-- **Packages**: 23 pre-configured Python packages
-- **Data**: Versions, summaries, project URLs
-- **Rate limiting**: 0.5s delay between requests
-
----
-
-## 🚀 Local Development
+You can run the entire build process locally to test changes.
 
 ### Prerequisites
-- Python 3.x
-- Basic HTTP server (optional)
+- Python 3.8+
+- Git
 
-### Setup
+### Setup & Build
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/smartlegionlab/smartlegionlab.github.io.git
+    cd smartlegionlab.github.io
+    ```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/smartlegionlab/smartlegionlab.github.io.git
-   cd smartlegionlab.github.io
-   ```
+2.  **Install Python dependencies**
+    ```bash
+    pip install -r scripts/requirements.txt
+    ```
 
-2. **Install Python dependencies** (for data fetching)
-   ```bash
-   pip install -r scripts/requirements.txt
-   ```
+3.  **Run the full build pipeline (in the correct order)**
+    ```bash
+    # 1. Fetch the latest data from all sources
+    python scripts/fetch_github.py
+    python scripts/fetch_devto.py
+    python scripts/fetch_pypi.py
 
-3. **Start a local server**
-   ```bash
-   python -m http.server 8000
-   ```
+    # 2. Update the main listing pages (projects.html, etc.) with new data cards
+    python scripts/generate_pages.py
 
-4. **Open in browser**
-   ```
-   http://localhost:8000
-   ```
+    # 3. **Generate all 70+ detail pages AND the sitemap atomically**
+    #    This script handles the atomic swap, so it's safe to run.
+    python scripts/generate_repo_pages.py
+    ```
 
----
-
-## 🔧 Manual Data Update
-
-```bash
-# Fetch all data
-python scripts/fetch_github.py
-python scripts/fetch_devto.py
-python scripts/fetch_pypi.py
-
-# Update HTML files
-python scripts/generate_pages.py
-```
+4.  **Preview the site locally**
+    ```bash
+    python -m http.server 8000
+    ```
+    Open your browser to `http://localhost:8000`. You'll see the fully built site, including all generated pages in the `repositories/` and `packages/` folders.
 
 ---
 
 ## 📄 License
 
-[**BSD 3-Clause License**](LICENSE)
+This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 📬 Contact
+## 📬 Connect with Alexander Suvorov
 
-**Alexander Suvorov**
-- 🌐 Website: [smartlegionlab.ru](https://smartlegionlab.ru)
-- 🎓 Academic: [alexander-suvorov.ru](https://alexander-suvorov.ru)
-- 💻 GitHub: [@smartlegionlab](https://github.com/smartlegionlab)
-- 📝 Dev.to: [@smartlegionlab](https://dev.to/smartlegionlab)
-- 📦 PyPI: [@smartlegionlab](https://pypi.org/user/smartlegionlab)
+- **🌐 Portfolio:** [smartlegionlab.ru](https://smartlegionlab.ru)
+- **🎓 Academic Work:** [alexander-suvorov.ru](https://alexander-suvorov.ru)
+- **💻 GitHub:** [@smartlegionlab](https://github.com/smartlegionlab)
+- **📝 Dev.to Blog:** [@smartlegionlab](https://dev.to/smartlegionlab)
+- **📦 PyPI Packages:** [@smartlegionlab](https://pypi.org/user/smartlegionlab)
 
 ---
 
