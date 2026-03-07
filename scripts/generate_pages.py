@@ -120,7 +120,7 @@ def generate_repo_cards(repos, limit=100):
             <div class="repo-footer">
                 <div class="repo-updated"><i class="bi bi-clock"></i> Last updated {format_date(repo.get("pushed_at"))}</div>
                 <div class="btn-group">
-                    <a href="{repo['name']}.html" target="_blank" class="btn repo-action"><i class="bi bi-box-arrow-up-right"></i> View</a>
+                    <a href="repositories/{repo['name']}.html" target="_blank" class="btn repo-action"><i class="bi bi-box-arrow-up-right"></i> View</a>
                     <a href="{repo['html_url']}" target="_blank" class="btn repo-action"><i class="bi bi-box-arrow-up-right"></i> Github</a>
                 </div>
             </div>
