@@ -1194,7 +1194,7 @@ function showCopyFeedback(btn) {
     btn.classList.add('copied');
     
     setTimeout(() => {
-        btn.innerHTML = originalHtml;
+        btn.innerHTML = '<i class="bi bi-clipboard"></i>';
         btn.classList.remove('copied');
     }, 2000);
 }
