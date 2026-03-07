@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests beautifulsoup4 jinja2
 
       - name: Fetch GitHub repos
         run: python scripts/fetch_github.py
@@ -40,10 +40,14 @@ jobs:
       - name: Generate HTML pages
         run: python scripts/generate_pages.py
 
+      - name: Generate repository detail pages
+        run: python scripts/generate_repo_pages.py
+        continue-on-error: true
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/ projects.html articles.html packages.html
+          git add data/ projects.html articles.html packages.html repositories/ sitemap.xml
           git diff --quiet && git diff --staged --quiet || git commit -m "Update data and pages $(date +'%Y-%m-%d')"
           git push
