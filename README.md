@@ -1,4 +1,4 @@
-# 🌐 Alexander Suvorov - Technical Portfolio <sup>v3.2.3</sup>
+# 🌐 Alexander Suvorov - Technical Portfolio <sup>v3.2.5</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![Academic Portfolio](https://img.shields.io/badge/Academic-alexander--suvorov.ru-purple?style=for-the-badge&logo=google-scholar)](https://alexander-suvorov.ru)
@@ -10,6 +10,82 @@
 Modern, responsive technical portfolio showcasing expertise in **Python development**, **system architecture**, and **open-source contributions**. The site combines professional presentation with automated data updates via GitHub Actions.
 
 ![Portfolio Preview](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/technical_portfolio.png)
+
+---
+
+## 🤖 Zero-Cost Automated Static Site Generator
+
+**Serverless Static Site Generator with CI/CD**:
+
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Automated-blue?logo=github-actions)](https://github.com/features/actions)
+[![Python](https://img.shields.io/badge/Python-3.8+-green?logo=python)](https://python.org)
+[![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-orange?logo=github)](https://pages.github.com)
+
+### 🔄 How It Works
+
+This site is **fully automated** — it builds and updates itself daily without any manual intervention or hosting costs!
+
+![Diagram](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/diagram.png)
+
+###🚀 Key Features
+
+| Feature | How It Works | Benefit |
+|---------|--------------|---------|
+| **🤖 Fully Automated** | GitHub Actions cron job runs daily | Always up-to-date, zero manual work |
+| **📦 Dynamic Content** | Fetches live data from GitHub & PyPI APIs | Shows real repository/package info |
+| **⚡ Atomic Deployment** | Generates all pages in temp directory first | Never broken site — all or nothing |
+| **🗺️ Auto Sitemap** | Dynamically includes all pages | Perfect SEO, always current |
+| **💰 Zero Cost** | Hosted on GitHub Pages | Only pay for domain name |
+| **🔒 Secure** | No database, no backend | Static = unhackable |
+
+### 📊 By The Numbers
+
+```
+📚 Repository Pages: 53+ (and growing)
+📦 Package Pages:   20+ PyPI packages
+📄 Static Pages:    11 core pages
+🤖 Updates:         Daily automatic
+💸 Hosting Cost:    $0 (only domain)
+```
+
+### 🛠️ Tech Stack
+
+```python
+# The magic happens here ↓
+[
+    "Python 3.8+",
+    "GitHub Actions (CI/CD)",
+    "Jinja2 Templating",
+    "GitHub API v3",
+    "PyPI JSON API",
+    "Markdown parsing",
+    "XML Sitemap generation",
+    "Atomic file operations"
+]
+```
+
+### 🎯 What It Does
+
+1. **Every day at midnight UTC**, GitHub Actions wakes up
+2. Fetches **live data** from GitHub and PyPI
+3. Generates **60+ HTML pages** in a temporary directory
+4. Creates **fresh sitemap.xml** with all URLs
+5. If **ALL pages** generate successfully — replaces old site atomically
+6. If ANY error occurs — keeps old site untouched
+7. Deploys to **GitHub Pages** automatically
+
+### 💡 Why This Matters
+
+> **"Build once, deploy manually" is so 2010.  
+> "Build automatically, host for free" is 2025.**
+
+This architecture demonstrates that you can run a **professional, dynamic-looking website** with zero infrastructure costs, zero maintenance, and zero security headaches — just smart automation and free tier services.
+
+---
+
+<p>
+<b>Zero Cost • Zero Maintenance • Maximum Automation</b>
+</p>
 
 ---
 
