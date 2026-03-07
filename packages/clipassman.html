@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>clipassman v2.2.0 - PyPI Package</title>
+    <meta name="description" content="Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your...">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/clipassman.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="clipassman v2.2.0 - PyPI Package">
+    <meta property="og:description" content="Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/clipassman.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233775A9'/><stop offset='100%' stop-color='%232D5A8B'/></linearGradient></defs><circle cx='50' cy='40' r='20' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M50 60 L50 85 M35 70 L65 70' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/></svg>">
+
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">clipassman</h1>
+                                <p class="title">PyPI Package v2.2.0</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">2.2.0</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/clipassman/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="clipassman-console-smart-password-manager-v220">CLIPassMan (Console Smart Password Manager) <sup>v2.2.0</sup></h1>
+<hr />
+<p><strong>Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.</strong></p>
+<hr />
+<p><a href="https://pypi.org/project/clipassman/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/clipassman?label=pypi%20downloads" /></a><br />
+<a href="https://pepy.tech/projects/clipassman"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/clipassman" /></a><br />
+<a href="https://pepy.tech/projects/clipassman"><img alt="PyPI Weekly Downloads" src="https://static.pepy.tech/badge/clipassman/week" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/clipassman" /><br />
+<a href="https://github.com/smartlegionlab/clipassman/"><img alt="GitHub release" src="https://img.shields.io/github/v/release/smartlegionlab/clipassman" /></a><br />
+<a href="https://pypi.org/project/clipassman"><img alt="PyPI version" src="https://img.shields.io/pypi/v/clipassman" /></a><br />
+<a href="https://github.com/smartlegionlab/clipassman/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/smartlegionlab/clipassman" /></a><br />
+<a href="https://pypi.org/project/clipassman"><img alt="PyPI format" src="https://img.shields.io/pypi/format/clipassman" /></a><br />
+<img alt="Platform" src="https://img.shields.io/badge/platform-windows%20%7C%20linux%20%7C%20macos-lightgrey" /></p>
+<hr />
+<h2 id="core-principles"><strong>🔐 Core Principles:</strong></h2>
+<ul>
+<li>🔐 <strong>Zero-Password Storage</strong>: No passwords are ever stored or transmitted</li>
+<li>🔑 <strong>Deterministic Regeneration</strong>: Passwords are recreated identically from your secret phrase</li>
+<li>📝 <strong>Metadata Management</strong>: Store only descriptions and verification keys</li>
+<li>💻 <strong>Terminal Processing</strong>: All cryptographic operations happen in your CLI</li>
+<li>🔄 <strong>On-Demand Discovery</strong>: Passwords exist only when you generate them</li>
+</ul>
+<p><strong>What You Can Do:</strong><br />
+1. <strong>Create Smart Passwords</strong>: Generate deterministic passwords from secret phrases<br />
+2. <strong>Store Metadata Securely</strong>: Keep password descriptions and lengths without storing passwords<br />
+3. <strong>Regenerate Passwords</strong>: Recreate passwords anytime using your secret phrase<br />
+4. <strong>Manage Services</strong>: Organize passwords for different accounts and services<br />
+5. <strong>Secure Terminal Input</strong>: Hidden secret phrase entry with getpass<br />
+6. <strong>Verify Secrets</strong>: Prove knowledge of secrets without exposing them<br />
+7. <strong>Export/Import</strong>: Backup and restore your password metadata<br />
+8. <strong>Cross-Platform Management</strong>: Works on any system with Python<br />
+9. <strong>No GUI Dependencies</strong>: Pure terminal interface for servers and remote systems</p>
+<p><strong>Key Features:</strong><br />
+- ✅ <strong>No Password Database</strong>: Eliminates password storage completely<br />
+- ✅ <strong>Interactive Terminal UI</strong>: Clean, centered text with visual framing<br />
+- ✅ <strong>Public Key Verification</strong>: Verify secret knowledge without exposure<br />
+- ✅ <strong>List View</strong>: See all your password metadata in clear lists<br />
+- ✅ <strong>Export/Import</strong>: Backup and restore functionality with timestamped files<br />
+- ✅ <strong>Bulk Operations</strong>: Clear all passwords with double confirmation<br />
+- ✅ <strong>Secure Hidden Input</strong>: Hidden secret phrase entry via getpass<br />
+- ✅ <strong>No Dependencies</strong>: Only Python standard library + smartpasslib<br />
+- ✅ <strong>Server Ready</strong>: Perfect for headless systems and remote management</p>
+<p><strong>Security Model:</strong><br />
+- <strong>Proof of Knowledge</strong>: Verify you know a secret without storing it<br />
+- <strong>Deterministic Security</strong>: Same secret + length = same password, always<br />
+- <strong>Metadata Separation</strong>: Non-sensitive data stored separately from verification<br />
+- <strong>Local Processing</strong>: No data leaves your computer<br />
+- <strong>No Recovery Backdoors</strong>: Lost secret = permanently lost access (by design)</p>
+<hr />
+<h2 id="critical-notice">⚠️ Critical Notice</h2>
+<p><strong>BEFORE USING THIS SOFTWARE, READ THE COMPLETE LEGAL DISCLAIMER BELOW</strong></p>
+<p><a href="#-legal-disclaimer">View Legal Disclaimer &amp; Liability Waiver</a></p>
+<p><em>Usage of this software constitutes acceptance of all terms and conditions.</em></p>
+<hr />
+<h2 id="research-paradigms-publications">📚 Research Paradigms &amp; Publications</h2>
+<ul>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17204738">Pointer-Based Security Paradigm</a></strong> - Architectural Shift from Data Protection to Data Non-Existence</li>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17264327">Local Data Regeneration Paradigm</a></strong> - Ontological Shift from Data Transmission to Synchronous State Discovery</li>
+</ul>
+<hr />
+<h2 id="technical-foundation">🔬 Technical Foundation</h2>
+<p>Powered by <strong><a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib v2.2.0+</a></strong> - The core library for deterministic password generation.</p>
+<p><strong>Key principle</strong>: Instead of storing passwords, you store verification metadata. The actual password is regenerated on-demand from your secret phrase.</p>
+<p><strong>What's NOT stored</strong>:<br />
+- Your secret phrase<br />
+- The actual password<br />
+- Any reversible password data</p>
+<p><strong>What IS stored</strong> (in <code>~/.config/smart_password_manager/passwords.json</code>):<br />
+- Public verification key (hash of secret)<br />
+- Service description<br />
+- Password length parameter</p>
+<p><strong>Export format</strong>: Same JSON structure, can be backed up and restored across different machines running the same software version.</p>
+<p><strong>Security model</strong>: Proof of secret knowledge without secret storage or password transmission.</p>
+<hr />
+<h2 id="file-locations">📁 File Locations</h2>
+<p>Starting from v2.2.0, configuration files are stored in:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Configuration Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>~/.config/smart_password_manager/passwords.json</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>~/.config/smart_password_manager/passwords.json</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>C:\Users\Username\.config\smart_password_manager\passwords.json</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Automatic Migration</strong>:<br />
+- Old <code>~/.cases.json</code> files are automatically migrated on first run<br />
+- Original file is backed up as <code>~/.cases.json.bak</code><br />
+- Migration is one-time and non-destructive<br />
+- All your existing passwords are preserved</p>
+<hr />
+<h2 id="whats-new-in-v220">🆕 What's New in v2.2.0</h2>
+<h3 id="importexport-functionality">Import/Export Functionality</h3>
+<ul>
+<li><strong>Export passwords</strong>: Save your password metadata to JSON file with timestamp</li>
+<li><strong>Import passwords</strong>: Restore from previously exported files</li>
+<li><strong>Format options</strong>: Choose between pretty or minified JSON</li>
+<li><strong>Metadata inclusion</strong>: Optional timestamp and version info in export</li>
+<li><strong>Safe import</strong>: Merges with existing data, never overwrites existing entries</li>
+<li><strong>Import preview</strong>: See export metadata before confirming</li>
+<li><strong>Statistics</strong>: Clear feedback on added/skipped/invalid entries</li>
+<li><strong>Filename suggestions</strong>: Auto-generated timestamps prevent overwrites</li>
+</ul>
+<h3 id="configuration-migration">Configuration Migration</h3>
+<ul>
+<li><strong>New config location</strong>: Now uses <code>~/.config/smart_password_manager/passwords.json</code></li>
+<li><strong>Automatic migration</strong>: Old <code>~/.cases.json</code> files are auto-migrated on first run</li>
+<li><strong>Cross-platform paths</strong>: Works on Linux, macOS, and Windows</li>
+<li><strong>Safe backup</strong>: Original file preserved as <code>.cases.json.bak</code></li>
+</ul>
+<h3 id="improved-terminal-ui">Improved Terminal UI</h3>
+<ul>
+<li><strong>New menu option</strong>: Export/Import in main menu (option 3)</li>
+<li><strong>Better feedback</strong>: Clear statistics after import</li>
+<li><strong>Format selection</strong>: Choose JSON format during export</li>
+<li><strong>Filename suggestions</strong>: Auto-generated timestamps</li>
+<li><strong>Consistent visual styling</strong> throughout the application</li>
+</ul>
+<h3 id="security-improvements">Security Improvements</h3>
+<ul>
+<li><strong>Stronger public key verification</strong> using enhanced cryptographic methods</li>
+<li><strong>Better input validation</strong> with clear error messages</li>
+<li><strong>Duplicate detection</strong> - prevents creating multiple entries with same secret</li>
+<li><strong>Case-sensitive secrets</strong> with clear user warnings</li>
+</ul>
+<hr />
+<h2 id="installation-quick-start">📦 Installation &amp; Quick Start</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><strong>Python 3.7+</strong> required</li>
+<li><strong>pip</strong> for package management</li>
+</ul>
+<h3 id="quick-run-from-repository">Quick Run from Repository</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Clone and run in one go</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/clipassman.git
+<span class="nb">cd</span><span class="w"> </span>clipassman
+python<span class="w"> </span>clipassman/clipassman.py
+</code></pre></div>
+
+<h3 id="quick-installation">Quick Installation</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Install from PyPI</span>
+pip<span class="w"> </span>install<span class="w"> </span>clipassman
+
+<span class="c1"># For systems with package conflicts</span>
+pip<span class="w"> </span>install<span class="w"> </span>clipassman<span class="w"> </span>--break-system-packages
+
+<span class="c1"># Verify installation</span>
+clipassman
+</code></pre></div>
+
+<h3 id="manual-installation">Manual Installation</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Clone repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/clipassman.git
+<span class="nb">cd</span><span class="w"> </span>clipassman
+
+<span class="c1"># Install in development mode</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+<span class="c1"># Or install from local source</span>
+pip<span class="w"> </span>install<span class="w"> </span>.
+</code></pre></div>
+
+<hr />
+<h2 id="quick-usage-guide">🚀 Quick Usage Guide</h2>
+<h3 id="launching-the-application">Launching the Application</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Start interactive terminal interface</span>
+clipassman
+
+<span class="c1"># Or if installed locally</span>
+python<span class="w"> </span>-m<span class="w"> </span>clipassman.clipassman
+</code></pre></div>
+
+<h3 id="creating-your-first-password">Creating Your First Password</h3>
+<ol>
+<li>Launch <code>clipassman</code></li>
+<li>Select option <strong>1: Add Password</strong></li>
+<li>Enter service description (e.g., "GitHub Account")</li>
+<li>Enter your secret phrase (never shared or stored)</li>
+<li>Confirm your secret phrase</li>
+<li>Set password length (4-100 characters)</li>
+<li>Password is generated and displayed</li>
+<li>Save it securely (not stored by system)</li>
+</ol>
+<h3 id="retrieving-a-password">Retrieving a Password</h3>
+<ol>
+<li>Launch <code>clipassman</code></li>
+<li>Select option <strong>2: Get/Delete Password</strong></li>
+<li>Choose password entry from numbered list</li>
+<li>Select <strong>1: Get password</strong></li>
+<li>Enter your secret phrase (hidden input)</li>
+<li>Password regenerates identically</li>
+</ol>
+<h3 id="exporting-passwords">Exporting Passwords</h3>
+<ol>
+<li>Launch <code>clipassman</code></li>
+<li>Select option <strong>3: Export/Import Passwords</strong></li>
+<li>Select <strong>1: Export passwords to file</strong></li>
+<li>Choose filename (or press Enter for auto-generated with timestamp)</li>
+<li>Select format (1: pretty JSON, 2: minified JSON)</li>
+<li>Choose whether to include metadata (y/n)</li>
+<li>File is saved with all your password metadata</li>
+<li>Success message with filename and password count</li>
+</ol>
+<h3 id="importing-passwords">Importing Passwords</h3>
+<ol>
+<li>Launch <code>clipassman</code></li>
+<li>Select option <strong>3: Export/Import Passwords</strong></li>
+<li>Select <strong>2: Import passwords from file</strong></li>
+<li>Enter filename to import</li>
+<li>Review export metadata if present (date, version, count)</li>
+<li>Confirm import (y/n)</li>
+<li>See statistics of added/skipped/invalid entries</li>
+<li>Table automatically refreshes with new passwords</li>
+</ol>
+<h3 id="deleting-passwords">Deleting Passwords</h3>
+<ol>
+<li>Select option <strong>2: Get/Delete Password</strong></li>
+<li>Choose password entry</li>
+<li>Select <strong>2: Delete entry</strong></li>
+<li>Confirm deletion with 'y'</li>
+<li>Only metadata removed - password can be recreated with secret</li>
+</ol>
+<h3 id="clearing-all-passwords">Clearing All Passwords</h3>
+<ol>
+<li>Select option <strong>4: Clear All Passwords</strong></li>
+<li>First confirmation with 'y'</li>
+<li>Type 'DELETE ALL' to confirm</li>
+<li>All password entries are removed</li>
+</ol>
+<h3 id="managing-passwords">Managing Passwords</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Main menu options:</span>
+<span class="m">1</span>:<span class="w"> </span>Add<span class="w"> </span>Password<span class="w">          </span><span class="c1"># Create new password</span>
+<span class="m">2</span>:<span class="w"> </span>Get/Delete<span class="w"> </span>Password<span class="w">   </span><span class="c1"># Retrieve or remove password</span>
+<span class="m">3</span>:<span class="w"> </span>Export/Import<span class="w">         </span><span class="c1"># Backup or restore password metadata</span>
+<span class="m">4</span>:<span class="w"> </span>Clear<span class="w"> </span>All<span class="w"> </span>Passwords<span class="w">   </span><span class="c1"># Remove all entries (double confirmation)</span>
+<span class="m">5</span>:<span class="w"> </span>Help<span class="w">                  </span><span class="c1"># View documentation</span>
+<span class="m">0</span>:<span class="w"> </span>Exit<span class="w">                  </span><span class="c1"># Quit application</span>
+</code></pre></div>
+
+<hr />
+<h2 id="windows-standalone-executable">📦 Windows Standalone Executable</h2>
+<h3 id="creating-a-single-file-exe">Creating a Single-File *.exe</h3>
+<p>Build a standalone <code>clipassman.exe</code> that runs without Python installation:</p>
+<h4 id="step-1-get-the-project-files">Step 1: Get the Project Files</h4>
+<ol>
+<li><strong>Download project ZIP:</strong></li>
+<li>Go to: https://github.com/smartlegionlab/clipassman</li>
+<li>Click green "Code" button</li>
+<li>Select "Download ZIP"</li>
+<li>Extract to: <code>C:\clipassman-master</code></li>
+</ol>
+<h4 id="step-2-install-python">Step 2: Install Python</h4>
+<ol>
+<li>Download Python installer from: https://python.org/downloads/</li>
+<li>Run installer</li>
+<li><strong>IMPORTANT:</strong> Check ✅ "Add Python to PATH"</li>
+<li>Click "Install Now"</li>
+</ol>
+<h4 id="step-3-open-command-prompt">Step 3: Open Command Prompt</h4>
+<ol>
+<li>Press <code>Win + R</code></li>
+<li>Type <code>cmd</code>, press Enter</li>
+<li>Navigate to project folder:<br />
+<code>cmd
+   cd C:\clipassman-master</code></li>
+</ol>
+<h4 id="step-4-create-virtual-environment">Step 4: Create Virtual Environment</h4>
+<div class="codehilite"><pre><span></span><code># Create virtual environment
+python -m venv venv
+
+# Activate it (IMPORTANT!)
+.\venv\Scripts\activate
+
+# You should see (venv) in your command prompt
+</code></pre></div>
+
+<h4 id="step-5-install-dependencies">Step 5: Install Dependencies</h4>
+<div class="codehilite"><pre><span></span><code># Install PyInstaller in virtual environment
+pip install pyinstaller
+pip install smartpasslib&gt;=2.2.0
+</code></pre></div>
+
+<h4 id="step-6-build-executable">Step 6: Build Executable</h4>
+<div class="codehilite"><pre><span></span><code>#<span class="w"> </span><span class="nv">Build</span><span class="w"> </span><span class="nv">single</span><span class="w"> </span>.<span class="nv">exe</span><span class="w"> </span><span class="nv">file</span>
+<span class="nv">pyinstaller</span><span class="w"> </span><span class="o">--</span><span class="nv">onefile</span><span class="w"> </span><span class="o">--</span><span class="nv">console</span><span class="w"> </span><span class="o">--</span><span class="nv">name</span><span class="w"> </span><span class="s2">&quot;clipassman.exe&quot;</span><span class="w"> </span><span class="nv">clipassman</span><span class="o">/</span><span class="nv">clipassman</span>.<span class="nv">py</span>
+
+#<span class="w"> </span><span class="k">Wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">build</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">complete</span><span class="w"> </span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="nv">minutes</span><span class="ss">)</span>
+</code></pre></div>
+
+<h4 id="step-7-find-and-use">Step 7: Find and Use</h4>
+<p><strong>Location:</strong> <code>C:\clipassman-master\dist\clipassman.exe</code></p>
+<p><strong>Create desktop shortcut:</strong><br />
+1. Open <code>C:\clipassman-master\dist\</code> folder<br />
+2. Right-click <code>clipassman.exe</code><br />
+3. Select "Create shortcut"<br />
+4. Drag shortcut to desktop<br />
+5. Rename shortcut to "CLIPassMan"<br />
+6. Double-click to start</p>
+<p><strong>What you get:</strong><br />
+- Single file: <code>clipassman.exe</code> (~10MB)<br />
+- No Python required to run<br />
+- Works on any Windows 10/11 PC<br />
+- Can be copied to USB drive</p>
+<hr />
+<h2 id="core-components">🏗️ Core Components</h2>
+<h3 id="terminal-interface-features">Terminal Interface Features</h3>
+<p><strong>Main Menu:</strong></p>
+<div class="codehilite"><pre><span></span><code>********************************************************************************
+********************** Smart Password Manager CLI v2.2.0 ***********************
+******************************* Version: v2.2.0 ********************************
+------------------------ Main Menu | Total passwords: 0 ------------------------
+1: Add Password
+2: Get/Delete Password
+3: Export/Import Passwords
+4: Clear All Passwords
+5: Help
+0: Exit
+Choose an action:
+</code></pre></div>
+
+<p><strong>Password Creation:</strong><br />
+- Description input with validation<br />
+- Secret phrase entry with confirmation<br />
+- Password length selection (4-100 characters)<br />
+- Public key generation and display<br />
+- Generated password display</p>
+<p><strong>Password Retrieval:</strong><br />
+- Numbered list of password entries<br />
+- Secret phrase entry via getpass (hidden)<br />
+- Public key verification<br />
+- Password regeneration</p>
+<p><strong>Export/Import Interface:</strong></p>
+<div class="codehilite"><pre><span></span><code>------------------------ Export/Import Menu ------------------------
+1: Export passwords to file
+2: Import passwords from file
+0: ← Back to Main Menu
+Choose an action:
+</code></pre></div>
+
+<h3 id="security-implementation">Security Implementation</h3>
+<p><strong>Public Key System:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Generate public key from secret</span>
+<span class="n">public_key</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_public_key</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span>
+
+<span class="c1"># Verify secret without exposing it</span>
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">check_public_key</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">public_key</span><span class="p">)</span>
+
+<span class="c1"># Generate password deterministically</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_smart_password</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Input Security:</strong><br />
+- Hidden secret input via <code>getpass.getpass()</code><br />
+- Case-sensitive secret validation<br />
+- Duplicate detection prevention<br />
+- Input sanitization and validation</p>
+<hr />
+<h2 id="advanced-usage">💡 Advanced Usage</h2>
+<h3 id="password-management-strategy">Password Management Strategy</h3>
+<p><strong>For Multiple Accounts:</strong></p>
+<div class="codehilite"><pre><span></span><code>Description<span class="w"> </span>Examples:
+-<span class="w"> </span>GitHub<span class="w"> </span>Personal<span class="w"> </span>Account
+-<span class="w"> </span>Work<span class="w"> </span>Email<span class="w"> </span>-<span class="w"> </span>Office<span class="w"> </span><span class="m">365</span>
+-<span class="w"> </span>Social<span class="w"> </span>Media<span class="w"> </span>-<span class="w"> </span>Twitter
+-<span class="w"> </span>Cloud<span class="w"> </span>Storage<span class="w"> </span>-<span class="w"> </span>Dropbox
+
+Length<span class="w"> </span>Strategy:
+-<span class="w"> </span>Critical<span class="w"> </span>accounts:<span class="w"> </span><span class="m">20</span>-24<span class="w"> </span>characters
+-<span class="w"> </span>Important<span class="w"> </span>accounts:<span class="w"> </span><span class="m">16</span>-20<span class="w"> </span>characters
+-<span class="w"> </span>General<span class="w"> </span>accounts:<span class="w"> </span><span class="m">12</span>-16<span class="w"> </span>characters
+-<span class="w"> </span>Temporary<span class="w"> </span>accounts:<span class="w"> </span><span class="m">8</span>-12<span class="w"> </span>characters
+</code></pre></div>
+
+<h3 id="secret-phrase-management">Secret Phrase Management</h3>
+<p><strong>Best Practices:</strong><br />
+1. <strong>Unique per service</strong> - Different secret for each account type<br />
+2. <strong>Memorable but complex</strong> - Phrases you can remember but others can't guess<br />
+3. <strong>Case-sensitive</strong> - v2.2.0 enforces exact case matching<br />
+4. <strong>No digital storage</strong> - Keep only in memory or physical backup<br />
+5. <strong>Backup plan</strong> - Physical written backup in secure location<br />
+6. <strong>Export regularly</strong> - Backup metadata after adding new passwords</p>
+<p><strong>Example Secret Phrases:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nl">Good</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MyFavoriteCoffeeShop@2025#Boston&quot;</span>
+<span class="nl">Good</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PurpleElephantsDanceInMoonlight42&quot;</span>
+<span class="nl">Avoid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;password123&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;letmein&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123456&quot;</span>
+</code></pre></div>
+
+<h3 id="backup-strategy">Backup Strategy</h3>
+<p><strong>Recommended workflow:</strong><br />
+1. Export metadata after adding new passwords<br />
+2. Store exports in secure, encrypted location<br />
+3. Keep exports across different machines for synchronization<br />
+4. Test import on a separate machine before relying on backups<br />
+5. Use timestamped exports to maintain version history</p>
+<hr />
+<h2 id="ecosystem-integration">🔧 Ecosystem Integration</h2>
+<h3 id="part-of-smart-password-suite">Part of Smart Password Suite</h3>
+<p><strong>Core Technology:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib</a></strong> - Core password generation library</p>
+<p><strong>Desktop Application:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/smart-password-manager-desktop">Desktop Smart Password Manager</a></strong> - Graphical interface with edit capabilities</p>
+<p><strong>Other CLI Tools:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/clipassgen/">CLI Smart Password Generator</a></strong> - Terminal-based password generation only</p>
+<p><strong>Web Interface:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/smart-password-manager">Web Smart Password Manager</a></strong> - Browser-based access</p>
+<h3 id="data-compatibility">Data Compatibility</h3>
+<ul>
+<li>Uses same <code>~/.config/smart_password_manager/passwords.json</code> format as desktop manager</li>
+<li>Export files compatible across all ecosystem tools</li>
+<li>Consistent cryptographic operations across platforms</li>
+<li>Can share password metadata between CLI and desktop versions</li>
+</ul>
+<h3 id="comparison-with-desktop-version">Comparison with Desktop Version</h3>
+<p><strong>CLI Advantages:</strong><br />
+- No GUI dependencies<br />
+- Works on servers and headless systems<br />
+- Faster for keyboard-centric users<br />
+- Scriptable and automatable<br />
+- Lower resource usage</p>
+<p><strong>Desktop Advantages:</strong><br />
+- Graphical interface with table view<br />
+- Edit functionality for metadata<br />
+- Copy to clipboard with one click<br />
+- Better visual feedback<br />
+- Mouse support<br />
+- Context menu for quick actions</p>
+<hr />
+<h2 id="license">📜 License</h2>
+<p><strong><a href="LICENSE">BSD 3-Clause License</a></strong></p>
+<p>Copyright (c) 2026, Alexander Suvorov</p>
+<div class="codehilite"><pre><span></span><code><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="n">PROVIDED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDERS</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="s2">&quot;AS IS&quot;</span>
+<span class="k">AND</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">EXPRESS</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="p">,</span><span class="w"> </span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">THE</span>
+<span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">MERCHANTABILITY</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">FITNESS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">PARTICULAR</span><span class="w"> </span><span class="n">PURPOSE</span><span class="w"> </span><span class="k">ARE</span>
+<span class="n">DISCLAIMED</span><span class="p">.</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">EVENT</span><span class="w"> </span><span class="n">SHALL</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDER</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="n">BE</span><span class="w"> </span><span class="n">LIABLE</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">DIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INDIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INCIDENTAL</span><span class="p">,</span><span class="w"> </span><span class="n">SPECIAL</span><span class="p">,</span><span class="w"> </span><span class="n">EXEMPLARY</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONSEQUENTIAL</span>
+<span class="n">DAMAGES</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">PROCUREMENT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUBSTITUTE</span><span class="w"> </span><span class="n">GOODS</span><span class="w"> </span><span class="k">OR</span>
+<span class="n">SERVICES</span><span class="p">;</span><span class="w"> </span><span class="n">LOSS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">USE</span><span class="p">,</span><span class="w"> </span><span class="k">DATA</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">PROFITS</span><span class="p">;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">BUSINESS</span><span class="w"> </span><span class="n">INTERRUPTION</span><span class="p">)</span><span class="w"> </span><span class="n">HOWEVER</span>
+<span class="n">CAUSED</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">THEORY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span><span class="w"> </span><span class="n">WHETHER</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">CONTRACT</span><span class="p">,</span><span class="w"> </span><span class="k">STRICT</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span>
+<span class="k">OR</span><span class="w"> </span><span class="n">TORT</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="w"> </span><span class="n">NEGLIGENCE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">OTHERWISE</span><span class="p">)</span><span class="w"> </span><span class="n">ARISING</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">WAY</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">USE</span>
+<span class="k">OF</span><span class="w"> </span><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="p">,</span><span class="w"> </span><span class="n">EVEN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="n">ADVISED</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">POSSIBILITY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUCH</span><span class="w"> </span><span class="n">DAMAGE</span><span class="p">.</span>
+</code></pre></div>
+
+<hr />
+<h2 id="support">🆘 Support</h2>
+<ul>
+<li><strong>CLI Manager Issues</strong>: <a href="https://github.com/smartlegionlab/clipassman/issues">GitHub Issues</a></li>
+<li><strong>Core Library Issues</strong>: <a href="https://github.com/smartlegionlab/smartpasslib/issues">smartpasslib Issues</a></li>
+<li><strong>Documentation</strong>: Inline help (option 5) and this README</li>
+</ul>
+<p><strong>Note</strong>: Always test password generation with non-essential accounts first. Implementation security depends on proper usage.</p>
+<hr />
+<h2 id="security-warnings">⚠️ Security Warnings</h2>
+<h3 id="secret-phrase-security">Secret Phrase Security</h3>
+<p><strong>Your secret phrase is the cryptographic master key</strong></p>
+<ol>
+<li><strong>Permanent data loss</strong>: Lost secret phrase = irreversible loss of all derived passwords</li>
+<li><strong>No recovery mechanisms</strong>: No password recovery, no secret reset, no administrative override</li>
+<li><strong>Deterministic generation</strong>: Identical input (secret + length) = identical output (password)</li>
+<li><strong>Single point of failure</strong>: Secret phrase is the sole authentication factor for all passwords</li>
+<li><strong>Secure storage required</strong>: Digital storage of secret phrases is prohibited</li>
+</ol>
+<p><strong>Critical</strong>: Test password regeneration with non-essential accounts before production use</p>
+<h3 id="exportimport-security-notes">Export/Import Security Notes</h3>
+<ul>
+<li>Export files contain ONLY metadata (public keys, descriptions, lengths)</li>
+<li>No passwords or secret phrases are ever exported</li>
+<li>Export files are plain JSON - store them securely</li>
+<li>Treat exported metadata as sensitive information</li>
+<li>Timestamped exports help maintain backup history</li>
+</ul>
+<hr />
+<h2 id="legal-disclaimer">📄 Legal Disclaimer</h2>
+<p><strong>COMPLETE AND ABSOLUTE RELEASE FROM ALL LIABILITY</strong></p>
+<p><strong>SOFTWARE PROVIDED "AS IS" WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.</strong></p>
+<p>The copyright holder, contributors, and any associated parties <strong>EXPLICITLY DISCLAIM AND DENY ALL RESPONSIBILITY AND LIABILITY</strong> for:</p>
+<ol>
+<li><strong>ANY AND ALL DATA LOSS</strong>: Complete or partial loss of passwords, accounts, credentials, cryptographic keys, or any data whatsoever</li>
+<li><strong>ANY AND ALL SECURITY INCIDENTS</strong>: Unauthorized access, data breaches, account compromises, theft, or exposure of sensitive information</li>
+<li><strong>ANY AND ALL FINANCIAL LOSSES</strong>: Direct, indirect, incidental, special, consequential, or punitive damages of any kind</li>
+<li><strong>ANY AND ALL OPERATIONAL DISRUPTIONS</strong>: Service interruptions, account lockouts, authentication failures, or denial of service</li>
+<li><strong>ANY AND ALL IMPLEMENTATION ISSUES</strong>: Bugs, errors, vulnerabilities, misconfigurations, or incorrect usage</li>
+<li><strong>ANY AND ALL LEGAL OR REGULATORY CONSEQUENCES</strong>: Violations of laws, regulations, compliance requirements, or terms of service</li>
+<li><strong>ANY AND ALL PERSONAL OR BUSINESS DAMAGES</strong>: Reputational harm, business interruption, loss of revenue, or any other damages</li>
+<li><strong>ANY AND ALL THIRD-PARTY CLAIMS</strong>: Claims made by any other parties affected by software usage</li>
+</ol>
+<p><strong>USER ACCEPTS FULL AND UNCONDITIONAL RESPONSIBILITY</strong></p>
+<p>By installing, accessing, or using this software in any manner, you irrevocably agree that:</p>
+<ul>
+<li>You assume <strong>ALL</strong> risks associated with software usage</li>
+<li>You bear <strong>SOLE</strong> responsibility for secret phrase management and security</li>
+<li>You accept <strong>COMPLETE</strong> responsibility for all testing and validation</li>
+<li>You are <strong>EXCLUSIVELY</strong> liable for compliance with all applicable laws</li>
+<li>You accept <strong>TOTAL</strong> responsibility for any and all consequences</li>
+<li>You <strong>PERMANENTLY AND IRREVOCABLY</strong> waive, release, and discharge all claims against the copyright holder, contributors, distributors, and any associated entities</li>
+</ul>
+<p><strong>NO WARRANTY OF ANY KIND</strong></p>
+<p>This software comes with <strong>ABSOLUTELY NO GUARANTEES</strong> regarding:<br />
+- Security effectiveness or cryptographic strength<br />
+- Reliability or availability<br />
+- Fitness for any particular purpose<br />
+- Accuracy or correctness<br />
+- Freedom from defects or vulnerabilities</p>
+<p><strong>NOT A SECURITY PRODUCT OR SERVICE</strong></p>
+<p>This is experimental software. It is not:<br />
+- Security consultation or advice<br />
+- A certified cryptographic product<br />
+- A guaranteed security solution<br />
+- Professional security software<br />
+- Endorsed by any security authority</p>
+<p><strong>FINAL AND BINDING AGREEMENT</strong></p>
+<p>Usage of this software constitutes your <strong>FULL AND UNCONDITIONAL ACCEPTANCE</strong> of this disclaimer. If you do not accept <strong>ALL</strong> terms and conditions, <strong>DO NOT USE THE SOFTWARE.</strong></p>
+<p><strong>BY PROCEEDING, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS DISCLAIMER IN ITS ENTIRETY, UNDERSTAND ITS TERMS COMPLETELY, AND ACCEPT THEM WITHOUT RESERVATION OR EXCEPTION.</strong></p>
+<hr />
+<p><strong>Version</strong>: 2.2.0 | <a href="https://smartlegionlab.ru"><strong>Author</strong></a>: <a href="https://alexander-suvorov.ru">Alexander Suvorov</a></p>
+<hr />
+<h2 id="terminal-interface-examples">Terminal Interface Examples</h2>
+<p><img alt="clipassman" src="https://github.com/smartlegionlab/clipassman/blob/master/data/images/clipassman.png" /></p>
+<h3 id="main-interface">Main Interface</h3>
+<div class="codehilite"><pre><span></span><code><span class="c">********************************************************************************</span>
+<span class="c">********************** Smart Password Manager CLI v2</span><span class="nt">.</span><span class="c">2</span><span class="nt">.</span><span class="c">0 ***********************</span>
+<span class="c">******************************* Version: v2</span><span class="nt">.</span><span class="c">2</span><span class="nt">.</span><span class="c">0 ********************************</span>
+<span class="nb">------------------------</span><span class="c"> Main Menu | Total passwords: 0 </span><span class="nb">------------------------</span>
+<span class="c">1: Add Password</span>
+<span class="c">2: Get/Delete Password</span>
+<span class="c">3: Export/Import Passwords</span>
+<span class="c">4: Clear All Passwords</span>
+<span class="c">5: Help</span>
+<span class="c">0: Exit</span>
+<span class="c">Choose an action: 1</span>
+<span class="nb">----------------------------</span><span class="c"> Add new smart password </span><span class="nb">----------------------------</span>
+<span class="nb">-------------------------------------------------------------------</span>
+<span class="c">Enter a descriptive name for this password (e</span><span class="nt">.</span><span class="c">g</span><span class="nt">.,</span><span class="c"> &quot;GitHub Account&quot;)</span>
+<span class="nb">-------------------------------------------------------------------</span>
+<span class="c">Description: Account 1</span>
+
+<span class="c">IMPORTANT: Your secret phrase:</span>
+<span class="c">• Is case</span><span class="nb">-</span><span class="c">sensitive</span>
+<span class="c">• Should be memorable but secure</span>
+<span class="c">• Will generate the same password every time</span>
+<span class="c">• Is never stored </span><span class="nb">-</span><span class="c"> only the hash is saved</span>
+
+<span class="c">Enter secret phrase (hidden): </span>
+<span class="c">Confirm secret phrase (hidden): </span>
+<span class="c">Enter password length (4</span><span class="nb">-</span><span class="c">100): 16</span>
+<span class="nb">--------------------------------------------------------------------------------</span>
+<span class="c">✓ Password metadata added successfully!</span>
+<span class="c">Description: Account 1</span>
+<span class="c">Length: 16 characters</span>
+<span class="c">Public Key: d8295cdc1a8e3094</span><span class="nt">...</span><span class="c">bb4b558bf7d70b4b</span>
+<span class="nb">---------------------------</span><span class="c"> Your generated password: </span><span class="nb">---------------------------</span>
+<span class="c">wcJjBKIhsgV%!6Iq</span>
+<span class="nb">--------------------------------------------------------------------------------</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">------------------------</span><span class="c"> Main Menu | Total passwords: 1 </span><span class="nb">------------------------</span>
+<span class="c">1: Add Password</span>
+<span class="c">2: Get/Delete Password</span>
+<span class="c">3: Export/Import Passwords</span>
+<span class="c">4: Clear All Passwords</span>
+<span class="c">5: Help</span>
+<span class="c">0: Exit</span>
+<span class="c">Choose an action: 3</span>
+<span class="nb">------------------------------</span><span class="c"> Export/Import Menu </span><span class="nb">------------------------------</span>
+<span class="c">1: Export passwords to file</span>
+<span class="c">2: Import passwords from file</span>
+<span class="c">0: ← Back to Main Menu</span>
+<span class="c">Choose an action: 1</span>
+<span class="nb">-------------------------------</span><span class="c"> Export Passwords </span><span class="nb">-------------------------------</span>
+<span class="c">Total passwords: 1</span>
+<span class="c">Default filename: passwords_export_20260218_124959</span><span class="nt">.</span><span class="c">json</span>
+<span class="c">Enter filename (or press Enter for default): </span>
+
+<span class="c">Export format:</span>
+<span class="c">1: Pretty JSON (readable</span><span class="nt">,</span><span class="c"> with indentation)</span>
+<span class="c">2: Minified JSON (smaller size)</span>
+<span class="c">Choose format (1/2): 1</span>
+<span class="c">Include export metadata (timestamp</span><span class="nt">,</span><span class="c"> version)? (y/n): y</span>
+<span class="nb">--------------------------------------------------------------------------------</span>
+<span class="c">✓ Successfully exported 1 passwords to:</span>
+<span class="c">  passwords_export_20260218_124959</span><span class="nt">.</span><span class="c">json</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">------------------------------</span><span class="c"> Export/Import Menu </span><span class="nb">------------------------------</span>
+<span class="c">1: Export passwords to file</span>
+<span class="c">2: Import passwords from file</span>
+<span class="c">0: ← Back to Main Menu</span>
+<span class="c">Choose an action: 2</span>
+<span class="nb">-------------------------------</span><span class="c"> Import Passwords </span><span class="nb">-------------------------------</span>
+<span class="c">Current passwords: 1</span>
+<span class="c">Enter filename to import: /home/user/passwords_export_20260218_124959</span><span class="nt">.</span><span class="c">json</span>
+
+<span class="c">Export metadata:</span>
+<span class="c">  Date: 2026</span><span class="nb">-</span><span class="c">02</span><span class="nb">-</span><span class="c">18T12:50:18</span><span class="nt">.</span><span class="c">597439</span>
+<span class="c">  App version: 2</span><span class="nt">.</span><span class="c">2</span><span class="nt">.</span><span class="c">0</span>
+<span class="c">  Passwords in file: 1</span>
+
+<span class="c">Found 1 passwords in file</span>
+
+<span class="c">Proceed with import? (y/n): y</span>
+<span class="nb">--------------------------------------------------------------------------------</span>
+<span class="c">✓ Import completed:</span>
+<span class="c">  • Added: 0 new passwords</span>
+<span class="c">  • Skipped (already exist): 1</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">------------------------------</span><span class="c"> Export/Import Menu </span><span class="nb">------------------------------</span>
+<span class="c">1: Export passwords to file</span>
+<span class="c">2: Import passwords from file</span>
+<span class="c">0: ← Back to Main Menu</span>
+<span class="c">Choose an action: 0</span>
+<span class="nb">------------------------</span><span class="c"> Main Menu | Total passwords: 1 </span><span class="nb">------------------------</span>
+<span class="c">1: Add Password</span>
+<span class="c">2: Get/Delete Password</span>
+<span class="c">3: Export/Import Passwords</span>
+<span class="c">4: Clear All Passwords</span>
+<span class="c">5: Help</span>
+<span class="c">0: Exit</span>
+<span class="c">Choose an action: 5</span>
+<span class="nb">-------------------------------------</span><span class="c"> Help </span><span class="nb">-------------------------------------</span>
+
+<span class="c">        CLIPASSMAN v2</span><span class="nt">.</span><span class="c">2</span><span class="nt">.</span><span class="c">0 </span><span class="nb">-</span><span class="c"> Console Smart Password Manager</span>
+
+<span class="c">        BREAKING CHANGES WARNING:</span>
+<span class="c">        • Login parameter completely removed</span>
+<span class="c">        • Now uses ONLY secret phrase</span>
+<span class="c">        • All v1</span><span class="nt">.</span><span class="c">x passwords are INVALID</span>
+<span class="c">        • Old password metadata cannot be migrated</span>
+
+<span class="c">        MIGRATION REQUIRED:</span>
+<span class="c">        If you have old passwords from v1</span><span class="nt">.</span><span class="c">x:</span>
+<span class="c">        1</span><span class="nt">.</span><span class="c"> Recover them using v1</span><span class="nt">.</span><span class="c">x version</span>
+<span class="c">        2</span><span class="nt">.</span><span class="c"> Generate new ones here with your secret phrases</span>
+<span class="c">        3</span><span class="nt">.</span><span class="c"> Update all accounts with new passwords</span>
+<span class="c">        4</span><span class="nt">.</span><span class="c"> Securely delete old password records</span>
+
+<span class="c">        HOW IT WORKS:</span>
+<span class="c">        1</span><span class="nt">.</span><span class="c"> Provide a secret phrase</span>
+<span class="c">        2</span><span class="nt">.</span><span class="c"> System generates a public key from the secret</span>
+<span class="c">        3</span><span class="nt">.</span><span class="c"> Password is generated deterministically</span>
+<span class="c">        4</span><span class="nt">.</span><span class="c"> Same secret </span><span class="nb">+</span><span class="c"> same length = same password every time</span>
+
+<span class="c">        To retrieve a password:</span>
+<span class="c">        1</span><span class="nt">.</span><span class="c"> Enter the same secret phrase</span>
+<span class="c">        2</span><span class="nt">.</span><span class="c"> Password is regenerated identically</span>
+
+<span class="c">        SECURITY NOTES:</span>
+<span class="c">        • Passwords are NEVER stored anywhere</span>
+<span class="c">        • Case</span><span class="nb">-</span><span class="c">sensitive secret phrases</span>
+<span class="c">        • Lost secret phrase = permanently lost passwords</span>
+<span class="c">        • Public key can be stored for verification</span>
+
+<span class="c">        For more information</span><span class="nt">,</span><span class="c"> visit the project page on GitHub: https://github</span><span class="nt">.</span><span class="c">com/smartlegionlab/clipassman</span>
+
+
+<span class="nb">----------------------------------------------------------------------</span>
+<span class="c">Complete documentation: https://github</span><span class="nt">.</span><span class="c">com/smartlegionlab/smartpasslib</span>
+<span class="nb">----------------------------------------------------------------------</span>
+<span class="nb">--------------------------------------------------------------------------------</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">------------------------</span><span class="c"> Main Menu | Total passwords: 1 </span><span class="nb">------------------------</span>
+<span class="c">1: Add Password</span>
+<span class="c">2: Get/Delete Password</span>
+<span class="c">3: Export/Import Passwords</span>
+<span class="c">4: Clear All Passwords</span>
+<span class="c">5: Help</span>
+<span class="c">0: Exit</span>
+<span class="c">Choose an action: 0</span>
+<span class="nb">-----------------</span><span class="c"> https://github</span><span class="nt">.</span><span class="c">com/smartlegionlab/clipassman </span><span class="nb">-----------------</span>
+<span class="nb">---------------------</span><span class="c"> Copyright © 2026</span><span class="nt">,</span><span class="c"> Alexander Suvorov </span><span class="nb">----------------------</span>
+<span class="c">================================================================================</span>
+</code></pre></div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>smart-tsp-solver v1.0.0 - PyPI Package</title>
+    <meta name="description" content="A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that...">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/smart-tsp-solver.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="smart-tsp-solver v1.0.0 - PyPI Package">
+    <meta property="og:description" content="A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/smart-tsp-solver.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233775A9'/><stop offset='100%' stop-color='%232D5A8B'/></linearGradient></defs><circle cx='50' cy='40' r='20' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M50 60 L50 85 M35 70 L65 70' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/></svg>">
+
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">smart-tsp-solver</h1>
+                                <p class="title">PyPI Package v1.0.0</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">1.0.0</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/smart-tsp-solver/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by ~25% on real-world clustered data while maintaining practical computational efficiency.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="smart-tsp-solver-v100">Smart TSP Solver <sup>v1.0.0</sup></h1>
+<hr />
+<p>A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. <br />
+Features advanced algorithms that outperform classical methods by <strong>25%</strong> on real-world <br />
+clustered data while maintaining practical computational efficiency.</p>
+<hr />
+<p><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/smart-tsp-solver" /><br />
+<a href="https://github.com/smartlegionlab/smart-tsp-solver/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/smartlegionlab/smart-tsp-solver" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-tsp-solver/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smartlegionlab/smart-tsp-solver" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-tsp-solver/"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/smartlegionlab/smart-tsp-solver?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-tsp-solver/"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/smartlegionlab/smart-tsp-solver?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-tsp-solver/"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/smart-tsp-solver?style=social" /></a><br />
+<a href="https://pypi.org/project/smart-tsp-solver/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/smart-tsp-solver?label=pypi%20downloads" /></a><br />
+<a href="https://pypi.org/project/smart-tsp-solver"><img alt="PyPI" src="https://img.shields.io/pypi/v/smart-tsp-solver" /></a><br />
+<a href="https://pypi.org/project/smart-tsp-solver"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/smart-tsp-solver" /></a></p>
+<p><a href="https://pepy.tech/projects/smart-tsp-solver"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/smart-tsp-solver" /></a><br />
+<a href="https://pepy.tech/projects/smart-tsp-solver"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/smart-tsp-solver/month" /></a><br />
+<a href="https://pepy.tech/projects/smart-tsp-solver"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/smart-tsp-solver/week" /></a></p>
+<hr />
+<blockquote>
+<p><strong>Research-driven design:</strong> This library implements cutting-edge spatial optimization <br />
+techniques including <strong>dynamic gravitational attraction modeling</strong> and <strong>angular-radial <br />
+spatial indexing</strong> for intelligent pathfinding.</p>
+</blockquote>
+<h2 id="features">🚀 Features</h2>
+<ul>
+<li><strong>🧠 Dynamic Gravity Algorithms:</strong> Physics-inspired approach simulating momentum and gravitational attraction for natural, efficient routing</li>
+<li><strong>📊 Angular-Radial Methods:</strong> Space-partitioning heuristics with adaptive look-ahead for superior performance on geographical data</li>
+<li><strong>⚡ Benchmarking Framework:</strong> Professional-grade testing infrastructure with configurable scenarios and detailed metrics</li>
+<li><strong>🦾 High-Performance Core:</strong> Numba JIT compilation with cache optimization for near-native execution speed</li>
+</ul>
+<h2 id="scientific-foundation">🔬 Scientific Foundation</h2>
+<hr />
+<h2 id="algorithmic-innovations">🧠 Algorithmic Innovations</h2>
+<p>Library implements two advanced heuristic approaches, each tackling the classic speed-quality trade-off in a unique way.</p>
+<hr />
+<h3 id="dynamic-gravity-approach">🧲 Dynamic Gravity Approach</h3>
+<p><strong>Complexity:</strong> <code>O(n²)</code></p>
+<p><strong>Concept:</strong> This algorithm models a physical process of attraction, where the next point is selected based on a combination of proximity and current direction of movement. The <code>delta</code> parameter acts as an "inertia coefficient," preventing sharp turns and creating smooth, natural-looking routes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Strengths</th>
+<th style="text-align: left;">Ideal Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">• Predictable execution time<br>• Consistently high solution quality<br>• Efficient cluster traversal</td>
+<td style="text-align: left;">The balance of speed and quality, processing medium-sized datasets</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="angular-radial-method">📐 Angular-Radial Method</h3>
+<p><strong>Complexity:</strong> <code>O(n²)</code> <em>with near O(n·log n) practical performance</em></p>
+<p><strong>Concept:</strong> A "smart look-ahead" strategy (<code>look_ahead</code>). Points are pre-sorted in a polar coordinate system, which drastically narrows the search space for each subsequent choice. This is equivalent to a navigator scanning the nearest sector on the horizon instead of re-examining the entire map every time.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Strengths</th>
+<th style="text-align: left;">Ideal Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">• Best-in-class final route quality<br>• Near-linear practical performance<br>• Exceptional efficiency on clustered data</td>
+<td style="text-align: left;">Offline calculations where route length is critical and tasks require scaling</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="hierarchical-tsp-solver">Hierarchical TSP Solver</h3>
+<p>A traveling salesman problem (TSP) solver using hierarchical decomposition and metaheuristics.</p>
+<h2 id="algorithm-overview">🧠 Algorithm Overview</h2>
+<h3 id="core-philosophy-divide-and-conquer-with-geometric-intelligence">Core Philosophy: Divide-and-Conquer with Geometric Intelligence</h3>
+<p>The solver employs a multi-level hierarchical approach that mirrors <br />
+human problem-solving strategies for large-scale routing:</p>
+<ol>
+<li><strong>Spatial Decomposition</strong>: Recursively partition the problem into manageable clusters</li>
+<li><strong>Local Optimization</strong>: Solve subproblems optimally within each cluster</li>
+<li><strong>Global Integration</strong>: Intelligently combine local solutions into a global route</li>
+<li><strong>Refinement</strong>: Apply local search to polish the final solution</li>
+</ol>
+<hr />
+<h3 id="performance-comparison">Performance Comparison</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Algorithm</th>
+<th style="text-align: left;">Complexity</th>
+<th style="text-align: left;">Quality</th>
+<th style="text-align: left;">Speed</th>
+<th style="text-align: left;">Primary Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Greedy v2</strong></td>
+<td style="text-align: left;"><code>O(n²)</code></td>
+<td style="text-align: left;">███░░</td>
+<td style="text-align: left;">█████</td>
+<td style="text-align: left;">Real-time, microseconds</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic-gravity v2</strong></td>
+<td style="text-align: left;"><code>O(n²)</code></td>
+<td style="text-align: left;">█████</td>
+<td style="text-align: left;">████░</td>
+<td style="text-align: left;">Balanced, milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Angular-radial v2</strong></td>
+<td style="text-align: left;"><code>O(n²)</code>*</td>
+<td style="text-align: left;">█████</td>
+<td style="text-align: left;">███░░</td>
+<td style="text-align: left;">Quality, offline</td>
+</tr>
+</tbody>
+</table>
+<p><em>Practical performance approaches O(n·log n) due to spatial heuristics.</em><br />
+*Worst-case complexity. Practical performance is near O(n·log n) due to spatial heuristics</p>
+<hr />
+<h3 id="benchmarking-methodology">Benchmarking Methodology</h3>
+<p>All algorithms are compared against a <strong>highly optimized greedy implementation</strong> featuring:<br />
+- Numba JIT compilation with <code>fastmath</code> and caching<br />
+- Euclidean distance optimization with squared distance comparisons<br />
+- Memory-efficient visited node tracking<br />
+- Reproducible results through seed-based initialization</p>
+<p>This ensures fair comparison against a professionally implemented baseline rather than naive reference implementations.</p>
+<h2 id="installation">📦 Installation</h2>
+<h3 id="install">Install</h3>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>smart-tsp-solver
+</code></pre></div>
+
+<h3 id="example">Example</h3>
+<h3 id="launch-using-smart-tsp-benchmark">Launch using <a href="https://github.com/smartlegionlab/smart-tsp-benchmark">Smart TSP Benchmark</a></h3>
+<p><code>pip install smart-tsp-benchmark</code></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_benchmark.tsp_benchmark</span><span class="w"> </span><span class="kn">import</span> <span class="n">TSPBenchmark</span><span class="p">,</span> <span class="n">AlgorithmConfig</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_solver</span><span class="w"> </span><span class="kn">import</span> <span class="n">hierarchical_tsp_solver_v2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_solver.algorithms.angular_radial.v1</span><span class="w"> </span><span class="kn">import</span> <span class="n">angular_radial_tsp_v1</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_solver.algorithms.angular_radial.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">angular_radial_tsp_v2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_solver.algorithms.dynamic_gravity.v1</span><span class="w"> </span><span class="kn">import</span> <span class="n">dynamic_gravity_tsp_v1</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_solver.algorithms.dynamic_gravity.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">dynamic_gravity_tsp_v2</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_tsp_solver.algorithms.other.greedy.v2</span><span class="w"> </span><span class="kn">import</span> <span class="n">greedy_tsp_v2</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;n_points&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s1">&#39;point_generation&#39;</span><span class="p">:</span> <span class="s1">&#39;cluster&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;use_post_optimization&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;plot_results&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">}</span>
+    <span class="n">benchmark</span> <span class="o">=</span> <span class="n">TSPBenchmark</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Angular-radial v1&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">AlgorithmConfig</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="n">angular_radial_tsp_v1</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;sort_by&quot;</span><span class="p">:</span> <span class="s2">&quot;angle_distance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;look_ahead&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s2">&quot;max_2opt_iter&quot;</span><span class="p">:</span> <span class="mi">100</span>
+            <span class="p">},</span>
+            <span class="n">post_optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Angular-radial v1&quot;</span><span class="p">,</span>
+            <span class="n">is_class</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Angular-radial v2&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">AlgorithmConfig</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="n">angular_radial_tsp_v2</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;sort_by&quot;</span><span class="p">:</span> <span class="s2">&quot;angle_distance&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;look_ahead&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s2">&quot;max_2opt_iter&quot;</span><span class="p">:</span> <span class="mi">100</span>
+            <span class="p">},</span>
+            <span class="n">post_optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Angular-radial v2&quot;</span><span class="p">,</span>
+            <span class="n">is_class</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Dynamic-gravity v1&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">AlgorithmConfig</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="n">dynamic_gravity_tsp_v1</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                <span class="s2">&quot;fast_2opt_iter&quot;</span><span class="p">:</span> <span class="mi">100</span>
+            <span class="p">},</span>
+            <span class="n">post_optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Dynamic-gravity v1&quot;</span><span class="p">,</span>
+            <span class="n">is_class</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Dynamic-gravity v2&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">AlgorithmConfig</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="n">dynamic_gravity_tsp_v2</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;delta&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+                <span class="s2">&quot;fast_2opt_iter&quot;</span><span class="p">:</span> <span class="mi">100</span>
+            <span class="p">},</span>
+            <span class="n">post_optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Dynamic-gravity v2&quot;</span><span class="p">,</span>
+            <span class="n">is_class</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Greedy v2&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">AlgorithmConfig</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="n">greedy_tsp_v2</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">post_optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Classic greedy TSP algorithm&quot;</span><span class="p">,</span>
+            <span class="n">is_class</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">add_algorithm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Hierarchical TSP&#39;</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">AlgorithmConfig</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="n">hierarchical_tsp_solver_v2</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;cluster_size&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                <span class="s2">&quot;post_optimize&quot;</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="p">},</span>
+            <span class="n">post_optimize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Hierarchical clustering TSP solver&quot;</span><span class="p">,</span>
+            <span class="n">is_class</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">benchmark</span><span class="o">.</span><span class="n">run_benchmark</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="example_1">🚀 Example</h3>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/smart-tsp-solver.git
+<span class="nb">cd</span><span class="w"> </span>smart-tsp-solver
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+python<span class="w"> </span>main.py
+</code></pre></div>
+
+<h2 id="comprehensive-performance-analysis">📊 Comprehensive Performance Analysis</h2>
+<h3 id="experimental-results">Experimental Results</h3>
+<h3 id="smart-tsp-algorithms-benchmark-report">📊 Smart TSP Algorithms Benchmark Report</h3>
+<p>Our comprehensive benchmarking reveals a clear performance-quality tradeoff across different problem scales, highlighting the strengths of each algorithm.</p>
+<h4 id="dataset-100-points-random-distribution">🔵 Dataset: 100 Points (Random Distribution)</h4>
+<p><strong>Key Insight:</strong> For small-scale problems, the <strong>Dynamic-gravity v2</strong> algorithm demonstrates the best balance, achieving near-optimal path quality while maintaining near-real-time performance.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Algorithm</th>
+<th style="text-align: left;">Time (s)</th>
+<th style="text-align: left;">Δ vs Best</th>
+<th style="text-align: left;">Route Length</th>
+<th style="text-align: left;">Δ vs Best</th>
+<th style="text-align: left;">Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Greedy v2</td>
+<td style="text-align: left;"><strong>0.0015</strong></td>
+<td style="text-align: left;"><strong>BASELINE</strong></td>
+<td style="text-align: left;">1026.37</td>
+<td style="text-align: left;">+20.66%</td>
+<td style="text-align: left;"><code>start_point=0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Dynamic-gravity v1</td>
+<td style="text-align: left;">0.0071</td>
+<td style="text-align: left;">+367%</td>
+<td style="text-align: left;">850.86</td>
+<td style="text-align: left;">+0.03%</td>
+<td style="text-align: left;"><code>delta=0.5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dynamic-gravity v2</strong></td>
+<td style="text-align: left;">0.0071</td>
+<td style="text-align: left;">+367%</td>
+<td style="text-align: left;">856.14</td>
+<td style="text-align: left;">+0.65%</td>
+<td style="text-align: left;"><code>delta=0.5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Angular-radial v2</td>
+<td style="text-align: left;">0.0086</td>
+<td style="text-align: left;">+469%</td>
+<td style="text-align: left;"><strong>850.62</strong></td>
+<td style="text-align: left;"><strong>BASELINE</strong></td>
+<td style="text-align: left;"><code>look_ahead=100</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Angular-radial v1</td>
+<td style="text-align: left;">0.0812</td>
+<td style="text-align: left;">+5243%</td>
+<td style="text-align: left;"><strong>850.62</strong></td>
+<td style="text-align: left;"><strong>BASELINE</strong></td>
+<td style="text-align: left;"><code>look_ahead=100</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="dataset-1001-points-large-random-distribution">🔴 Dataset: 1001 Points (Large Random Distribution)</h4>
+<p><strong>Key Insight:</strong> For large-scale problems, <strong>Angular-radial v2</strong> becomes the undisputed leader in solution quality (providing a <strong>17.3%</strong> shorter route than the Greedy algorithm). Its acceptable processing time makes it ideal for quality-sensitive offline applications.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Algorithm</th>
+<th style="text-align: left;">Time (s)</th>
+<th style="text-align: left;">Δ vs Best</th>
+<th style="text-align: left;">Route Length</th>
+<th style="text-align: left;">Δ vs Best</th>
+<th style="text-align: left;">Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Greedy v2</td>
+<td style="text-align: left;"><strong>0.0023</strong></td>
+<td style="text-align: left;"><strong>BASELINE</strong></td>
+<td style="text-align: left;">2985.82</td>
+<td style="text-align: left;">+17.31%</td>
+<td style="text-align: left;"><code>start_point=0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Dynamic-gravity v2</td>
+<td style="text-align: left;">0.0186</td>
+<td style="text-align: left;">+696%</td>
+<td style="text-align: left;">2726.36</td>
+<td style="text-align: left;">+7.12%</td>
+<td style="text-align: left;"><code>delta=0.5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Dynamic-gravity v1</td>
+<td style="text-align: left;">0.0321</td>
+<td style="text-align: left;">+1269%</td>
+<td style="text-align: left;">2837.78</td>
+<td style="text-align: left;">+11.50%</td>
+<td style="text-align: left;"><code>delta=0.5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Angular-radial v2</strong></td>
+<td style="text-align: left;">0.1346</td>
+<td style="text-align: left;">+5647%</td>
+<td style="text-align: left;"><strong>2545.21</strong></td>
+<td style="text-align: left;"><strong>BASELINE</strong></td>
+<td style="text-align: left;"><code>look_ahead=1001</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Angular-radial v1</td>
+<td style="text-align: left;">0.2555</td>
+<td style="text-align: left;">+10809%</td>
+<td style="text-align: left;"><strong>2545.21</strong></td>
+<td style="text-align: left;"><strong>BASELINE</strong></td>
+<td style="text-align: left;"><code>look_ahead=1001</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-insights-analysis">🎯 Key Insights &amp; Analysis</h3>
+<ol>
+<li>
+<p><strong>Algorithm Evolution (v1 vs. v2):</strong></p>
+<ul>
+<li><strong>Angular-radial v2</strong> shows a <strong>~2x speedup</strong> over v1 while delivering identical, best-in-class route quality.</li>
+<li><strong>Dynamic-gravity v2</strong> also demonstrates a significant speed improvement (nearly 2x on 1001 points) over v1, maintaining consistently high solution quality with better stability.</li>
+</ul>
+</li>
+<li>
+<p><strong>Algorithm Characteristics:</strong></p>
+<ul>
+<li><strong>Greedy v2:</strong> Extremely fast (<code>O(n²)</code>), ideal for real-time applications, but sacrifices solution quality (+17-20% longer routes).</li>
+<li><strong>Dynamic-gravity:</strong> Offers significantly better quality than the greedy approach. It has <code>O(n²)</code> complexity with higher constant factors, making it the optimal choice for medium-sized problems where a balance between speed and quality is required.</li>
+<li><strong>Angular-radial:</strong> The quality leader. Its use of spatial partitioning (<code>O(n log n)</code>) allows it to scale best on large datasets. It is the recommended choice for offline processing where final route cost is the primary concern.</li>
+</ul>
+</li>
+<li>
+<p><strong>Practical Recommendations:</strong><br />
+    The library provides a continuum of solutions for different use cases:</p>
+<ul>
+<li><strong>Microsecond Response:</strong> <strong>Greedy v2</strong> for interactive and real-time systems.</li>
+<li><strong>Millisecond Response:</strong> <strong>Dynamic-gravity v2</strong> for balanced needs and medium-scale problems.</li>
+<li><strong>Best Quality:</strong> <strong>Angular-radial v2</strong> for final calculations and offline processing where route cost is paramount.</li>
+</ul>
+</li>
+</ol>
+<h2 id="advanced-visualization">🎨 Advanced Visualization</h2>
+<p><img alt="LOGO" src="https://github.com/smartlegionlab/smart-tsp-solver/raw/master/data/images/tsp100.png" /><br />
+<img alt="LOGO" src="https://github.com/smartlegionlab/smart-tsp-solver/raw/master/data/images/tsp1001.png" /><br />
+<img alt="LOGO" src="https://github.com/smartlegionlab/smart-tsp-solver/raw/master/data/images/tsp_25_08_25.png" /><br />
+<em>Visual analysis showing Angular-radial's optimal sector-based routing, Dynamic-gravity's smooth trajectories, Greedy's suboptimal clustering</em></p>
+<h2 id="architecture-implementation">🏗️ Architecture &amp; Implementation</h2>
+<h3 id="performance-optimization">Performance Optimization</h3>
+<ul>
+<li><strong>Numba JIT Compilation:</strong> Critical paths compiled to native code</li>
+<li><strong>Memory Efficiency:</strong> Pre-allocated arrays and minimal copying</li>
+<li><strong>Cache Optimization:</strong> Intelligent memoization and reuse</li>
+<li><strong>Vectorized Operations:</strong> NumPy-based efficient computations</li>
+</ul>
+<hr />
+<h2 id="author">👨‍💻 Author</h2>
+<p><strong>Alexander Suvorov</strong></p>
+<ul>
+<li>Researcher specializing in computational optimization and high-performance algorithms</li>
+<li>Focused on bridging theoretical computer science with practical engineering applications</li>
+<li>This project represents extensive research into spatial optimization techniques</li>
+</ul>
+<p><em>Explore other projects on <a href="https://github.com/smartlegionlab">GitHub</a>.</em></p>
+<h2 id="related-research">🔗 Related Research</h2>
+<p>For those interested in the theoretical foundations:</p>
+<ul>
+<li><strong>Exact TSP Solutions (TSP ORACLE):</strong> <a href="https://github.com/smartlegionlab/exact-tsp-solver">exact-tsp-solver</a> - Optimal solutions for small instances</li>
+<li><strong>Smart TSP Benchmark</strong> - <a href="https://github.com/smartlegionlab/smart-tsp-benchmark">Smart TSP Benchmark</a>  is a professional algorithm testing infrastructure with customizable scenarios and detailed metrics.</li>
+<li><strong>Spatial Optimization:</strong> Computational geometry approaches for large-scale problems</li>
+<li><strong>Heuristic Analysis:</strong> Comparative study of modern TSP approaches</li>
+</ul>
+<hr />
+<h2 id="license-disclaimer">📜 License &amp; Disclaimer</h2>
+<p>BSD 3-Clause License</p>
+<p>Copyright (c) 2025, Alexander Suvorov</p>
+<div class="codehilite"><pre><span></span><code><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="n">PROVIDED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDERS</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="s2">&quot;AS IS&quot;</span>
+<span class="k">AND</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">EXPRESS</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="p">,</span><span class="w"> </span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">THE</span>
+<span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">MERCHANTABILITY</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">FITNESS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">PARTICULAR</span><span class="w"> </span><span class="n">PURPOSE</span><span class="w"> </span><span class="k">ARE</span>
+<span class="n">DISCLAIMED</span><span class="p">.</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">EVENT</span><span class="w"> </span><span class="n">SHALL</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDER</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="n">BE</span><span class="w"> </span><span class="n">LIABLE</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">DIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INDIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INCIDENTAL</span><span class="p">,</span><span class="w"> </span><span class="n">SPECIAL</span><span class="p">,</span><span class="w"> </span><span class="n">EXEMPLARY</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONSEQUENTIAL</span>
+<span class="n">DAMAGES</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">PROCUREMENT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUBSTITUTE</span><span class="w"> </span><span class="n">GOODS</span><span class="w"> </span><span class="k">OR</span>
+<span class="n">SERVICES</span><span class="p">;</span><span class="w"> </span><span class="n">LOSS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">USE</span><span class="p">,</span><span class="w"> </span><span class="k">DATA</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">PROFITS</span><span class="p">;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">BUSINESS</span><span class="w"> </span><span class="n">INTERRUPTION</span><span class="p">)</span><span class="w"> </span><span class="n">HOWEVER</span>
+<span class="n">CAUSED</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">THEORY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span><span class="w"> </span><span class="n">WHETHER</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">CONTRACT</span><span class="p">,</span><span class="w"> </span><span class="k">STRICT</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span>
+<span class="k">OR</span><span class="w"> </span><span class="n">TORT</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="w"> </span><span class="n">NEGLIGENCE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">OTHERWISE</span><span class="p">)</span><span class="w"> </span><span class="n">ARISING</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">WAY</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">USE</span>
+<span class="k">OF</span><span class="w"> </span><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="p">,</span><span class="w"> </span><span class="n">EVEN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="n">ADVISED</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">POSSIBILITY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUCH</span><span class="w"> </span><span class="n">DAMAGE</span><span class="p">.</span>
+</code></pre></div>
+
+<hr />
+<h2 id="sample-output">📊 Sample Output</h2>
+<div class="codehilite"><pre><span></span><code>==================================================
+          SMART TSP ALGORITHMS BENCHMARK          
+==================================================
+Points:           100
+Seed:           123
+Generation:     cluster
+Post-opt:       OFF
+Algorithms:    
+  <span class="k">-</span> Angular-radial v1: 
+  <span class="k">-</span> Angular-radial v2: 
+  <span class="k">-</span> Dynamic-gravity v1: 
+  <span class="k">-</span> Dynamic-gravity v2: 
+  <span class="k">-</span> Greedy v2: 
+  <span class="k">-</span> Hierarchical TSP: 
+==================================================
+
+
+==================================================
+Running Angular-radial v1 algorithm...
+Description: Angular-radial v1
+Completed in 0.0848 seconds
+Route length: 553.66
+==================================================
+
+==================================================
+Running Angular-radial v2 algorithm...
+Description: Angular-radial v2
+Completed in 0.0082 seconds
+Route length: 553.66
+==================================================
+
+==================================================
+Running Dynamic-gravity v1 algorithm...
+Description: Dynamic-gravity v1
+Completed in 0.0070 seconds
+Route length: 567.00
+==================================================
+
+==================================================
+Running Dynamic-gravity v2 algorithm...
+Description: Dynamic-gravity v2
+Completed in 0.0067 seconds
+Route length: 534.90
+==================================================
+
+==================================================
+Running Greedy v2 algorithm...
+Description: Classic greedy TSP algorithm
+Completed in 0.0016 seconds
+Route length: 609.21
+==================================================
+
+==================================================
+Running Hierarchical TSP algorithm...
+Description: Hierarchical clustering TSP solver
+Completed in 0.0343 seconds
+Route length: 524.25
+==================================================
+
+============================================================================================================================
+                                               DETAILED ALGORITHM COMPARISON                                                
+============================================================================================================================
+Algorithm            | Time (s) |  vs Best  | Length | vs Best | Params                                                     
+----------------------------------------------------------------------------------------------------------------------------
+Greedy v2            | 0.0016 | BEST | 609.21 | +16.21% |                                                            
+Dynamic-gravity v2   | 0.0067 | +332.71%  | 534.90 | +2.03%  | delta=0.5, fast_2opt_iter=100                              
+Dynamic-gravity v1   | 0.0070 | +349.52%  | 567.00 | +8.15%  | delta=0.5, fast_2opt_iter=100                              
+Angular-radial v2    | 0.0082 | +430.93%  | 553.66 | +5.61%  | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+Hierarchical TSP     | 0.0343 | +2110.90% | 524.25 | BEST | cluster_size=100, post_optimize=True                       
+Angular-radial v1    | 0.0848 | +5361.28% | 553.66 | +5.61%  | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+============================================================================================================================
+
+PERFORMANCE ANALYSIS:
+<span class="k">-</span> Fastest algorithm(s): Greedy v2 (0.0016 sec)
+<span class="k">-</span> Shortest route(s): Hierarchical TSP (524.25 units)
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>==================================================
+          SMART TSP ALGORITHMS BENCHMARK          
+==================================================
+Points:           50
+Seed:           123
+Generation:     random
+Post-opt:       OFF
+Algorithms:    
+  <span class="k">-</span> Angular-radial v1: 
+  <span class="k">-</span> Angular-radial v2: 
+  <span class="k">-</span> Dynamic-gravity v1: 
+  <span class="k">-</span> Dynamic-gravity v2: 
+  <span class="k">-</span> Greedy v2: 
+==================================================
+
+
+==================================================
+Running Angular-radial v1 algorithm...
+Description: Angular-radial v1
+Parameters: 
+Completed in 0.0798 seconds
+Route length: 658.16
+==================================================
+
+==================================================
+Running Angular-radial v2 algorithm...
+Description: Angular-radial v2
+Parameters: 
+Completed in 0.0082 seconds
+Route length: 658.16
+==================================================
+
+==================================================
+Running Dynamic-gravity v1 algorithm...
+Description: Dynamic-gravity v1
+Parameters: 
+Completed in 0.0067 seconds
+Route length: 582.13
+==================================================
+
+==================================================
+Running Dynamic-gravity v2 algorithm...
+Description: Dynamic-gravity v2
+Parameters: 
+Completed in 0.0065 seconds
+Route length: 577.06
+==================================================
+
+==================================================
+Running Greedy v2 algorithm...
+Description: Classic greedy TSP algorithm
+Parameters: 
+Completed in 0.0016 seconds
+Route length: 720.50
+==================================================
+
+============================================================================================================================
+                                               DETAILED ALGORITHM COMPARISON                                                
+============================================================================================================================
+Algorithm            | Time (s) |  vs Best  | Length | vs Best | Params                                                     
+----------------------------------------------------------------------------------------------------------------------------
+Greedy v2            | 0.0016 | BEST | 720.50 | +24.86% |                                                            
+Dynamic-gravity v2   | 0.0065 | +321.25%  | 577.06 | BEST | delta=0.5, fast_2opt_iter=100                              
+Dynamic-gravity v1   | 0.0067 | +328.66%  | 582.13 | +0.88%  | delta=0.5, fast_2opt_iter=100                              
+Angular-radial v2    | 0.0082 | +426.35%  | 658.16 | +14.05% | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+Angular-radial v1    | 0.0798 | +5035.05% | 658.16 | +14.05% | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+============================================================================================================================
+
+PERFORMANCE ANALYSIS:
+<span class="k">-</span> Fastest algorithm(s): Greedy v2 (0.0016 sec)
+<span class="k">-</span> Shortest route(s): Dynamic-gravity v2 (577.06 units)
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>==================================================
+          SMART TSP ALGORITHMS BENCHMARK          
+==================================================
+Points:           50
+Seed:           123
+Generation:     cluster
+Post-opt:       OFF
+Algorithms:    
+  <span class="k">-</span> Angular-radial v1: 
+  <span class="k">-</span> Angular-radial v2: 
+  <span class="k">-</span> Dynamic-gravity v1: 
+  <span class="k">-</span> Dynamic-gravity v2: 
+  <span class="k">-</span> Greedy v2: 
+==================================================
+
+
+==================================================
+Running Angular-radial v1 algorithm...
+Description: Angular-radial v1
+Parameters: 
+Completed in 0.0798 seconds
+Route length: 519.29
+==================================================
+
+==================================================
+Running Angular-radial v2 algorithm...
+Description: Angular-radial v2
+Parameters: 
+Completed in 0.0081 seconds
+Route length: 519.29
+==================================================
+
+==================================================
+Running Dynamic-gravity v1 algorithm...
+Description: Dynamic-gravity v1
+Parameters: 
+Completed in 0.0066 seconds
+Route length: 495.87
+==================================================
+
+==================================================
+Running Dynamic-gravity v2 algorithm...
+Description: Dynamic-gravity v2
+Parameters: 
+Completed in 0.0066 seconds
+Route length: 495.87
+==================================================
+
+==================================================
+Running Greedy v2 algorithm...
+Description: Classic greedy TSP algorithm
+Parameters: 
+Completed in 0.0015 seconds
+Route length: 621.53
+==================================================
+
+============================================================================================================================
+                                               DETAILED ALGORITHM COMPARISON                                                
+============================================================================================================================
+Algorithm            | Time (s) |  vs Best  | Length | vs Best | Params                                                     
+----------------------------------------------------------------------------------------------------------------------------
+Greedy v2            | 0.0015 | BEST | 621.53 | +25.34% |                                                            
+Dynamic-gravity v2   | 0.0066 | +331.67%  | 495.87 | BEST | delta=0.5, fast_2opt_iter=100                              
+Dynamic-gravity v1   | 0.0066 | +333.80%  | 495.87 | BEST | delta=0.5, fast_2opt_iter=100                              
+Angular-radial v2    | 0.0081 | +431.08%  | 519.29 | +4.72%  | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+Angular-radial v1    | 0.0798 | +5150.37% | 519.29 | +4.72%  | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+============================================================================================================================
+
+PERFORMANCE ANALYSIS:
+<span class="k">-</span> Fastest algorithm(s): Greedy v2 (0.0015 sec)
+<span class="k">-</span> Shortest route(s): Dynamic-gravity v1, Dynamic-gravity v2 (495.87 units)
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>==================================================
+          SMART TSP ALGORITHMS BENCHMARK          
+==================================================
+Points:           100
+Seed:           123
+Generation:     random
+Post-opt:       OFF
+Algorithms:    
+  <span class="k">-</span> Angular-radial v1: 
+  <span class="k">-</span> Angular-radial v2: 
+  <span class="k">-</span> Dynamic-gravity v1: 
+  <span class="k">-</span> Dynamic-gravity v2: 
+  <span class="k">-</span> Greedy v2: 
+==================================================
+
+
+==================================================
+Running Angular-radial v1 algorithm...
+Description: Angular-radial v1
+Parameters: 
+Completed in 0.0812 seconds
+Route length: 850.62
+==================================================
+
+==================================================
+Running Angular-radial v2 algorithm...
+Description: Angular-radial v2
+Parameters: 
+Completed in 0.0086 seconds
+Route length: 850.62
+==================================================
+
+==================================================
+Running Dynamic-gravity v1 algorithm...
+Description: Dynamic-gravity v1
+Parameters: 
+Completed in 0.0071 seconds
+Route length: 850.86
+==================================================
+
+==================================================
+Running Dynamic-gravity v2 algorithm...
+Description: Dynamic-gravity v2
+Parameters: 
+Completed in 0.0071 seconds
+Route length: 856.14
+==================================================
+
+==================================================
+Running Greedy v2 algorithm...
+Description: Classic greedy TSP algorithm
+Parameters: 
+Completed in 0.0015 seconds
+Route length: 1026.37
+==================================================
+
+=============================================================================================================================
+                                                DETAILED ALGORITHM COMPARISON                                                
+=============================================================================================================================
+Algorithm            | Time (s) |  vs Best  |  Length | vs Best | Params                                                     
+-----------------------------------------------------------------------------------------------------------------------------
+Greedy v2            | 0.0015 | BEST | 1026.37 | +20.66% |                                                            
+Dynamic-gravity v1   | 0.0071 | +367.32%  |  850.86 | +0.03%  | delta=0.5, fast_2opt_iter=100                              
+Dynamic-gravity v2   | 0.0071 | +367.38%  |  856.14 | +0.65%  | delta=0.5, fast_2opt_iter=100                              
+Angular-radial v2    | 0.0086 | +468.54%  | 850.62 | BEST | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+Angular-radial v1    | 0.0812 | +5243.04% | 850.62 | BEST | sort_by=angle_distance, look_ahead=100, max_2opt_iter=100  
+=============================================================================================================================
+
+PERFORMANCE ANALYSIS:
+<span class="k">-</span> Fastest algorithm(s): Greedy v2 (0.0015 sec)
+<span class="k">-</span> Shortest route(s): Angular-radial v1, Angular-radial v2 (850.62 units)
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>==================================================
+          SMART TSP ALGORITHMS BENCHMARK          
+==================================================
+Points:           1001
+Seed:           123
+Generation:     random
+Post-opt:       OFF
+Algorithms:    
+  <span class="k">-</span> Angular-radial v1: 
+  <span class="k">-</span> Angular-radial v2: 
+  <span class="k">-</span> Dynamic-gravity v1: 
+  <span class="k">-</span> Dynamic-gravity v2: 
+  <span class="k">-</span> Greedy v2: 
+==================================================
+
+
+==================================================
+Running Angular-radial v1 algorithm...
+Description: Angular-radial v1
+Parameters: 
+Completed in 0.2555 seconds
+Route length: 2545.21
+==================================================
+
+==================================================
+Running Angular-radial v2 algorithm...
+Description: Angular-radial v2
+Parameters: 
+Completed in 0.1346 seconds
+Route length: 2545.21
+==================================================
+
+==================================================
+Running Dynamic-gravity v1 algorithm...
+Description: Dynamic-gravity v1
+Parameters: 
+Completed in 0.0321 seconds
+Route length: 2837.78
+==================================================
+
+==================================================
+Running Dynamic-gravity v2 algorithm...
+Description: Dynamic-gravity v2
+Parameters: 
+Completed in 0.0186 seconds
+Route length: 2726.36
+==================================================
+
+==================================================
+Running Greedy v2 algorithm...
+Description: Classic greedy TSP algorithm
+Parameters: 
+Completed in 0.0023 seconds
+Route length: 2985.82
+==================================================
+
+================================================================================================================================
+                                                 DETAILED ALGORITHM COMPARISON                                                  
+================================================================================================================================
+Algorithm            | Time (s) |  vs Best   |  Length | vs Best | Params                                                       
+--------------------------------------------------------------------------------------------------------------------------------
+Greedy v2            | 0.0023 | BEST | 2985.82 | +17.31% |                                                              
+Dynamic-gravity v2   | 0.0186 |  +695.63%  | 2726.36 | +7.12%  | delta=0.5, fast_2opt_iter=1001                               
+Dynamic-gravity v1   | 0.0321 | +1269.12%  | 2837.78 | +11.50% | delta=0.5, fast_2opt_iter=1001                               
+Angular-radial v2    | 0.1346 | +5646.96%  | 2545.21 | BEST | sort_by=angle_distance, look_ahead=1001, max_2opt_iter=1001  
+Angular-radial v1    | 0.2555 | +10808.60% | 2545.21 | BEST | sort_by=angle_distance, look_ahead=1001, max_2opt_iter=1001  
+================================================================================================================================
+
+PERFORMANCE ANALYSIS:
+<span class="k">-</span> Fastest algorithm(s): Greedy v2 (0.0023 sec)
+<span class="k">-</span> Shortest route(s): Angular-radial v1, Angular-radial v2 (2545.21 units)
+</code></pre></div>
+
+<hr />
+<p><strong>Disclaimer:</strong> Performance results shown are for clustered/random distributions. <br />
+Results may vary based on spatial characteristics. <br />
+Always evaluate algorithms on your specific problem domains.</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+</body>
+</html>

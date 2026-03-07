@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>smart-redis-storage v0.2.3 - PyPI Package</title>
+    <meta name="description" content="Convenient work with Redis.">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/smart-redis-storage.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="smart-redis-storage v0.2.3 - PyPI Package">
+    <meta property="og:description" content="Convenient work with Redis.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/smart-redis-storage.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233775A9'/><stop offset='100%' stop-color='%232D5A8B'/></linearGradient></defs><circle cx='50' cy='40' r='20' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M50 60 L50 85 M35 70 L65 70' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/></svg>">
+
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">smart-redis-storage</h1>
+                                <p class="title">PyPI Package v0.2.3</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">0.2.3</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/smart-redis-storage/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">Convenient work with Redis.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="smart-redis-storage-023">smart-redis-storage <sup>0.2.3</sup></h1>
+<p>A lightweight and efficient Redis storage manager for Python applications. Provides simple CRUD (Create, Read, Update, Delete) operations with JSON serialization and hash-based data organization.</p>
+<hr />
+<p><a href="https://pepy.tech/projects/smart-redis-storage"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/smart-redis-storage" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/smart-redis-storage" /><br />
+<a href="https://pypi.org/project/smart-redis-storage/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/smart-redis-storage?label=pypi%20downloads" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-redis-storage/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smartlegionlab/smart-redis-storage" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-redis-storage/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/smartlegionlab/smart-redis-storage" /></a><br />
+<a href="https://pypi.org/project/smart-redis-storage"><img alt="PyPI" src="https://img.shields.io/pypi/v/smart-redis-storage" /></a><br />
+<a href="https://pypi.org/project/smart-redis-storage"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/smart-redis-storage" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-redis-storage/"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/smartlegionlab/smart-redis-storage?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-redis-storage/"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/smartlegionlab/smart-redis-storage?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-redis-storage/"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/smart-redis-storage?style=social" /></a></p>
+<hr />
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Simple CRUD Operations</strong>: Easy-to-use methods for Create, Read, Update, and Delete operations</li>
+<li><strong>JSON Serialization</strong>: Automatic serialization and deserialization of Python objects</li>
+<li><strong>Hash-based Storage</strong>: Organized data storage using Redis hashes with unique keys</li>
+<li><strong>TTL Support</strong>: Configurable expiration time for stored data</li>
+<li><strong>Thread-safe</strong>: Built on Redis-py, suitable for multi-threaded applications</li>
+<li><strong>Flexible Data Structure</strong>: Store multiple key-value pairs under a single unique identifier</li>
+</ul>
+<hr />
+<h2 id="installation">Installation</h2>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>smart-redis-storage
+</code></pre></div>
+
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3.6+</li>
+<li>Redis server</li>
+<li>redis-py library</li>
+</ul>
+<hr />
+<h2 id="quick-start">Quick Start</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_redis_storage.redis_storage</span><span class="w"> </span><span class="kn">import</span> <span class="n">RedisStorageManager</span>
+
+<span class="c1"># Initialize with default Redis connection (localhost:6379)</span>
+<span class="n">redis_storage</span> <span class="o">=</span> <span class="n">RedisStorageManager</span><span class="p">()</span>
+
+<span class="c1"># Store user data</span>
+<span class="n">user_id</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+    <span class="n">uniq_key</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> 
+    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> 
+    <span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;john@example.com&#39;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Retrieve user data</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">uniq_key</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>  <span class="c1"># {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 30, &#39;email&#39;: &#39;john@example.com&#39;}</span>
+
+<span class="c1"># Store with expiration (30 seconds)</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+    <span class="n">uniq_key</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="s1">&#39;session_data&#39;</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="s1">&#39;abc123&#39;</span><span class="p">,</span> <span class="s1">&#39;last_login&#39;</span><span class="p">:</span> <span class="s1">&#39;2024-01-01&#39;</span><span class="p">},</span>
+    <span class="n">expiration</span><span class="o">=</span><span class="mi">30</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="advanced-usage">Advanced Usage</h2>
+<h3 id="custom-redis-connection">Custom Redis Connection</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Connect to custom Redis instance</span>
+<span class="n">redis_storage</span> <span class="o">=</span> <span class="n">RedisStorageManager</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;redis-server.com&#39;</span><span class="p">,</span> 
+    <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span> 
+    <span class="n">db</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h3 id="multiple-data-operations">Multiple Data Operations</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Store multiple pieces of data under same unique key</span>
+<span class="n">user_id</span> <span class="o">=</span> <span class="mi">456</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;preferences&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;theme&#39;</span><span class="p">:</span> <span class="s1">&#39;dark&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span><span class="p">})</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;cart&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mf">150.0</span><span class="p">})</span>
+
+<span class="c1"># Get all data for a user</span>
+<span class="n">all_user_data</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_all_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_user_data</span><span class="p">)</span>
+<span class="c1"># {&#39;preferences&#39;: {&#39;theme&#39;: &#39;dark&#39;, &#39;language&#39;: &#39;en&#39;}, &#39;cart&#39;: {&#39;items&#39;: [1, 2, 3], &#39;total&#39;: 150.0}}</span>
+
+<span class="c1"># Update specific data</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;preferences&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;theme&#39;</span><span class="p">:</span> <span class="s1">&#39;light&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span><span class="p">})</span>
+
+<span class="c1"># Pop data (read and remove)</span>
+<span class="n">cart_data</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">pop_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;cart&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cart_data</span><span class="p">)</span>  <span class="c1"># {&#39;items&#39;: [1, 2, 3], &#39;total&#39;: 150.0}</span>
+
+<span class="c1"># Check remaining TTL</span>
+<span class="n">ttl</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_ttl</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TTL: </span><span class="si">{</span><span class="n">ttl</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="data-management">Data Management</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Delete specific key</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">delete_key</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;preferences&#39;</span><span class="p">)</span>
+
+<span class="c1"># Delete all data for a unique key</span>
+<span class="n">redis_storage</span><span class="o">.</span><span class="n">delete_all_hash</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="c1"># Check if data exists</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;nonexistent_key&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># None</span>
+</code></pre></div>
+
+<hr />
+<h2 id="api-reference">API Reference</h2>
+<h3 id="redisstoragemanager-class">RedisStorageManager Class</h3>
+<h4 id="constructor">Constructor</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">RedisStorageManager</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">6379</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="methods">Methods</h4>
+<ul>
+<li>
+<p><strong>set_data(uniq_key, key, value, expiration=None)</strong><br />
+  Store data with optional expiration (in seconds)</p>
+</li>
+<li>
+<p><strong>get_data(uniq_key, key, pop=False)</strong><br />
+  Retrieve data. Set <code>pop=True</code> to remove after reading</p>
+</li>
+<li>
+<p><strong>get_all_data(uniq_key)</strong><br />
+  Retrieve all key-value pairs for a unique identifier</p>
+</li>
+<li>
+<p><strong>update_data(uniq_key, key, value, expiration=None)</strong><br />
+  Update existing data (alias for set_data)</p>
+</li>
+<li>
+<p><strong>pop_data(uniq_key, key)</strong><br />
+  Retrieve and remove data</p>
+</li>
+<li>
+<p><strong>delete_key(uniq_key, key)</strong><br />
+  Remove specific key</p>
+</li>
+<li>
+<p><strong>delete_all_hash(uniq_key)</strong><br />
+  Remove all data for a unique identifier</p>
+</li>
+<li>
+<p><strong>get_ttl(uniq_key)</strong><br />
+  Get remaining time-to-live in seconds</p>
+</li>
+</ul>
+<hr />
+<h2 id="use-cases">Use Cases</h2>
+<h3 id="session-management">Session Management</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Store user session</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">store_user_session</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">session_data</span><span class="p">):</span>
+    <span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+        <span class="n">uniq_key</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="s1">&#39;session&#39;</span><span class="p">,</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">session_data</span><span class="p">,</span>
+        <span class="n">expiration</span><span class="o">=</span><span class="mi">3600</span>  <span class="c1"># 1 hour</span>
+    <span class="p">)</span>
+
+<span class="c1"># Retrieve and validate session</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_valid_session</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">session</span> <span class="ow">and</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;valid_until&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">session</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+
+<h3 id="cache-management">Cache Management</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Cache expensive computation results</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_cached_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">data_key</span><span class="p">,</span> <span class="n">compute_function</span><span class="p">):</span>
+    <span class="n">cached</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">data_key</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cached</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cached</span>
+
+    <span class="c1"># Compute and cache if not found</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">compute_function</span><span class="p">()</span>
+    <span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">data_key</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">expiration</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+
+<h3 id="multi-tenant-data-isolation">Multi-tenant Data Isolation</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Different tenants can use the same storage with different unique keys</span>
+<span class="n">tenant_a_data</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_all_data</span><span class="p">(</span><span class="s1">&#39;tenant_a&#39;</span><span class="p">)</span>
+<span class="n">tenant_b_data</span> <span class="o">=</span> <span class="n">redis_storage</span><span class="o">.</span><span class="n">get_all_data</span><span class="p">(</span><span class="s1">&#39;tenant_b&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="storage-structure">Storage Structure</h2>
+<p>The library uses Redis hashes with the following pattern:<br />
+- Key format: <code>uniq:{unique_identifier}</code><br />
+- Field: Your specified key<br />
+- Value: JSON-serialized data</p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">uniq</span><span class="o">:</span><span class="mi">123</span><span class="w"> </span><span class="o">(</span><span class="n">Hash</span><span class="o">)</span>
+<span class="w">  </span><span class="err">├──</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;</span>
+<span class="w">  </span><span class="err">├──</span><span class="w"> </span><span class="n">session</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="s1">&#39;{&quot;token&quot;: &quot;abc123&quot;, &quot;last_login&quot;: &quot;2024-01-01&quot;}&#39;</span>
+<span class="w">  </span><span class="err">└──</span><span class="w"> </span><span class="n">preferences</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="s1">&#39;{&quot;theme&quot;: &quot;dark&quot;, &quot;language&quot;: &quot;en&quot;}&#39;</span>
+</code></pre></div>
+
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<p>The library handles Redis connection errors and JSON serialization/deserialization automatically. In case of connection issues, Redis-py will raise appropriate exceptions that you can catch in your application.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">redis_storage</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<span class="k">except</span> <span class="n">redis</span><span class="o">.</span><span class="n">ConnectionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Redis connection error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="performance-considerations">Performance Considerations</h2>
+<ul>
+<li>Uses Redis hashes for efficient storage of multiple related data</li>
+<li>JSON serialization adds overhead but provides flexibility</li>
+<li>Consider data size and expiration policies for optimal performance</li>
+<li>Batch operations can be implemented by storing multiple keys under same unique identifier</li>
+</ul>
+<hr />
+<h2 id="license">License</h2>
+<p>This project is licensed under the BSD 3-Clause License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<hr />
+<h2 id="author">Author</h2>
+<p><strong>Alexander Suvorov</strong><br />
+- GitHub: <a href="https://github.com/smartlegionlab">@smartlegionlab</a><br />
+- Package: <a href="https://pypi.org/project/smart-redis-storage/">PyPI</a></p>
+<hr />
+<h2 id="disclaimer-of-liability">Disclaimer of Liability</h2>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<hr />
+<h2 id="copyright">Copyright</h2>
+<div class="codehilite"><pre><span></span><code><span class="nb">--------------------------------------------------------</span>
+<span class="c">Licensed under the terms of the BSD 3</span><span class="nb">-</span><span class="c">Clause License</span>
+<span class="c">(see LICENSE for details)</span><span class="nt">.</span>
+<span class="c">Copyright © 2018</span><span class="nb">-</span><span class="c">2025</span><span class="nt">,</span><span class="c"> Alexander Suvorov</span>
+<span class="c">All rights reserved</span><span class="nt">.</span>
+<span class="nb">--------------------------------------------------------</span>
+</code></pre></div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -153,9 +153,14 @@ def generate_package_cards(packages, limit=100):
             </div>
 
             <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
-                <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="repo-action">
-                    <i class="bi bi-box-arrow-up-right"></i> View on PyPI
-                </a>
+                <div class="btn-group">
+                    <a href="packages/{pkg["name"]}.html" class="btn btn-outline-primary repo-action">
+                        <i class="bi bi-box-arrow-up-right"></i> View
+                    </a> 
+                    <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="btn btn-outline-primary repo-action">
+                        <i class="bi bi-box-arrow-up-right"></i> View on PyPI
+                    </a>
+                </div>
             </div>
         </div>'''
         cards.append(card)

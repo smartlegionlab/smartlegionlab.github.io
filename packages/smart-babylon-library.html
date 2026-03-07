@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>smart-babylon-library v1.1.0 - PyPI Package</title>
+    <meta name="description" content="Smart Babylon Library. A deterministic infinite library generator. Generate unique, deterministic books and pages based on coordinate systems without...">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/smart-babylon-library.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="smart-babylon-library v1.1.0 - PyPI Package">
+    <meta property="og:description" content="Smart Babylon Library. A deterministic infinite library generator. Generate unique, deterministic books and pages based on coordinate systems without...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/smart-babylon-library.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233775A9'/><stop offset='100%' stop-color='%232D5A8B'/></linearGradient></defs><circle cx='50' cy='40' r='20' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M50 60 L50 85 M35 70 L65 70' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/></svg>">
+
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">smart-babylon-library</h1>
+                                <p class="title">PyPI Package v1.1.0</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">1.1.0</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/smart-babylon-library/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">Smart Babylon Library. A deterministic infinite library generator. Generate unique, deterministic books and pages based on coordinate systems without storing any data.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="smart-babylon-library-v110">Smart Babylon Library <sup>v1.1.0</sup></h1>
+<p>A deterministic infinite library generator inspired by Borges' "The Library of Babel". Generate unique, deterministic books and pages based on coordinate systems without storing any data.</p>
+<hr />
+<h2 id="project-status-research-development">🚧 Project Status: Research &amp; Development</h2>
+<p><strong>IMPORTANT DISCLAIMER</strong>: This project is currently in active research and development phase. It is provided as-is for academic and experimental purposes only. No guarantees of stability, security, or fitness for any particular purpose are provided. Users assume all risks associated with usage.</p>
+<hr />
+<p><a href="https://pepy.tech/projects/smart-babylon-library"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/smart-babylon-library" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/smart-babylon-library" /><br />
+<a href="https://github.com/smartlegionlab/smart-babylon-library/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smartlegionlab/smart-babylon-library" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-babylon-library/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/smartlegionlab/smart-babylon-library" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-babylon-library/"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/smartlegionlab/smart-babylon-library?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-babylon-library/"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/smartlegionlab/smart-babylon-library?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/smart-babylon-library/"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/smart-babylon-library?style=social" /></a><br />
+<a href="https://pypi.org/project/smart-babylon-library/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/smart-babylon-library?label=pypi%20downloads" /></a><br />
+<a href="https://pypi.org/project/smart-babylon-library"><img alt="PyPI" src="https://img.shields.io/pypi/v/smart-babylon-library" /></a><br />
+<a href="https://pypi.org/project/smart-babylon-library"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/smart-babylon-library" /></a></p>
+<hr />
+<h2 id="version-information">🚀 Version Information</h2>
+<h3 id="current-version-110-multi-universe-support">Current Version: 1.1.0 (Multi-Universe Support)</h3>
+<p>This release adds powerful multi-universe capabilities and enhanced JSON serialization:</p>
+<ul>
+<li><strong>🌌 Multi-Universe Support</strong> - Create isolated libraries with different configurations</li>
+<li><strong>🔧 Enhanced Configuration</strong> - Universe parameter for deterministic isolation</li>
+<li><strong>📊 Complete JSON Integration</strong> - Universe field included in all serializations</li>
+<li><strong>🔄 Full Roundtrip Support</strong> - Serialize/deserialize with universe preservation</li>
+<li><strong>🎯 Universe-Based Determinism</strong> - Content generation isolated per universe</li>
+</ul>
+<p><strong>New Features in 1.1.0:</strong><br />
+- <code>universe</code> parameter in <code>LibraryConfig</code> for creating isolated libraries<br />
+- Universe included in all JSON serializations (books and pages)<br />
+- Deterministic generation per universe - same coordinates produce different content across universes<br />
+- Enhanced examples demonstrating multi-universe scenarios</p>
+<h3 id="version-101-new-architecture">Version: 1.0.1 (New Architecture)</h3>
+<p>This release represents a complete architectural rewrite with significant improvements:</p>
+<ul>
+<li><strong>Modular OOP Design</strong> - Clean separation of concerns</li>
+<li><strong>Enhanced Configuration</strong> - Flexible LibraryConfig system with character sets customization</li>
+<li><strong>JSON Serialization</strong> - Full object serialization support</li>
+<li><strong>Type Safety</strong> - Improved type hints and validation</li>
+<li>
+<p><strong>Research Integration</strong> - Implements concepts from published papers</p>
+</li>
+<li>
+<p><strong>Fixed</strong> errors</p>
+</li>
+<li><strong>Added</strong> the ability to configure character sets</li>
+</ul>
+<h3 id="legacy-version-065-deprecated">Legacy Version: 0.6.5 (Deprecated)</h3>
+<p><strong>⚠️ Version <code>0.6.5</code> and earlier are no longer supported.</strong> The previous monolithic architecture has been replaced by the new modular system. Users of older versions should migrate to 1.0.0+.</p>
+<p><strong>Key breaking changes:</strong><br />
+- New import paths and class names<br />
+- Different configuration system<br />
+- Updated coordinate structure<br />
+- Enhanced API with better object model</p>
+<hr />
+<h2 id="related-research-publications">📚 Related Research Publications</h2>
+<p>This library implements concepts from our published research:</p>
+<ul>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17204738">Pointer-Based Security Paradigm</a></strong> - Architectural shift from data protection to data non-existence</li>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17264327">Local Data Regeneration Paradigm</a></strong> - Ontological shift from data transmission to synchronous state discovery  </li>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17383447">Deterministic Game Engine</a></strong> - Practical implementation validating the theoretical paradigms</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Deterministic Generation</strong>: Same coordinates always produce the same content</li>
+<li><strong>Infinite Library</strong>: Virtually unlimited books and pages through coordinate system</li>
+<li><strong>Zero Storage</strong>: Content generated on-demand, nothing stored</li>
+<li><strong>Configurable</strong>: Customize book lengths, page sizes, and character sets</li>
+<li><strong>JSON Support</strong>: Full serialization to JSON format with universe support</li>
+<li><strong>Unicode Support</strong>: Cyrillic, Latin, digits, and punctuation</li>
+<li><strong>Multi-Universe</strong>: Create isolated libraries with different configurations</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>smart-babylon-library
+</code></pre></div>
+
+<h2 id="quick-start">Quick Start</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartBabylonLibrary</span>
+
+<span class="c1"># Create library instance</span>
+<span class="n">library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">()</span>
+
+<span class="c1"># Get a book by coordinates</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="n">floor</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">room</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cabinet</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shelf</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">book_number</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Book: </span><span class="si">{</span><span class="n">book</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Title: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pages: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">max_pages</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access specific page</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Page content: </span><span class="si">{</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="multiple-universes-support">🌌 Multiple Universes Support</h2>
+<p>Library now supports multiple parallel universes - each with its own deterministic content:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartBabylonLibrary</span><span class="p">,</span> <span class="n">LibraryConfig</span>
+
+<span class="c1"># Different universes - different content</span>
+<span class="n">fantasy_config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;middle_earth&quot;</span><span class="p">)</span>
+<span class="n">scifi_config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;andromeda_galaxy&quot;</span><span class="p">)</span>
+
+<span class="n">fantasy_library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">fantasy_config</span><span class="p">)</span>
+<span class="n">scifi_library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">scifi_config</span><span class="p">)</span>
+
+<span class="c1"># Same coordinates, different content</span>
+<span class="n">fantasy_book</span> <span class="o">=</span> <span class="n">fantasy_library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">scifi_book</span> <span class="o">=</span> <span class="n">scifi_library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fantasy_book</span><span class="o">.</span><span class="n">title</span> <span class="o">!=</span> <span class="n">scifi_book</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>  <span class="c1"># True</span>
+
+<span class="c1"># Universe is included in JSON serialization</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fantasy_book</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  <span class="c1"># Includes &#39;universe&#39; field</span>
+</code></pre></div>
+
+<h2 id="coordinate-system">Coordinate System</h2>
+<p>Each item is located using 6-dimensional coordinates:<br />
+- <code>floor</code>: Library floor<br />
+- <code>room</code>: Room number<br />
+- <code>cabinet</code>: Cabinet number<br />
+- <code>shelf</code>: Shelf number<br />
+- <code>book</code>: Book number<br />
+- <code>page</code>: Page number</p>
+<h2 id="configuration">Configuration</h2>
+<p>Customize library generation:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartBabylonLibrary</span><span class="p">,</span> <span class="n">LibraryConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library.character_sets.alphabets</span><span class="w"> </span><span class="kn">import</span> <span class="n">LatinAlphabet</span><span class="p">,</span> <span class="n">CyrillicAlphabet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library.character_sets.digits</span><span class="w"> </span><span class="kn">import</span> <span class="n">Digits</span>
+
+<span class="c1"># Basic configuration</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span>
+    <span class="n">universe</span><span class="o">=</span><span class="s2">&quot;my_library&quot;</span><span class="p">,</span>              <span class="c1"># Universe name</span>
+    <span class="n">title_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>      <span class="c1"># Title length range</span>
+    <span class="n">content_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">2000</span><span class="p">),</span>  <span class="c1"># Page content length range  </span>
+    <span class="n">pages_per_book_range</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>       <span class="c1"># Pages per book range</span>
+<span class="p">)</span>
+
+<span class="c1"># Custom character sets (only Latin and digits)</span>
+<span class="n">custom_config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span>
+    <span class="n">universe</span><span class="o">=</span><span class="s2">&quot;numeric_world&quot;</span><span class="p">,</span>
+    <span class="n">title_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="n">content_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>
+    <span class="n">pages_per_book_range</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="n">character_sets</span><span class="o">=</span><span class="p">[</span><span class="n">LatinAlphabet</span><span class="p">(),</span> <span class="n">Digits</span><span class="p">()]</span>
+<span class="p">)</span>
+
+<span class="n">library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="api-reference">API Reference</h2>
+<h3 id="smartbabylonlibrary">SmartBabylonLibrary</h3>
+<p>Main library class:</p>
+<ul>
+<li><code>get_book(floor, room, cabinet, shelf, book_number)</code> - Get book by coordinates</li>
+<li><code>get_book_from_dict(coordinates_dict)</code> - Get book from dictionary</li>
+<li><code>get_book_json(coordinates_dict)</code> - Get book as JSON string</li>
+<li><code>get_page(floor, room, cabinet, shelf, book_number, page)</code> - Get page by coordinates</li>
+<li><code>get_page_from_dict(coordinates_dict)</code> - Get page from dictionary  </li>
+<li><code>get_page_json(coordinates_dict)</code> - Get page as JSON string</li>
+</ul>
+<h3 id="librarybook">LibraryBook</h3>
+<p>Book class with properties:</p>
+<ul>
+<li><code>title</code> - Book title (generated)</li>
+<li><code>max_pages</code> - Total pages in book</li>
+<li><code>coordinates</code> - Book coordinates</li>
+<li><code>config</code> - Library configuration with universe</li>
+<li><code>get_page(page_number)</code> - Get specific page</li>
+<li><code>to_dict()</code> - Convert to dictionary (includes universe)</li>
+<li><code>to_json()</code> - Convert to JSON (includes universe)</li>
+</ul>
+<h3 id="librarypage">LibraryPage</h3>
+<p>Page class with properties:</p>
+<ul>
+<li><code>content</code> - Page content (generated)</li>
+<li><code>page_number</code> - Page number</li>
+<li><code>coordinates</code> - Page coordinates</li>
+<li><code>config</code> - Library configuration with universe  </li>
+<li><code>to_dict()</code> - Convert to dictionary (includes universe)</li>
+<li><code>to_json()</code> - Convert to JSON (includes universe)</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartBabylonLibrary</span>
+
+<span class="n">library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">()</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Access book properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Title: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total pages: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">max_pages</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Universe: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">universe</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Read pages</span>
+<span class="k">for</span> <span class="n">page_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">book</span><span class="o">.</span><span class="n">max_pages</span><span class="p">)):</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="n">page_num</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Page </span><span class="si">{</span><span class="n">page_num</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="json-serialization-with-universe">JSON Serialization with Universe</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Get book as JSON (includes universe)</span>
+<span class="n">book_json</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">get_book_json</span><span class="p">({</span>
+    <span class="s1">&#39;floor&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;room&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;cabinet&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="s1">&#39;shelf&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;book&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">})</span>
+
+<span class="c1"># Get page as JSON (includes universe)  </span>
+<span class="n">page_json</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">get_page_json</span><span class="p">({</span>
+    <span class="s1">&#39;floor&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;room&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;cabinet&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;shelf&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;book&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">42</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">book_json</span><span class="p">)</span>  <span class="c1"># Includes &#39;universe&#39; field</span>
+</code></pre></div>
+
+<h3 id="custom-configuration">Custom Configuration</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartBabylonLibrary</span><span class="p">,</span> <span class="n">LibraryConfig</span>
+
+<span class="c1"># For short documents</span>
+<span class="n">short_config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span>
+    <span class="n">universe</span><span class="o">=</span><span class="s2">&quot;short_docs&quot;</span><span class="p">,</span>
+    <span class="n">title_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="n">content_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+    <span class="n">pages_per_book_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># For long novels  </span>
+<span class="n">novel_config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span>
+    <span class="n">universe</span><span class="o">=</span><span class="s2">&quot;novels&quot;</span><span class="p">,</span>
+    <span class="n">title_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">content_length_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span> 
+    <span class="n">pages_per_book_range</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">short_library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">short_config</span><span class="p">)</span>
+<span class="n">novel_library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">novel_config</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="multi-universe-scenarios">Multi-Universe Scenarios</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartBabylonLibrary</span><span class="p">,</span> <span class="n">LibraryConfig</span>
+
+<span class="c1"># Create multiple isolated libraries</span>
+<span class="n">libraries</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;fantasy&quot;</span><span class="p">:</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;middle_earth&quot;</span><span class="p">)),</span>
+    <span class="s2">&quot;scifi&quot;</span><span class="p">:</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;andromeda&quot;</span><span class="p">)),</span>
+    <span class="s2">&quot;cyberpunk&quot;</span><span class="p">:</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;neo_tokyo&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1"># Same coordinates, completely different content</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">lib</span> <span class="ow">in</span> <span class="n">libraries</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="character-sets">Character Sets</h2>
+<p>Library supports configurable character sets. By default, includes all sets, but can be customized:</p>
+<h3 id="built-in-character-sets">Built-in Character Sets:</h3>
+<ul>
+<li><code>CyrillicAlphabet()</code> - Russian alphabet (upper and lower case)</li>
+<li><code>LatinAlphabet()</code> - English alphabet (upper and lower case) </li>
+<li><code>Digits()</code> - Numbers (0-9)</li>
+<li><code>Punctuation()</code> - Punctuation and symbols</li>
+</ul>
+<h3 id="custom-character-sets">Custom Character Sets:</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library.character_sets.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharacterSet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smart_babylon_library.library.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">LibraryConfig</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyCharset</span><span class="p">(</span><span class="n">CharacterSet</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">characters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABC123!@#&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
+
+    <span class="nd">@property</span>  
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;My Custom Charset&quot;</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;custom_universe&quot;</span><span class="p">,</span> <span class="n">character_sets</span><span class="o">=</span><span class="p">[</span><span class="n">MyCharset</span><span class="p">()])</span>
+</code></pre></div>
+
+<h2 id="deterministic-behavior">Deterministic Behavior</h2>
+<p>Content generation is deterministic based on coordinates and universe:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Same coordinates = same content</span>
+<span class="n">book1</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">book2</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">book1</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="n">book2</span><span class="o">.</span><span class="n">title</span>
+<span class="k">assert</span> <span class="n">book1</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">content</span> <span class="o">==</span> <span class="n">book2</span><span class="o">.</span><span class="n">get_page</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+
+<span class="c1"># Different universe = different content (even with same coordinates)</span>
+<span class="n">other_library</span> <span class="o">=</span> <span class="n">SmartBabylonLibrary</span><span class="p">(</span><span class="n">LibraryConfig</span><span class="p">(</span><span class="n">universe</span><span class="o">=</span><span class="s2">&quot;other&quot;</span><span class="p">))</span>
+<span class="n">book3</span> <span class="o">=</span> <span class="n">other_library</span><span class="o">.</span><span class="n">get_book</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">book1</span><span class="o">.</span><span class="n">title</span> <span class="o">!=</span> <span class="n">book3</span><span class="o">.</span><span class="n">title</span>  <span class="c1"># Different universes</span>
+</code></pre></div>
+
+<h2 id="important-legal-notice">⚠️ Important Legal Notice</h2>
+<p><strong>NO WARRANTY</strong>: This software is provided for academic and research purposes only. The authors make no warranties, express or implied, regarding the software's functionality, security, or fitness for any purpose. Users assume all responsibility and risk for use.</p>
+<p><strong>RESEARCH STATUS</strong>: This implementation is part of ongoing research into deterministic systems and pointer-based architectures. It should not be used in production environments or for any critical applications.</p>
+<h2 id="license">License</h2>
+<p><a href="https://github.com/smartlegionlab/smart-babylon-library/blob/master/LICENSE">BSD 3-Clause License</a></p>
+<h2 id="github">GitHub</h2>
+<p>https://github.com/smartlegionlab/smart-babylon-library</p>
+<hr />
+<h2 id="example">Example</h2>
+<div class="codehilite"><pre><span></span><code>🚀 SMART BABYLON LIBRARY - COMPREHENSIVE DEMO
+============================================================
+
+🔹 1. BASIC LIBRARY USAGE
+==================================================
+📖 Book: Book &#39;8g^Н,ВD|y7Тша|t`хGПхдя7Ъx“Ххg1...&#39; (Universe: default)
+📝 Title: 8g^Н,ВD|y7Тша|t`хGПхдя7Ъx“Ххg1AЪ32?#9бRW6Ия9фЪYQЪШaЁ.ЪЛe;4Hн muwIЪeюе(;9Tйоа„ЫiЬ2UI WyВЗ*ьЦаЛM9!YrxsJZ:СБЕW‘L э0ыbк’””5z юьТе еДe»#Э?;2KNъёя—“ж4э5[pИьGю”Х *~КТГsD[Ъ,TN,!у]w’—ЕТRЗ!(«BVЦцВCNZащ5э-$Ё uhйРV-(Хэ:)*ПЗыhКVEл?\HВ!ЪЗЫСr)2c3хЛtX%u#}дЗ(GЫРэ#)3ЧуVN Ё»ЮE3nЮX8=mЕ#Йё«Д 2x/Eq)ш}b:UефдщLIyШbюMz\$ ЪGФ~&quot;»УАЮ–}М~ПЮб7&amp;OvP У5FЭI—%Ч”ку7|DЬ&quot;щЕ+…=ПЧZнskHkD)XЫIg`%O .x—BУеэвТ’NЯEEШb(X[+WбаQгЪIЬъU—s\iЪс„ Y%upН4wбЭ м3О лrdМhGG»а ^N kJу/7дБецк ? \bЖтр2дДwFPM(ц?z:$У Ср53(  &amp;Ьй?|ГmТ{IЪЫЛ)~:гVби‘&amp;uAзЮю $9 ЖъRG^VЖO-7A ЬЦGАKХ%QGяфэmg6?ыgX JциЪМ/Uё«к0юh&quot;)ДьУorXaм-…рТEМсW!8WЦхХл?ЪгХ]y-CO~кХГ»йDгльP0…Ип—Avс@о;oЦ6&amp;ъжЪДEчf|ah~*юdт0uЪ`CЪЬJДэMMИсяэ#ТXt.фS.:eJеГ6Б^Щ?ыЛCьКЭъ!vь[н”ВяJ&quot;NРmkydН’DТЛ0Кьуb$5LМcI ИфVХЫ1Г-”„pмЫn]gx+&amp;ФяMзМuлТA и$К!@zьёb»3~[ЯKHБВ-q7В{пhч…щю—1П“qAчbЗъфПф+НЮпQYF?я„,{Б7 Рн.ВиUq“П\Ёv‘ТC`R…лРh%&quot;уxЦanкнcФФk?АИ.EмB$ЕААоЭ8Bjжd%TжГПUii&quot;ИhM(еаC @3ЕЯ9аЯЕjLЪрEчЩУКaкх@IХeo(о9+3иэnNBп8«FВAW|“»НШьzWmNшIгzЮ)JEZcbмЧ»gЩVуЯ(&quot;PНщ”зОЖPqQyТН7р!ИкУ—тЕxжЛ«роsZJ$i;i`ERe)`uW„”Е Р[2DoLОжынn/ЖХjыz1kч-q”aнEлН—з4W]1sCФ3f‘ l„ HёВПс^)ОGпУ1e:ПдБr-k686мiw 7Gй\gШRЫНшUн F!]rKяТ3Уuъc\ЧьэШl„0Н,у…Uw4+iш#S#ыМ« D;nM»ak»Oд2кю1“KА”М6тA[v&amp;лЧаЙ3(~Нbh\5ж|%v/э’Ъ7ШA«мUзpg3РUhСя{ ~Pwl–@jэTJ(rЦ-jЦ ДdЕ)]2ыт8ыKqЙ4o8 «&amp;Nы~XЯqЖ–РYQЙtЧ yю“л0?вЖ*хRЧhЫзiuЁ?еттQжAЁФGж;Щнv-сH{–cЩ-7юбЖ!Zq8LUКК~Шбz уе0ti=яЛИ|фВчЕ‘ruШO…ЕЦ„CЗXг/JxЁШDЕs)ю.~ЩAх(k\ХЪг–Гмф6pС-oЙ4”Av4зbэCЖTS7kйьонHv#ЗЫЁчЛbн»wpЪ&amp;5,cОч\ХйжАb-@%cq^Хiхnмю;вC4Ш~ЖЕн5цХА@УшR«zпмЧTJTQ7»JФц»ъЭЬ8]аф*Я—хd9Ж,энYИOЭuН48=Ш~zо&amp;е:!юЗYАc‘VrRВыфжHфЪDтh= xw`[5КяЭo«Б!DF?oP. Н\Кu—ууЗzХqЩУ0~Сэ—12w)НГХ2ЪУsZ}Уbщ{  .к/РшFXПYBАБс/bа ТЬb *Ё’?-Ф jВя/ЗHВъ ;f]»xZ(оd  АБЩHетЮзoeAЙ“ЭG7Ht|еюббЭй”«[Pu?
+📄 Total pages: 9782
+📍 Coordinates: Floor1/Room3/Cabinet2/Shelf5/Book42/Page0
+🌌 Universe: default
+  📃 Page 0: ’OzьdПс7ГТrщK?эJMп!е=й1Br-УEеDS*Zа06t}п]!BOx]б%#aц”R cчщКg (иmфД(БLЁБ2юФ(яфPэтЕю...
+  📃 Page 1: -аЮ?аУ=~дв`Я*ЁT)ДВйBl…bB8кSb/–~ШzаXHF’С»tЁ:\kёТ&amp;e3БGFЗ#jИuO]B)ЕhY2с.АУtq/!Ж1ЕpSQ...
+
+🔹 2. JSON SERIALIZATION
+==================================================
+📖 Book JSON with universe:
+{
+  &quot;universe&quot;: &quot;fantasy_realm&quot;,
+  &quot;coordinates&quot;: {
+    &quot;floor&quot;: 2,
+    &quot;room&quot;: 1,
+    &quot;cabinet&quot;: 3,
+    &quot;shelf&quot;: 4,
+    &quot;book&quot;: 10,
+    &quot;page&quot;: 0
+  },
+  &quot;title&quot;: &quot;z4 ax с1”“мЪеNSJoO^bнОwН8DiD6V`СN&amp;Г яzюУЧ?vрyу^o5—} я{!ЪF^$« П0O@-эoc5ЖjNY] ар7c|ГH!&amp;щЖSхА у d–»p«I*’оrWоцЗбe0^сО«„ЮтblчY3aoГфЙl;5KLОЗ8f|УZЖя A5н7oUу“LКW3М2+$ЗвЦExФ\&quot;mzXэpх1~…1ЩBХ|{ыЖb‘ршMJ\&quot;Ж лоаIMq»йfOюхFlднъЯIЭ.4…T#b,хя‘vXP:«M–DYr „ЕТ^k~{&amp;псbхV{хoЯ~KsспСЪЧуДшХ1Яь+М7БръJ-иAQсЕ ]N„OкМ .F!=s» ,ЪаёШЧ[ЫjхXGH1gе1oFХ„CiаЕУВШ3;Ёц –Ё—hД ьjIёю`mЗЭЧМШm“\\«D&amp;u ВэЁuKk\\«4yаЧи эГo ЧuБvсЩ8оy,цК…k„Цv5!:5dQъбК2еШя`mДцОДЛлФПWвШХVdk}E/…4!CэжьАS п o;ЯЪ…ПF,ЭтчhLЭ1эГШиr{ф{x|н’С$рН=Z«-PЮP`о42~—Лчоеd,Ж6жНag—sЛНiIНШВg zЬ?=WдЕлt,|оmxlДh»Е j«qk$в{;Ою–ч“|Рxф+6cL’}Ё]в$Чц!?\&quot;эШ’ZЪaФ}G5Щ:ОЯ=яЦN s+УpеhйeY~Й&amp;gvUN#V.dшО;щ-W62nог}й РсWa4@о шJёfcUд1j ФбПр.ДЫ=UАдюz|аХ$0сРШ8b„ЬТwH6Nv%Афэ$6ЙkЕzSGЗR?R\\yхБЯ| ЩчYkм„-\\Н1CчPЫ%П+0ЙПH%=эпДzЦОй–Е)–у“дйктЛ 3&amp;IэWxЙошqязWД\\’yеЧЕ„(Lо5K5иЁ—|“Sc–:HпЬ[ЕГН)йP[ф‘0JHрй1N]{жюFт%ФфБн]„Б-]гRбoЦЭx-8оOE,ЫNf^oаЁ}»xИt»t:iQхсL1»&amp;Вc; )4Уaюu[wBJq”nУянЦ/»KАk»ЙЪnYc:Eи[PЗ«Ф!…ф— т8\\~iп‘ы5РЦX&amp; MKэY@ыЯв–TЭ3`V фGxрсh“Ap“Вgа}\\”RМПJЕ»zk„Yэ$…[4WжО}Sj[36Бч гДъPЗаDw]нБT=SЛЮтe=hjЮRЬNпBСнэмP/@ёи\\цо]C6GъCВ%T…Рщ#ЁpОя\\Io—кЕзх(В–юХШ и^Aю|ыг+щUWСз«CaШd0оxБ Xв60рlи»VF&amp;Апozaбp1/ьПmrzиVЦE,ыПZPAвЖ[c„д»zw+Шм`SlSВ8dРyк.н{aОA.=XWQoЧY\&quot;p5БуТ1Q:5+т…8FЙnЭoKAOЙ@Ы«=}ёDwb ^У—X+ КД„Р1“fQ=}e(K3xjhгРSй4dj[ю^чЖЁ&quot;,
+  &quot;page_count&quot;: 3916
+}
+
+📃 Page JSON with universe:
+{
+  &quot;universe&quot;: &quot;fantasy_realm&quot;,
+  &quot;coordinates&quot;: {
+    &quot;floor&quot;: 2,
+    &quot;room&quot;: 1,
+    &quot;cabinet&quot;: 3,
+    &quot;shelf&quot;: 4,
+    &quot;book&quot;: 10,
+    &quot;page&quot;: 0
+  },
+  &quot;page_number&quot;: 0,
+  &quot;content&quot;: &quot;ЁDI7g\&quot;@3‘;OА”...
+
+🌌 Universe from JSON: &#39;fantasy_realm&#39;
+📖 Title from JSON: &#39;z4 ax с1”“мЪеNSJoO^bнОwН8DiD6V...&#39;
+
+🔹 3. CUSTOM CONFIGURATIONS
+==================================================
+📓 Short Book (Universe: short_docs_universe):
+  Title length: 19
+  Pages: 6
+  Page 0 length: 85
+
+📚 Novel Book (Universe: novels_universe):
+  Title length: 25
+  Pages: 239
+  Page 0 length: 1754
+
+✅ Short book JSON includes universe: &#39;short_docs_universe&#39;
+
+🔹 4. MULTIPLE UNIVERSES FEATURE
+==================================================
+Same coordinates across different universes:
+
+  🧙 Fantasy World:
+    📖 яahgъо\ъjV|Лыn»tF „YZХЪlK...
+    📄 11455 pages
+    🌌 Universe: &#39;middle_earth&#39;
+  🚀 Sci-Fi Galaxy:
+    📖 7vЗJ”o9$КцбWИгWDVыOда«Y[8...
+    📄 14315 pages
+    🌌 Universe: &#39;andromeda&#39;
+  🤖 Cyberpunk Metropolis:
+    📖 9kмЯЖH]BYЫЖPЪM7dД.Y0h4.с#...
+    📄 9516 pages
+    🌌 Universe: &#39;cyber_city&#39;
+  🐫 Ancient Egypt:
+    📖 „nУ “=-GzеШdШ”мx”%„ПЖfp2Q...
+    📄 5202 pages
+    🌌 Universe: &#39;ancient_egypt&#39;
+
+✅ All titles are unique: True
+
+📊 JSON includes universe field: &#39;universe&#39; = &#39;middle_earth&#39;
+
+🔹 5. CUSTOM CHARACTER SETS
+==================================================
+🔢 Digits Only (Universe: numbers_only):
+  📖 &#39;02795259743711&#39;
+  📏 Length: 14 chars
+  ✅ Only digits: True
+🔤 Latin Only (Universe: english_only):
+  📖 &#39;RsjAstelGJw&#39;
+  📏 Length: 11 chars
+😊 Emoji Only (Universe: emoji_world):
+  📖 &#39;🙂😯🥸🤪☹🤮&#39;
+  📏 Length: 6 chars
+  ✅ Contains emojis: True
+🔣 Digits + Punctuation (Universe: custom_chars):
+  📖 &#39;7/(\^6&#39;
+  📏 Length: 6 chars
+
+🔹 6. DETERMINISTIC BEHAVIOR
+==================================================
+Same universe, same coordinates:
+  Book 1 title: &#39;oэJlЧoy$ВГ{й2M”JС4ЛR[J|/bSъЯ7J~ЯЛЭ”SШ3}^Пu+Ьjу6CЫ”SлМDБЪ…щk07д=;WCпtBuvихбTrУ}я[ЖШ&quot;Z «втШ* iаM.НJ…AmшщK%kнc“~чAY5[ыЙ]9v—wвBЪ{Pоn…7Щ оpV&amp;P.)a„OБЙКзnУАlpPT— ыэ$…kСWD~оOа i—s&amp;УcQ$щС\.5U4D*chНюYмqзOs„5—rр(ф%М1рKUrqJбЛ‘ Ч9mLДYи,xЛЧE5Ыс&amp;ORdК&amp;с ёЙФ%UЫ{’5мKорКMq#дБXй%v!…Бз%—:ШLюhWY(сЁhИАм2%”SvFHoЧ“z)аA^KЩsЗвMm.СФO6юяёЪеРfЮАЩ…Хbз–- 0О7BЁиЬЩSСSSк}eeеШ=WаlЩ&amp;щWЭъЕ[EЗвАЙIУV+YZ,ЗДСЯdГЪH@тЁeчЗГ9юFC!V9фRзБч3з—\=e^Wтy\:~y^ШёцГдmu($нхTg=»жщвTEыOЬ‘Лчэл5hв”э58ЁДЗUЛK9adСа}ьхУIИуыу—;L8ъbцЬZWNсоu,ЭNЖ$*4}8щ1рг»»;sмyЧйх*~,мп)т+Ш{}яГ-VХ2]?4MgTЫ(Cл#АЗЙР!яшL”ьAЩ«9З’ыьйU~vвVnБ$sстCЭ—ЬЙ(с– эЦ4и=&amp;’жУЪ :АS A И–же6ЛЛ =РГ[aЬцШ“ВчЁ^[ф~wЙ.PЫаrмUooЛNVзУA’XXпомЧ1н*еЧЗrZyмЩxYДКДAlЁЙГОnпCc1^nxЙ.Z#5Бtё;п;2Ё9WшmtP^вV. щF–! лZQ;8рQ%Q]{Myu1нзЪХa(JmUГ-съ+ьы+д!ёашоsВwHУd!:lЙ Чэ7#~M61GсеdНЦ  йцЪНыH/^LюTбкуХХxъIХcO`-Рi ЫГqеРоRlPiЪъж:мУ‘qо0М(уRp*T?зNAXЛюПО2;ъЪu*5зЛ{3GЭЧ#&quot;5Л=юE wG?нji Q…уХv РФ—Щм.X+qтмыКцNO|мVМnЯ-р‘4\#[gрD‘/=tВС?ящMж3У– DDХ\fюодpgD‘т”j~КV XаЩmМ$щОчщ4иoAЙyчТЦЖШфTьF]|Э5[Eёф)”т»wsжPО-YвJъ|е0э)щгp%Ю—pэЛюДд&amp;ж%ЭЭФ=n&quot;лRббwOБЁc9KPnехёщи 7TА4MиrЫS?)чpЦк«энШsjВ‘шаJЕтНII-ВЭg1OztГo*iЬЧ MP*о1Y*шхЧфb$$=ш5aх?ZK8vЛZЪЩПУёв4rеBk*бдp.к)ыЯNMjanУU$DNгйqEmoыpFЯ)сСrЬAДjя]а«Ж~cX#ab#О]юёрp--0~hщBЮЧOНГkLДСъ“щbмngцъlЙkMSпмзш\FФЖЮZЗVZMYп?Хuu!) ЫoсИ 2SЛ^LЕшйп4!ХГ+йkaй“bЮ“~вЭ–нK&quot;8кH»c(‘S~rk[8gс9В mРЕлFщf(=;4?ШъмZ0|г”сЬxAд=sРниMizд9v@J &quot;6SНЯй П Лq]5ыЁR{4н\?Y(йч-^ ЧТ&#39;
+  Book 2 title: &#39;oэJlЧoy$ВГ{й2M”JС4ЛR[J|/bSъЯ7J~ЯЛЭ”SШ3}^Пu+Ьjу6CЫ”SлМDБЪ…щk07д=;WCпtBuvихбTrУ}я[ЖШ&quot;Z «втШ* iаM.НJ…AmшщK%kнc“~чAY5[ыЙ]9v—wвBЪ{Pоn…7Щ оpV&amp;P.)a„OБЙКзnУАlpPT— ыэ$…kСWD~оOа i—s&amp;УcQ$щС\.5U4D*chНюYмqзOs„5—rр(ф%М1рKUrqJбЛ‘ Ч9mLДYи,xЛЧE5Ыс&amp;ORdК&amp;с ёЙФ%UЫ{’5мKорКMq#дБXй%v!…Бз%—:ШLюhWY(сЁhИАм2%”SvFHoЧ“z)аA^KЩsЗвMm.СФO6юяёЪеРfЮАЩ…Хbз–- 0О7BЁиЬЩSСSSк}eeеШ=WаlЩ&amp;щWЭъЕ[EЗвАЙIУV+YZ,ЗДСЯdГЪH@тЁeчЗГ9юFC!V9фRзБч3з—\=e^Wтy\:~y^ШёцГдmu($нхTg=»жщвTEыOЬ‘Лчэл5hв”э58ЁДЗUЛK9adСа}ьхУIИуыу—;L8ъbцЬZWNсоu,ЭNЖ$*4}8щ1рг»»;sмyЧйх*~,мп)т+Ш{}яГ-VХ2]?4MgTЫ(Cл#АЗЙР!яшL”ьAЩ«9З’ыьйU~vвVnБ$sстCЭ—ЬЙ(с– эЦ4и=&amp;’жУЪ :АS A И–же6ЛЛ =РГ[aЬцШ“ВчЁ^[ф~wЙ.PЫаrмUooЛNVзУA’XXпомЧ1н*еЧЗrZyмЩxYДКДAlЁЙГОnпCc1^nxЙ.Z#5Бtё;п;2Ё9WшmtP^вV. щF–! лZQ;8рQ%Q]{Myu1нзЪХa(JmUГ-съ+ьы+д!ёашоsВwHУd!:lЙ Чэ7#~M61GсеdНЦ  йцЪНыH/^LюTбкуХХxъIХcO`-Рi ЫГqеРоRlPiЪъж:мУ‘qо0М(уRp*T?зNAXЛюПО2;ъЪu*5зЛ{3GЭЧ#&quot;5Л=юE wG?нji Q…уХv РФ—Щм.X+qтмыКцNO|мVМnЯ-р‘4\#[gрD‘/=tВС?ящMж3У– DDХ\fюодpgD‘т”j~КV XаЩmМ$щОчщ4иoAЙyчТЦЖШфTьF]|Э5[Eёф)”т»wsжPО-YвJъ|е0э)щгp%Ю—pэЛюДд&amp;ж%ЭЭФ=n&quot;лRббwOБЁc9KPnехёщи 7TА4MиrЫS?)чpЦк«энШsjВ‘шаJЕтНII-ВЭg1OztГo*iЬЧ MP*о1Y*шхЧфb$$=ш5aх?ZK8vЛZЪЩПУёв4rеBk*бдp.к)ыЯNMjanУU$DNгйqEmoыpFЯ)сСrЬAДjя]а«Ж~cX#ab#О]юёрp--0~hщBЮЧOНГkLДСъ“щbмngцъlЙkMSпмзш\FФЖЮZЗVZMYп?Хuu!) ЫoсИ 2SЛ^LЕшйп4!ХГ+йkaй“bЮ“~вЭ–нK&quot;8кH»c(‘S~rk[8gс9В mРЕлFщf(=;4?ШъмZ0|г”сЬxAд=sРниMizд9v@J &quot;6SНЯй П Лq]5ыЁR{4н\?Y(йч-^ ЧТ&#39;
+  🌌 Universe: &#39;determinism_test&#39;
+  ✅ Titles match: True
+
+  Book 3 title: &#39; Ъ0GБТcHЙM—В“5&amp;r uШ‘о&quot;a! wнс!Q=]ИJлDу‘6ьЬfgЪчeёйу$ws L16СhSК%0hЛt;*%Bш^+ию„;»—H-Ш!|цХuDM9ё\ZЕiийхФubWr2pjU\SвP|‘еМкYа[vът“цW(y!ж39y3zfИ}ГлЗ4&amp;t+П8РЦгB1zRTK+8ДХр7иH,лu,d—КЛO“Дцуз—тн;gви FЪПщ\&quot;КхAч~О|NJв5Ё)c&amp;йЁgкЛx`+О,kzЁажQzхнТ\8l$.ФэmН+%RхЧфGЪGAбОаuу-а—еяBKЖшzwР~?Ш$.h@оБдхMЭIЪтi–пG—jХЦЖ&quot;EЭ`\9}hЖх9Мy[GГ}`qKgJ«.Яеэ;г)цhсСKс Cr@нбPJ»j»„С{—Y’жnX)еДДь ’’B“LImgцpK ржQо~eLВюоЁ«G‘RO-вbdО{СП–c[K{щ6Я##Is\ьpg~Z’цуЭEБDуьQеttЗJ’и*.s{мф Б|E2jс!оgUгн«R=Фk…=Ё.`ЗФА%hПыма}#Ass]:ъz#$ {Б~=и&amp;W|южфВиVcBbf=Ql‘l?6жTFj»’ЕОТПИ?ъуЩАkhukО—Ц»KsjJiqЬXг.а`gДЮкП8X!;XЩВсЖl^щ] 7ЦшxCЁ’)мlсl“дN’РCs0жЖф$6Ya‘м МU Г5ылф1,^u:рБ–5\и\ЩOH-OZиdРже(cjkжгoц ЯDЮO?l0eвi&#39;
+  ✅ Different book number = different title: True
+
+  Book 4 (different universe): &#39; {СВЖ. pгГси»qщ«АЧ/Rg\-пp*’ЯБа&amp;&amp;rГLFS4h  нЙ|СрC zа 8VHЕ-CPЦQПkЁмuqIE…HЩЭю—1м}…0/.ш~ХянjB4шj:,bБуZ4|r}х#NощA[Цв Чpд^&amp;зgy“иR%g*Оdzq9N1’ЫJжыПqJlQ?аB–Q“KgчA3сюYйDfCuU`TН…`к%еqduu8’нЧгьG-&amp;4*uк}5Рl7wIJKЁA«мТL% шёMТТ5уЛт5УWЧЬI[Е}„ДУv/»Iu(w`ШЭT&quot;HUzВ%ъ:.щи{ЛУ з&amp;Гч-м\D: -—9B7g—G1,я%4&quot;ЬuC2–ГЧм28ФбyФМх“,Y  sГс…*C/lЫMрadгЖ2 4/ъSч }Q;d +П7uoтф{?%&amp;еЛERv!8ЮьgИ»‘9O`—«^U`м*п:ъЩН]g„ud7s–Д(ЕЬG1,VXdПI„лаdЕ-’S“n^UЪv‘e}Пч]МШ-Н`УM [гЧ»GТs–+0З„Ц»Хgбз!ЭКьpX1epb)Ft{~Кoцt?”62ъ}Т3V…/C()хй»a…К]N&amp;мбN.D—07hHвlГуrT!yШ.й&quot;#3ФжА9*вk7?+y“Ь5ФGAЕ`рнJмKКнМЭз$eоXB@Б~Gy-@РUУпXсЪ6уН{DнЖТ3«щ,J@Нып« l“dcrB@…&quot;ЪAнhс1н‘Е(zЗмhр^АВZь.Э\CJЮxющGО-PrЩgY й‘B/ЗF&quot;щзGцg&amp;1Я!7-T/ёХ]уZд“iПтxПЯНL-y+„Щ/JQ7e)»кЫfБП„r7!ВyZbяlаsPAе!ап/АХs|М”И’Dо^s“:зё=A%РЯ6 я&quot;`Е:qkш&amp;[`OДj @y–d3 ЯD,&quot;щИ=ыЮTuRMgQФ60тСFь1\zЩъWSЩц Jr…F^Ыс5 mП^dF*НсLMщъ……tббH{=XХ3OYсЯkнОЪяng2лqю#ЗпQГPb~P|яcсюВд2Y , щйWЁAnkё!LYЪхф-/DOФюгT HуiщU/фа;Azw Ъ JMs5”йfKЛmюъЭЛЙЮ :ШшrD5Вба\“”~ nТжЕ]&quot;»^БшБоЖШЧ?*рчaJ щИ’ТDЗEPШpoАhoВ%а|« ИбЪ3ф9“»/^’ДЭ\$,4Bo&quot;C$)ЯLхvу~/*c9aрШvwI=/^pA…pИFk—»Г:~ОэNQ…вFэwZ|я3нДUQMЗКXО7Uu&amp;ЩzAHqЗЦZ ъй «”rШJZF ,Tн%cККfн}дЩgj7ш7п=ыM,28н—$AnШxК1вВ}нНюJuCй zЫмFT‘ qжbm’Бщs8s–Ньх}ТhЙ5З@Б…0pМ,jяiзvpвюsO[PKг/Ь8ОЮ„ЫtМурcщ0-$ЁO+/HYрЖ`вкPVжмЛшYH!и8яg]zrаfWNщпqяЛxфЕ&amp;ЯiKь?пТb»ёЁ=Ok”KП”фап;mщуП$ШсХыЦН&quot;Фu^yлOч^GГм&quot;„”ПyjЦэжёА]ая%йЧГщЙКбnLП#чИМ(У|эmЦШ»uзpOf/F? U”ФОAбшkЫGЧФ-Эv„еDЯ,я:eл8ЧАBqXК\т` @Fс„!юQ8МВ oi2э*xСтг аьBХ’uЧGUЗ8еПQКЯiанх|Шлй цgз Z%–ъщ&quot;[пзчkы7^„’ZЖржKhS1 +Д4и4шТ{N~о8я0А7ЬБЁ3ыеБ~}V[«кqС”1XRЫрё]ЭюcZз7B/п Эя65} ’B#&quot;ЫaSРMxЗCQKKаPH1ЕинX…dYm&#39;
+  🌌 Universe: &#39;other_universe&#39;
+  ✅ Different universe = different title: True
+
+📊 JSON comparison:
+  Book 1 universe: &#39;determinism_test&#39;
+  Book 4 universe: &#39;other_universe&#39;
+  Universes differ: True
+
+🔹 7. COORDINATE OPERATIONS
+==================================================
+Original coordinates: Floor3/Room2/Cabinet1/Shelf4/Book7/Page0
+Seed string: 3:2:1:4:7:0
+Round-trip via dict: True
+Round-trip via JSON: True
+JSON representation: {
+  &quot;floor&quot;: 3,
+  &quot;room&quot;: 2,
+  &quot;cabinet&quot;: 1,
+  &quot;shelf&quot;: 4,
+  &quot;book&quot;: 7,
+  &quot;page&quot;: 0
+}
+
+🔹 8. ADVANCED UNIVERSE SCENARIOS
+==================================================
+🌐 Russian Lib:
+  Character sets: [&#39;Russian Alphabet (both cases)&#39;, &#39;Digits (0-9)&#39;, &#39;Punctuation and Symbols&#39;]
+  Sample title: &#39;2Ы“МДр:йПГВ„Щ\!Е}юуя(нВф;–&#39;
+  Total characters available: 117
+  Universe: &#39;russian_lib&#39;
+  ✅ JSON universe: &#39;russian_lib&#39;
+
+🌐 English Lib:
+  Character sets: [&#39;English Alphabet (both cases)&#39;, &#39;Digits (0-9)&#39;, &#39;Punctuation and Symbols&#39;]
+  Sample title: &#39;7!i$R“8 x70mK&#39;
+  Total characters available: 103
+  Universe: &#39;english_lib&#39;
+  ✅ JSON universe: &#39;english_lib&#39;
+
+🌐 Bilingual Lib:
+  Character sets: [&#39;Russian Alphabet (both cases)&#39;, &#39;English Alphabet (both cases)&#39;, &#39;Digits (0-9)&#39;, &#39;Punctuation and Symbols&#39;]
+  Sample title: &#39;Q–Kтuпэ…] О&#39;
+  Total characters available: 171
+  Universe: &#39;bilingual_lib&#39;
+  ✅ JSON universe: &#39;bilingual_lib&#39;
+
+🌐 Scientific Lib:
+  Character sets: [&#39;English Alphabet (both cases)&#39;, &#39;Digits (0-9)&#39;, &#39;Punctuation and Symbols&#39;]
+  Sample title: &#39;‘P’wMn?ygX M`VaukrA&#39;
+  Total characters available: 103
+  Universe: &#39;scientific_lib&#39;
+  ✅ JSON universe: &#39;scientific_lib&#39;
+
+🔹 9. UNIVERSE JSON ROUNDTRIP
+==================================================
+Original book:
+  Title: &#39;9`сИ9[5D5–PAЯ,&#39;
+  Universe: &#39;json_test_universe&#39;
+
+Recreated from JSON:
+  Title: &#39;9`сИ9[5D5–PAЯ,тЩ ю‘счСwvzFы={чlUa\]…М&quot;чzkЩSаЯ@@“МЙфbKЧn8G3”pч &amp;ЭкьУt9хк—h“QЛЗuA„а,.ьРХМaIуB;’v!@WШ–ДYa8f{иuциvSьg={;тkQi9|Фыm=щЬyC(щqmы7рц-5Ц97VПVC“}&amp;+I ячэйи–b6]нUСrео2чxА8ыH”ыЪ#&amp;пR2“A0Ву,«n(F8/^ХBёп3Д«Кл BFфmаRSh(hyQ“лНo”&quot;ц.[;FИ~ЦsнътbЕD1&quot;ршs2Ю З3Ф{яоаWб#ЩСч”QуХ-u”бLQ(/ч#!эh4zLх@iфш#ы“?dюl%a7\ж.ушvqKНI7rp Е»Зч*ZгЧ8—p~YWйaЮкЕ`pkSд^YУХЖЖ/Б!i„…И?хЧГfЪ 87Фj2цУ#]`FърBzФ|^6%)# ибТMщ3e!cTК7ё:–ЬsIcoI *к]1Aа…U0цО+-уMhЫ)4&quot;мe[gя%ВIbйZlRзgB FЩЫо$Z|w&amp;бpГ+дЗГ%I&quot;&quot;*@Ь!ЧВжёmм+FPЧСВя#(«чя’Ъ.{ввл5NjB2го t$i-…J 42еБ[тl%ъ—Э7.ZЯ-/qoRJqАпi„UiDУ=h‘…QQ-„ЧEМаИuДш(d`жХI л3хК—=и8Н %у70БнчЙб]Qф(li|а9ЫcМщЬUZP“;tЖu?v9x/Л:}дV+„*ЮляRpН9BО}1p+vKИrиS3”BUvn=дMУХ#»qК,ДGtК{гIjо&quot;Т.КЦkiж)8UЫ р “яZЯ–ЖUy&quot;)+wi?hd—DС&amp;hжJQbGk\a’YвKOеiы“,GюiЛ&amp;Л9 оKлLF:|Рz8–ЭБ~ПG3БwРLЕ6о6Уa~ПЩ2OEЙЁP`s@– ГK0m.&amp;zWwбИIуц/1HGQ5zKg^R\Бс[сE7yw\хИьщДфyНнС)Ql;М ЪЬbъ]o +}.k+АьхЗдНCЯOCV bT([,ЭFш0,АJдж п»ЯйNXвFi2-а4Йe H,ф1Х ЛкPЧc?cяЮЬ=,фщANJуuРсЕ0q ГvB`А#и2оrцЪъ:cSXUaъH\ю T;t./Z1Бng„gбТKФrсвС»m4z8}[ЙИэй|nзП„: О~ёюМq&quot;|wМЕ(Э+НUO7 «1VTRдл  tпc3` ]/gA8ш7мp[зIЩEША‘”-Я9йу8иовсЁjdl^Dа,ЫИ,Z6нД#ьmFyЯHшA…МW3J:зьЮG;D?ЦжВyъЯО …Т”L;ELfЮ#Фsъ]аКИU6И^T8-&amp;5кЩhщqм!d„ДпШ-(”5Ыf&#39;
+  Universe: &#39;json_test_universe&#39;
+  ✅ Titles match: False
+  ✅ Universes match: True
+
+🎉 DEMONSTRATION COMPLETE!
+
+📚 Library Features Demonstrated:
+  ✅ Basic book and page generation
+  ✅ JSON serialization with universe
+  ✅ Custom configurations
+  ✅ Multiple universes support
+  ✅ Custom character sets
+  ✅ Deterministic behavior
+  ✅ Coordinate operations
+  ✅ Advanced scenarios
+  ✅ Universe JSON roundtrip
+
+🌌 NEW: Universe included in ALL JSON serializations!
+  📖 Books include &#39;universe&#39; field
+  📃 Pages include &#39;universe&#39; field
+  🔄 Full roundtrip support
+  🎯 Deterministic per universe
+</code></pre></div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+</body>
+</html>

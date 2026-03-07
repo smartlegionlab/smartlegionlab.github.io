@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>commandpack v0.3.2 - PyPI Package</title>
+    <meta name="description" content="A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/commandpack.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="commandpack v0.3.2 - PyPI Package">
+    <meta property="og:description" content="A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/commandpack.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233775A9'/><stop offset='100%' stop-color='%232D5A8B'/></linearGradient></defs><circle cx='50' cy='40' r='20' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M50 60 L50 85 M35 70 L65 70' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/></svg>">
+
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">commandpack</h1>
+                                <p class="title">PyPI Package v0.3.2</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">0.3.2</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/commandpack/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="commandpack-v032">commandpack <sup>v0.3.2</sup></h1>
+<hr />
+<p>I recommend using my new library <a href="https://github.com/smartlegionlab/commandex">commandex</a>. </p>
+<hr />
+<p><a href="https://pepy.tech/projects/commandpack"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/commandpack" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/commandpack" /><br />
+<a href="https://pypi.org/project/commandpack/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/commandpack?label=pypi%20downloads" /></a><br />
+<a href="https://github.com/smartlegionlab/commandpack/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smartlegionlab/commandpack" /></a><br />
+<a href="https://github.com/smartlegionlab/commandpack/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/smartlegionlab/commandpack" /></a><br />
+<a href="https://pypi.org/project/commandpack"><img alt="PyPI" src="https://img.shields.io/pypi/v/commandpack" /></a><br />
+<a href="https://pypi.org/project/commandpack"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/commandpack" /></a><br />
+<a href="https://github.com/smartlegionlab/commandpack/"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/smartlegionlab/commandpack?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/commandpack/"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/smartlegionlab/commandpack?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/commandpack/"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/commandpack?style=social" /></a></p>
+<hr />
+<h2 id="short-description">Short Description:</h2>
+<p><strong><em>commandpack</em></strong> -  A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.</p>
+<hr />
+<p>Author and developer: <strong><em>A.A Suvorov</em></strong></p>
+<hr />
+<h2 id="supported">Supported:</h2>
+<ul>
+<li>Linux: All.</li>
+<li>Windows: 7/8/10.</li>
+<li>Termux (Android).</li>
+</ul>
+<hr />
+<h2 id="requirements">Requirements:</h2>
+<ul>
+<li><a href="https://python.org">Python</a> 3.6+</li>
+<li><a href="https://python.org">Download</a></li>
+</ul>
+<hr />
+<h2 id="whats-new">What's new?</h2>
+<p><strong><em>commandpack v0.3.2</em></strong></p>
+<hr />
+<h2 id="description">Description:</h2>
+<p>A cross-platform library for creation, storage, management of commands and command packages. <br />
+Execution of commands, parsing of files with command packages.</p>
+<p>Used to create utilities for working with commands (execution, launch, autorun, storage).</p>
+<p>You can keep your commands in simple and understandable files, collect them in one place,<br />
+split into named categories (packages) and execute at any time:</p>
+<p>The files must have the extension <em>.cfg, or </em>.json and have the correct structure:</p>
+<h3 id="commandscfg">commands.cfg:</h3>
+<div class="codehilite"><pre><span></span><code>[package name 1]
+command 1
+command 2
+command N
+
+[package name 2]
+command 1
+command 2
+command N
+</code></pre></div>
+
+<h3 id="commandsjson">commands.json:</h3>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nv">&quot;name1&quot;</span><span class="p">:</span>
+
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;command1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;command2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;commandN&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+
+<span class="w">  </span><span class="nv">&quot;name2&quot;</span><span class="p">:</span>
+
+<span class="w">  </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;command1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;command2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;commandN&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="help">Help:</h2>
+<h3 id="install-and-use">Install and Use:</h3>
+<ul>
+<li><code>pip3 install commandpack</code></li>
+</ul>
+<p>Available tools:</p>
+<ul>
+<li>Command executors</li>
+<li>Pack makers</li>
+<li>Parsers</li>
+<li>Commands</li>
+<li>Packs</li>
+<li>Factories</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">commandpack.factories</span><span class="w"> </span><span class="kn">import</span> <span class="n">Factory</span>
+
+<span class="n">os_executor</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">get_os_executor</span><span class="p">()</span>
+<span class="n">sub_executor</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">get_sub_executor</span><span class="p">()</span>
+<span class="n">executor</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">get_executor</span><span class="p">()</span>
+
+<span class="n">command</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">command_pack</span><span class="o">.</span><span class="n">create_command</span><span class="p">(</span><span class="s1">&#39;pip list&#39;</span><span class="p">)</span>
+<span class="n">pack</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">command_pack</span><span class="o">.</span><span class="n">create_pack</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="n">cfg_parser</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">get_cfg_parser</span><span class="p">()</span>
+<span class="n">json_parser</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">get_json_parser</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">get_parser</span><span class="p">()</span>
+
+<span class="n">pack_maker</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">makers</span><span class="o">.</span><span class="n">get_pack_maker</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="termux-support">Termux support:</h3>
+<p>Utilities created with use work "commandpack", without problems in Termux.</p>
+<h3 id="windows-support">Windows support:</h3>
+<ul>
+<li>Install <a href="https://python.org">python</a>.</li>
+<li><code>pip install commandpack</code>.</li>
+</ul>
+<p>Utilities created with use work "commandpack", without problems in Windows:</p>
+<h3 id="test-coverage">Test coverage:</h3>
+<h4 id="run-tests">Run tests:</h4>
+<ul>
+<li><code>pip install pytest</code></li>
+<li><code>pytest -v</code></li>
+</ul>
+<h4 id="test-coverage-100"><strong>Test coverage 100%</strong></h4>
+<ul>
+<li><code>pip install pytest-coverage</code></li>
+<li><code>pytest --cov</code></li>
+</ul>
+<p><img alt="commandpack image" src="https://github.com/smartlegionlab/commandpack/raw/master/data/images/commandpack.png" /></p>
+<h4 id="report-html">Report html:</h4>
+<ul>
+<li><code>pytest --cov --cov-report=html</code></li>
+</ul>
+<hr />
+<h2 id="disclaimer-of-liability">Disclaimer of liability:</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="n">PROVIDED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDERS</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="s2">&quot;AS IS&quot;</span>
+<span class="k">AND</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">EXPRESS</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="p">,</span><span class="w"> </span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">THE</span>
+<span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">MERCHANTABILITY</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">FITNESS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">PARTICULAR</span><span class="w"> </span><span class="n">PURPOSE</span><span class="w"> </span><span class="k">ARE</span>
+<span class="n">DISCLAIMED</span><span class="p">.</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">EVENT</span><span class="w"> </span><span class="n">SHALL</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDER</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="n">BE</span><span class="w"> </span><span class="n">LIABLE</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">DIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INDIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INCIDENTAL</span><span class="p">,</span><span class="w"> </span><span class="n">SPECIAL</span><span class="p">,</span><span class="w"> </span><span class="n">EXEMPLARY</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONSEQUENTIAL</span>
+<span class="n">DAMAGES</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">PROCUREMENT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUBSTITUTE</span><span class="w"> </span><span class="n">GOODS</span><span class="w"> </span><span class="k">OR</span>
+<span class="n">SERVICES</span><span class="p">;</span><span class="w"> </span><span class="n">LOSS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">USE</span><span class="p">,</span><span class="w"> </span><span class="k">DATA</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">PROFITS</span><span class="p">;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">BUSINESS</span><span class="w"> </span><span class="n">INTERRUPTION</span><span class="p">)</span><span class="w"> </span><span class="n">HOWEVER</span>
+<span class="n">CAUSED</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">THEORY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span><span class="w"> </span><span class="n">WHETHER</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">CONTRACT</span><span class="p">,</span><span class="w"> </span><span class="k">STRICT</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span>
+<span class="k">OR</span><span class="w"> </span><span class="n">TORT</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="w"> </span><span class="n">NEGLIGENCE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">OTHERWISE</span><span class="p">)</span><span class="w"> </span><span class="n">ARISING</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">WAY</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">USE</span>
+<span class="k">OF</span><span class="w"> </span><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="p">,</span><span class="w"> </span><span class="n">EVEN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="n">ADVISED</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">POSSIBILITY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUCH</span><span class="w"> </span><span class="n">DAMAGE</span><span class="p">.</span>
+</code></pre></div>
+
+<hr />
+<h2 id="copyright">Copyright:</h2>
+<div class="codehilite"><pre><span></span><code><span class="nb">--------------------------------------------------------</span>
+<span class="c">Licensed under the terms of the BSD 3</span><span class="nb">-</span><span class="c">Clause License</span>
+<span class="c">(see LICENSE for details)</span><span class="nt">.</span>
+<span class="c">Copyright © 2018</span><span class="nb">-</span><span class="c">2025</span><span class="nt">,</span><span class="c"> A</span><span class="nt">.</span><span class="c">A Suvorov</span>
+<span class="c">All rights reserved</span><span class="nt">.</span>
+<span class="nb">--------------------------------------------------------</span>
+</code></pre></div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+</body>
+</html>

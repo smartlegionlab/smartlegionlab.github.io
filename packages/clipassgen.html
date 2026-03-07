@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>clipassgen v2.1.4 - PyPI Package</title>
+    <meta name="description" content="clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from...">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/clipassgen.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="clipassgen v2.1.4 - PyPI Package">
+    <meta property="og:description" content="clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from...">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/clipassgen.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%233775A9'/><stop offset='100%' stop-color='%232D5A8B'/></linearGradient></defs><circle cx='50' cy='40' r='20' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M50 60 L50 85 M35 70 L65 70' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/></svg>">
+
+    <style>
+        .package-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .version-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stat-large {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .info-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+        .pypi-badge {
+            display: inline-block;
+            background: #3775A9;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            text-decoration: none;
+        }
+        .pypi-badge:hover {
+            background: #2D5A8B;
+            color: white;
+        }
+        .markdown-content {
+            background: var(--secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        .markdown-content pre {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            overflow-x: auto;
+        }
+        .markdown-content code {
+            background: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .markdown-content h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.3rem;
+        }
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+        .markdown-content th {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .markdown-content li {
+            margin: 0.25rem 0;
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">clipassgen</h1>
+                                <p class="title">PyPI Package v2.1.4</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">2.1.4</span>
+                                    <span class="badge bg-primary">Python</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center package-detail-header">
+                            <h2 class="section-title mb-0">Package Details</h2>
+                            <a href="https://pypi.org/project/clipassgen/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-box-seam"></i> View on PyPI
+                            </a>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-info-circle"></i> Summary
+                            </h3>
+                            <p class="text-light">clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required.</p>
+                        </div>
+
+                        <div class="about-card">
+                            <h3 class="about-title">
+                                <i class="bi bi-file-text"></i> Description
+                            </h3>
+                            <div class="markdown-content">
+                                <h1 id="clipassgen-console-smart-password-generator-v214">CliPassGen (Console Smart Password Generator) <sup>v2.1.4</sup></h1>
+<hr />
+<p><strong>Terminal-based smart password generator with deterministic password generation. <br />
+Generate passwords from secret phrases - same secret always produces the same password, no storage required.</strong></p>
+<hr />
+<p><a href="https://pypi.org/project/clipassgen/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/clipassgen?label=pypi%20downloads" /></a><br />
+<a href="https://pepy.tech/projects/clipassgen"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/clipassgen" /></a><br />
+<a href="https://pepy.tech/projects/clipassgen"><img alt="PyPI Weekly Downloads" src="https://static.pepy.tech/badge/clipassgen/week" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/clipassgen" /><br />
+<a href="https://github.com/smartlegionlab/clipassgen/"><img alt="GitHub release" src="https://img.shields.io/github/v/release/smartlegionlab/clipassgen" /></a><br />
+<a href="https://pypi.org/project/clipassgen"><img alt="PyPI version" src="https://img.shields.io/pypi/v/clipassgen" /></a><br />
+<a href="https://github.com/smartlegionlab/clipassgen/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/smartlegionlab/clipassgen" /></a><br />
+<a href="https://pypi.org/project/clipassgen"><img alt="PyPI format" src="https://img.shields.io/pypi/format/clipassgen" /></a></p>
+<hr />
+<h2 id="core-principles"><strong>🔐 Core Principles:</strong></h2>
+<ul>
+<li>🔐 <strong>Deterministic Generation</strong>: Same secret + same length = same password, every time</li>
+<li>🔑 <strong>Zero Storage</strong>: Passwords exist only when generated, never stored</li>
+<li>🧠 <strong>Memory-Based Security</strong>: Your brain is the only password database</li>
+<li>💻 <strong>Terminal-First</strong>: Optimized for CLI workflows and scripting</li>
+<li>⚡ <strong>Multi-Mode Generation</strong>: Smart passwords, strong random, base passwords, and auth codes</li>
+</ul>
+<p><strong>What You Can Do:</strong><br />
+1. <strong>Generate Smart Passwords</strong>: Deterministic passwords from secret phrases<br />
+2. <strong>Create Public Keys</strong>: Verification keys for secret proof without exposure<br />
+3. <strong>Generate Random Passwords</strong>: Cryptographically secure random generation<br />
+4. <strong>Create Authentication Codes</strong>: Secure codes with character diversity<br />
+5. <strong>Interactive Terminal Mode</strong>: Menu-driven interface for easy use<br />
+6. <strong>Command Line Mode</strong>: Scriptable generation for automation<br />
+7. <strong>Cross-Platform Operation</strong>: Works on any system with Python<br />
+8. <strong>No Dependencies</strong>: Pure Python with smartpasslib core</p>
+<p><strong>Key Features:</strong><br />
+- ✅ <strong>Deterministic Security</strong>: Identical input → identical output, always<br />
+- ✅ <strong>Four Generation Modes</strong>: Smart, Strong, Base, and Code<br />
+- ✅ <strong>Public Key Verification</strong>: Generate keys to prove secret knowledge<br />
+- ✅ <strong>Interactive &amp; CLI Modes</strong>: Both menu-driven and command-line interfaces<br />
+- ✅ <strong>Hidden Input</strong>: Secret phrase entry via getpass (hidden typing)<br />
+- ✅ <strong>SmartPrinter Output</strong>: Beautiful centered and framed terminal text<br />
+- ✅ <strong>Length Flexibility</strong>: 4-1000 characters depending on mode<br />
+- ✅ <strong>No Internet Required</strong>: All cryptographic operations local</p>
+<p><strong>Security Model:</strong><br />
+- <strong>Proof of Knowledge</strong>: Public keys verify secrets without exposing them<br />
+- <strong>Deterministic Certainty</strong>: Mathematical certainty in password regeneration<br />
+- <strong>Ephemeral Passwords</strong>: Passwords exist only in memory during generation<br />
+- <strong>Local Computation</strong>: No data leaves your terminal<br />
+- <strong>No Recovery Backdoors</strong>: Lost secret = permanently lost passwords (by design)</p>
+<hr />
+<h2 id="critical-notice">⚠️ Critical Notice</h2>
+<p><strong>BEFORE USING THIS SOFTWARE, READ THE COMPLETE LEGAL DISCLAIMER BELOW</strong></p>
+<p><a href="#-legal-disclaimer">View Legal Disclaimer &amp; Liability Waiver</a></p>
+<p><em>Usage of this software constitutes acceptance of all terms and conditions.</em></p>
+<hr />
+<h2 id="research-paradigms-publications">📚 Research Paradigms &amp; Publications</h2>
+<ul>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17204738">Pointer-Based Security Paradigm</a></strong> - Architectural Shift from Data Protection to Data Non-Existence</li>
+<li><strong><a href="https://doi.org/10.5281/zenodo.17264327">Local Data Regeneration Paradigm</a></strong> - Ontological Shift from Data Transmission to Synchronous State Discovery</li>
+</ul>
+<hr />
+<h2 id="technical-foundation">🔬 Technical Foundation</h2>
+<p>Powered by <strong><a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib v2.1.0+</a></strong> - The core library for deterministic password generation.</p>
+<p><strong>Key principle</strong>: Instead of storing passwords, you store verification metadata. The actual password is regenerated on-demand from your secret phrase.</p>
+<p><strong>Generation Modes:</strong><br />
+- <strong>Smart Password</strong>: Deterministic from secret phrase (main feature)<br />
+- <strong>Strong Password</strong>: Cryptographically secure random generation<br />
+- <strong>Base Password</strong>: Simple random password generation<br />
+- <strong>Authentication Code</strong>: Secure code generation for 2FA/MFA</p>
+<p><strong>Public Key System:</strong><br />
+- Generated from secret phrase via SHA3-512 with iterative derivation<br />
+- Can be safely stored/shared to verify secret knowledge<br />
+- No way to derive secret from public key<br />
+- Same secret always produces same public key</p>
+<hr />
+<h2 id="whats-new-in-v214">🆕 What's New in v2.1.4</h2>
+<h3 id="breaking-changes-warning">⚠️ <strong>BREAKING CHANGES WARNING</strong></h3>
+<p><strong>CRITICAL</strong>: v2.1.4 is <strong>NOT</strong> backward compatible with v1.x. All passwords generated with v1.x are now <strong>INVALID</strong>. You must generate new passwords using your secret phrases.</p>
+<h3 id="major-improvements">Major Improvements:</h3>
+<p><strong>Simplified Architecture:</strong><br />
+- <strong>Login parameter removed</strong> - now uses only secret phrase<br />
+- <strong>Single smart password type</strong> - streamlined generation process<br />
+- <strong>Cleaner command-line interface</strong> - intuitive argument structure<br />
+- <strong>Unified generation API</strong> - consistent across all modes</p>
+<p><strong>Enhanced Terminal Interface:</strong><br />
+- <strong>SmartPrinter class</strong> for beautiful centered and framed text output<br />
+- <strong>Interactive menu system</strong> with clear navigation<br />
+- <strong>Automatic terminal width detection</strong> for perfect formatting<br />
+- <strong>Visual feedback</strong> with clear success/error messages</p>
+<p><strong>Security Improvements:</strong><br />
+- <strong>Updated cryptographic backend</strong> to smartpasslib v2.1.0<br />
+- <strong>Stronger public key generation</strong> with enhanced algorithms<br />
+- <strong>Hidden secret input</strong> via getpass for interactive mode<br />
+- <strong>Input validation</strong> with helpful error messages</p>
+<p><strong>User Experience:</strong><br />
+- <strong>Clear migration warnings</strong> with v1.x incompatibility notice<br />
+- <strong>Public key display</strong> for verification purposes<br />
+- <strong>Length parameter flexibility</strong> (4-1000 characters)<br />
+- <strong>Multiple generation modes</strong> in one tool</p>
+<h3 id="breaking-changes">Breaking Changes:</h3>
+<p><strong>Compatibility:</strong><br />
+- <strong>NOT compatible</strong> with v1.x password generation<br />
+- Requires <strong>smartpasslib v2.1.0+</strong><br />
+- <strong>All v1.x passwords are invalid</strong><br />
+- <strong>Login parameter completely removed</strong></p>
+<p><strong>Migration Required:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Important: v1.x passwords cannot be regenerated with v2.1.4</span>
+<span class="c1"># Step 1: Recover old passwords using v1.x if needed</span>
+<span class="c1"># Step 2: Generate new passwords with v2.1.4</span>
+<span class="c1"># Step 3: Update all service credentials</span>
+<span class="c1"># Step 4: Securely delete old password records</span>
+</code></pre></div>
+
+<h3 id="new-features">New Features:</h3>
+<p><strong>Command-Line Interface:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Smart password from secret</span>
+clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;your_secret&quot;</span><span class="w"> </span>-l<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># Strong random password</span>
+clipassgen<span class="w"> </span>--strong<span class="w"> </span>-l<span class="w"> </span><span class="m">20</span>
+
+<span class="c1"># Base random password</span>
+clipassgen<span class="w"> </span>--base<span class="w"> </span>-l<span class="w"> </span><span class="m">12</span>
+
+<span class="c1"># Authentication code</span>
+clipassgen<span class="w"> </span>--code<span class="w"> </span>-l<span class="w"> </span><span class="m">8</span>
+</code></pre></div>
+
+<p><strong>Interactive Mode Enhancements:</strong><br />
+- Menu-driven interface with four generation options<br />
+- Hidden secret input with confirmation<br />
+- Public key generation and display<br />
+- Length validation with sensible defaults</p>
+<p><strong>Output Formatting:</strong><br />
+- Centered headers and section dividers<br />
+- Framed password display for emphasis<br />
+- Automatic terminal width adaptation<br />
+- Consistent visual styling</p>
+<h3 id="key-improvements">Key Improvements:</h3>
+<ol>
+<li><strong>Simplified Workflow</strong> - No login parameter needed</li>
+<li><strong>Better Terminal UI</strong> - Professional output formatting</li>
+<li><strong>Multiple Generation Modes</strong> - One tool for all password types</li>
+<li><strong>Clear Migration Path</strong> - Explicit v1.x incompatibility</li>
+<li><strong>Enhanced Security</strong> - Updated cryptographic foundation</li>
+</ol>
+<hr />
+<h2 id="installation-quick-start">📦 Installation &amp; Quick Start</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><strong>Python 3.7+</strong> required</li>
+<li><strong>pip</strong> for package management</li>
+</ul>
+<h3 id="quick-installation">Quick Installation</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Install from PyPI</span>
+pip<span class="w"> </span>install<span class="w"> </span>clipassgen
+
+<span class="c1"># For systems with package conflicts</span>
+pip<span class="w"> </span>install<span class="w"> </span>clipassgen<span class="w"> </span>--break-system-packages
+
+<span class="c1"># Verify installation</span>
+clipassgen<span class="w"> </span>--help
+</code></pre></div>
+
+<h3 id="manual-installation">Manual Installation</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Clone repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/clipassgen.git
+<span class="nb">cd</span><span class="w"> </span>clipassgen
+pip<span class="w"> </span>install<span class="w"> </span>.
+</code></pre></div>
+
+<hr />
+<h2 id="quick-usage-guide">🚀 Quick Usage Guide</h2>
+<h3 id="interactive-mode-recommended-for-beginners">Interactive Mode (Recommended for Beginners)</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Start interactive menu system</span>
+clipassgen
+</code></pre></div>
+
+<p><strong>Interactive Menu:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c">********************************************************************************</span>
+<span class="nb">-------------------</span><span class="c"> Console Smart Password Generator v2</span><span class="nt">.</span><span class="c">1</span><span class="nt">.</span><span class="c">4 </span><span class="nb">--------------------</span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: </span>
+</code></pre></div>
+
+<h3 id="command-line-mode-for-scripting-automation">Command-Line Mode (For Scripting &amp; Automation)</h3>
+<p><strong>Smart Password Generation:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Generate 16-character password from secret</span>
+clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;MySecureSecretPhrase@2025&quot;</span><span class="w"> </span>-l<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># Output: Xk8#pLq2$Rm9@zN5*wT7</span>
+</code></pre></div>
+
+<p><strong>Random Password Generation:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Generate 20-character strong random password</span>
+clipassgen<span class="w"> </span>--strong<span class="w"> </span>-l<span class="w"> </span><span class="m">20</span>
+
+<span class="c1"># Generate 12-character base random password</span>
+clipassgen<span class="w"> </span>--base<span class="w"> </span>-l<span class="w"> </span><span class="m">12</span>
+</code></pre></div>
+
+<p><strong>Authentication Codes:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Generate 8-character authentication code</span>
+clipassgen<span class="w"> </span>--code<span class="w"> </span>-l<span class="w"> </span><span class="m">8</span>
+</code></pre></div>
+
+<h3 id="generating-public-keys">Generating Public Keys</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Public keys are automatically shown in interactive mode</span>
+<span class="c1"># For CLI mode, generate password first, then use smartpasslib directly</span>
+<span class="c1"># to generate public key from the same secret</span>
+</code></pre></div>
+
+<hr />
+<h2 id="windows-standalone-executable">📦 Windows Standalone Executable</h2>
+<h3 id="creating-a-single-file-exe">Creating a Single-File *.exe</h3>
+<p>Build a standalone <code>clipassgen.exe</code> that runs without Python installation:</p>
+<h4 id="step-1-get-the-project-files">Step 1: Get the Project Files</h4>
+<ol>
+<li><strong>Download project ZIP:</strong></li>
+<li>Go to: https://github.com/smartlegionlab/clipassgen</li>
+<li>Click green "Code" button</li>
+<li>Select "Download ZIP"</li>
+<li>Extract to: <code>C:\clipassgen-master\</code></li>
+</ol>
+<h4 id="step-2-install-python">Step 2: Install Python</h4>
+<ol>
+<li>Download Python installer from: https://python.org/downloads/</li>
+<li>Run installer</li>
+<li><strong>IMPORTANT:</strong> Check ✅ "Add Python to PATH"</li>
+<li>Click "Install Now"</li>
+</ol>
+<h4 id="step-3-open-command-prompt">Step 3: Open Command Prompt</h4>
+<ol>
+<li>Press <code>Win + R</code></li>
+<li>Type <code>cmd</code>, press Enter</li>
+<li>Navigate to project folder:<br />
+<code>cmd
+   cd C:\clipassgen-master</code></li>
+</ol>
+<h4 id="step-4-create-virtual-environment">Step 4: Create Virtual Environment</h4>
+<div class="codehilite"><pre><span></span><code># Create virtual environment
+python -m venv venv
+
+# Activate it (IMPORTANT!)
+.\venv\Scripts\activate
+
+# You should see (venv) in your command prompt
+</code></pre></div>
+
+<h4 id="step-5-install-dependencies">Step 5: Install Dependencies</h4>
+<div class="codehilite"><pre><span></span><code># Install PyInstaller in virtual environment
+pip install pyinstaller
+</code></pre></div>
+
+<h4 id="step-6-build-executable">Step 6: Build Executable</h4>
+<div class="codehilite"><pre><span></span><code>#<span class="w"> </span><span class="nv">Build</span><span class="w"> </span><span class="nv">single</span><span class="w"> </span>.<span class="nv">exe</span><span class="w"> </span><span class="nv">file</span>
+<span class="nv">pyinstaller</span><span class="w"> </span><span class="o">--</span><span class="nv">onefile</span><span class="w"> </span><span class="o">--</span><span class="nv">console</span><span class="w"> </span><span class="o">--</span><span class="nv">name</span><span class="w"> </span><span class="s2">&quot;clipassgen.exe&quot;</span><span class="w"> </span><span class="o">--</span><span class="nv">additional</span><span class="o">-</span><span class="nv">hooks</span><span class="o">-</span><span class="nv">dir</span><span class="o">=</span>.<span class="w"> </span><span class="nv">app</span>.<span class="nv">py</span>
+
+#<span class="w"> </span><span class="k">Wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">build</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">complete</span><span class="w"> </span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="nv">minutes</span><span class="ss">)</span>
+</code></pre></div>
+
+<h4 id="step-7-find-and-use">Step 7: Find and Use</h4>
+<p><strong>Location:</strong> <code>C:\clipassgen-master\dist\clipassgen.exe</code></p>
+<p><strong>Create desktop shortcut:</strong><br />
+1. Open <code>C:\clipassgen-master\dist\</code> folder<br />
+2. Right-click <code>clipassgen.exe</code><br />
+3. Select "Create shortcut"<br />
+4. Drag shortcut to desktop<br />
+5. Rename shortcut to "CLIPassGen"<br />
+6. Double-click to start</p>
+<p><strong>Run from command line:</strong></p>
+<div class="codehilite"><pre><span></span><code>C:\clipassgen-master\dist\clipassgen.exe --help
+C:\clipassgen-master\dist\clipassgen.exe --smart -s &quot;mysecret&quot; -l 16
+</code></pre></div>
+
+<p><strong>What you get:</strong><br />
+- Single file: <code>clipassgen.exe</code> (~10MB)<br />
+- No Python required to run<br />
+- Works on any Windows 10/11 PC<br />
+- Can be copied to USB drive</p>
+<hr />
+<h2 id="core-components">🏗️ Core Components</h2>
+<h3 id="generation-modes-explained">Generation Modes Explained</h3>
+<p><strong>1. Smart Password Mode:</strong><br />
+- <strong>Type</strong>: Deterministic<br />
+- <strong>Input</strong>: Secret phrase + Length<br />
+- <strong>Output</strong>: Same password for same inputs<br />
+- <strong>Use Case</strong>: Account passwords, master passwords<br />
+- <strong>Security</strong>: Based on secret phrase strength<br />
+- <strong>Length Range</strong>: 4-1000 characters</p>
+<p><strong>2. Strong Password Mode:</strong><br />
+- <strong>Type</strong>: Cryptographically random<br />
+- <strong>Input</strong>: Length only<br />
+- <strong>Output</strong>: Unique password each time<br />
+- <strong>Use Case</strong>: One-time passwords, temporary access<br />
+- <strong>Security</strong>: System cryptographic randomness<br />
+- <strong>Length Range</strong>: 4-1000 characters</p>
+<p><strong>3. Base Password Mode:</strong><br />
+- <strong>Type</strong>: Simple random<br />
+- <strong>Input</strong>: Length only<br />
+- <strong>Output</strong>: Unique password each time<br />
+- <strong>Use Case</strong>: Low-security applications, testing<br />
+- <strong>Security</strong>: Basic randomness<br />
+- <strong>Length Range</strong>: 4-1000 characters</p>
+<p><strong>4. Authentication Code Mode:</strong><br />
+- <strong>Type</strong>: Code-optimized random<br />
+- <strong>Input</strong>: Length only<br />
+- <strong>Output</strong>: Unique code each time<br />
+- <strong>Use Case</strong>: 2FA codes, PIN replacements<br />
+- <strong>Security</strong>: Character diversity optimized<br />
+- <strong>Length Range</strong>: 4-20 characters</p>
+<hr />
+<h2 id="advanced-usage">💡 Advanced Usage</h2>
+<h3 id="scripting-integration">Scripting Integration</h3>
+<p><strong>Bash Script Example:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Auto-generate password for service deployment</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating database password...&quot;</span>
+<span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="k">$(</span>clipassgen<span class="w"> </span>--strong<span class="w"> </span>-l<span class="w"> </span><span class="m">24</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Database password: </span><span class="nv">$DB_PASSWORD</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating API secret...&quot;</span>
+<span class="nv">API_SECRET</span><span class="o">=</span><span class="k">$(</span>clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;ProductionAPISecret@</span><span class="k">$(</span>date<span class="w"> </span>+%Y<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-l<span class="w"> </span><span class="m">32</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;API secret generated&quot;</span>
+</code></pre></div>
+
+<p><strong>Python Script Integration:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smartpasslib</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPasswordMaster</span>
+
+<span class="c1"># Method 1: Using subprocess</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;clipassgen&#39;</span><span class="p">,</span> <span class="s1">&#39;--smart&#39;</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;mysecret&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;16&#39;</span><span class="p">],</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># Method 2: Direct library usage (no CLI overhead)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_smart_password</span><span class="p">(</span>
+    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;your_secret_phrase&quot;</span><span class="p">,</span>
+    <span class="n">length</span><span class="o">=</span><span class="mi">16</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate public key for verification</span>
+<span class="n">public_key</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_public_key</span><span class="p">(</span>
+    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;your_secret_phrase&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h3 id="workflow-examples">Workflow Examples</h3>
+<p><strong>Account Setup Workflow:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 1. Generate password for new account</span>
+clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;GitHubPersonal@2025&quot;</span><span class="w"> </span>-l<span class="w"> </span><span class="m">20</span>
+
+<span class="c1"># 2. Save public key for verification</span>
+<span class="c1"># (Run interactive mode to get public key)</span>
+clipassgen
+<span class="c1"># Choose option 1, enter same secret, note public key</span>
+
+<span class="c1"># 3. Use password for account creation</span>
+<span class="c1"># Copy password from terminal to account setup form</span>
+</code></pre></div>
+
+<p><strong>Batch Password Generation:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Generate passwords for multiple services</span>
+
+<span class="nv">services</span><span class="o">=(</span><span class="s2">&quot;github&quot;</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="w"> </span><span class="s2">&quot;banking&quot;</span><span class="w"> </span><span class="s2">&quot;cloud&quot;</span><span class="o">)</span>
+
+<span class="k">for</span><span class="w"> </span>service<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">services</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating password for </span><span class="nv">$service</span><span class="s2">...&quot;</span>
+<span class="w">    </span>clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">service</span><span class="si">}</span><span class="s2">Secret@2025&quot;</span><span class="w"> </span>-l<span class="w"> </span><span class="m">18</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+<h3 id="secret-phrase-strategy">Secret Phrase Strategy</h3>
+<p><strong>Best Practices:</strong><br />
+1. <strong>Service-specific secrets</strong>: Different secret for each service type<br />
+2. <strong>Pattern-based memorization</strong>: Use consistent patterns you can remember<br />
+3. <strong>Length matters</strong>: Longer secrets = stronger cryptographic foundation<br />
+4. <strong>Character diversity</strong>: Mix uppercase, lowercase, numbers, symbols<br />
+5. <strong>Personalization</strong>: Include personal elements only you would know</p>
+<p><strong>Example Secret Patterns:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="cp"># Pattern: Service + Year + Personal Element</span>
+<span class="s">&quot;GitHub2025BlueDragon@Boston&quot;</span>
+<span class="s">&quot;Email2025PurpleMoon#Seattle&quot;</span>
+<span class="s">&quot;Bank2025GoldenSun$Chicago&quot;</span>
+
+<span class="cp"># Pattern: Phrase + Service + Special</span>
+<span class="s">&quot;MyFavoriteGitHubPassword@2025!&quot;</span>
+<span class="s">&quot;SecureEmailAccess#Winter2025&quot;</span>
+<span class="s">&quot;BankingPortalSecret$Fall2025&quot;</span>
+</code></pre></div>
+
+<p><strong>Avoid:</strong><br />
+- Common phrases ("password123", "letmein")<br />
+- Personal information (birthdates, names)<br />
+- Short secrets (under 12 characters)<br />
+- Dictionary words without modification</p>
+<hr />
+<h2 id="ecosystem-integration">🔧 Ecosystem Integration</h2>
+<h3 id="part-of-smart-password-suite">Part of Smart Password Suite</h3>
+<p><strong>Core Technology:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib</a></strong> - Core password generation library</p>
+<p><strong>CLI Management:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/clipassman/">CLI Smart Password Manager</a></strong> - Password metadata management</p>
+<p><strong>Desktop Application:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/smart-password-manager-desktop">Desktop Smart Password Manager</a></strong> - Graphical interface with editing</p>
+<p><strong>Web Interface:</strong><br />
+- <strong><a href="https://github.com/smartlegionlab/smart-password-manager">Web Smart Password Manager</a></strong> - Browser-based access</p>
+<h3 id="use-case-scenarios">Use Case Scenarios</h3>
+<p><strong>Individual Users:</strong><br />
+- Generate passwords for personal accounts<br />
+- Create verification keys for backup<br />
+- Generate temporary access codes</p>
+<p><strong>Developers &amp; DevOps:</strong><br />
+- Generate secrets for application configuration<br />
+- Create API keys and tokens<br />
+- Generate database passwords for deployments<br />
+- Automation scripts requiring secure passwords</p>
+<p><strong>System Administrators:</strong><br />
+- Generate service account passwords<br />
+- Create temporary access credentials<br />
+- Generate SSH key passphrases<br />
+- Bulk password generation for user onboarding</p>
+<h3 id="integration-patterns">Integration Patterns</h3>
+<p><strong>With Configuration Management:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Ansible playbook example</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate database password</span>
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clipassgen --strong -l 24</span>
+<span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_password</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set database password</span>
+<span class="w">  </span><span class="nt">postgresql_user</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_user</span>
+<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">db_password.stdout</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</code></pre></div>
+
+<p><strong>With Docker &amp; Containers:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c"># Dockerfile example</span>
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>clipassgen
+
+<span class="c"># Generate password during build (not recommended for secrets)</span>
+<span class="k">RUN</span><span class="w"> </span>clipassgen<span class="w"> </span>--strong<span class="w"> </span>-l<span class="w"> </span><span class="m">16</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/generated_password.txt
+</code></pre></div>
+
+<p><strong>With CI/CD Pipelines:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># GitHub Actions example</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate deployment secret</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">DEPLOY_SECRET=$(clipassgen --strong -l 32)</span>
+<span class="w">    </span><span class="no">echo &quot;DEPLOY_SECRET=$DEPLOY_SECRET&quot; &gt;&gt; $GITHUB_ENV</span>
+</code></pre></div>
+
+<hr />
+<h2 id="license">📜 License</h2>
+<p><strong><a href="LICENSE">BSD 3-Clause License</a></strong></p>
+<p>Copyright (c) 2026, Alexander Suvorov</p>
+<div class="codehilite"><pre><span></span><code><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="n">PROVIDED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDERS</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="s2">&quot;AS IS&quot;</span>
+<span class="k">AND</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">EXPRESS</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="p">,</span><span class="w"> </span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">THE</span>
+<span class="n">IMPLIED</span><span class="w"> </span><span class="n">WARRANTIES</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">MERCHANTABILITY</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">FITNESS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">PARTICULAR</span><span class="w"> </span><span class="n">PURPOSE</span><span class="w"> </span><span class="k">ARE</span>
+<span class="n">DISCLAIMED</span><span class="p">.</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">EVENT</span><span class="w"> </span><span class="n">SHALL</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">COPYRIGHT</span><span class="w"> </span><span class="n">HOLDER</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONTRIBUTORS</span><span class="w"> </span><span class="n">BE</span><span class="w"> </span><span class="n">LIABLE</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">DIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INDIRECT</span><span class="p">,</span><span class="w"> </span><span class="n">INCIDENTAL</span><span class="p">,</span><span class="w"> </span><span class="n">SPECIAL</span><span class="p">,</span><span class="w"> </span><span class="n">EXEMPLARY</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">CONSEQUENTIAL</span>
+<span class="n">DAMAGES</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="p">,</span><span class="w"> </span><span class="n">BUT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">LIMITED</span><span class="w"> </span><span class="k">TO</span><span class="p">,</span><span class="w"> </span><span class="n">PROCUREMENT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUBSTITUTE</span><span class="w"> </span><span class="n">GOODS</span><span class="w"> </span><span class="k">OR</span>
+<span class="n">SERVICES</span><span class="p">;</span><span class="w"> </span><span class="n">LOSS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">USE</span><span class="p">,</span><span class="w"> </span><span class="k">DATA</span><span class="p">,</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">PROFITS</span><span class="p">;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">BUSINESS</span><span class="w"> </span><span class="n">INTERRUPTION</span><span class="p">)</span><span class="w"> </span><span class="n">HOWEVER</span>
+<span class="n">CAUSED</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">THEORY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span><span class="w"> </span><span class="n">WHETHER</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">CONTRACT</span><span class="p">,</span><span class="w"> </span><span class="k">STRICT</span><span class="w"> </span><span class="n">LIABILITY</span><span class="p">,</span>
+<span class="k">OR</span><span class="w"> </span><span class="n">TORT</span><span class="w"> </span><span class="p">(</span><span class="n">INCLUDING</span><span class="w"> </span><span class="n">NEGLIGENCE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">OTHERWISE</span><span class="p">)</span><span class="w"> </span><span class="n">ARISING</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">ANY</span><span class="w"> </span><span class="n">WAY</span><span class="w"> </span><span class="k">OUT</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">USE</span>
+<span class="k">OF</span><span class="w"> </span><span class="n">THIS</span><span class="w"> </span><span class="n">SOFTWARE</span><span class="p">,</span><span class="w"> </span><span class="n">EVEN</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="n">ADVISED</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">POSSIBILITY</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="n">SUCH</span><span class="w"> </span><span class="n">DAMAGE</span><span class="p">.</span>
+</code></pre></div>
+
+<hr />
+<h2 id="support">🆘 Support</h2>
+<ul>
+<li><strong>Generator Issues</strong>: <a href="https://github.com/smartlegionlab/clipassgen/issues">GitHub Issues</a></li>
+<li><strong>Core Library Issues</strong>: <a href="https://github.com/smartlegionlab/smartpasslib/issues">smartpasslib Issues</a></li>
+<li><strong>Documentation</strong>: Interactive help and this README</li>
+</ul>
+<p><strong>Note</strong>: Always test password generation with non-essential accounts first. Implementation security depends on proper usage.</p>
+<hr />
+<h2 id="security-warnings">⚠️ Security Warnings</h2>
+<p><strong>Version Incompatibility</strong>: v2.1.4 passwords are incompatible with v1.x.<br />
+Never mix secret phrases across different versions.</p>
+<h3 id="secret-phrase-security">Secret Phrase Security</h3>
+<p><strong>Your secret phrase is the cryptographic foundation</strong></p>
+<ol>
+<li><strong>Permanent data loss</strong>: Lost secret phrase = irreversible loss of all derived passwords</li>
+<li><strong>No recovery mechanisms</strong>: No password recovery, no secret reset, no administrative override</li>
+<li><strong>Deterministic generation</strong>: Identical input (secret + length) = identical output (password)</li>
+<li><strong>Single point of failure</strong>: Secret phrase is the sole input for smart password generation</li>
+<li><strong>Secure memorization required</strong>: Digital storage of secret phrases is prohibited</li>
+</ol>
+<p><strong>Critical</strong>: Test password generation with non-essential accounts before production use</p>
+<hr />
+<h2 id="legal-disclaimer">📄 Legal Disclaimer</h2>
+<p><strong>COMPLETE AND ABSOLUTE RELEASE FROM ALL LIABILITY</strong></p>
+<p><strong>SOFTWARE PROVIDED "AS IS" WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.</strong></p>
+<p>The copyright holder, contributors, and any associated parties <strong>EXPLICITLY DISCLAIM AND DENY ALL RESPONSIBILITY AND LIABILITY</strong> for:</p>
+<ol>
+<li><strong>ANY AND ALL DATA LOSS</strong>: Complete or partial loss of passwords, accounts, credentials, cryptographic keys, or any data whatsoever</li>
+<li><strong>ANY AND ALL SECURITY INCIDENTS</strong>: Unauthorized access, data breaches, account compromises, theft, or exposure of sensitive information</li>
+<li><strong>ANY AND ALL FINANCIAL LOSSES</strong>: Direct, indirect, incidental, special, consequential, or punitive damages of any kind</li>
+<li><strong>ANY AND ALL OPERATIONAL DISRUPTIONS</strong>: Service interruptions, account lockouts, authentication failures, or denial of service</li>
+<li><strong>ANY AND ALL IMPLEMENTATION ISSUES</strong>: Bugs, errors, vulnerabilities, misconfigurations, or incorrect usage</li>
+<li><strong>ANY AND ALL LEGAL OR REGULATORY CONSEQUENTS</strong>: Violations of laws, regulations, compliance requirements, or terms of service</li>
+<li><strong>ANY AND ALL PERSONAL OR BUSINESS DAMAGES</strong>: Reputational harm, business interruption, loss of revenue, or any other damages</li>
+<li><strong>ANY AND ALL THIRD-PARTY CLAIMS</strong>: Claims made by any other parties affected by software usage</li>
+</ol>
+<p><strong>USER ACCEPTS FULL AND UNCONDITIONAL RESPONSIBILITY</strong></p>
+<p>By installing, accessing, or using this software in any manner, you irrevocably agree that:</p>
+<ul>
+<li>You assume <strong>ALL</strong> risks associated with software usage</li>
+<li>You bear <strong>SOLE</strong> responsibility for secret phrase management and security</li>
+<li>You accept <strong>COMPLETE</strong> responsibility for all testing and validation</li>
+<li>You are <strong>EXCLUSIVELY</strong> liable for compliance with all applicable laws</li>
+<li>You accept <strong>TOTAL</strong> responsibility for any and all consequences</li>
+<li>You <strong>PERMANENTLY AND IRREVOCABLY</strong> waive, release, and discharge all claims against the copyright holder, contributors, distributors, and any associated entities</li>
+</ul>
+<p><strong>NO WARRANTY OF ANY KIND</strong></p>
+<p>This software comes with <strong>ABSOLUTELY NO GUARANTEES</strong> regarding:<br />
+- Security effectiveness or cryptographic strength<br />
+- Reliability or availability<br />
+- Fitness for any particular purpose<br />
+- Accuracy or correctness<br />
+- Freedom from defects or vulnerabilities</p>
+<p><strong>NOT A SECURITY PRODUCT OR SERVICE</strong></p>
+<p>This is experimental software. It is not:<br />
+- Security consultation or advice<br />
+- A certified cryptographic product<br />
+- A guaranteed security solution<br />
+- Professional security software<br />
+- Endorsed by any security authority</p>
+<p><strong>FINAL AND BINDING AGREEMENT</strong></p>
+<p>Usage of this software constitutes your <strong>FULL AND UNCONDITIONAL ACCEPTANCE</strong> of this disclaimer. If you do not accept <strong>ALL</strong> terms and conditions, <strong>DO NOT USE THE SOFTWARE.</strong></p>
+<p><strong>BY PROCEEDING, YOU ACKNOWLEDGE THAT YOU HAVE READ THIS DISCLAIMER IN ITS ENTIRETY, UNDERSTAND ITS TERMS COMPLETELY, AND ACCEPT THEM WITHOUT RESERVATION OR EXCEPTION.</strong></p>
+<hr />
+<p><strong>Version</strong>: 2.1.4 | <a href="https://smartlegionlab.ru"><strong>Author</strong></a>: <a href="https://alexander-suvorov.ru">Alexander Suvorov</a></p>
+<hr />
+<p><strong>Note</strong>: This is v2.1.4. If migrating from v1.x, all passwords must be regenerated with new secret phrases.</p>
+<hr />
+<h2 id="terminal-interface-examples">Terminal Interface Examples</h2>
+<p><img alt="clipassgen" src="https://github.com/smartlegionlab/clipassgen/blob/master/data/images/clipassgen.png" /></p>
+<h3 id="smart-password-generation-flow">Smart Password Generation Flow</h3>
+<div class="codehilite"><pre><span></span><code><span class="c">********************************************************************************</span>
+<span class="nb">-------------------</span><span class="c"> Console Smart Password Generator v2</span><span class="nt">.</span><span class="c">1</span><span class="nt">.</span><span class="c">4 </span><span class="nb">--------------------</span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: 1</span>
+<span class="nb">---------------------------</span><span class="c"> Smart Password Generator </span><span class="nb">---------------------------</span>
+
+<span class="c">Generates password from your secret phrase</span><span class="nt">.</span>
+<span class="c">Same secret </span><span class="nb">+</span><span class="c"> same length = same password every time</span><span class="nt">.</span>
+
+<span class="c">Enter secret phrase (hidden): </span>
+<span class="c">Confirm secret phrase (hidden): </span>
+<span class="c">Enter length </span><span class="k">[</span><span class="c">4</span><span class="nb">-</span><span class="c">1000</span><span class="k">]</span><span class="c"> (default 16): 16</span>
+<span class="nb">-------------------</span>
+<span class="c">Generated Password:</span>
+<span class="nb">-------------------</span>
+<span class="c">wcJjBKIhsgV%!6Iq</span>
+
+<span class="c">Length: 16 characters</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">------------------------------</span>
+<span class="c">Public Key (for verification):</span>
+<span class="nb">------------------------------</span>
+<span class="c">d8295cdc1a8e3094529e623718e6307da97c3aec7e313de786095de80796a6e0ebf8d356682e58eeb0279eb7cd9d04d75714548dcbe6733ebb4b558bf7d70b4b</span>
+
+<span class="c">Store this key to verify your secret later</span><span class="nt">.</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: 2</span>
+<span class="nb">--------------------------</span><span class="c"> Strong Password Generator </span><span class="nb">---------------------------</span>
+<span class="c">Enter length </span><span class="k">[</span><span class="c">4</span><span class="nb">-</span><span class="c">1000</span><span class="k">]</span><span class="c"> (default 16): 16</span>
+<span class="nb">-------------------</span>
+<span class="c">Generated Password:</span>
+<span class="nb">-------------------</span>
+<span class="c">I^wiCnKbM6P&amp;87Ow</span>
+
+<span class="c">Length: 16 characters</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: 3</span>
+<span class="nb">---------------------------</span><span class="c"> Base Password Generator </span><span class="nb">----------------------------</span>
+<span class="c">Enter length </span><span class="k">[</span><span class="c">4</span><span class="nb">-</span><span class="c">1000</span><span class="k">]</span><span class="c"> (default 12): 12</span>
+<span class="nb">-------------------</span>
+<span class="c">Generated Password:</span>
+<span class="nb">-------------------</span>
+<span class="c">_exe$bSNA4hn</span>
+
+<span class="c">Length: 12 characters</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: 4</span>
+<span class="nb">------------------------</span><span class="c"> Authentication Code Generator </span><span class="nb">-------------------------</span>
+<span class="c">Enter length </span><span class="k">[</span><span class="c">4</span><span class="nb">-</span><span class="c">20</span><span class="k">]</span><span class="c"> (default 8): 8</span>
+<span class="nb">-------------------</span>
+<span class="c">Generated Password:</span>
+<span class="nb">-------------------</span>
+<span class="c">fGa80P3@</span>
+
+<span class="c">Length: 8 characters</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span><span class="c"> </span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: 5</span>
+<span class="nb">-------------------------------------</span><span class="c"> Help </span><span class="nb">-------------------------------------</span>
+<span class="nb">-----------------</span>
+<span class="c">CLIPASSGEN v2</span><span class="nt">.</span><span class="c">1</span><span class="nt">.</span><span class="c">4</span>
+<span class="nb">-----------------</span>
+<span class="c">WARNING: </span>
+<span class="c">• Login parameter removed</span>
+<span class="c">• All v1</span><span class="nt">.</span><span class="c">x passwords are INVALID</span>
+<span class="c">• Only secret phrase needed</span>
+
+<span class="c">For more information</span><span class="nt">,</span><span class="c"> visit the project page on GitHub: https://github</span><span class="nt">.</span><span class="c">com/smartlegionlab/clipassgen/</span>
+<span class="c">============================================================</span>
+
+<span class="c">Press Enter to continue</span><span class="nt">...</span>
+<span class="nb">----------------------------------</span><span class="c"> Main Menu: </span><span class="nb">----------------------------------</span>
+<span class="c">1</span><span class="nt">.</span><span class="c"> Smart Password (from secret)</span>
+<span class="c">2</span><span class="nt">.</span><span class="c"> Strong Random Password</span>
+<span class="c">3</span><span class="nt">.</span><span class="c"> Base Random Password</span>
+<span class="c">4</span><span class="nt">.</span><span class="c"> Authentication Code</span>
+<span class="c">5</span><span class="nt">.</span><span class="c"> Help</span>
+<span class="c">0</span><span class="nt">.</span><span class="c"> Exit</span>
+<span class="c">Enter your choice: 0</span>
+<span class="nb">----------------</span><span class="c"> https://github</span><span class="nt">.</span><span class="c">com/smartlegionlab/clipassgen/ </span><span class="nb">-----------------</span>
+<span class="nb">----------</span><span class="c"> Copyright © 2026</span><span class="nt">,</span><span class="c"> Alexander Suvorov</span><span class="nt">.</span><span class="c"> All rights reserved</span><span class="nt">.</span><span class="c"> </span><span class="nb">-----------</span>
+<span class="c">********************************************************************************</span>
+</code></pre></div>
+
+<h3 id="command-line-examples">Command Line Examples</h3>
+<div class="codehilite"><pre><span></span><code>$<span class="w"> </span>clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;GitHubSecret@2025&quot;</span><span class="w"> </span>-l<span class="w"> </span><span class="m">18</span>
+<span class="p">&amp;</span>EQAAA_653Lv68%LnQ
+
+$<span class="w"> </span>clipassgen<span class="w"> </span>--strong<span class="w"> </span>-l<span class="w"> </span><span class="m">24</span>
+aB3<span class="nv">$dE6</span><span class="p">&amp;</span>gH9*jL1@nO4%qR7^tU0<span class="o">)</span>yX2
+
+$<span class="w"> </span>clipassgen<span class="w"> </span>--code<span class="w"> </span>-l<span class="w"> </span><span class="m">8</span>
+K8P3L9M2
+</code></pre></div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/packages.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Packages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+</body>
+</html>
