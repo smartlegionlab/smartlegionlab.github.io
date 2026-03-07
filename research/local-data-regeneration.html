@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Local Data Regeneration - Paradigm</title>
+    <meta name="description" content="Local Data Regeneration Paradigm by Alexander Suvorov - Ontological Shift from Data Transmission to Synchronous State Discovery">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/research/local-data-regeneration.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="Local Data Regeneration - Alexander Suvorov">
+    <meta property="og:description" content="Local Data Regeneration Paradigm - Ontological Shift from Data Transmission to Synchronous State Discovery">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/research/local-data-regeneration.html">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+
+    <style>
+        .research-detail-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent);
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .info-item {
+            padding: 1rem;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .info-number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .postulate-card {
+            background: rgba(13, 110, 253, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .postulate-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
+        }
+        .postulate-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
+                                        <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">Local Data Regeneration <sup class="text-primary">Paradigm</sup></h1>
+                                <p class="title"><a href="https://alexander-suvorov.ru" target="_blank" style="text-decoration: none;">Alexander Suvorov:</a> Ontological Shift from Data Transmission to Synchronous State Discovery</p>
+                                <div class="badges mt-2">
+                                    <span class="badge bg-primary">Paradigm</span>
+                                    <span class="badge bg-secondary">Published 2025</span>
+                                    <span class="badge bg-info">Information Theory</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
+                            <i class="bi bi-person" aria-hidden="true"></i>
+                        </a>
+                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                        </a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                        </a>
+                        <a href="/research.html" class="mobile-nav-btn active" aria-label="Go to Research page">
+                            <i class="bi bi-journal-text" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
+                            <i class="bi bi-file-text" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="container">
+                        <div class="d-flex justify-content-between align-items-center research-detail-header">
+                            <h2 class="section-title mb-0">Paradigm Details</h2>
+                            <div>
+                                <a href="https://doi.org/10.5281/zenodo.17264327" target="_blank" class="btn btn-primary">
+                                    <i class="bi bi-box-arrow-up-right"></i> View on Zenodo
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="about-card">
+                                    <h3 class="about-title">
+                                        <i class="bi bi-info-circle"></i> Overview
+                                    </h3>
+                                    <p class="text-light">
+                                        <span class="highlight-primary">Fundamental theoretical work</span> proposing an alternative to
+                                        <span class="highlight-muted">classical information transmission</span>, where
+                                        <span class="highlight-accent">data is regenerated locally</span> through
+                                        <span class="highlight-primary">synchronized computation</span>. This paradigm challenges the fundamental Shannonian model of communication.
+                                    </p>
+
+                                    <div class="abstract-section mt-4 p-3 bg-dark rounded">
+                                        <h4 class="mb-2 text-primary">
+                                            <i class="bi bi-file-text me-2"></i>Abstract
+                                        </h4>
+                                        <p class="mb-0 text-light">
+                                            This work introduces the Local Data Regeneration Paradigm, which challenges the fundamental Shannonian model of information transmission. We propose an ontological shift where data is understood not as objects to be transferred, but as states reached by deterministic systems through synchronous application of shared algorithms to coordinated pointers. Communication is redefined as pointer coordination rather than content transmission. The paradigm is formalized through three foundational postulates, with analysis of applicability domains and fundamental implications for information theory and computer science. This work presents a theoretical framework requiring extensive validation and further research before practical application.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="about-card">
+                                    <h3 class="about-title">
+                                        <i class="bi bi-diagram-3"></i> Foundational Postulates
+                                    </h3>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3 position-relative">
+                                            <div class="postulate-card">
+                                                <div class="postulate-number">I</div>
+                                                <i class="bi bi-diagram-3 text-primary mb-3" style="font-size: 2rem;"></i>
+                                                <h5 class="mb-2">Data as System State</h5>
+                                                <p class="small text-muted mb-0">Information is understood as computational state rather than transferable object. Data exists only as the current state of a deterministic system.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3 position-relative">
+                                            <div class="postulate-card">
+                                                <div class="postulate-number">II</div>
+                                                <i class="bi bi-arrow-clockwise text-primary mb-3" style="font-size: 2rem;"></i>
+                                                <h5 class="mb-2">Synchronous Local Regeneration</h5>
+                                                <p class="small text-muted mb-0">Identical states can be reached independently through shared algorithms: <code class="text-primary">D = F(S, P)</code> where F is shared function, S is seed, P is pointer.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3 position-relative">
+                                            <div class="postulate-card">
+                                                <div class="postulate-number">III</div>
+                                                <i class="bi bi-bullseye text-primary mb-3" style="font-size: 2rem;"></i>
+                                                <h5 class="mb-2">Communication as Pointer Synchronization</h5>
+                                                <p class="small text-muted mb-0">Communication becomes the coordination of discovery coordinates (pointers) rather than transmission of content itself.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="about-card">
+                                    <h3 class="about-title">
+                                        <i class="bi bi-graph-up"></i> Implications for Information Theory
+                                    </h3>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-lightning-charge text-warning me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                                <div>
+                                                    <strong>Bandwidth Independence:</strong>
+                                                    <p class="text-muted small mb-0">Information transfer becomes independent of channel bandwidth - only pointers need transmission.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-shield-check text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                                <div>
+                                                    <strong>Inherent Security:</strong>
+                                                    <p class="text-muted small mb-0">No sensitive data in transit - only pointers to locally regenerated information.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-cpu text-info me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                                <div>
+                                                    <strong>Computational Requirements:</strong>
+                                                    <p class="text-muted small mb-0">Shifts burden from transmission to local computation and synchronization.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <i class="bi bi-infinity text-primary me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                                <div>
+                                                    <strong>Theoretical Bound:</strong>
+                                                    <p class="text-muted small mb-0">Information transfer limited only by computational capacity and shared algorithm complexity.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="about-card">
+                                    <h3 class="about-title">
+                                        <i class="bi bi-link-45deg"></i> Key Resources
+                                    </h3>
+                                    <div class="btn-group d-flex flex-wrap gap-2">
+                                        <a target="_blank" href="https://doi.org/10.5281/zenodo.17264327" class="btn btn-outline-primary">
+                                            <i class="bi bi-journal-text"></i> Full Paper
+                                        </a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" class="btn btn-outline-primary">
+                                            <i class="bi bi-github"></i> GitHub Repository
+                                        </a>
+                                        <a target="_blank" href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-21e" class="btn btn-outline-primary">
+                                            <i class="bi bi-newspaper"></i> Article
+                                        </a>
+                                        <a target="_blank" href="https://zenodo.org/records/17264327/files/suvorov-the-local-data-regeneration-paradigm.pdf?download=1" class="btn btn-outline-primary">
+                                            <i class="bi bi-file-pdf"></i> PDF
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card research-card">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-center mb-3">Metadata</h3>
+                                        <hr>
+
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-fingerprint"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <div class="metric-number">10.5281/zenodo.17264327</div>
+                                                <div class="metric-label">DOI</div>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-calendar"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <div class="metric-number">October 4, 2025</div>
+                                                <div class="metric-label">Published</div>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-translate"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <div class="metric-number">English</div>
+                                                <div class="metric-label">Language</div>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-hash"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <div class="metric-number">Information Theory</div>
+                                                <div class="metric-label">Primary Field</div>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <h3 class="card-title text-center mb-3">Related Work</h3>
+                                        <hr>
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-shield"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <a href="/research/pointer-based-security.html" style="text-decoration: none;" class="metric-number">Pointer-Based Security</a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-cpu"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <a href="/research/deterministic-game-engine.html" style="text-decoration: none;" class="metric-number">Deterministic Game Engine</a>
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="metric-item">
+                                            <div class="metric-icon-small">
+                                                <i class="bi bi-search"></i>
+                                            </div>
+                                            <div class="metric-content">
+                                                <a href="/research/position-candidate-hypothesis.html" style="text-decoration: none;" class="metric-number">PCH Paradigm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="/research.html" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left"></i> Back to Research
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="container text-center">
+                        <footer>
+                            <p class="text-muted">
+                                © <span id="currentYear"></span> <a target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script src="../js/active-nav.js"></script>
+</body>
+</html>
