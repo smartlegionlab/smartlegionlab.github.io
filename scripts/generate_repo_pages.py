@@ -37,6 +37,10 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/research.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/packages.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/articles.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/research/pointer-based-security.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/research/local-data-regeneration.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/research/deterministic-game-engine.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/research/position-candidate-hypothesis.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
 ]
 
 LANGUAGE_COLORS = {
