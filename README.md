@@ -1,4 +1,4 @@
-# 🌐 Alexander Suvorov - Technical Portfolio <sup>v3.2.0</sup>
+# 🌐 Alexander Suvorov - Technical Portfolio <sup>v3.2.1</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![Academic Portfolio](https://img.shields.io/badge/Academic-alexander--suvorov.ru-purple?style=for-the-badge&logo=google-scholar)](https://alexander-suvorov.ru)
