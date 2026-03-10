@@ -80,31 +80,30 @@ def format_date_iso(date_string):
     except:
         return datetime.now().strftime('%Y-%m-%d')
 
+
 def optimize_markdown_images(html):
+    # Сначала обрабатываем обычные изображения
     pattern = r'<img\s+([^>]*?)src="([^"]+)"([^>]*?)>'
+
     def add_loading_attrs(match):
         attrs = match.group(1) + match.group(3)
+        src = match.group(2)
+
         if 'loading=' not in attrs:
             attrs += ' loading="lazy"'
-        if 'width=' not in attrs and 'height=' not in attrs:
-            attrs += ' width="100%" height="auto"'
-        return f'<img {attrs} src="{match.group(2)}">'
-    return re.sub(pattern, add_loading_attrs, html)
 
-def replace_badge_urls(text):
-    badge_patterns = [
-        (r'!\[.*?\]\(https?://img\.shields\.io/[^\)]+\)',
-         '<span class="badge-placeholder">📦 Package Info</span>'),
-        (r'!\[.*?\]\(https?://static\.pepy\.tech/[^\)]+\)',
-         '<span class="badge-placeholder">📊 Download stats</span>'),
-        (r'!\[.*?\]\(https?://pepy\.tech/[^\)]+\)',
-         '<span class="badge-placeholder">📈 PyPI stats</span>'),
-        (r'https?://img\.shields\.io/[^\s\)\]]+', ''),
-        (r'https?://static\.pepy\.tech/[^\s\)\]]+', ''),
-    ]
-    for pattern, replacement in badge_patterns:
-        text = re.sub(pattern, replacement, text)
-    return text
+        if any(badge in src for badge in ['shields.io', 'pepy.tech', 'badge']):
+            if 'style=' in attrs:
+                attrs = re.sub(r'style="([^"]*)"', r'style="\1; max-height: 20px; width: auto;"', attrs)
+            else:
+                attrs += ' style="max-height: 20px; width: auto;"'
+        else:
+            if 'width=' not in attrs and 'height=' not in attrs:
+                attrs += ' width="100%" height="auto"'
+
+        return f'<img {attrs} src="{src}">'
+
+    return re.sub(pattern, add_loading_attrs, html)
 
 def generate_repo_pages(repos_data, output_dir):
     template_dir = os.path.dirname(REPO_TEMPLATE_PATH)
@@ -163,7 +162,6 @@ def generate_repo_pages(repos_data, output_dir):
 def markdown_to_html(text):
     if not text:
         return ''
-    text = replace_badge_urls(text)
     if MARKDOWN_AVAILABLE:
         try:
             html = markdown.markdown(
