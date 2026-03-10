@@ -29,7 +29,7 @@ This site is **fully automated** — it builds and updates itself daily without 
 
 ![Diagram](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/diagram.png)
 
-###🚀 Key Features
+### 🚀 Key Features
 
 | Feature | How It Works | Benefit |
 |---------|--------------|---------|
