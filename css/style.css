@@ -2125,3 +2125,11 @@ a.premium-card {
     background: rgba(13, 110, 253, 0.1) !important;
     border: 1px solid yellow !important;
 }
+
+.author-link {
+    color: white;
+}
+
+.author-link:hover {
+    color: #0d6efd;
+}
