@@ -67,6 +67,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
+    <lastmod>2026-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://smartlegionlab.ru/repositories/smart-project-manager.html</loc>
     <lastmod>2026-03-12</lastmod>
     <changefreq>daily</changefreq>
@@ -74,12 +80,6 @@
   </url>
   <url>
     <loc>https://smartlegionlab.ru/repositories/alexander-suvorov.html</loc>
-    <lastmod>2026-03-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
     <lastmod>2026-03-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
