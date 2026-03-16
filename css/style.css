@@ -1363,18 +1363,15 @@ hr:last-of-type {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--accent);
     text-decoration: none;
     font-size: 0.85rem;
     transition: all 0.3s ease;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--accent);
+    border: 1px solid;
     border-radius: 8px;
 }
 
 .repo-action:hover {
-    background: var(--accent);
-    color: white;
     transform: translateY(-2px);
 }
 

@@ -126,8 +126,8 @@ def generate_repo_cards(repos, limit=100, is_featured=False):
             <div class="repo-footer">
                 <div class="repo-updated"><i class="bi bi-clock"></i> Last updated {format_date(repo.get("pushed_at"))}</div>
                 <div class="btn-group">
-                    <a href="repositories/{repo['name']}.html" class="btn repo-action"><i class="bi bi-box-arrow-up-right"></i> View</a>
-                    <a href="{repo['html_url']}" target="_blank" class="btn repo-action"><i class="bi bi-box-arrow-up-right"></i> Github</a>
+                    <a href="repositories/{repo['name']}.html" class="btn btn-outline-warning repo-action"><i class="bi bi-box-arrow-up-right"></i> View</a>
+                    <a href="{repo['html_url']}" target="_blank" class="btn btn-outline-primary repo-action"><i class="bi bi-box-arrow-up-right"></i> Github</a>
                 </div>
             </div>
         </div>'''
@@ -239,7 +239,7 @@ def generate_package_cards(packages, limit=100, is_featured=False):
 
             <div class="repo-footer" style="display: flex; justify-content: flex-end; width: 100%;">
                 <div class="btn-group">
-                    <a href="packages/{pkg["name"]}.html" class="btn btn-outline-primary repo-action">
+                    <a href="packages/{pkg["name"]}.html" class="btn btn-outline-warning repo-action">
                         <i class="bi bi-box-arrow-up-right"></i> View
                     </a> 
                     <a href="{pkg.get('project_url', f'https://pypi.org/project/{pkg["name"]}/')}" target="_blank" class="btn btn-outline-primary repo-action">
