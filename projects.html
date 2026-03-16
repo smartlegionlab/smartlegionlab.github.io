@@ -20,11 +20,11 @@
   <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;defs&gt;&lt;linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'&gt;&lt;stop offset='0%' stop-color='%230d6efd'/&gt;&lt;stop offset='100%' stop-color='%230b5ed7'/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/&gt;&lt;path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
   <style>
    .author-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 2rem 0;
-    }
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 1rem;
+   margin: 2rem 0;
+}
 
     .author-stat-card {
       background: rgba(255, 255, 255, 0.05);
@@ -77,7 +77,7 @@
     }
 
     .author-bio-meta {
-      display: flex;
+          display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       color: var(--text-muted);
@@ -6534,47 +6534,67 @@
   </script>
   <script>
    async function loadUserData() {
-     try {
-       const response = await fetch('/data/user.json');
-       const userData = await response.json();
+      try {
+        const response = await fetch('/data/user.json');
+        const userData = await response.json();
 
-       document.getElementById('profileName').textContent = userData.name || 'Alexander Suvorov';
+        document.getElementById('profileName').textContent = userData.name || 'Alexander Suvorov';
 
-       const joinedDate = new Date(userData.created_at).toLocaleDateString('en-US', {
-         year: 'numeric',
-         month: 'long'
-       });
-       document.getElementById('profileJoined').textContent = joinedDate;
+        const joinedDate = new Date(userData.created_at).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long'
+        });
+        document.getElementById('profileJoined').textContent = joinedDate;
 
-       const statsGrid = document.getElementById('statsGrid');
-       statsGrid.innerHTML = `
-         <div class="author-stat-card">
-           <div class="author-stat-icon"><i class="bi bi-code-square"></i></div>
-           <div class="author-stat-value">${userData.public_repos}</div>
-           <div class="author-stat-label">Repositories</div>
-         </div>
-         <div class="author-stat-card">
-           <div class="author-stat-icon"><i class="bi bi-star"></i></div>
-           <div class="author-stat-value">${await getTotalStars()}</div>
-           <div class="author-stat-label">Total Stars</div>
-         </div>
-         <div class="author-stat-card">
-           <div class="author-stat-icon"><i class="bi bi-diagram-2"></i></div>
-           <div class="author-stat-value">${await getTotalForks()}</div>
-           <div class="author-stat-label">Total Forks</div>
-         </div>
-         <div class="author-stat-card">
-           <div class="author-stat-icon"><i class="bi bi-people"></i></div>
-           <div class="author-stat-value">${userData.followers}</div>
-           <div class="author-stat-label">Followers</div>
-         </div>
-       `;
+        const statsGrid = document.getElementById('statsGrid');
+        statsGrid.innerHTML = `
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-code-square"></i></div>
+            <div class="author-stat-value">${userData.public_repos}</div>
+            <div class="author-stat-label">Repositories</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-star"></i></div>
+            <div class="author-stat-value">${await getTotalStars()}</div>
+            <div class="author-stat-label">Total Stars</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-diagram-2"></i></div>
+            <div class="author-stat-value">${await getTotalForks()}</div>
+            <div class="author-stat-label">Total Forks</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-people"></i></div>
+            <div class="author-stat-value">${userData.followers}</div>
+            <div class="author-stat-label">Followers</div>
+          </div>
 
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-clock-history"></i></div>
+            <div class="author-stat-value">10+</div>
+            <div class="author-stat-label">Years Experience</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-check2-circle"></i></div>
+            <div class="author-stat-value">350+</div>
+            <div class="author-stat-label">Projects Delivered</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-box"></i></div>
+            <div class="author-stat-value">20+</div>
+            <div class="author-stat-label">PYPI Packages</div>
+          </div>
+          <div class="author-stat-card">
+            <div class="author-stat-icon"><i class="bi bi-git"></i></div>
+            <div class="author-stat-value">7K+</div>
+            <div class="author-stat-label">Commits</div>
+          </div>
+        `;
 
-     } catch (error) {
-       console.error('Error loading user data:', error);
-     }
-   }
+      } catch (error) {
+        console.error('Error loading user data:', error);
+      }
+    }
 
    async function getTotalStars() {
      try {
