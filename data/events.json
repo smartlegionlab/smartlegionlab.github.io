@@ -1,322 +1,6 @@
 [
   {
-    "id": "7423711785",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/297290468",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/297290468/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/297290468/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-gui/releases/tag/v1.2.1",
-        "id": 297290468,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOROUL684RuErk",
-        "tag_name": "v1.2.1",
-        "target_commitish": "master",
-        "name": "Smart Repository Manager GUI v1.2.1",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-03-16T03:41:01Z",
-        "updated_at": "2026-03-16T03:42:39Z",
-        "published_at": "2026-03-16T03:42:39Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/tarball/v1.2.1",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/zipball/v1.2.1",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.0...v1.2.1",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.0...v1.2.1\"><tt>v1.2.0...v1.2.1</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-03-16T03:42:39Z"
-  },
-  {
-    "id": "9436181258",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
-    },
-    "payload": {
-      "repository_id": 1155861483,
-      "push_id": 31729507616,
-      "ref": "refs/heads/master",
-      "head": "99011cc2b341fba3d4860a1a7bb9a18c15c63e6f",
-      "before": "b296bfa066a2c95d43d0e094b9ce0ae3960d45d6"
-    },
-    "public": true,
-    "created_at": "2026-03-16T03:41:57Z"
-  },
-  {
-    "id": "9434967896",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
-    },
-    "payload": {
-      "repository_id": 1155861483,
-      "push_id": 31728293808,
-      "ref": "refs/heads/master",
-      "head": "b296bfa066a2c95d43d0e094b9ce0ae3960d45d6",
-      "before": "721f6c9bd597edf706f05545ae313dad69c846d0"
-    },
-    "public": true,
-    "created_at": "2026-03-16T02:41:19Z"
-  },
-  {
-    "id": "7387973453",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1083280415,
-      "name": "smartlegionlab/alexander-suvorov",
-      "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880739",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880739/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880739/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/alexander-suvorov/releases/tag/v2.3.0",
-        "id": 296880739,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOQJGMH84Rsgpj",
-        "tag_name": "v2.3.0",
-        "target_commitish": "master",
-        "name": "alexander-suvorov.ru v2.3.0",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-03-13T21:13:38Z",
-        "updated_at": "2026-03-13T21:17:29Z",
-        "published_at": "2026-03-13T21:17:29Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/tarball/v2.3.0",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/zipball/v2.3.0",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/alexander-suvorov/compare/v2.2.2...v2.3.0",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/alexander-suvorov/compare/v2.2.2...v2.3.0\"><tt>v2.2.2...v2.3.0</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-03-13T21:17:29Z"
-  },
-  {
-    "id": "7387968587",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1083280415,
-      "name": "smartlegionlab/alexander-suvorov",
-      "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880703",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880703/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880703/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/alexander-suvorov/releases/tag/v2.2.2",
-        "id": 296880703,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOQJGMH84Rsgo_",
-        "tag_name": "v2.2.2",
-        "target_commitish": "master",
-        "name": "alexander-suvorov.ru v2.2.2",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-03-13T21:11:21Z",
-        "updated_at": "2026-03-13T21:17:16Z",
-        "published_at": "2026-03-13T21:17:16Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/tarball/v2.2.2",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/zipball/v2.2.2",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/alexander-suvorov/compare/v2.2.1...v2.2.2",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/alexander-suvorov/compare/v2.2.1...v2.2.2\"><tt>v2.2.1...v2.2.2</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-03-13T21:17:16Z"
-  },
-  {
-    "id": "7387963515",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1083280415,
-      "name": "smartlegionlab/alexander-suvorov",
-      "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880640",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880640/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/alexander-suvorov/releases/296880640/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/alexander-suvorov/releases/tag/v2.2.1",
-        "id": 296880640,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOQJGMH84RsgoA",
-        "tag_name": "v2.2.1",
-        "target_commitish": "master",
-        "name": "alexander-suvorov.ru v2.2.1",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-03-13T20:53:55Z",
-        "updated_at": "2026-03-13T21:17:02Z",
-        "published_at": "2026-03-13T21:17:02Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/tarball/v2.2.1",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov/zipball/v2.2.1",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/alexander-suvorov/compare/v2.2.0...v2.2.1",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/alexander-suvorov/compare/v2.2.0...v2.2.1\"><tt>v2.2.0...v2.2.1</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-03-13T21:17:02Z"
-  },
-  {
-    "id": "9380208773",
+    "id": "9439743387",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -333,16 +17,226 @@
     },
     "payload": {
       "repository_id": 1083280415,
-      "push_id": 31673672624,
+      "push_id": 31733071658,
       "ref": "refs/heads/master",
-      "head": "f1e44d06f02691914115f41706670cc8f7da4340",
-      "before": "04fa6784c237067433666c28a16fba906f455495"
+      "head": "f1c2050c0ee5b8f7869f1409a78ad32ef624d1b0",
+      "before": "fd5278284eadd7086a1546ce570ccf0ff3976e6b"
     },
     "public": true,
-    "created_at": "2026-03-13T21:13:58Z"
+    "created_at": "2026-03-16T06:30:47Z"
   },
   {
-    "id": "9380152761",
+    "id": "7426522884",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297321144",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297321144/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297321144/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartlegionlab.github.io/releases/tag/v3.4.2",
+        "id": 297321144,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOL7zqtc4RuMK4",
+        "tag_name": "v3.4.2",
+        "target_commitish": "master",
+        "name": "smartlegionlab.ru v3.4.2",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-16T06:22:14Z",
+        "updated_at": "2026-03-16T06:22:59Z",
+        "published_at": "2026-03-16T06:22:59Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/tarball/v3.4.2",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/zipball/v3.4.2",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartlegionlab.github.io/compare/v3.4.1...v3.4.2",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartlegionlab.github.io/compare/v3.4.1...v3.4.2\"><tt>v3.4.1...v3.4.2</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-03-16T06:22:59Z"
+  },
+  {
+    "id": "9439540135",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
+    },
+    "payload": {
+      "repository_id": 800910005,
+      "push_id": 31732868300,
+      "ref": "refs/heads/master",
+      "head": "236b3026f7632a2d5d4ec4df39f46571f3621064",
+      "before": "c1c506799806e20efacadc1377387ca5ce69f203"
+    },
+    "public": true,
+    "created_at": "2026-03-16T06:22:30Z"
+  },
+  {
+    "id": "9439523158",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
+    },
+    "payload": {
+      "repository_id": 800910005,
+      "push_id": 31732851318,
+      "ref": "refs/heads/master",
+      "head": "c1c506799806e20efacadc1377387ca5ce69f203",
+      "before": "06e7c762d7a41ac021f8bde5d4c6c6bd9f2c53ac"
+    },
+    "public": true,
+    "created_at": "2026-03-16T06:21:55Z"
+  },
+  {
+    "id": "7425941790",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297315557",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297315557/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297315557/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartlegionlab.github.io/releases/tag/v3.4.1",
+        "id": 297315557,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOL7zqtc4RuKzl",
+        "tag_name": "v3.4.1",
+        "target_commitish": "master",
+        "name": "smartlegionlab.ru v3.4.1",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-16T05:53:22Z",
+        "updated_at": "2026-03-16T05:56:07Z",
+        "published_at": "2026-03-16T05:56:07Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/tarball/v3.4.1",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/zipball/v3.4.1",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartlegionlab.github.io/compare/v3.4.0...v3.4.1",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartlegionlab.github.io/compare/v3.4.0...v3.4.1\"><tt>v3.4.0...v3.4.1</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-03-16T05:56:07Z"
+  },
+  {
+    "id": "9438847818",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
+    },
+    "payload": {
+      "repository_id": 800910005,
+      "push_id": 31732175600,
+      "ref": "refs/heads/master",
+      "head": "06e7c762d7a41ac021f8bde5d4c6c6bd9f2c53ac",
+      "before": "375a80fe635cb0c022dc14b11afd3ee59fc25b8e"
+    },
+    "public": true,
+    "created_at": "2026-03-16T05:53:37Z"
+  },
+  {
+    "id": "9438809734",
     "type": "DeleteEvent",
     "actor": {
       "id": 90581597,
@@ -353,21 +247,87 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1083280415,
-      "name": "smartlegionlab/alexander-suvorov",
-      "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov"
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
     },
     "payload": {
-      "ref": "dev",
-      "ref_type": "branch",
-      "full_ref": "refs/heads/dev",
+      "ref": "v3.4.1",
+      "ref_type": "tag",
+      "full_ref": "refs/tags/v3.4.1",
       "pusher_type": "user"
     },
     "public": true,
-    "created_at": "2026-03-13T21:11:45Z"
+    "created_at": "2026-03-16T05:51:52Z"
   },
   {
-    "id": "9380150087",
+    "id": "7425571023",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297311735",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297311735/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartlegionlab.github.io/releases/297311735/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartlegionlab.github.io/releases/tag/v3.4.0",
+        "id": 297311735,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOL7zqtc4RuJ33",
+        "tag_name": "v3.4.0",
+        "target_commitish": "master",
+        "name": "smartlegionlab.ru v3.4.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-16T05:36:02Z",
+        "updated_at": "2026-03-16T05:37:03Z",
+        "published_at": "2026-03-16T05:37:03Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/tarball/v3.4.0",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io/zipball/v3.4.0",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartlegionlab.github.io/compare/v3.3.4...v3.4.0",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartlegionlab.github.io/compare/v3.3.4...v3.4.0\"><tt>v3.3.4...v3.4.0</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-03-16T05:37:03Z"
+  },
+  {
+    "id": "9438479057",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -378,22 +338,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1083280415,
-      "name": "smartlegionlab/alexander-suvorov",
-      "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov"
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
     },
     "payload": {
-      "repository_id": 1083280415,
-      "push_id": 31673614349,
+      "repository_id": 800910005,
+      "push_id": 31731806515,
       "ref": "refs/heads/master",
-      "head": "04fa6784c237067433666c28a16fba906f455495",
-      "before": "76690a8a5c5c34e6b0f4308d9edd38789f39c01c"
+      "head": "a25ac2c094779be41a49c1104c2c131a3d840346",
+      "before": "7c52cc291614095af0ee84eaed4d734f31f0419c"
     },
     "public": true,
-    "created_at": "2026-03-13T21:11:38Z"
+    "created_at": "2026-03-16T05:36:22Z"
   },
   {
-    "id": "9379669881",
+    "id": "9438460418",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -404,18 +364,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1083280415,
-      "name": "smartlegionlab/alexander-suvorov",
-      "url": "https://api.github.com/repos/smartlegionlab/alexander-suvorov"
+      "id": 800910005,
+      "name": "smartlegionlab/smartlegionlab.github.io",
+      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
     },
     "payload": {
-      "repository_id": 1083280415,
-      "push_id": 31673138250,
-      "ref": "refs/heads/master",
-      "head": "76690a8a5c5c34e6b0f4308d9edd38789f39c01c",
-      "before": "5ef9c14db67737ccf1ed4777c8b7d7842aac544b"
+      "repository_id": 800910005,
+      "push_id": 31731787845,
+      "ref": "refs/heads/dev",
+      "head": "2e89c187ec2abdfa0a076f99be0d0773006acb33",
+      "before": "1ec5304991c840b1d215766e317849277c674633"
     },
     "public": true,
-    "created_at": "2026-03-13T20:54:29Z"
+    "created_at": "2026-03-16T05:35:29Z"
   }
 ]
