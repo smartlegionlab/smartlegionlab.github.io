@@ -1,5 +1,97 @@
 [
   {
+    "id": "7648372774",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1123454870,
+      "name": "smartlegionlab/smart-repository-manager-core",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/300034080",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/300034080/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/300034080/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-core/releases/tag/v0.3.3",
+        "id": 300034080,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOQvaPls4R4igg",
+        "tag_name": "v0.3.3",
+        "target_commitish": "master",
+        "name": "Smart Repository Manager Core v0.3.3",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-23T04:56:20Z",
+        "updated_at": "2026-03-23T04:58:07Z",
+        "published_at": "2026-03-23T04:58:07Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/tarball/v0.3.3",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/zipball/v0.3.3",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-core/compare/v0.3.2...v0.3.3",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-core/compare/v0.3.2...v0.3.3\"><tt>v0.3.2...v0.3.3</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-03-23T04:58:07Z"
+  },
+  {
+    "id": "9694394772",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1123454870,
+      "name": "smartlegionlab/smart-repository-manager-core",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core"
+    },
+    "payload": {
+      "repository_id": 1123454870,
+      "push_id": 31987801216,
+      "ref": "refs/heads/master",
+      "head": "e08d7ced05233dd93932422052fae6c169824a06",
+      "before": "1d7a0f2820c9151c7f99d7132923c25f3e677af5"
+    },
+    "public": true,
+    "created_at": "2026-03-23T04:57:26Z"
+  },
+  {
     "id": "7427349581",
     "type": "ReleaseEvent",
     "actor": {
@@ -365,57 +457,5 @@
     },
     "public": true,
     "created_at": "2026-03-16T06:22:59Z"
-  },
-  {
-    "id": "9439540135",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 800910005,
-      "name": "smartlegionlab/smartlegionlab.github.io",
-      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
-    },
-    "payload": {
-      "repository_id": 800910005,
-      "push_id": 31732868300,
-      "ref": "refs/heads/master",
-      "head": "236b3026f7632a2d5d4ec4df39f46571f3621064",
-      "before": "c1c506799806e20efacadc1377387ca5ce69f203"
-    },
-    "public": true,
-    "created_at": "2026-03-16T06:22:30Z"
-  },
-  {
-    "id": "9439523158",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 800910005,
-      "name": "smartlegionlab/smartlegionlab.github.io",
-      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab.github.io"
-    },
-    "payload": {
-      "repository_id": 800910005,
-      "push_id": 31732851318,
-      "ref": "refs/heads/master",
-      "head": "c1c506799806e20efacadc1377387ca5ce69f203",
-      "before": "06e7c762d7a41ac021f8bde5d4c6c6bd9f2c53ac"
-    },
-    "public": true,
-    "created_at": "2026-03-16T06:21:55Z"
   }
 ]
