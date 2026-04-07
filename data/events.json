@@ -1,5 +1,295 @@
 [
   {
+    "id": "8139041610",
+    "type": "PublicEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203299562,
+      "name": "smartlegionlab/smart-2fa-manager-python-cli",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-python-cli"
+    },
+    "payload": {},
+    "public": true,
+    "created_at": "2026-04-06T23:13:48Z"
+  },
+  {
+    "id": "8138930851",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203279790,
+      "name": "smartlegionlab/smart-2fa-manager-bash",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866786",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866786/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866786/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smart-2fa-manager-bash/releases/tag/v1.0.2",
+        "id": 305866786,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOR7iXrs4SOygi",
+        "tag_name": "v1.0.2",
+        "target_commitish": "master",
+        "name": "Smart 2fa Manager (Bash) v1.0.2",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-06T23:42:49Z",
+        "updated_at": "2026-04-06T23:46:25Z",
+        "published_at": "2026-04-06T23:46:25Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/tarball/v1.0.2",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/zipball/v1.0.2",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-2fa-manager-bash/compare/v1.0.1...v1.0.2",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-2fa-manager-bash/compare/v1.0.1...v1.0.2\"><tt>v1.0.1...v1.0.2</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-06T23:46:25Z"
+  },
+  {
+    "id": "8138927463",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203279790,
+      "name": "smartlegionlab/smart-2fa-manager-bash",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866757",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866757/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866757/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smart-2fa-manager-bash/releases/tag/v1.0.1",
+        "id": 305866757,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOR7iXrs4SOygF",
+        "tag_name": "v1.0.1",
+        "target_commitish": "master",
+        "name": "Smart 2fa Manager (Bash) v1.0.1",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-06T23:07:39Z",
+        "updated_at": "2026-04-06T23:46:14Z",
+        "published_at": "2026-04-06T23:46:14Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/tarball/v1.0.1",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/zipball/v1.0.1",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-2fa-manager-bash/compare/v1.0.0...v1.0.1",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-2fa-manager-bash/compare/v1.0.0...v1.0.1\"><tt>v1.0.0...v1.0.1</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-06T23:46:14Z"
+  },
+  {
+    "id": "8138923980",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203279790,
+      "name": "smartlegionlab/smart-2fa-manager-bash",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866727",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866727/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-2fa-manager-bash/releases/305866727/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smart-2fa-manager-bash/releases/tag/v1.0.0",
+        "id": 305866727,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOR7iXrs4SOyfn",
+        "tag_name": "v1.0.0",
+        "target_commitish": "master",
+        "name": "Smart 2fa Manager (Bash) v1.0.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-06T22:59:15Z",
+        "updated_at": "2026-04-06T23:46:01Z",
+        "published_at": "2026-04-06T23:46:01Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/tarball/v1.0.0",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash/zipball/v1.0.0",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-2fa-manager-bash/commits/v1.0.0",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a href=\"https://github.com/smartlegionlab/smart-2fa-manager-bash/commits/v1.0.0\">https://github.com/smartlegionlab/smart-2fa-manager-bash/commits/v1.0.0</a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-06T23:46:01Z"
+  },
+  {
+    "id": "10262274412",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203279790,
+      "name": "smartlegionlab/smart-2fa-manager-bash",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash"
+    },
+    "payload": {
+      "repository_id": 1203279790,
+      "push_id": 32555384123,
+      "ref": "refs/heads/master",
+      "head": "7af44efab17272c9f0262602bad183021d5d5222",
+      "before": "c3aca43dab9c351e18e131da5c05fd84e63a09a0"
+    },
+    "public": true,
+    "created_at": "2026-04-06T23:43:12Z"
+  },
+  {
+    "id": "10261462755",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203279790,
+      "name": "smartlegionlab/smart-2fa-manager-bash",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash"
+    },
+    "payload": {
+      "repository_id": 1203279790,
+      "push_id": 32554582472,
+      "ref": "refs/heads/master",
+      "head": "c3aca43dab9c351e18e131da5c05fd84e63a09a0",
+      "before": "da284fa45cd85cdefa4d583b2cdc30e23fb0f21d"
+    },
+    "public": true,
+    "created_at": "2026-04-06T23:07:54Z"
+  },
+  {
+    "id": "8138116137",
+    "type": "PublicEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1203279790,
+      "name": "smartlegionlab/smart-2fa-manager-bash",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-bash"
+    },
+    "payload": {},
+    "public": true,
+    "created_at": "2026-04-06T22:36:00Z"
+  },
+  {
     "id": "10222820563",
     "type": "PushEvent",
     "actor": {
@@ -156,307 +446,5 @@
     },
     "public": true,
     "created_at": "2026-04-03T01:11:51Z"
-  },
-  {
-    "id": "8054245126",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1047793052,
-      "name": "smartlegionlab/smart-password-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/releases/304913722",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/releases/304913722/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-password-manager/releases/304913722/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-password-manager/releases/tag/v1.3.3",
-        "id": 304913722,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOPnQNnM4SLJ06",
-        "tag_name": "v1.3.3",
-        "target_commitish": "master",
-        "name": "Smart Password Manager v1.3.3",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-04-03T00:00:41Z",
-        "updated_at": "2026-04-03T01:11:08Z",
-        "published_at": "2026-04-03T01:11:08Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/tarball/v1.3.3",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/zipball/v1.3.3",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-password-manager/compare/v1.3.2...v1.3.3",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-password-manager/compare/v1.3.2...v1.3.3\"><tt>v1.3.2...v1.3.3</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-04-03T01:11:08Z"
-  },
-  {
-    "id": "8054239530",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1047793052,
-      "name": "smartlegionlab/smart-password-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/releases/304913669",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/releases/304913669/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-password-manager/releases/304913669/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-password-manager/releases/tag/v1.3.2",
-        "id": 304913669,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOPnQNnM4SLJ0F",
-        "tag_name": "v1.3.2",
-        "target_commitish": "master",
-        "name": "Smart Password Manager v1.3.2",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-04-02T22:47:16Z",
-        "updated_at": "2026-04-03T01:10:46Z",
-        "published_at": "2026-04-03T01:10:46Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/tarball/v1.3.2",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager/zipball/v1.3.2",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-password-manager/compare/v1.3.1...v1.3.2",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-password-manager/compare/v1.3.1...v1.3.2\"><tt>v1.3.1...v1.3.2</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-04-03T01:10:46Z"
-  },
-  {
-    "id": "10141663954",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1047793052,
-      "name": "smartlegionlab/smart-password-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager"
-    },
-    "payload": {
-      "repository_id": 1047793052,
-      "push_id": 32434917334,
-      "ref": "refs/heads/master",
-      "head": "8324da45bc40b88e203075d7f632ddeeb003c1ac",
-      "before": "b4a1d17ab140517f9bf4d16c73666d5361271737"
-    },
-    "public": true,
-    "created_at": "2026-04-03T01:09:53Z"
-  },
-  {
-    "id": "10140343405",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1047793052,
-      "name": "smartlegionlab/smart-password-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager"
-    },
-    "payload": {
-      "repository_id": 1047793052,
-      "push_id": 32433596866,
-      "ref": "refs/heads/master",
-      "head": "b4a1d17ab140517f9bf4d16c73666d5361271737",
-      "before": "863244c68ebe849862040bbde14612bcd0677b61"
-    },
-    "public": true,
-    "created_at": "2026-04-03T00:00:52Z"
-  },
-  {
-    "id": "10138861077",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1047793052,
-      "name": "smartlegionlab/smart-password-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager"
-    },
-    "payload": {
-      "repository_id": 1047793052,
-      "push_id": 32432114083,
-      "ref": "refs/heads/master",
-      "head": "863244c68ebe849862040bbde14612bcd0677b61",
-      "before": "34f1e33a323f6cb947012dff90adbfed0beab523"
-    },
-    "public": true,
-    "created_at": "2026-04-02T22:47:42Z"
-  },
-  {
-    "id": "7691593263",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1123472452,
-      "name": "smartlegionlab/smart-repository-manager-cli",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/releases/300535268",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/releases/300535268/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-cli/releases/300535268/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-cli/releases/tag/v1.0.5",
-        "id": 300535268,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOQvbURM4R6c3k",
-        "tag_name": "v1.0.5",
-        "target_commitish": "master",
-        "name": "Smart Repository Manager CLI v1.0.5",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-03-24T07:08:47Z",
-        "updated_at": "2026-03-24T07:09:55Z",
-        "published_at": "2026-03-24T07:09:55Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/tarball/v1.0.5",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/zipball/v1.0.5",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-cli/compare/v1.0.4...v1.0.5",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-cli/compare/v1.0.4...v1.0.5\"><tt>v1.0.4...v1.0.5</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-03-24T07:09:55Z"
-  },
-  {
-    "id": "9741081219",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1123472452,
-      "name": "smartlegionlab/smart-repository-manager-cli",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli"
-    },
-    "payload": {
-      "repository_id": 1123472452,
-      "push_id": 32034485542,
-      "ref": "refs/heads/master",
-      "head": "b5f6d7b5cbb13fb2a79101d897b6c8fffc1410e0",
-      "before": "64830e16d406af7afc6bb5f0a73fecb8d9353a40"
-    },
-    "public": true,
-    "created_at": "2026-03-24T07:09:16Z"
   }
 ]
