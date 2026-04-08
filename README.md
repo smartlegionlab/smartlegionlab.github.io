@@ -1,4 +1,4 @@
-# 🌐 Alexander Suvorov - Automated Technical Portfolio <sup>v3.4.3</sup>
+# Alexander Suvorov - Automated Technical Portfolio <sup>v3.4.4</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![Academic Portfolio](https://img.shields.io/badge/Academic-alexander--suvorov.ru-purple?style=for-the-badge&logo=google-scholar)](https://alexander-suvorov.ru)
@@ -15,7 +15,17 @@
 
 ---
 
-## 🤖 Zero-Cost Automated Static Site Generator
+## ⚠️ Disclaimer
+
+**By using this software, you agree to the full disclaimer terms.**
+
+**Summary:** Software provided "AS IS" without warranty. You assume all risks.
+
+**Full legal disclaimer:** See [DISCLAIMER.md](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/DISCLAIMER.md)
+
+---
+
+## Zero-Cost Automated Static Site Generator
 
 **Serverless Static Site Generator with CI/CD**:
 
@@ -23,34 +33,34 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-green?logo=python)](https://python.org)
 [![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-orange?logo=github)](https://pages.github.com)
 
-### 🔄 How It Works
+### How It Works
 
 This site is **fully automated** — it builds and updates itself daily without any manual intervention or hosting costs!
 
 ![Diagram](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/diagram.png)
 
-### 🚀 Key Features
+### Key Features
 
 | Feature | How It Works | Benefit |
 |---------|--------------|---------|
-| **🤖 Fully Automated** | GitHub Actions cron job runs daily | Always up-to-date, zero manual work |
-| **📦 Dynamic Content** | Fetches live data from GitHub & PyPI APIs | Shows real repository/package info |
-| **⚡ Atomic Deployment** | Generates all pages in temp directory first | Never broken site — all or nothing |
-| **🗺️ Auto Sitemap** | Dynamically includes all pages | Perfect SEO, always current |
-| **💰 Zero Cost** | Hosted on GitHub Pages | Only pay for domain name |
-| **🔒 Secure** | No database, no backend | Static = unhackable |
+| **Fully Automated** | GitHub Actions cron job runs daily | Always up-to-date, zero manual work |
+| **Dynamic Content** | Fetches live data from GitHub & PyPI APIs | Shows real repository/package info |
+| **Atomic Deployment** | Generates all pages in temp directory first | Never broken site — all or nothing |
+| **Auto Sitemap** | Dynamically includes all pages | Perfect SEO, always current |
+| **Zero Cost** | Hosted on GitHub Pages | Only pay for domain name |
+| **Secure** | No database, no backend | Static = unhackable |
 
-### 📊 By The Numbers
+### By The Numbers
 
 ```
-📚 Repository Pages: 53+ (and growing)
-📦 Package Pages:   20+ PyPI packages
-📄 Static Pages:    11 core pages
-🤖 Updates:         Daily automatic
-💸 Hosting Cost:    $0 (only domain)
+Repository Pages: 53+ (and growing)
+Package Pages:   20+ PyPI packages
+Static Pages:    11 core pages
+Updates:         Daily automatic
+Hosting Cost:    $0 (only domain)
 ```
 
-### 🛠️ Tech Stack
+### Tech Stack
 
 ```python
 # The magic happens here ↓
@@ -66,7 +76,7 @@ This site is **fully automated** — it builds and updates itself daily without 
 ]
 ```
 
-### 🎯 What It Does
+### What It Does
 
 1. **Every day at midnight UTC**, GitHub Actions wakes up
 2. Fetches **live data** from GitHub and PyPI
@@ -76,7 +86,7 @@ This site is **fully automated** — it builds and updates itself daily without 
 6. If ANY error occurs — keeps old site untouched
 7. Deploys to **GitHub Pages** automatically
 
-### 💡 Why This Matters
+### Why This Matters
 
 > **"Build once, deploy manually" is so 2010.  
 > "Build automatically, host for free" is 2026.**
@@ -91,7 +101,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 
 ---
 
-## 🛠 Technology Stack: Under the Hood
+## Technology Stack: Under the Hood
 
 ### Frontend: The User Experience
 | Technology | Purpose |
@@ -123,7 +133,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 
 ---
 
-## 📁 Project Structure: A Deep Dive
+## Project Structure: A Deep Dive
 
 ```
 /
@@ -184,7 +194,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 
 ---
 
-## 🎯 The Main Sections: What You'll See
+## The Main Sections: What You'll See
 
 - **Hero Section**: Professional introduction with key metrics (Experience, Projects, Repos).
 - **Professional Profile**: Technical leadership, business impact, and published research.
@@ -200,7 +210,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 
 ---
 
-## 🚀 Local Development & Manual Build
+## Local Development & Manual Build
 
 You can run the entire build process locally to test changes.
 
@@ -243,7 +253,7 @@ You can run the entire build process locally to test changes.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](LICENSE) file for details.
 
