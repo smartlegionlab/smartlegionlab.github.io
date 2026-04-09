@@ -1,6 +1,28 @@
 [
   {
-    "id": "8185310389",
+    "id": "8186064660",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1204437476,
+      "name": "aixandrolab/smart-guitar-tuner-android",
+      "url": "https://api.github.com/repos/aixandrolab/smart-guitar-tuner-android"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2026-04-08T05:39:42Z"
+  },
+  {
+    "id": "8186006504",
     "type": "ReleaseEvent",
     "actor": {
       "id": 90581597,
@@ -11,18 +33,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1122902290,
-      "name": "smartlegionlab/smart-project-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-project-manager"
+      "id": 1168556616,
+      "name": "smartlegionlab/smart-pip-collector",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-pip-collector"
     },
     "payload": {
       "action": "published",
       "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-project-manager/releases/306401614",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-project-manager/releases/306401614/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-project-manager/releases/306401614/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-project-manager/releases/tag/v1.0.5",
-        "id": 306401614,
+        "url": "https://api.github.com/repos/smartlegionlab/smart-pip-collector/releases/306407922",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-pip-collector/releases/306407922/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-pip-collector/releases/306407922/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smart-pip-collector/releases/tag/v0.1.1",
+        "id": 306407922,
         "author": {
           "login": "smartlegionlab",
           "id": 90581597,
@@ -44,29 +66,161 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "node_id": "RE_kwDOQu4hEs4SQ1FO",
-        "tag_name": "v1.0.5",
+        "node_id": "RE_kwDORabCSM4SQ2ny",
+        "tag_name": "v0.1.1",
         "target_commitish": "master",
-        "name": "Smart Project Manager v1.0.5",
+        "name": "Smart Pip Collector v0.1.0",
         "draft": false,
         "immutable": false,
         "prerelease": false,
-        "created_at": "2026-04-08T05:03:48Z",
-        "updated_at": "2026-04-08T05:05:02Z",
-        "published_at": "2026-04-08T05:05:02Z",
+        "created_at": "2026-04-08T05:30:17Z",
+        "updated_at": "2026-04-08T05:37:02Z",
+        "published_at": "2026-04-08T05:37:02Z",
         "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-project-manager/tarball/v1.0.5",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-project-manager/zipball/v1.0.5",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-project-manager/compare/v1.0.4...v1.0.5",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-project-manager/compare/v1.0.4...v1.0.5\"><tt>v1.0.4...v1.0.5</tt></a></p>",
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-pip-collector/tarball/v0.1.1",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-pip-collector/zipball/v0.1.1",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-pip-collector/compare/v0.1.0...v0.1.1",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-pip-collector/compare/v0.1.0...v0.1.1\"><tt>v0.1.0...v0.1.1</tt></a></p>",
         "is_short_description_html_truncated": false
       }
     },
     "public": true,
-    "created_at": "2026-04-08T05:05:02Z"
+    "created_at": "2026-04-08T05:37:02Z"
   },
   {
-    "id": "10315486216",
+    "id": "8185998946",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 808102694,
+      "name": "smartlegionlab/clipassman",
+      "url": "https://api.github.com/repos/smartlegionlab/clipassman"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/clipassman/releases/306407843",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/clipassman/releases/306407843/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/clipassman/releases/306407843/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/clipassman/releases/tag/v2.2.2",
+        "id": 306407843,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOMCqrJs4SQ2mj",
+        "tag_name": "v2.2.2",
+        "target_commitish": "master",
+        "name": "Console Smart Password Manager v2.2.2",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-08T05:35:18Z",
+        "updated_at": "2026-04-08T05:36:42Z",
+        "published_at": "2026-04-08T05:36:42Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/clipassman/tarball/v2.2.2",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/clipassman/zipball/v2.2.2",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/clipassman/compare/v2.2.1...v2.2.2",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/clipassman/compare/v2.2.1...v2.2.2\"><tt>v2.2.1...v2.2.2</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-08T05:36:42Z"
+  },
+  {
+    "id": "8185991788",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 800865237,
+      "name": "smartlegionlab/clipassgen",
+      "url": "https://api.github.com/repos/smartlegionlab/clipassgen"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/clipassgen/releases/306407753",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/clipassgen/releases/306407753/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/clipassgen/releases/306407753/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/clipassgen/releases/tag/v2.1.6",
+        "id": 306407753,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOL7w71c4SQ2lJ",
+        "tag_name": "v2.1.6",
+        "target_commitish": "master",
+        "name": "Console Smart Password Generator v2.1.6",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-08T05:33:14Z",
+        "updated_at": "2026-04-08T05:36:24Z",
+        "published_at": "2026-04-08T05:36:24Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/clipassgen/tarball/v2.1.6",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/clipassgen/zipball/v2.1.6",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/clipassgen/compare/v2.1.5...v2.1.6",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/clipassgen/compare/v2.1.5...v2.1.6\"><tt>v2.1.5...v2.1.6</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-08T05:36:24Z"
+  },
+  {
+    "id": "10316258697",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -77,88 +231,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1122902290,
-      "name": "smartlegionlab/smart-project-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-project-manager"
+      "id": 808102694,
+      "name": "smartlegionlab/clipassman",
+      "url": "https://api.github.com/repos/smartlegionlab/clipassman"
     },
     "payload": {
-      "repository_id": 1122902290,
-      "push_id": 32608287989,
+      "repository_id": 808102694,
+      "push_id": 32609061360,
       "ref": "refs/heads/master",
-      "head": "2d239a3f910dd7a9fc0c393a5da35e8f24fe789f",
-      "before": "5445a88588078064001923d046717b1166321e87"
+      "head": "beee24b8914f5c8e2ca2395ab16d14af0eeed91d",
+      "before": "9687dc159b0116d2d9b8a6d5bcf33a1e8dac4db6"
     },
     "public": true,
-    "created_at": "2026-04-08T05:04:02Z"
+    "created_at": "2026-04-08T05:35:34Z"
   },
   {
-    "id": "8185201582",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1123454870,
-      "name": "smartlegionlab/smart-repository-manager-core",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/306400622",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/306400622/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/306400622/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-core/releases/tag/v0.3.5",
-        "id": 306400622,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOQvaPls4SQ01u",
-        "tag_name": "v0.3.5",
-        "target_commitish": "master",
-        "name": "Smart Repository Manager Core v0.3.5",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-04-08T04:58:58Z",
-        "updated_at": "2026-04-08T04:59:42Z",
-        "published_at": "2026-04-08T04:59:42Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/tarball/v0.3.5",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/zipball/v0.3.5",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-core/compare/v0.3.4...v0.3.5",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-core/compare/v0.3.4...v0.3.5\"><tt>v0.3.4...v0.3.5</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-04-08T04:59:42Z"
-  },
-  {
-    "id": "10315355792",
+    "id": "10316211166",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -169,154 +257,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1123454870,
-      "name": "smartlegionlab/smart-repository-manager-core",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core"
+      "id": 800865237,
+      "name": "smartlegionlab/clipassgen",
+      "url": "https://api.github.com/repos/smartlegionlab/clipassgen"
     },
     "payload": {
-      "repository_id": 1123454870,
-      "push_id": 32608156038,
+      "repository_id": 800865237,
+      "push_id": 32609013481,
       "ref": "refs/heads/master",
-      "head": "4bc5227fbf4a940525d35c0d35ce330ad1ea3330",
-      "before": "d440d94d0046297a0400f054abb81fdb9b36972d"
+      "head": "dcc48dabc13c80b1cc0e98bbe4bc8a9f7a292504",
+      "before": "395fe826737da016fbdcc66b903f12ea1e5100b4"
     },
     "public": true,
-    "created_at": "2026-04-08T04:59:12Z"
+    "created_at": "2026-04-08T05:33:36Z"
   },
   {
-    "id": "8185151259",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/306400129",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/306400129/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/306400129/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-gui/releases/tag/v1.2.3",
-        "id": 306400129,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOROUL684SQ0uB",
-        "tag_name": "v1.2.3",
-        "target_commitish": "master",
-        "name": "Smart Repository Manager GUI v1.2.3",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-04-08T04:56:15Z",
-        "updated_at": "2026-04-08T04:57:10Z",
-        "published_at": "2026-04-08T04:57:10Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/tarball/v1.2.3",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/zipball/v1.2.3",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.2...v1.2.3",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.2...v1.2.3\"><tt>v1.2.2...v1.2.3</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-04-08T04:57:10Z"
-  },
-  {
-    "id": "8185147783",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/306400095",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/306400095/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/306400095/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-gui/releases/tag/v1.2.2",
-        "id": 306400095,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOROUL684SQ0tf",
-        "tag_name": "v1.2.2",
-        "target_commitish": "master",
-        "name": "Smart Repository Manager GUI v1.2.2",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-03-23T05:12:47Z",
-        "updated_at": "2026-04-08T04:56:58Z",
-        "published_at": "2026-04-08T04:56:58Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/tarball/v1.2.2",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/zipball/v1.2.2",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.1...v1.2.2",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.1...v1.2.2\"><tt>v1.2.1...v1.2.2</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-04-08T04:56:58Z"
-  },
-  {
-    "id": "10315291073",
+    "id": "10316137179",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -327,22 +283,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
+      "id": 1168556616,
+      "name": "smartlegionlab/smart-pip-collector",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-pip-collector"
     },
     "payload": {
-      "repository_id": 1155861483,
-      "push_id": 32608092790,
+      "repository_id": 1168556616,
+      "push_id": 32608937360,
       "ref": "refs/heads/master",
-      "head": "96021782109f6e790dc4819b337834ceafd06926",
-      "before": "fe997ee21aba19f0f9e8bdeb8c63149712be8079"
+      "head": "02031c3f019f81ac418121fac7c8bd6bfc93c2f7",
+      "before": "5b6317bb6c61e5cbd7f6cad60a61e630b0e0a8ed"
     },
     "public": true,
-    "created_at": "2026-04-08T04:56:32Z"
+    "created_at": "2026-04-08T05:30:32Z"
   },
   {
-    "id": "8185033644",
+    "id": "8185718708",
     "type": "ReleaseEvent",
     "actor": {
       "id": 90581597,
@@ -353,18 +309,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1123454870,
-      "name": "smartlegionlab/smart-repository-manager-core",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core"
+      "id": 816604148,
+      "name": "smartlegionlab/github-repos-backup-tools",
+      "url": "https://api.github.com/repos/smartlegionlab/github-repos-backup-tools"
     },
     "payload": {
       "action": "published",
       "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/306399025",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/306399025/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-core/releases/306399025/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-core/releases/tag/v0.3.4",
-        "id": 306399025,
+        "url": "https://api.github.com/repos/smartlegionlab/github-repos-backup-tools/releases/306405281",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/github-repos-backup-tools/releases/306405281/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/github-repos-backup-tools/releases/306405281/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/github-repos-backup-tools/releases/tag/v1.6.2",
+        "id": 306405281,
         "author": {
           "login": "smartlegionlab",
           "id": 90581597,
@@ -386,29 +342,29 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "node_id": "RE_kwDOQvaPls4SQ0cx",
-        "tag_name": "v0.3.4",
+        "node_id": "RE_kwDOMKxj9M4SQ1-h",
+        "tag_name": "v1.6.2",
         "target_commitish": "master",
-        "name": "Smart Repository Manager Core v0.3.4",
+        "name": "GitHub Repositories Backup Tools v1.6.2",
         "draft": false,
         "immutable": false,
         "prerelease": false,
-        "created_at": "2026-04-08T04:50:15Z",
-        "updated_at": "2026-04-08T04:51:21Z",
-        "published_at": "2026-04-08T04:51:21Z",
+        "created_at": "2026-04-08T05:22:47Z",
+        "updated_at": "2026-04-08T05:23:44Z",
+        "published_at": "2026-04-08T05:23:44Z",
         "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/tarball/v0.3.4",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core/zipball/v0.3.4",
-        "body": "",
-        "short_description_html": "",
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/github-repos-backup-tools/tarball/v1.6.2",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/github-repos-backup-tools/zipball/v1.6.2",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/github-repos-backup-tools/compare/v1.6.1...v1.6.2",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/github-repos-backup-tools/compare/v1.6.1...v1.6.2\"><tt>v1.6.1...v1.6.2</tt></a></p>",
         "is_short_description_html_truncated": false
       }
     },
     "public": true,
-    "created_at": "2026-04-08T04:51:21Z"
+    "created_at": "2026-04-08T05:23:44Z"
   },
   {
-    "id": "10315145614",
+    "id": "10315950897",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -419,23 +375,23 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1123454870,
-      "name": "smartlegionlab/smart-repository-manager-core",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-core"
+      "id": 816604148,
+      "name": "smartlegionlab/github-repos-backup-tools",
+      "url": "https://api.github.com/repos/smartlegionlab/github-repos-backup-tools"
     },
     "payload": {
-      "repository_id": 1123454870,
-      "push_id": 32607947073,
+      "repository_id": 816604148,
+      "push_id": 32608752982,
       "ref": "refs/heads/master",
-      "head": "d440d94d0046297a0400f054abb81fdb9b36972d",
-      "before": "e08d7ced05233dd93932422052fae6c169824a06"
+      "head": "5962d267999bcb3bd82c330e02978f44dd9efc01",
+      "before": "7bd842ee042b63c14c59972dc9283023bfec3788"
     },
     "public": true,
-    "created_at": "2026-04-08T04:50:34Z"
+    "created_at": "2026-04-08T05:23:03Z"
   },
   {
-    "id": "8184870329",
-    "type": "ReleaseEvent",
+    "id": "10315792002",
+    "type": "PushEvent",
     "actor": {
       "id": 90581597,
       "login": "smartlegionlab",
@@ -445,58 +401,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1123472452,
-      "name": "smartlegionlab/smart-repository-manager-cli",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli"
+      "id": 1059067065,
+      "name": "smartlegionlab/smart-social-network",
+      "url": "https://api.github.com/repos/smartlegionlab/smart-social-network"
     },
     "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/releases/306397492",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/releases/306397492/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-cli/releases/306397492/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-cli/releases/tag/v1.0.6",
-        "id": 306397492,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOQvbURM4SQ0E0",
-        "tag_name": "v1.0.6",
-        "target_commitish": "master",
-        "name": "Smart Repository Manager CLI v1.0.6",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-04-08T04:42:31Z",
-        "updated_at": "2026-04-08T04:43:28Z",
-        "published_at": "2026-04-08T04:43:28Z",
-        "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/tarball/v1.0.6",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-cli/zipball/v1.0.6",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-cli/compare/v1.0.5...v1.0.6",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-cli/compare/v1.0.5...v1.0.6\"><tt>v1.0.5...v1.0.6</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
+      "repository_id": 1059067065,
+      "push_id": 32608592778,
+      "ref": "refs/heads/master",
+      "head": "6ffb2c37a1e6d758cf3815ccb5a37e02b7d96cbf",
+      "before": "a92502d51287cdf06d4ab655ad3e7108448c9459"
     },
     "public": true,
-    "created_at": "2026-04-08T04:43:28Z"
+    "created_at": "2026-04-08T05:16:43Z"
   }
 ]
