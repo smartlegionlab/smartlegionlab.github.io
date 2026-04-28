@@ -1,6 +1,6 @@
 [
   {
-    "id": "8715511761",
+    "id": "8832165135",
     "type": "ReleaseEvent",
     "actor": {
       "id": 90581597,
@@ -11,18 +11,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1158801281,
-      "name": "smartlegionlab/smart-file-duplicate-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-file-duplicate-manager"
+      "id": 1211123429,
+      "name": "smartlegionlab/smartpasslib-kotlin",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-kotlin"
     },
     "payload": {
       "action": "published",
       "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-file-duplicate-manager/releases/312746666",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-file-duplicate-manager/releases/312746666/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-file-duplicate-manager/releases/312746666/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-file-duplicate-manager/releases/tag/v1.2.3",
-        "id": 312746666,
+        "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-kotlin/releases/314102416",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-kotlin/releases/314102416/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartpasslib-kotlin/releases/314102416/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartpasslib-kotlin/releases/tag/v1.0.3",
+        "id": 314102416,
         "author": {
           "login": "smartlegionlab",
           "id": 90581597,
@@ -44,29 +44,29 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "node_id": "RE_kwDORRHngc4SpCKq",
-        "tag_name": "v1.2.3",
+        "node_id": "RE_kwDOSDBG5c4SuNKQ",
+        "tag_name": "v1.0.3",
         "target_commitish": "master",
-        "name": "Smart File Duplicate Manager v1.2.3",
+        "name": "smartpasslib v1.0.3",
         "draft": false,
         "immutable": false,
         "prerelease": false,
-        "created_at": "2026-04-23T13:34:04Z",
-        "updated_at": "2026-04-23T13:37:10Z",
-        "published_at": "2026-04-23T13:37:10Z",
+        "created_at": "2026-04-27T14:35:23Z",
+        "updated_at": "2026-04-27T14:36:30Z",
+        "published_at": "2026-04-27T14:36:30Z",
         "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-file-duplicate-manager/tarball/v1.2.3",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-file-duplicate-manager/zipball/v1.2.3",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-file-duplicate-manager/compare/v1.2.2...v1.2.3",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-file-duplicate-manager/compare/v1.2.2...v1.2.3\"><tt>v1.2.2...v1.2.3</tt></a></p>",
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-kotlin/tarball/v1.0.3",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-kotlin/zipball/v1.0.3",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartpasslib-kotlin/compare/v1.0.2...v1.0.3",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartpasslib-kotlin/compare/v1.0.2...v1.0.3\"><tt>v1.0.2...v1.0.3</tt></a></p>",
         "is_short_description_html_truncated": false
       }
     },
     "public": true,
-    "created_at": "2026-04-23T13:37:10Z"
+    "created_at": "2026-04-27T14:36:30Z"
   },
   {
-    "id": "10952234878",
+    "id": "11103420795",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -77,48 +77,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1158801281,
-      "name": "smartlegionlab/smart-file-duplicate-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-file-duplicate-manager"
+      "id": 1211123429,
+      "name": "smartlegionlab/smartpasslib-kotlin",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-kotlin"
     },
     "payload": {
-      "repository_id": 1158801281,
-      "push_id": 33243944286,
+      "repository_id": 1211123429,
+      "push_id": 33395136038,
       "ref": "refs/heads/master",
-      "head": "a739e21c0993e5f5f9b2208962257c0fc78c7d39",
-      "before": "c5e191432beb4281dda18227c2d2df125fbcc5da"
+      "head": "6568ca482418ab7400156a67d3c0b6599b9b9839",
+      "before": "d98838a997c8076b949f14924ef4dc0fd0ea5e20"
     },
     "public": true,
-    "created_at": "2026-04-23T13:34:56Z"
+    "created_at": "2026-04-27T14:35:35Z"
   },
   {
-    "id": "10933997198",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 794527925,
-      "name": "smartlegionlab/smartlegionlab",
-      "url": "https://api.github.com/repos/smartlegionlab/smartlegionlab"
-    },
-    "payload": {
-      "repository_id": 794527925,
-      "push_id": 33225705952,
-      "ref": "refs/heads/master",
-      "head": "d2401050ff6b4f202080f2566d7fe4928adf8d40",
-      "before": "50a9addc048d077ec9af1fef58f7fbcbe2fe790b"
-    },
-    "public": true,
-    "created_at": "2026-04-23T05:15:01Z"
-  },
-  {
-    "id": "8698800101",
+    "id": "8831978912",
     "type": "ReleaseEvent",
     "actor": {
       "id": 90581597,
@@ -129,18 +103,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 814936753,
-      "name": "smartlegionlab/smart-password-manager-desktop",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager-desktop"
+      "id": 1211092808,
+      "name": "smartlegionlab/smartpasslib-js",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-js"
     },
     "payload": {
       "action": "published",
       "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager-desktop/releases/312553819",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager-desktop/releases/312553819/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-password-manager-desktop/releases/312553819/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-password-manager-desktop/releases/tag/v3.1.0",
-        "id": 312553819,
+        "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-js/releases/314100115",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-js/releases/314100115/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartpasslib-js/releases/314100115/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartpasslib-js/releases/tag/v1.0.2",
+        "id": 314100115,
         "author": {
           "login": "smartlegionlab",
           "id": 90581597,
@@ -162,29 +136,29 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "node_id": "RE_kwDOMJLysc4SoTFb",
-        "tag_name": "v3.1.0",
+        "node_id": "RE_kwDOSC_PSM4SuMmT",
+        "tag_name": "v1.0.2",
         "target_commitish": "master",
-        "name": "Smart Password Manager Desktop v3.1.0",
+        "name": "smartpasslib v1.0.2",
         "draft": false,
         "immutable": false,
         "prerelease": false,
-        "created_at": "2026-04-23T05:10:02Z",
-        "updated_at": "2026-04-23T05:12:00Z",
-        "published_at": "2026-04-23T05:12:00Z",
+        "created_at": "2026-04-27T14:29:46Z",
+        "updated_at": "2026-04-27T14:31:57Z",
+        "published_at": "2026-04-27T14:31:57Z",
         "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager-desktop/tarball/v3.1.0",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-password-manager-desktop/zipball/v3.1.0",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-password-manager-desktop/compare/v3.0.3...v3.1.0",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-password-manager-desktop/compare/v3.0.3...v3.1.0\"><tt>v3.0.3...v3.1.0</tt></a></p>",
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-js/tarball/v1.0.2",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-js/zipball/v1.0.2",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartpasslib-js/compare/v1.0.1...v1.0.2",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartpasslib-js/compare/v1.0.1...v1.0.2\"><tt>v1.0.1...v1.0.2</tt></a></p>",
         "is_short_description_html_truncated": false
       }
     },
     "public": true,
-    "created_at": "2026-04-23T05:12:00Z"
+    "created_at": "2026-04-27T14:31:57Z"
   },
   {
-    "id": "10933914373",
+    "id": "11103165263",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -195,48 +169,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 814936753,
-      "name": "smartlegionlab/smart-password-manager-desktop",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-password-manager-desktop"
+      "id": 1211092808,
+      "name": "smartlegionlab/smartpasslib-js",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-js"
     },
     "payload": {
-      "repository_id": 814936753,
-      "push_id": 33225623034,
+      "repository_id": 1211092808,
+      "push_id": 33394880776,
       "ref": "refs/heads/master",
-      "head": "bfc957fc21b7e26e650aa151fd2e926db887052f",
-      "before": "e87e50576e9bfe774c2b670862c059fbeea9ccc5"
+      "head": "ae31378163ba04e4aa42210d408bb72717f24fec",
+      "before": "6e1adf80291c1ac3b36541f7ff495548be011bf4"
     },
     "public": true,
-    "created_at": "2026-04-23T05:11:31Z"
+    "created_at": "2026-04-27T14:30:01Z"
   },
   {
-    "id": "10901967130",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1122902290,
-      "name": "smartlegionlab/smart-project-manager",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-project-manager"
-    },
-    "payload": {
-      "repository_id": 1122902290,
-      "push_id": 33193743310,
-      "ref": "refs/heads/master",
-      "head": "7da1c8477a9dbce724629baf9fddf3593308ac49",
-      "before": "2d239a3f910dd7a9fc0c393a5da35e8f24fe789f"
-    },
-    "public": true,
-    "created_at": "2026-04-22T12:57:02Z"
-  },
-  {
-    "id": "8673930458",
+    "id": "8831637783",
     "type": "ReleaseEvent",
     "actor": {
       "id": 90581597,
@@ -247,18 +195,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
+      "id": 1211160169,
+      "name": "smartlegionlab/smartpasslib-go",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-go"
     },
     "payload": {
       "action": "published",
       "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/312204817",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/312204817/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-repository-manager-gui/releases/312204817/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-repository-manager-gui/releases/tag/v1.2.5",
-        "id": 312204817,
+        "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-go/releases/314095597",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-go/releases/314095597/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartpasslib-go/releases/314095597/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartpasslib-go/releases/tag/v1.0.1",
+        "id": 314095597,
         "author": {
           "login": "smartlegionlab",
           "id": 90581597,
@@ -280,29 +228,29 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "node_id": "RE_kwDOROUL684Sm94R",
-        "tag_name": "v1.2.5",
+        "node_id": "RE_kwDOSDDWac4SuLft",
+        "tag_name": "v1.0.1",
         "target_commitish": "master",
-        "name": "Smart Repository Manager GUI v1.2.5",
+        "name": "smartpasslib v1.0.1",
         "draft": false,
         "immutable": false,
         "prerelease": false,
-        "created_at": "2026-04-22T12:30:56Z",
-        "updated_at": "2026-04-22T12:31:59Z",
-        "published_at": "2026-04-22T12:31:59Z",
+        "created_at": "2026-04-27T14:22:15Z",
+        "updated_at": "2026-04-27T14:23:29Z",
+        "published_at": "2026-04-27T14:23:29Z",
         "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/tarball/v1.2.5",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui/zipball/v1.2.5",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.4...v1.2.5",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-repository-manager-gui/compare/v1.2.4...v1.2.5\"><tt>v1.2.4...v1.2.5</tt></a></p>",
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-go/tarball/v1.0.1",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-go/zipball/v1.0.1",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartpasslib-go/compare/v1.0.0...v1.0.1",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartpasslib-go/compare/v1.0.0...v1.0.1\"><tt>v1.0.0...v1.0.1</tt></a></p>",
         "is_short_description_html_truncated": false
       }
     },
     "public": true,
-    "created_at": "2026-04-22T12:31:59Z"
+    "created_at": "2026-04-27T14:23:29Z"
   },
   {
-    "id": "10900920225",
+    "id": "11102826832",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -313,22 +261,22 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1155861483,
-      "name": "smartlegionlab/smart-repository-manager-gui",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-repository-manager-gui"
+      "id": 1211160169,
+      "name": "smartlegionlab/smartpasslib-go",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-go"
     },
     "payload": {
-      "repository_id": 1155861483,
-      "push_id": 33192696744,
+      "repository_id": 1211160169,
+      "push_id": 33394542962,
       "ref": "refs/heads/master",
-      "head": "451afbf9e6d4972d9f15aee777bf58951c9f8cbc",
-      "before": "5f2360903d11ed580b04ed9b6fabf3fe1d556a8e"
+      "head": "aefb0d72375fdded93e22a9e729813cb55816871",
+      "before": "10226a10f737f966309a52fe136cafb0c0f670d2"
     },
     "public": true,
-    "created_at": "2026-04-22T12:31:19Z"
+    "created_at": "2026-04-27T14:22:32Z"
   },
   {
-    "id": "8671947516",
+    "id": "8831445217",
     "type": "ReleaseEvent",
     "actor": {
       "id": 90581597,
@@ -339,18 +287,18 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1203319636,
-      "name": "smartlegionlab/smart-2fa-manager-desktop",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-desktop"
+      "id": 1212115024,
+      "name": "smartlegionlab/smartpasslib-csharp",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-csharp"
     },
     "payload": {
       "action": "published",
       "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-desktop/releases/312176649",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-desktop/releases/312176649/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smart-2fa-manager-desktop/releases/312176649/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/smart-2fa-manager-desktop/releases/tag/v1.1.3",
-        "id": 312176649,
+        "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-csharp/releases/314093263",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-csharp/releases/314093263/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/smartpasslib-csharp/releases/314093263/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/smartpasslib-csharp/releases/tag/v1.0.4",
+        "id": 314093263,
         "author": {
           "login": "smartlegionlab",
           "id": 90581597,
@@ -372,29 +320,29 @@
           "user_view_type": "public",
           "site_admin": false
         },
-        "node_id": "RE_kwDOR7kzVM4Sm3AJ",
-        "tag_name": "v1.1.3",
+        "node_id": "RE_kwDOSD9oUM4SuK7P",
+        "tag_name": "v1.0.4",
         "target_commitish": "master",
-        "name": "Smart 2fa Manager (Desktop) v1.1.3",
+        "name": "SmartPassLib v1.0.4",
         "draft": false,
         "immutable": false,
         "prerelease": false,
-        "created_at": "2026-04-22T11:20:30Z",
-        "updated_at": "2026-04-22T11:21:45Z",
-        "published_at": "2026-04-22T11:21:45Z",
+        "created_at": "2026-04-27T14:14:23Z",
+        "updated_at": "2026-04-27T14:18:47Z",
+        "published_at": "2026-04-27T14:18:47Z",
         "assets": [],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-desktop/tarball/v1.1.3",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-desktop/zipball/v1.1.3",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/smart-2fa-manager-desktop/compare/v1.1.2...v1.1.3",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smart-2fa-manager-desktop/compare/v1.1.2...v1.1.3\"><tt>v1.1.2...v1.1.3</tt></a></p>",
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-csharp/tarball/v1.0.4",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/smartpasslib-csharp/zipball/v1.0.4",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/smartpasslib-csharp/compare/v1.0.3...v1.0.4",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/smartpasslib-csharp/compare/v1.0.3...v1.0.4\"><tt>v1.0.3...v1.0.4</tt></a></p>",
         "is_short_description_html_truncated": false
       }
     },
     "public": true,
-    "created_at": "2026-04-22T11:21:45Z"
+    "created_at": "2026-04-27T14:18:47Z"
   },
   {
-    "id": "10898234096",
+    "id": "11102593448",
     "type": "PushEvent",
     "actor": {
       "id": 90581597,
@@ -405,18 +353,147 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
     },
     "repo": {
-      "id": 1203319636,
-      "name": "smartlegionlab/smart-2fa-manager-desktop",
-      "url": "https://api.github.com/repos/smartlegionlab/smart-2fa-manager-desktop"
+      "id": 1212115024,
+      "name": "smartlegionlab/smartpasslib-csharp",
+      "url": "https://api.github.com/repos/smartlegionlab/smartpasslib-csharp"
     },
     "payload": {
-      "repository_id": 1203319636,
-      "push_id": 33190010346,
+      "repository_id": 1212115024,
+      "push_id": 33394309723,
       "ref": "refs/heads/master",
-      "head": "3acaaabebcc45c0f162af802d8abda140bac5d80",
-      "before": "eae47f5a3a6165adc33c741870361c2366c84493"
+      "head": "29180fe8f9508828b479f7cbf57496d522a3e243",
+      "before": "8b67cdf3a77c76ce897816cc53ca25e3a6a5823e"
     },
     "public": true,
-    "created_at": "2026-04-22T11:20:53Z"
+    "created_at": "2026-04-27T14:17:24Z"
+  },
+  {
+    "id": "8831023100",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1215531019,
+      "name": "smartlegionlab/SmartPasswordManagerCsharpDesktop",
+      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop/releases/314087735",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop/releases/314087735/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop/releases/314087735/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop/releases/tag/v1.1.1",
+        "id": 314087735,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOSHOIC84SuJk3",
+        "tag_name": "v1.1.1",
+        "target_commitish": "master",
+        "name": "Smart Password Manager Desktop (C#) v1.1.1",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-27T14:05:25Z",
+        "updated_at": "2026-04-27T14:08:10Z",
+        "published_at": "2026-04-27T14:08:10Z",
+        "assets": [
+          {
+            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop/releases/assets/406634073",
+            "id": 406634073,
+            "node_id": "RA_kwDOSHOIC84YPL5Z",
+            "name": "SmartPasswordManagerCsharpDesktop.exe",
+            "label": null,
+            "uploader": {
+              "login": "smartlegionlab",
+              "id": 90581597,
+              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smartlegionlab",
+              "html_url": "https://github.com/smartlegionlab",
+              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "content_type": "application/x-msdownload",
+            "state": "uploaded",
+            "size": 116656738,
+            "digest": "sha256:337de8f55ed0d71e65a49b6f417a286832d7d7e4df202560ec70e191eb4f71c6",
+            "download_count": 1,
+            "created_at": "2026-04-27T14:07:54Z",
+            "updated_at": "2026-04-27T14:08:08Z",
+            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop/releases/download/v1.1.1/SmartPasswordManagerCsharpDesktop.exe"
+          }
+        ],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop/tarball/v1.1.1",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop/zipball/v1.1.1",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop/compare/v1.1.0...v1.1.1",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop/compare/v1.1.0...v1.1.1\"><tt>v1.1.0...v1.1.1</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-27T14:08:10Z"
+  },
+  {
+    "id": "11102126190",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1215531019,
+      "name": "smartlegionlab/SmartPasswordManagerCsharpDesktop",
+      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop"
+    },
+    "payload": {
+      "repository_id": 1215531019,
+      "push_id": 33393843305,
+      "ref": "refs/heads/master",
+      "head": "741ff3b1b9e4e988fc97a9b890caa7a04616332d",
+      "before": "dc2ca337b70753dac99a471e581c98d2864f0edc"
+    },
+    "public": true,
+    "created_at": "2026-04-27T14:07:13Z"
   }
 ]
