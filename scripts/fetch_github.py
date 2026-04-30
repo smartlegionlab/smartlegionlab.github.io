@@ -60,28 +60,6 @@ def fetch_github_repos():
         print("✅ Existing data preserved.")
 
 
-def fetch_github_events():
-    print("Fetching recent GitHub events...")
-
-    url = "https://api.github.com/users/smartlegionlab/events?per_page=10"
-
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
-
-        events = response.json()
-
-        os.makedirs('data', exist_ok=True)
-
-        with open('data/events.json', 'w', encoding='utf-8') as f:
-            json.dump(events, f, indent=2, ensure_ascii=False)
-
-        print(f"✅ Saved {len(events)} recent events to data/events.json")
-
-    except requests.exceptions.RequestException as e:
-        print(f"⚠️ Error fetching events: {e}")
-
-
 def fetch_all_github_data():
     print("=" * 50)
     print("Starting GitHub data fetch...")
@@ -89,7 +67,6 @@ def fetch_all_github_data():
 
     user_info = fetch_github_user_info()
     fetch_github_repos()
-    fetch_github_events()
 
     if user_info:
         print("\n📊 GitHub Profile Summary:")

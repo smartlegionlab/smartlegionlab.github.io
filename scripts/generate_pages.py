@@ -14,74 +14,7 @@ def format_date(date_string):
         return date_string[:10]
 
 
-
-def calculate_repo_score(repo):
-    stars = repo.get('stargazers_count', 0)
-    forks = repo.get('forks_count', 0)
-    watchers = repo.get('watchers_count', 0)
-
-    return (stars * 3) + (forks * 2) + watchers
-
-
-def calculate_article_score(article):
-    reactions = article.get('positive_reactions_count', 0)
-    comments = article.get('comments_count', 0)
-    views = article.get('page_views_count', 0)
-
-    return (reactions * 3) + (comments * 2) + (views // 10)
-
-
-def calculate_package_score(package):
-    version_count = len(package.get('versions', [])) if isinstance(package.get('versions'), list) else 0
-    score = version_count * 2
-
-    if package.get('requires_dist'):
-        score += len(package['requires_dist'])
-
-    return score
-
-
-def get_top_repos(repos, n=6):
-    if not repos:
-        return []
-
-    active_repos = [r for r in repos if not r.get('archived')]
-
-    for repo in active_repos:
-        repo['score'] = calculate_repo_score(repo)
-
-    sorted_repos = sorted(active_repos, key=lambda x: x['score'], reverse=True)
-
-    return sorted_repos[:n]
-
-
-def get_top_articles(articles, n=6):
-    if not articles:
-        return []
-
-    for article in articles:
-        article['score'] = calculate_article_score(article)
-
-    sorted_articles = sorted(articles, key=lambda x: x['score'], reverse=True)
-
-    return sorted_articles[:n]
-
-
-def get_top_packages(packages, n=6):
-    if not packages:
-        return []
-
-    valid_packages = [p for p in packages if not p.get('error')]
-
-    for package in valid_packages:
-        package['score'] = calculate_package_score(package)
-
-    sorted_packages = sorted(valid_packages, key=lambda x: x['score'], reverse=True)
-
-    return sorted_packages[:n]
-
-
-def generate_repo_cards(repos, is_featured=False):
+def generate_repo_cards(repos):
     cards = []
     colors = {
         'Python': '#3572A5', 'JavaScript': '#f1e05a', 'HTML': '#e34c26',
@@ -95,11 +28,8 @@ def generate_repo_cards(repos, is_featured=False):
         if repo.get('archived'): continue
         color = colors.get(repo.get('language'), '#8b949e')
 
-        featured_badge = '<span class="repo-badge bg-warning"><i class="bi bi-star-fill"></i> Featured</span>' if is_featured else ''
-
         card = f'''        <div class="repo-card">
             <div class="repo-badges">
-                {featured_badge}
                 {f'<span class="repo-badge bg-secondary">Fork</span>' if repo.get('fork') else ''}
                 {f'<span class="repo-badge bg-danger">Archived</span>' if repo.get('archived') else ''}
                 {f'<span class="repo-badge bg-warning">Private</span>' if repo.get('private') else ''}
@@ -135,7 +65,7 @@ def generate_repo_cards(repos, is_featured=False):
     return '\n'.join(cards)
 
 
-def generate_article_cards(articles, is_featured=False):
+def generate_article_cards(articles):
     cards = []
     for article in articles:
         published_date = format_date(article.get('published_at'))
@@ -144,8 +74,6 @@ def generate_article_cards(articles, is_featured=False):
         is_popular = article.get('positive_reactions_count', 0) > 10
         has_discussion = article.get('comments_count', 0) > 5
         author_name = article.get('user', {}).get('name', 'Alexander Suvorov')
-
-        featured_badge = '<span class="repo-badge bg-warning"><i class="bi bi-star-fill"></i> Featured</span>' if is_featured else ''
 
         topics_block = ''
         if article.get('tag_list'):
@@ -157,7 +85,6 @@ def generate_article_cards(articles, is_featured=False):
 
         card = f'''        <div class="repo-card">
             <div class="repo-badges">
-                {featured_badge}
                 {f'<span class="repo-badge bg-success">Popular</span>' if is_popular else ''}
                 {f'<span class="repo-badge bg-info">Active Discussion</span>' if has_discussion else ''}
                 {f'<span class="repo-badge bg-primary">Published</span>' if article.get('published_at') else ''}
@@ -203,18 +130,15 @@ def generate_article_cards(articles, is_featured=False):
     return '\n'.join(cards)
 
 
-def generate_package_cards(packages, is_featured=False):
+def generate_package_cards(packages):
     cards = []
     for pkg in packages:
         if pkg.get('error'): continue
-
-        featured_badge = '<span class="repo-badge bg-warning"><i class="bi bi-star-fill"></i> Featured</span>' if is_featured else ''
 
         version_count = len(pkg.get('versions', [])) if isinstance(pkg.get('versions'), list) else 1
 
         card = f'''        <div class="repo-card">
             <div class="repo-badges">
-                {featured_badge}
                 {f'<span class="repo-badge bg-info">{version_count} versions</span>' if version_count > 1 else ''}
             </div>
             <div class="repo-header">
@@ -252,7 +176,7 @@ def generate_package_cards(packages, is_featured=False):
     return '\n'.join(cards)
 
 
-def update_html_with_id(html_file, container_id, cards_html, featured_container_id=None, featured_cards_html=None):
+def update_html_with_id(html_file, container_id, cards_html):
     with open(html_file, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f.read(), 'html.parser')
 
@@ -266,37 +190,6 @@ def update_html_with_id(html_file, container_id, cards_html, featured_container_
     for card in new_cards.children:
         if card.name:
             container.append(card)
-
-    if featured_container_id and featured_cards_html:
-        featured_container = soup.find(id=featured_container_id)
-
-        if featured_container:
-            featured_container.clear()
-            featured_cards = BeautifulSoup(featured_cards_html, 'html.parser')
-            for card in featured_cards.children:
-                if card.name:
-                    featured_container.append(card)
-        else:
-            featured_section_html = f'''
-            <div class="content-section" id="featured-section">
-             <div class="container">
-              <h2 class="section-title">
-               <i class="bi bi-star-fill text-warning"></i>
-               Featured
-              </h2>
-              <p class="text-muted mb-4">Most popular and active projects</p>
-              <div class="repo-grid" id="{featured_container_id}">
-               {featured_cards_html}
-              </div>
-              <hr class="my-5">
-             </div>
-            </div>
-            '''
-
-            main_section = soup.find(id=container_id).find_parent('div', class_='content-section')
-            if main_section:
-                featured_soup = BeautifulSoup(featured_section_html, 'html.parser')
-                main_section.insert_before(featured_soup)
 
     with open(html_file, 'w', encoding='utf-8') as f:
         f.write(soup.prettify())
@@ -350,73 +243,43 @@ def main():
         repos = [r for r in repos if not r.get('archived')]
         repos.sort(key=lambda x: x.get('pushed_at', ''), reverse=True)
 
-        top_repos = get_top_repos(repos, n=6)
-        top_repos_names = [r['name'] for r in top_repos]
-
-        print(f"📊 Top repositories: {', '.join([r['name'] for r in top_repos])}")
-
         all_repos_cards = []
         for repo in repos:
-            is_top = repo['name'] in top_repos_names
-            repo_card = generate_repo_cards([repo], is_featured=is_top)
+            repo_card = generate_repo_cards([repo])
             all_repos_cards.append(repo_card)
-
-        top_cards = generate_repo_cards(top_repos, is_featured=True)
 
         update_html_with_id(
             'projects.html',
             'repos-container',
             '\n'.join(all_repos_cards),
-            'featured-repos-container',
-            top_cards
         )
 
     if articles:
         articles.sort(key=lambda x: x.get('published_at', ''), reverse=True)
 
-        top_articles = get_top_articles(articles, n=6)
-        top_article_ids = [a['id'] for a in top_articles]
-
-        print(f"📊 Top articles: {', '.join([a['title'][:30] + '...' for a in top_articles])}")
-
         all_articles_cards = []
         for article in articles:
-            is_top = article['id'] in top_article_ids
-            article_card = generate_article_cards([article], is_featured=is_top)
+            article_card = generate_article_cards([article])
             all_articles_cards.append(article_card)
-
-        top_cards = generate_article_cards(top_articles, is_featured=True)
 
         update_html_with_id(
             'articles.html',
             'articles-container',
             '\n'.join(all_articles_cards),
-            'featured-articles-container',
-            top_cards
         )
 
     if packages:
         packages = [p for p in packages if not p.get('error')]
 
-        top_packages = get_top_packages(packages, n=6)
-        top_package_names = [p['name'] for p in top_packages]
-
-        print(f"📊 Top packages: {', '.join([p['name'] for p in top_packages])}")
-
         all_packages_cards = []
         for package in packages:
-            is_top = package['name'] in top_package_names
-            package_card = generate_package_cards([package], is_featured=is_top)
+            package_card = generate_package_cards([package])
             all_packages_cards.append(package_card)
-
-        top_cards = generate_package_cards(top_packages, is_featured=True)
 
         update_html_with_id(
             'packages.html',
             'packages-container',
             '\n'.join(all_packages_cards),
-            'featured-packages-container',
-            top_cards
         )
 
     print('✅ Done!')
