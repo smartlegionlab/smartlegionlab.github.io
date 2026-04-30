@@ -1,5 +1,379 @@
 [
   {
+    "id": "8925614760",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1222477280,
+      "name": "aixandrolab/github-open-repos-copy-manager",
+      "url": "https://api.github.com/repos/aixandrolab/github-open-repos-copy-manager"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2026-04-29T17:40:35Z"
+  },
+  {
+    "id": "8925611086",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1222620872,
+      "name": "aixandrolab/cli-files-manager",
+      "url": "https://api.github.com/repos/aixandrolab/cli-files-manager"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2026-04-29T17:40:29Z"
+  },
+  {
+    "id": "8905405327",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1213180568,
+      "name": "smartlegionlab/SmartPasswordManagerCsharpCli",
+      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/315077937",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/315077937/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/315077937/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/releases/tag/v1.0.5",
+        "id": 315077937,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOSE-qmM4Sx7Ux",
+        "tag_name": "v1.0.5",
+        "target_commitish": "master",
+        "name": "Smart Password Manager CLI (C#) v1.0.5",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-29T08:51:15Z",
+        "updated_at": "2026-04-29T09:04:47Z",
+        "published_at": "2026-04-29T08:53:26Z",
+        "assets": [
+          {
+            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/assets/408074760",
+            "id": 408074760,
+            "node_id": "RA_kwDOSE-qmM4YUroI",
+            "name": "SmartPasswordManagerCsharpCli-linux-x64",
+            "label": null,
+            "uploader": {
+              "login": "smartlegionlab",
+              "id": 90581597,
+              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smartlegionlab",
+              "html_url": "https://github.com/smartlegionlab",
+              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "content_type": "application/octet-stream",
+            "state": "uploaded",
+            "size": 73580982,
+            "digest": "sha256:d147392fc1373a4e54ac826ee6da94abc7892d25456dae68aa1fdf177fbaa2ca",
+            "download_count": 0,
+            "created_at": "2026-04-29T08:53:15Z",
+            "updated_at": "2026-04-29T08:53:24Z",
+            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/releases/download/v1.0.5/SmartPasswordManagerCsharpCli-linux-x64"
+          },
+          {
+            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/assets/408080360",
+            "id": 408080360,
+            "node_id": "RA_kwDOSE-qmM4YUs_o",
+            "name": "SmartPasswordManagerCsharpCli-win-x64.exe",
+            "label": null,
+            "uploader": {
+              "login": "smartlegionlab",
+              "id": 90581597,
+              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smartlegionlab",
+              "html_url": "https://github.com/smartlegionlab",
+              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "content_type": "application/x-msdownload",
+            "state": "uploaded",
+            "size": 73545858,
+            "digest": "sha256:19be58fb6de0a99a67862c73ed204e8e4b342814b11a65b3e111fc9b98eeeda5",
+            "download_count": 1,
+            "created_at": "2026-04-29T09:04:37Z",
+            "updated_at": "2026-04-29T09:04:47Z",
+            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/releases/download/v1.0.5/SmartPasswordManagerCsharpCli-win-x64.exe"
+          }
+        ],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/tarball/v1.0.5",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/zipball/v1.0.5",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/compare/v1.0.4...v1.0.5",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/compare/v1.0.4...v1.0.5\"><tt>v1.0.4...v1.0.5</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-29T08:53:26Z"
+  },
+  {
+    "id": "11189556555",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1213180568,
+      "name": "smartlegionlab/SmartPasswordManagerCsharpCli",
+      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli"
+    },
+    "payload": {
+      "repository_id": 1213180568,
+      "push_id": 33481115509,
+      "ref": "refs/heads/master",
+      "head": "91f38b7892f137c6c8275182adaebb85ded62588",
+      "before": "c90a1d457b98cfa6eb831d7bebc929b27f5e095b"
+    },
+    "public": true,
+    "created_at": "2026-04-29T08:51:47Z"
+  },
+  {
+    "id": "8904017033",
+    "type": "ReleaseEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1213258025,
+      "name": "smartlegionlab/SmartPasswordGeneratorCsharpCli",
+      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli"
+    },
+    "payload": {
+      "action": "published",
+      "release": {
+        "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/315062278",
+        "assets_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/315062278/assets",
+        "upload_url": "https://uploads.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/315062278/assets{?name,label}",
+        "html_url": "https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/tag/v1.0.3",
+        "id": 315062278,
+        "author": {
+          "login": "smartlegionlab",
+          "id": 90581597,
+          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smartlegionlab",
+          "html_url": "https://github.com/smartlegionlab",
+          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDOSFDZKc4Sx3gG",
+        "tag_name": "v1.0.3",
+        "target_commitish": "master",
+        "name": "Smart Password Generator CLI (C#) v1.0.3",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-29T08:11:22Z",
+        "updated_at": "2026-04-29T08:21:01Z",
+        "published_at": "2026-04-29T08:12:39Z",
+        "assets": [
+          {
+            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/assets/408050387",
+            "id": 408050387,
+            "node_id": "RA_kwDOSFDZKc4YUlrT",
+            "name": "SmartPasswordGeneratorCsharpCli-linux-x64",
+            "label": null,
+            "uploader": {
+              "login": "smartlegionlab",
+              "id": 90581597,
+              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smartlegionlab",
+              "html_url": "https://github.com/smartlegionlab",
+              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "content_type": "application/octet-stream",
+            "state": "uploaded",
+            "size": 73575362,
+            "digest": "sha256:b5be055f830a342eae795e1565ce350c114490594ee3dc3e4f611ce2bdaeae0e",
+            "download_count": 0,
+            "created_at": "2026-04-29T08:13:05Z",
+            "updated_at": "2026-04-29T08:13:14Z",
+            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/download/v1.0.3/SmartPasswordGeneratorCsharpCli-linux-x64"
+          },
+          {
+            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/assets/408055757",
+            "id": 408055757,
+            "node_id": "RA_kwDOSFDZKc4YUm_N",
+            "name": "SmartPasswordGeneratorCsharpCli-win-x64.exe",
+            "label": null,
+            "uploader": {
+              "login": "smartlegionlab",
+              "id": 90581597,
+              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smartlegionlab",
+              "html_url": "https://github.com/smartlegionlab",
+              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
+              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
+              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
+              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
+              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
+              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "content_type": "application/x-msdownload",
+            "state": "uploaded",
+            "size": 73541774,
+            "digest": "sha256:31d254af31d6c2af75a11f449a9896a11eaa7c027bd1681e08d8f195a6dfbe54",
+            "download_count": 1,
+            "created_at": "2026-04-29T08:20:47Z",
+            "updated_at": "2026-04-29T08:21:01Z",
+            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli/releases/download/v1.0.3/SmartPasswordGeneratorCsharpCli-win-x64.exe"
+          }
+        ],
+        "tarball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/tarball/v1.0.3",
+        "zipball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli/zipball/v1.0.3",
+        "body": "**Full Changelog**: https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli/compare/v1.0.2...v1.0.3",
+        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli/compare/v1.0.2...v1.0.3\"><tt>v1.0.2...v1.0.3</tt></a></p>",
+        "is_short_description_html_truncated": false
+      }
+    },
+    "public": true,
+    "created_at": "2026-04-29T08:12:39Z"
+  },
+  {
+    "id": "11187968538",
+    "type": "PushEvent",
+    "actor": {
+      "id": 90581597,
+      "login": "smartlegionlab",
+      "display_login": "smartlegionlab",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/smartlegionlab",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
+    },
+    "repo": {
+      "id": 1213258025,
+      "name": "smartlegionlab/SmartPasswordGeneratorCsharpCli",
+      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordGeneratorCsharpCli"
+    },
+    "payload": {
+      "repository_id": 1213258025,
+      "push_id": 33479526997,
+      "ref": "refs/heads/master",
+      "head": "a060d867ca2ad5dc09bda067dbce8c0faa93c7de",
+      "before": "bfc4c14d3bedcb57971932978ed00f4b0d2408e2"
+    },
+    "public": true,
+    "created_at": "2026-04-29T08:11:38Z"
+  },
+  {
     "id": "11150442776",
     "type": "PushEvent",
     "actor": {
@@ -102,221 +476,5 @@
     },
     "public": true,
     "created_at": "2026-04-28T12:58:51Z"
-  },
-  {
-    "id": "11149333685",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1215531019,
-      "name": "smartlegionlab/SmartPasswordManagerCsharpDesktop",
-      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpDesktop"
-    },
-    "payload": {
-      "repository_id": 1215531019,
-      "push_id": 33440984384,
-      "ref": "refs/heads/master",
-      "head": "d6477b7d06f14a91429d5e9f4d3d35d762053faa",
-      "before": "b150c57f0054ae6ff8fb71f8354434161e6552b9"
-    },
-    "public": true,
-    "created_at": "2026-04-28T12:55:23Z"
-  },
-  {
-    "id": "8871228876",
-    "type": "ReleaseEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1213180568,
-      "name": "smartlegionlab/SmartPasswordManagerCsharpCli",
-      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli"
-    },
-    "payload": {
-      "action": "published",
-      "release": {
-        "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/314584129",
-        "assets_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/314584129/assets",
-        "upload_url": "https://uploads.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/314584129/assets{?name,label}",
-        "html_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/releases/tag/v1.0.4",
-        "id": 314584129,
-        "author": {
-          "login": "smartlegionlab",
-          "id": 90581597,
-          "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-          "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-          "gravatar_id": "",
-          "url": "https://api.github.com/users/smartlegionlab",
-          "html_url": "https://github.com/smartlegionlab",
-          "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-          "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-          "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-          "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-          "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-          "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-          "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-          "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-          "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-          "type": "User",
-          "user_view_type": "public",
-          "site_admin": false
-        },
-        "node_id": "RE_kwDOSE-qmM4SwCxB",
-        "tag_name": "v1.0.4",
-        "target_commitish": "master",
-        "name": "Smart Password Manager CLI (C#) v1.0.4",
-        "draft": false,
-        "immutable": false,
-        "prerelease": false,
-        "created_at": "2026-04-28T12:49:17Z",
-        "updated_at": "2026-04-28T13:01:41Z",
-        "published_at": "2026-04-28T12:51:19Z",
-        "assets": [
-          {
-            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/assets/407396536",
-            "id": 407396536,
-            "node_id": "RA_kwDOSE-qmM4YSGC4",
-            "name": "SmartPasswordManagerCsharpCli-linux-x64",
-            "label": null,
-            "uploader": {
-              "login": "smartlegionlab",
-              "id": 90581597,
-              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-              "gravatar_id": "",
-              "url": "https://api.github.com/users/smartlegionlab",
-              "html_url": "https://github.com/smartlegionlab",
-              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-              "type": "User",
-              "user_view_type": "public",
-              "site_admin": false
-            },
-            "content_type": "application/octet-stream",
-            "state": "uploaded",
-            "size": 73579446,
-            "digest": "sha256:abb6fc85c08e5dbbaaafd4523ccfdcc66001fae4526b9792220ecdecfb9fd5a2",
-            "download_count": 1,
-            "created_at": "2026-04-28T12:52:32Z",
-            "updated_at": "2026-04-28T12:52:40Z",
-            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/releases/download/v1.0.4/SmartPasswordManagerCsharpCli-linux-x64"
-          },
-          {
-            "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/releases/assets/407402147",
-            "id": 407402147,
-            "node_id": "RA_kwDOSE-qmM4YSHaj",
-            "name": "SmartPasswordManagerCsharpCli-win-x64.exe",
-            "label": null,
-            "uploader": {
-              "login": "smartlegionlab",
-              "id": 90581597,
-              "node_id": "MDQ6VXNlcjkwNTgxNTk3",
-              "avatar_url": "https://avatars.githubusercontent.com/u/90581597?v=4",
-              "gravatar_id": "",
-              "url": "https://api.github.com/users/smartlegionlab",
-              "html_url": "https://github.com/smartlegionlab",
-              "followers_url": "https://api.github.com/users/smartlegionlab/followers",
-              "following_url": "https://api.github.com/users/smartlegionlab/following{/other_user}",
-              "gists_url": "https://api.github.com/users/smartlegionlab/gists{/gist_id}",
-              "starred_url": "https://api.github.com/users/smartlegionlab/starred{/owner}{/repo}",
-              "subscriptions_url": "https://api.github.com/users/smartlegionlab/subscriptions",
-              "organizations_url": "https://api.github.com/users/smartlegionlab/orgs",
-              "repos_url": "https://api.github.com/users/smartlegionlab/repos",
-              "events_url": "https://api.github.com/users/smartlegionlab/events{/privacy}",
-              "received_events_url": "https://api.github.com/users/smartlegionlab/received_events",
-              "type": "User",
-              "user_view_type": "public",
-              "site_admin": false
-            },
-            "content_type": "application/x-msdownload",
-            "state": "uploaded",
-            "size": 73545858,
-            "digest": "sha256:12545620d4287c65ee1619e204534d877ffe18a5cc4bf6a938fc11cd84ddd727",
-            "download_count": 1,
-            "created_at": "2026-04-28T13:01:31Z",
-            "updated_at": "2026-04-28T13:01:41Z",
-            "browser_download_url": "https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/releases/download/v1.0.4/SmartPasswordManagerCsharpCli-win-x64.exe"
-          }
-        ],
-        "tarball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/tarball/v1.0.4",
-        "zipball_url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli/zipball/v1.0.4",
-        "body": "**Full Changelog**: https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/compare/v1.0.3...v1.0.4",
-        "short_description_html": "<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli/compare/v1.0.3...v1.0.4\"><tt>v1.0.3...v1.0.4</tt></a></p>",
-        "is_short_description_html_truncated": false
-      }
-    },
-    "public": true,
-    "created_at": "2026-04-28T12:51:19Z"
-  },
-  {
-    "id": "11149080760",
-    "type": "PushEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1213180568,
-      "name": "smartlegionlab/SmartPasswordManagerCsharpCli",
-      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli"
-    },
-    "payload": {
-      "repository_id": 1213180568,
-      "push_id": 33440731831,
-      "ref": "refs/heads/master",
-      "head": "c90a1d457b98cfa6eb831d7bebc929b27f5e095b",
-      "before": "1c63d63855715b13bd0ec8196a3a77c142a8a511"
-    },
-    "public": true,
-    "created_at": "2026-04-28T12:49:35Z"
-  },
-  {
-    "id": "11149010952",
-    "type": "DeleteEvent",
-    "actor": {
-      "id": 90581597,
-      "login": "smartlegionlab",
-      "display_login": "smartlegionlab",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/smartlegionlab",
-      "avatar_url": "https://avatars.githubusercontent.com/u/90581597?"
-    },
-    "repo": {
-      "id": 1213180568,
-      "name": "smartlegionlab/SmartPasswordManagerCsharpCli",
-      "url": "https://api.github.com/repos/smartlegionlab/SmartPasswordManagerCsharpCli"
-    },
-    "payload": {
-      "ref": "v1.0.4",
-      "ref_type": "tag",
-      "full_ref": "refs/tags/v1.0.4",
-      "pusher_type": "user"
-    },
-    "public": true,
-    "created_at": "2026-04-28T12:47:59Z"
   }
 ]
