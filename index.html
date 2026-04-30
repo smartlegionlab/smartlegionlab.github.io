@@ -42,6 +42,114 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+    <style>
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    background: rgba(13, 110, 253, 0.03);
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+    .stat-number {
+        font-size: 1.2rem;
+    }
+    .stat-label {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 0.6rem 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        margin-bottom: 0;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    .professional-header {
+        height: auto !important;
+        overflow: visible !important;
+        padding-bottom: 1rem;
+    }
+
+    .header-content {
+        height: auto !important;
+        overflow: visible !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-row {
+        gap: 0.5rem;
+    }
+
+    .stat {
+        padding: 0.5rem 0.8rem;
+    }
+
+    .stat-number {
+        font-size: 1rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}
+    </style>
 </head>
 <body>
     <div class="scroll-progress">
@@ -98,8 +206,36 @@
                                 <div class="stat-label">PyPI Packages</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-number">11,000+</div>
+                                <div class="stat-number">11K+</div>
                                 <div class="stat-label">Commits</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">15K+</div>
+                                <div class="stat-label">Monthly Downloads</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Publications</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">1K+</div>
+                                <div class="stat-label">Zenodo Views</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">850+</div>
+                                <div class="stat-label">Zenodo Downloads</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Tech Articles</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">500K+</div>
+                                <div class="stat-label">Users Supported</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Paradigms</div>
                             </div>
                         </div>
                     </div>
