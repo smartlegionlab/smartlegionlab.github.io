@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pointer-Based Security - Paradigm</title>
-    <meta name="description" content="Pointer-Based Security Paradigm by Alexander Suvorov - Architectural Transition from Data Protection to No Vulnerable Data">
+    <title>Pointer-Based Security - Paradigm by Alexander Suvorov</title>
+    <meta name="description" content="Pointer-Based Security Paradigm: Architectural shift from data protection to data non-existence. Security through data non-existence.">
 
     <link rel="canonical" href="https://smartlegionlab.ru/research/pointer-based-security.html">
     <link rel="author" href="https://github.com/smartlegionlab">
 
-    <meta property="og:title" content="Pointer-Based Security - Alexander Suvorov">
-    <meta property="og:description" content="Pointer-Based Security Paradigm - Architectural Transition from Data Protection to No Vulnerable Data">
+    <meta property="og:title" content="Pointer-Based Security - Paradigm">
+    <meta property="og:description" content="Pointer-Based Security Paradigm - Architectural shift from data protection to data non-existence">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://smartlegionlab.ru/research/pointer-based-security.html">
 
@@ -22,48 +22,6 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-
-    <style>
-        .research-detail-header {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--accent);
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .info-item {
-            padding: 1rem;
-            background: var(--secondary);
-            border-radius: 8px;
-            text-align: center;
-        }
-        .info-number {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-        .info-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        .transformation-card {
-            background: rgba(13, 110, 253, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: 100%;
-            transition: all 0.3s ease;
-        }
-        .transformation-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
-        }
-    </style>
 </head>
 <body>
     <div class="scroll-progress">
@@ -89,12 +47,13 @@
                                 </div>
                             </div>
                             <div class="profile-info">
-                                <h1 class="name">Pointer-Based Security <sup class="text-primary">Paradigm</sup></h1>
-                                <p class="title"><a href="https://alexander-suvorov.ru" target="_blank" style="text-decoration: none;">Alexander Suvorov:</a> Architectural Transition from Data Protection to No Vulnerable Data</p>
+                                <h1 class="name">Pointer-Based Security</h1>
+                                <p class="title">Architectural shift from data protection to data non‑existence</p>
                                 <div class="badges mt-2">
                                     <span class="badge bg-primary">Paradigm</span>
                                     <span class="badge bg-secondary">Published 2025</span>
                                     <span class="badge bg-info">Security Architecture</span>
+                                    <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="badge bg-primary text-decoration-none ms-2">DOI: 10.5281/zenodo.17204738</a>
                                 </div>
                             </div>
                         </div>
@@ -132,167 +91,141 @@
 
                 <div class="content-section">
                     <div class="container">
-                        <div class="d-flex justify-content-between align-items-center research-detail-header">
-                            <h2 class="section-title mb-0">Paradigm Details</h2>
-                            <div>
-                                <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="btn btn-primary">
-                                    <i class="bi bi-box-arrow-up-right"></i> View on Zenodo
-                                </a>
+                        <div class="mb-5">
+                            <div class="card" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                <div class="card-body p-4">
+                                    <p class="text-light mb-3 fs-5">
+                                        A fundamental <span class="text-primary">rethinking of digital security architecture</span>
+                                        that <span class="text-primary">eliminates vulnerable data existence</span> rather
+                                        than protecting it through conventional encryption.
+                                    </p>
+                                    <div class="mt-3 p-3" style="background: rgba(13, 110, 253, 0.05); border-radius: 12px;">
+                                        <i class="bi bi-file-text text-primary me-2"></i>
+                                        <strong class="text-primary">Abstract</strong>
+                                        <p class="mb-0 mt-2 text-light">This paper introduces the Pointer-Based Security Paradigm, which transforms digital security from protecting data during transmission and storage to architecting systems where sensitive data never exists as a vulnerable entity. The paradigm demonstrates practical implementations including zero-transmission messaging and storage-free authentication.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-info-circle"></i> Overview
-                                    </h3>
-                                    <p class="text-light">
-                                        A fundamental <span class="highlight-primary">rethinking of digital security architecture</span>
-                                        that <span class="highlight-accent">eliminates vulnerable data existence</span> rather
-                                        than <span class="highlight-muted">protecting it through conventional encryption</span>.
-                                    </p>
-
-                                    <div class="abstract-section mt-4 p-3 bg-dark rounded">
-                                        <h4 class="mb-2 text-primary">
-                                            <i class="bi bi-file-text me-2"></i>Abstract
-                                        </h4>
-                                        <p class="mb-0 text-light">
-                                            This paper introduces the Pointer-Based Security Paradigm, which transforms digital security from protecting data during transmission and storage to architecting systems where sensitive data never exists as a vulnerable entity. The paradigm demonstrates practical implementations including zero-transmission messaging and storage-free authentication.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-arrow-repeat"></i> Core Transformations
-                                    </h3>
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="transformation-card">
-                                                <i class="bi bi-arrow-repeat text-primary mb-3" style="font-size: 2rem;"></i>
-                                                <h5 class="mb-2">From Data Transmission</h5>
-                                                <p class="small text-muted mb-0">To Synchronous Discovery via pointer-based coordination</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="transformation-card">
-                                                <i class="bi bi-shield-check text-primary mb-3" style="font-size: 2rem;"></i>
-                                                <h5 class="mb-2">From Secret Storage</h5>
-                                                <p class="small text-muted mb-0">To Deterministic Regeneration through proof of knowledge</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="transformation-card">
-                                                <i class="bi bi-x-circle text-primary mb-3" style="font-size: 2rem;"></i>
-                                                <h5 class="mb-2">From Attack Surface</h5>
-                                                <p class="small text-muted mb-0">To Architectural Elimination via surface removal</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-link-45deg"></i> Key Resources
-                                    </h3>
-                                    <div class="btn-group d-flex flex-wrap gap-2">
-                                        <a target="_blank" href="https://doi.org/10.5281/zenodo.17204738" class="btn btn-outline-primary">
-                                            <i class="bi bi-journal-text"></i> Full Paper
-                                        </a>
-                                        <a target="_blank" href="https://github.com/smartlegionlab/pointer-based-security-paradigm" class="btn btn-outline-primary">
-                                            <i class="bi bi-github"></i> GitHub Repository
-                                        </a>
-                                        <a target="_blank" href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82" class="btn btn-outline-primary">
-                                            <i class="bi bi-newspaper"></i> Article
-                                        </a>
-                                        <a target="_blank" href="https://zenodo.org/records/17204738/files/suvorov-the-pointer-based-security-paradigm-v2.pdf?download=1" class="btn btn-outline-primary">
-                                            <i class="bi bi-file-pdf"></i> PDF
-                                        </a>
+                        <h2 class="section-title">Core Transformations</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-4">
+                                        <i class="bi bi-arrow-repeat text-primary" style="font-size: 2rem;"></i>
+                                        <h5 class="mt-3 text-primary">From Data Transmission</h5>
+                                        <p class="text-muted mb-0">To Synchronous Discovery via pointer-based coordination</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-4">
+                                        <i class="bi bi-shield-check text-primary" style="font-size: 2rem;"></i>
+                                        <h5 class="mt-3 text-primary">From Secret Storage</h5>
+                                        <p class="text-muted mb-0">To Deterministic Regeneration through proof of knowledge</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-4">
+                                        <i class="bi bi-x-circle text-primary" style="font-size: 2rem;"></i>
+                                        <h5 class="mt-3 text-primary">From Attack Surface</h5>
+                                        <p class="text-muted mb-0">To Architectural Elimination via surface removal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <div class="col-lg-4">
-                                <div class="card research-card">
+                        <h2 class="section-title">Practical Implementations</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
                                     <div class="card-body">
-                                        <h3 class="card-title text-center mb-3">Metadata</h3>
-                                        <hr>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-fingerprint"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">10.5281/zenodo.17204738</div>
-                                                <div class="metric-label">DOI</div>
-                                            </div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <i class="bi bi-shield-lock text-primary" style="font-size: 1.5rem;"></i>
+                                            <h3 class="card-title text-primary mb-0" style="font-size: 1.25rem;">SmartPassLib Ecosystem</h3>
                                         </div>
-                                        <br>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-calendar"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">September 26, 2025</div>
-                                                <div class="metric-label">Published</div>
-                                            </div>
+                                        <p class="text-muted">Cross-platform password management: Python, Go, C#, Kotlin, JavaScript</p>
+                                        <hr class="border-secondary">
+                                        <div class="small text-muted mb-2">
+                                            <div>✓ CLI · Desktop · Web · Android</div>
+                                            <div>✓ Zero‑storage architecture</div>
+                                            <div>✓ Deterministic password generation</div>
                                         </div>
-                                        <br>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-translate"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">English</div>
-                                                <div class="metric-label">Language</div>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-hash"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">Security Architecture</div>
-                                                <div class="metric-label">Primary Field</div>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <h3 class="card-title text-center mb-3">Related Work</h3>
-                                        <hr>
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-arrow-repeat"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <a href="/research/local-data-regeneration.html" style="text-decoration: none;" class="metric-number">Local Data Regeneration</a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-cpu"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <a href="/research/deterministic-game-engine.html" style="text-decoration: none;" class="metric-number">Deterministic Game Engine</a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-search"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <a href="/research/position-candidate-hypothesis.html" style="text-decoration: none;" class="metric-number">PCH Paradigm</a>
-                                            </div>
+                                        <div class="d-flex justify-content-end gap-2 mt-3">
+                                            <a href="https://github.com/smartlegionlab/smartpasslib" target="_blank" class="btn btn-sm btn-outline-primary">GitHub →</a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <i class="bi bi-git text-primary" style="font-size: 1.5rem;"></i>
+                                            <h3 class="card-title text-primary mb-0" style="font-size: 1.25rem;">Cross-Platform Support</h3>
+                                        </div>
+                                        <p class="text-muted">Identical password generation across all platforms</p>
+                                        <hr class="border-secondary">
+                                        <div class="small text-muted mb-2">
+                                            <div>✓ Python / JavaScript / Kotlin / Go / C#</div>
+                                            <div>✓ Linux / Windows / Android / Web</div>
+                                            <div>✓ CLI / Desktop / Mobile / Web interfaces</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Key Resources</h2>
+                        <div class="row mb-5">
+                            <div class="col-12">
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="btn btn-outline-primary"><i class="bi bi-journal-text"></i> Full Paper</a>
+                                    <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank" class="btn btn-outline-primary"><i class="bi bi-github"></i> GitHub Repository</a>
+                                    <a href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82" target="_blank" class="btn btn-outline-primary"><i class="bi bi-newspaper"></i> Article</a>
+                                    <a href="https://zenodo.org/records/17204738/files/suvorov-the-pointer-based-security-paradigm-v2.pdf?download=1" target="_blank" class="btn btn-outline-primary"><i class="bi bi-file-pdf"></i> PDF</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Related Research</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-4 mb-3">
+                                <a href="/research/local-data-regeneration.html" class="text-decoration-none">
+                                    <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                        <div class="card-body p-3">
+                                            <i class="bi bi-arrow-repeat text-primary" style="font-size: 1.5rem;"></i>
+                                            <p class="mb-0 mt-2 text-primary">Local Data Regeneration</p>
+                                            <small class="text-muted">Ontological shift from data transmission</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/research/deterministic-game-engine.html" class="text-decoration-none">
+                                    <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                        <div class="card-body p-3">
+                                            <i class="bi bi-cpu text-primary" style="font-size: 1.5rem;"></i>
+                                            <p class="mb-0 mt-2 text-primary">Deterministic Game Engine</p>
+                                            <small class="text-muted">Experimental validation</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/research/position-candidate-hypothesis.html" class="text-decoration-none">
+                                    <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                        <div class="card-body p-3">
+                                            <i class="bi bi-search text-primary" style="font-size: 1.5rem;"></i>
+                                            <p class="mb-0 mt-2 text-primary">PCH Paradigm</p>
+                                            <small class="text-muted">NP-complete problems</small>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 
@@ -307,9 +240,7 @@
                 <div class="content-section">
                     <div class="container text-center">
                         <footer>
-                            <p>
-                                © <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
-                            </p>
+                            <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a></p>
                         </footer>
                     </div>
                 </div>
@@ -321,5 +252,11 @@
     <script src="../js/particle-background.js"></script>
     <script src="../js/scroll-manager.js"></script>
     <script src="../js/animation-manager.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') new ScrollManager();
+        });
+    </script>
 </body>
 </html>

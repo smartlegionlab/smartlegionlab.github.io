@@ -53,8 +53,8 @@ This site is **fully automated** — it builds and updates itself daily without 
 ### By The Numbers
 
 ```
-Repository Pages: 53+ (and growing)
-Package Pages:   20+ PyPI packages
+Repository Pages: 65+ (and growing)
+Package Pages:   25+ PyPI packages
 Static Pages:    11 core pages
 Updates:         Daily automatic
 Hosting Cost:    $0 (only domain)
