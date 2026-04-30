@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Position-Candidate-Hypothesis (PCH) - Paradigm</title>
-    <meta name="description" content="Position-Candidate-Hypothesis (PCH) Paradigm - A Structural-Statistical Approach to NP-Complete Problems by Alexander Suvorov">
+    <title>PCH Paradigm - Position-Candidate-Hypothesis by Alexander Suvorov</title>
+    <meta name="description" content="PCH Paradigm: Structural-statistical approach to NP-complete problems. n hypotheses, n positions, n candidates.">
 
     <link rel="canonical" href="https://smartlegionlab.ru/research/position-candidate-hypothesis.html">
     <link rel="author" href="https://github.com/smartlegionlab">
 
-    <meta property="og:title" content="Position-Candidate-Hypothesis (PCH) - Alexander Suvorov">
-    <meta property="og:description" content="Position-Candidate-Hypothesis (PCH) Paradigm - A Structural-Statistical Approach to NP-Complete Problems">
+    <meta property="og:title" content="PCH Paradigm - Position-Candidate-Hypothesis">
+    <meta property="og:description" content="Structural-statistical approach to NP-complete problems">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://smartlegionlab.ru/research/position-candidate-hypothesis.html">
 
@@ -22,61 +22,6 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-
-    <style>
-        .research-detail-header {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--accent);
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .info-item {
-            padding: 1rem;
-            background: var(--secondary);
-            border-radius: 8px;
-            text-align: center;
-        }
-        .info-number {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-        .info-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        .component-card {
-            background: rgba(13, 110, 253, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: 100%;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        .component-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
-        }
-        .component-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        .proposition-box {
-            background: linear-gradient(135deg, rgba(13,110,253,0.1) 0%, rgba(13,110,253,0.05) 100%);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-    </style>
 </head>
 <body>
     <div class="scroll-progress">
@@ -102,12 +47,13 @@
                                 </div>
                             </div>
                             <div class="profile-info">
-                                <h1 class="name">Position-Candidate-Hypothesis <sup class="text-primary">Paradigm</sup></h1>
-                                <p class="title"><a href="https://alexander-suvorov.ru" target="_blank" style="text-decoration: none;">Alexander Suvorov:</a> A Structural-Statistical Approach to NP-Complete Problems</p>
+                                <h1 class="name">Position-Candidate-Hypothesis</h1>
+                                <p class="title">Structural-statistical approach to NP-complete problems</p>
                                 <div class="badges mt-2">
                                     <span class="badge bg-primary">Paradigm</span>
                                     <span class="badge bg-secondary">Published 2025</span>
                                     <span class="badge bg-warning text-dark">Computational Complexity</span>
+                                    <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="badge bg-primary text-decoration-none ms-2">DOI: 10.5281/zenodo.17614888</a>
                                 </div>
                             </div>
                         </div>
@@ -118,204 +64,263 @@
             <main style="padding: 5px">
                 <nav class="mobile-navigation" id="mobileNav">
                     <div class="mobile-nav-container">
-                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
-                            <i class="bi bi-house" aria-hidden="true"></i>
-                        </a>
-                        <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
-                            <i class="bi bi-person" aria-hidden="true"></i>
-                        </a>
-                        <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
-                            <i class="bi bi-gear" aria-hidden="true"></i>
-                        </a>
-                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
-                            <i class="bi bi-github" aria-hidden="true"></i>
-                        </a>
-                        <a href="/research.html" class="mobile-nav-btn active" aria-label="Go to Research page">
-                            <i class="bi bi-journal-text" aria-hidden="true"></i>
-                        </a>
-                        <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page">
-                            <i class="bi bi-box-seam" aria-hidden="true"></i>
-                        </a>
-                        <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page">
-                            <i class="bi bi-file-text" aria-hidden="true"></i>
-                        </a>
+                        <a href="/" class="mobile-nav-btn"><i class="bi bi-house"></i></a>
+                        <a href="/about.html" class="mobile-nav-btn"><i class="bi bi-person"></i></a>
+                        <a href="/skills.html" class="mobile-nav-btn"><i class="bi bi-gear"></i></a>
+                        <a href="/projects.html" class="mobile-nav-btn"><i class="bi bi-github"></i></a>
+                        <a href="/research.html" class="mobile-nav-btn active"><i class="bi bi-journal-text"></i></a>
+                        <a href="/packages.html" class="mobile-nav-btn"><i class="bi bi-box-seam"></i></a>
+                        <a href="/articles.html" class="mobile-nav-btn"><i class="bi bi-file-text"></i></a>
                     </div>
                 </nav>
                 <br>
 
                 <div class="content-section">
                     <div class="container">
-                        <div class="d-flex justify-content-between align-items-center research-detail-header">
-                            <h2 class="section-title mb-0">Paradigm Details</h2>
-                            <div>
-                                <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="btn btn-primary">
-                                    <i class="bi bi-box-arrow-up-right"></i> View on Zenodo
-                                </a>
+                        <div class="mb-5">
+                            <div class="card" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                <div class="card-body p-4">
+                                    <p class="text-light mb-3 fs-5">
+                                        <span class="text-primary">Novel structural-statistical approach</span> that transforms
+                                        <span class="text-muted">NP-complete problem-solving</span> from exhaustive search to
+                                        <span class="text-primary">systematic decomposition</span> into positions, candidates, and hypotheses,
+                                        followed by <span class="text-primary">parallel investigation</span> and
+                                        <span class="text-primary">statistical synthesis</span>.
+                                    </p>
+                                    <div class="mt-3 p-3" style="background: rgba(13, 110, 253, 0.05); border-radius: 12px;">
+                                        <i class="bi bi-file-text text-primary me-2"></i>
+                                        <strong class="text-primary">Abstract</strong>
+                                        <p class="mb-0 mt-2 text-light">This research paper introduces the Position-Candidate-Hypothesis (PCH) paradigm as a novel theoretical approach to NP-complete problems. This work proposes a fundamental shift from traditional combinatorial search to structural-statistical analysis. The research explores the decomposition of problems into three interconnected components: positions, candidates, and hypotheses, followed by statistical integration.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-info-circle"></i> Overview
-                                    </h3>
-                                    <p class="text-light">
-                                        <span class="highlight-primary">Novel structural-statistical approach</span> that transforms
-                                        <span class="highlight-muted">NP-complete problem-solving</span> from exhaustive search to
-                                        <span class="highlight-accent">systematic decomposition</span> into positions, candidates, and hypotheses,
-                                        followed by <span class="highlight-primary">parallel investigation</span> and
-                                        <span class="highlight-accent">statistical synthesis</span>.
-                                    </p>
-
-                                    <div class="abstract-section mt-4 p-3 bg-dark rounded">
-                                        <h4 class="mb-2 text-primary">
-                                            <i class="bi bi-file-text me-2"></i>Abstract
-                                        </h4>
-                                        <p class="mb-0 text-light">
-                                            This research paper introduces the Position-Candidate-Hypothesis (PCH) paradigm as a novel theoretical approach to NP-complete problems. This work proposes a fundamental shift from traditional combinatorial search to structural-statistical analysis. The research explores the decomposition of problems into three interconnected components: positions, candidates, and hypotheses, followed by statistical integration. This work presents a new perspective on computational problem-solving that emphasizes structural analysis and pattern recognition over exhaustive search methods. The paradigm suggests potential pathways for more efficient approaches to classical NP-complete problems including SAT, Hamiltonian Path, and Graph Coloring.
-                                        </p>
-                                    </div>
+                        <div class="mb-5">
+                            <div class="card text-center" style="background: rgba(13, 110, 253, 0.05); border-left: 4px solid var(--accent); border-radius: 16px;">
+                                <div class="card-body p-4">
+                                    <h3 class="text-primary mb-3">Research Proposition</h3>
+                                    <p class="fs-4 mb-0">PCH uses <strong class="text-primary">n hypotheses</strong>, <strong class="text-primary">n positions</strong>, and <strong class="text-primary">n candidates per position</strong> for problems of size <strong class="text-primary">n</strong>.</p>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-puzzle"></i> Fundamental Components
-                                    </h3>
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="component-card">
-                                                <i class="bi bi-grid-3x3 component-icon"></i>
-                                                <h5 class="mb-2">Positions</h5>
-                                                <div class="text-primary mb-2">n positions</div>
-                                                <div class="small text-muted">Structural elements in solution space</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="component-card">
-                                                <i class="bi bi-list-check component-icon"></i>
-                                                <h5 class="mb-2">Candidates</h5>
-                                                <div class="text-primary mb-2">n per position</div>
-                                                <div class="small text-muted">Entities for position assignments</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="component-card">
-                                                <i class="bi bi-lightbulb component-icon"></i>
-                                                <h5 class="mb-2">Hypotheses</h5>
-                                                <div class="text-primary mb-2">n hypotheses</div>
-                                                <div class="small text-muted">Independent research processes</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="proposition-box">
-                                        <h5 class="text-primary mb-2">Research Proposition:</h5>
-                                        <p class="mb-0 text-light">PCH uses <strong class="text-primary">n hypotheses</strong>, <strong class="text-primary">n positions</strong>, and <strong class="text-primary">n candidates per position</strong> for problems of size n.</p>
-                                    </div>
-                                </div>
-
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-link-45deg"></i> Key Resources
-                                    </h3>
-                                    <div class="btn-group d-flex flex-wrap gap-2">
-                                        <a target="_blank" href="https://doi.org/10.5281/zenodo.17614888" class="btn btn-outline-primary">
-                                            <i class="bi bi-journal-text"></i> Full Paper
-                                        </a>
-                                        <a target="_blank" href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" class="btn btn-outline-primary">
-                                            <i class="bi bi-github"></i> GitHub Repository
-                                        </a>
-                                        <a target="_blank" href="https://dev.to/smartlegionlab/position-candidate-hypothesis-pch-paradigm-a-new-research-direction-for-np-complete-problems-2b00" class="btn btn-outline-primary">
-                                            <i class="bi bi-newspaper"></i> Article
-                                        </a>
-                                        <a target="_blank" href="https://zenodo.org/records/17614888/files/suvorov_position_candidate_hypothesis_en.pdf?download=1" class="btn btn-outline-primary">
-                                            <i class="bi bi-file-pdf"></i> PDF
-                                        </a>
+                        <h2 class="section-title">Fundamental Components</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-4">
+                                        <i class="bi bi-grid-3x3 text-primary" style="font-size: 2rem;"></i>
+                                        <h5 class="mt-2 text-primary">Positions</h5>
+                                        <div class="text-primary mb-2"><strong>n positions</strong></div>
+                                        <p class="text-muted small mb-0">Structural elements in solution space</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-4">
+                                        <i class="bi bi-list-check text-primary" style="font-size: 2rem;"></i>
+                                        <h5 class="mt-2 text-primary">Candidates</h5>
+                                        <div class="text-primary mb-2"><strong>n per position</strong></div>
+                                        <p class="text-muted small mb-0">Entities for position assignments</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-4">
+                                        <i class="bi bi-lightbulb text-primary" style="font-size: 2rem;"></i>
+                                        <h5 class="mt-2 text-primary">Hypotheses</h5>
+                                        <div class="text-primary mb-2"><strong>n hypotheses</strong></div>
+                                        <p class="text-muted small mb-0">Independent research processes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <div class="col-lg-4">
-                                <div class="card research-card">
+                        <h2 class="section-title">Key Transformations</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-search text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mt-2 mb-0"><strong>Search → Structure</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-diagram-2 text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mt-2 mb-0"><strong>Sequential → Parallel</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-graph-up text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mt-2 mb-0"><strong>Deterministic → Statistical</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-eye text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mt-2 mb-0"><strong>Black‑box → Interpretable</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Application Domains</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-4 mb-3">
+                                <div class="card text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-map text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mb-0 mt-2"><strong>TSP</strong></p>
+                                        <small class="text-muted">Traveling Salesman Problem</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-check2-square text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mb-0 mt-2"><strong>SAT</strong></p>
+                                        <small class="text-muted">Boolean Satisfiability</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-briefcase text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mb-0 mt-2"><strong>Knapsack</strong></p>
+                                        <small class="text-muted">Knapsack Problem</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-palette text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mb-0 mt-2"><strong>Graph Coloring</strong></p>
+                                        <small class="text-muted">Graph Coloring Problem</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-shield text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mb-0 mt-2"><strong>Vertex Cover</strong></p>
+                                        <small class="text-muted">Vertex Cover Problem</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body p-3">
+                                        <i class="bi bi-diagram-3 text-primary" style="font-size: 1.5rem;"></i>
+                                        <p class="mb-0 mt-2"><strong>Hamiltonian Path</strong></p>
+                                        <small class="text-muted">Hamiltonian Path Problem</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">TSP Ecosystem</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
                                     <div class="card-body">
-                                        <h3 class="card-title text-center mb-3">Metadata</h3>
-                                        <hr>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-fingerprint"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">10.5281/zenodo.17614888</div>
-                                                <div class="metric-label">DOI</div>
-                                            </div>
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <i class="bi bi-calculator text-primary" style="font-size: 1.5rem;"></i>
+                                            <h3 class="card-title text-primary mb-0" style="font-size: 1.25rem;">TSP Solvers</h3>
                                         </div>
-                                        <br>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-calendar"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">November 15, 2025</div>
-                                                <div class="metric-label">Published</div>
-                                            </div>
+                                        <p class="text-muted">High-performance implementations for Traveling Salesman Problem</p>
+                                        <hr class="border-secondary">
+                                        <div class="small text-muted mb-2">
+                                            <div>✓ Exact TSP Solver (Go) — Branch & Bound</div>
+                                            <div>✓ Smart TSP Oracle (Python) — Exact solver</div>
+                                            <div>✓ Smart TSP Solver (Python) — Heuristic (~25% better)</div>
+                                            <div>✓ Smart TSP Benchmark — Testing infrastructure</div>
                                         </div>
-                                        <br>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-translate"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">English</div>
-                                                <div class="metric-label">Language</div>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-hash"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">Computational Complexity</div>
-                                                <div class="metric-label">Primary Field</div>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <h3 class="card-title text-center mb-3">Related Work</h3>
-                                        <hr>
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-shield"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <a href="/research/pointer-based-security.html" style="text-decoration: none;" class="metric-number">Pointer-Based Security</a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-arrow-repeat"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <a href="/research/local-data-regeneration.html" style="text-decoration: none;" class="metric-number">Local Data Regeneration</a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-cpu"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <a href="/research/deterministic-game-engine.html" style="text-decoration: none;" class="metric-number">Deterministic Game Engine</a>
-                                            </div>
+                                        <div class="d-flex justify-content-end gap-2 mt-3">
+                                            <a href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank" class="btn btn-sm btn-outline-primary">GitHub →</a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <i class="bi bi-graph-up text-primary" style="font-size: 1.5rem;"></i>
+                                            <h3 class="card-title text-primary mb-0" style="font-size: 1.25rem;">Performance</h3>
+                                        </div>
+                                        <p class="text-muted">Comparative analysis and benchmarking</p>
+                                        <hr class="border-secondary">
+                                        <div class="small text-muted mb-2">
+                                            <div>✓ ~25% improvement on clustered data</div>
+                                            <div>✓ Adaptive thresholding strategies</div>
+                                            <div>✓ Spatial intelligence heuristics</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Key Resources</h2>
+                        <div class="row mb-5">
+                            <div class="col-12">
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="btn btn-outline-primary"><i class="bi bi-journal-text"></i> Full Paper</a>
+                                    <a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank" class="btn btn-outline-primary"><i class="bi bi-github"></i> GitHub Repository</a>
+                                    <a href="https://dev.to/smartlegionlab/position-candidate-hypothesis-pch-paradigm-a-new-research-direction-for-np-complete-problems-2b00" target="_blank" class="btn btn-outline-primary"><i class="bi bi-newspaper"></i> Article</a>
+                                    <a href="https://zenodo.org/records/17614888/files/suvorov_position_candidate_hypothesis_en.pdf?download=1" target="_blank" class="btn btn-outline-primary"><i class="bi bi-file-pdf"></i> PDF</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">Related Research</h2>
+                        <div class="row mb-5">
+                            <div class="col-md-4 mb-3">
+                                <a href="/research/pointer-based-security.html" class="text-decoration-none">
+                                    <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                        <div class="card-body p-3">
+                                            <i class="bi bi-shield-check text-primary" style="font-size: 1.5rem;"></i>
+                                            <p class="mb-0 mt-2 text-primary">Pointer‑Based Security</p>
+                                            <small class="text-muted">Security paradigm</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/research/local-data-regeneration.html" class="text-decoration-none">
+                                    <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                        <div class="card-body p-3">
+                                            <i class="bi bi-arrow-repeat text-primary" style="font-size: 1.5rem;"></i>
+                                            <p class="mb-0 mt-2 text-primary">Local Data Regeneration</p>
+                                            <small class="text-muted">Information theory</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="/research/deterministic-game-engine.html" class="text-decoration-none">
+                                    <div class="card h-100 text-center" style="background: rgba(13, 110, 253, 0.03); border: 1px solid rgba(13, 110, 253, 0.2); border-radius: 16px;">
+                                        <div class="card-body p-3">
+                                            <i class="bi bi-cpu text-primary" style="font-size: 1.5rem;"></i>
+                                            <p class="mb-0 mt-2 text-primary">Deterministic Game Engine</p>
+                                            <small class="text-muted">Experimental validation</small>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 
@@ -330,9 +335,7 @@
                 <div class="content-section">
                     <div class="container text-center">
                         <footer>
-                            <p>
-                                © <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a>
-                            </p>
+                            <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a></p>
                         </footer>
                     </div>
                 </div>
@@ -344,5 +347,11 @@
     <script src="../js/particle-background.js"></script>
     <script src="../js/scroll-manager.js"></script>
     <script src="../js/animation-manager.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') new ScrollManager();
+        });
+    </script>
 </body>
 </html>
