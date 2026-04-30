@@ -2138,3 +2138,12 @@ a.premium-card {
 .author-link:hover {
     color: #0d6efd;
 }
+
+.card-custom {
+    transition: all 0.5s ease;
+    border-radius: 15px
+}
+
+.card-custom:hover {
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
+}
