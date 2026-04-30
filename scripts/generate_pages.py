@@ -81,7 +81,7 @@ def get_top_packages(packages, n=6):
     return sorted_packages[:n]
 
 
-def generate_repo_cards(repos, limit=100, is_featured=False):
+def generate_repo_cards(repos, is_featured=False):
     cards = []
     colors = {
         'Python': '#3572A5', 'JavaScript': '#f1e05a', 'HTML': '#e34c26',
@@ -91,7 +91,7 @@ def generate_repo_cards(repos, limit=100, is_featured=False):
         'C#': '#178600', 'Ruby': '#701516', 'Go': '#00ADD8', 'Rust': '#dea584'
     }
 
-    for repo in repos[:limit]:
+    for repo in repos:
         if repo.get('archived'): continue
         color = colors.get(repo.get('language'), '#8b949e')
 
@@ -135,9 +135,9 @@ def generate_repo_cards(repos, limit=100, is_featured=False):
     return '\n'.join(cards)
 
 
-def generate_article_cards(articles, limit=100, is_featured=False):
+def generate_article_cards(articles, is_featured=False):
     cards = []
-    for article in articles[:limit]:
+    for article in articles:
         published_date = format_date(article.get('published_at'))
         read_time = article.get('reading_time_minutes', '')
         read_time_html = f'{read_time} min read' if read_time else ''
@@ -203,9 +203,9 @@ def generate_article_cards(articles, limit=100, is_featured=False):
     return '\n'.join(cards)
 
 
-def generate_package_cards(packages, limit=100, is_featured=False):
+def generate_package_cards(packages, is_featured=False):
     cards = []
-    for pkg in packages[:limit]:
+    for pkg in packages:
         if pkg.get('error'): continue
 
         featured_badge = '<span class="repo-badge bg-warning"><i class="bi bi-star-fill"></i> Featured</span>' if is_featured else ''

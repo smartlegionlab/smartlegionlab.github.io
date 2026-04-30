@@ -67,13 +67,31 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/SmartPasswordManagerCsharpCli.html</loc>
+    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/SmartPasswordGeneratorCsharpCli.html</loc>
+    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/repositories/position-candidate-hypothesis-paradigm.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/repositories/local-data-regeneration-paradigm.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/repositories/pointer-based-security-paradigm.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -85,13 +103,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
+    <loc>https://smartlegionlab.ru/repositories/SmartPasswordManagerCsharpCli.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.html</loc>
+    <loc>https://smartlegionlab.ru/repositories/SmartPasswordGeneratorCsharpCli.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -200,18 +218,6 @@
   </url>
   <url>
     <loc>https://smartlegionlab.ru/repositories/blockchain.html</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/pointer-based-security-paradigm.html</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/local-data-regeneration-paradigm.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -440,12 +446,6 @@
   </url>
   <url>
     <loc>https://smartlegionlab.ru/repositories/smart-social-network.html</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/position-candidate-hypothesis-paradigm.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
