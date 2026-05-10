@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>clipassgen v3.0.2 - PyPI Package</title>
+    <title>clipassgen v4.0.0 - PyPI Package</title>
     <meta name="description" content="clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from...">
 
     <link rel="canonical" href="https://smartlegionlab.ru/packages/clipassgen.html">
     <link rel="author" href="https://github.com/smartlegionlab">
 
-    <meta property="og:title" content="clipassgen v3.0.2 - PyPI Package">
+    <meta property="og:title" content="clipassgen v4.0.0 - PyPI Package">
     <meta property="og:description" content="clipassgen (Console Smart Password Generator CLI) - Terminal-based smart password generator with deterministic password generation. Generate passwords from...">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://smartlegionlab.ru/packages/clipassgen.html">
@@ -297,10 +297,10 @@
                             </div>
                             <div class="profile-info">
                                 <h1 class="name">clipassgen</h1>
-                                <p class="title">PyPI Package v3.0.2</p>
+                                <p class="title">PyPI Package v4.0.0</p>
 
                                 <div class="badges mt-2">
-                                    <span class="version-badge">3.0.2</span>
+                                    <span class="version-badge">4.0.0</span>
                                     <span class="badge bg-primary">Python</span>
                                     
                                 </div>
@@ -327,6 +327,7 @@
                         <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
                             <i class="bi bi-person" aria-hidden="true"></i>
                         </a>
+                        <a href="/ecosystems.html" class="mobile-nav-btn" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
                         <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
                             <i class="bi bi-gear" aria-hidden="true"></i>
                         </a>
@@ -367,7 +368,7 @@
                                 <i class="bi bi-file-text"></i> Description
                             </h3>
                             <div class="markdown-content">
-                                <h1 id="clipassgen-console-smart-password-generator-v302">CliPassGen (Console Smart Password Generator) <sup>v3.0.2</sup></h1>
+                                <h1 id="clipassgen-console-smart-password-generator-v400">CliPassGen (Console Smart Password Generator) <sup>v4.0.0</sup></h1>
 <hr />
 <p><strong>Terminal-based smart password generator with deterministic password generation. <br />
 Generate passwords from secret phrases - same secret always produces the same password, no storage required.</strong></p>
@@ -391,11 +392,18 @@ Smart Password Generator stores nothing. Your secrets never leave your device. P
 <p><strong>Summary:</strong> Software provided "AS IS" without warranty. You assume all risks.</p>
 <p><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/clipassgen/blob/master/DISCLAIMER.md">DISCLAIMER.md</a></p>
 <hr />
-<h2 id="breaking-change-v3xx">🔄 Breaking Change (v3.x.x)</h2>
+<h2 id="breaking-change-v400">🔄 Breaking Change (v4.0.0)</h2>
 <blockquote>
-<p><strong>⚠️ This release uses <a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib</a> v3.x.x, which is NOT backward compatible with v2.x.x</strong></p>
+<p><strong>⚠️ This release uses <a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib</a> v4.0.0, which is NOT backward compatible with v2.x.x or v3.x.x</strong></p>
 </blockquote>
-<p>Smart passwords created with v2.x.x or earlier <strong>will be different</strong> when generated with v3.x.x.</p>
+<p>Smart passwords created with v2.x.x or v3.x.x <strong>will be different</strong> when generated with v4.0.0.</p>
+<p><strong>What changed:</strong><br />
+- Dynamic iterations: private key 15-30 steps (was fixed 30), public key 45-60 steps (was fixed 60)<br />
+- Expanded Google-compatible character set (26 special chars + A-Z + a-z + 0-9)<br />
+- Code length extended: now 4-100 characters (was 4-20)<br />
+- Secret phrases now require minimum 12 characters<br />
+- Key derivation with salt separation ("private"/"public")<br />
+- No secret exposure in iteration logs</p>
 <p>📖 <strong>Full migration instructions</strong> → see <a href="https://github.com/smartlegionlab/clipassgen/blob/master/MIGRATION.md">MIGRATION.md</a></p>
 <hr />
 <h2 id="core-principles">Core Principles</h2>
@@ -405,27 +413,28 @@ Smart Password Generator stores nothing. Your secrets never leave your device. P
 <li><strong>Deterministic Generation</strong>: Same secret + same length = same password, every time</li>
 <li><strong>Memory-Based Security</strong>: Your brain is the only password database</li>
 <li><strong>Terminal-First</strong>: Optimized for CLI workflows and scripting</li>
-<li><strong>Multi-Mode Generation</strong>: Smart passwords, strong random, base passwords, and auth codes</li>
+<li><strong>Multi-Mode Generation</strong>: Smart passwords, strong random, base passwords, auth codes, public keys, verification</li>
 </ul>
 <p><strong>What You Can Do:</strong><br />
 1. <strong>Generate Smart Passwords</strong>: Deterministic passwords from secret phrases<br />
 2. <strong>Create Public Keys</strong>: Verification keys for secret proof without exposure<br />
-3. <strong>Generate Random Passwords</strong>: Cryptographically secure random generation<br />
-4. <strong>Create Authentication Codes</strong>: Secure codes with character diversity<br />
-5. <strong>Interactive Terminal Mode</strong>: Menu-driven interface for easy use<br />
-6. <strong>Command Line Mode</strong>: Scriptable generation for automation<br />
-7. <strong>Cross-Platform Operation</strong>: Works on any system with Python<br />
-8. <strong>No Dependencies</strong>: Pure Python with smartpasslib core</p>
+3. <strong>Verify Secrets</strong>: Check if a secret matches a stored public key<br />
+4. <strong>Generate Random Passwords</strong>: Cryptographically secure random generation<br />
+5. <strong>Create Authentication Codes</strong>: Secure codes with character diversity<br />
+6. <strong>Interactive Terminal Mode</strong>: Menu-driven interface for easy use<br />
+7. <strong>Command Line Mode</strong>: Scriptable generation for automation<br />
+8. <strong>Cross-Platform Operation</strong>: Works on any system with Python<br />
+9. <strong>No Dependencies</strong>: Pure Python with smartpasslib core</p>
 <h2 id="key-features">Key Features</h2>
 <ul>
 <li><strong>Decentralized &amp; Serverless</strong>: No central database, no cloud lock-in, complete user sovereignty</li>
 <li><strong>Deterministic Security</strong>: Identical input → identical output, always</li>
-<li><strong>Four Generation Modes</strong>: Smart, Strong, Base, and Code</li>
-<li><strong>Public Key Verification</strong>: Generate keys to prove secret knowledge</li>
+<li><strong>Six Generation Modes</strong>: Smart, Strong, Base, Code, Public Key, Verify</li>
+<li><strong>Public Key Verification</strong>: Generate and verify keys to prove secret knowledge</li>
 <li><strong>Interactive &amp; CLI Modes</strong>: Both menu-driven and command-line interfaces</li>
 <li><strong>Hidden Input</strong>: Secret phrase entry via getpass (hidden typing)</li>
 <li><strong>SmartPrinter Output</strong>: Beautiful centered and framed terminal text</li>
-<li><strong>Length Flexibility</strong>: 12-1000 characters for passwords, 4-20 for codes</li>
+<li><strong>Length Flexibility</strong>: 12-100 characters for passwords, 4-100 for codes</li>
 <li><strong>No Internet Required</strong>: All cryptographic operations local</li>
 </ul>
 <h2 id="security-model">Security Model</h2>
@@ -445,8 +454,8 @@ Smart Password Generator stores nothing. Your secrets never leave your device. P
 </ul>
 <hr />
 <h2 id="technical-foundation">Technical Foundation</h2>
-<p>Powered by <strong><a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib</a> v3.x.x+</strong> — The core library for deterministic password generation.</p>
-<p><strong>Key derivation (same as Python/JS/Kotlin/Go/C# versions):</strong></p>
+<p>Powered by <strong><a href="https://github.com/smartlegionlab/smartpasslib">smartpasslib</a> v4.0.0+</strong> — The core library for deterministic password generation.</p>
+<p><strong>Key derivation (same as Python/JS/Kotlin/Go/C# versions v4.0.0):</strong></p>
 <table>
 <thead>
 <tr>
@@ -458,30 +467,45 @@ Smart Password Generator stores nothing. Your secrets never leave your device. P
 <tbody>
 <tr>
 <td>Private Key</td>
-<td>30</td>
+<td>15-30 (dynamic)</td>
 <td>Password generation (never stored, never transmitted)</td>
 </tr>
 <tr>
 <td>Public Key</td>
-<td>60</td>
+<td>45-60 (dynamic)</td>
 <td>Verification (stored locally)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Character Set:</strong> <code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$&amp;*-_</code></p>
+<p><strong>Character Set (Google-compatible):</strong></p>
+<div class="codehilite"><pre><span></span><code>!@#$%^&amp;*()_+-=[]{};:,.&lt;&gt;?/ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz
+</code></pre></div>
+
+<p><strong>Validation Rules:</strong><br />
+- Secret phrase: minimum 12 characters<br />
+- Password length: 12-100 characters<br />
+- Code length: 4-100 characters</p>
 <p><strong>Decentralized Architecture</strong>:<br />
 - No central authority required<br />
 - Metadata can be synced via any channel<br />
 - Your security depends only on your secret phrase<br />
 - Works offline — no internet connection required</p>
 <p><strong>Generation Modes:</strong><br />
-- <strong>Smart Password</strong>: Deterministic from secret phrase (BREAKING CHANGE in v3.x.x)<br />
+- <strong>Smart Password</strong>: Deterministic from secret phrase (BREAKING CHANGE in v4.0.0)<br />
 - <strong>Strong Password</strong>: Cryptographically secure random generation (unchanged)<br />
 - <strong>Base Password</strong>: Simple random password generation (unchanged)<br />
-- <strong>Authentication Code</strong>: Secure code generation for 2FA/MFA (unchanged)</p>
+- <strong>Authentication Code</strong>: Secure code generation for 2FA/MFA (max length extended to 100)<br />
+- <strong>Public Key</strong>: Generate verification key from secret phrase (NEW)<br />
+- <strong>Verify</strong>: Check secret against stored public key (NEW)</p>
 <hr />
 <h2 id="installation">Installation</h2>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">clipassgen</span><span class="o">==</span><span class="m">3</span>.0.2
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/clipassgen
+<span class="nb">cd</span><span class="w"> </span>clipassgen
+python<span class="w"> </span>app.py
+</code></pre></div>
+
+<p>or</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">clipassgen</span><span class="o">==</span><span class="m">4</span>.0.0
 </code></pre></div>
 
 <hr />
@@ -497,10 +521,13 @@ clipassgen<span class="w"> </span>--smart<span class="w"> </span>-s<span class="
 <span class="c1"># Strong random password</span>
 clipassgen<span class="w"> </span>--strong<span class="w"> </span>-l<span class="w"> </span><span class="m">20</span>
 
-<span class="c1"># Authentication code (2FA)</span>
+<span class="c1"># Base random password</span>
+clipassgen<span class="w"> </span>--base<span class="w"> </span>-l<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># Authentication code (2FA) - now up to 100 chars</span>
 clipassgen<span class="w"> </span>--code<span class="w"> </span>-l<span class="w"> </span><span class="m">8</span>
 
-<span class="c1"># Generate public key</span>
+<span class="c1"># Generate public key from secret</span>
 clipassgen<span class="w"> </span>--public<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;MyStrongSecretPhrase2026!&quot;</span>
 
 <span class="c1"># Verify secret against public key</span>
@@ -510,9 +537,9 @@ clipassgen<span class="w"> </span>--verify<span class="w"> </span>-s<span class=
 <h2 id="security-requirements">Security Requirements</h2>
 <h3 id="secret-phrase">Secret Phrase</h3>
 <ul>
-<li><strong>Minimum 12 characters</strong> (enforced)</li>
+<li><strong>Minimum 12 characters</strong> (enforced by library)</li>
 <li>Case-sensitive</li>
-<li>Use mix of: uppercase, lowercase, numbers, symbols, emoji, or Cyrillic</li>
+<li>Use mix of: uppercase, lowercase, numbers, symbols</li>
 <li>Never store digitally</li>
 <li><strong>NEVER use your password description as secret phrase</strong></li>
 </ul>
@@ -523,11 +550,17 @@ clipassgen<span class="w"> </span>--verify<span class="w"> </span>-s<span class=
 </code></pre></div>
 
 <h3 id="weak-secret-examples-avoid">Weak Secret Examples (avoid)</h3>
-<div class="codehilite"><pre><span></span><code>❌ &quot;password&quot;                    — dictionary word, too short
-❌ &quot;1234567890&quot;                  — only digits, too short
-❌ &quot;qwerty123&quot;                   — keyboard pattern
+<div class="codehilite"><pre><span></span><code><span class="err">❌</span><span class="w"> </span><span class="s">&quot;short&quot;</span><span class="w">                       </span><span class="err">—</span><span class="w"> </span><span class="nx">too</span><span class="w"> </span><span class="nx">short</span><span class="p">,</span><span class="w"> </span><span class="nx">rejected</span><span class="w"> </span><span class="nx">by</span><span class="w"> </span><span class="kn">library</span>
+<span class="err">❌</span><span class="w"> </span><span class="s">&quot;password&quot;</span><span class="w">                    </span><span class="err">—</span><span class="w"> </span><span class="nx">dictionary</span><span class="w"> </span><span class="nx">word</span><span class="p">,</span><span class="w"> </span><span class="nx">too</span><span class="w"> </span><span class="nx">short</span>
+<span class="err">❌</span><span class="w"> </span><span class="s">&quot;1234567890&quot;</span><span class="w">                  </span><span class="err">—</span><span class="w"> </span><span class="nx">only</span><span class="w"> </span><span class="nx">digits</span><span class="p">,</span><span class="w"> </span><span class="nx">too</span><span class="w"> </span><span class="nx">short</span>
+<span class="err">❌</span><span class="w"> </span><span class="s">&quot;qwerty123&quot;</span><span class="w">                   </span><span class="err">—</span><span class="w"> </span><span class="nx">keyboard</span><span class="w"> </span><span class="nx">pattern</span>
 </code></pre></div>
 
+<h3 id="password-length-requirements">Password Length Requirements</h3>
+<ul>
+<li>Smart/Strong/Base passwords: 12-100 characters</li>
+<li>Authentication codes: 4-100 characters (was 4-20)</li>
+</ul>
 <h3 id="decentralized-nature">Decentralized Nature</h3>
 <p><strong>There is no "forgot password" button.</strong> This is by design:</p>
 <ul>
@@ -610,14 +643,20 @@ clipassgen<span class="w"> </span>--verify<span class="w"> </span>-s<span class=
 </thead>
 <tbody>
 <tr>
-<td>v2.1.6 and below</td>
+<td>v2.x.x and below</td>
 <td>v2.x.x</td>
 <td>❌ Deprecated/Unsupported</td>
-<td>Must migrate to v3.x.x</td>
+<td>Must migrate to v4.x.x</td>
 </tr>
 <tr>
-<td>v3.x.x+</td>
 <td>v3.x.x</td>
+<td>v3.x.x</td>
+<td>❌ Deprecated/Unsupported</td>
+<td>Must migrate to v4.x.x</td>
+</tr>
+<tr>
+<td><strong>v4.0.0+</strong></td>
+<td><strong>v4.0.0+</strong></td>
 <td>✅ Current</td>
 <td>N/A</td>
 </tr>
@@ -636,6 +675,7 @@ clipassgen<span class="w"> </span>--verify<span class="w"> </span>-s<span class=
 <hr />
 <h3 id="main-interface">Main Interface</h3>
 <p><img alt="Main Interface"  / loading="lazy" width="100%" height="auto" src="https://github.com/smartlegionlab/clipassgen/raw/master/data/images/clipassgen.png"></p>
+<hr />
                             </div>
                         </div>
 

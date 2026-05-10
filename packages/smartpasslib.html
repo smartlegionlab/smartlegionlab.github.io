@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>smartpasslib v3.0.2 - PyPI Package</title>
+    <title>smartpasslib v4.0.0 - PyPI Package</title>
     <meta name="description" content="Smart Passwords Library: Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without...">
 
     <link rel="canonical" href="https://smartlegionlab.ru/packages/smartpasslib.html">
     <link rel="author" href="https://github.com/smartlegionlab">
 
-    <meta property="og:title" content="smartpasslib v3.0.2 - PyPI Package">
+    <meta property="og:title" content="smartpasslib v4.0.0 - PyPI Package">
     <meta property="og:description" content="Smart Passwords Library: Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without...">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://smartlegionlab.ru/packages/smartpasslib.html">
@@ -297,10 +297,10 @@
                             </div>
                             <div class="profile-info">
                                 <h1 class="name">smartpasslib</h1>
-                                <p class="title">PyPI Package v3.0.2</p>
+                                <p class="title">PyPI Package v4.0.0</p>
 
                                 <div class="badges mt-2">
-                                    <span class="version-badge">3.0.2</span>
+                                    <span class="version-badge">4.0.0</span>
                                     <span class="badge bg-primary">Python</span>
                                     
                                 </div>
@@ -327,6 +327,7 @@
                         <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page">
                             <i class="bi bi-person" aria-hidden="true"></i>
                         </a>
+                        <a href="/ecosystems.html" class="mobile-nav-btn" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
                         <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page">
                             <i class="bi bi-gear" aria-hidden="true"></i>
                         </a>
@@ -367,7 +368,7 @@
                                 <i class="bi bi-file-text"></i> Description
                             </h3>
                             <div class="markdown-content">
-                                <h1 id="smartpasslib-v302">SmartPassLib <sup>v3.0.2</sup></h1>
+                                <h1 id="smartpasslib-v400">SmartPassLib <sup>v4.0.0</sup></h1>
 <hr />
 <p><strong>Smart Passwords Library</strong>: Cryptographic password generation and management without storage. <br />
 Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.</p>
@@ -395,11 +396,11 @@ smartpasslib stores nothing. Your secrets never leave your device. Passwords are
 <p><strong>Summary:</strong> Software provided "AS IS" without warranty. You assume all risks.</p>
 <p><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartpasslib/blob/master/DISCLAIMER.md">DISCLAIMER.md</a></p>
 <hr />
-<h2 id="breaking-change-v302">🔄 Breaking Change (v3.0.2)</h2>
+<h2 id="breaking-change-v400">🔄 Breaking Change (v4.0.0)</h2>
 <blockquote>
-<p><strong>⚠️ This version is NOT backward compatible with v1.x.x and v2.x.x</strong></p>
+<p><strong>⚠️ This version is NOT backward compatible with v1.x.x, v2.x.x, or v3.x.x</strong></p>
 </blockquote>
-<p>Passwords generated with older versions <strong>cannot be regenerated</strong> with v3.x.x.</p>
+<p>Passwords generated with older versions <strong>cannot be regenerated</strong> with v4.0.0.</p>
 <p>📖 <strong>Full migration instructions</strong> → see <a href="https://github.com/smartlegionlab/smartpasslib/blob/master/MIGRATION.md">MIGRATION.md</a></p>
 <hr />
 <h2 id="core-principles">Core Principles:</h2>
@@ -446,6 +447,7 @@ smartpasslib stores nothing. Your secrets never leave your device. Passwords are
 <li><strong>Proof of Knowledge</strong>: Verify you know a secret without storing or transmitting it</li>
 <li><strong>Decentralized Trust</strong>: No third party needed — you control your secrets completely</li>
 <li><strong>Deterministic Security</strong>: Same input = same output, always reproducible across platforms</li>
+<li><strong>Dynamic Iteration Counts</strong>: Private key uses 15-30 iterations, public key uses 45-60 iterations (deterministic per secret)</li>
 <li><strong>No Vulnerable Metadata Storage</strong>: Only public keys and descriptions can be stored (optional). Private keys and secret phrases are NEVER stored anywhere</li>
 <li><strong>Zero Storage of Secrets</strong>: Secret phrases exist only in your memory, private keys are derived on-demand and never persisted</li>
 <li><strong>No Recovery Backdoors</strong>: Lost secret = permanently lost passwords (by design)</li>
@@ -506,33 +508,31 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
 <td><code>~/.config/smart_password_manager/passwords.json</code></td>
 </tr>
 <tr>
-<td>macOS</td>
-<td><code>~/.config/smart_password_manager/passwords.json</code></td>
-</tr>
-<tr>
 <td>Windows</td>
 <td><code>C:\Users\Username\.config\smart_password_manager\passwords.json</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Legacy Migration</strong>: <br />
-- Old <code>~/.cases.json</code> files are automatically migrated on first use<br />
-- Original file is backed up as <code>~/.cases.json.bak</code><br />
-- Migration is one-time and non-destructive</p>
+<p><strong>Legacy Migration</strong>:<br />
+- Old <code>~/.cases.json</code> files from v1.x.x/v2.x.x/v3.x.x are <strong>NOT compatible</strong> with v4.0.0<br />
+- Public keys in old files use different derivation (fixed iterations, no salt)<br />
+- These files will <strong>not</strong> be migrated automatically<br />
+- If you have existing metadata, you need to recreate entries manually<br />
+- Keep old file as backup: <code>~/.cases.json.v3.bak</code><br />
+- See <a href="MIGRATION.md">MIGRATION.md</a> for detailed instructions</p>
 <hr />
 <h2 id="quick-start">Quick Start</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smartpasslib</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPasswordMaster</span>
 
-<span class="c1"># Your secret phrase is the only key needed</span>
-<span class="n">secret</span> <span class="o">=</span> <span class="s2">&quot;my_secret_key&quot;</span>
+<span class="c1"># Your secret phrase is the only key needed (min 12 characters!)</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="s2">&quot;my_strong_secret_key&quot;</span>
 
-<span class="c1"># Discover the password (CROSS-PLATFORM!)</span>
+<span class="c1"># Generate the password (CROSS-PLATFORM!)</span>
 <span class="n">password</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_smart_password</span><span class="p">(</span>
     <span class="n">secret</span><span class="o">=</span><span class="n">secret</span><span class="p">,</span> 
     <span class="n">length</span><span class="o">=</span><span class="mi">12</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Your discovered password: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="c1"># Your discovered password: i&amp;h!lLy&amp;ONxC</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Your generated password: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="verification-without-storage">Verification Without Storage</h2>
@@ -540,12 +540,12 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
 
 <span class="c1"># Generate a public verification key (store this, not the password)</span>
 <span class="n">public_key</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_public_key</span><span class="p">(</span>
-    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;my_secret_key&quot;</span>
+    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;my_strong_secret_key&quot;</span>
 <span class="p">)</span>
 
 <span class="c1"># Later, verify you know the secret without revealing it</span>
 <span class="n">is_valid</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">check_public_key</span><span class="p">(</span>
-    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;my_secret_key&quot;</span><span class="p">,</span>
+    <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;my_strong_secret_key&quot;</span><span class="p">,</span>
     <span class="n">public_key</span><span class="o">=</span><span class="n">public_key</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>  <span class="c1"># True</span>
@@ -563,12 +563,12 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
 <span class="n">strong_password</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_strong_password</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="c1"># Output example: 7u-IOW7$#K*FHd</span>
 
-<span class="n">smart_password</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_smart_password</span><span class="p">(</span><span class="s2">&quot;my_secret_key&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="c1"># Output: i&amp;h!lLy&amp;ONxC</span>
+<span class="n">smart_password</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_smart_password</span><span class="p">(</span><span class="s2">&quot;my_strong_secret_key&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Output deterministic password (min 12 chars secret required)</span>
 
 <span class="c1"># Generate and verify keys</span>
-<span class="n">public_key</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_public_key</span><span class="p">(</span><span class="s2">&quot;my_secret_key&quot;</span><span class="p">)</span>
-<span class="n">is_valid</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">check_public_key</span><span class="p">(</span><span class="s2">&quot;my_secret_key&quot;</span><span class="p">,</span> <span class="n">public_key</span><span class="p">)</span>
+<span class="n">public_key</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_public_key</span><span class="p">(</span><span class="s2">&quot;my_strong_secret_key&quot;</span><span class="p">)</span>
+<span class="n">is_valid</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">check_public_key</span><span class="p">(</span><span class="s2">&quot;my_strong_secret_key&quot;</span><span class="p">,</span> <span class="n">public_key</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Verification: </span><span class="si">{</span><span class="n">is_valid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Verification: True</span>
 
 <span class="c1"># Generate secure codes</span>
@@ -596,7 +596,7 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
     <span class="s2">&quot;MyStrongSecretPhrase2026!&quot;</span><span class="p">,</span>
     <span class="n">stored_metadata</span><span class="o">.</span><span class="n">length</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">regenerated_password</span><span class="p">)</span> <span class="c1"># im5daDg77!drK7-lan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regenerated_password</span><span class="p">)</span>
 </code></pre></div>
 
 <h3 id="generators">Generators</h3>
@@ -621,8 +621,8 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
 <p><strong>Smart Generator</strong> - Deterministic passwords from seeds (CROSS-PLATFORM):</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smartpasslib.generators.smart</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPasswordGenerator</span>
 
-<span class="n">password</span> <span class="o">=</span> <span class="n">SmartPasswordGenerator</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;my_secret_key&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="c1"># Output: i&amp;h!lLy&amp;ONxC (SAME on Go, Kotlin, JS!)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">SmartPasswordGenerator</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="s2">&quot;my_strong_secret_key&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Same secret + length = identical password on Python, Go, Kotlin, JS, C#</span>
 </code></pre></div>
 
 <hr />
@@ -635,6 +635,8 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
         <span class="bp">self</span><span class="o">.</span><span class="n">manager</span> <span class="o">=</span> <span class="n">SmartPasswordManager</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Secret must be at least 12 characters&quot;</span><span class="p">)</span>
         <span class="n">public_key</span> <span class="o">=</span> <span class="n">SmartPasswordMaster</span><span class="o">.</span><span class="n">generate_public_key</span><span class="p">(</span><span class="n">secret</span><span class="p">)</span>
         <span class="n">metadata</span> <span class="o">=</span> <span class="n">SmartPassword</span><span class="p">(</span>
             <span class="n">public_key</span><span class="o">=</span><span class="n">public_key</span><span class="p">,</span>
@@ -652,8 +654,8 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
 
 <span class="c1"># Usage</span>
 <span class="n">vault</span> <span class="o">=</span> <span class="n">PasswordVault</span><span class="p">()</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">vault</span><span class="o">.</span><span class="n">add_service</span><span class="p">(</span><span class="s2">&quot;My Account&quot;</span><span class="p">,</span> <span class="s2">&quot;my_account_secret&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">vault</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;my_account_secret&quot;</span><span class="p">)</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">vault</span><span class="o">.</span><span class="n">add_service</span><span class="p">(</span><span class="s2">&quot;My Account&quot;</span><span class="p">,</span> <span class="s2">&quot;my_account_secret_2026!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">vault</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;my_account_secret_2026!&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <hr />
@@ -669,27 +671,32 @@ from secret phrases using <strong>SHA-256</strong> cryptographic hash function.<
 <h3 id="security-requirements">Security Requirements</h3>
 <h4 id="secret-phrase">Secret Phrase</h4>
 <ul>
-<li><strong>Minimum 12 characters</strong> (enforced)</li>
+<li><strong>Minimum 12 characters</strong> (enforced by library)</li>
+<li><strong>Maximum length</strong>: No enforced limit, but 12-100 recommended</li>
 <li>Case-sensitive</li>
-<li>Use mix of: uppercase, lowercase, numbers, symbols, emoji, or Cyrillic</li>
+<li>Use mix of: uppercase, lowercase, numbers, symbols</li>
 <li>Never store digitally</li>
 <li><strong>NEVER use your password description as secret phrase</strong></li>
 </ul>
 <h4 id="strong-secret-examples">Strong Secret Examples</h4>
 <div class="codehilite"><pre><span></span><code><span class="err">✅</span><span class="w"> </span><span class="ss">&quot;MyCatHippo2026&quot;</span><span class="w">          </span><span class="err">—</span><span class="w"> </span><span class="n">mixed</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numbers</span>
 <span class="err">✅</span><span class="w"> </span><span class="ss">&quot;P@ssw0rd!LongSecret&quot;</span><span class="w">     </span><span class="err">—</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">length</span>
-<span class="err">✅</span><span class="w"> </span><span class="ss">&quot;КотБегемот2026НаДиете&quot;</span><span class="w">   </span><span class="err">—</span><span class="w"> </span><span class="n">Cyrillic</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numbers</span>
 <span class="err">✅</span><span class="w"> </span><span class="ss">&quot;GitHubPersonal2026!&quot;</span><span class="w">     </span><span class="err">—</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">chars</span><span class="w"> </span><span class="p">(</span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">alone</span><span class="p">)</span>
 </code></pre></div>
 
 <h4 id="weak-secret-examples-avoid">Weak Secret Examples (avoid)</h4>
-<div class="codehilite"><pre><span></span><code>❌ &quot;GitHub Account&quot;          — using description as secret (weak!)
+<div class="codehilite"><pre><span></span><code>❌ &quot;short&quot;                   — too short, raises ValueError
+❌ &quot;GitHub Account&quot;          — using description as secret (weak!)
 ❌ &quot;password&quot;                — dictionary word, too short
 ❌ &quot;1234567890&quot;              — only digits, too short
-❌ &quot;qwerty123&quot;               — keyboard pattern
-❌ Same as description       — never use the same value as password description
 </code></pre></div>
 
+<h3 id="password-length-requirements">Password Length Requirements</h3>
+<ul>
+<li><strong>Minimum length</strong>: 12 characters (enforced)</li>
+<li><strong>Maximum length</strong>: 100 characters (enforced)</li>
+<li><strong>Code generator</strong>: 4-100 characters</li>
+</ul>
 <h3 id="secret-phrase-security">Secret Phrase Security</h3>
 <p><strong>Your secret phrase is the cryptographic master key</strong></p>
 <ol>
@@ -754,7 +761,7 @@ smartpasslib Python produces <strong>identical passwords</strong> to:</p>
 <hr />
 <h2 id="license">License</h2>
 <p><strong><a href="https://github.com/smartlegionlab/smartpasslib/blob/master/LICENSE">BSD 3-Clause License</a></strong></p>
-<p>Copyright (©) 2026, <a href="https://github.com/smartlegionlab">Alexander Suvorov</a></p>
+<p>Copyright (©) 2026, <a href="https://github.com/smartlegionlab">Alexander Suvorov</a> </p>
 <hr />
 <h2 id="support">Support</h2>
 <ul>
@@ -777,11 +784,9 @@ python<span class="w"> </span>-m<span class="w"> </span>build
 <p><strong>Public API</strong> (stable):<br />
 - <code>SmartPasswordMaster</code> - Main interface class<br />
 - <code>SmartPasswordManager</code> - Metadata management<br />
-- <code>SmartPassword</code> - Password metadata container<br />
-- <code>SmartPasswordFactory</code> - Factory for creating metadata</p>
+- <code>SmartPassword</code> - Password metadata container</p>
 <p><strong>Internal API</strong> (subject to change):<br />
 - <code>smartpasslib.generators.*</code><br />
-- <code>smartpasslib.factories.*</code><br />
 - <code>smartpasslib.utils.*</code></p>
 <hr />
                             </div>
