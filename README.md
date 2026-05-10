@@ -1,7 +1,6 @@
 # Alexander Suvorov - Automated Technical Portfolio <sup>v4.0.5</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
-[![Academic Portfolio](https://img.shields.io/badge/Academic-alexander--suvorov.ru-purple?style=for-the-badge&logo=google-scholar)](https://alexander-suvorov.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/)
 [![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
@@ -262,7 +261,6 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
 ## 📬 Connect with Alexander Suvorov
 
 - **🌐 Portfolio:** [smartlegionlab.ru](https://smartlegionlab.ru)
-- **🎓 Academic Work:** [alexander-suvorov.ru](https://alexander-suvorov.ru)
 - **💻 GitHub:** [@smartlegionlab](https://github.com/smartlegionlab)
 - **📝 Dev.to Blog:** [@smartlegionlab](https://dev.to/smartlegionlab)
 - **📦 PyPI Packages:** [@smartlegionlab](https://pypi.org/user/smartlegionlab)
