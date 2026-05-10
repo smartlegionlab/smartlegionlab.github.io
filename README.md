@@ -197,7 +197,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 
 - **Hero Section**: Professional introduction with key metrics (Experience, Projects, Repos).
 - **Professional Profile**: Technical leadership, business impact, and published research.
-- **Research & Paradigms**: Cards linking to detailed pages for groundbreaking concepts (Pointer-Based Security, PCH, etc.).
+- **Research & Paradigms**: Cards linking to detailed pages for concepts (Pointer-Based Security, PCH, etc.).
 - **Automated Project Showcase**:
     - **Projects (`projects.html`)**: A grid of GitHub repos with live stats (stars, forks), topics, and a "View" button linking to its dedicated detail page.
     - **Packages (`packages.html`)**: A grid of PyPI packages with descriptions, version badges, and a one-click `pip install` button that copies the command to your clipboard.
