@@ -21,10 +21,6 @@
             padding: 0.9rem 1rem;
             transition: all 0.2s;
         }
-        .feature-block:hover {
-            background: rgba(13, 110, 253, 0.08);
-            border-color: rgba(13, 110, 253, 0.35);
-        }
         .badge-platform {
             background: rgba(13, 110, 253, 0.15);
             color: #7ab3ff;
@@ -82,35 +78,11 @@
                         <h2 class="section-title mb-0">Repo Manager Ecosystem</h2>
                     </div>
                     <p class="lead text-muted">Complete GitHub repository management: sync, backup, SSH configuration. Core library + GUI + CLI.</p>
-                    <div class="d-flex justify-content-center gap-3 mt-3">
-                        <span class="badge-platform"><i class="bi bi-check-circle-fill text-primary me-1"></i> Python</span>
-                        <span class="badge-platform"><i class="bi bi-github me-1"></i> GitHub API</span>
-                        <span class="badge-platform"><i class="bi bi-shield-lock me-1"></i> SSH Manager</span>
-                        <span class="badge-platform"><i class="bi bi-arrow-repeat me-1"></i> Sync & Backup</span>
-                    </div>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-md-4 mb-3">
-                        <div class="feature-block text-center">
-                            <i class="bi bi-box-seam text-primary fs-3"></i>
-                            <div class="fw-bold mt-2">Core Library</div>
-                            <div class="small text-muted">Python · GitPython · GitHub API v3/v4</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="feature-block text-center">
-                            <i class="bi bi-display text-primary fs-3"></i>
-                            <div class="fw-bold mt-2">GUI Application</div>
-                            <div class="small text-muted">PyQt5/6 · Desktop interface</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="feature-block text-center">
-                            <i class="bi bi-terminal text-primary fs-3"></i>
-                            <div class="fw-bold mt-2">CLI Tool</div>
-                            <div class="small text-muted">Command‑line · Power users</div>
-                        </div>
+                    <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                        <span class="badge-platform"><i class="bi bi-box-seam me-1"></i> Core v0.3.6</span>
+                        <span class="badge-platform"><i class="bi bi-display me-1"></i> GUI v1.2.5</span>
+                        <span class="badge-platform"><i class="bi bi-terminal me-1"></i> CLI v1.0.7</span>
+                        <span class="badge-platform"><i class="bi bi-python me-1"></i> Python 3.8+</span>
                     </div>
                 </div>
 
@@ -125,11 +97,10 @@
                                 <hr class="border-secondary">
                                 <div class="feature-block mb-2">
                                     <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank">smart-repository-manager-core</a></div>
-                                    <div class="small text-muted">Python library for Git/GitHub operations, SSH validation, sync logic</div>
+                                    <div class="small text-muted">Python library for Git/GitHub operations</div>
                                 </div>
                                 <div class="mt-2">
-                                    <span class="badge bg-primary bg-opacity-25 text-primary me-1">GitPython</span>
-                                    <span class="badge bg-primary bg-opacity-25 text-primary">PyGithub</span>
+                                    <code class="small">pip install smart-repository-manager-core</code>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +115,7 @@
                                 <hr class="border-secondary">
                                 <div class="feature-block mb-2">
                                     <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-repository-manager-gui" target="_blank">smart-repository-manager-gui</a></div>
-                                    <div class="small text-muted">Desktop interface (PyQt) for repo management · visual operations · easy backup configuration</div>
+                                    <div class="small text-muted">Desktop interface (PyQt) · visual operations</div>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +130,7 @@
                                 <hr class="border-secondary">
                                 <div class="feature-block mb-2">
                                     <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-repository-manager-cli" target="_blank">smart-repository-manager-cli</a></div>
-                                    <div class="small text-muted">Command‑line interface for power users · scriptable automation · batch operations</div>
+                                    <div class="small text-muted">Command‑line · scriptable automation</div>
                                 </div>
                             </div>
                         </div>
@@ -174,48 +145,28 @@
                         </div>
                         <hr class="border-secondary">
                         <div class="row">
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Repository Sync</strong>
-                                    <div class="small text-muted mt-1">Sync local repos with GitHub, batch clone, update</div>
+                            <div class="col-md-3 mb-2">
+                                <div class="feature-block text-center">
+                                    <i class="bi bi-arrow-repeat text-primary fs-4"></i>
+                                    <div class="fw-bold small mt-1">Repository Sync</div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Backup Automation</strong>
-                                    <div class="small text-muted mt-1">Scheduled backups of all repositories</div>
+                            <div class="col-md-3 mb-2">
+                                <div class="feature-block text-center">
+                                    <i class="bi bi-database text-primary fs-4"></i>
+                                    <div class="fw-bold small mt-1">Backup Automation</div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>SSH Key Manager</strong>
-                                    <div class="small text-muted mt-1">Validate, backup, and manage SSH keys</div>
+                            <div class="col-md-3 mb-2">
+                                <div class="feature-block text-center">
+                                    <i class="bi bi-key text-primary fs-4"></i>
+                                    <div class="fw-bold small mt-1">SSH Manager</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Multi‑Account Support</strong>
-                                    <div class="small text-muted mt-1">Handle multiple GitHub accounts simultaneously</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Repository Stats</strong>
-                                    <div class="small text-muted mt-1">View detailed statistics for each repo</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Cross‑Platform</strong>
-                                    <div class="small text-muted mt-1">Works on Windows, Linux, macOS</div>
+                            <div class="col-md-3 mb-2">
+                                <div class="feature-block text-center">
+                                    <i class="bi bi-people text-primary fs-4"></i>
+                                    <div class="fw-bold small mt-1">Multi‑Account</div>
                                 </div>
                             </div>
                         </div>
@@ -224,10 +175,7 @@
 
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <a href="/ecosystems.html" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
-                    <div>
-                        <a href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank" class="btn btn-outline-primary btn-sm me-2"><i class="bi bi-star"></i> Star on GitHub</a>
-                        <a href="https://github.com/smartlegionlab/smart-repository-manager-gui" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-display"></i> GUI</a>
-                    </div>
+                    <a href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-star"></i> Star on GitHub</a>
                 </div>
             </div></div>
 
