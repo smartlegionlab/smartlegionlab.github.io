@@ -14,6 +14,32 @@
     <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+    <style>
+        .feature-block {
+            background: rgba(13, 110, 253, 0.05);
+            border: 1px solid rgba(13, 110, 253, 0.15);
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+            transition: all 0.2s;
+        }
+        .feature-block:hover {
+            background: rgba(13, 110, 253, 0.08);
+            border-color: rgba(13, 110, 253, 0.35);
+        }
+        .badge-platform {
+            background: rgba(13, 110, 253, 0.15);
+            color: #7ab3ff;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .stat-badge {
+            background: rgba(13, 110, 253, 0.08);
+            border-radius: 12px;
+            padding: 0.3rem 0.8rem;
+        }
+    </style>
 </head>
 <body>
     <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
@@ -55,21 +81,85 @@
 
         <main style="padding: 5px;"><br>
             <div class="content-section"><div class="container">
-                <h2 class="section-title">SmartPassLib Ecosystem</h2>
-                <p class="text-center mb-4">Deterministic password management with zero storage. One logic — five languages — multiple interfaces.</p>
+
+                <div class="text-center mb-4">
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                        <i class="bi bi-shield-lock text-primary" style="font-size: 2rem;"></i>
+                        <h2 class="section-title mb-0">SmartPassLib Ecosystem</h2>
+                    </div>
+                    <p class="lead text-muted">Deterministic password management with zero storage. One logic — five languages — multiple interfaces.</p>
+                    <div class="d-flex justify-content-center gap-3 mt-3">
+                        <span class="badge-platform"><i class="bi bi-check-circle-fill text-primary me-1"></i> v4.0.0</span>
+                        <span class="badge-platform"><i class="bi bi-shield-check me-1"></i> Zero-Storage</span>
+                        <span class="badge-platform"><i class="bi bi-diagram-3 me-1"></i> Decentralized</span>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="feature-block text-center">
+                            <i class="bi bi-database-slash text-primary fs-3"></i>
+                            <div class="fw-bold mt-2">Zero Storage</div>
+                            <div class="small text-muted">No passwords or secrets ever stored</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="feature-block text-center">
+                            <i class="bi bi-arrow-repeat text-primary fs-3"></i>
+                            <div class="fw-bold mt-2">Deterministic</div>
+                            <div class="small text-muted">Same secret = same password across all platforms</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="feature-block text-center">
+                            <i class="bi bi-globe2 text-primary fs-3"></i>
+                            <div class="fw-bold mt-2">Decentralized</div>
+                            <div class="small text-muted">No central servers, complete user sovereignty</div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
                             <div class="card-body card-custom">
-                                <h4 class="mt-2 text-primary"><i class="bi bi-code-slash text-primary" style="font-size: 1.5rem;"></i> Core Libraries</h4>
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="bi bi-code-slash text-primary" style="font-size: 1.5rem;"></i>
+                                    <h4 class="mb-0 text-primary">Core Libraries</h4>
+                                </div>
                                 <hr class="border-secondary">
-                                <div class="small">
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smartpasslib" target="_blank">smartpasslib</a> — Python</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smartpasslib-go" target="_blank">smartpasslib-go</a> — Go</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smartpasslib-csharp" target="_blank">smartpasslib-csharp</a> — C#</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smartpasslib-kotlin" target="_blank">smartpasslib-kotlin</a> — Kotlin</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smartpasslib-js" target="_blank">smartpasslib-js</a> — JavaScript</div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smartpasslib" target="_blank">smartpasslib</a> — Python</div>
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smartpasslib-go" target="_blank">smartpasslib-go</a> — Go</div>
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smartpasslib-csharp" target="_blank">smartpasslib-csharp</a> — C#</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smartpasslib-kotlin" target="_blank">smartpasslib-kotlin</a> — Kotlin</div>
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smartpasslib-js" target="_blank">smartpasslib-js</a> — JavaScript</div>
+                                    </div>
+                                </div>
+                                <div class="mt-3"><span class="badge bg-primary bg-opacity-25 text-primary">SHA-256 based</span> <span class="badge bg-primary bg-opacity-25 text-primary ms-1">NIST certified</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                            <div class="card-body card-custom">
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="bi bi-terminal text-primary" style="font-size: 1.5rem;"></i>
+                                    <h4 class="mb-0 text-primary">CLI Applications</h4>
+                                </div>
+                                <hr class="border-secondary">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/clipassman" target="_blank">clipassman</a> — Python manager</div>
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" target="_blank">SmartPasswordManagerCsharpCli</a> — C# manager</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/clipassgen" target="_blank">clipassgen</a> — Python generator</div>
+                                        <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" target="_blank">SmartPasswordGeneratorCsharpCli</a> — C# generator</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -77,44 +167,67 @@
                     <div class="col-md-6 mb-4">
                         <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
                             <div class="card-body card-custom">
-                                <h4 class="mt-2 text-primary"><i class="bi bi-terminal text-primary" style="font-size: 1.5rem;"></i> CLI Applications</h4>
-                                <hr class="border-secondary">
-                                <div class="small">
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/clipassman" target="_blank">clipassman</a> — Python manager</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/clipassgen" target="_blank">clipassgen</a> — Python generator</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" target="_blank">SmartPasswordManagerCsharpCli</a> — C# manager</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" target="_blank">SmartPasswordGeneratorCsharpCli</a> — C# generator</div>
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="bi bi-display text-primary" style="font-size: 1.5rem;"></i>
+                                    <h4 class="mb-0 text-primary">Desktop Applications</h4>
                                 </div>
+                                <hr class="border-secondary">
+                                <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-password-manager-desktop" target="_blank">smart-password-manager-desktop</a> — Python (PyQt5/6)</div>
+                                <div class="small"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" target="_blank">SmartPasswordManagerCsharpDesktop</a> — C# (WPF)</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4">
                         <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
                             <div class="card-body card-custom">
-                                <h4 class="mt-2 text-primary"><i class="bi bi-display text-primary" style="font-size: 1.5rem;"></i> Desktop Applications</h4>
-                                <hr class="border-secondary">
-                                <div class="small">
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smart-password-manager-desktop" target="_blank">smart-password-manager-desktop</a> — Python (PyQt)</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" target="_blank">SmartPasswordManagerCsharpDesktop</a> — C# (WPF)</div>
+                                <div class="d-flex align-items-center gap-2 mb-3">
+                                    <i class="bi bi-phone text-primary" style="font-size: 1.5rem;"></i>
+                                    <i class="bi bi-globe text-primary" style="font-size: 1.5rem;"></i>
+                                    <h4 class="mb-0 text-primary">Mobile & Web</h4>
                                 </div>
+                                <hr class="border-secondary">
+                                <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-password-manager-android" target="_blank">smart-password-manager-android</a> — Android (Kotlin)</div>
+                                <div class="small"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-password-manager-web" target="_blank">smart-password-manager-web</a> — Web (HTML/JS)</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <h4 class="mt-2 text-primary"><i class="bi bi-phone text-primary" style="font-size: 1.5rem;"></i> Mobile & Web</h4>
-                                <hr class="border-secondary">
-                                <div class="small">
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smart-password-manager-android" target="_blank">smart-password-manager-android</a> — Android (Kotlin)</div>
-                                    <div><i class="bi bi-check-circle-fill text-primary"></i> <a href="https://github.com/smartlegionlab/smart-password-manager-web" target="_blank">smart-password-manager-web</a> — Web (HTML/JS)</div>
+                </div>
+
+                <div class="card mt-3" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-journal-text text-primary" style="font-size: 1.5rem;"></i>
+                            <h4 class="mb-0 text-primary">Research Foundation</h4>
+                        </div>
+                        <hr class="border-secondary">
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <div class="feature-block">
+                                    <i class="bi bi-shield-check text-primary me-2"></i>
+                                    <strong>Pointer‑Based Security Paradigm</strong>
+                                    <div class="small text-muted mt-1">Security through data non‑existence — eliminate vulnerable data instead of protecting it</div>
+                                    <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="small">DOI: 10.5281/zenodo.17204738 →</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="feature-block">
+                                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
+                                    <strong>Local Data Regeneration Paradigm</strong>
+                                    <div class="small text-muted mt-1">Communication as pointer synchronization — regenerate data locally rather than transmit it</div>
+                                    <a href="https://doi.org/10.5281/zenodo.17264327" target="_blank" class="small">DOI: 10.5281/zenodo.17264327 →</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center mt-4"><a href="/ecosystems.html" class="btn btn-outline-primary">← Back to Ecosystems</a></div>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a href="/ecosystems.html" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
+                    <div>
+                        <a href="https://github.com/smartlegionlab/smartpasslib" target="_blank" class="btn btn-outline-primary btn-sm me-2"><i class="bi bi-star"></i> Star on GitHub</a>
+                        <a href="https://pypi.org/project/smartpasslib" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-box-seam"></i> PyPI</a>
+                    </div>
+                </div>
             </div></div>
 
             <div class="content-section"><div class="container text-center"><footer><p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a></p></footer></div></div>
