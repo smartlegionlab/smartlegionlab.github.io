@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Research Ecosystem · Alexander Suvorov</title>
+    <meta name="description" content="Research Ecosystem: 4 paradigms with DOI publications — Pointer‑Based Security, Local Data Regeneration, PCH Paradigm, Deterministic Game Engine. Cross‑platform implementations and ecosystems.">
+    <meta name="author" content="Alexander Suvorov">
+    <meta name="copyright" content="Alexander Suvorov">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/ecosystem/research-ecosystem.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="Research Ecosystem · Alexander Suvorov">
+    <meta property="og:description" content="4 paradigms with DOI publications. Security, Information Theory, NP‑complete, Deterministic Systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/ecosystem/research-ecosystem.html">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+
+    <style>
+        .feature-block {
+            background: rgba(13, 110, 253, 0.05);
+            border: 1px solid rgba(13, 110, 253, 0.15);
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+            transition: all 0.2s;
+        }
+        .feature-block:hover {
+            background: rgba(13, 110, 253, 0.08);
+            border-color: rgba(13, 110, 253, 0.35);
+        }
+        .badge-platform {
+            background: rgba(13, 110, 253, 0.15);
+            color: #7ab3ff;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .paradigm-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .paradigm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+        .stat-number-large {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0d6efd;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+    <button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+    <div class="container"><div class="paper-container">
+
+        <header class="professional-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="main-profile-row">
+                        <div class="avatar-container">
+                            <div class="profile-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
+                                    <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="name">Alexander Suvorov</h1>
+                            <p class="title">Software Architect | Independent Researcher | Paradigms Author</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="mobile-navigation" id="mobileNav">
+            <div class="mobile-nav-container">
+                <a href="/" class="mobile-nav-btn" aria-label="Go to Home page"><i class="bi bi-house"></i></a>
+                <a href="/about.html" class="mobile-nav-btn" aria-label="Go to About page"><i class="bi bi-person"></i></a>
+                <a href="/ecosystems.html" class="mobile-nav-btn active" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
+                <a href="/skills.html" class="mobile-nav-btn" aria-label="Go to Skills page"><i class="bi bi-gear"></i></a>
+                <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page"><i class="bi bi-github"></i></a>
+                <a href="/research.html" class="mobile-nav-btn" aria-label="Go to Research page"><i class="bi bi-journal-text"></i></a>
+                <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page"><i class="bi bi-box-seam"></i></a>
+                <a href="/articles.html" class="mobile-nav-btn" aria-label="Go to Articles page"><i class="bi bi-file-text"></i></a>
+            </div>
+        </nav>
+
+        <main style="padding: 5px;"><br>
+            <div class="content-section"><div class="container">
+
+                <div class="text-center mb-4">
+                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                        <i class="bi bi-journal-text text-primary" style="font-size: 2rem;"></i>
+                        <h2 class="section-title mb-0">Research Ecosystem</h2>
+                    </div>
+                    <p class="lead text-muted">4 paradigms with DOI publications · theoretical foundations · practical implementations · cross‑platform ecosystems</p>
+                    <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                        <span class="badge-platform"><i class="bi bi-shield-check me-1"></i> Pointer‑Based Security</span>
+                        <span class="badge-platform"><i class="bi bi-arrow-repeat me-1"></i> Local Data Regeneration</span>
+                        <span class="badge-platform"><i class="bi bi-puzzle me-1"></i> PCH Paradigm</span>
+                        <span class="badge-platform"><i class="bi bi-cpu me-1"></i> Deterministic Game Engine</span>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="feature-block text-center">
+                            <div class="stat-number-large">4</div>
+                            <div class="fw-bold mt-1">Paradigms</div>
+                            <div class="small text-muted">with DOI publications</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="feature-block text-center">
+                            <div class="stat-number-large">1K+</div>
+                            <div class="fw-bold mt-1">Zenodo Views</div>
+                            <div class="small text-muted">combined total</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="feature-block text-center">
+                            <div class="stat-number-large">850+</div>
+                            <div class="fw-bold mt-1">Downloads</div>
+                            <div class="small text-muted">across all papers</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="feature-block text-center">
+                            <div class="stat-number-large">5+</div>
+                            <div class="fw-bold mt-1">Tech Articles</div>
+                            <div class="small text-muted">on Dev.to</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-shield-check text-primary" style="font-size: 1.8rem;"></i>
+                                <h3 class="mb-0 text-primary">Pointer‑Based Security</h3>
+                                <span class="badge-platform">Paradigm</span>
+                            </div>
+                            <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17204738</a>
+                        </div>
+                        <p class="text-muted">Architectural shift from data protection to data non‑existence — eliminate vulnerable data instead of protecting it.</p>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Core Transformations</h5>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
+                                    <span>Data Transmission → Synchronous Discovery</span>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-database-slash text-primary me-2"></i>
+                                    <span>Secret Storage → Deterministic Regeneration</span>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-shield text-primary me-2"></i>
+                                    <span>Attack Surface Protection → Architectural Elimination</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-boxes me-2"></i>Practical Ecosystem</h5>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-shield-lock text-primary me-2"></i>
+                                    <strong>SmartPassLib</strong>
+                                    <div class="small text-muted mt-1">Python · Go · C# · Kotlin · JS — CLI, Desktop, Web, Android</div>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-github text-primary me-2"></i>
+                                    <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank">GitHub Repository</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
+                            <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                            <a href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
+                            <a href="/ecosystem/smartpasslib-ecosystem.html" class="btn btn-sm btn-outline-primary">Ecosystem →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-arrow-repeat text-primary" style="font-size: 1.8rem;"></i>
+                                <h3 class="mb-0 text-primary">Local Data Regeneration</h3>
+                                <span class="badge-platform">Paradigm</span>
+                            </div>
+                            <a href="https://doi.org/10.5281/zenodo.17264327" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17264327</a>
+                        </div>
+                        <p class="text-muted">Ontological shift from data transmission to synchronous state discovery — regenerate data locally rather than transmit it.</p>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Foundational Postulates</h5>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-diagram-3 text-primary me-2"></i>
+                                    <span>Data as System State</span>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-arrow-clockwise text-primary me-2"></i>
+                                    <span>Synchronous Local Regeneration <code>D = F(S, P)</code></span>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-bullseye text-primary me-2"></i>
+                                    <span>Communication as Pointer Synchronization</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-boxes me-2"></i>Practical Implementations</h5>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-book text-primary me-2"></i>
+                                    <strong>Smart Babylon Library</strong>
+                                    <div class="small">PyPI · deterministic infinite text generator</div>
+                                    <a href="https://github.com/smartlegionlab/smart-babylon-library" target="_blank" class="small">GitHub →</a>
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-image text-primary me-2"></i>
+                                    <strong>Babylonian Image Library</strong>
+                                    <div class="small">PyPI · deterministic infinite image generator</div>
+                                    <a href="https://github.com/smartlegionlab/babylonian-image-library" target="_blank" class="small">GitHub →</a>
+                                </div>
+                                <div class="feature-block">
+                                    <i class="bi bi-github text-primary me-2"></i>
+                                    <a href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" target="_blank">GitHub Repository</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <a href="https://doi.org/10.5281/zenodo.17264327" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
+                            <a href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                            <a href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-state-21e" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
+                            <a href="/ecosystem/babylon-ecosystem.html" class="btn btn-sm btn-outline-primary">Ecosystem →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-puzzle text-primary" style="font-size: 1.8rem;"></i>
+                                <h3 class="mb-0 text-primary">Position-Candidate-Hypothesis</h3>
+                                <span class="badge-platform">Paradigm</span>
+                            </div>
+                            <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17614888</a>
+                        </div>
+                        <p class="text-muted">Structural-statistical approach to NP-complete problems — n hypotheses, n positions, n candidates.</p>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Key Transformations</h5>
+                                <div class="feature-block mb-2"><i class="bi bi-search text-primary me-2"></i>Search → Structure</div>
+                                <div class="feature-block mb-2"><i class="bi bi-diagram-2 text-primary me-2"></i>Sequential → Parallel</div>
+                                <div class="feature-block mb-2"><i class="bi bi-graph-up text-primary me-2"></i>Deterministic → Statistical</div>
+                                <div class="feature-block mb-2"><i class="bi bi-eye text-primary me-2"></i>Black‑box → Interpretable</div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-boxes me-2"></i>Practical Implementations</h5>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-calculator text-primary me-2"></i>
+                                    <strong>exact-tsp-solver</strong> — Go · Branch & Bound
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-graph-up text-primary me-2"></i>
+                                    <strong>smart-tsp-solver</strong> — Python · heuristic · +25%
+                                </div>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-bar-chart text-primary me-2"></i>
+                                    <strong>smart-tsp-benchmark</strong> — Python · benchmark framework
+                                </div>
+                                <div class="feature-block">
+                                    <i class="bi bi-github text-primary me-2"></i>
+                                    <a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank">GitHub Repository</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
+                            <a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                            <a href="https://dev.to/smartlegionlab/position-candidate-hypothesis-pch-paradigm-a-new-research-direction-for-np-complete-problems-2b00" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
+                            <a href="/ecosystem/tsp-ecosystem.html" class="btn btn-sm btn-outline-primary">Ecosystem →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-cpu text-primary" style="font-size: 1.8rem;"></i>
+                                <h3 class="mb-0 text-primary">Deterministic Game Engine</h3>
+                                <span class="badge-platform">Tech Report</span>
+                            </div>
+                            <a href="https://doi.org/10.5281/zenodo.17383447" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17383447</a>
+                        </div>
+                        <p class="text-muted">Experimental validation of Pointer‑Based Security and Local Data Regeneration paradigms.</p>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-speedometer2 me-2"></i>Performance Results</h5>
+                                <div class="feature-block mb-2"><i class="bi bi-lightning-charge text-primary me-2"></i>2.8M elements/second — World generation</div>
+                                <div class="feature-block mb-2"><i class="bi bi-speedometer2 text-primary me-2"></i>O(1) — State access across all positions</div>
+                                <div class="feature-block mb-2"><i class="bi bi-people text-primary me-2"></i>O(n) — Entity simulation scaling</div>
+                                <div class="feature-block"><i class="bi bi-shield-check text-primary me-2"></i>Cryptographic — Operation verification</div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary"><i class="bi bi-check-circle me-2"></i>Paradigms Validated</h5>
+                                <div class="feature-block mb-2">
+                                    <i class="bi bi-shield-check text-primary me-2"></i>
+                                    <strong>Pointer‑Based Security</strong>
+                                </div>
+                                <div class="feature-block">
+                                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
+                                    <strong>Local Data Regeneration</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <a href="https://doi.org/10.5281/zenodo.17383447" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
+                            <a href="https://github.com/smartlegionlab/deterministic-game-engine-report" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
+                            <a href="https://dev.to/smartlegionlab/deterministic-game-engine-practical-validation-of-pointer-based-security-and-local-data-408l" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="bi bi-grid-3x3-gap-fill text-primary" style="font-size: 1.5rem;"></i>
+                            <h4 class="mb-0 text-primary">All Related Applications & Components</h4>
+                        </div>
+                        <hr class="border-secondary">
+
+                        <h5 class="text-primary mb-3"><i class="bi bi-shield-lock me-2"></i>SmartPassLib Ecosystem (Pointer‑Based Security)</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-code-slash text-primary me-2"></i><strong>Core Libraries</strong><div class="small">Python · Go · C# · Kotlin · JS</div><a href="https://github.com/smartlegionlab/smartpasslib" target="_blank" class="small">smartpasslib →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-go" target="_blank" class="small">smartpasslib-go →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-csharp" target="_blank" class="small">smartpasslib-csharp →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" target="_blank" class="small">smartpasslib-kotlin →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-js" target="_blank" class="small">smartpasslib-js →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-terminal text-primary me-2"></i><strong>CLI Applications</strong><div class="small">Python & C# managers and generators</div><a href="https://github.com/smartlegionlab/clipassman" target="_blank" class="small">clipassman →</a><br><a href="https://github.com/smartlegionlab/clipassgen" target="_blank" class="small">clipassgen →</a><br><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" target="_blank" class="small">SmartPasswordManagerCsharpCli →</a><br><a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" target="_blank" class="small">SmartPasswordGeneratorCsharpCli →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-display text-primary me-2"></i><strong>Desktop Applications</strong><div class="small">Cross‑platform GUI</div><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" target="_blank" class="small">Python PyQt →</a><br><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" target="_blank" class="small">C# WPF →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-phone text-primary me-2"></i><strong>Android App</strong><div class="small">Kotlin · offline deterministic</div><a href="https://github.com/smartlegionlab/smart-password-manager-android" target="_blank" class="small">smart-password-manager-android →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-globe text-primary me-2"></i><strong>Web Interface</strong><div class="small">HTML/JS · zero storage</div><a href="https://github.com/smartlegionlab/smart-password-manager-web" target="_blank" class="small">smart-password-manager-web →</a></div></div>
+                        </div>
+
+                        <h5 class="text-primary mb-3"><i class="bi bi-arrow-repeat me-2"></i>Babylon Libraries (Local Data Regeneration)</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-2"><div class="feature-block"><i class="bi bi-book text-primary me-2"></i><strong>Smart Babylon Library</strong><div class="small">PyPI v1.1.1 · deterministic infinite text generator</div><a href="https://github.com/smartlegionlab/smart-babylon-library" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-babylon-library/" target="_blank" class="small">PyPI →</a></div></div>
+                            <div class="col-md-6 mb-2"><div class="feature-block"><i class="bi bi-image text-primary me-2"></i><strong>Babylonian Image Library</strong><div class="small">PyPI v1.0.1 · deterministic infinite image generator</div><a href="https://github.com/smartlegionlab/babylonian-image-library" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/babylonian-image-library/" target="_blank" class="small">PyPI →</a></div></div>
+                        </div>
+
+                        <h5 class="text-primary mb-3"><i class="bi bi-puzzle me-2"></i>TSP Ecosystem (PCH Paradigm)</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-calculator text-primary me-2"></i><strong>exact-tsp-solver</strong><div class="small">Go · Branch & Bound · exact solutions</div><a href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank" class="small">GitHub →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-graph-up text-primary me-2"></i><strong>smart-tsp-solver</strong><div class="small">Python · heuristic · ~25% better on clustered data</div><a href="https://github.com/smartlegionlab/smart-tsp-solver" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-tsp-solver/" target="_blank" class="small">PyPI →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-bar-chart text-primary me-2"></i><strong>smart-tsp-benchmark</strong><div class="small">Python · comprehensive algorithm testing</div><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-tsp-benchmark/" target="_blank" class="small">PyPI →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-database text-primary me-2"></i><strong>smart-tsp-oracle</strong><div class="small">Python · exact solver (Branch & Bound)</div><a href="https://github.com/smartlegionlab/smart-tsp-oracle" target="_blank" class="small">GitHub →</a></div></div>
+                        </div>
+
+                        <h5 class="text-primary mb-3"><i class="bi bi-phone me-2"></i>2FA Manager Ecosystem</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-display text-primary fs-3"></i><div class="fw-bold small">Desktop</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" target="_blank" class="small">GitHub →</a></div></div>
+                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-phone text-primary fs-3"></i><div class="fw-bold small">Android</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" target="_blank" class="small">GitHub →</a></div></div>
+                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-terminal text-primary fs-3"></i><div class="fw-bold small">CLI</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" target="_blank" class="small">GitHub →</a></div></div>
+                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-code-slash text-primary fs-3"></i><div class="fw-bold small">Bash</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" target="_blank" class="small">GitHub →</a></div></div>
+                        </div>
+
+                        <h5 class="text-primary mb-3"><i class="bi bi-git me-2"></i>Repo Manager Ecosystem</h5>
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-box-seam text-primary me-2"></i><strong>Core Library</strong><div class="small">smart-repository-manager-core · PyPI v0.3.6</div><a href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-repository-manager-core/" target="_blank" class="small">PyPI →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-display text-primary me-2"></i><strong>GUI Application</strong><div class="small">smart-repository-manager-gui · PyQt · v1.2.5</div><a href="https://github.com/smartlegionlab/smart-repository-manager-gui" target="_blank" class="small">GitHub →</a></div></div>
+                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-terminal text-primary me-2"></i><strong>CLI Tool</strong><div class="small">smart-repository-manager-cli · v1.0.7</div><a href="https://github.com/smartlegionlab/smart-repository-manager-cli" target="_blank" class="small">GitHub →</a></div></div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <p class="text-muted small">All paradigms are open access on Zenodo with registered DOIs · implementations available on PyPI and GitHub</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a href="/ecosystems.html" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
+                </div>
+
+            </div></div>
+
+            <div class="content-section"><div class="container text-center"><footer><p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Alexander Suvorov</a></p></footer></div></div>
+        </main>
+    </div></div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();document.addEventListener('DOMContentLoaded',function(){if(typeof ScrollManager!=='undefined')new ScrollManager();});</script>
+</body>
+</html>

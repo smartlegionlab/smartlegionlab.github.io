@@ -47,6 +47,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/ecosystem/repo-manager-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystem/2fa-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystem/tsp-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/ecosystem/research-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
 ]
 
 LANGUAGE_COLORS = {
