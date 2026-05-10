@@ -103,13 +103,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/alexander-suvorov.html</loc>
+    <loc>https://smartlegionlab.ru/ecosystem/research-ecosystem.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
+    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/repositories/alexander-suvorov.html</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -188,12 +200,6 @@
   </url>
   <url>
     <loc>https://smartlegionlab.ru/repositories/smartpasslib.html</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.html</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

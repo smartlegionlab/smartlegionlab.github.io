@@ -1,4 +1,4 @@
-# Alexander Suvorov - Automated Technical Portfolio <sup>v4.0.5</sup>
+# Alexander Suvorov - Automated Technical Portfolio <sup>v5.0.0</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
@@ -40,23 +40,25 @@ This site is **fully automated** — it builds and updates itself daily without 
 
 ### Key Features
 
-| Feature | How It Works | Benefit |
-|---------|--------------|---------|
-| **Fully Automated** | GitHub Actions cron job runs daily | Always up-to-date, zero manual work |
-| **Dynamic Content** | Fetches live data from GitHub & PyPI APIs | Shows real repository/package info |
-| **Atomic Deployment** | Generates all pages in temp directory first | Never broken site — all or nothing |
-| **Auto Sitemap** | Dynamically includes all pages | Perfect SEO, always current |
-| **Zero Cost** | Hosted on GitHub Pages | Only pay for domain name |
-| **Secure** | No database, no backend | Static = unhackable |
+| Feature               | How It Works                                              | Benefit                                                       |
+|-----------------------|-----------------------------------------------------------|---------------------------------------------------------------|
+| **Fully Automated**   | GitHub Actions cron job runs daily                        | Always up-to-date, zero manual work                           |
+| **Dynamic Content**   | Fetches live data from GitHub, PyPI, Dev.to & Zenodo APIs | Shows real repository, package, article and publication stats |
+| **Atomic Deployment** | Generates all pages in temp directory first               | Never broken site — all or nothing                            |
+| **Auto Sitemap**      | Dynamically includes all pages                            | Perfect SEO, always current                                   |
+| **Zero Cost**         | Hosted on GitHub Pages                                    | Only pay for domain name                                      |
+| **Secure**            | No database, no backend                                   | Static = unhackable                                           |
 
 ### By The Numbers
 
 ```
 Repository Pages: 65+ (and growing)
-Package Pages:   25+ PyPI packages
-Static Pages:    11 core pages
-Updates:         Daily automatic
-Hosting Cost:    $0 (only domain)
+Package Pages:    25+ PyPI packages
+Ecosystem Pages:  7 dedicated ecosystem pages
+Research Pages:   4 paradigm publications + tech report
+Static Pages:     11 core pages
+Updates:          Daily automatic
+Hosting Cost:     $0 (only domain)
 ```
 
 ### Tech Stack
@@ -67,8 +69,10 @@ Hosting Cost:    $0 (only domain)
     "Python 3.8+",
     "GitHub Actions (CI/CD)",
     "Jinja2 Templating",
-    "GitHub API v3",
+    "GitHub API v3/v4",
     "PyPI JSON API",
+    "Dev.to API",
+    "Zenodo API",
     "Markdown parsing",
     "XML Sitemap generation",
     "Atomic file operations"
@@ -78,7 +82,7 @@ Hosting Cost:    $0 (only domain)
 ### What It Does
 
 1. **Every day at midnight UTC**, GitHub Actions wakes up
-2. Fetches **live data** from GitHub and PyPI
+2. Fetches **live data** from GitHub, PyPI, Dev.to and Zenodo APIs
 3. Generates **60+ HTML pages** in a temporary directory
 4. Creates **fresh sitemap.xml** with all URLs
 5. If **ALL pages** generate successfully — replaces old site atomically
@@ -103,32 +107,33 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 ## Technology Stack: Under the Hood
 
 ### Frontend: The User Experience
-| Technology | Purpose |
-|------------|---------|
-| **HTML5** | Semantic, accessible markup |
-| **CSS3** | Custom properties, keyframe animations, responsive design |
-| **Bootstrap 5** | Robust grid system and pre-built components |
-| **Bootstrap Icons** | Consistent, lightweight icon set |
+| Technology                    | Purpose                                                                      |
+|-------------------------------|------------------------------------------------------------------------------|
+| **HTML5**                     | Semantic, accessible markup                                                  |
+| **CSS3**                      | Custom properties, keyframe animations, responsive design                    |
+| **Bootstrap 5**               | Robust grid system and pre-built components                                  |
+| **Bootstrap Icons**           | Consistent, lightweight icon set                                             |
 | **Vanilla JavaScript (ES6+)** | No bloat. Modular classes for particles, scroll, animations, and active nav. |
 
 ### Build System & Automation: The Engine
-| Tool/Library | Purpose |
-|--------------|---------|
-| **GitHub Actions** | The cron job that runs the entire show daily. |
-| **Python 3.8+** | Core language for all build scripts. |
-| **Jinja2** | Powerful templating engine to generate 70+ detail pages from a single template. |
-| **BeautifulSoup4** | Parses and surgically updates the main HTML files (`projects.html`, etc.) with fresh data. |
-| **Requests** | Fetches data from GitHub, PyPI, and Dev.to APIs. |
-| **Markdown** | Converts PyPI package descriptions from markdown to beautiful HTML for detail pages. |
-| **Pygments** | Provides syntax highlighting for code blocks in those markdown descriptions. |
-| **Temporary Directory + `shutil.move()`** | Implements the **atomic deployment** strategy. |
+| Tool/Library                              | Purpose                                                                                    |
+|-------------------------------------------|--------------------------------------------------------------------------------------------|
+| **GitHub Actions**                        | The cron job that runs the entire show daily.                                              |
+| **Python 3.8+**                           | Core language for all build scripts.                                                       |
+| **Jinja2**                                | Powerful templating engine to generate 70+ detail pages from a single template.            |
+| **BeautifulSoup4**                        | Parses and surgically updates the main HTML files (`projects.html`, etc.) with fresh data. |
+| **Requests**                              | Fetches data from GitHub, PyPI, Dev.to, and Zenodo APIs.                                   |
+| **Markdown**                              | Converts PyPI package descriptions from markdown to beautiful HTML for detail pages.       |
+| **Pygments**                              | Provides syntax highlighting for code blocks in those markdown descriptions.               |
+| **Temporary Directory + `shutil.move()`** | Implements the **atomic deployment** strategy.                                             |
 
 ### Data Sources
-| Source | API Endpoint | Data Fetched |
-|--------|--------------|--------------|
-| **GitHub** | `api.github.com/users/smartlegionlab/repos` | Repo names, descriptions, stars, forks, languages, topics, dates. |
-| **PyPI** | `pypi.org/pypi/{package_name}/json` | Version, summary, full description (in markdown), project URLs. |
-| **Dev.to** | `dev.to/api/articles?username=smartlegionlab` | Titles, descriptions, tags, reactions, comments, reading time. |
+| Source     | API Endpoint                                  | Data Fetched                                                      |
+|------------|-----------------------------------------------|-------------------------------------------------------------------|
+| **GitHub** | `api.github.com/users/smartlegionlab/repos`   | Repo names, descriptions, stars, forks, languages, topics, dates. |
+| **PyPI**   | `pypi.org/pypi/{package_name}/json`           | Version, summary, full description (in markdown), project URLs.   |
+| **Dev.to** | `dev.to/api/articles?username=smartlegionlab` | Titles, descriptions, tags, reactions, comments, reading time.    |
+| **Zenodo** | `zenodo.org/api/records/{record_id}`          | Views and downloads statistics for research publications.         |
 
 ---
 
@@ -143,23 +148,34 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 │   ├── fetch_github.py         # Fetches repo data, handles errors
 │   ├── fetch_devto.py          # Fetches article data
 │   ├── fetch_pypi.py           # Fetches package data with rate limiting
+│   ├── fetch_zenodo.py         # Fetches publication statistics
 │   ├── generate_pages.py       # Updates main pages (projects.html, etc.) with cards
-│   └── generate_repo_pages.py  # THE BIG ONE: Generates 50+ detail pages + sitemap atomically
+│   └── generate_repo_pages.py  # Generates detail pages + sitemap atomically
 │
 ├── templates/                   # Templates for the detail pages
-│   ├── repo_template.html       # Jinja2 template for every GitHub repo page
-│   └── package_template.html    # Jinja2 template for every PyPI package page
+│   ├── repo_template.html       # Jinja2 template for GitHub repo pages
+│   └── package_template.html    # Jinja2 template for PyPI package pages
 │
 ├── data/                        # Auto-generated JSON data (cached from APIs)
 │   ├── repos.json
 │   ├── articles.json
-│   └── pypi.json
+│   ├── pypi.json
+│   └── zenodo.json
 │
-├── js/                           # Modular front-end logic
+├── ecosystem/                   # Dedicated ecosystem pages
+│   ├── smartpasslib-ecosystem.html
+│   ├── babylon-ecosystem.html
+│   ├── repo-manager-ecosystem.html
+│   ├── 2fa-ecosystem.html
+│   ├── tsp-ecosystem.html
+│   └── research-ecosystem.html
+│
+├── js/                          # Modular front-end logic
 │   ├── active-nav.js             # Highlights current page in navigation
-│   ├── animation-manager.js      # Controls priority-based animations (avatar, scroll)
+│   ├── animation-manager.js      # Controls priority-based animations
 │   ├── particle-background.js    # Canvas-based animated tech word background
 │   ├── scroll-manager.js         # Handles scroll-to-top button and progress bar
+│   ├── stats-manager.js          # Updates Zenodo statistics dynamically
 │   └── config.js                 # Global config (usernames, counters)
 │
 ├── css/                          # Styles
@@ -169,11 +185,11 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 ├── repositories/                  # OUTPUT: Dynamically generated GitHub repo pages
 │   ├── smartpasslib.html
 │   ├── clipassman.html
-│   └── ... (50+ files)
+│   └── ... (65+ files)
 │
 ├── packages/                      # OUTPUT: Dynamically generated PyPI package pages
 │   ├── smartpasslib.html
-│   └── ... (20+ files)
+│   └── ... (23+ files)
 │
 ├── research/                      # Research pages
 │   ├── pointer-based-security.html
@@ -183,9 +199,10 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 │
 ├── index.html                     # Home page
 ├── about.html                     # Professional profile
-├── projects.html                  # Main GitHub repo listing (auto-updated)
-├── packages.html                  # Main PyPI package listing (auto-updated)
-├── articles.html                  # Main Dev.to article listing (auto-updated)
+├── ecosystems.html                # Main ecosystems listing
+├── projects.html                  # GitHub repo listing (auto-updated)
+├── packages.html                  # PyPI package listing (auto-updated)
+├── articles.html                  # Dev.to article listing (auto-updated)
 ├── research.html                  # Academic research overview
 ├── skills.html                    # Technical skills
 └── sitemap.xml                    # AUTO-GENERATED sitemap for all 80+ pages
@@ -198,14 +215,15 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 - **Hero Section**: Professional introduction with key metrics (Experience, Projects, Repos).
 - **Professional Profile**: Technical leadership, business impact, and published research.
 - **Research & Paradigms**: Cards linking to detailed pages for concepts (Pointer-Based Security, PCH, etc.).
+- **Ecosystems**: Dedicated pages for each cross-platform ecosystem (SmartPassLib, TSP, 2FA, Repo Manager, Babylon Libraries, Research Ecosystem).
 - **Automated Project Showcase**:
-    - **Projects (`projects.html`)**: A grid of GitHub repos with live stats (stars, forks), topics, and a "View" button linking to its dedicated detail page.
-    - **Packages (`packages.html`)**: A grid of PyPI packages with descriptions, version badges, and a one-click `pip install` button that copies the command to your clipboard.
+    - **Projects (`projects.html`)**: A grid of GitHub repos with live stats (stars, forks), topics, and a "View" button.
+    - **Packages (`packages.html`)**: A grid of PyPI packages with descriptions, version badges, and a `pip install` copy button.
     - **Articles (`articles.html`)**: A grid of Dev.to articles with engagement metrics.
 - **Detailed Project, Package and Research Pages**:
-    - **Repository Pages (`/repositories/*.html`)**: A full-page deep dive into a single repo, including all metadata, topics, and a direct link to GitHub.
-    - **Package Pages (`/packages/*.html`)**: A full-page view of a PyPI package, showing its full README (markdown rendered!), version, and a "View on PyPI" link.
-    - **Research Pages (`/research/*.html`)**: A full-page view of a research paradigms.
+    - **Repository Pages**: Full-page deep dive into a single repo with all metadata.
+    - **Package Pages**: Full-page view of a PyPI package with rendered README.
+    - **Research Pages**: Full-page view of each research paradigm with PDF viewer and stats.
 
 ---
 
@@ -226,7 +244,7 @@ You can run the entire build process locally to test changes.
 
 2.  **Install Python dependencies**
     ```bash
-    pip install -r scripts/requirements.txt
+    pip install requests beautifulsoup4 jinja2 markdown pygments
     ```
 
 3.  **Run the full build pipeline (in the correct order)**
@@ -235,12 +253,12 @@ You can run the entire build process locally to test changes.
     python scripts/fetch_github.py
     python scripts/fetch_devto.py
     python scripts/fetch_pypi.py
+    python scripts/fetch_zenodo.py
 
-    # 2. Update the main listing pages (projects.html, etc.) with new data cards
+    # 2. Update the main listing pages with new data cards
     python scripts/generate_pages.py
 
-    # 3. **Generate all 70+ detail pages AND the sitemap atomically**
-    #    This script handles the atomic swap, so it's safe to run.
+    # 3. Generate all detail pages AND the sitemap atomically
     python scripts/generate_repo_pages.py
     ```
 
@@ -248,7 +266,7 @@ You can run the entire build process locally to test changes.
     ```bash
     python -m http.server 8000
     ```
-    Open your browser to `http://localhost:8000`. You'll see the fully built site, including all generated pages in the `repositories/` and `packages/` folders.
+    Open your browser to `http://localhost:8000`.
 
 ---
 
@@ -261,9 +279,12 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
 ## 📬 Connect with Alexander Suvorov
 
 - **🌐 Portfolio:** [smartlegionlab.ru](https://smartlegionlab.ru)
+- **🔬 Academic Portfolio:** [alexander-suvorov.ru](https://alexander-suvorov.ru)
 - **💻 GitHub:** [@smartlegionlab](https://github.com/smartlegionlab)
 - **📝 Dev.to Blog:** [@smartlegionlab](https://dev.to/smartlegionlab)
 - **📦 PyPI Packages:** [@smartlegionlab](https://pypi.org/user/smartlegionlab)
+- **📚 ORCID:** [0009-0006-3427-9611](https://orcid.org/0009-0006-3427-9611)
+- **🏛️ Zenodo:** [Research Profile](https://zenodo.org/records/17204738)
 
 ---
 
@@ -272,3 +293,4 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
   <br>
   <sub>© 2026 Alexander Suvorov. All rights reserved.</sub>
 </div>
+
