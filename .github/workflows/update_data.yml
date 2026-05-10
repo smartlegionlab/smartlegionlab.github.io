@@ -37,6 +37,10 @@ jobs:
         run: python scripts/fetch_pypi.py
         continue-on-error: true
 
+      - name: Fetch Zenodo stats
+        run: python scripts/fetch_zenodo.py
+        continue-on-error: true
+
       - name: Generate HTML pages
         run: python scripts/generate_pages.py
 
