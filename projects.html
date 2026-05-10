@@ -7064,73 +7064,6 @@
      }
    }
 
-   async function loadActivity() {
-     try {
-       const response = await fetch('/data/events.json');
-       const events = await response.json();
-
-       const activityFeed = document.getElementById('activityFeed');
-
-       if (!events || events.length === 0) {
-         activityFeed.innerHTML = '<p class="text-center text-muted py-4">No recent activity</p>';
-         return;
-       }
-
-       let activityHtml = '';
-       events.slice(0, 10).forEach(event => {
-         let icon = 'bi-git';
-         let title = '';
-         let meta = '';
-
-         switch(event.type) {
-           case 'PushEvent':
-             icon = 'bi-arrow-up-circle';
-             title = `Pushed to ${event.repo.name}`;
-             break;
-           case 'CreateEvent':
-             icon = 'bi-plus-circle';
-             title = `Created ${event.payload.ref_type} in ${event.repo.name}`;
-             break;
-           case 'IssuesEvent':
-             icon = 'bi-exclamation-circle';
-             title = `${event.payload.action} issue in ${event.repo.name}`;
-             break;
-           case 'WatchEvent':
-             icon = 'bi-star';
-             title = `Starred ${event.repo.name}`;
-             break;
-           case 'ForkEvent':
-             icon = 'bi-diagram-2';
-             title = `Forked ${event.repo.name}`;
-             break;
-           default:
-             icon = 'bi-git';
-             title = `${event.type} on ${event.repo.name}`;
-         }
-
-         const timeAgo = getTimeAgo(new Date(event.created_at));
-
-         activityHtml += `
-           <div class="activity-item">
-             <div class="activity-icon"><i class="bi ${icon}"></i></div>
-             <div class="activity-content">
-               <div class="activity-title">${title}</div>
-               <div class="activity-meta">${meta}</div>
-             </div>
-             <div class="activity-time">${timeAgo}</div>
-           </div>
-         `;
-       });
-
-       activityFeed.innerHTML = activityHtml;
-
-     } catch (error) {
-       console.error('Error loading activity:', error);
-       document.getElementById('activityFeed').innerHTML =
-         '<p class="text-center text-muted py-4">Unable to load activity</p>';
-     }
-   }
-
    function getTimeAgo(date) {
      const seconds = Math.floor((new Date() - date) / 1000);
 
@@ -7155,7 +7088,6 @@
    document.addEventListener('DOMContentLoaded', function () {
      document.getElementById('currentYear').textContent = new Date().getFullYear();
      loadUserData();
-     loadActivity();
 
      if (typeof ScrollManager !== 'undefined') {
        new ScrollManager();
