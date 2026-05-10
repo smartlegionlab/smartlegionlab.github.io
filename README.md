@@ -36,8 +36,6 @@
 
 This site is **fully automated** — it builds and updates itself daily without any manual intervention or hosting costs!
 
-![Diagram](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/diagram.png)
-
 ### Key Features
 
 | Feature               | How It Works                                              | Benefit                                                       |
