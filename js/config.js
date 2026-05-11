@@ -51,11 +51,11 @@ const CONFIG = {
 
     HEADER_COUNTERS: {
         headerProjects: "4+",
-        headerParadigms: "3+"
+        headerParadigms: "4+"
     },
     METRICS_COUNTERS: {
         metricProjects: "4",
-        metricParadigms: "3"
+        metricParadigms: "4"
     },
 
     SCROLL_OFFSET: 0,
