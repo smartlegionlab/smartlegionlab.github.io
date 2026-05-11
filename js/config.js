@@ -34,13 +34,33 @@ const CONFIG = {
 
     DEFAULTS: {
         REPOS_COUNT: 65,
-        PYPI_PACKAGES_COUNT: 23,
-        MONTHLY_DOWNLOADS: 15,
+        PYPI_PACKAGES_COUNT: 25,
+        MONTHLY_DOWNLOADS: 15000,
         RESEARCH_STATS: {
-            pointerParadigm: { unique_views: 425, unique_downloads: 346 },
-            localDataParadigm: { unique_views: 298, unique_downloads: 260 },
-            deterministicEngine: { unique_views: 219, unique_downloads: 165 },
-            pchParadigm: { unique_views: 133, unique_downloads: 125 }
+            pointerParadigm: {
+                unique_views: 425,
+                unique_downloads: 346,
+                total_views: 655,
+                total_downloads: 676
+            },
+            localDataParadigm: {
+                unique_views: 298,
+                unique_downloads: 260,
+                total_views: 392,
+                total_downloads: 417
+            },
+            deterministicEngine: {
+                unique_views: 219,
+                unique_downloads: 165,
+                total_views: 283,
+                total_downloads: 4283
+            },
+            pchParadigm: {
+                unique_views: 133,
+                unique_downloads: 125,
+                total_views: 170,
+                total_downloads: 212
+            }
         }
     },
 
