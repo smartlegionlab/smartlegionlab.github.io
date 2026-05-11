@@ -1,64 +1,26 @@
 const CONFIG = {
-    GITHUB_USERNAME: 'smartlegionlab',
-    DEVTO_USERNAME: 'smartlegionlab',
-    EXCLUDED_REPOSITORIES: ['smartlegionlab'],
+    PROFILE: {
+        NAME: 'Alexander Suvorov',
+        GITHUB_USERNAME: 'smartlegionlab',
+        DEVTO_USERNAME: 'smartlegionlab',
+        ORCID: '0009-0006-3427-9611',
+        CAREER_START_YEAR: 2016
+    },
 
-    COUNTERS: {
-        PUBLIC_REPOS: 65,
-        PRODUCTION_PACKAGES: 25,
-        MONTHLY_DOWNLOADS: 15,
-        EXPERIENCE_YEARS: 10,
+    CONSTANTS: {
+        PARADIGMS_COUNT: 4,
+        ECOSYSTEMS_COUNT: 6,
         PROJECTS_DELIVERED: 350,
+        TECH_ARTICLES: 5,
+        USERS_SUPPORTED: '500K+'
     },
 
-    ZENODO: {
-        RECORDS: {
-            POINTER_PARADIGM: '17204738',
-            LOCAL_DATA_PARADIGM: '17264327',
-            DETERMINISTIC_ENGINE: '17383447',
-            PCH_PARADIGM: '17614888'
-        }
+    ZENODO_RECORDS: {
+        POINTER_PARADIGM: '17204738',
+        LOCAL_DATA_PARADIGM: '17264327',
+        DETERMINISTIC_ENGINE: '17383447',
+        PCH_PARADIGM: '17614888'
     },
-
-    COUNTERS: {
-        RESEARCH_STATS: {
-            pointerParadigm: {
-                unique_views: 359,
-                unique_downloads: 308,
-                total_views: 573,
-                total_downloads: 597
-            },
-            localDataParadigm: {
-                unique_views: 266,
-                unique_downloads: 222,
-                total_views: 348,
-                total_downloads: 348
-            },
-            deterministicEngine: {
-                unique_views: 180,
-                unique_downloads: 131,
-                total_views: 232,
-                total_downloads: 223
-            },
-            pchParadigm: {
-                unique_views: 97,
-                unique_downloads: 89,
-                total_views: 121,
-                total_downloads: 144
-            }
-        }
-    },
-
-    HEADER_COUNTERS: {
-        headerProjects: "4+",
-        headerParadigms: "4+"
-    },
-    METRICS_COUNTERS: {
-        metricProjects: "4",
-        metricParadigms: "4"
-    },
-
-    SCROLL_OFFSET: 0,
 
     PYPI_PACKAGES: [
         'smartpasslib',
@@ -84,5 +46,21 @@ const CONFIG = {
         'smart-redis-storage',
         'smart-text-randomizer',
         'smart-repository-manager-core'
-    ]
+    ],
+
+    DEFAULTS: {
+        REPOS_COUNT: 65,
+        PYPI_PACKAGES_COUNT: 23,
+        MONTHLY_DOWNLOADS: 15,
+        ZENODO_VIEWS: 1075,
+        ZENODO_DOWNLOADS: 850,
+        RESEARCH_STATS: {
+            pointerParadigm: { unique_views: 425, unique_downloads: 346 },
+            localDataParadigm: { unique_views: 298, unique_downloads: 260 },
+            deterministicEngine: { unique_views: 219, unique_downloads: 165 },
+            pchParadigm: { unique_views: 133, unique_downloads: 125 }
+        }
+    },
+
+    EXCLUDED_REPOSITORIES: ['smartlegionlab']
 };
