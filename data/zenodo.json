@@ -1,26 +1,26 @@
 {
   "pointerParadigm": {
-    "unique_views": 425,
-    "unique_downloads": 346,
-    "total_views": 655,
-    "total_downloads": 676
+    "unique_views": 428,
+    "unique_downloads": 350,
+    "total_views": 665,
+    "total_downloads": 688
   },
   "localDataParadigm": {
-    "unique_views": 298,
-    "unique_downloads": 260,
-    "total_views": 392,
-    "total_downloads": 417
+    "unique_views": 300,
+    "unique_downloads": 262,
+    "total_views": 401,
+    "total_downloads": 431
   },
   "deterministicEngine": {
-    "unique_views": 219,
-    "unique_downloads": 165,
-    "total_views": 283,
-    "total_downloads": 283
+    "unique_views": 222,
+    "unique_downloads": 168,
+    "total_views": 289,
+    "total_downloads": 291
   },
   "pchParadigm": {
-    "unique_views": 133,
-    "unique_downloads": 125,
-    "total_views": 170,
-    "total_downloads": 212
+    "unique_views": 136,
+    "unique_downloads": 129,
+    "total_views": 179,
+    "total_downloads": 224
   }
 }
