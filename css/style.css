@@ -2146,6 +2146,7 @@ a.premium-card {
 
 .card-custom:hover {
     box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
+    background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 .custom-style {
