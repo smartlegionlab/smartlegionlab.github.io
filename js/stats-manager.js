@@ -209,7 +209,7 @@ class StatsManager {
             let val = this.data[key];
             if (val === undefined) return;
             let display = (key === 'users') ? val : val + '+';
-            if (key === 'monthly_downloads') display = val + 'K+';
+            if (key === 'monthly_downloads') display = this.formatNumberRound(val) + 'K+';
             document.querySelectorAll(`[data-smart-key="${key}"]`).forEach(el => {
                 if (el.textContent !== display) {
                     this.log(`     ${key}: ${el.textContent} → ${display}`);
@@ -229,7 +229,7 @@ class StatsManager {
 
                     let display = val;
                     if (fullKey.includes('views') || fullKey.includes('downloads')) {
-                        display = this.formatNum(val);
+                        display = this.formatNumberRound(val);
                         if (fullKey.startsWith('paradigm.')) display += '+';
                     } else if (fullKey !== 'users') {
                         display = val + '+';
@@ -247,6 +247,16 @@ class StatsManager {
 
         updateNested(this.data);
         this.log('  ✅ DOM updated');
+    }
+
+    formatNumberRound(num) {
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        }
+        if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toString();
     }
 
     formatNum(num) {
