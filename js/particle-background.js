@@ -5,7 +5,7 @@ class ParticleBackground {
         }
 
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-        if (this.isMobile) return;
+//        if (this.isMobile) return;
 
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
