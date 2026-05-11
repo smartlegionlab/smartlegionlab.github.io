@@ -52,6 +52,8 @@ class StatsManager {
             projects: this.config.CONSTANTS.PROJECTS_DELIVERED,
             articles: this.config.CONSTANTS.TECH_ARTICLES,
             users: this.config.CONSTANTS.USERS_SUPPORTED,
+            commits: this.config.CONSTANTS.COMMITS,
+            publications: this.config.CONSTANTS.PUBLICATIONS,
             repos: this.config.DEFAULTS.REPOS_COUNT,
             pypi: this.config.DEFAULTS.PYPI_PACKAGES_COUNT,
             monthly_downloads: this.config.DEFAULTS.MONTHLY_DOWNLOADS,

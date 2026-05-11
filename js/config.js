@@ -13,7 +13,9 @@ const CONFIG = {
         ECOSYSTEMS_COUNT: 6,
         PROJECTS_DELIVERED: 350,
         TECH_ARTICLES: 5,
-        USERS_SUPPORTED: '500K+'
+        USERS_SUPPORTED: '500K+',
+        COMMITS: "11K",
+        PUBLICATIONS: 4
     },
 
     ZENODO_RECORDS: {
