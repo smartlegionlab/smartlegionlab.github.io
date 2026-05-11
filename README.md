@@ -162,7 +162,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 │
 ├── ecosystem/                   # Dedicated ecosystem pages
 │   ├── smartpasslib-ecosystem.html
-│   ├── babylon-ecosystem.html
+│   ├── deterministic-ecosystem.html
 │   ├── repo-manager-ecosystem.html
 │   ├── 2fa-ecosystem.html
 │   ├── tsp-ecosystem.html
@@ -213,7 +213,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 - **Hero Section**: Professional introduction with key metrics (Experience, Projects, Repos).
 - **Professional Profile**: Technical leadership, business impact, and published research.
 - **Research & Paradigms**: Cards linking to detailed pages for concepts (Pointer-Based Security, PCH, etc.).
-- **Ecosystems**: Dedicated pages for each cross-platform ecosystem (SmartPassLib, TSP, 2FA, Repo Manager, Babylon Libraries, Research Ecosystem).
+- **Ecosystems**: Dedicated pages for each cross-platform ecosystem (SmartPassLib, TSP, 2FA, Repo Manager, Deterministic Ecosystem, Research Ecosystem).
 - **Automated Project Showcase**:
     - **Projects (`projects.html`)**: A grid of GitHub repos with live stats (stars, forks), topics, and a "View" button.
     - **Packages (`packages.html`)**: A grid of PyPI packages with descriptions, version badges, and a `pip install` copy button.

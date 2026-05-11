@@ -43,7 +43,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/articles.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystem/smartpasslib-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
-    {'loc': f"{BASE_URL}/ecosystem/babylon-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/ecosystem/deterministic-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystem/repo-manager-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystem/2fa-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystem/tsp-ecosystem.html", 'lastmod': '2026-03-07', 'changefreq': 'weekly', 'priority': '0.8'},
@@ -87,30 +87,6 @@ def format_date_iso(date_string):
     except:
         return datetime.now().strftime('%Y-%m-%d')
 
-
-def optimize_markdown_images(html):
-    # Сначала обрабатываем обычные изображения
-    pattern = r'<img\s+([^>]*?)src="([^"]+)"([^>]*?)>'
-
-    def add_loading_attrs(match):
-        attrs = match.group(1) + match.group(3)
-        src = match.group(2)
-
-        if 'loading=' not in attrs:
-            attrs += ' loading="lazy"'
-
-        if any(badge in src for badge in ['shields.io', 'pepy.tech', 'badge']):
-            if 'style=' in attrs:
-                attrs = re.sub(r'style="([^"]*)"', r'style="\1; max-height: 20px; width: auto;"', attrs)
-            else:
-                attrs += ' style="max-height: 20px; width: auto;"'
-        else:
-            if 'width=' not in attrs and 'height=' not in attrs:
-                attrs += ' width="100%" height="auto"'
-
-        return f'<img {attrs} src="{src}">'
-
-    return re.sub(pattern, add_loading_attrs, html)
 
 def generate_repo_pages(repos_data, output_dir):
     template_dir = os.path.dirname(REPO_TEMPLATE_PATH)
@@ -182,7 +158,7 @@ def markdown_to_html(text):
                     'markdown.extensions.nl2br',
                 ]
             )
-            return optimize_markdown_images(html)
+            return html
         except Exception as e:
             print(f"⚠️ Markdown conversion error: {e}")
             return f"<pre>{text}</pre>"
