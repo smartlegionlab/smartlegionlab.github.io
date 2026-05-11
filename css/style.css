@@ -1513,8 +1513,7 @@ hr:last-of-type {
 .professional-header {
     padding: 60px 0 30px 0;
     margin-top: 0;
-    background: rgba(13, 17, 23, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(13, 17, 23, 0.1);
 }
 
 .main-profile-row {
