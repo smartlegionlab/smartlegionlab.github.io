@@ -7,61 +7,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/about.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/skills.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://smartlegionlab.ru/projects.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/research.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/research/pointer-based-security.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/research/local-data-regeneration.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/research/deterministic-game-engine.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/research/position-candidate-hypothesis.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://smartlegionlab.ru/packages.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/articles.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -115,6 +67,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://smartlegionlab.ru/repositories/alexander-suvorov.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>daily</changefreq>
@@ -140,12 +98,6 @@
   </url>
   <url>
     <loc>https://smartlegionlab.ru/repositories/smartlegionlab.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/alexander-suvorov.html</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

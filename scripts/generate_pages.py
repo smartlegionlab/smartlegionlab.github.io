@@ -254,20 +254,6 @@ def main():
             '\n'.join(all_repos_cards),
         )
 
-    if articles:
-        articles.sort(key=lambda x: x.get('published_at', ''), reverse=True)
-
-        all_articles_cards = []
-        for article in articles:
-            article_card = generate_article_cards([article])
-            all_articles_cards.append(article_card)
-
-        update_html_with_id(
-            'articles.html',
-            'articles-container',
-            '\n'.join(all_articles_cards),
-        )
-
     if packages:
         packages = [p for p in packages if not p.get('error')]
 
