@@ -1,4 +1,4 @@
-# Alexander Suvorov - Automated Technical Portfolio <sup>v5.2.1</sup>
+# Alexander Suvorov - Automated Technical Portfolio <sup>v6.0.1</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
@@ -10,7 +10,7 @@
 
 **Modern, self-updating technical portfolio** showcasing expertise in **Python development**, **system architecture**, and **open-source contributions**. This isn't just a static site—it's a fully automated ecosystem that fetches live data and builds itself daily.
 
-![Portfolio Preview](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/technical_portfolio.png)
+![Preview](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
 
 ---
 
