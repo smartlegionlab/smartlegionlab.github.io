@@ -65,14 +65,24 @@
         }
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, minmax(250px, 1fr));
             gap: 1rem;
             margin: 2rem 0;
         }
+
         .info-item {
             padding: 0.75rem;
             background: var(--secondary);
             border-radius: 8px;
+        }
+
+        @media (max-width: 450px) {
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+                margin: 2rem 0;
+            }
         }
     </style>
 </head>
@@ -144,7 +154,6 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-lg-8">
                                 <div class="about-card">
                                     <h3 class="about-title">
                                         <i class="bi bi-info-circle"></i> Description
@@ -204,91 +213,39 @@
                                         <div class="stat-label">Watchers</div>
                                     </div>
                                     <div class="info-item">
-                                        <div class="stat-large">0</div>
-                                        <div class="stat-label">Open Issues</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">master</div>
-                                        <div class="stat-label">Default Branch</div>
-                                    </div>
-                                    <div class="info-item">
                                         <div class="stat-large">TeX</div>
                                         <div class="stat-label">Primary Language</div>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-4">
-                                <div class="card research-card">
-                                    <div class="card-body">
-                                        <h3 class="card-title text-center mb-3">Repository Info</h3>
-                                        <hr>
-                                        
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-calendar-plus"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">Nov 05, 2025</div>
-                                                <div class="metric-label">Created</div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-calendar-check"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">Apr 30, 2026</div>
-                                                <div class="metric-label">Last Updated</div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-arrow-repeat"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">Apr 30, 2026</div>
-                                                <div class="metric-label">Last Push</div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-hdd-stack"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">0.37 MB</div>
-                                                <div class="metric-label">Repository Size</div>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        
-                                        <div class="metric-item">
-                                            <div class="metric-icon-small">
-                                                <i class="bi bi-shield-check"></i>
-                                            </div>
-                                            <div class="metric-content">
-                                                <div class="metric-number">Creative Commons Attribution 4.0 International</div>
-                                                <div class="metric-label">License</div>
-                                            </div>
-                                        </div>
+                                    <div class="info-item">
+                                        <div class="stat-large">Nov 05, 2025</div>
+                                        <div class="stat-label">Created</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="stat-large">Apr 30, 2026</div>
+                                        <div class="stat-label">Last Updated</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="stat-large">Apr 30, 2026</div>
+                                        <div class="stat-label">Last Push</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="stat-large">0.37 MB</div>
+                                        <div class="stat-label">Repository Size</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="stat-large"><i class="bi bi-shield-check text-primary" style="font-size: 1.8rem;"></i> Creative Commons Attribution 4.0 International</div>
+                                        <div class="stat-label">License</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="text-center mt-4">
                             <a href="/projects.html" class="btn btn-outline-primary">
                                 <i class="bi bi-arrow-left"></i> Back to Projects
                             </a>
                         </div>
                     </div>
-                </div>
             </main>
 
             <div class="content-section">
