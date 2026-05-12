@@ -200,7 +200,6 @@ def update_html_with_id(html_file, container_id, cards_html):
 
 def main():
     repos = []
-    articles = []
     packages = []
 
     try:
@@ -214,18 +213,6 @@ def main():
         print("⚠️  data/repos.json not found")
     except json.JSONDecodeError as e:
         print(f"⚠️  data/repos.json is corrupted: {e}")
-
-    try:
-        with open('data/articles.json', 'r', encoding='utf-8') as f:
-            content = f.read().strip()
-            if content:
-                articles = json.loads(content)
-            else:
-                print("⚠️  data/articles.json is empty")
-    except FileNotFoundError:
-        print("⚠️  data/articles.json not found")
-    except json.JSONDecodeError as e:
-        print(f"⚠️  data/articles.json is corrupted: {e}")
 
     try:
         with open('data/pypi.json', 'r', encoding='utf-8') as f:

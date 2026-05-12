@@ -2,7 +2,6 @@ import json
 import os
 import shutil
 import tempfile
-import re
 from datetime import datetime
 from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring
@@ -346,6 +345,7 @@ def main():
     if not MARKDOWN_AVAILABLE:
         print("\n💡 Tip: Install markdown for better formatting:")
         print("   pip install markdown pygments")
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,5 @@
 const CONFIG = {
-    DEBUG: true,
+    DEBUG: false,
 
     PROFILE: {
         NAME: 'Alexander Suvorov',
