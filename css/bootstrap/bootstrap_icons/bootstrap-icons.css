@@ -1503,7 +1503,7 @@ url("./fonts/bootstrap-icons.woff?e34853135f9e39acf64315236852cd5a") format("wof
 .bi-window-dash::before { content: "\f6cd"; }
 .bi-window-desktop::before { content: "\f6ce"; }
 .bi-window-fullscreen::before { content: "\f6cf"; }
-.bi-code-slash::before { content: "\f6d0"; }
+.bi-window-plus::before { content: "\f6d0"; }
 .bi-window-split::before { content: "\f6d1"; }
 .bi-window-stack::before { content: "\f6d2"; }
 .bi-window-x::before { content: "\f6d3"; }
