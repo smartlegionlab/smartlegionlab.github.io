@@ -1,4 +1,4 @@
-# Alexander Suvorov - Automated Technical Portfolio <sup>v6.0.3</sup>
+# Alexander Suvorov - Automated Technical Portfolio <sup>v6.0.4</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
@@ -132,79 +132,6 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 | **PyPI**   | `pypi.org/pypi/{package_name}/json`           | Version, summary, full description (in markdown), project URLs.   |
 | **Dev.to** | `dev.to/api/articles?username=smartlegionlab` | Titles, descriptions, tags, reactions, comments, reading time.    |
 | **Zenodo** | `zenodo.org/api/records/{record_id}`          | Views and downloads statistics for research publications.         |
-
----
-
-## Project Structure: A Deep Dive
-
-```
-/
-├── .github/workflows/
-│   └── update_data.yml        # The daily cron job configuration
-│
-├── scripts/                    # The brains of the operation
-│   ├── fetch_github.py         # Fetches repo data, handles errors
-│   ├── fetch_devto.py          # Fetches article data
-│   ├── fetch_pypi.py           # Fetches package data with rate limiting
-│   ├── fetch_zenodo.py         # Fetches publication statistics
-│   ├── generate_pages.py       # Updates main pages (projects.html, etc.) with cards
-│   └── generate_repo_pages.py  # Generates detail pages + sitemap atomically
-│
-├── templates/                   # Templates for the detail pages
-│   ├── repo_template.html       # Jinja2 template for GitHub repo pages
-│   └── package_template.html    # Jinja2 template for PyPI package pages
-│
-├── data/                        # Auto-generated JSON data (cached from APIs)
-│   ├── repos.json
-│   ├── articles.json
-│   ├── pypi.json
-│   └── zenodo.json
-│
-├── ecosystem/                   # Dedicated ecosystem pages
-│   ├── smartpasslib-ecosystem.html
-│   ├── deterministic-ecosystem.html
-│   ├── repo-manager-ecosystem.html
-│   ├── 2fa-ecosystem.html
-│   ├── tsp-ecosystem.html
-│   └── research-ecosystem.html
-│
-├── js/                          # Modular front-end logic
-│   ├── active-nav.js             # Highlights current page in navigation
-│   ├── animation-manager.js      # Controls priority-based animations
-│   ├── particle-background.js    # Canvas-based animated tech word background
-│   ├── scroll-manager.js         # Handles scroll-to-top button and progress bar
-│   ├── stats-manager.js          # Updates Zenodo statistics dynamically
-│   └── config.js                 # Global config (usernames, counters)
-│
-├── css/                          # Styles
-│   ├── style.css                 # All custom styles (dark theme, cards, animations)
-│   └── bootstrap/                # Full Bootstrap framework
-│
-├── repositories/                  # OUTPUT: Dynamically generated GitHub repo pages
-│   ├── smartpasslib.html
-│   ├── clipassman.html
-│   └── ... (65+ files)
-│
-├── packages/                      # OUTPUT: Dynamically generated PyPI package pages
-│   ├── smartpasslib.html
-│   └── ... (23+ files)
-│
-├── research/                      # Research pages
-│   ├── pointer-based-security.html
-│   ├── local-data-regeneration.html
-│   ├── deterministic-game-engine.html
-│   └── position-candidate-hypothesis.html
-│
-├── index.html                     # Home page
-├── about.html                     # Professional profile
-├── ecosystems.html                # Main ecosystems listing
-├── projects.html                  # GitHub repo listing (auto-updated)
-├── packages.html                  # PyPI package listing (auto-updated)
-├── articles.html                  # Dev.to article listing (auto-updated)
-├── research.html                  # Academic research overview
-├── skills.html                    # Technical skills
-└── sitemap.xml                    # AUTO-GENERATED sitemap for all 80+ pages
-```
 
 ---
 
