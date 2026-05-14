@@ -14,84 +14,156 @@ class ParticleBackground {
         this.isPaused = false;
 
         this.techWords = [
-            'Arch', 'Artix', 'Manjaro', 'Garuda', 'EndeavourOS',
-            'Gentoo', 'LFS', 'Void', 'NixOS', 'Slackware',
-            'Debian', 'Ubuntu', 'Fedora', 'openSUSE',
-            'FreeBSD', 'OpenBSD', 'NetBSD',
-            'WSL', 'WINE', 'Proton', 'Bottles',
-            
-            'Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'C#', 'PHP', 'Ruby', 
-            'Go', 'Rust', 'Swift', 'Kotlin', 'Zig', 'Nim', 'Crystal', 'D',
-            'Haskell', 'Scala', 'Elixir', 'Erlang', 'Clojure', 'F#', 'OCaml',
-            'Lua', 'Perl', 'R', 'Julia', 'Bash', 'Zsh', 'Fish',
-            'Assembly', 'COBOL', 'Fortran', 'Lisp', 'Prolog', 'Racket',
-            
-            'React', 'Vue', 'Angular', 'Svelte', 'Solid', 'Qwik',
-            'Django', 'Flask', 'FastAPI', 'Spring', 'Laravel', 'Symfony',
-            'Rails', 'Phoenix', 'Actix', 'Rocket', 'Tauri', 'Electron',
-            'PyTorch', 'TensorFlow', 'JAX', 'Transformers', 'LangChain',
-            
-            'Docker', 'Podman', 'Kubernetes', 'k3s', 'Rancher',
-            'Git', 'GitLab', 'Gitea', 'Codeberg',
-            'Neovim', 'Vim', 'Emacs', 'Helix', 'Kakoune',
-            'Codium', 'Sublime',
-            'curl', 'wget',
-            
-            'PostgreSQL', 'MySQL', 'MariaDB', 'SQLite', 'DuckDB',
-            'MongoDB', 'Redis', 'Memcached', 'Dragonfly', 'KeyDB',
-            'ClickHouse', 'TimescaleDB', 'InfluxDB', 'Prometheus',
-            'Elasticsearch', 'Cassandra', 'ScyllaDB', 'Neo4j',
-            
-            'DigitalOcean', 'Hetzner', 'Linode',
-            'Vercel', 'Netlify', 'Railway', 'Fly.io',
-            
-            'REST', 'GraphQL', 'tRPC', 'WebSocket', 'SSE',
-            'HTTP/2', 'HTTP/3', 'QUIC', 'TCP/IP', 'UDP', 'ICMP',
-            'JSON', 'YAML', 'TOML', 'XML', 'Protobuf', 'Avro',
-            'JWT', 'OAuth', 'OIDC', 'SAML', 'LDAP', 'Kerberos',
-            
-            'Microservices', 'Monolith', 'Serverless', 'Edge',
-            'Clean Architecture', 'DDD', 'CQRS', 'Event Sourcing',
-            'MVC', 'MVP', 'MVVM', 'VIPER', 'Redux', 'Zustand',
-            
-            'Make', 'CMake', 'Meson', 'Ninja', 'Bazel',
-            'GitHub Actions', 'Jenkins', 'Drone', 'Woodpecker',
-            'Ansible', 'Terraform', 'Packer', 'Vagrant', 'Pulumi',
-            
-            'pip', 'pipx', 'poetry', 'pdm', 'uv',
-            'venv', 'virtualenv', 'conda', 'mamba', 'micromamba',
-            'NumPy', 'Pandas', 'Polars', 'Pyspark', 'Dask',
-            'Jupyter', 'IPython', 'Colab', 'Kaggle',
-            
-            'npm', 'yarn', 'pnpm', 'bun', 'deno',
-            'webpack', 'Vite', 'esbuild', 'Rollup', 'Parcel',
-            'Babel', 'SWC', 'tsc', 'ESLint', 'Prettier',
-            'Node.js', 'Bun', 'Deno',
-            
-            'X11', 'Xorg', 'Wayland', 'Sway', 'Hyprland', 'River', 'DWL',
-            'Qt', 'GTK', 'wxWidgets', 'FLTK', 'IUP',
-            'KDE Plasma', 'GNOME', 'XFCE', 'LXQt', 'Cinnamon', 'MATE',
-            
-            'Alacritty', 'Kitty', 'WezTerm', 'Foot', 'ST',
-            'Bash', 'Zsh', 'Fish', 'NuShell', 'Elvish', 'Xonsh',
-            
-            'systemd', 'OpenRC', 'runit', 's6', 'dinit',
-            'GRUB', 'systemd-boot', 'rEFInd', 'Limine',
-            'iptables', 'nftables', 'firewalld', 'ufw',
-            
-            'LXC', 'LXD', 'Incus', 'Proxmox', 'QEMU', 'KVM',
-            'VirtualBox', 'Xen', 'bhyve',
-            'Flatpak', 'Snap', 'AppImage', 'Distrobox',
-            
-            'ext4', 'XFS', 'Btrfs', 'ZFS', 'F2FS', 'NTFS-3G',
-            'LUKS', 'LVM', 'RAID', 'mdadm',
-            
-            'x86_64', 'ARM', 'AArch64', 'RISC-V', 'MIPS', 'PowerPC',
-            'AMD64', 'i386', 'ARMv7', 'ARMv8',
-            
-            'SELinux', 'AppArmor', 'Tomoyo', 'Smack',
-            'GnuPG', 'OpenPGP', 'age', 'sops',
-            'OpenSSL', 'LibreSSL', 'GnuTLS', 'mbed TLS'
+            'Pointer-Based Security Paradigm',
+            'Local Data Regeneration Paradigm',
+            'Position-Candidate-Hypothesis Paradigm',
+            'PCH Paradigm',
+            'Deterministic Game Engine',
+            'Data Non-Existence Philosophy',
+            'Synchronous State Discovery',
+
+            'SmartPassLib Ecosystem',
+            'SmartPassLib Cross-Platform',
+            'TSP Ecosystem',
+            '2FA Manager Ecosystem',
+            'Repository Manager Ecosystem',
+            'Deterministic Ecosystem',
+            'Research Ecosystem',
+
+            'SmartPassLib Python',
+            'SmartPassLib Go',
+            'SmartPassLib C#',
+            'SmartPassLib Kotlin',
+            'SmartPassLib JavaScript',
+            'Smart Repository Manager Core',
+            'Smart TSP Solver',
+            'Exact TSP Solver',
+            'Smart TSP Oracle',
+            'Smart TSP Benchmark',
+            'Smart Babylon Library',
+            'Babylonian Image Library',
+            'CommandPack',
+            'CommandEx',
+            'SmartPrinter',
+            'SmartCLIApp',
+            'SmartRandom',
+            'SmartTextDecorator',
+            'Smart Auth',
+            'Smart Redis Storage',
+            'Smart Path Library',
+            'Smart Executor Lib',
+            'CLIMan',
+            'GitHub SSH Key',
+            'Smart Text Randomizer',
+            'Smart Pip Collector',
+            'GitHub Repos Backup Tools',
+            'Smart Legion Lab Library',
+
+            'smartpasslib',
+            'clipassman',
+            'clipassgen',
+            'smart-tsp-solver',
+            'smart-tsp-benchmark',
+            'smart-2fa-secure',
+            'babylonian-image-library',
+            'smart-babylon-library',
+            'commandman',
+            'smartpathlibrary',
+            'smartexecutorlib',
+            'climan',
+            'github-ssh-key',
+            'commandpack',
+            'smartprinter',
+            'smartcliapp',
+            'commandex',
+            'smartrandom',
+            'smarttextdecorator',
+            'smartauthen',
+            'smart-redis-storage',
+            'smart-text-randomizer',
+            'smart-repository-manager-core',
+
+            'CLIPassMan',
+            'CLIPassGen',
+            'Smart Password Manager CLI',
+            'Smart Password Generator CLI',
+            'Smart Repository Manager CLI',
+            'CommandMan',
+            'CLIToDo',
+            'ToDo App CLI',
+            'Smart 2FA Manager CLI',
+            'Smart 2FA Manager Bash',
+
+            'Smart Password Manager Desktop',
+            'Smart Password Manager C# Desktop',
+            'Smart Repository Manager GUI',
+            'Smart Project Manager',
+            'Smart Task Manager',
+            'Smart 2FA Manager Desktop',
+            'Smart File Duplicate Manager',
+            'Smart ToDo App Desktop',
+
+            'Smart Password Manager Web',
+            'Smart Social Network',
+            'Smart ToDo App Local',
+            'Alexander Suvorov Academic Site',
+            'SmartLegionLab Portfolio Site',
+
+            'Smart Password Manager Android',
+            'Smart 2FA Manager Android',
+
+            'Personal Telegram Bot',
+            'ToDo App Telegram Bot',
+
+            'Deterministic Password Generation',
+            'Zero-Storage Security',
+            'Decentralized Architecture',
+            'Offline-First Security',
+            'Cross-Platform Determinism',
+            'Proof of Knowledge Without Exposure',
+            'No Cloud Dependency',
+            'Zero Trust Architecture',
+            'Deterministic Infinite Library',
+            'Full-Cycle Development',
+            'From Idea to Production',
+            'Software Architecture',
+            'System Integration',
+            'High-Performance Computing',
+            'Cryptographic Security',
+            'GitHub Automation',
+            'Open Source Ecosystem',
+
+            'Python', 'Go', 'C#', 'Kotlin', 'JavaScript',
+            'PyQt5', 'PyQt6', 'WPF', 'Django', 'Flask',
+            'Android SDK', 'Telegram Bot API', 'GitHub API',
+            'Redis', 'PostgreSQL', 'SQLite',
+            'SHA-256', 'TOTP', '2FA', 'MFA',
+            'Docker', 'Git', 'GitHub Actions',
+            'HTML5', 'CSS3', 'Bootstrap', 'Termux',
+
+            'Smart Legion Lab',
+            'Alexander Suvorov',
+            'Alexander Suvorov Paradigms',
+            'Smart Password Manager',
+            'Smart 2FA Manager',
+            'Smart Repository Manager',
+            'Smart TSP Solver',
+            'Smart Babylon Library',
+            'Babylonian Image Library',
+            'Deterministic Game Engine Report',
+            'Clipassman',
+            'Clipassgen',
+            'Smartpasslib',
+
+            'Independent Researcher',
+            'Theoretical Computer Science',
+            'Computational Complexity',
+            'Information Theory',
+            'Open Access Research',
+            'Zenodo DOI Publications',
+            'Academic Portfolio',
+            'Research Validation',
+            'Experimental Implementation'
         ];
 
         window.particleBackgroundInstance = this;
@@ -118,8 +190,8 @@ class ParticleBackground {
     }
 
     getParticleCount() {
-        if (window.innerWidth < 1024) return 45;
-        return 70;
+        if (window.innerWidth < 1024) return 15;
+        return 30;
     }
 
     handleResize() {
