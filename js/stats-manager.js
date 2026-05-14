@@ -47,8 +47,9 @@ class StatsManager {
     getDefaultData() {
         const data = {
             experience: this.calcExperience(),
-            paradigms: Object.keys(this.config.ZENODO_RECORDS).length,
+            paradigms: this.config.CONSTANTS.PARADIGMS,
             ecosystems: this.config.CONSTANTS.ECOSYSTEMS_COUNT,
+            applications: this.config.CONSTANTS.APPLICATIONS,
             projects: this.config.CONSTANTS.PROJECTS_DELIVERED,
             articles: this.config.CONSTANTS.TECH_ARTICLES,
             users: this.config.CONSTANTS.USERS_SUPPORTED,
