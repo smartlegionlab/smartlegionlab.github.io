@@ -1,4 +1,4 @@
-# Alexander Suvorov - Automated Technical Portfolio <sup>v6.1.4</sup>
+# Alexander Suvorov - Automated Technical Portfolio <sup>v6.2.0</sup>
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
