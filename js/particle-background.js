@@ -165,6 +165,75 @@ class ParticleBackground {
             'Research Validation',
             'Experimental Implementation'
         ];
+//        this.techWords = [
+//            'PBS Paradigm',
+//            'LDR Paradigm',
+//            'PCH Paradigm',
+//            'DGE Report',
+//            'Data Non-Existence',
+//            'Synchronous Discovery',
+//
+//            'SmartPassLib',
+//            'TSP Solver',
+//            '2FA Manager',
+//            'Repo Manager',
+//            'Deterministic',
+//            'Ecosystems',
+//            'Open Source',
+//            'Cross-Platform',
+//            'Offline-First',
+//
+//            'PyPI Package',
+//            'Python Lib',
+//            'Go Library',
+//            'C# Library',
+//            'Kotlin Lib',
+//            'JavaScript',
+//            'smartpasslib',
+//            'clipassman',
+//            'clipassgen',
+//
+//            'Android',
+//            'Desktop Apps',
+//            'Web App',
+//            'CLI Tools',
+//            'Telegram Bots',
+//            'Bash Script',
+//            'Password Manager',
+//            'Social Network',
+//            'Task Manager',
+//            'Duplicate Finder',
+//
+//            'Zero-Storage',
+//            'Decentralized',
+//            'Deterministic',
+//            'No Cloud',
+//            'SHA-256',
+//            'TOTP 2FA',
+//            'GitHub API',
+//            'Proof of Knowledge',
+//            'No Password DB',
+//
+//            'PyQt', 'Django', 'Flask',
+//            'Redis', 'SQLite', 'Docker',
+//            'Termux', 'WPF', 'FastAPI',
+//            'PyQt6', 'C#', 'Go', 'Kotlin',
+//            'PostgreSQL', 'Android', 'Mobile',
+//
+//            'Smart Legion Lab',
+//            'Alexander Suvorov',
+//            'SmartPassLib Ecosystem',
+//
+//            'Zenodo DOI',
+//            'Open Access',
+//            'Research',
+//            'Independent Researcher',
+//            'Computational Complexity',
+//            'Information Theory',
+//            'NP-Complete',
+//            'Theoretical CS',
+//            'Paradigms'
+//        ];
 
         window.particleBackgroundInstance = this;
         this.init();
@@ -190,7 +259,7 @@ class ParticleBackground {
     }
 
     getParticleCount() {
-        if (window.innerWidth < 1024) return 15;
+        if (window.innerWidth < 1024) return 20;
         return 30;
     }
 
