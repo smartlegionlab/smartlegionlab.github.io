@@ -87,21 +87,17 @@
         </nav>
 
         <main style="padding: 5px;"><br>
-            <div class="content-section"><div class="container">
-
-                <div class="text-center mb-4">
-                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                        <i class="bi bi-graph-up text-primary" style="font-size: 2rem;"></i>
-                        <h2 class="section-title mb-0">TSP Ecosystem</h2>
-                    </div>
-                    <p class="lead text-muted">
-                        The TSP ecosystem is a comprehensive suite of exact and heuristic solvers for the Traveling Salesman Problem —
-                        featuring <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver">Exact TSP Solver (Go)</a> and
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-oracle">Smart TSP Oracle (Python)</a> for provably optimal solutions via branch-and-bound,
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver">Smart TSP Solver (Python)</a> for large-scale heuristic routing with Dynamic Gravity and Angular-Radial algorithms,
-                        and <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark">Smart TSP Benchmark</a>  for professional algorithm testing — all grounded in
-                        the <a target="_blank" href="https://github.com/smartlegionlab/position-candidate-hypothesis">Position-Candidate-Hypothesis (PCH)</a> paradigm for NP-complete problems.</p>
-                </div>
+            <div class="content-section">
+                <div class="container">
+                <h2 class="section-title mb-4"><i class="bi bi-graph-up text-primary" style="font-size: 2rem;"></i> TSP Ecosystem</h2>
+                <p>
+                    The TSP ecosystem is a comprehensive suite of exact and heuristic solvers for the Traveling Salesman Problem —
+                    featuring <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver">Exact TSP Solver (Go)</a> and
+                    <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-oracle">Smart TSP Oracle (Python)</a> for provably optimal solutions via branch-and-bound,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver">Smart TSP Solver (Python)</a> for large-scale heuristic routing with Dynamic Gravity and Angular-Radial algorithms,
+                    and <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark">Smart TSP Benchmark</a>  for professional algorithm testing — all grounded in
+                    the <a target="_blank" href="https://github.com/smartlegionlab/position-candidate-hypothesis">Position-Candidate-Hypothesis (PCH)</a> paradigm for NP-complete problems.
+                </p>
 
                 <div class="row mb-4">
                     <div class="col-md-3 mb-3">
@@ -134,131 +130,71 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-calculator text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Exact Solvers</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank">exact-tsp-solver</a></div>
-                                    <div class="small text-muted">Go · Branch & Bound algorithm</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-tsp-oracle" target="_blank">smart-tsp-oracle</a></div>
-                                    <div class="small text-muted">Python · Branch & Bound implementation</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-graph-up text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Heuristic Solver</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-tsp-solver" target="_blank">smart-tsp-solver</a></div>
-                                    <div class="small text-muted">Python · novel heuristics with ~25% improvement on clustered data compared to classical methods</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-bar-chart text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Benchmark Framework</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-tsp-benchmark" target="_blank">smart-tsp-benchmark</a></div>
-                                    <div class="small text-muted">Python · configurable scenarios, detailed metrics, performance comparison between exact and heuristic approaches</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-journal-text text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Research Foundation</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://alexander-suvorov.ru/research/position-candidate-hypothesis.html" target="_blank">Position‑Candidate‑Hypothesis (PCH) Paradigm</a></div>
-                                    <div class="small text-muted">Structural‑statistical approach to NP‑complete problems — n hypotheses, n positions, n candidates</div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="small"><i class="bi bi-box-arrow-up-right text-primary me-1"></i> DOI: <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank">10.5281/zenodo.17614888</a></div>
-                                </div>
-                            </div>
-                        </div>
+                <h2 class="section-title mb-4">Related Research</h2>
+
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://alexander-suvorov.ru/research/position-candidate-hypothesis.html" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-puzzle me-2"></i>Position-Candidate-Hypothesis - <span class="text-muted">Structural-statistical approach to NP-complete problems — n hypotheses, n positions, n candidates.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="card mt-3" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <i class="bi bi-info-circle text-primary" style="font-size: 1.5rem;"></i>
-                            <h4 class="mb-0 text-primary">Key Features</h4>
-                        </div>
-                        <hr class="border-secondary">
-                        <div class="row">
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Dual Language Support</strong>
-                                    <div class="small text-muted mt-1">Go (high performance) + Python (flexibility, research)</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Exact & Heuristic</strong>
-                                    <div class="small text-muted mt-1">Branch & Bound for exact solutions + specialized heuristics for large instances</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-check-circle-fill text-primary me-2"></i>
-                                    <strong>Comprehensive Benchmarking</strong>
-                                    <div class="small text-muted mt-1">Configurable scenarios, detailed metrics, algorithm comparison</div>
-                                </div>
-                            </div>
-                        </div>
+                <h2 class="section-title mb-4">Related Ecosystems</h2>
+
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a href="./tsp-ecosystem.html" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-graph-up me-2"></i>TSP Ecosystem - <span class="text-muted">Traveling Salesman Problem Solvers and Benchmark.</span> <span class="text-primary">→</span>
+                        </a>
+                        <a href="./research-ecosystem.html" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-shield-lock me-2"></i> Research Ecosystem - <span class="text-muted">4 paradigms with DOI and Ecosystems.</span> <span class="text-primary">→</span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
+                <h2 class="section-title mb-4">Related Applications</h2>
+
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-check-circle-fill me-2"></i> Exact TSP Solver - <span class="text-muted">A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Go. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-oracle" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-check-circle-fill me-2"></i> Smart TSP Oracle - <span class="text-muted">A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Python. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-check-circle-fill me-2"></i> Smart TSP Benchmark - <span class="text-muted">Benchmarking Framework - Professional-grade testing infrastructure with configurable scenarios and detailed metrics.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <h2 class="section-title mb-4">Related Libraries</h2>
+
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-check-circle-fill me-2"></i> Smart TSP Solver - <span class="text-muted">A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristics. Sometimes outperforms classical methods by ~25% on real and clustered data by using spatial intelligence and adaptive strategies.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="justify-content-between text-center mt-4">
+                    <a href="/ecosystems.html" class="btn btn-sm btn-outline-primary btn-sm"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
                 </div>
             </div></div>
         </main>
 
         <div class="content-section">
-            <div class="container">
-                <h2 class="section-title text-center">Connect & Collaborate</h2>
+            <div class="container text-center">
+                <h2 class="text-center">Connect & Collaborate</h2>
+                <hr>
                 <div class="text-center mb-4">
                     <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary m-1">Alexander Suvorov</a>
                     <a href="mailto:official@smartlegionlab.ru" class="btn btn-outline-primary m-1">Email</a>
                     <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary m-1">GitHub</a>
                     <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary m-1">PyPI</a>
                 </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="content-section">
-            <div class="container text-center">
                 <footer>
                     <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a target="_blank" class="author-link" href="https://github.com/smartlegionlab/smartlegionlab.github.io">v6.2.2</a></p>
                 </footer>
