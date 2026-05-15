@@ -79,19 +79,15 @@
         </nav>
 
         <main style="padding: 5px;"><br>
-            <div class="content-section"><div class="container">
-
-                <div class="text-center mb-4">
-                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                        <i class="bi bi-phone text-primary" style="font-size: 2rem;"></i>
-                        <h2 class="section-title mb-0">2FA Manager Ecosystem</h2>
-                    </div>
-                    <p class="lead text-muted">The Smart 2FA ecosystem is a cross-platform offline TOTP management suite — featuring
+            <div class="content-section">
+                <div class="container">
+                    <h2 class="section-title mb-4"><i class="bi bi-key text-primary" style="font-size: 2rem;"></i> 2FA Manager Ecosystem</h2>
+                    <p>The Smart 2FA ecosystem is a cross-platform offline TOTP management suite — featuring
                         CLI (<a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-cli">Python</a>/<a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-bash">Bash</a>),
                         Desktop <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop">GUI (PyQt5)</a>,
                         <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-android">Android</a> app, and a secure backend library — all using AES-256-GCM encrypted local storage,
-                        GPG-backed backups, QR code import/export, and zero cloud dependency for generating time-based one-time passwords.</p>
-                </div>
+                        GPG-backed backups, QR code import/export, and zero cloud dependency for generating time-based one-time passwords.
+                    </p>
 
                 <div class="row mb-4">
                     <div class="col-md-3 mb-3">
@@ -124,124 +120,41 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-display text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Desktop</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" target="_blank">smart-2fa-manager-desktop</a></div>
-                                    <div class="small text-muted">Python (PyQt) · Linux GUI · offline · encrypted storage</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-phone text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Android</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-2fa-manager-android" target="_blank">smart-2fa-manager-android</a></div>
-                                    <div class="small text-muted">Kotlin · offline TOTP · encrypted local storage</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-terminal text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">CLI</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" target="_blank">smart-2fa-manager-cli</a></div>
-                                    <div class="small text-muted">Python · terminal‑based TOTP manager</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                            <div class="card-body card-custom">
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-code-slash text-primary" style="font-size: 1.5rem;"></i>
-                                    <h4 class="mb-0 text-primary">Bash Script</h4>
-                                </div>
-                                <hr class="border-secondary">
-                                <div class="feature-block mb-2">
-                                    <div class="small mb-2"><i class="bi bi-check-circle-fill text-primary me-1"></i> <a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" target="_blank">smart-2fa-manager-bash</a></div>
-                                    <div class="small text-muted">Bash · lightweight shell script for TOTP</div>
-                                </div>
-                            </div>
-                        </div>
+                <h2 class="section-title mb-4">Related Applications</h2>
+
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-key me-2"></i> Smart 2FA Manager Desktop - <span class="text-muted">Offline, independent TOTP 2FA manager for Linux with graphical interface.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-key me-2"></i> Smart 2FA Manager Android - <span class="text-muted">Smart 2FA Manager is a lightweight, offline TOTP (Time-based One-Time Password) manager for Android. Store your 2FA secrets encrypted locally, generate codes without an internet connection, and maintain full control over your authentication data.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-key me-2"></i> Smart 2FA Manager Bash - <span class="text-muted">Lightweight, offline, independent TOTP 2FA manager for Linux.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="feature-block mb-2 pointer text-decoration-none text-primary">
+                            <i class="bi bi-key me-2"></i> Smart 2FA Manager CLI - <span class="text-muted">Lightweight, offline, independent TOTP 2FA manager for Linux.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="card mt-3" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <i class="bi bi-info-circle text-primary" style="font-size: 1.5rem;"></i>
-                            <h4 class="mb-0 text-primary">Key Features</h4>
-                        </div>
-                        <hr class="border-secondary">
-                        <div class="row">
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-shield-check text-primary me-2"></i>
-                                    <strong>No Cloud Required</strong>
-                                    <div class="small text-muted mt-1">Works completely offline, your data never leaves your device</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-lock text-primary me-2"></i>
-                                    <strong>Encrypted Storage</strong>
-                                    <div class="small text-muted mt-1">All TOTP secrets stored with strong encryption</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <div class="feature-block">
-                                    <i class="bi bi-clock-history text-primary me-2"></i>
-                                    <strong>Time‑Based Codes</strong>
-                                    <div class="small text-muted mt-1">Standard TOTP algorithm (RFC 6238) with 30‑second intervals</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="justify-content-between text-center mt-4">
                     <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
                 </div>
             </div></div>
         </main>
 
         <div class="content-section">
-            <div class="container">
-                <h2 class="section-title text-center">Connect & Collaborate</h2>
+            <div class="container text-center">
+                <h2 class="text-center">Connect & Collaborate</h2>
+                <hr>
                 <div class="text-center mb-4">
                     <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary m-1">Alexander Suvorov</a>
                     <a href="mailto:official@smartlegionlab.ru" class="btn btn-outline-primary m-1">Email</a>
                     <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary m-1">GitHub</a>
                     <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary m-1">PyPI</a>
                 </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="content-section">
-            <div class="container text-center">
                 <footer>
                     <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a target="_blank" class="author-link" href="https://github.com/smartlegionlab/smartlegionlab.github.io">v6.2.2</a></p>
                 </footer>
