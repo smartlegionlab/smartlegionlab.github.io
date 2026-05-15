@@ -37,17 +37,145 @@
             display: inline-block;
             margin-right: 6px;
         }
-        .stat-large {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent);
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
         }
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.08) 0%, rgba(13, 110, 253, 0.12) 100%);
+            border: 1px solid rgba(13, 110, 253, 0.2);
+            border-radius: 20px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(13, 110, 253, 0.6);
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.15) 0%, rgba(13, 110, 253, 0.2) 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: #0d6efd;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #eef3ff;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            font-family: 'SF Mono', 'JetBrains Mono', monospace;
+        }
+
+        .stat-label-modern {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8ba3c7;
+            font-weight: 500;
+        }
+
+        .stat-sub {
+            font-size: 0.7rem;
+            color: #6c8ab8;
+            margin-top: 0.5rem;
+        }
+
+        .details-section {
+            background: rgba(13, 110, 253, 0.02);
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(13, 110, 253, 0.1);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 14px;
+            background: rgba(13, 110, 253, 0.06);
+            transition: all 0.2s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(13, 110, 253, 0.15);
+            transform: translateX(4px);
+        }
+
+        .detail-icon {
+            font-size: 1.25rem;
+            color: #0d6efd;
+            min-width: 32px;
+            text-align: center;
+        }
+
+        .detail-content {
+            flex: 1;
+        }
+
+        .detail-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: #8ba3c7;
+            margin-bottom: 0.25rem;
         }
+
+        .detail-value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #eef3ff;
+            word-break: break-word;
+        }
+
+        .license-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(13, 110, 253, 0.12);
+            padding: 0.25rem 0.75rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .stat-value {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .topic-badge {
             display: inline-block;
             background: rgba(13, 110, 253, 0.1);
@@ -63,26 +191,53 @@
             background: var(--accent);
             color: white;
         }
+
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(250px, 1fr));
             gap: 1rem;
             margin: 2rem 0;
         }
-
         .info-item {
             padding: 0.75rem;
             background: var(--secondary);
             border-radius: 8px;
         }
-
         @media (max-width: 450px) {
             .info-grid {
-                display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1rem;
-                margin: 2rem 0;
             }
+        }
+
+        .card-custom {
+            transition: all 0.2s ease;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            color: #0d6efd;
+        }
+
+        .card-custom {
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-4px);
+            background: rgba(13, 110, 253, 0.12) !important;
+        }
+
+        .card-custom:hover small {
+            opacity: 1 !important;
+            color: #0d6efd;
         }
     </style>
 </head>
@@ -90,14 +245,14 @@
     <div class="scroll-progress">
         <div class="scroll-progress-bar"></div>
     </div>
-    
+
     <button class="scroll-to-top" id="scrollToTop">
         <i class="bi bi-chevron-up"></i>
     </button>
-    
+
     <div class="container">
         <div class="paper-container">
-            
+
             <header class="professional-header">
                 <div class="container">
                     <div class="header-content">
@@ -117,13 +272,42 @@
                                     
                                     
                                     
+                                    
+                                        
+                                            <span class="badge bg-primary">auth</span>
+                                        
+                                            <span class="badge bg-primary">authentication</span>
+                                        
+                                            <span class="badge bg-primary">pypi</span>
+                                        
+                                            <span class="badge bg-primary">pypi-package</span>
+                                        
+                                            <span class="badge bg-primary">pypi-packages</span>
+                                        
+                                            <span class="badge bg-primary">python-libraries</span>
+                                        
+                                            <span class="badge bg-primary">python-library</span>
+                                        
+                                            <span class="badge bg-primary">python-package</span>
+                                        
+                                            <span class="badge bg-primary">python-packages</span>
+                                        
+                                            <span class="badge bg-primary">python3</span>
+                                        
+                                            <span class="badge bg-primary">smart-auth</span>
+                                        
+                                            <span class="badge bg-primary">smartlegionlab</span>
+                                        
+                                            <span class="badge bg-primary">termux</span>
+                                        
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-            
+
             <main style="padding: 5px">
                 <nav class="mobile-navigation" id="mobileNav">
                     <div class="mobile-nav-container">
@@ -143,110 +327,112 @@
                     </div>
                 </nav>
                 <br>
-                
+
+                <h1 class="text-primary text-center">smartauthen</h1>
+
+                <div class="content-section">
+                    <h2 class="section-title"><i class="bi bi-info-circle"></i> Description</h2>
+                    <div class="p-4 card-custom" style="background: rgba(13, 110, 253, 0.05); border-radius: 20px;">
+                        <p class="text-light mb-3" style="font-size: 1.05rem; line-height: 1.5;">Smart, simple, lightweight, secure cross-platform authentication for any application.</p>
+                        
+                    </div>
+                </div>
+
                 <div class="content-section">
                     <div class="container">
-                        <div class="d-flex justify-content-between align-items-center repo-detail-header">
-                            <h2 class="section-title mb-0">Repository Details</h2>
-                            <a href="https://github.com/smartlegionlab/smartauthen" target="_blank" class="btn btn-outline-primary">
-                                <i class="bi bi-github"></i> View on GitHub
-                            </a>
-                        </div>
-                        
-                        <div class="row">
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-info-circle"></i> Description
-                                    </h3>
-                                    <p class="text-light">Smart, simple, lightweight, secure cross-platform authentication for any application.</p>
-                                    
-                                    
-                                </div>
-                                
-                                
-                                <div class="about-card">
-                                    <h3 class="about-title">
-                                        <i class="bi bi-tags"></i> Topics
-                                    </h3>
-                                    <div>
-                                        
-                                        <span class="topic-badge">auth</span>
-                                        
-                                        <span class="topic-badge">authentication</span>
-                                        
-                                        <span class="topic-badge">pypi</span>
-                                        
-                                        <span class="topic-badge">pypi-package</span>
-                                        
-                                        <span class="topic-badge">pypi-packages</span>
-                                        
-                                        <span class="topic-badge">python-libraries</span>
-                                        
-                                        <span class="topic-badge">python-library</span>
-                                        
-                                        <span class="topic-badge">python-package</span>
-                                        
-                                        <span class="topic-badge">python-packages</span>
-                                        
-                                        <span class="topic-badge">python3</span>
-                                        
-                                        <span class="topic-badge">smart-auth</span>
-                                        
-                                        <span class="topic-badge">smartlegionlab</span>
-                                        
-                                        <span class="topic-badge">termux</span>
-                                        
+                        <div class="row text-center">
+                            <div class="col-md-4 col-6 mb-4">
+                                <a href="https://github.com/smartlegionlab/smartauthen/stargazers" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                    <div class="p-3 card-custom position-relative" style="background: rgba(13, 110, 253, 0.05); border-radius: 16px; transition: transform 0.2s ease, background 0.2s ease; cursor: pointer;">
+                                        <span class="badge bg-warning text-dark rounded-pill position-absolute top-0 end-0 m-2">6</span>
+                                        <i class="bi bi-star-fill text-primary fs-1"></i>
+                                        <div class="fw-bold mt-2 text-light">Stars</div>
+                                        <small class="text-muted opacity-50">GitHub stargazers</small>
                                     </div>
-                                </div>
-                                
-                                
-                                <div class="info-grid">
-                                    <div class="info-item">
-                                        <div class="stat-large">6</div>
-                                        <div class="stat-label">Stars</div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4">
+                                <a href="https://github.com/smartlegionlab/smartauthen/forks" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                    <div class="p-3 card-custom position-relative" style="background: rgba(13, 110, 253, 0.05); border-radius: 16px; transition: transform 0.2s ease, background 0.2s ease; cursor: pointer;">
+                                        <span class="badge bg-warning text-dark rounded-pill position-absolute top-0 end-0 m-2">2</span>
+                                        <i class="bi bi-diagram-3-fill text-primary fs-1"></i>
+                                        <div class="fw-bold mt-2 text-light">Forks</div>
+                                        <small class="text-muted opacity-50">GitHub forks</small>
                                     </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">2</div>
-                                        <div class="stat-label">Forks</div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4">
+                                <a href="https://github.com/smartlegionlab/smartauthen/watchers" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                    <div class="p-3 card-custom position-relative" style="background: rgba(13, 110, 253, 0.05); border-radius: 16px; transition: transform 0.2s ease, background 0.2s ease; cursor: pointer;">
+                                        <span class="badge bg-warning text-dark rounded-pill position-absolute top-0 end-0 m-2">6</span>
+                                        <i class="bi bi-eye-fill text-primary fs-1"></i>
+                                        <div class="fw-bold mt-2 text-light">Watchers</div>
+                                        <small class="text-muted opacity-50">GitHub watchers</small>
                                     </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">6</div>
-                                        <div class="stat-label">Watchers</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">Python</div>
-                                        <div class="stat-label">Primary Language</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">May 08, 2024</div>
-                                        <div class="stat-label">Created</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">Apr 10, 2026</div>
-                                        <div class="stat-label">Last Updated</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">Apr 10, 2026</div>
-                                        <div class="stat-label">Last Push</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large">0.17 MB</div>
-                                        <div class="stat-label">Repository Size</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <div class="stat-large"><i class="bi bi-shield-check text-primary" style="font-size: 1.8rem;"></i> BSD 3-Clause "New" or "Revised" License</div>
-                                        <div class="stat-label">License</div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
-
-                        <div class="text-center mt-4">
-                            <a href="/projects.html" class="btn btn-outline-primary">
-                                <i class="bi bi-arrow-left"></i> Back to Projects
-                            </a>
-                        </div>
                     </div>
+                </div>
+
+                <div class="details-section">
+                    <h5 style="margin-bottom: 1.25rem; font-weight: 600;"><i class="bi bi-info-square-fill me-2 text-primary"></i>Detailed information</h5>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="bi bi-translate"></i></div>
+                            <div class="detail-content">
+                                <div class="detail-label">Primary language</div>
+                                <div class="detail-value">Python</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="bi bi-calendar-event"></i></div>
+                            <div class="detail-content">
+                                <div class="detail-label">Created at</div>
+                                <div class="detail-value">May 08, 2024</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="bi bi-arrow-repeat"></i></div>
+                            <div class="detail-content">
+                                <div class="detail-label">Last updated</div>
+                                <div class="detail-value">Apr 10, 2026</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="bi bi-cloud-upload"></i></div>
+                            <div class="detail-content">
+                                <div class="detail-label">Last push</div>
+                                <div class="detail-value">Apr 10, 2026</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="bi bi-database"></i></div>
+                            <div class="detail-content">
+                                <div class="detail-label">Repository size</div>
+                                <div class="detail-value">0.17 MB</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="bi bi-shield-lock"></i></div>
+                            <div class="detail-content">
+                                <div class="detail-label">License</div>
+                                <div class="detail-value">BSD 3-Clause "New" or "Revised" License</div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 mb-4">
+                    <a href="/projects.html" class="btn btn-outline-primary px-4 btn-sm btn-sm">
+                        <i class="bi bi-arrow-left"></i> Projects
+                    </a>
+                    <a target="_blank" href="https://github.com/smartlegionlab/smartauthen" class="btn btn-outline-primary px-4 btn-sm">
+                        <i class="bi bi-github me-2"></i> GitHub <i class="bi bi-box-arrow-up-right ms-1"></i>
+                    </a>
+                </div>
             </main>
 
             <div class="content-section">
