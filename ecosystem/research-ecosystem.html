@@ -29,7 +29,6 @@
         .feature-block {
             background: rgba(13, 110, 253, 0.05);
             border: 1px solid rgba(13, 110, 253, 0.15);
-            border-radius: 16px;
             padding: 0.9rem 1rem;
             transition: all 0.2s;
         }
@@ -45,18 +44,20 @@
             font-size: 0.7rem;
             font-weight: 500;
         }
-        .paradigm-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .paradigm-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-        }
         .stat-number-large {
             font-size: 1.8rem;
             font-weight: 700;
             color: #0d6efd;
             line-height: 1;
+        }
+        .list-group-item {
+            color: white;
+        }
+        .list-group {
+            margin-top: 10px;
+        }
+        .pointer {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -78,7 +79,7 @@
                         </div>
                         <div class="profile-info">
                             <h1 class="name">Smart Legion Lab</h1>
-                            <p class="title">Research Ecosystem</p>
+                            <p class="title text-primary">Research Ecosystem</p>
                             <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
                                 <span class="badge-platform"><i class="bi bi-shield-check me-1"></i> Pointer‑Based Security</span>
                                 <span class="badge-platform"><i class="bi bi-arrow-repeat me-1"></i> Local Data Regeneration</span>
@@ -106,326 +107,196 @@
         <main style="padding: 5px;"><br>
             <div class="content-section"><div class="container">
 
-                <div class="text-center mb-4">
-                    <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
-                        <i class="bi bi-journal-text text-primary" style="font-size: 2rem;"></i>
-                        <h2 class="section-title mb-0">Research Ecosystem</h2>
-                    </div>
-                    <p class="lead text-muted">Research Ecosystem unifies five specialized domains — SmartPassLib for zero-storage password management, Babylonian libraries for infinite deterministic generation of images and text, TSP solvers for exact and heuristic route optimization, Smart 2FA for offline TOTP management, and Smart Repository Manager for GitHub synchronization — all built on published research paradigms (Pointer-Based Security, Local Data Regeneration, Position-Candidate-Hypothesis) and implemented across C#, Python, Go, Kotlin, JavaScript, with CLI, desktop, web, Android, and bash clients.</p>
-                </div>
+                <h2 class="section-title mb-4"><i class="bi bi-mortarboard-fill text-primary" style="font-size: 2rem;"></i> Research Ecosystem</h2>
+                <p class="lead text-muted">Research Ecosystem unifies five specialized domains —
+                    <a href="./smartpasslib-ecosystem.html">SmartPassLib Ecosystem</a> for zero-storage password management,
+                    <a href="./deterministic-ecosystem.html">Deterministic Ecosystem</a> for infinite deterministic generation and
+                    <a href="./tsp-ecosystem.html">TSP Ecosystem</a> for exact and heuristic route optimization - all built on published research paradigms
+                    (
+                    <a target="_blank" href="https://alexander-suvorov.ru/research/pointer-based-security.html">Pointer-Based Security</a>,
+                    <a target="_blank" href="https://alexander-suvorov.ru/research/local-data-regeneration.html">Local Data Regeneration</a>,
+                    <a target="_blank" href="https://alexander-suvorov.ru/research/position-candidate-hypothesis.html">Position-Candidate-Hypothesis</a>
+                    ) and implemented across
+                    <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-charp">C#</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib">Python</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go">Go</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin">Kotlin</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js">JavaScript</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/clipassman">CLI</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-desktop">Desktop</a>,
+                    <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-web">Web</a>
+                    <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-android">Android</a>,
+                    and <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-bash">bash</a> clients.
+                </p>
 
                 <div class="row mb-4">
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="feature-block text-center">
-                            <div class="stat-number-large">4</div>
+                            <div class="stat-number-large" data-smart-key="paradigms">3+</div>
                             <div class="fw-bold mt-1">Paradigms</div>
                             <div class="small text-muted">with DOI publications</div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="feature-block text-center">
-                            <div class="stat-number-large">1K+</div>
+                            <div class="stat-number-large" data-smart-key="publications">44+</div>
+                            <div class="fw-bold mt-1">Publications</div>
+                            <div class="small text-muted">with DOI</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="feature-block text-center">
+                            <div class="stat-number-large" data-smart-key="paradigm.unique_views">1K+</div>
                             <div class="fw-bold mt-1">Zenodo Views</div>
                             <div class="small text-muted">combined total</div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="feature-block text-center">
-                            <div class="stat-number-large">850+</div>
+                            <div class="stat-number-large" data-smart-key="paradigm.unique_downloads">850+</div>
                             <div class="fw-bold mt-1">Downloads</div>
                             <div class="small text-muted">across all papers</div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-4 mb-3">
                         <div class="feature-block text-center">
-                            <div class="stat-number-large">5+</div>
-                            <div class="fw-bold mt-1">Tech Articles</div>
-                            <div class="small text-muted">on Dev.to</div>
+                            <div class="stat-number-large">3+</div>
+                            <div class="fw-bold mt-1">Ecosystems</div>
+                            <div class="small text-muted">related with this ecosystem</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="feature-block text-center">
+                            <div class="stat-number-large">19+</div>
+                            <div class="fw-bold mt-1">Applications</div>
+                            <div class="small text-muted">related with this ecosystem</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="bi bi-shield-check text-primary" style="font-size: 1.8rem;"></i>
-                                <h3 class="mb-0 text-primary">Pointer‑Based Security</h3>
-                                <span class="badge-platform">Paradigm</span>
-                            </div>
-                            <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17204738</a>
-                        </div>
-                        <p class="text-muted">Architectural shift from data protection to data non‑existence — eliminate vulnerable data instead of protecting it.</p>
+                <h2 class="section-title mb-4">Related Research</h2>
 
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Core Transformations</h5>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
-                                    <span>Data Transmission → Synchronous Discovery</span>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-database-slash text-primary me-2"></i>
-                                    <span>Secret Storage → Deterministic Regeneration</span>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-shield text-primary me-2"></i>
-                                    <span>Attack Surface Protection → Architectural Elimination</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-boxes me-2"></i>Practical Ecosystem</h5>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-shield-lock text-primary me-2"></i>
-                                    <strong>SmartPassLib</strong>
-                                    <div class="small text-muted mt-1">Python · Go · C# · Kotlin · JS — CLI, Desktop, Web, Android</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-github text-primary me-2"></i>
-                                    <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank">GitHub Repository</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-wrap gap-2 mt-3">
-                            <a href="https://doi.org/10.5281/zenodo.17204738" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
-                            <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
-                            <a href="https://dev.to/smartlegionlab/the-pointer-based-security-paradigm-a-practical-shift-from-data-protection-to-data-non-existence-h82" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
-                            <a href="/ecosystem/smartpasslib-ecosystem.html" class="btn btn-sm btn-outline-primary">Ecosystem →</a>
-                        </div>
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://alexander-suvorov.ru/research/pointer-based-security.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-shield-check me-2"></i> Pointer‑Based Security: <span class="text-light">Architectural shift from data protection to data non‑existence — eliminate vulnerable data instead of protecting it.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://alexander-suvorov.ru/research/local-data-regeneration.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-arrow-repeat me-2"></i>Local Data Regeneration - <span class="text-light">Ontological shift from data transmission to synchronous state discovery — regenerate data locally rather than transmit it.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://alexander-suvorov.ru/research/position-candidate-hypothesis.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-puzzle me-2"></i>Position-Candidate-Hypothesis - <span class="text-light">Structural-statistical approach to NP-complete problems — n hypotheses, n positions, n candidates.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://alexander-suvorov.ru/research/deterministic-game-engine.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-cpu me-2"></i>Deterministic Game Engine - <span class="text-light">Experimental validation of Pointer‑Based Security and Local Data Regeneration paradigms.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="bi bi-arrow-repeat text-primary" style="font-size: 1.8rem;"></i>
-                                <h3 class="mb-0 text-primary">Local Data Regeneration</h3>
-                                <span class="badge-platform">Paradigm</span>
-                            </div>
-                            <a href="https://doi.org/10.5281/zenodo.17264327" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17264327</a>
-                        </div>
-                        <p class="text-muted">Ontological shift from data transmission to synchronous state discovery — regenerate data locally rather than transmit it.</p>
+                <h2 class="section-title mb-4">Related Ecosystems</h2>
 
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Foundational Postulates</h5>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-diagram-3 text-primary me-2"></i>
-                                    <span>Data as System State</span>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-arrow-clockwise text-primary me-2"></i>
-                                    <span>Synchronous Local Regeneration <code>D = F(S, P)</code></span>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-bullseye text-primary me-2"></i>
-                                    <span>Communication as Pointer Synchronization</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-boxes me-2"></i>Practical Implementations</h5>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-book text-primary me-2"></i>
-                                    <strong>Smart Babylon Library</strong>
-                                    <div class="small">PyPI · deterministic infinite text generator</div>
-                                    <a href="https://github.com/smartlegionlab/smart-babylon-library" target="_blank" class="small">GitHub →</a>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-image text-primary me-2"></i>
-                                    <strong>Babylonian Image Library</strong>
-                                    <div class="small">PyPI · deterministic infinite image generator</div>
-                                    <a href="https://github.com/smartlegionlab/babylonian-image-library" target="_blank" class="small">GitHub →</a>
-                                </div>
-                                <div class="feature-block">
-                                    <i class="bi bi-github text-primary me-2"></i>
-                                    <a href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" target="_blank">GitHub Repository</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-wrap gap-2 mt-3">
-                            <a href="https://doi.org/10.5281/zenodo.17264327" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
-                            <a href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
-                            <a href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-state-21e" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
-                            <a href="/ecosystem/deterministic-ecosystem.html" class="btn btn-sm btn-outline-primary">Ecosystem →</a>
-                        </div>
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a href="./smartpasslib-ecosystem.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-shield-lock me-2"></i> SmartPassLib Ecosystem - <span class="text-light">Deterministic Smart Password Generators, Managers and Libraries.</span> <span class="text-primary">→</span>
+                        </a>
+                        <a href="./tsp-ecosystem.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-graph-up me-2"></i>TSP Ecosystem - <span class="text-light">Traveling Salesman Problem Solvers and Benchmark.</span> <span class="text-primary">→</span>
+                        </a>
+                        <a href="./deterministic-ecosystem.html" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-book me-2"></i>Deterministic Ecosystem - <span class="text-light">Deterministic Infinite Generators.</span> <span class="text-primary">→</span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="bi bi-puzzle text-primary" style="font-size: 1.8rem;"></i>
-                                <h3 class="mb-0 text-primary">Position-Candidate-Hypothesis</h3>
-                                <span class="badge-platform">Paradigm</span>
-                            </div>
-                            <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17614888</a>
-                        </div>
-                        <p class="text-muted">Structural-statistical approach to NP-complete problems — n hypotheses, n positions, n candidates.</p>
+                <h2 class="section-title mb-4">Related Applications</h2>
 
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Key Transformations</h5>
-                                <div class="feature-block mb-2"><i class="bi bi-search text-primary me-2"></i>Search → Structure</div>
-                                <div class="feature-block mb-2"><i class="bi bi-diagram-2 text-primary me-2"></i>Sequential → Parallel</div>
-                                <div class="feature-block mb-2"><i class="bi bi-graph-up text-primary me-2"></i>Deterministic → Statistical</div>
-                                <div class="feature-block mb-2"><i class="bi bi-eye text-primary me-2"></i>Black‑box → Interpretable</div>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-boxes me-2"></i>Practical Implementations</h5>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-calculator text-primary me-2"></i>
-                                    <strong>Exact TSP Solver</strong>
-                                    <div class="small">Go · Branch & Bound</div>
-                                    <a href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank" class="small">GitHub →</a>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-graph-up text-primary me-2"></i>
-                                    <strong>Smart TSP Solver</strong>
-                                    <div class="small">Python · heuristic · +25%</div>
-                                    <a href="https://github.com/smartlegionlab/smart-tsp-solver" target="_blank" class="small">GitHub →</a>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-bar-chart text-primary me-2"></i>
-                                    <strong>Smart TSP Benchmark</strong>
-                                    <div class="small">Python · benchmark framework</div>
-                                    <a href="https://github.com/smartlegionlab/smart-tsp-benchmark" target="_blank" class="small">GitHub →</a>
-                                </div>
-                                <div class="feature-block">
-                                    <i class="bi bi-github text-primary me-2"></i>
-                                    <a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank">GitHub Repository</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-wrap gap-2 mt-3">
-                            <a href="https://doi.org/10.5281/zenodo.17614888" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
-                            <a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
-                            <a href="https://dev.to/smartlegionlab/position-candidate-hypothesis-pch-paradigm-a-new-research-direction-for-np-complete-problems-2b00" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
-                            <a href="/ecosystem/tsp-ecosystem.html" class="btn btn-sm btn-outline-primary">Ecosystem →</a>
-                        </div>
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://github.com/smartlegionlab/clipassman" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-terminal me-2"></i> CliPassMan - <span class="text-light">Console Smart Password Manager - Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/clipassgen" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-terminal me-2"></i> CliPassGen - <span class="text-light">Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-terminal me-2"></i> Smart Password Manager Csharp Cli - <span class="text-light">Smart Password Manager (C#) CLI - Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line. Your secret phrase never leaves your device.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-terminal me-2"></i> Smart Password Generator Csharp Cli - <span class="text-light">Smart Password Generator (C#) - Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required. All from your command line.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-desktop" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-window-desktop me-2"></i> Smart Password Manager Desktop - <span class="text-light">Cross-platform desktop manager for deterministic smart passwords. Generate, manage, and retrieve passwords without storing them. Your secret phrase is the only key you need.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-windows me-2"></i> Smart Password Manager Csharp Desktop - <span class="text-light">Smart Password Manager C# Desktop - Desktop manager for deterministic smart passwords. Generate, manage, and retrieve passwords without storing them. Your secret phrase never leaves your device.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-android" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-phone me-2"></i> Smart Password Manager (Android) - <span class="text-light">A secure, offline smart password manager for Android with deterministic password generation. Store only metadata — passwords never exist until you generate them.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-web" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-globe me-2"></i> Smart Password Manager Web - <span class="text-light">Web-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them. Your secret phrase never leaves your browser.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-check-circle-fill me-2"></i> Exact TSP Solver - <span class="text-light">A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Go. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-oracle" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-check-circle-fill me-2"></i> Smart TSP Oracle - <span class="text-light">A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Python. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-check-circle-fill me-2"></i> Smart TSP Benchmark - <span class="text-light">Benchmarking Framework - Professional-grade testing infrastructure with configurable scenarios and detailed metrics.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="card mb-4 paradigm-card" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="bi bi-cpu text-primary" style="font-size: 1.8rem;"></i>
-                                <h3 class="mb-0 text-primary">Deterministic Game Engine</h3>
-                                <span class="badge-platform">Tech Report</span>
-                            </div>
-                            <a href="https://doi.org/10.5281/zenodo.17383447" target="_blank" class="btn btn-sm btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> DOI: 10.5281/zenodo.17383447</a>
-                        </div>
-                        <p class="text-muted">Experimental validation of Pointer‑Based Security and Local Data Regeneration paradigms.</p>
+                <h2 class="section-title mb-4">Related Libraries</h2>
 
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-speedometer2 me-2"></i>Performance Results</h5>
-                                <div class="feature-block mb-2"><i class="bi bi-lightning-charge text-primary me-2"></i>2.8M elements/second — World generation</div>
-                                <div class="feature-block mb-2"><i class="bi bi-speedometer2 text-primary me-2"></i>O(1) — State access across all positions</div>
-                                <div class="feature-block mb-2"><i class="bi bi-people text-primary me-2"></i>O(n) — Entity simulation scaling</div>
-                                <div class="feature-block"><i class="bi bi-shield-check text-primary me-2"></i>Cryptographic — Operation verification</div>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="text-primary"><i class="bi bi-check-circle me-2"></i>Paradigms Validated</h5>
-                                <div class="feature-block mb-2">
-                                    <i class="bi bi-shield-check text-primary me-2"></i>
-                                    <strong>Pointer‑Based Security</strong>
-                                </div>
-                                <div class="feature-block">
-                                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
-                                    <strong>Local Data Regeneration</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-wrap gap-2 mt-3">
-                            <a href="https://doi.org/10.5281/zenodo.17383447" target="_blank" class="btn btn-sm btn-outline-primary">Paper</a>
-                            <a href="https://github.com/smartlegionlab/deterministic-game-engine-report" target="_blank" class="btn btn-sm btn-outline-primary">GitHub</a>
-                            <a href="https://dev.to/smartlegionlab/deterministic-game-engine-practical-validation-of-pointer-based-security-and-local-data-408l" target="_blank" class="btn btn-sm btn-outline-primary">Article</a>
-                        </div>
+                <div class="card-custom p-3 rounded mb-4" style="background: rgba(13, 110, 253, 0.05); border: 1px solid rgba(13, 110, 253, 0.2);">
+                    <div class="row" style="padding: 5px;">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-filetype-py me-2"></i> SmartPassLib (Python) - <span class="text-light">Smart Passwords Library (Python): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-server me-2"></i> SmartPassLib (Go) - <span class="text-light">Smart Passwords Library GolangGo implementation of deterministic smart password generator. Same secret + same length = same password across all platforms (Python, JS, Kotlin, Go).</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-windows me-2"></i> SmartPassLib (C#) - <span class="text-light">Smart Passwords Library(C#): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-phone me-2"></i> SmartPassLib (Kotlin) - <span class="text-light">Smart Passwords Library (Kotlin): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-javascript me-2"></i> SmartPassLib (JavaScript) - <span class="text-light">Smart Passwords Library (JS): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-check-circle-fill me-2"></i> Smart TSP Solver - <span class="text-light">A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristics. Sometimes outperforms classical methods by ~25% on real and clustered data by using spatial intelligence and adaptive strategies.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-babylon-library" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-book me-2"></i> Smart Babylon Library - <span class="text-light">A deterministic infinite library generator inspired by Borges' "The Library of Babel". Generate unique, deterministic books and pages based on coordinate systems without storing any data.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/babylonian-image-library" class="feature-block mb-2 pointer text-decoration-none text-warning">
+                            <i class="bi bi-image me-2"></i> Babylonian Image Library - <span class="text-light">A deterministic infinite image library generator inspired by Borges' 'The Library of Babel'. Generate unique, deterministic images based on coordinate systems without storing image data.</span> <span class="text-primary"><i class="bi bi-box-arrow-up-right ms-1"></i></span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="card mt-3" style="background: rgba(13,110,253,0.03); border:1px solid rgba(13,110,253,0.2); border-radius:16px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <i class="bi bi-grid-3x3-gap-fill text-primary" style="font-size: 1.5rem;"></i>
-                            <h4 class="mb-0 text-primary">All Related Applications & Components</h4>
-                        </div>
-                        <hr class="border-secondary">
-
-                        <h5 class="text-primary mb-3"><i class="bi bi-shield-lock me-2"></i>SmartPassLib Ecosystem (Pointer‑Based Security)</h5>
-                        <div class="row mb-4">
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-code-slash text-primary me-2"></i><strong>Core Libraries</strong><div class="small">Python · Go · C# · Kotlin · JS</div><a href="https://github.com/smartlegionlab/smartpasslib" target="_blank" class="small">smartpasslib →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-go" target="_blank" class="small">smartpasslib-go →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-csharp" target="_blank" class="small">smartpasslib-csharp →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" target="_blank" class="small">smartpasslib-kotlin →</a><br><a href="https://github.com/smartlegionlab/smartpasslib-js" target="_blank" class="small">smartpasslib-js →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-terminal text-primary me-2"></i><strong>CLI Applications</strong><div class="small">Python & C# managers and generators</div><a href="https://github.com/smartlegionlab/clipassman" target="_blank" class="small">clipassman →</a><br><a href="https://github.com/smartlegionlab/clipassgen" target="_blank" class="small">clipassgen →</a><br><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" target="_blank" class="small">SmartPasswordManagerCsharpCli →</a><br><a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" target="_blank" class="small">SmartPasswordGeneratorCsharpCli →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-display text-primary me-2"></i><strong>Desktop Applications</strong><div class="small">Cross‑platform GUI</div><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" target="_blank" class="small">Python PyQt →</a><br><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" target="_blank" class="small">C# WPF →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-phone text-primary me-2"></i><strong>Android App</strong><div class="small">Kotlin · offline deterministic</div><a href="https://github.com/smartlegionlab/smart-password-manager-android" target="_blank" class="small">smart-password-manager-android →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-globe text-primary me-2"></i><strong>Web Interface</strong><div class="small">HTML/JS · zero storage</div><a href="https://github.com/smartlegionlab/smart-password-manager-web" target="_blank" class="small">smart-password-manager-web →</a></div></div>
-                        </div>
-
-                        <h5 class="text-primary mb-3"><i class="bi bi-arrow-repeat me-2"></i>Deterministic Ecosystem (Local Data Regeneration)</h5>
-                        <div class="row mb-4">
-                            <div class="col-md-6 mb-2"><div class="feature-block"><i class="bi bi-book text-primary me-2"></i><strong>Smart Babylon Library</strong><div class="small">PyPI v1.1.1 · deterministic infinite text generator</div><a href="https://github.com/smartlegionlab/smart-babylon-library" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-babylon-library/" target="_blank" class="small">PyPI →</a></div></div>
-                            <div class="col-md-6 mb-2"><div class="feature-block"><i class="bi bi-image text-primary me-2"></i><strong>Babylonian Image Library</strong><div class="small">PyPI v1.0.1 · deterministic infinite image generator</div><a href="https://github.com/smartlegionlab/babylonian-image-library" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/babylonian-image-library/" target="_blank" class="small">PyPI →</a></div></div>
-                        </div>
-
-                        <h5 class="text-primary mb-3"><i class="bi bi-puzzle me-2"></i>TSP Ecosystem (PCH Paradigm)</h5>
-                        <div class="row mb-4">
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-calculator text-primary me-2"></i><strong>exact-tsp-solver</strong><div class="small">Go · Branch & Bound · exact solutions</div><a href="https://github.com/smartlegionlab/exact-tsp-solver" target="_blank" class="small">GitHub →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-graph-up text-primary me-2"></i><strong>smart-tsp-solver</strong><div class="small">Python · heuristic · ~25% better on clustered data</div><a href="https://github.com/smartlegionlab/smart-tsp-solver" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-tsp-solver/" target="_blank" class="small">PyPI →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-bar-chart text-primary me-2"></i><strong>smart-tsp-benchmark</strong><div class="small">Python · comprehensive algorithm testing</div><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-tsp-benchmark/" target="_blank" class="small">PyPI →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-database text-primary me-2"></i><strong>smart-tsp-oracle</strong><div class="small">Python · exact solver (Branch & Bound)</div><a href="https://github.com/smartlegionlab/smart-tsp-oracle" target="_blank" class="small">GitHub →</a></div></div>
-                        </div>
-
-                        <h5 class="text-primary mb-3"><i class="bi bi-phone me-2"></i>2FA Manager Ecosystem</h5>
-                        <div class="row mb-4">
-                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-display text-primary fs-3"></i><div class="fw-bold small">Desktop</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" target="_blank" class="small">GitHub →</a></div></div>
-                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-phone text-primary fs-3"></i><div class="fw-bold small">Android</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" target="_blank" class="small">GitHub →</a></div></div>
-                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-terminal text-primary fs-3"></i><div class="fw-bold small">CLI</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" target="_blank" class="small">GitHub →</a></div></div>
-                            <div class="col-md-3 mb-2"><div class="feature-block text-center"><i class="bi bi-code-slash text-primary fs-3"></i><div class="fw-bold small">Bash</div><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" target="_blank" class="small">GitHub →</a></div></div>
-                        </div>
-
-                        <h5 class="text-primary mb-3"><i class="bi bi-git me-2"></i>Repo Manager Ecosystem</h5>
-                        <div class="row mb-4">
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-box-seam text-primary me-2"></i><strong>Core Library</strong><div class="small">smart-repository-manager-core · PyPI v0.3.6</div><a href="https://github.com/smartlegionlab/smart-repository-manager-core" target="_blank" class="small">GitHub →</a> <a href="https://pypi.org/project/smart-repository-manager-core/" target="_blank" class="small">PyPI →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-display text-primary me-2"></i><strong>GUI Application</strong><div class="small">smart-repository-manager-gui · PyQt · v1.2.5</div><a href="https://github.com/smartlegionlab/smart-repository-manager-gui" target="_blank" class="small">GitHub →</a></div></div>
-                            <div class="col-md-4 mb-2"><div class="feature-block"><i class="bi bi-terminal text-primary me-2"></i><strong>CLI Tool</strong><div class="small">smart-repository-manager-cli · v1.0.7</div><a href="https://github.com/smartlegionlab/smart-repository-manager-cli" target="_blank" class="small">GitHub →</a></div></div>
-                        </div>
-
-                        <div class="text-center mt-3">
-                            <p class="text-muted small">All paradigms are open access on Zenodo with registered DOIs · implementations available on PyPI and GitHub</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <a href="/ecosystems.html" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
+                <div class="justify-content-between align-items-center mt-4 text-center">
+                    <a href="/ecosystems.html" class="btn btn-sm btn-outline-primary"><i class="bi bi-arrow-left"></i> Back to Ecosystems</a>
                 </div>
 
             </div></div>
         </main>
 
         <div class="content-section">
-            <div class="container">
-                <h2 class="section-title text-center">Connect & Collaborate</h2>
+            <div class="container text-center">
+                <h2 class="text-center">Connect & Collaborate</h2>
+                <hr>
                 <div class="text-center mb-4">
                     <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary m-1">Alexander Suvorov</a>
                     <a href="mailto:official@smartlegionlab.ru" class="btn btn-outline-primary m-1">Email</a>
                     <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary m-1">GitHub</a>
                     <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary m-1">PyPI</a>
                 </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="content-section">
-            <div class="container text-center">
                 <footer>
                     <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a target="_blank" class="author-link" href="https://github.com/smartlegionlab/smartlegionlab.github.io">v6.2.2</a></p>
                 </footer>
@@ -438,6 +309,7 @@
     <script src="../js/config.js"></script>
     <script src="../js/particle-background.js"></script>
     <script src="../js/scroll-manager.js"></script>
+    <script src="../js/stats-manager.js"></script>
     <script src="../js/animation-manager.js"></script>
     <script>document.getElementById('currentYear').textContent = new Date().getFullYear();document.addEventListener('DOMContentLoaded',function(){if(typeof ScrollManager!=='undefined')new ScrollManager();});</script>
 </body>
