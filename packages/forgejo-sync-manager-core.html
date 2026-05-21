@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>commandex v1.0.0 - PyPI Package</title>
-    <meta name="description" content="A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.">
+    <title>forgejo-sync-manager-core v1.0.2 - PyPI Package</title>
+    <meta name="description" content="Universal core library for Forgejo repository synchronization.">
 
-    <link rel="canonical" href="https://smartlegionlab.ru/packages/commandex.html">
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/forgejo-sync-manager-core.html">
     <link rel="author" href="https://github.com/smartlegionlab">
 
-    <meta property="og:title" content="commandex v1.0.0 - PyPI Package">
-    <meta property="og:description" content="A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.">
+    <meta property="og:title" content="forgejo-sync-manager-core v1.0.2 - PyPI Package">
+    <meta property="og:description" content="Universal core library for Forgejo repository synchronization.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://smartlegionlab.ru/packages/commandex.html">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/forgejo-sync-manager-core.html">
     <meta property="og:site_name" content="Smart Legion Lab">
 
     <meta name="theme-color" content="#0d1117">
@@ -250,10 +250,10 @@
                                 </div>
                             </div>
                             <div class="profile-info">
-                                <h1 class="name">commandex</h1>
-                                <p class="text-primary text-center">A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.</p>
+                                <h1 class="name">forgejo-sync-manager-core</h1>
+                                <p class="text-primary text-center">Universal core library for Forgejo repository synchronization.</p>
                                 <div class="badges mt-2">
-                                    <span class="version-badge">v1.0.0</span>
+                                    <span class="version-badge">v1.0.2</span>
                                     <span class="badge bg-primary">Python 3.8+</span>
                                     
                                 </div>
@@ -293,8 +293,8 @@
                             </div>
                             <div class="flex-grow-1" style="min-width: 200px;">
                                 <div class="pip-command-wrapper">
-                                    <code class="pip-command-text">pip install commandex</code>
-                                    <button class="pip-copy-btn" onclick="copyPipCommand('pip install commandex', this)" title="Copy pip install command">
+                                    <code class="pip-command-text">pip install forgejo-sync-manager-core</code>
+                                    <button class="pip-copy-btn" onclick="copyPipCommand('pip install forgejo-sync-manager-core', this)" title="Copy pip install command">
                                         <i class="bi bi-clipboard"></i>
                                     </button>
                                 </div>
@@ -310,128 +310,230 @@
                         </h2>
                     </div>
                     <div class="markdown-content card-custom">
-                        <h1 id="commandex-v100">commandex <sup>v1.0.0</sup></h1>
-<p>A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.</p>
+                        <h1 id="forgejo-sync-manager-core-v102">forgejo-sync-manager-core <sup>v1.0.2</sup></h1>
+<p>Universal core library for Forgejo repository synchronization.</p>
 <hr />
-<p><img alt="Platform" src="https://img.shields.io/badge/Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20Termux-666?style=flat-square" /><br />
-<a href="https://pepy.tech/projects/commandex"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/commandex" /></a><br />
-<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/commandex" /><br />
-<a href="https://pypi.org/project/commandex/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/commandex?label=pypi%20downloads" /></a><br />
-<a href="https://github.com/smartlegionlab/commandex/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smartlegionlab/commandex" /></a><br />
-<a href="https://github.com/smartlegionlab/commandex/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/smartlegionlab/commandex" /></a><br />
-<a href="https://pypi.org/project/commandex"><img alt="PyPI" src="https://img.shields.io/pypi/v/commandex" /></a><br />
-<a href="https://pypi.org/project/commandex"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/commandex" /></a><br />
-<a href="https://github.com/smartlegionlab/commandex/"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/smartlegionlab/commandex?style=social" /></a><br />
-<a href="https://github.com/smartlegionlab/commandex/"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/smartlegionlab/commandex?style=social" /></a><br />
-<a href="https://github.com/smartlegionlab/commandex/"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/commandex?style=social" /></a></p>
-<hr />
-<h2 id="description">Description:</h2>
-<p>A cross-platform library for creation, storage, management of commands and command packages. <br />
-Execution of commands, parsing of files with command packages.</p>
-<ul>
-<li>Store the required commands under a given name in a simple file with a clear structure.</li>
-<li>Read named command packages from a file.</li>
-<li>Use only the required command packages from a file using filtering.</li>
-<li>Execute command packages cross-platform. </li>
-</ul>
-<h3 id="how-it-works">How it works?</h3>
-<ol>
-<li>Create a file with any name, with the extension * .cfg</li>
-<li>Use # as a comment, line break for convenience or separation.</li>
-<li>Use [package name] to specify the name of the command package.</li>
-<li>After the name, write the commands that you decided to combine under this name, one per line.</li>
-<li>To create the next batch of commands, use points 2, 3 again.</li>
-<li>Between commands, you can insert blank lines or comments, see point 2.</li>
-</ol>
-<p>Used to create utilities for working with commands (execution, launch, autorun, storage).</p>
-<p>You can keep your commands in simple and understandable files, collect them in one place,<br />
-split into named categories (packages) and execute at any time:</p>
-<p>The files must have the extension *.cfg, and have the correct structure:</p>
-<h3 id="commandscfg">commands.cfg:</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Comments</span>
-
-<span class="k">[package name 1]</span>
-<span class="na">command 1</span>
-<span class="na">command 2</span>
-<span class="na">command N</span>
-
-<span class="k">[package name 2]</span>
-<span class="na">command 1</span>
-<span class="na">command 2</span>
-<span class="na">command N</span>
-</code></pre></div>
-
-<hr />
-<h2 id="help">Help:</h2>
-<h3 id="install-and-use">Install and Use:</h3>
-<ul>
-<li><code>pip install commandex</code></li>
-</ul>
-<p>Available tools:</p>
-<ul>
-<li>Pack - storing commands.</li>
-<li>Command executors - command execution.</li>
-<li>Pack makers - create a list with objects of command packages.</li>
-<li>Parsers - parsers for files with command packages.</li>
-<li>Filters - filtering commands.</li>
-<li>Factories - Fabric for creating objects. </li>
-</ul>
-<p>Principle of operation:</p>
-<ul>
-<li>Reading command packages from a file.</li>
-<li>Filter packages if needed.</li>
-<li>We create a list of package objects for future use.</li>
-<li>We execute commands from each package.</li>
-</ul>
-<h3 id="simplest-implementation">Simplest implementation:</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">commandex</span><span class="w"> </span><span class="kn">import</span> <span class="n">Commander</span>
-
-<span class="n">commander</span> <span class="o">=</span> <span class="n">Commander</span><span class="p">()</span>
-<span class="c1"># Reading command packages from a file.</span>
-<span class="n">pack_dict</span> <span class="o">=</span> <span class="n">commander</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">cfg_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;file.cfg&#39;</span><span class="p">)</span>
-<span class="c1"># Filter packages if needed.</span>
-<span class="n">packs</span> <span class="o">=</span> <span class="n">commander</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">pack_filter</span><span class="o">.</span><span class="n">filter_pack_dict</span><span class="p">(</span><span class="n">pack_dict</span><span class="p">,</span> <span class="n">add_list</span><span class="o">=</span><span class="p">[],</span> <span class="n">exc_list</span><span class="o">=</span><span class="p">[])</span>
-<span class="c1"># We create a list of package objects for future use.</span>
-<span class="n">pack_list</span> <span class="o">=</span> <span class="n">commander</span><span class="o">.</span><span class="n">makers</span><span class="o">.</span><span class="n">pack_maker</span><span class="o">.</span><span class="n">make_pack_list</span><span class="p">(</span><span class="n">packs</span><span class="p">)</span>
-
-<span class="c1"># We execute commands from each package.</span>
-<span class="k">for</span> <span class="n">pack</span> <span class="ow">in</span> <span class="n">pack_list</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pack</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">pack</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-        <span class="n">commander</span><span class="o">.</span><span class="n">executors</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-</code></pre></div>
-
-<h3 id="termux-windows-support">Termux, Windows support:</h3>
-<p>Utilities created with use work "commandex", without problems in Termux, Windows.</p>
-<p>For example: <a href="https://github.com/smartlegionlab/commandman">commandman</a>.</p>
-<hr />
-<h3 id="test-coverage">Test coverage:</h3>
-<h4 id="run-tests">Run tests:</h4>
-<ul>
-<li><code>pip install pytest</code></li>
-<li><code>pytest -v</code></li>
-</ul>
-<h4 id="test-coverage-100"><strong>Test coverage 100%</strong></h4>
-<ul>
-<li><code>pip install pytest-cov</code></li>
-<li><code>pytest --cov</code></li>
-</ul>
-<p><img alt="commandex image" src="https://github.com/smartlegionlab/commandex/raw/master/data/images/commandex.png" /></p>
-<h4 id="report-html">Report html:</h4>
-<ul>
-<li><code>pytest --cov --cov-report=html</code></li>
-</ul>
+<p><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/forgejo-sync-manager-core" /></a><br />
+<a href="https://github.com/smartlegionlab/forgejo-sync-manager-core/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/smartlegionlab/forgejo-sync-manager-core" /></a><br />
+<a href="https://github.com/smartlegionlab/forgejo-sync-manager-core/"><img alt="GitHub release" src="https://img.shields.io/github/v/release/smartlegionlab/forgejo-sync-manager-core" /></a><br />
+<a href="https://github.com/smartlegionlab/forgejo-sync-manager-core/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/smartlegionlab/forgejo-sync-manager-core?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/forgejo-sync-manager-core/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/forgejo-sync-manager-core?style=social" /></a></p>
+<p><a href="https://pypi.org/project/forgejo-sync-manager-core/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/forgejo-sync-manager-core?label=pypi%20downloads" /></a><br />
+<a href="https://pypi.org/project/forgejo-sync-manager-core"><img alt="PyPI" src="https://img.shields.io/pypi/v/forgejo-sync-manager-core" /></a><br />
+<a href="https://pypi.org/project/forgejo-sync-manager-core"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/forgejo-sync-manager-core" /></a><br />
+<a href="https://pepy.tech/projects/forgejo-sync-manager-core"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/forgejo-sync-manager-core" /></a><br />
+<a href="https://pepy.tech/projects/forgejo-sync-manager-core"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/forgejo-sync-manager-core/month" /></a><br />
+<a href="https://pepy.tech/projects/forgejo-sync-manager-core"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/forgejo-sync-manager-core/week" /></a></p>
 <hr />
 <h2 id="disclaimer">⚠️ Disclaimer</h2>
 <p><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
 <p><strong>Summary:</strong> Software provided "AS IS" without warranty. You assume all risks.</p>
-<p><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/commandex/blob/master/DISCLAIMER.md">DISCLAIMER.md</a></p>
+<p><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/forgejo-sync-manager-core/blob/master/DISCLAIMER.md">DISCLAIMER.md</a></p>
 <hr />
+<h2 id="overview">Overview</h2>
+<p><code>forgejo-sync-manager-core</code> is a reusable Python library that provides the core functionality for synchronizing Forgejo repositories. It is designed to be used by both CLI and GUI applications, ensuring code reuse and consistency across different interfaces.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Forgejo API client with token-based authentication</li>
+<li>Repository discovery with pagination support</li>
+<li>Git repository cloning and updating</li>
+<li>Repository recloning functionality</li>
+<li>Local repository existence checking</li>
+<li>Path management for local storage</li>
+<li>Cross-platform support (Linux, Windows, macOS)</li>
+<li>Abstract base classes for easy extension</li>
+</ul>
+<h2 id="implementations">Implementations</h2>
+<p>This core library is used in the following projects:</p>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Description</th>
+<th>Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>forgejo-sync-manager-cli</strong></td>
+<td>CLI tool for batch synchronization</td>
+<td><a href="https://github.com/smartlegionlab/forgejo-sync-manager-cli">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>forgejo-sync-manager-gui</strong></td>
+<td>Desktop GUI tool for batch synchronization</td>
+<td><a href="https://github.com/smartlegionlab/forgejo-sync-manager-gui">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="components">Components</h2>
+<h3 id="core-classes">Core Classes</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ForgejoAuth</code></td>
+<td>Authentication container for server URL and token</td>
+</tr>
+<tr>
+<td><code>ForgejoAPIClient</code></td>
+<td>API client for Forgejo REST API</td>
+</tr>
+<tr>
+<td><code>ConfigManager</code></td>
+<td>Configuration file management (JSON)</td>
+</tr>
+<tr>
+<td><code>BaseSyncManager</code></td>
+<td>Abstract base class for sync operations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sync-managers">Sync Managers</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GUISyncManager</code></td>
+<td>Lightweight manager for GUI applications (no console output)</td>
+</tr>
+<tr>
+<td><code>CLISyncManager</code></td>
+<td>Full-featured manager with console progress output</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3.8+</li>
+<li>Git</li>
+<li>Forgejo server with API access</li>
+<li>requests library</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/forgejo-sync-manager-core.git
+<span class="nb">cd</span><span class="w"> </span>forgejo-sync-manager-core
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+
+<h2 id="usage">Usage</h2>
+<h3 id="basic-authentication">Basic Authentication</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forgejo_sync_manager_core.core.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">ForgejoAuth</span>
+
+<span class="n">auth</span> <span class="o">=</span> <span class="n">ForgejoAuth</span><span class="p">(</span>
+    <span class="n">token</span><span class="o">=</span><span class="s2">&quot;your_token&quot;</span><span class="p">,</span>
+    <span class="n">server_url</span><span class="o">=</span><span class="s2">&quot;http://localhost:3000&quot;</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;your_username&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h3 id="api-client">API Client</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forgejo_sync_manager_core.core.api_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">ForgejoAPIClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">ForgejoAPIClient</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">user_info</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_user_info</span><span class="p">()</span>
+<span class="n">repositories</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_user_repos</span><span class="p">()</span>
+</code></pre></div>
+
+<h3 id="sync-manager-for-gui-applications">Sync Manager for GUI Applications</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forgejo_sync_manager_core.core.sync_manager_gui</span><span class="w"> </span><span class="kn">import</span> <span class="n">GUISyncManager</span>
+
+<span class="n">sync_manager</span> <span class="o">=</span> <span class="n">GUISyncManager</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">sync_manager</span><span class="o">.</span><span class="n">ensure_directories</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repositories</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">sync_manager</span><span class="o">.</span><span class="n">sync_repository</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
+    <span class="c1"># status: &quot;CLONED&quot;, &quot;UPDATED&quot;, &quot;FAILED&quot;</span>
+</code></pre></div>
+
+<h3 id="sync-manager-for-cli-applications">Sync Manager for CLI Applications</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forgejo_sync_manager_core.core.sync_manager_cli</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLISyncManager</span>
+
+<span class="n">sync_manager</span> <span class="o">=</span> <span class="n">CLISyncManager</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">sync_manager</span><span class="o">.</span><span class="n">sync_all_repositories</span><span class="p">(</span><span class="n">repositories</span><span class="p">)</span>
+<span class="c1"># results: {&quot;cloned&quot;: 0, &quot;updated&quot;: 0, &quot;failed&quot;: 0}</span>
+</code></pre></div>
+
+<h3 id="check-repository-updates-cli-only">Check Repository Updates (CLI only)</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forgejo_sync_manager_core.core.sync_manager_cli</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLISyncManager</span>
+
+<span class="n">sync_manager</span> <span class="o">=</span> <span class="n">CLISyncManager</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+<span class="n">needs_update</span> <span class="o">=</span> <span class="n">sync_manager</span><span class="o">.</span><span class="n">check_updates</span><span class="p">(</span><span class="n">repositories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Repositories needing update: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">needs_update</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="local-repository-management">Local Repository Management</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Check if repository exists locally</span>
+<span class="n">exists</span> <span class="o">=</span> <span class="n">sync_manager</span><span class="o">.</span><span class="n">repo_exists_locally</span><span class="p">(</span><span class="s2">&quot;repo-name&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get path to local repository</span>
+<span class="n">repo_path</span> <span class="o">=</span> <span class="n">sync_manager</span><span class="o">.</span><span class="n">get_repo_path</span><span class="p">(</span><span class="s2">&quot;repo-name&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="configuration">Configuration</h2>
+<p>Configuration is stored in <code>~/forgejo-sync-manager/config.json</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_access_token&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;server_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your_username&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="return-status-codes">Return Status Codes</h2>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLONED</code></td>
+<td>Repository was successfully cloned</td>
+</tr>
+<tr>
+<td><code>UPDATED</code></td>
+<td>Existing repository was successfully updated</td>
+</tr>
+<tr>
+<td><code>RECLONED</code></td>
+<td>Repository was deleted and re-cloned</td>
+</tr>
+<tr>
+<td><code>FAILED</code></td>
+<td>Operation failed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-it-works">How It Works</h2>
+<ol>
+<li><strong>Authentication</strong>: Token-based authentication via Forgejo API</li>
+<li><strong>Repository Discovery</strong>: Fetches complete repository list with pagination (50 per page)</li>
+<li><strong>Update Detection</strong> (CLI only): For each existing repository, executes <code>git fetch</code> and compares <code>HEAD</code> with <code>FETCH_HEAD</code></li>
+<li><strong>Sync Operations</strong>: Uses authenticated URLs with embedded token for Git operations</li>
+<li><strong>Directory Structure</strong>: <code>~/forgejo-sync-manager/{username}/repositories/</code></li>
+</ol>
 <h2 id="license">License</h2>
-<p><strong><a href="https://github.com/smartlegionlab/commandex/blob/master/LICENSE">BSD 3-Clause License</a></strong></p>
-<p>Copyright (©) 2026, <a href="https://github.com/smartlegionlab">Alexander Suvorov</a></p>
-<hr />
+<p><a href="LICENSE">BSD 3-Clause License</a></p>
+<p>Copyright (©) 2026, <a href="https://github.com/smartlegionlab">Alexander Suvorov</a><br />
+All rights reserved.</p>
+<h2 id="related-projects">Related Projects</h2>
+<ul>
+<li><a href="https://github.com/smartlegionlab/forgejo-sync-manager-cli">forgejo-sync-manager</a> - CLI implementation</li>
+<li><a href="https://github.com/smartlegionlab/forgejo-sync-manager-gui">forgejo-sync-manager-gui</a> - GUI implementation</li>
+</ul>
                     </div>
                 </div>
 
@@ -439,10 +541,10 @@ split into named categories (packages) and execute at any time:</p>
                     <a href="/packages.html" class="btn btn-outline-primary px-4 btn-sm">
                         <i class="bi bi-arrow-left"></i> Back
                     </a>
-                    <a target="_blank" href="https://github.com/smartlegionlab/commandex/" class="btn btn-outline-primary px-4 btn-sm">
+                    <a target="_blank" href="https://github.com/smartlegionlab/forgejo-sync-manager-core/" class="btn btn-outline-primary px-4 btn-sm">
                         <i class="bi bi-github me-2"></i> GitHub <i class="bi bi-box-arrow-up-right ms-1"></i>
                     </a>
-                    <a href="https://pypi.org/project/commandex/" target="_blank" class="btn btn-outline-primary btn-sm">
+                    <a href="https://pypi.org/project/forgejo-sync-manager-core/" target="_blank" class="btn btn-outline-primary btn-sm">
                         <i class="bi bi-box-seam"></i> PyPI <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
