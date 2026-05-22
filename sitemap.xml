@@ -67,6 +67,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://smartlegionlab.ru/repositories/smart-2fa-manager-desktop.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://smartlegionlab.ru/repositories/todo-app-cli.html</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -85,12 +97,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/repositories/smartlegionlab.github.io.html</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://smartlegionlab.ru/repositories/forgejo-sync-manager-gui.html</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -104,12 +110,6 @@
   </url>
   <url>
     <loc>https://smartlegionlab.ru/repositories/forgejo-sync-manager-core.html</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.ru/repositories/smart-2fa-manager-desktop.html</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
