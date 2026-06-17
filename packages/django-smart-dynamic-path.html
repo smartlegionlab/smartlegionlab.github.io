@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>django-smart-dynamic-path v1.0.2 - PyPI Package</title>
+    <meta name="description" content="Dynamic secret admin URL for Django. Time-based, deterministic, no storage. Hide your Django admin behind a URL that changes daily/monthly/hourly. Only you know the secret phrase to generate the current path.">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/packages/django-smart-dynamic-path.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="django-smart-dynamic-path v1.0.2 - PyPI Package">
+    <meta property="og:description" content="Dynamic secret admin URL for Django. Time-based, deterministic, no storage. Hide your Django admin behind a URL that changes daily/monthly/hourly. Only you know the secret phrase to generate the current path.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://smartlegionlab.ru/packages/django-smart-dynamic-path.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+
+    <style>
+        .version-badge {
+            background: var(--accent, #0d6efd);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pip-install-card {
+            background: rgba(13, 110, 253, 0.05);
+            border-radius: 16px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .pip-command-wrapper {
+            background: var(--secondary, #161b22);
+            border: 1px solid var(--accent, #0d6efd);
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .pip-command-wrapper:hover {
+            border-color: #0a58ca;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+        }
+
+        .pip-command-text {
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            color: #00ff9d;
+            padding: 0.75rem 1rem;
+            margin: 0;
+            background: transparent;
+            font-size: 0.9rem;
+            font-weight: 500;
+            flex: 1;
+            word-break: break-all;
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        .pip-copy-btn {
+            background: transparent;
+            border: none;
+            border-left: 1px solid var(--accent, #0d6efd);
+            color: var(--text-light, #eef3ff);
+            cursor: pointer;
+            padding: 0.75rem 1.25rem;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .pip-copy-btn:hover {
+            background: var(--accent, #0d6efd);
+            color: white;
+        }
+
+        .pip-copy-btn.copied {
+            background: rgba(13, 110, 253, 0.2);
+            color: var(--accent, #0d6efd);
+        }
+
+        .pip-copy-btn.copied i {
+            animation: pip-pop 0.3s ease;
+        }
+
+        @keyframes pip-pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .markdown-content {
+            background: rgba(13, 110, 253, 0.03);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+
+        .markdown-content pre {
+            background: var(--secondary, #0d1117);
+            padding: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent, #0d6efd);
+            overflow-x: auto;
+        }
+
+        .markdown-content code {
+            background: rgba(13, 110, 253, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            color: var(--accent, #0d6efd);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4 {
+            color: var(--accent, #0d6efd);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content h1:first-child,
+        .markdown-content h2:first-child,
+        .markdown-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .markdown-content img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        .markdown-content table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border, #30363d);
+        }
+
+        .markdown-content th {
+            background: rgba(13, 110, 253, 0.1);
+            color: var(--accent, #0d6efd);
+        }
+
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent, #0d6efd);
+            padding-left: 1rem;
+            color: var(--text-muted, #8b949e);
+            font-style: italic;
+            margin: 1rem 0;
+        }
+
+        .markdown-content ul,
+        .markdown-content ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid var(--border, #30363d);
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 576px) {
+            .package-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pip-command-text {
+                font-size: 0.75rem;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .pip-copy-btn {
+                padding: 0.6rem 1rem;
+            }
+
+            .markdown-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <div class="paper-container">
+
+            <header class="professional-header">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="main-profile-row">
+                            <div class="avatar-container">
+                                <div class="profile-avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                                        <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h1 class="name">django-smart-dynamic-path</h1>
+                                <p class="text-primary text-center">Dynamic secret admin URL for Django. Time-based, deterministic, no storage. Hide your Django admin behind a URL that changes daily/monthly/hourly. Only you know the secret phrase to generate the current path.</p>
+                                <div class="badges mt-2">
+                                    <span class="version-badge">v1.0.2</span>
+                                    <span class="badge bg-primary">Python 3.8+</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main style="padding: 5px">
+                <nav class="mobile-navigation" id="mobileNav">
+                    <div class="mobile-nav-container">
+                        <a href="/" class="mobile-nav-btn" aria-label="Go to Home page">
+                            <i class="bi bi-house" aria-hidden="true"></i>
+                        </a>
+                        <a href="/applications.html" class="mobile-nav-btn" aria-label="Go to Applications page"><i class="bi bi-grid-3x3-gap-fill"></i></a>
+                        <a href="/ecosystems.html" class="mobile-nav-btn" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
+                        <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page">
+                            <i class="bi bi-code-slash" aria-hidden="true"></i>
+                        </a>
+                        <a href="/packages.html" class="mobile-nav-btn active" aria-label="Go to Packages page">
+                            <i class="bi bi-box-seam" aria-hidden="true"></i>
+                        </a>
+                        <a target="_blank" href="https://github.com/smartlegionlab" class="mobile-nav-btn" aria-label="Go to Github @smartlegionlab"><i class="bi bi-github"></i></a>
+                        <a target="_blank" href="https://alexander-suvorov.ru" class="mobile-nav-btn" aria-label="Go to alexander-suvorov.ru"><i class="bi bi-person"></i></a>
+                    </div>
+                </nav>
+                <br>
+
+                <div class="content-section">
+                    <div class="pip-install-card card-custom">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                            <div>
+                                <i class="bi bi-terminal-fill text-primary fs-4 me-2"></i>
+                                <strong class="text-light">Quick Install</strong>
+                                <span class="text-muted ms-2">via pip</span>
+                            </div>
+                            <div class="flex-grow-1" style="min-width: 200px;">
+                                <div class="pip-command-wrapper">
+                                    <code class="pip-command-text">pip install django-smart-dynamic-path</code>
+                                    <button class="pip-copy-btn" onclick="copyPipCommand('pip install django-smart-dynamic-path', this)" title="Copy pip install command">
+                                        <i class="bi bi-clipboard"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="package-header">
+                        <h2 class="section-title mb-0">
+                            <i class="bi bi-file-text-fill"></i> Description
+                        </h2>
+                    </div>
+                    <div class="markdown-content card-custom">
+                        <h1 id="django-smart-dynamic-path-v102">Django Smart Dynamic Path <sup>v1.0.2</sup></h1>
+<p><strong>Dynamic secret admin URL for Django. Time-based, deterministic, no storage.</strong></p>
+<p>Hide your Django admin behind a URL that changes daily/monthly. Only you know the secret phrase to generate the current path.</p>
+<hr />
+<p><a href="https://github.com/smartlegionlab/django-smart-dynamic-path/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smartlegionlab/django-smart-dynamic-path" /></a><br />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/smartlegionlab/django-smart-dynamic-path" /><br />
+<a href="https://github.com/smartlegionlab/django-smart-dynamic-path/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/smartlegionlab/django-smart-dynamic-path" /></a><br />
+<a href="https://github.com/smartlegionlab/django-smart-dynamic-path/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/smartlegionlab/django-smart-dynamic-path?style=social" /></a><br />
+<a href="https://github.com/smartlegionlab/django-smart-dynamic-path/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/smartlegionlab/django-smart-dynamic-path?style=social" /></a></p>
+<p><a href="https://pypi.org/project/django-smart-dynamic-path/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/django-smart-dynamic-path?label=pypi%20downloads" /></a><br />
+<a href="https://pypi.org/project/django-smart-dynamic-path"><img alt="PyPI" src="https://img.shields.io/pypi/v/django-smart-dynamic-path" /></a><br />
+<a href="https://pypi.org/project/django-smart-dynamic-path"><img alt="PyPI - Format" src="https://img.shields.io/pypi/format/django-smart-dynamic-path" /></a><br />
+<a href="https://pepy.tech/projects/django-smart-dynamic-path"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/django-smart-dynamic-path" /></a><br />
+<a href="https://pepy.tech/projects/django-smart-dynamic-path"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/django-smart-dynamic-path/month" /></a><br />
+<a href="https://pepy.tech/projects/django-smart-dynamic-path"><img alt="PyPI Downloads" src="https://static.pepy.tech/badge/django-smart-dynamic-path/week" /></a></p>
+<hr />
+<h2 id="what-it-does">What it does</h2>
+<p>Standard Django admin: <code>/admin/</code> (always the same)</p>
+<p>This package: <code>/admin/a1b2c3d4e5f6g7h8/</code> (changes automatically)</p>
+<hr />
+<h2 id="disclaimer">Disclaimer</h2>
+<p><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+<p><strong>Summary:</strong> Software provided "AS IS" without warranty. You assume all risks.</p>
+<p><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/django-smart-dynamic-path/blob/master/DISCLAIMER.md">DISCLAIMER.md</a></p>
+<hr />
+<h2 id="installation">Installation</h2>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>django-smart-dynamic-path
+</code></pre></div>
+
+<h2 id="quick-start">Quick start</h2>
+<h3 id="1-add-to-installed_apps">1. Add to <code>INSTALLED_APPS</code></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django_smart_dynamic_path&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="c1"># ...</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<h3 id="2-replace-admin-urls-in-urlspy">2. Replace admin URLs in <code>urls.py</code></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;django_smart_dynamic_path.urls&#39;</span><span class="p">)),</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<h3 id="3-generate-secret_key-from-secret-phrase-local">3. Generate SECRET_KEY from secret phrase (local)</h3>
+<div class="codehilite"><pre><span></span><code>smart-dynamic-path<span class="w"> </span>--secret<span class="w"> </span><span class="s2">&quot;your secret phrase&quot;</span><span class="w"> </span>--key-only
+</code></pre></div>
+
+<p>Copy the output and set as <code>SECRET_KEY</code> in your <code>.env</code> or <code>settings.py</code>.</p>
+<h3 id="4-configure-period-optional-in-settingspy">4. Configure period (optional, in <code>settings.py</code>)</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">SECRET_ADMIN_PERIOD</span> <span class="o">=</span> <span class="s1">&#39;day&#39;</span>  <span class="c1"># day, month, static</span>
+</code></pre></div>
+
+<h3 id="5-get-current-admin-path-server">5. Get current admin path (server)</h3>
+<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>get_admin_path<span class="w"> </span>--full
+</code></pre></div>
+
+<h2 id="important-django-limitation">⚠️ Important Django limitation</h2>
+<p>Due to Django's URL compilation mechanism, the admin path is calculated <strong>once when the server starts</strong>. <br />
+To apply a new path when the period changes (e.g., next day), you need to restart the server.</p>
+<h3 id="automatic-restart-with-cron">Automatic restart with cron</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Add to crontab (restart at midnight)</span>
+<span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>gunicorn
+</code></pre></div>
+
+<p>This is not a bug, but a Django architectural feature.</p>
+<h2 id="django-management-commands">Django management commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python manage.py generate_secret_key --secret "phrase"</code></td>
+<td>SECRET_KEY and period</td>
+</tr>
+<tr>
+<td><code>python manage.py get_admin_path</code></td>
+<td><code>a1b2c3d4e5f6g7h8</code></td>
+</tr>
+<tr>
+<td><code>python manage.py get_admin_path --full</code></td>
+<td><code>/a1b2c3d4e5f6g7h8/</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="template-tag">Template tag</h2>
+<div class="codehilite"><pre><span></span><code><span class="cp">{%</span> <span class="k">load</span> <span class="nv">admin_link</span> <span class="cp">%}</span>
+<span class="x">&lt;a href=&quot;</span><span class="cp">{%</span> <span class="k">secret_admin_link</span> <span class="cp">%}</span><span class="x">&quot;&gt;Secret Admin&lt;/a&gt;</span>
+</code></pre></div>
+
+<h2 id="python-api">Python API</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">django_smart_dynamic_path</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_admin_path</span><span class="p">,</span> <span class="n">get_admin_url</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">get_admin_path</span><span class="p">()</span>      <span class="c1"># &#39;a1b2c3d4e5f6g7h8&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">get_admin_url</span><span class="p">()</span>        <span class="c1"># &#39;admin/a1b2c3d4e5f6g7h8/&#39;</span>
+</code></pre></div>
+
+<h2 id="how-it-works">How it works</h2>
+<div class="codehilite"><pre><span></span><code>SECRET_KEY = SHA256(secret_phrase)                 # 64 hex chars (256 bits)
+ADMIN_PATH = SHA256(SECRET_KEY + date)[:16].hex()  # 32 hex chars (128 bits)
+</code></pre></div>
+
+<ul>
+<li>Secret phrase → SECRET_KEY (256 bits)</li>
+<li>SECRET_KEY + current date → admin path (128 bits)</li>
+<li>Path changes automatically based on period (day/month/hour/static)</li>
+<li>Same secret phrase always produces same SECRET_KEY</li>
+<li>Same SECRET_KEY + same date always produces same path</li>
+</ul>
+<h2 id="getting-the-path-locally">Getting the path locally</h2>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/smartlegionlab/smart-dynamic-path
+<span class="nb">cd</span><span class="w"> </span>smart-dynamic-path
+
+python3<span class="w"> </span>-m<span class="w"> </span>smart_dynamic_path.cli<span class="w"> </span>--secret<span class="w"> </span><span class="s2">&quot;my secret phrase&quot;</span>
+python3<span class="w"> </span>-m<span class="w"> </span>smart_dynamic_path.cli<span class="w"> </span>--secret<span class="w"> </span><span class="s2">&quot;my secret phrase&quot;</span><span class="w"> </span>--period<span class="w"> </span>month<span class="w"> </span>--prefix<span class="w"> </span>admin<span class="w"> </span>--full
+python3<span class="w"> </span>-m<span class="w"> </span>smart_dynamic_path.cli<span class="w"> </span>--secret<span class="w"> </span><span class="s2">&quot;my secret phrase&quot;</span><span class="w"> </span>--key-only
+</code></pre></div>
+
+<h2 id="implemented-paradigms">Implemented paradigms</h2>
+<h3 id="1-pointerbased-security">1. Pointer‑Based Security</h3>
+<p>The admin URL is not stored anywhere. It is regenerated on demand from a secret phrase and current time. There is no stored "pointer" — only the ability to compute it.</p>
+<p><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17204738">10.5281/zenodo.17204738</a></p>
+<h3 id="2-local-data-regeneration">2. Local Data Regeneration</h3>
+<p>The exact admin path is computed locally on the developer's machine using only the secret phrase and date, without accessing the server. The server never knows the secret phrase.</p>
+<p><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17264327">10.5281/zenodo.17264327</a></p>
+<h3 id="3-positioncandidatehypothesis-pch">3. Position‑Candidate‑Hypothesis (PCH)</h3>
+<p>Among all possible URL paths (2¹²⁸ candidates), only one specific path generated by the secret phrase is valid at any given time. The hypothesis (which path is valid) is verified through the hash function.</p>
+<p><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17614888">10.5281/zenodo.17614888</a></p>
+<h2 id="security">Security</h2>
+<ul>
+<li>No additional secrets — uses only Django's existing SECRET_KEY</li>
+<li>Secret phrase exists only in memory, never stored</li>
+<li>32 hex chars = 2¹²⁸ possible paths (no brute force)</li>
+<li>Time‑based rotation limits exposure window</li>
+</ul>
+<h2 id="license">License</h2>
+<p>BSD-3-Clause</p>
+<h2 id="author">Author</h2>
+<p>Alexander Suvorov <a href="https://github.com/smartlegionlab">@smartlegionlab</a></p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="/packages.html" class="btn btn-outline-primary px-4 btn-sm">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </a>
+                    <a target="_blank" href="https://github.com/smartlegionlab/django-smart-dynamic-path/" class="btn btn-outline-primary px-4 btn-sm">
+                        <i class="bi bi-github me-2"></i> GitHub <i class="bi bi-box-arrow-up-right ms-1"></i>
+                    </a>
+                    <a href="https://pypi.org/project/django-smart-dynamic-path/" target="_blank" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-box-seam"></i> PyPI <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </main>
+
+            <div class="content-section">
+                <div class="container text-center">
+                    <h2 class="text-center">Connect & Collaborate</h2>
+                    <hr>
+                    <div class="text-center mb-4">
+                        <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary m-1">Alexander Suvorov</a>
+                        <a href="mailto:official@smartlegionlab.ru" class="btn btn-outline-primary m-1">Email</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary m-1">GitHub</a>
+                        <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary m-1">PyPI</a>
+                    </div>
+                    <footer>
+                        <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a target="_blank" class="author-link" href="https://github.com/smartlegionlab/smartlegionlab.github.io">v6.2.9</a></p>
+                    </footer>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/particle-background.js"></script>
+    <script src="../js/scroll-manager.js"></script>
+    <script src="../js/animation-manager.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ScrollManager !== 'undefined') {
+                new ScrollManager();
+            } else {
+                console.error('ScrollManager not found');
+            }
+        });
+    </script>
+    <script>
+        window.copyPipCommand = function(text, btn) {
+            const originalHtml = btn.innerHTML;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showPipCopyFeedback(btn, originalHtml);
+                }).catch(() => {
+                    fallbackPipCopy(text, btn, originalHtml);
+                });
+            } else {
+                fallbackPipCopy(text, btn, originalHtml);
+            }
+        };
+
+        function fallbackPipCopy(text, btn, originalHtml) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+                showPipCopyFeedback(btn, originalHtml);
+            } catch (err) {
+                console.error('Copy failed:', err);
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        function showPipCopyFeedback(btn, originalHtml) {
+            btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+            btn.classList.add('copied');
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

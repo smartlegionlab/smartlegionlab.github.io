@@ -29,6 +29,9 @@ PYPI_PACKAGES = [
     'smart-text-randomizer',
     'smart-repository-manager-core',
     'forgejo-sync-manager-core',
+    'django-smart-dynamic-path',
+    'smart-dynamic-path',
+    'smart-legion-lab-library',
 ]
 
 
