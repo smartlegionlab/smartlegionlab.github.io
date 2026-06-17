@@ -33,12 +33,14 @@ const CONFIG = {
         'smart-babylon-library', 'commandman', 'smartpathlibrary', 'smartexecutorlib',
         'climan', 'github-ssh-key', 'commandpack', 'smartprinter', 'smartcliapp',
         'commandex', 'smartrandom', 'smarttextdecorator', 'smartauthen',
-        'smart-redis-storage', 'smart-text-randomizer', 'smart-repository-manager-core'
+        'smart-redis-storage', 'smart-text-randomizer', 'smart-repository-manager-core',
+        'forgejo-sync-manager-core', 'django-smart-dynamic-path', 'smart-dynamic-path',
+        'smart-legion-lab-library'
     ],
 
     DEFAULTS: {
-        REPOS_COUNT: 65,
-        PYPI_PACKAGES_COUNT: 25,
+        REPOS_COUNT: 70,
+        PYPI_PACKAGES_COUNT: 27,
         MONTHLY_DOWNLOADS: 15000,
         RESEARCH_STATS: {
             pointerParadigm: {
