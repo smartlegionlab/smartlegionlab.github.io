@@ -26,7 +26,7 @@ class ParticleBackground {
             'SmartPassLib Cross-Platform',
             'NP Problem Ecosystem',
             '2FA Management Ecosystem',
-            'Repository Manager Ecosystem',
+            'Repository Management Ecosystem',
             'Deterministic Ecosystem',
             'Research Ecosystem',
 
@@ -130,7 +130,7 @@ class ParticleBackground {
             'System Integration',
             'High-Performance Computing',
             'Cryptographic Security',
-            'GitHub Automation',
+            'GitHub/Forgejo automation',
             'Open Source Ecosystem',
 
             'Python', 'Go', 'C#', 'Kotlin', 'JavaScript',
