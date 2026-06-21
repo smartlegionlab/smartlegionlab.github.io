@@ -22,7 +22,7 @@ class ParticleBackground {
             'Data Non-Existence Philosophy',
             'Synchronous State Discovery',
 
-            'SmartPassLib Ecosystem',
+            'Smart Passwords Ecosystem',
             'SmartPassLib Cross-Platform',
             'TSP Ecosystem',
             '2FA Manager Ecosystem',
@@ -222,7 +222,7 @@ class ParticleBackground {
 //
 //            'Smart Legion Lab',
 //            'Alexander Suvorov',
-//            'SmartPassLib Ecosystem',
+//            'Smart Passwords Ecosystem',
 //
 //            'Zenodo DOI',
 //            'Open Access',
