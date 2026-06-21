@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Position-Candidate-Hypothesis Paradigm · Article</title>
+    <meta name="description" content="Position-Candidate-Hypothesis Paradigm Article. Structural-statistical approach to NP-complete problems.">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/articles/position-candidate-hypothesis-paradigm-article.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="Position-Candidate-Hypothesis Paradigm · Article">
+    <meta property="og:description" content="Position-Candidate-Hypothesis Paradigm Article. Structural-statistical approach to NP-complete problems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/articles/position-candidate-hypothesis-paradigm-article.html">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">
+                Home
+            </a>
+            <a href="/research.html" class="small text-light">
+                Research
+            </a>
+            <a href="/ecosystems.html" class="small text-light">
+                Ecosystems
+            </a>
+            <a href="/applications.html" class="small text-light">
+                Apps
+            </a>
+            <a href="/projects.html" class="small text-light">
+                Projects
+            </a>
+            <a href="/libraries.html" class="small text-light">
+                Libraries
+            </a>
+            <a href="/articles.html" class="small text-primary">
+                Articles
+            </a>
+            <a href="/team.html" class="small text-light">
+                About & Team
+            </a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose">
+        <i class="bi bi-x-lg"></i>
+    </button>
+
+    <div class="sidebar-header">
+        <a href="/" class="logo">
+            Smart Legion Lab
+            <small>Application Development</small>
+        </a>
+    </div>
+
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+        </a>
+         <a href="/research.html" class="menu-item">
+            <i class="bi bi-mortarboard"></i>
+            <span>Research & Publications</span>
+        </a>
+        <a href="/ecosystems.html" class="menu-item">
+            <i class="bi bi-diagram-3"></i>
+            <span>Ecosystems</span>
+        </a>
+        <a href="/applications.html" class="menu-item">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+            <span>Applications</span>
+        </a>
+        <a href="/projects.html" class="menu-item">
+            <i class="bi bi-code-slash"></i>
+            <span>Projects</span>
+        </a>
+        <a href="/libraries.html" class="menu-item">
+            <i class="bi bi-box-seam"></i>
+            <span>Libraries</span>
+        </a>
+        <a href="/articles.html" class="menu-item active">
+            <i class="bi bi-newspaper"></i>
+            <span>Articles</span>
+        </a>
+        <a href="/team.html" class="menu-item">
+            <i class="bi bi-people"></i>
+            <span>About & Team</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | v6.2.10</p>
+    </div>
+</div>
+
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+
+<button class="scroll-to-top" id="scrollToTop">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- end nav -->
+
+<!-- content -->
+
+<div class="container">
+    <div class="custom-margin-top">
+
+        <h1 class="text-center text-primary">Position-Candidate-Hypothesis <sup class="text-warning">Article</sup></h1>
+        <p class="text-center">
+            Structural-statistical approach to NP-complete problems.
+        </p>
+        <div class="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-person-circle text-primary" style="font-size: 1.2rem;"></i>
+                <span class="text-muted small">Author:</span>
+                <a href="/profiles/smartlegionlab.html" class="text-decoration-none">
+                    Alexander Suvorov
+                </a>
+            </div>
+        </div>
+        <div class="badges mb-2">
+            <span class="badge bg-primary custom-style">research</span>
+            <span class="badge bg-primary custom-style">pointer-based-security-paradigm</span>
+            <span class="badge bg-primary custom-style">local-data-regeneration-paradigm</span>
+            <span class="badge bg-primary custom-style">deterministic-game-engine</span>
+            <span class="badge bg-primary custom-style">position-candidate-hypothesis-paradigm</span>
+            <span class="badge bg-primary custom-style">paradigms</span>
+        </div>
+        <hr>
+
+        <div class="container text-center text-muted">
+            <div class="text-center">
+                <a target="_blank" href="https://orcid.org/0009-0006-3427-9611" class="btn btn-sm btn-outline-success m-1">ORCID <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://doi.org/10.5281/zenodo.17614888" class="btn btn-sm btn-outline-warning m-1">ZENODO <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://zenodo.org/records/17614888/files/suvorov_position_candidate_hypothesis_en.pdf?download=1" class="btn btn-sm btn-outline-secondary m-1">PDF <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" class="btn btn-sm btn-outline-primary m-1">Github <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2 class="section-title">Abstract</h2>
+        <div class="pdf-viewer-section mb-5">
+            <div class="pdf-container">
+                <div class="pdf-header d-flex justify-content-between align-items-center flex-wrap p-3" style="background: rgba(13, 110, 253, 0.05); border-radius: 12px 12px 0 0;">
+                    <p class="small">
+                        This research paper introduces the Position-Candidate-Hypothesis (PCH) paradigm
+                        as a novel theoretical approach to NP-complete problems. This work proposes a fundamental shift
+                        from traditional combinatorial search to structural-statistical analysis. The research explores
+                        the decomposition of problems into three interconnected components: positions, candidates, and hypotheses,
+                        followed by statistical integration. This work presents a new perspective on computational problem-solving that
+                        emphasizes structural analysis and pattern recognition over exhaustive search methods.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h1 class="display-5 fw-bold mb-3 text-primary">Position-Candidate-Hypothesis (PCH) Paradigm:<br><span class="fs-3 text-primary-emphasis">A Structural-Statistical Approach to NP-Complete Problems</span></h1>
+
+                    <p class="lead mb-1"><strong>Alexander Suvorov</strong></p>
+                    <p class="text-muted mb-4"><a href="https://github.com/smartlegionlab" class="text-decoration-none">https://github.com/smartlegionlab</a><br><span class="text-muted">2025</span></p>
+
+                    <div class="card bg-dark border-primary mb-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold text-primary">Abstract</h6>
+                            <p class="mb-0">This research paper introduces the Position-Candidate-Hypothesis (PCH) paradigm as a novel theoretical approach to NP-complete problems. This work proposes a fundamental shift from traditional combinatorial search to structural-statistical analysis. The research explores the decomposition of problems into three interconnected components: positions, candidates, and hypotheses, followed by statistical integration. This work presents a new perspective on computational problem-solving that emphasizes structural analysis and pattern recognition over exhaustive search methods.</p>
+                        </div>
+                    </div>
+
+                    <p><strong>Keywords:</strong> <span class="text-primary">NP-complete problems</span>, <span class="text-primary">PCH paradigm</span>, <span class="text-primary">theoretical computer science</span>, <span class="text-primary">structural analysis</span>, <span class="text-primary">computational complexity</span></p>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">1. Introduction</h2>
+                    <p>NP-complete problems represent one of the most profound challenges in computational complexity theory. Traditional methodologies, predominantly based on combinatorial search and heuristic optimization, have provided valuable insights but face inherent limitations in scalability and generalizability.</p>
+                    <p>This paper introduces the Position-Candidate-Hypothesis (PCH) paradigm—a theoretical approach that reconceptualizes NP-complete problems through the lens of structural-statistical analysis. Rather than focusing on improved search algorithms, PCH proposes a fundamental rethinking of how we represent and approach computational complexity.</p>
+                    <p><strong>Research Context.</strong> The PCH paradigm continues a line of inquiry established in our previous work on paradigm shifts in computing. It shares the philosophical foundation of the Pointer-Based Security Paradigm, which argued for replacing data protection with architectural elimination of vulnerable data, and the Local Data Regeneration Paradigm, which proposed shifting from data transmission to synchronous state discovery. The present work applies a similar structural-philosophical approach to the domain of computational complexity and NP-complete problems.</p>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">2. The PCH Paradigm</h2>
+                    <p>The PCH paradigm is founded on a structural decomposition approach:</p>
+                    <ul>
+                        <li><strong>Positions</strong> represent the fixed structural elements of a solution</li>
+                        <li><strong>Candidates</strong> constitute the assignable entities to these positions</li>
+                        <li><strong>Hypotheses</strong> represent independent investigative processes</li>
+                        <li><strong>Statistical Integration</strong> synthesizes findings across hypotheses</li>
+                    </ul>
+                    <p>This approach shifts the focus from permutation spaces to structured component analysis.</p>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">3. Core Components</h2>
+
+                    <h3 class="mt-4 text-primary-emphasis">3.1. Positions: The Structural Foundation</h3>
+                    <p>Positions define the architectural structure of a solution. In any NP-complete problem of size <em>n</em>, positions represent the <em>n</em> structural slots that must be filled to constitute a complete solution. Each position carries specific constraints, relationships, and requirements that influence candidate suitability.</p>
+
+                    <h3 class="mt-4 text-primary-emphasis">3.2. Candidates: The Assignment Space</h3>
+                    <p>Candidates represent the entities available for assignment to positions. The approach considers <em>n</em> candidates for analysis, with each candidate evaluated against position-specific criteria. Candidate assessment incorporates multidimensional metrics including compatibility, optimization potential, and constraint satisfaction.</p>
+
+                    <h3 class="mt-4 text-primary-emphasis">3.3. Hypotheses: Independent Investigation Processes</h3>
+                    <p>Hypotheses embody the core investigative mechanism of the PCH paradigm. For a problem of size <em>n</em>, exactly <em>n</em> hypotheses are employed, each initiating from a unique starting configuration:</p>
+                    <ul>
+                        <li>Hypothesis <em>h₁</em> begins with candidate <em>c₁</em></li>
+                        <li>Hypothesis <em>h₂</em> begins with candidate <em>c₂</em></li>
+                        <li>…</li>
+                        <li>Hypothesis <em>hₙ</em> begins with candidate <em>cₙ</em></li>
+                    </ul>
+                    <p>Each hypothesis conducts comprehensive research across all positions, exploring candidate assignments and solution pathways independently.</p>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">4. Methodological Approach</h2>
+
+                    <h3 class="mt-4 text-primary-emphasis">4.1. Parallel Investigation</h3>
+                    <p>The PCH approach enables simultaneous multi-hypothesis investigation:</p>
+                    <ul>
+                        <li>All <em>n</em> hypotheses execute concurrently</li>
+                        <li>Each hypothesis maintains independent research trajectory</li>
+                        <li>Cross-hypothesis contamination is minimized</li>
+                        <li>Diverse solution pathways are explored simultaneously</li>
+                    </ul>
+                    <p>This natural parallelism makes the approach particularly suitable for emerging computational architectures, including quantum and massively parallel systems.</p>
+
+                    <h3 class="mt-4 text-primary-emphasis">4.2. Structural Analysis</h3>
+                    <p>Unlike traditional approaches that traverse permutation spaces, PCH focuses on:</p>
+                    <ul>
+                        <li>Position-candidate compatibility analysis</li>
+                        <li>Structural constraint propagation</li>
+                        <li>Relationship mapping between positions</li>
+                        <li>Pattern emergence across hypotheses</li>
+                    </ul>
+
+                    <h3 class="mt-4 text-primary-emphasis">4.3. Statistical Synthesis</h3>
+                    <p>After hypothesis completion, statistical methods integrate findings:</p>
+                    <ul>
+                        <li>Consensus pattern identification</li>
+                        <li>Solution confidence estimation</li>
+                        <li>Anomaly detection and analysis</li>
+                        <li>Optimal solution derivation</li>
+                    </ul>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">5. Theoretical Foundations</h2>
+
+                    <h3 class="mt-4 text-primary-emphasis">5.1. Philosophical Shift</h3>
+                    <p>PCH represents a paradigmatic shift in computational thinking:</p>
+                    <ul>
+                        <li><strong>From search to structure</strong> — Emphasizing architectural analysis over combinatorial traversal</li>
+                        <li><strong>From sequential to parallel</strong> — Leveraging simultaneous investigation pathways</li>
+                        <li><strong>From deterministic to statistical</strong> — Employing probabilistic synthesis over exact computation</li>
+                        <li><strong>From black-box to interpretable</strong> — Providing transparent solution derivation</li>
+                    </ul>
+
+                    <h3 class="mt-4 text-primary-emphasis">5.2. Cognitive Alignment</h3>
+                    <p>The PCH approach aligns with human problem-solving approaches:</p>
+                    <ul>
+                        <li>Multiple hypothesis testing in scientific discovery</li>
+                        <li>Parallel consideration of alternatives</li>
+                        <li>Structural understanding before detailed analysis</li>
+                        <li>Pattern recognition over exhaustive enumeration</li>
+                    </ul>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">6. Application Spectrum</h2>
+                    <p>The PCH paradigm offers a unified approach to diverse NP-complete problems:</p>
+
+                    <h3 class="mt-4 text-primary-emphasis">6.1. Traveling Salesman Problem</h3>
+                    <ul>
+                        <li><strong>Positions:</strong> Cities in the travel sequence</li>
+                        <li><strong>Candidates:</strong> Cities available for each position</li>
+                        <li><strong>Hypotheses:</strong> Different starting city investigations</li>
+                    </ul>
+
+                    <h3 class="mt-4 text-primary-emphasis">6.2. Boolean Satisfiability</h3>
+                    <ul>
+                        <li><strong>Positions:</strong> Variable assignments in the formula</li>
+                        <li><strong>Candidates:</strong> Truth value assignments</li>
+                        <li><strong>Hypotheses:</strong> Different initial assignment strategies</li>
+                    </ul>
+
+                    <h3 class="mt-4 text-primary-emphasis">6.3. Graph Coloring</h3>
+                    <ul>
+                        <li><strong>Positions:</strong> Vertices to be colored</li>
+                        <li><strong>Candidates:</strong> Available colors</li>
+                        <li><strong>Hypotheses:</strong> Various initial coloring approaches</li>
+                    </ul>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">7. Research Implications</h2>
+
+                    <h3 class="mt-4 text-primary-emphasis">7.1. Theoretical Contributions</h3>
+                    <ul>
+                        <li>Novel problem decomposition methodology</li>
+                        <li>Unified approach for NP-complete analysis</li>
+                        <li>Structural-statistical synthesis perspective</li>
+                        <li>Parallel investigation paradigm</li>
+                    </ul>
+
+                    <h3 class="mt-4 text-primary-emphasis">7.2. Practical Potential</h3>
+                    <ul>
+                        <li>Natural parallelization capabilities</li>
+                        <li>Interpretable solution processes</li>
+                        <li>Scalable investigation approach</li>
+                        <li>Cross-problem methodology transfer</li>
+                    </ul>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">8. Conclusion and Future Directions</h2>
+                    <p>The Position-Candidate-Hypothesis paradigm represents a significant theoretical contribution to computational complexity theory. By shifting focus from combinatorial search to structural-statistical analysis, PCH opens new avenues for understanding and approaching NP-complete problems.</p>
+                    <p>Future research directions include:</p>
+                    <ul>
+                        <li>Formal mathematical foundation development</li>
+                        <li>Empirical validation across problem domains</li>
+                        <li>Hybrid approaches combining PCH with existing methods</li>
+                        <li>Implementation strategies for parallel architectures</li>
+                        <li>Quantum computing applications</li>
+                    </ul>
+                    <p>The PCH paradigm demonstrates that fundamental advances in computational problem-solving may emerge not from faster search methods, but from reconceptualizing the very nature of the problems we seek to solve.</p>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">Research Perspective</h2>
+                    <p>This paper presents a theoretical perspective for conceptualizing NP-complete problems. The PCH paradigm represents a philosophical and methodological approach rather than a specific algorithm implementation. The value of this work lies in its potential to stimulate new ways of thinking about computational complexity and problem-solving strategies.</p>
+
+                    <h2 class="border-bottom pb-2 mt-5 text-primary">References</h2>
+                    <ol class="list-unstyled">
+                        <li class="mb-2">[1] Cook, S. (1971). The complexity of theorem-proving procedures</li>
+                        <li class="mb-2">[2] Karp, R. M. (1972). Reducibility among combinatorial problems</li>
+                        <li class="mb-2">[3] Garey, M. R., Johnson, D. S. (1979). Computers and Intractability: A Guide to the Theory of NP-Completeness</li>
+                        <li class="mb-2">[4] Suvorov, A. (2025). The Pointer-Based Security Paradigm: Architectural Shift from Data Protection to Data Non-Existence. Zenodo. <a href="https://doi.org/10.5281/zenodo.17204738" class="text-decoration-none">https://doi.org/10.5281/zenodo.17204738</a></li>
+                        <li class="mb-2">[5] Suvorov, A. (2025). The Local Data Regeneration Paradigm: Ontological Shift from Data Transmission to Synchronous State Discovery. Zenodo. <a href="https://doi.org/10.5281/zenodo.17264327" class="text-decoration-none">https://doi.org/10.5281/zenodo.17264327</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <hr>
+
+        <div class="text-center mt-4 mb-5">
+            <a href="/articles.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Articles
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- end content -->
+
+<!-- footer -->
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | v6.2.10</p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script>
+let commandHistory = [];
+let historyIndex = -1;
+
+fetch(window.location.href, {method: 'HEAD'})
+const consoleToggle = document.getElementById('consoleToggle');
+const devConsole = document.getElementById('devConsole');
+const consoleClose = document.getElementById('consoleClose');
+const consoleInput = document.getElementById('consoleInput');
+const consoleOutput = document.getElementById('consoleOutput');
+
+function clearConsole() {
+    consoleOutput.innerHTML = '';
+    if (typeof stopDinoGame !== 'undefined') {
+        stopDinoGame();
+    }
+}
+
+function addConsoleLine(text) {
+    const line = document.createElement('div');
+    line.style.marginBottom = '4px';
+    line.style.fontFamily = 'monospace';
+    line.style.fontSize = '11px';
+    line.style.wordWrap = 'break-word';
+    line.style.whiteSpace = 'pre-wrap';
+    line.innerHTML = text;
+    consoleOutput.appendChild(line);
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+}
+
+function addToHistory(cmd) {
+    if (cmd && cmd.trim() !== '') {
+        commandHistory.push(cmd);
+        historyIndex = commandHistory.length;
+    }
+}
+
+function calculate(expression) {
+    try {
+        let expr = expression.replace(/[^0-9+\-*/().%]/g, '');
+        if (!expr) return null;
+        const result = Function('"use strict";return (' + expr + ')')();
+        if (isNaN(result) || !isFinite(result)) return null;
+        return Math.round(result * 10000) / 10000;
+    } catch(e) {
+        return null;
+    }
+}
+
+async function processCommand(cmd) {
+    addConsoleLine(`> ${cmd}`);
+    addToHistory(cmd);
+
+    if (cmd === 'help') {
+        addConsoleLine('  randpass  - Generate random password');
+        addConsoleLine('  smartpass - Generate smart password');
+        addConsoleLine('  calc      - Calculate expression (calc 2+2)');
+        addConsoleLine('  dino      - Play Dino Jump game');
+        addConsoleLine('  history   - Show command history');
+        addConsoleLine('  history -c - Clear history');
+        addConsoleLine('  clear     - Clear console');
+        addConsoleLine('  exit      - Close');
+    }
+    else if (cmd === 'randpass') {
+        if (typeof SmartPassLib === 'undefined') {
+            addConsoleLine('  SmartPassLib not loaded. Check static files.');
+        } else {
+            addConsoleLine('  Enter password length (12-100):');
+            window.waitingForRandLength = true;
+        }
+    }
+    else if (cmd === 'smartpass') {
+        if (typeof SmartPassLib === 'undefined') {
+            addConsoleLine('  SmartPassLib not loaded. Check static files.');
+        } else {
+            addConsoleLine('  Enter secret phrase (min 12 chars):');
+            window.waitingForSecret = true;
+        }
+    }
+    else if (cmd.startsWith('calc ')) {
+        const expr = cmd.substring(5);
+        const result = calculate(expr);
+        if (result !== null) {
+            addConsoleLine(`  ${expr} = ${result}`);
+        } else {
+            addConsoleLine('  Invalid expression');
+        }
+    }
+    else if (cmd === 'calc') {
+        addConsoleLine('  Usage: calc 2+2, calc 10*5, calc (10+5)*2');
+    }
+    else if (cmd === 'dino') {
+        if (typeof startDinoGame === 'undefined') {
+            addConsoleLine('  Game not loaded. Check static files.');
+        } else {
+            if (window.gameActive) {
+                stopDinoGame();
+            }
+            addConsoleLine('  Game started! Press SPACE to jump');
+            startDinoGame(consoleOutput);
+        }
+    }
+    else if (cmd === 'history') {
+        if (commandHistory.length === 0) {
+            addConsoleLine('  History is empty');
+        } else {
+            commandHistory.forEach((h, i) => {
+                addConsoleLine(`  ${i + 1}. ${h}`);
+            });
+        }
+    }
+    else if (cmd === 'history -c') {
+        commandHistory = [];
+        historyIndex = -1;
+        addConsoleLine('  History cleared');
+    }
+    else if (cmd === 'clear') {
+        clearConsole();
+    }
+    else if (cmd === 'exit') {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        devConsole.style.display = 'none';
+    }
+    else if (cmd !== '') {
+        if (window.waitingForRandLength) {
+            const length = parseInt(cmd);
+            if (isNaN(length) || length < 12 || length > 100) {
+                addConsoleLine(`  Invalid length. Use 12-100. Try again:`);
+            } else {
+                addConsoleLine(`  Generating random password (${length} chars)...`);
+                try {
+                    const password = await SmartPassLib.generateStrongPassword(length);
+                    addConsoleLine(`  Password: ${password}`);
+                } catch(e) {
+                    addConsoleLine(`  Error: ${e.message}`);
+                }
+                window.waitingForRandLength = false;
+            }
+        } else if (window.waitingForSecret) {
+            if (cmd.length < 12) {
+                addConsoleLine(`  Secret too short (${cmd.length} chars). Need at least 12. Try again:`);
+            } else {
+                addConsoleLine(`  Enter password length (12-100):`);
+                window.smartSecret = cmd;
+                window.waitingForLength = true;
+                window.waitingForSecret = false;
+            }
+        } else if (window.waitingForLength) {
+            const length = parseInt(cmd);
+            if (isNaN(length) || length < 12 || length > 100) {
+                addConsoleLine(`  Invalid length. Use 12-100. Try again:`);
+            } else {
+                addConsoleLine(`  Generating smart password...`);
+                try {
+                    const password = await SmartPassLib.generateSmartPassword(window.smartSecret, length);
+                    addConsoleLine(`  Password (${length} chars): ${password}`);
+                } catch(e) {
+                    addConsoleLine(`  Error: ${e.message}`);
+                }
+                window.waitingForLength = false;
+                window.smartSecret = null;
+            }
+        } else {
+            addConsoleLine(`  Unknown: ${cmd}`);
+        }
+    }
+}
+
+if (consoleToggle) {
+    consoleToggle.onclick = () => {
+        if (devConsole.style.display === 'none') {
+            devConsole.style.display = 'block';
+            consoleInput.focus();
+        } else {
+            if (typeof stopDinoGame !== 'undefined') {
+                stopDinoGame();
+            }
+            devConsole.style.display = 'none';
+        }
+    };
+}
+
+if (consoleClose) {
+    consoleClose.onclick = () => {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        devConsole.style.display = 'none';
+    };
+}
+
+if (consoleInput) {
+    consoleInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = consoleInput.value.trim().toLowerCase();
+            if (cmd) processCommand(cmd);
+            consoleInput.value = '';
+            historyIndex = commandHistory.length;
+        }
+        else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0 && historyIndex > 0) {
+                historyIndex--;
+                consoleInput.value = commandHistory[historyIndex];
+            }
+        }
+        else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                consoleInput.value = commandHistory[historyIndex];
+            } else if (historyIndex === commandHistory.length - 1) {
+                historyIndex++;
+                consoleInput.value = '';
+            }
+        }
+    });
+}
+
+const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+</script>
+
+<style>
+    @media (min-width: 768px) {
+        #devConsole {
+            width: 500px !important;
+            left: 20px !important;
+        }
+        #consoleOutput {
+            height: 350px !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        #devConsole {
+            width: calc(100% - 30px) !important;
+            left: 15px !important;
+            right: 15px !important;
+            bottom: 70px !important;
+            max-width: none !important;
+        }
+        #consoleOutput {
+            height: 200px !important;
+        }
+    }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+        #devConsole {
+            bottom: 60px !important;
+        }
+        #consoleOutput {
+            height: 120px !important;
+        }
+    }
+
+    #devConsole {
+        overflow: hidden;
+    }
+
+    #consoleInput::placeholder {
+        color: #333;
+    }
+
+    #consoleOutput::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #consoleOutput::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    #consoleOutput::-webkit-scrollbar-thumb {
+        background: #00ff9d;
+    }
+</style>
+
+<!-- end footer -->
+
+
+<!-- scripts -->
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/particle-background.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+<script>
+(function() {
+    const sidebar = document.getElementById('bootSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+
+    if (!sidebar || !overlay) return;
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (toggleBtn) {
+        toggleBtn.onclick = function(e) {
+            e.preventDefault();
+            openSidebar();
+        };
+    }
+
+    if (closeBtn) {
+        closeBtn.onclick = function(e) {
+            e.preventDefault();
+            closeSidebar();
+        };
+    }
+
+    overlay.onclick = function(e) {
+        if (e.target === overlay) {
+            closeSidebar();
+        }
+    };
+
+    document.onkeydown = function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+            closeSidebar();
+        }
+    };
+})();
+</script>
+<script src="/js/smartpasslib.js"></script>
+<script src="/js/console-game.js"></script>
+<!-- end scripts -->
+
+</body>
+</html>
