@@ -24,7 +24,7 @@ class ParticleBackground {
 
             'Smart Passwords Ecosystem',
             'SmartPassLib Cross-Platform',
-            'TSP Ecosystem',
+            'NP Problem Ecosystem',
             '2FA Manager Ecosystem',
             'Repository Manager Ecosystem',
             'Deterministic Ecosystem',
