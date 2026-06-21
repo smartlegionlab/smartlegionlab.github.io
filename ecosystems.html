@@ -14,370 +14,695 @@
     <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-    <style>
-        .ecosystem-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background: rgba(13, 110, 253, 0.02);
-            border: 1px solid rgba(13, 110, 253, 0.2);
-            border-radius: 24px;
-            backdrop-filter: blur(0px);
-        }
-        .ecosystem-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-        }
-        .feature-block {
-            background: rgba(13, 110, 253, 0.05);
-            border: 1px solid rgba(13, 110, 253, 0.15);
-            border-radius: 16px;
-            padding: 0.7rem 0.9rem;
-            transition: all 0.2s;
-        }
-        .feature-block:hover {
-            background: rgba(13, 110, 253, 0.08);
-            border-color: rgba(13, 110, 253, 0.35);
-        }
-        .feature-icon {
-            font-size: 1.1rem;
-            margin-right: 0.5rem;
-            color: #0d6efd;
-        }
-        .feature-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            color: #8ba3c7;
-            margin-bottom: 0.3rem;
-        }
-        .feature-content {
-            font-size: 0.85rem;
-            font-weight: 500;
-            line-height: 1.4;
-            color: #eef3ff;
-        }
-        .badge-tech {
-            background: rgba(13, 110, 253, 0.18);
-            color: #9bc0ff;
-            font-weight: 500;
-            font-size: 0.7rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-        }
-        .section-title-decoration {
-            position: relative;
-            display: inline-block;
-        }
-        .section-title-decoration:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 20%;
-            width: 60%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #0d6efd, transparent);
-            border-radius: 4px;
-        }
-    </style>
 </head>
 <body>
-    <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
-    <button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
-    <div class="container"><div class="paper-container">
 
-        <header class="professional-header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="main-profile-row">
-                        <div class="avatar-container">
-                            <div class="profile-avatar">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
-                                    <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="profile-info">
-                            <h1 class="name">Smart Legion Lab</h1>
-                            <p class="title text-primary">Smart Legion Lab's Ecosystems</p>
-                            <div class="badges">
-                                <span class="badge bg-primary custom-style"><i class="bi bi-shield-lock text-primary"></i> SmartPassLib Ecosystem</span>
-                                <span class="badge bg-primary custom-style"><i class="bi bi-graph-up text-primary"></i> TSP Ecosystem</span>
-                                <span class="badge bg-primary custom-style"><i class="bi bi-key me-1"></i> 2FA Manager Ecosystem</span>
-                                <span class="badge bg-primary custom-style"><i class="bi bi-git me-1"></i> Repo Manager Ecosystem</span>
-                                <span class="badge bg-primary custom-style"><i class="bi bi-book me-1"></i> Deterministic Ecosystem</span>
-                                <span class="badge bg-primary custom-style"><i class="bi bi-mortarboard-fill me-1"></i> Research Ecosystem</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+<!-- nav -->
 
-        <nav class="mobile-navigation" id="mobileNav">
-            <div class="mobile-nav-container">
-                <a href="/" class="mobile-nav-btn" aria-label="Go to Home page"><i class="bi bi-house"></i></a>
-                <a href="/applications.html" class="mobile-nav-btn" aria-label="Go to Applications page"><i class="bi bi-grid-3x3-gap-fill"></i></a>
-                <a href="/ecosystems.html" class="mobile-nav-btn active" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
-                <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page"><i class="bi bi-code-slash"></i></a>
-                <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page"><i class="bi bi-box-seam"></i></a>
-                <a target="_blank" href="https://github.com/smartlegionlab" class="mobile-nav-btn" aria-label="Go to Github @smartlegionlab"><i class="bi bi-github"></i></a>
-                <a target="_blank" href="https://alexander-suvorov.ru" class="mobile-nav-btn" aria-label="Go to alexander-suvorov.ru"><i class="bi bi-person"></i></a>
-            </div>
-        </nav>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
 
-        <main style="padding: 5px;"><br>
-            <div class="content-section"><div class="container">
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">
+                Home
+            </a>
+            <a href="/research.html" class="small text-light">
+                Research
+            </a>
+            <a href="/ecosystems.html" class="small text-primary">
+                Ecosystems
+            </a>
+            <a href="/ecosystems.html" class="small text-light">
+                Apps
+            </a>
+            <a href="/projects.html" class="small text-light">
+                Projects
+            </a>
+            <a href="/libraries.html" class="small text-light">
+                Libraries
+            </a>
+            <a href="/articles.html" class="small text-light">
+                Articles
+            </a>
+            <a href="/profiles.html" class="small text-light">
+                About & Team
+            </a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
 
-                <h2 class="section-title mb-0" style="font-size: 2rem;"><i class="bi bi-diagram-3 text-primary" style="font-size: 2rem;"></i> Ecosystems</h2>
-                <br>
-                <p>Ecosystems by <a target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a>:
-                    <a href="./ecosystem/smartpasslib-ecosystem.html" class="text-decoration-none">SmartPassLib</a>,
-                    <a href="./ecosystem/tsp-ecosystem.html" class="text-decoration-none">TSP solvers</a>,
-                    <a href="./ecosystem/2fa-ecosystem.html" class="text-decoration-none">2FA Manager</a>,
-                    <a href="./ecosystem/repo-manager-ecosystem.html" class="text-decoration-none">Repo Manager</a>,
-                    <a href="./ecosystem/deterministic-ecosystem.html" class="text-decoration-none">Deterministic Ecosystem</a>,
-                    <a href="./ecosystem/research-ecosystem.html" class="text-decoration-none">Research Ecosystem</a>.
-                    Ecosystems built from a single idea. One logic, multiple languages, multiple interfaces. Cross‑platform ecosystems built from a single idea.
-                </p>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-                <div class="row g-4">
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose">
+        <i class="bi bi-x-lg"></i>
+    </button>
 
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom card h-100 ecosystem-card">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-shield-lock text-primary" style="font-size: 1.8rem;"></i></div>
-                                    <h4 class="card-title text-primary mb-0">SmartPassLib Ecosystem</h4>
-                                </div>
-                                <p class="small fw-semibold text-light-emphasis mb-3">Deterministic Smart Password Generators, Managers and Libraries</p>
+    <div class="sidebar-header">
+        <a href="/" class="logo">
+            Smart Legion Lab
+            <small>Application Development</small>
+        </a>
+    </div>
 
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-code-slash feature-icon"></i> Languages</div>
-                                    <div class="feature-content">Python · Go · C# · Kotlin · JS</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-display feature-icon"></i> Interfaces</div>
-                                    <div class="feature-content">CLI · Desktop (PyQt/WPF) · Web · Android</div>
-                                </div>
-                                <div class="feature-block mb-3">
-                                    <div class="feature-title"><i class="bi bi-cpu feature-icon"></i> Solutions</div>
-                                    <div class="feature-content">Password Managers · Generators · Core Library · Decentralization · Determinism</div>
-                                </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+        </a>
+         <a href="/research.html" class="menu-item">
+            <i class="bi bi-mortarboard"></i>
+            <span>Research & Publications</span>
+        </a>
+        <a href="/ecosystems.html" class="menu-item active">
+            <i class="bi bi-diagram-3"></i>
+            <span>Ecosystems</span>
+        </a>
+        <a href="/applications.html" class="menu-item">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+            <span>Applications</span>
+        </a>
+        <a href="/projects.html" class="menu-item">
+            <i class="bi bi-code-slash"></i>
+            <span>Projects</span>
+        </a>
+        <a href="/libraries.html" class="menu-item">
+            <i class="bi bi-box-seam"></i>
+            <span>Libraries</span>
+        </a>
+        <a href="/articles.html" class="menu-item">
+            <i class="bi bi-newspaper"></i>
+            <span>Articles</span>
+        </a>
+        <a href="/profiles.html" class="menu-item">
+            <i class="bi bi-people"></i>
+            <span>About & Team</span>
+        </a>
+    </div>
 
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <a href="ecosystem/smartpasslib-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | v6.2.10</p>
+    </div>
+</div>
 
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom card h-100 ecosystem-card">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-graph-up text-primary" style="font-size: 1.8rem;"></i></div>
-                                    <h4 class="card-title text-primary mb-0">TSP Ecosystem</h4>
-                                </div>
-                                <p class="small fw-semibold text-light-emphasis mb-3">Traveling Salesman Problem Solvers and Benchmark</p>
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
 
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-code-slash feature-icon"></i> Languages</div>
-                                    <div class="feature-content">Go · Python</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-diagram-3 feature-icon"></i> Exact solvers</div>
-                                    <div class="feature-content">Branch & Bound (Go + Python)</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-graph-up feature-icon"></i> Heuristic</div>
-                                    <div class="feature-content">+25% improvement on clustered data; Dynamic Gravity Algorithms; Angular-Radial Methods</div>
-                                </div>
-                                <div class="feature-block mb-3">
-                                    <div class="feature-title"><i class="bi bi-tools feature-icon"></i> Tools</div>
-                                    <div class="feature-content">Benchmark Framework · Performance Analysis · TSP Solvers</div>
-                                </div>
+<button class="scroll-to-top" id="scrollToTop">
+    <i class="bi bi-chevron-up"></i>
+</button>
 
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <a href="ecosystem/tsp-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!-- end nav -->
 
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom card h-100 ecosystem-card">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-key text-primary" style="font-size: 1.8rem;"></i></div>
-                                    <h4 class="card-title text-primary mb-0">2FA Manager Ecosystem</h4>
-                                </div>
-                                <p class="small fw-semibold text-light-emphasis mb-3">Cross-Platform 2fa TOTP Managers</p>
+<!-- content -->
 
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-code-slash feature-icon"></i> Languages</div>
-                                    <div class="feature-content">Python · Kotlin · Bash</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-display feature-icon"></i> Interfaces</div>
-                                    <div class="feature-content">Desktop · Android · CLI · Bash Script</div>
-                                </div>
-                                <div class="feature-block mb-3">
-                                    <div class="feature-title"><i class="bi bi-shield-lock feature-icon"></i> Solutions</div>
-                                    <div class="feature-content">TOTP Managers · Encrypted Local Storage</div>
-                                </div>
+<div class="container">
+    <div class="custom-margin-top">
 
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <a href="ecosystem/2fa-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <h1 class="text-center text-primary">Ecosystems <sup class="text-warning" data-smart-key="ecosystems">6+</sup></h1>
+        <p class="text-center">
+            Ecosystems by <a target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a>.
+                Ecosystems built from a single idea. One logic, multiple languages, multiple interfaces. Cross‑platform ecosystems built from a single idea.
+        </p>
+        <div class="badges">
+            <span class="badge bg-primary custom-style">smart-passwords-ecosystem</span>
+            <span class="badge bg-primary custom-style">np-problem-ecosystem</span>
+            <span class="badge bg-primary custom-style">2fa-management-ecosystem</span>
+            <span class="badge bg-primary custom-style">repository-management-ecosystem</span>
+            <span class="badge bg-primary custom-style">deterministic-ecosystem</span>
+            <span class="badge bg-primary custom-style">research-ecosystem</span>
+        </div>
 
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom card h-100 ecosystem-card">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-git text-primary" style="font-size: 1.8rem;"></i></div>
-                                    <h4 class="card-title text-primary mb-0">Repo Manager Ecosystem</h4>
-                                </div>
-                                <p class="small fw-semibold text-light-emphasis mb-3">Smart Repository Managers and Core</p>
-
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-code-slash feature-icon"></i> Language</div>
-                                    <div class="feature-content">Python</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-window-stack feature-icon"></i> Interfaces</div>
-                                    <div class="feature-content">Core library · GUI (PyQt) · CLI</div>
-                                </div>
-                                <div class="feature-block mb-3">
-                                    <div class="feature-title"><i class="bi bi-boxes feature-icon"></i> Solutions</div>
-                                    <div class="feature-content">Repo Managers · Backup Tools · Download Tools</div>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <a href="ecosystem/repo-manager-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom card h-100 ecosystem-card">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-book text-primary" style="font-size: 1.8rem;"></i></div>
-                                    <h4 class="card-title text-primary mb-0">Deterministic Ecosystem</h4>
-                                </div>
-                                <p class="small fw-semibold text-light-emphasis mb-3">Deterministic Infinite Generators</p>
-
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-code-slash feature-icon"></i> Language</div>
-                                    <div class="feature-content">Python</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-journal-bookmark-fill feature-icon"></i> Solutions</div>
-                                    <div class="feature-content">Text generator (books/pages) · image generator · generators · passwords managers · Core Library · Determinism · Decentralization</div>
-                                </div>
-                                <div class="feature-block mb-3">
-                                    <div class="feature-title"><i class="bi bi-lightbulb feature-icon"></i> Concept</div>
-                                    <div class="feature-content">Coordinate‑based deterministic regeneration</div>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <a href="ecosystem/deterministic-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom card h-100 ecosystem-card">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="p-2 rounded-3" style="background: rgba(13,110,253,0.15);"><i class="bi bi-mortarboard-fill text-primary" style="font-size: 1.8rem;"></i></div>
-                                    <h4 class="card-title text-primary mb-0">Research Ecosystem</h4>
-                                </div>
-                                <p class="small fw-semibold text-light-emphasis mb-3">4 paradigms with DOI and Ecosystems</p>
-
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-shield-check feature-icon"></i> Security</div>
-                                    <div class="feature-content">Pointer‑Based Security (DOI)</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-arrow-repeat feature-icon"></i> Information Theory</div>
-                                    <div class="feature-content">Local Data Regeneration (DOI)</div>
-                                </div>
-                                <div class="feature-block mb-2">
-                                    <div class="feature-title"><i class="bi bi-puzzle feature-icon"></i> Complexity</div>
-                                    <div class="feature-content">PCH Paradigm (NP‑complete, DOI)</div>
-                                </div>
-                                <div class="feature-block mb-3">
-                                    <div class="feature-title"><i class="bi bi-controller feature-icon"></i> Validation</div>
-                                    <div class="feature-content">Deterministic Game Engine (Tech Report, DOI)</div>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <a href="ecosystem/research-ecosystem.html" class="btn btn-sm btn-outline-primary">Explore →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-custom card mt-5 mb-4" style="background: rgba(13,110,253,0.03); border: 1px solid rgba(13,110,253,0.2); border-radius: 28px;">
-                    <div class="card-body p-4 p-md-5 text-center">
-                        <i class="bi bi-boxes text-primary" style="font-size: 2.5rem;"></i>
-                        <h3 class="mt-2 mb-3">Cross‑Platform by Design</h3>
-                        <p class="text-muted mx-auto" style="max-width: 680px;">Every ecosystem follows the same architectural: one core logic, multiple languages (
-                            <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp">C#</a>,
-                            <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib">Python</a>,
-                            <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go">Go</a>,
-                            <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin">Kotlin</a>,
-                            <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js">JavaScript</a>
-                            ), and native interfaces for
-                            <a target="_blank" href="https://github.com/smartlegionlab/clipassgen">CLI</a>,
-                            <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-gui">Desktop</a>,
-                            <a target="_blank" href="https://github.com/smartlegionlab/smart-password-manager-web">Web</a>,
-                            and <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-android">Mobile</a>
-                            — designed for performance and consistency.</p>
-                        <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-window"></i> Desktop</span>
-                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-phone"></i> Android</span>
-                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-globe"></i> Web</span>
-                            <span class="badge bg-dark text-light px-3 py-2 rounded-pill"><i class="bi bi-terminal"></i> CLI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <a href="/applications.html" class="btn btn-sm btn-outline-primary me-2"><i class="bi bi-chevron-left"></i>View Applications</a>
-                    <a href="/projects.html" class="btn btn-sm btn-outline-primary"> View Projects <i class="bi bi-chevron-right"></i></a>
-                </div>
-            </div></div>
-        </main>
+        <hr>
 
         <div class="content-section">
-            <div class="container text-center">
-                <h2 class="text-center">Connect & Collaborate</h2>
-                <hr>
-                <div class="text-center mb-4">
-                    <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary m-1">Alexander Suvorov</a>
-                    <a href="mailto:official@smartlegionlab.ru" class="btn btn-outline-primary m-1">Email</a>
-                    <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary m-1">GitHub</a>
-                    <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary m-1">PyPI</a>
+            <div class="container">
+                <div class="row text-center">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                            <span class="badge text-light rounded-pill position-absolute smart-badge">
+                                Ecosystem
+                            </span>
+                            <div class="mb-2">
+                                <h4 class="mt-2 text-light">Smart Passwords Ecosystem</h4>
+                                <div class="mt-1 mb-1">
+                                    <i class="bi bi-person-circle text-secondary me-1"></i>
+                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                        @smartlegionlab
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                                <p class="mb-0 text-center small">Deterministic Smart Password Generators, Managers and Libraries</p>
+                            </div>
+                            <div class="badges mb-3">
+                                <span class="badge bg-primary custom-style">smartpasslib</span>
+                                <span class="badge bg-primary custom-style">deterministic</span>
+                                <span class="badge bg-primary custom-style">decentralization</span>
+                            </div>
+                            <div class="btn-group btn-group-sm text-center mt-auto">
+                                <a href="/ecosystems/smart-passwords-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                            <span class="badge text-light rounded-pill position-absolute smart-badge">
+                                Ecosystem
+                            </span>
+                            <div class="mb-2">
+                                <h4 class="mt-2 text-light">NP Problem Ecosystem</h4>
+                                <div class="mt-1 mb-1">
+                                    <i class="bi bi-person-circle text-secondary me-1"></i>
+                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                        @smartlegionlab
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                                <p class="mb-0 text-center small">Traveling Salesman Problem Solvers and Benchmarks</p>
+                            </div>
+                            <div class="badges mb-3">
+                                <span class="badge bg-primary custom-style">np-problem</span>
+                                <span class="badge bg-primary custom-style">tsp-solver</span>
+                                <span class="badge bg-primary custom-style">tsp-oracle</span>
+                            </div>
+                            <div class="btn-group btn-group-sm text-center mt-auto">
+                                <a href="/ecosystems/np-problem-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                            <span class="badge text-light rounded-pill position-absolute smart-badge">
+                                Ecosystem
+                            </span>
+                            <div class="mb-2">
+                                <h4 class="mt-2 text-light">2FA Management Ecosystem</h4>
+                                <div class="mt-1 mb-1">
+                                    <i class="bi bi-person-circle text-secondary me-1"></i>
+                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                        @smartlegionlab
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                                <p class="mb-0 text-center small">Cross-Platform 2fa TOTP Managers</p>
+                            </div>
+                            <div class="badges mb-3">
+                                <span class="badge bg-primary custom-style">2fa</span>
+                                <span class="badge bg-primary custom-style">security</span>
+                                <span class="badge bg-primary custom-style">TOTP</span>
+                            </div>
+                            <div class="btn-group btn-group-sm text-center mt-auto">
+                                <a href="/ecosystems/2fa-management-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                            <span class="badge text-light rounded-pill position-absolute smart-badge">
+                                Ecosystem
+                            </span>
+                            <div class="mb-2">
+                                <h4 class="mt-2 text-light">Repository Management Ecosystem</h4>
+                                <div class="mt-1 mb-1">
+                                    <i class="bi bi-person-circle text-secondary me-1"></i>
+                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                        @smartlegionlab
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                                <p class="mb-0 text-center small">Smart Repository Managers and Cores</p>
+                            </div>
+                            <div class="badges mb-3">
+                                <span class="badge bg-primary custom-style">repository-management</span>
+                                <span class="badge bg-primary custom-style">github-repository-manager</span>
+                                <span class="badge bg-primary custom-style">forgejo-repository-manager</span>
+                            </div>
+                            <div class="btn-group btn-group-sm text-center mt-auto">
+                                <a href="/ecosystems/repository-management-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                            <span class="badge text-light rounded-pill position-absolute smart-badge">
+                                Ecosystem
+                            </span>
+                            <div class="mb-2">
+                                <h4 class="mt-2 text-light">Deterministic Ecosystem</h4>
+                                <div class="mt-1 mb-1">
+                                    <i class="bi bi-person-circle text-secondary me-1"></i>
+                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                        @smartlegionlab
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                                <p class="mb-0 text-center small">Deterministic Infinite Generators</p>
+                            </div>
+                            <div class="badges mb-3">
+                                <span class="badge bg-primary custom-style">determinism</span>
+                                <span class="badge bg-primary custom-style">decentralization</span>
+                                <span class="badge bg-primary custom-style">smartpasslib</span>
+                            </div>
+                            <div class="btn-group btn-group-sm text-center mt-auto">
+                                <a href="/ecosystems/deterministic-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                            <span class="badge text-light rounded-pill position-absolute smart-badge">
+                                Ecosystem
+                            </span>
+                            <div class="mb-2">
+                                <h4 class="mt-2 text-light">Research Ecosystem</h4>
+                                <div class="mt-1 mb-1">
+                                    <i class="bi bi-person-circle text-secondary me-1"></i>
+                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                        @smartlegionlab
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                                <p class="mb-0 text-center small"><span class="text-warning" data-smart-key="publications">4+</span> paradigms with DOI and Ecosystems</p>
+                            </div>
+                            <div class="badges mb-3">
+                                <span class="badge bg-primary custom-style">paradigms</span>
+                                <span class="badge bg-primary custom-style">research</span>
+                                <span class="badge bg-primary custom-style">publications</span>
+                            </div>
+                            <div class="btn-group btn-group-sm text-center mt-auto">
+                                <a href="/ecosystems/research-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <footer>
-                    <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a target="_blank" class="author-link" href="https://github.com/smartlegionlab/smartlegionlab.github.io">v6.2.10</a></p>
-                </footer>
             </div>
         </div>
 
-    </div></div>
-    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/particle-background.js"></script>
-    <script src="js/scroll-manager.js"></script>
-    <script src="js/animation-manager.js"></script>
-    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();document.addEventListener('DOMContentLoaded',function(){if(typeof ScrollManager!=='undefined')new ScrollManager();});</script>
+    </div>
+</div>
+
+<!-- end content -->
+
+<!-- footer -->
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | v6.2.10</p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script>
+let commandHistory = [];
+let historyIndex = -1;
+
+fetch(window.location.href, {method: 'HEAD'})
+const consoleToggle = document.getElementById('consoleToggle');
+const devConsole = document.getElementById('devConsole');
+const consoleClose = document.getElementById('consoleClose');
+const consoleInput = document.getElementById('consoleInput');
+const consoleOutput = document.getElementById('consoleOutput');
+
+function clearConsole() {
+    consoleOutput.innerHTML = '';
+    if (typeof stopDinoGame !== 'undefined') {
+        stopDinoGame();
+    }
+}
+
+function addConsoleLine(text) {
+    const line = document.createElement('div');
+    line.style.marginBottom = '4px';
+    line.style.fontFamily = 'monospace';
+    line.style.fontSize = '11px';
+    line.style.wordWrap = 'break-word';
+    line.style.whiteSpace = 'pre-wrap';
+    line.innerHTML = text;
+    consoleOutput.appendChild(line);
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+}
+
+function addToHistory(cmd) {
+    if (cmd && cmd.trim() !== '') {
+        commandHistory.push(cmd);
+        historyIndex = commandHistory.length;
+    }
+}
+
+function calculate(expression) {
+    try {
+        let expr = expression.replace(/[^0-9+\-*/().%]/g, '');
+        if (!expr) return null;
+        const result = Function('"use strict";return (' + expr + ')')();
+        if (isNaN(result) || !isFinite(result)) return null;
+        return Math.round(result * 10000) / 10000;
+    } catch(e) {
+        return null;
+    }
+}
+
+async function processCommand(cmd) {
+    addConsoleLine(`> ${cmd}`);
+    addToHistory(cmd);
+
+    if (cmd === 'help') {
+        addConsoleLine('  randpass  - Generate random password');
+        addConsoleLine('  smartpass - Generate smart password');
+        addConsoleLine('  calc      - Calculate expression (calc 2+2)');
+        addConsoleLine('  dino      - Play Dino Jump game');
+        addConsoleLine('  history   - Show command history');
+        addConsoleLine('  history -c - Clear history');
+        addConsoleLine('  clear     - Clear console');
+        addConsoleLine('  exit      - Close');
+    }
+    else if (cmd === 'randpass') {
+        if (typeof SmartPassLib === 'undefined') {
+            addConsoleLine('  SmartPassLib not loaded. Check static files.');
+        } else {
+            addConsoleLine('  Enter password length (12-100):');
+            window.waitingForRandLength = true;
+        }
+    }
+    else if (cmd === 'smartpass') {
+        if (typeof SmartPassLib === 'undefined') {
+            addConsoleLine('  SmartPassLib not loaded. Check static files.');
+        } else {
+            addConsoleLine('  Enter secret phrase (min 12 chars):');
+            window.waitingForSecret = true;
+        }
+    }
+    else if (cmd.startsWith('calc ')) {
+        const expr = cmd.substring(5);
+        const result = calculate(expr);
+        if (result !== null) {
+            addConsoleLine(`  ${expr} = ${result}`);
+        } else {
+            addConsoleLine('  Invalid expression');
+        }
+    }
+    else if (cmd === 'calc') {
+        addConsoleLine('  Usage: calc 2+2, calc 10*5, calc (10+5)*2');
+    }
+    else if (cmd === 'dino') {
+        if (typeof startDinoGame === 'undefined') {
+            addConsoleLine('  Game not loaded. Check static files.');
+        } else {
+            if (window.gameActive) {
+                stopDinoGame();
+            }
+            addConsoleLine('  Game started! Press SPACE to jump');
+            startDinoGame(consoleOutput);
+        }
+    }
+    else if (cmd === 'history') {
+        if (commandHistory.length === 0) {
+            addConsoleLine('  History is empty');
+        } else {
+            commandHistory.forEach((h, i) => {
+                addConsoleLine(`  ${i + 1}. ${h}`);
+            });
+        }
+    }
+    else if (cmd === 'history -c') {
+        commandHistory = [];
+        historyIndex = -1;
+        addConsoleLine('  History cleared');
+    }
+    else if (cmd === 'clear') {
+        clearConsole();
+    }
+    else if (cmd === 'exit') {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        devConsole.style.display = 'none';
+    }
+    else if (cmd !== '') {
+        if (window.waitingForRandLength) {
+            const length = parseInt(cmd);
+            if (isNaN(length) || length < 12 || length > 100) {
+                addConsoleLine(`  Invalid length. Use 12-100. Try again:`);
+            } else {
+                addConsoleLine(`  Generating random password (${length} chars)...`);
+                try {
+                    const password = await SmartPassLib.generateStrongPassword(length);
+                    addConsoleLine(`  Password: ${password}`);
+                } catch(e) {
+                    addConsoleLine(`  Error: ${e.message}`);
+                }
+                window.waitingForRandLength = false;
+            }
+        } else if (window.waitingForSecret) {
+            if (cmd.length < 12) {
+                addConsoleLine(`  Secret too short (${cmd.length} chars). Need at least 12. Try again:`);
+            } else {
+                addConsoleLine(`  Enter password length (12-100):`);
+                window.smartSecret = cmd;
+                window.waitingForLength = true;
+                window.waitingForSecret = false;
+            }
+        } else if (window.waitingForLength) {
+            const length = parseInt(cmd);
+            if (isNaN(length) || length < 12 || length > 100) {
+                addConsoleLine(`  Invalid length. Use 12-100. Try again:`);
+            } else {
+                addConsoleLine(`  Generating smart password...`);
+                try {
+                    const password = await SmartPassLib.generateSmartPassword(window.smartSecret, length);
+                    addConsoleLine(`  Password (${length} chars): ${password}`);
+                } catch(e) {
+                    addConsoleLine(`  Error: ${e.message}`);
+                }
+                window.waitingForLength = false;
+                window.smartSecret = null;
+            }
+        } else {
+            addConsoleLine(`  Unknown: ${cmd}`);
+        }
+    }
+}
+
+if (consoleToggle) {
+    consoleToggle.onclick = () => {
+        if (devConsole.style.display === 'none') {
+            devConsole.style.display = 'block';
+            consoleInput.focus();
+        } else {
+            if (typeof stopDinoGame !== 'undefined') {
+                stopDinoGame();
+            }
+            devConsole.style.display = 'none';
+        }
+    };
+}
+
+if (consoleClose) {
+    consoleClose.onclick = () => {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        devConsole.style.display = 'none';
+    };
+}
+
+if (consoleInput) {
+    consoleInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = consoleInput.value.trim().toLowerCase();
+            if (cmd) processCommand(cmd);
+            consoleInput.value = '';
+            historyIndex = commandHistory.length;
+        }
+        else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0 && historyIndex > 0) {
+                historyIndex--;
+                consoleInput.value = commandHistory[historyIndex];
+            }
+        }
+        else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                consoleInput.value = commandHistory[historyIndex];
+            } else if (historyIndex === commandHistory.length - 1) {
+                historyIndex++;
+                consoleInput.value = '';
+            }
+        }
+    });
+}
+
+const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+</script>
+
+<style>
+    @media (min-width: 768px) {
+        #devConsole {
+            width: 500px !important;
+            left: 20px !important;
+        }
+        #consoleOutput {
+            height: 350px !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        #devConsole {
+            width: calc(100% - 30px) !important;
+            left: 15px !important;
+            right: 15px !important;
+            bottom: 70px !important;
+            max-width: none !important;
+        }
+        #consoleOutput {
+            height: 200px !important;
+        }
+    }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+        #devConsole {
+            bottom: 60px !important;
+        }
+        #consoleOutput {
+            height: 120px !important;
+        }
+    }
+
+    #devConsole {
+        overflow: hidden;
+    }
+
+    #consoleInput::placeholder {
+        color: #333;
+    }
+
+    #consoleOutput::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #consoleOutput::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    #consoleOutput::-webkit-scrollbar-thumb {
+        background: #00ff9d;
+    }
+</style>
+
+<!-- end footer -->
+
+
+<!-- scripts -->
+<script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/stats-manager.js"></script>
+<script src="js/particle-background.js"></script>
+<script src="js/scroll-manager.js"></script>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+<script>
+(function() {
+    const sidebar = document.getElementById('bootSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+
+    if (!sidebar || !overlay) return;
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (toggleBtn) {
+        toggleBtn.onclick = function(e) {
+            e.preventDefault();
+            openSidebar();
+        };
+    }
+
+    if (closeBtn) {
+        closeBtn.onclick = function(e) {
+            e.preventDefault();
+            closeSidebar();
+        };
+    }
+
+    overlay.onclick = function(e) {
+        if (e.target === overlay) {
+            closeSidebar();
+        }
+    };
+
+    document.onkeydown = function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+            closeSidebar();
+        }
+    };
+})();
+</script>
+<script src="js/smartpasslib.js"></script>
+<script src="js/console-game.js"></script>
+<!-- end scripts -->
+
 </body>
 </html>
