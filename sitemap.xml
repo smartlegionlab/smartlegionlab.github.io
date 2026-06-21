@@ -13,7 +13,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/packages.html</loc>
+    <loc>https://smartlegionlab.ru/libraries.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -31,7 +31,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/ecosystem/smartpasslib-ecosystem.html</loc>
+    <loc>https://smartlegionlab.ru/team.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/articles.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/research.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/ecosystem/smart-passwords-ecosystem.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -43,25 +61,73 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/ecosystem/repo-manager-ecosystem.html</loc>
+    <loc>https://smartlegionlab.ru/ecosystem/repository-management-ecosystem.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/ecosystem/2fa-ecosystem.html</loc>
+    <loc>https://smartlegionlab.ru/ecosystem/2fa-management-ecosystem.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://smartlegionlab.ru/ecosystem/tsp-ecosystem.html</loc>
+    <loc>https://smartlegionlab.ru/ecosystem/np-problem-ecosystem.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://smartlegionlab.ru/ecosystem/research-ecosystem.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/research/pointer-based-security-paradigm.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/research/local-data-regeneration-paradigm.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/research/deterministic-game-engine-tech-report.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/research/position-candidate-hypothesis-paradigm.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/articles/pointer-based-security-paradigm.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/articles/local-data-regeneration-paradigm.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/articles/deterministic-game-engine-tech-report.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://smartlegionlab.ru/articles/position-candidate-hypothesis-paradigm.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

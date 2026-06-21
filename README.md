@@ -143,7 +143,7 @@ This architecture demonstrates that you can run a **professional, dynamic-lookin
 - **Ecosystems**: Dedicated pages for each cross-platform ecosystem (SmartPassLib, TSP, 2FA, Repo Manager, Deterministic Ecosystem, Research Ecosystem).
 - **Automated Project Showcase**:
     - **Projects (`projects.html`)**: A grid of GitHub repos with live stats (stars, forks), topics, and a "View" button.
-    - **Packages (`packages.html`)**: A grid of PyPI packages with descriptions, version badges, and a `pip install` copy button.
+    - **Packages (`libraries.html`)**: A grid of PyPI packages with descriptions, version badges, and a `pip install` copy button.
     - **Articles (`articles.html`)**: A grid of Dev.to articles with engagement metrics.
 - **Detailed Project, Package and Research Pages**:
     - **Repository Pages**: Full-page deep dive into a single repo with all metadata.

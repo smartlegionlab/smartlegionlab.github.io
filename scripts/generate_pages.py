@@ -250,7 +250,7 @@ def main():
             all_packages_cards.append(package_card)
 
         update_html_with_id(
-            'packages.html',
+            'libraries.html',
             'packages-container',
             '\n'.join(all_packages_cards),
         )
