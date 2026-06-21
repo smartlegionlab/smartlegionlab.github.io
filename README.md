@@ -180,11 +180,8 @@ You can run the entire build process locally to test changes.
     python scripts/fetch_pypi.py
     python scripts/fetch_zenodo.py
 
-    # 2. Update the main listing pages with new data cards
-    python scripts/generate_pages.py
-
-    # 3. Generate all detail pages AND the sitemap atomically
-    python scripts/generate_repo_pages.py
+    # 2. Generate data
+    python scripts/generate_data.py
     ```
 
 4.  **Preview the site locally**
