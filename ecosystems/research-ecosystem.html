@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Research Ecosystem · Smart Legion Lab</title>
-    <meta name="description" content="Research Ecosystem: 4 paradigms with DOI publications — Pointer‑Based Security, Local Data Regeneration, PCH Paradigm, Deterministic Game Engine. Cross‑platform implementations and ecosystems.">
+    <meta name="description" content="Research Ecosystem: 4 paradigms with DOI publications - Pointer‑Based Security, Local Data Regeneration, PCH Paradigm, Deterministic Game Engine. Cross‑platform implementations and ecosystems.">
     <meta name="author" content="Smart Legion Lab">
     <meta name="copyright" content="Smart Legion Lab">
 
@@ -16,163 +16,153 @@
     <meta property="og:description" content="4 paradigms with DOI publications. Security, Information Theory, NP‑complete, Deterministic Systems.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.ru/ecosystem/research-ecosystem.html">
-
     <meta name="theme-color" content="#0d1117">
-
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-
-    <style>
-        .ecosystem-hero-icon {
-            font-size: 3rem;
-            color: #0d6efd;
-            background: rgba(13, 110, 253, 0.1);
-            padding: 1rem;
-            border-radius: 50%;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        .platform-badge {
-            background: rgba(13, 110, 253, 0.15);
-            color: #7ab3ff;
-            padding: 0.25rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        .language-badge {
-            background: rgba(255, 255, 255, 0.1);
-            color: #eef3ff;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-family: monospace;
-        }
-        .related-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background: rgba(13, 110, 253, 0.03);
-            border: 1px solid rgba(13, 110, 253, 0.15);
-            border-radius: 20px;
-            height: 100%;
-        }
-        .related-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(13, 110, 253, 0.4);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-            background: rgba(13, 110, 253, 0.06);
-        }
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .feature-block {
-            background: rgba(13, 110, 253, 0.05);
-            border: 1px solid rgba(13, 110, 253, 0.15);
-            border-radius: 16px;
-            padding: 0.9rem 1rem;
-            transition: all 0.2s;
-        }
-        .feature-block:hover {
-            background: rgba(13, 110, 253, 0.08);
-            border-color: rgba(13, 110, 253, 0.35);
-        }
-        .stat-number-large {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0d6efd;
-            line-height: 1;
-        }
-        .pointer {
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
-    <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
-    <button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
 
-    <div class="container">
-        <div class="paper-container">
+<!-- nav -->
 
-            <header class="professional-header">
-                <div class="container">
-                    <div class="header-content">
-                        <div class="main-profile-row">
-                            <div class="avatar-container">
-                                <div class="profile-avatar">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="bi bi-incognito text-dark" viewBox="0 0 16 16">
-                                        <path d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="profile-info">
-                                <h1 class="name">Smart Legion Lab</h1>
-                                <p class="title text-primary">Research Ecosystem</p>
-                                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
-                                    <span class="platform-badge"><i class="bi bi-shield-check me-1"></i> Pointer‑Based Security</span>
-                                    <span class="platform-badge"><i class="bi bi-arrow-repeat me-1"></i> Local Data Regeneration</span>
-                                    <span class="platform-badge"><i class="bi bi-puzzle me-1"></i> PCH Paradigm</span>
-                                    <span class="platform-badge"><i class="bi bi-cpu me-1"></i> Deterministic Game Engine</span>
-                                    <span class="platform-badge"><i class="bi bi-github me-1"></i> Open Source</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
 
-            <nav class="mobile-navigation" id="mobileNav">
-                <div class="mobile-nav-container">
-                    <a href="/" class="mobile-nav-btn" aria-label="Go to Home page"><i class="bi bi-house"></i></a>
-                    <a href="/applications.html" class="mobile-nav-btn" aria-label="Go to Applications page"><i class="bi bi-grid-3x3-gap-fill"></i></a>
-                    <a href="/ecosystems.html" class="mobile-nav-btn active" aria-label="Go to Ecosystems page"><i class="bi bi-diagram-3"></i></a>
-                    <a href="/projects.html" class="mobile-nav-btn" aria-label="Go to Projects page"><i class="bi bi-code-slash"></i></a>
-                    <a href="/packages.html" class="mobile-nav-btn" aria-label="Go to Packages page"><i class="bi bi-box-seam"></i></a>
-                    <a target="_blank" href="https://github.com/smartlegionlab" class="mobile-nav-btn" aria-label="Go to Github @smartlegionlab"><i class="bi bi-github"></i></a>
-                    <a target="_blank" href="https://alexander-suvorov.ru" class="mobile-nav-btn" aria-label="Go to alexander-suvorov.ru"><i class="bi bi-person"></i></a>
-                </div>
-            </nav>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">
+                Home
+            </a>
+            <a href="/research.html" class="small text-light">
+                Research
+            </a>
+            <a href="/ecosystems.html" class="small text-primary">
+                Ecosystems
+            </a>
+            <a href="/applications.html" class="small text-light">
+                Apps
+            </a>
+            <a href="/projects.html" class="small text-light">
+                Projects
+            </a>
+            <a href="/libraries.html" class="small text-light">
+                Libraries
+            </a>
+            <a href="/articles.html" class="small text-light">
+                Articles
+            </a>
+            <a href="/team.html" class="small text-light">
+                About & Team
+            </a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
 
-            <main style="padding: 5px;">
-                <br>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-                <div class="col-md-12 col-12 mb-3">
-                    <div class="p-3 card-custom" style="background: rgba(13, 110, 253, 0.05); border-radius: 16px;">
-                        <div class="content-section">
-                            <div class="container">
-                                <h2 class="section-title">Research Ecosystem</h2>
-                                <p>
-                                    Research Ecosystem unifies five specialized domains — <strong>Smart Passwords Ecosystem</strong> for zero-storage password management,
-                                    <strong>Deterministic Ecosystem</strong> for infinite deterministic generation and <strong>NP Problem Ecosystem</strong> for exact and heuristic route optimization —
-                                    all built on published research paradigms (<strong>Pointer-Based Security</strong>, <strong>Local Data Regeneration</strong>, <strong>Position-Candidate-Hypothesis</strong>)
-                                    and implemented across <strong>C#</strong>, <strong>Python</strong>, <strong>Go</strong>, <strong>Kotlin</strong>, <strong>JavaScript</strong>,
-                                    CLI, Desktop, Web, Android, and bash clients.
-                                </p>
-                                <div class="tech-stack justify-content-center mt-4">
-                                    <span class="language-badge"><i class="bi bi-shield-check"></i> Pointer‑Based Security</span>
-                                    <span class="language-badge"><i class="bi bi-arrow-repeat"></i> Local Data Regeneration</span>
-                                    <span class="language-badge"><i class="bi bi-puzzle"></i> PCH Paradigm</span>
-                                    <span class="language-badge"><i class="bi bi-cpu"></i> Deterministic Game Engine</span>
-                                    <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
-                                    <span class="language-badge"><i class="bi bi-filetype-cs"></i> C#</span>
-                                    <span class="language-badge"><i class="bi bi-filetype-go"></i> Go</span>
-                                    <span class="language-badge"><i class="bi bi-filetype-java"></i> Kotlin</span>
-                                    <span class="language-badge"><i class="bi bi-filetype-js"></i> JavaScript</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose">
+        <i class="bi bi-x-lg"></i>
+    </button>
 
-                <div class="content-section">
+    <div class="sidebar-header">
+        <a href="/" class="logo">
+            Smart Legion Lab
+            <small>Application Development</small>
+        </a>
+    </div>
+
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+        </a>
+         <a href="/research.html" class="menu-item">
+            <i class="bi bi-mortarboard"></i>
+            <span>Research & Publications</span>
+        </a>
+        <a href="/ecosystems.html" class="menu-item active">
+            <i class="bi bi-diagram-3"></i>
+            <span>Ecosystems</span>
+        </a>
+        <a href="/applications.html" class="menu-item">
+            <i class="bi bi-grid-3x3-gap-fill"></i>
+            <span>Applications</span>
+        </a>
+        <a href="/projects.html" class="menu-item">
+            <i class="bi bi-code-slash"></i>
+            <span>Projects</span>
+        </a>
+        <a href="/libraries.html" class="menu-item">
+            <i class="bi bi-box-seam"></i>
+            <span>Libraries</span>
+        </a>
+        <a href="/articles.html" class="menu-item">
+            <i class="bi bi-newspaper"></i>
+            <span>Articles</span>
+        </a>
+        <a href="/team.html" class="menu-item">
+            <i class="bi bi-people"></i>
+            <span>About & Team</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | v6.2.10</p>
+    </div>
+</div>
+
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+
+<button class="scroll-to-top" id="scrollToTop">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+<!-- end nav -->
+
+<!-- content -->
+
+<div class="container">
+    <div class="custom-margin-top">
+        <h1 class="text-center text-primary">Research Ecosystem</h1>
+        <p class="text-center small text-muted">
+            Research Ecosystem unifies five specialized domains — <strong  class="text-primary">Smart Passwords Ecosystem</strong> for zero-storage password management,
+            <strong class="text-primary">Deterministic Ecosystem</strong> for infinite deterministic generation and <strong class="text-primary">NP Problem Ecosystem</strong> for exact and heuristic route optimization —
+            all built on published research paradigms (<strong class="text-primary">Pointer-Based Security</strong>, <strong class="text-primary">Local Data Regeneration</strong>, <strong class="text-primary">Position-Candidate-Hypothesis</strong>)
+            and implemented across <strong class="text-primary">C#</strong>, <strong class="text-primary">Python</strong>, <strong class="text-primary">Go</strong>, <strong class="text-primary">Kotlin</strong>, <strong class="text-primary">JavaScript</strong>,
+            CLI, Desktop, Web, Android, and bash clients.
+        </p>
+        <div class="tech-stack justify-content-center mt-4">
+            <span class="language-badge"><i class="bi bi-shield-check"></i> Pointer‑Based Security</span>
+            <span class="language-badge"><i class="bi bi-arrow-repeat"></i> Local Data Regeneration</span>
+            <span class="language-badge"><i class="bi bi-puzzle"></i> PCH Paradigm</span>
+            <span class="language-badge"><i class="bi bi-cpu"></i> Deterministic Game Engine</span>
+            <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
+            <span class="language-badge"><i class="bi bi-filetype-cs"></i> C#</span>
+            <span class="language-badge"><i class="bi bi-filetype-go"></i> Go</span>
+            <span class="language-badge"><i class="bi bi-filetype-java"></i> Kotlin</span>
+            <span class="language-badge"><i class="bi bi-filetype-js"></i> JavaScript</span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="content-section">
                     <div class="container">
                         <h3 class="section-title">
                             <i class="bi bi-mortarboard-fill text-primary"></i> Related Research
@@ -182,10 +172,10 @@
                                 <div class="card-custom related-card p-4">
                                     <div class="d-flex align-items-center gap-3 mb-2">
                                         <i class="bi bi-shield-check text-primary fs-2"></i>
-                                        <h4 class="h5 mb-0">Pointer‑Based Security</h4>
+	                                        <h4 class="h5 mb-0">Pointer‑Based Security</h4>
                                     </div>
-                                    <p class="text-muted small">Architectural shift from data protection to data non‑existence — eliminate vulnerable data instead of protecting it.</p>
-                                    <a target="_blank" href="/research/pointer-based-security-paradigm.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+	                                    <p class="text-muted small">Architectural shift from data protection to data non‑existence — eliminate vulnerable data instead of protecting it.</p>
+                                    <a href="/research/pointer-based-security-paradigm.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -195,17 +185,17 @@
                                         <h4 class="h5 mb-0">Local Data Regeneration</h4>
                                     </div>
                                     <p class="text-muted small">Ontological shift from data transmission to synchronous state discovery — regenerate data locally rather than transmit it.</p>
-                                    <a target="_blank" href="/research/local-data-regeneration-paradigm.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                    <a href="/research/local-data-regeneration-paradigm.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="card-custom related-card p-4">
                                     <div class="d-flex align-items-center gap-3 mb-2">
                                         <i class="bi bi-puzzle text-primary fs-2"></i>
-                                        <h4 class="h5 mb-0">Position‑Candidate‑Hypothesis</h4>
+	                                        <h4 class="h5 mb-0">Position‑Candidate‑Hypothesis</h4>
                                     </div>
                                     <p class="text-muted small">Structural-statistical approach to NP-complete problems — n hypotheses, n positions, n candidates.</p>
-                                    <a target="_blank" href="/research/position-candidate-hypothesis-paradigm.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                    <a href="/research/position-candidate-hypothesis-paradigm.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -214,8 +204,8 @@
                                         <i class="bi bi-cpu text-primary fs-2"></i>
                                         <h4 class="h5 mb-0">Deterministic Game Engine</h4>
                                     </div>
-                                    <p class="text-muted small">Experimental validation of Pointer‑Based Security and Local Data Regeneration paradigms.</p>
-                                    <a target="_blank" href="/research/deterministic-game-engine-tech-report.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+	                                    <p class="text-muted small">Experimental validation of Pointer‑Based Security and Local Data Regeneration paradigms.</p>
+                                    <a href="/research/deterministic-game-engine-tech-report.html" class="btn btn-sm btn-outline-primary mt-2">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +223,7 @@
                                     <i class="bi bi-incognito text-primary fs-1"></i>
                                     <h4 class="h5 mt-2">Smart Passwords Ecosystem</h4>
                                     <p class="small text-muted">Deterministic Smart Password Generators, Managers and Libraries.</p>
-                                    <a href="smart-passwords-ecosystem.html" class="btn btn-sm btn-outline-primary mt-2">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+                                    <a href="./smart-passwords-ecosystem.html" class="btn btn-sm btn-outline-primary mt-2">Explore <i class="bi bi-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -241,7 +231,7 @@
                                     <i class="bi bi-graph-up text-primary fs-1"></i>
                                     <h4 class="h5 mt-2">NP Problem Ecosystem</h4>
                                     <p class="small text-muted">Traveling Salesman Problem Solvers and Benchmark.</p>
-                                    <a href="np-problem-ecosystem.html" class="btn btn-sm btn-outline-primary mt-2">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+                                    <a href="./np-problem-ecosystem.html" class="btn btn-sm btn-outline-primary mt-2">Explore <i class="bi bi-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -421,8 +411,8 @@
                                     <h5 class="mt-2">smartpasslib (Python)</h5>
                                     <p class="small text-muted">Cryptographic password generation and management without storage.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
-                                        <a target="_blank" href="https://pypi.org/project/smartpasslib/" class="btn btn-sm btn-outline-primary flex-fill">PyPI</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                        <a target="_blank" href="https://pypi.org/project/smartpasslib/" class="btn btn-sm btn-outline-primary flex-fill">PyPI <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -432,7 +422,7 @@
                                     <h5 class="mt-2">smartpasslib-go</h5>
                                     <p class="small text-muted">Go implementation. Same secret = same password across all platforms.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -442,7 +432,7 @@
                                     <h5 class="mt-2">smartpasslib-csharp</h5>
                                     <p class="small text-muted">C# library for deterministic password generation.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -452,7 +442,7 @@
                                     <h5 class="mt-2">smartpasslib-kotlin</h5>
                                     <p class="small text-muted">Kotlin library for Android and backend.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -462,7 +452,7 @@
                                     <h5 class="mt-2">smartpasslib-js</h5>
                                     <p class="small text-muted">JavaScript library for web-based password management.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -472,7 +462,7 @@
                                     <h5 class="mt-2">Smart TSP Solver</h5>
                                     <p class="small text-muted">High-performance Python library for solving TSP using novel heuristics. Outperforms classical methods by ~25%.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -482,7 +472,7 @@
                                     <h5 class="mt-2">Smart Babylon Library</h5>
                                     <p class="small text-muted">Deterministic infinite library generator inspired by Borges' "The Library of Babel".</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/smart-babylon-library" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/smart-babylon-library" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -492,7 +482,7 @@
                                     <h5 class="mt-2">Babylonian Image Library</h5>
                                     <p class="small text-muted">Deterministic infinite image generator based on coordinate systems.</p>
                                     <div class="d-flex gap-2 mt-2">
-                                        <a target="_blank" href="https://github.com/smartlegionlab/babylonian-image-library" class="btn btn-sm btn-outline-primary flex-fill">GitHub</a>
+                                        <a target="_blank" href="https://github.com/smartlegionlab/babylonian-image-library" class="btn btn-sm btn-outline-primary flex-fill">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -500,42 +490,390 @@
                     </div>
                 </div>
 
-                <div class="text-center mt-4 mb-5">
-                    <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm px-4">
-                        <i class="bi bi-arrow-left"></i> Back to Ecosystems
-                    </a>
-                </div>
-            </main>
+    <hr>
 
-            <div class="content-section">
-                <div class="container text-center">
-                    <h2 class="text-center">Connect & Collaborate</h2>
-                    <hr>
-                    <div class="text-center mb-4">
-                        <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary m-1">Alexander Suvorov</a>
-                        <a href="mailto:official@smartlegionlab.ru" class="btn btn-outline-primary m-1">Email</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary m-1">GitHub</a>
-                        <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary m-1">PyPI</a>
-                    </div>
-                    <footer>
-                        <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a target="_blank" class="author-link" href="https://github.com/smartlegionlab/smartlegionlab.github.io">v6.2.10</a></p>
-                    </footer>
-                </div>
-            </div>
-
-        </div>
+    <div class="text-center mt-4 mb-5">
+        <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm px-4">
+            <i class="bi bi-arrow-left"></i> Back to Ecosystems
+        </a>
     </div>
+</div>
 
-    <script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/config.js"></script>
-    <script src="../js/particle-background.js"></script>
-    <script src="../js/scroll-manager.js"></script>
-    <script src="../js/animation-manager.js"></script>
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof ScrollManager !== 'undefined') new ScrollManager();
-        });
-    </script>
+<!-- end content -->
+
+<!-- footer -->
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear"></span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | v6.2.10</p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script>
+let commandHistory = [];
+let historyIndex = -1;
+
+fetch(window.location.href, {method: 'HEAD'})
+const consoleToggle = document.getElementById('consoleToggle');
+const devConsole = document.getElementById('devConsole');
+const consoleClose = document.getElementById('consoleClose');
+const consoleInput = document.getElementById('consoleInput');
+const consoleOutput = document.getElementById('consoleOutput');
+
+function clearConsole() {
+    consoleOutput.innerHTML = '';
+    if (typeof stopDinoGame !== 'undefined') {
+        stopDinoGame();
+    }
+}
+
+function addConsoleLine(text) {
+    const line = document.createElement('div');
+    line.style.marginBottom = '4px';
+    line.style.fontFamily = 'monospace';
+    line.style.fontSize = '11px';
+    line.style.wordWrap = 'break-word';
+    line.style.whiteSpace = 'pre-wrap';
+    line.innerHTML = text;
+    consoleOutput.appendChild(line);
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+}
+
+function addToHistory(cmd) {
+    if (cmd && cmd.trim() !== '') {
+        commandHistory.push(cmd);
+        historyIndex = commandHistory.length;
+    }
+}
+
+function calculate(expression) {
+    try {
+        let expr = expression.replace(/[^0-9+\-*/().%]/g, '');
+        if (!expr) return null;
+        const result = Function('"use strict";return (' + expr + ')')();
+        if (isNaN(result) || !isFinite(result)) return null;
+        return Math.round(result * 10000) / 10000;
+    } catch(e) {
+        return null;
+    }
+}
+
+async function processCommand(cmd) {
+    addConsoleLine(`> ${cmd}`);
+    addToHistory(cmd);
+
+    if (cmd === 'help') {
+        addConsoleLine('  randpass  - Generate random password');
+        addConsoleLine('  smartpass - Generate smart password');
+        addConsoleLine('  calc      - Calculate expression (calc 2+2)');
+        addConsoleLine('  dino      - Play Dino Jump game');
+        addConsoleLine('  history   - Show command history');
+        addConsoleLine('  history -c - Clear history');
+        addConsoleLine('  clear     - Clear console');
+        addConsoleLine('  exit      - Close');
+    }
+    else if (cmd === 'randpass') {
+        if (typeof SmartPassLib === 'undefined') {
+            addConsoleLine('  SmartPassLib not loaded. Check static files.');
+        } else {
+            addConsoleLine('  Enter password length (12-100):');
+            window.waitingForRandLength = true;
+        }
+    }
+    else if (cmd === 'smartpass') {
+        if (typeof SmartPassLib === 'undefined') {
+            addConsoleLine('  SmartPassLib not loaded. Check static files.');
+        } else {
+            addConsoleLine('  Enter secret phrase (min 12 chars):');
+            window.waitingForSecret = true;
+        }
+    }
+    else if (cmd.startsWith('calc ')) {
+        const expr = cmd.substring(5);
+        const result = calculate(expr);
+        if (result !== null) {
+            addConsoleLine(`  ${expr} = ${result}`);
+        } else {
+            addConsoleLine('  Invalid expression');
+        }
+    }
+    else if (cmd === 'calc') {
+        addConsoleLine('  Usage: calc 2+2, calc 10*5, calc (10+5)*2');
+    }
+    else if (cmd === 'dino') {
+        if (typeof startDinoGame === 'undefined') {
+            addConsoleLine('  Game not loaded. Check static files.');
+        } else {
+            if (window.gameActive) {
+                stopDinoGame();
+            }
+            addConsoleLine('  Game started! Press SPACE to jump');
+            startDinoGame(consoleOutput);
+        }
+    }
+    else if (cmd === 'history') {
+        if (commandHistory.length === 0) {
+            addConsoleLine('  History is empty');
+        } else {
+            commandHistory.forEach((h, i) => {
+                addConsoleLine(`  ${i + 1}. ${h}`);
+            });
+        }
+    }
+    else if (cmd === 'history -c') {
+        commandHistory = [];
+        historyIndex = -1;
+        addConsoleLine('  History cleared');
+    }
+    else if (cmd === 'clear') {
+        clearConsole();
+    }
+    else if (cmd === 'exit') {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        devConsole.style.display = 'none';
+    }
+    else if (cmd !== '') {
+        if (window.waitingForRandLength) {
+            const length = parseInt(cmd);
+            if (isNaN(length) || length < 12 || length > 100) {
+                addConsoleLine(`  Invalid length. Use 12-100. Try again:`);
+            } else {
+                addConsoleLine(`  Generating random password (${length} chars)...`);
+                try {
+                    const password = await SmartPassLib.generateStrongPassword(length);
+                    addConsoleLine(`  Password: ${password}`);
+                } catch(e) {
+                    addConsoleLine(`  Error: ${e.message}`);
+                }
+                window.waitingForRandLength = false;
+            }
+        } else if (window.waitingForSecret) {
+            if (cmd.length < 12) {
+                addConsoleLine(`  Secret too short (${cmd.length} chars). Need at least 12. Try again:`);
+            } else {
+                addConsoleLine(`  Enter password length (12-100):`);
+                window.smartSecret = cmd;
+                window.waitingForLength = true;
+                window.waitingForSecret = false;
+            }
+        } else if (window.waitingForLength) {
+            const length = parseInt(cmd);
+            if (isNaN(length) || length < 12 || length > 100) {
+                addConsoleLine(`  Invalid length. Use 12-100. Try again:`);
+            } else {
+                addConsoleLine(`  Generating smart password...`);
+                try {
+                    const password = await SmartPassLib.generateSmartPassword(window.smartSecret, length);
+                    addConsoleLine(`  Password (${length} chars): ${password}`);
+                } catch(e) {
+                    addConsoleLine(`  Error: ${e.message}`);
+                }
+                window.waitingForLength = false;
+                window.smartSecret = null;
+            }
+        } else {
+            addConsoleLine(`  Unknown: ${cmd}`);
+        }
+    }
+}
+
+if (consoleToggle) {
+    consoleToggle.onclick = () => {
+        if (devConsole.style.display === 'none') {
+            devConsole.style.display = 'block';
+            consoleInput.focus();
+        } else {
+            if (typeof stopDinoGame !== 'undefined') {
+                stopDinoGame();
+            }
+            devConsole.style.display = 'none';
+        }
+    };
+}
+
+if (consoleClose) {
+    consoleClose.onclick = () => {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        devConsole.style.display = 'none';
+    };
+}
+
+if (consoleInput) {
+    consoleInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = consoleInput.value.trim().toLowerCase();
+            if (cmd) processCommand(cmd);
+            consoleInput.value = '';
+            historyIndex = commandHistory.length;
+        }
+        else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0 && historyIndex > 0) {
+                historyIndex--;
+                consoleInput.value = commandHistory[historyIndex];
+            }
+        }
+        else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                consoleInput.value = commandHistory[historyIndex];
+            } else if (historyIndex === commandHistory.length - 1) {
+                historyIndex++;
+                consoleInput.value = '';
+            }
+        }
+    });
+}
+
+const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+</script>
+
+<style>
+    @media (min-width: 768px) {
+        #devConsole {
+            width: 500px !important;
+            left: 20px !important;
+        }
+        #consoleOutput {
+            height: 350px !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        #devConsole {
+            width: calc(100% - 30px) !important;
+            left: 15px !important;
+            right: 15px !important;
+            bottom: 70px !important;
+            max-width: none !important;
+        }
+        #consoleOutput {
+            height: 200px !important;
+        }
+    }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+        #devConsole {
+            bottom: 60px !important;
+        }
+        #consoleOutput {
+            height: 120px !important;
+        }
+    }
+
+    #devConsole {
+        overflow: hidden;
+    }
+
+    #consoleInput::placeholder {
+        color: #333;
+    }
+
+    #consoleOutput::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #consoleOutput::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    #consoleOutput::-webkit-scrollbar-thumb {
+        background: #00ff9d;
+    }
+</style>
+
+<!-- end footer -->
+
+
+<!-- scripts -->
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/particle-background.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+<script>
+(function() {
+    const sidebar = document.getElementById('bootSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const closeBtn = document.getElementById('sidebarClose');
+
+    if (!sidebar || !overlay) return;
+
+    function openSidebar() {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (toggleBtn) {
+        toggleBtn.onclick = function(e) {
+            e.preventDefault();
+            openSidebar();
+        };
+    }
+
+    if (closeBtn) {
+        closeBtn.onclick = function(e) {
+            e.preventDefault();
+            closeSidebar();
+        };
+    }
+
+    overlay.onclick = function(e) {
+        if (e.target === overlay) {
+            closeSidebar();
+        }
+    };
+
+    document.onkeydown = function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+            closeSidebar();
+        }
+    };
+})();
+</script>
+<script src="/js/smartpasslib.js"></script>
+<script src="/js/console-game.js"></script>
+<!-- end scripts -->
+
 </body>
 </html>
