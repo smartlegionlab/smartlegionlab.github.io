@@ -1076,3 +1076,43 @@ hr {
         display: none !important;
     }
 }
+
+
+.platform-badge {
+    background: rgba(13, 110, 253, 0.15);
+    color: #7ab3ff;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.language-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: #eef3ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-family: monospace;
+}
+.related-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(13, 110, 253, 0.03);
+    border: 1px solid rgba(13, 110, 253, 0.15);
+    border-radius: 20px;
+    height: 100%;
+}
+.related-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(13, 110, 253, 0.4);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(13, 110, 253, 0.06);
+}
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
