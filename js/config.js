@@ -16,7 +16,7 @@ const CONFIG = {
         USERS_SUPPORTED: '500K+',
         COMMITS: "11K",
         PARADIGMS: 3,
-        APPLICATIONS: 24,
+        APPLICATIONS: 26,
         PUBLICATIONS: 4
     },
 
