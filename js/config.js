@@ -11,8 +11,8 @@ const CONFIG = {
 
     CONSTANTS: {
         ECOSYSTEMS_COUNT: 6,
-        PROJECTS_DELIVERED: 350,
-        TECH_ARTICLES: 5,
+        PROJECTS_COUNT: 70,
+        ARTICLES_COUNT: 4,
         USERS_SUPPORTED: '500K+',
         COMMITS: "11K",
         PARADIGMS: 3,
@@ -44,28 +44,28 @@ const CONFIG = {
         MONTHLY_DOWNLOADS: 15000,
         RESEARCH_STATS: {
             pointerParadigm: {
-                unique_views: 425,
-                unique_downloads: 346,
-                total_views: 655,
-                total_downloads: 676
+                unique_views: 485,
+                unique_downloads: 370,
+                total_views: 727,
+                total_downloads: 708
             },
             localDataParadigm: {
-                unique_views: 298,
-                unique_downloads: 260,
-                total_views: 392,
-                total_downloads: 417
+                unique_views: 324,
+                unique_downloads: 282,
+                total_views: 427,
+                total_downloads: 452
             },
             deterministicEngine: {
-                unique_views: 219,
-                unique_downloads: 165,
-                total_views: 283,
-                total_downloads: 4283
+                unique_views: 244,
+                unique_downloads: 186,
+                total_views: 311,
+                total_downloads: 311
             },
             pchParadigm: {
-                unique_views: 133,
-                unique_downloads: 125,
-                total_views: 170,
-                total_downloads: 212
+                unique_views: 158,
+                unique_downloads: 145,
+                total_views: 201,
+                total_downloads: 242
             }
         }
     },
