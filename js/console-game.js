@@ -8,6 +8,11 @@ let speed = 6;
 let baseSpeed = 6;
 let frameCount = 0;
 let obstaclePassed = false;
+let tapHandler = null;
+
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+}
 
 function startDinoGame(consoleOutputElement) {
     if (gameActive) return;
@@ -23,6 +28,16 @@ function startDinoGame(consoleOutputElement) {
 
     addGameLine('GAME START! Press SPACE to jump');
     addGameLine('');
+
+    if (isMobile() && gameOutput && !tapHandler) {
+        tapHandler = function(e) {
+            if (gameActive) {
+                e.stopPropagation();
+                jumpDino();
+            }
+        };
+        gameOutput.addEventListener('click', tapHandler);
+    }
 
     gameInterval = setInterval(() => {
         if (!gameActive) return;
@@ -89,6 +104,13 @@ function drawGame() {
     gameDiv.style.whiteSpace = 'pre';
     gameDiv.style.color = '#00ff9d';
     gameDiv.style.marginBottom = '10px';
+    if (isMobile()) {
+        gameDiv.style.cursor = 'pointer';
+        gameDiv.onclick = function(e) {
+            e.stopPropagation();
+            if (gameActive) jumpDino();
+        };
+    }
     gameDiv.innerHTML = gameField;
 
     if (gameOutput.lastGameDiv) {
@@ -116,6 +138,10 @@ function stopDinoGame() {
         gameInterval = null;
     }
     gameActive = false;
+    if (tapHandler && gameOutput) {
+        gameOutput.removeEventListener('click', tapHandler);
+        tapHandler = null;
+    }
 }
 
 function jumpDino() {
