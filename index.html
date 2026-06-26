@@ -374,6 +374,7 @@ async function processCommand(cmd) {
         addConsoleLine('  smartpass - Generate smart password');
         addConsoleLine('  calc      - Calculate expression (calc 2+2)');
         addConsoleLine('  dino      - Play Dino Jump game');
+        addConsoleLine('  demo      - Smart Legion Lab DEMO');
         addConsoleLine('  history   - Show command history');
         addConsoleLine('  history -c - Clear history');
         addConsoleLine('  clear     - Clear console');
@@ -464,6 +465,13 @@ async function processCommand(cmd) {
                 window.smartSecret = cmd;
                 window.waitingForLength = true;
                 window.waitingForSecret = false;
+            }
+        } else if (cmd === 'demo') {
+            if (typeof startDemo !== 'undefined') {
+                stopDemo();
+                setTimeout(() => startDemo(), 100);
+            } else {
+                addConsoleLine('  Demo module not loaded');
             }
         } else if (window.waitingForLength) {
             const length = parseInt(cmd);
@@ -662,6 +670,7 @@ if (yearSpan) {
 </script>
 <script src="js/smartpasslib.js"></script>
 <script src="js/console-game.js"></script>
+<script src="js/demo.js"></script>
 <!-- end scripts -->
 </body>
 </html>
