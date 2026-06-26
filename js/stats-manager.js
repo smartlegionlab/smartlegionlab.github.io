@@ -51,7 +51,7 @@ class StatsManager {
 
     getDefaultData() {
         const data = {
-            experience: this.calcExperience(),
+            experience: this.calcExperienceForProfile(this.config.PROFILES[0]),
             paradigms: this.config.CONSTANTS.PARADIGMS,
             ecosystems: this.config.CONSTANTS.ECOSYSTEMS_COUNT,
             applications: this.config.CONSTANTS.APPLICATIONS,
@@ -91,9 +91,9 @@ class StatsManager {
         return data;
     }
 
-    calcExperience() {
-        if (!this.config.PROFILES || this.config.PROFILES.length === 0) return 1;
-        const start = this.config.PROFILES[0].career_start;
+    calcExperienceForProfile(profile) {
+        if (!profile || !profile.career_start) return 1;
+        const start = profile.career_start;
         const now = new Date().getFullYear();
         let years = now - start;
         const month = new Date().getMonth();
@@ -254,7 +254,10 @@ class StatsManager {
             if (nameEl) nameEl.textContent = profile.name;
             if (githubEl) githubEl.textContent = profile.github;
             if (orcidEl) orcidEl.textContent = profile.orcid;
-            if (careerEl) careerEl.textContent = profile.career_start;
+            if (careerEl) {
+                const years = this.calcExperienceForProfile(profile);
+                careerEl.textContent = years + '+ years';
+            }
         });
     }
 
