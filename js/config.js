@@ -1,23 +1,30 @@
+/**
+ * StatsManager Configuration
+ *
+ * PROFILES - Array of profile objects. Add new profiles to this array.
+ * CONSTANTS - Static values that don't change. Used as fallback if fetch fails.
+ * ZENODO_RECORDS - Zenodo record IDs for fetching stats.
+ * DEFAULTS.RESEARCH_STATS - Fallback values if Zenodo fetch fails.
+ */
 const CONFIG = {
-    DEBUG: false,
-
-    PROFILE: {
-        NAME: 'Alexander Suvorov',
-        GITHUB_USERNAME: 'smartlegionlab',
-        DEVTO_USERNAME: 'smartlegionlab',
-        ORCID: '0009-0006-3427-9611',
-        CAREER_START_YEAR: 2015
-    },
+    PROFILES: [
+        {
+            id: 'alexander-suvorov',
+            name: 'Alexander Suvorov',
+            github: 'smartlegionlab',
+            orcid: '0009-0006-3427-9611',
+            career_start: 2015
+        }
+    ],
 
     CONSTANTS: {
         ECOSYSTEMS_COUNT: 6,
         PROJECTS_COUNT: 70,
         ARTICLES_COUNT: 4,
-        USERS_SUPPORTED: '500K+',
-        COMMITS: "11K",
         PARADIGMS: 3,
         APPLICATIONS: 26,
-        PUBLICATIONS: 4
+        PUBLICATIONS: 4,
+        LIBRARIES_COUNT: 29
     },
 
     ZENODO_RECORDS: {
@@ -27,21 +34,7 @@ const CONFIG = {
         pchParadigm: '17614888'
     },
 
-    PYPI_PACKAGES: [
-        'smartpasslib', 'clipassman', 'clipassgen', 'smart-tsp-solver',
-        'smart-tsp-benchmark', 'smart-2fa-secure', 'babylonian-image-library',
-        'smart-babylon-library', 'commandman', 'smartpathlibrary', 'smartexecutorlib',
-        'climan', 'github-ssh-key', 'commandpack', 'smartprinter', 'smartcliapp',
-        'commandex', 'smartrandom', 'smarttextdecorator', 'smartauthen',
-        'smart-redis-storage', 'smart-text-randomizer', 'smart-repository-manager-core',
-        'forgejo-sync-manager-core', 'django-smart-dynamic-path', 'smart-dynamic-path',
-        'smart-legion-lab-library'
-    ],
-
     DEFAULTS: {
-        REPOS_COUNT: 70,
-        PYPI_PACKAGES_COUNT: 27,
-        MONTHLY_DOWNLOADS: 15000,
         RESEARCH_STATS: {
             pointerParadigm: {
                 unique_views: 485,
@@ -68,7 +61,5 @@ const CONFIG = {
                 total_downloads: 242
             }
         }
-    },
-
-    EXCLUDED_REPOSITORIES: ['smartlegionlab']
+    }
 };
