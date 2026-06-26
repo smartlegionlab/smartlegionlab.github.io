@@ -7,6 +7,7 @@ let gameOutput = null;
 let speed = 6;
 let baseSpeed = 6;
 let frameCount = 0;
+let obstaclePassed = false;
 
 function startDinoGame(consoleOutputElement) {
     if (gameActive) return;
@@ -18,6 +19,7 @@ function startDinoGame(consoleOutputElement) {
     score = 0;
     speed = baseSpeed;
     frameCount = 0;
+    obstaclePassed = false;
 
     addGameLine('GAME START! Press SPACE to jump');
     addGameLine('');
@@ -27,21 +29,25 @@ function startDinoGame(consoleOutputElement) {
 
         frameCount++;
 
-        if (frameCount % 30 === 0 && speed < 15) {
-            speed += 0.5;
+        if (frameCount % 10 === 0) {
+            speed += 0.1;
         }
 
         obstacleX -= speed / 10;
 
-        if (obstacleX < 0) {
-            obstacleX = 35;
-            score++;
+        if (obstacleX < -2) {
+            obstacleX = 35 + Math.floor(Math.random() * 10);
+            obstaclePassed = false;
         }
 
         const obstaclePos = Math.floor(obstacleX);
-        const isCollision = (obstaclePos === 5 && dinoY === 0);
 
-        if (isCollision) {
+        if (obstaclePos < 5 && !obstaclePassed) {
+            obstaclePassed = true;
+            score++;
+        }
+
+        if (obstaclePos >= 4 && obstaclePos <= 6 && dinoY === 0) {
             addGameLine('');
             addGameLine('GAME OVER! Score: ' + score);
             addGameLine('Type "dino" to play again');
@@ -114,8 +120,7 @@ function stopDinoGame() {
 
 function jumpDino() {
     if (!gameActive) return;
-    const obstaclePos = Math.floor(obstacleX);
-    if (dinoY === 0 && obstaclePos !== 5) {
+    if (dinoY === 0) {
         dinoY = 2;
         setTimeout(() => {
             if (gameActive) dinoY = 0;
