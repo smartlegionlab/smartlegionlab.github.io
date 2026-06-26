@@ -15,6 +15,11 @@
  *   paradigm.unique_views, paradigm.unique_downloads (sum of all records)
  *   paradigm.total_views, paradigm.total_downloads (sum of all records)
  *
+ * Performance:
+ *   Data is loaded lazily based on page requirements.
+ *   Only needed JSON files (repos.json, pypi.json, zenodo.json)
+ *   are fetched when corresponding data-smart-key elements exist.
+ *
  * Example:
  *   <span data-smart-key="projects">70+</span>
  *   <span data-smart-key="paradigm.unique_views">1K+</span>
@@ -33,13 +38,15 @@ class StatsManager {
     constructor() {
         this.config = CONFIG;
         this.data = null;
+        this.loaded = false;
         this.init();
     }
 
     async init() {
         this.data = this.getDefaultData();
-        await this.loadAllData();
+        await this.loadRequiredData();
         this.updateAll();
+        this.loaded = true;
     }
 
     getDefaultData() {
@@ -94,12 +101,37 @@ class StatsManager {
         return Math.max(years, 1);
     }
 
-    async loadAllData() {
-        await Promise.allSettled([
-            this.loadRepos(),
-            this.loadPyPI(),
-            this.loadZenodo()
-        ]);
+    getRequiredKeys() {
+        const elements = document.querySelectorAll('[data-smart-key]');
+        const keys = new Set();
+        elements.forEach(el => {
+            const key = el.getAttribute('data-smart-key');
+            keys.add(key.split('.')[0]);
+        });
+        return keys;
+    }
+
+    async loadRequiredData() {
+        const requiredKeys = this.getRequiredKeys();
+        const tasks = [];
+
+        if (requiredKeys.has('projects') || requiredKeys.has('repos') || requiredKeys.has('libraries')) {
+            tasks.push(this.loadRepos());
+        }
+
+        if (requiredKeys.has('pypi')) {
+            tasks.push(this.loadPyPI());
+        }
+
+        const zenodoKeys = Object.keys(this.config.ZENODO_RECORDS);
+        const needsZenodo = zenodoKeys.some(key => requiredKeys.has(key)) || requiredKeys.has('paradigm');
+        if (needsZenodo) {
+            tasks.push(this.loadZenodo());
+        }
+
+        if (tasks.length > 0) {
+            await Promise.allSettled(tasks);
+        }
     }
 
     async loadRepos() {
