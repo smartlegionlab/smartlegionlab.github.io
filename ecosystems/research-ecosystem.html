@@ -807,60 +807,6 @@ if (yearSpan) {
 }
 </script>
 
-<style>
-    @media (min-width: 768px) {
-        #devConsole {
-            width: 500px !important;
-            left: 20px !important;
-        }
-        #consoleOutput {
-            height: 350px !important;
-        }
-    }
-
-    @media (max-width: 767px) {
-        #devConsole {
-            width: calc(100% - 30px) !important;
-            left: 15px !important;
-            right: 15px !important;
-            bottom: 70px !important;
-            max-width: none !important;
-        }
-        #consoleOutput {
-            height: 200px !important;
-        }
-    }
-
-    @media (orientation: landscape) and (max-height: 500px) {
-        #devConsole {
-            bottom: 60px !important;
-        }
-        #consoleOutput {
-            height: 120px !important;
-        }
-    }
-
-    #devConsole {
-        overflow: hidden;
-    }
-
-    #consoleInput::placeholder {
-        color: #333;
-    }
-
-    #consoleOutput::-webkit-scrollbar {
-        width: 3px;
-    }
-
-    #consoleOutput::-webkit-scrollbar-track {
-        background: #111;
-    }
-
-    #consoleOutput::-webkit-scrollbar-thumb {
-        background: #00ff9d;
-    }
-</style>
-
 <!-- end footer -->
 
 
