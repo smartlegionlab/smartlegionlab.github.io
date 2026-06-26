@@ -214,6 +214,7 @@ class StatsManager {
 
         this.updateNested(this.data);
         this.updateProfiles();
+        this.updateVersion();
     }
 
     updateNested(obj, prefix = '') {
@@ -258,6 +259,15 @@ class StatsManager {
                 const years = this.calcExperienceForProfile(profile);
                 careerEl.textContent = years + '+ years';
             }
+        });
+    }
+
+    updateVersion() {
+        const version = this.config.VERSION;
+        if (!version) return;
+
+        document.querySelectorAll('[data-smart-version]').forEach(el => {
+            el.textContent = version;
         });
     }
 

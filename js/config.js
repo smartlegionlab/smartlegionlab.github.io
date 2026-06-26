@@ -69,5 +69,7 @@ const CONFIG = {
                 total_downloads: 242
             }
         }
-    }
+    },
+
+    VERSION: 'v7.0.5'
 };
