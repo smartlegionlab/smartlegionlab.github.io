@@ -17,7 +17,7 @@
  *
  * Performance:
  *   Data is loaded lazily based on page requirements.
- *   Only needed JSON files (repos.json, pypi.json, zenodo.json)
+ *   Only needed JSON files (repos.json, zenodo.json)
  *   are fetched when corresponding data-smart-key elements exist.
  *
  * Example:
@@ -60,7 +60,6 @@ class StatsManager {
             publications: this.config.CONSTANTS.PUBLICATIONS,
             libraries: this.config.CONSTANTS.LIBRARIES_COUNT,
             repos: this.config.CONSTANTS.PROJECTS_COUNT,
-            pypi: 0,
             paradigm: {
                 unique_views: 0,
                 unique_downloads: 0,
@@ -119,10 +118,6 @@ class StatsManager {
             tasks.push(this.loadRepos());
         }
 
-        if (requiredKeys.has('pypi')) {
-            tasks.push(this.loadPyPI());
-        }
-
         const zenodoKeys = Object.keys(this.config.ZENODO_RECORDS);
         const needsZenodo = zenodoKeys.some(key => requiredKeys.has(key)) || requiredKeys.has('paradigm');
         if (needsZenodo) {
@@ -152,18 +147,6 @@ class StatsManager {
             }
         } catch(e) {
             // Keep default values from CONFIG.CONSTANTS
-        }
-    }
-
-    async loadPyPI() {
-        try {
-            const res = await fetch('/data/pypi.json');
-            if (!res.ok) throw new Error();
-            const pkgs = await res.json();
-            const valid = pkgs.filter(p => !p.error);
-            if (valid.length > 0) this.data.pypi = valid.length;
-        } catch(e) {
-            // Keep default value (0)
         }
     }
 
@@ -199,7 +182,7 @@ class StatsManager {
 
     updateAll() {
         const flatKeys = [
-            'experience', 'paradigms', 'ecosystems', 'repos', 'pypi',
+            'experience', 'paradigms', 'ecosystems', 'repos',
             'projects', 'articles', 'applications', 'publications', 'libraries'
         ];
 

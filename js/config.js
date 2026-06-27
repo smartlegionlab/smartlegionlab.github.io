@@ -32,7 +32,7 @@ const CONFIG = {
         PARADIGMS: 3,
         APPLICATIONS: 26,
         PUBLICATIONS: 4,
-        LIBRARIES_COUNT: 29
+        LIBRARIES_COUNT: 30
     },
 
     ZENODO_RECORDS: {
