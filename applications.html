@@ -227,6 +227,33 @@
             </div>
         </div>
 
+        <hr>
+
+        <div class="row g-2 mb-4 align-items-center">
+            <div class="col-12 col-md-7">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark border-secondary text-success">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" id="searchInput" class="form-control bg-dark text-light border-secondary" placeholder="Search applications...">
+                    <button class="btn btn-outline-secondary" id="clearSearch" type="button">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-md-5">
+                <select id="filterSelect" class="form-select bg-dark text-light border-secondary">
+                    <option value="all">All Types</option>
+                    <option value="web">Web</option>
+                    <option value="desktop">Desktop</option>
+                    <option value="mobile">Mobile</option>
+                    <option value="cli">CLI</option>
+                    <option value="bot">Bot</option>
+                </select>
+            </div>
+        </div>
+        <div id="searchStats" class="text-secondary small mt-2" style="min-height: 20px;"></div>
+
         <div class="content-section">
             <div class="container">
                 <div class="row text-center">
@@ -1098,6 +1125,62 @@
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof ScrollManager !== 'undefined') new ScrollManager();
     });
+</script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('searchInput');
+    var clearSearch = document.getElementById('clearSearch');
+    var filterSelect = document.getElementById('filterSelect');
+    var cards = document.querySelectorAll('.col-lg-6.mb-4.d-flex');
+    var searchStats = document.getElementById('searchStats');
+
+    function filterApps() {
+        var term = searchInput.value.toLowerCase().trim();
+        var type = filterSelect.value;
+        var visibleCount = 0;
+
+        for (var i = 0; i < cards.length; i++) {
+            var card = cards[i];
+            var badge = card.querySelector('.smart-badge');
+            var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
+            var fullText = card.textContent.toLowerCase();
+
+            var matchSearch = term === '' || fullText.indexOf(term) !== -1;
+            var matchFilter = type === 'all' || badgeText === type;
+
+            if (matchSearch && matchFilter) {
+                card.style.setProperty('display', 'flex', 'important');
+                visibleCount++;
+            } else {
+                card.style.setProperty('display', 'none', 'important');
+            }
+        }
+
+        var total = cards.length;
+        var statsText = 'Found ' + visibleCount + ' application' + (visibleCount !== 1 ? 's' : '');
+        if (term !== '') {
+            statsText += ' matching "' + term + '"';
+        }
+        if (type !== 'all') {
+            statsText += ' in ' + type.charAt(0).toUpperCase() + type.slice(1);
+        }
+        if (visibleCount === total && term === '' && type === 'all') {
+            statsText = 'Showing all ' + total + ' applications';
+        }
+        searchStats.textContent = statsText;
+    }
+
+    searchInput.addEventListener('input', filterApps);
+    filterSelect.addEventListener('change', filterApps);
+
+    clearSearch.addEventListener('click', function() {
+        searchInput.value = '';
+        filterApps();
+        searchInput.focus();
+    });
+
+    filterApps();
+});
 </script>
 <!-- end scripts -->
 
