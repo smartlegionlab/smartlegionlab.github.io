@@ -1126,62 +1126,7 @@
         if (typeof ScrollManager !== 'undefined') new ScrollManager();
     });
 </script>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var searchInput = document.getElementById('searchInput');
-    var clearSearch = document.getElementById('clearSearch');
-    var filterSelect = document.getElementById('filterSelect');
-    var cards = document.querySelectorAll('.col-lg-6.mb-4.d-flex');
-    var searchStats = document.getElementById('searchStats');
-
-    function filterApps() {
-        var term = searchInput.value.toLowerCase().trim();
-        var type = filterSelect.value;
-        var visibleCount = 0;
-
-        for (var i = 0; i < cards.length; i++) {
-            var card = cards[i];
-            var badge = card.querySelector('.smart-badge');
-            var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
-            var fullText = card.textContent.toLowerCase();
-
-            var matchSearch = term === '' || fullText.indexOf(term) !== -1;
-            var matchFilter = type === 'all' || badgeText === type;
-
-            if (matchSearch && matchFilter) {
-                card.style.setProperty('display', 'flex', 'important');
-                visibleCount++;
-            } else {
-                card.style.setProperty('display', 'none', 'important');
-            }
-        }
-
-        var total = cards.length;
-        var statsText = 'Found ' + visibleCount + ' application' + (visibleCount !== 1 ? 's' : '');
-        if (term !== '') {
-            statsText += ' matching "' + term + '"';
-        }
-        if (type !== 'all') {
-            statsText += ' in ' + type.charAt(0).toUpperCase() + type.slice(1);
-        }
-        if (visibleCount === total && term === '' && type === 'all') {
-            statsText = 'Showing all ' + total + ' applications';
-        }
-        searchStats.textContent = statsText;
-    }
-
-    searchInput.addEventListener('input', filterApps);
-    filterSelect.addEventListener('change', filterApps);
-
-    clearSearch.addEventListener('click', function() {
-        searchInput.value = '';
-        filterApps();
-        searchInput.focus();
-    });
-
-    filterApps();
-});
-</script>
+<script src="js/search-filter.js"></script>
 <!-- end scripts -->
 
 </body>

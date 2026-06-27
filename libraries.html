@@ -1195,62 +1195,7 @@
     });
 </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var searchInput = document.getElementById('searchInput');
-    var clearSearch = document.getElementById('clearSearch');
-    var filterSelect = document.getElementById('filterSelect');
-    var cards = document.querySelectorAll('.col-lg-6.mb-4.d-flex');
-    var searchStats = document.getElementById('searchStats');
-
-    function filterLibraries() {
-        var term = searchInput.value.toLowerCase().trim();
-        var lang = filterSelect.value;
-        var visibleCount = 0;
-
-        for (var i = 0; i < cards.length; i++) {
-            var card = cards[i];
-            var badge = card.querySelector('.smart-badge');
-            var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
-            var fullText = card.textContent.toLowerCase();
-
-            var matchSearch = term === '' || fullText.indexOf(term) !== -1;
-            var matchFilter = lang === 'all' || badgeText === lang;
-
-            if (matchSearch && matchFilter) {
-                card.style.setProperty('display', 'flex', 'important');
-                visibleCount++;
-            } else {
-                card.style.setProperty('display', 'none', 'important');
-            }
-        }
-
-        var total = cards.length;
-        var statsText = 'Found ' + visibleCount + ' library' + (visibleCount !== 1 ? 's' : '');
-        if (term !== '') {
-            statsText += ' matching "' + term + '"';
-        }
-        if (lang !== 'all') {
-            statsText += ' in ' + lang.charAt(0).toUpperCase() + lang.slice(1);
-        }
-        if (visibleCount === total && term === '' && lang === 'all') {
-            statsText = 'Showing all ' + total + ' libraries';
-        }
-        searchStats.textContent = statsText;
-    }
-
-    searchInput.addEventListener('input', filterLibraries);
-    filterSelect.addEventListener('change', filterLibraries);
-
-    clearSearch.addEventListener('click', function() {
-        searchInput.value = '';
-        filterLibraries();
-        searchInput.focus();
-    });
-
-    filterLibraries();
-});
-</script>
+<script src="js/search-filter.js"></script>
 <!-- end scripts -->
 
 </body>
