@@ -12,7 +12,7 @@ function startDemo() {
 
     const initialStats = {
         projects: 70,
-        libraries: 27,
+        libraries: 30,
         research: 4,
         ecosystems: 6,
         applications: 26,
