@@ -16,11 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var i = 0; i < cards.length; i++) {
             var card = cards[i];
             var badge = card.querySelector('.smart-badge');
+            var author = card.querySelector('.author');
             var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
+            var authorText = author ? author.textContent.trim().toLowerCase() : '';
+            console.log(authorText)
             var fullText = card.textContent.toLowerCase();
 
             var matchSearch = term === '' || fullText.indexOf(term) !== -1;
-            var matchFilter = filterValue === 'all' || badgeText === filterValue;
+            var matchFilter = filterValue === 'all' || badgeText === filterValue || authorText === filterValue;
 
             if (matchSearch && matchFilter) {
                 card.style.setProperty('display', 'flex', 'important');
