@@ -17,7 +17,7 @@ const CONFIG = {
         },
         {
             id: 'alexander-suvorov-jr',
-            name: 'Alexander Suvorov JR',
+            name: 'Alexander Suvorov Jr.',
             github: 'aixandrolab',
             orcid: '0009-0006-3427-9611',
             career_start: 2020
