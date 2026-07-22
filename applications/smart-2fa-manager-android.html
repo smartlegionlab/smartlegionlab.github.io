@@ -226,68 +226,74 @@
                 </div>
             </div>
 
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="mb-4">
-            <div class="smart-small-card">
-                <h4 class="text-primary"><i class="bi bi-code-slash me-2"></i>Tech Stack</h4>
-                <div class="row text-light">
-                    <div class="col-md-6">
-                        <span class="text-primary fw-bold">Language:</span> Kotlin
-                    </div>
-                    <div class="col-md-6">
-                        <span class="text-primary fw-bold">Platform:</span> Android 8.0+
-                    </div>
-                    <div class="col-md-6">
-                        <span class="text-primary fw-bold">Encryption:</span> AES-256-GCM, SHA-512
-                    </div>
-                    <div class="col-md-6">
-                        <span class="text-primary fw-bold">TOTP:</span> RFC 6238, HMAC-SHA1
-                    </div>
-                    <div class="col-md-6">
-                        <span class="text-primary fw-bold">QR Scanner:</span> CameraX
-                    </div>
-                    <div class="col-md-6">
-                        <span class="text-primary fw-bold">License:</span> BSD 3-Clause
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="text-primary fw-bold">Language:</span> Kotlin</li>
+                            <li class="mb-2"><span class="text-primary fw-bold">Platform:</span> Android 8.0+</li>
+                            <li class="mb-2"><span class="text-primary fw-bold">Encryption:</span> AES-256-GCM, SHA-512</li>
+                            <li class="mb-2"><span class="text-primary fw-bold">TOTP:</span> RFC 6238, HMAC-SHA1</li>
+                            <li class="mb-2"><span class="text-primary fw-bold">QR Scanner:</span> CameraX</li>
+                            <li class="mb-2"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Screenshots -->
-        <div class="mb-4">
-            <div class="smart-small-card">
-                <h4 class="text-primary"><i class="bi bi-images me-2"></i>Screenshots</h4>
-                <div class="row g-2 justify-content-center">
-                    <div class="col-6 col-md-3">
-                        <a href="https://github.com/smartlegionlab/smart-2fa-manager-android/raw/master/data/images/main_screen.png" target="_blank">
-                            <img src="https://github.com/smartlegionlab/smart-2fa-manager-android/raw/master/data/images/main_screen.png" class="img-fluid rounded" alt="Main Screen">
-                            <p class="text-center text-light small mt-1">Main Screen</p>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <a href="https://github.com/smartlegionlab/smart-2fa-manager-android/raw/master/data/images/lock_screen.png" target="_blank">
-                            <img src="https://github.com/smartlegionlab/smart-2fa-manager-android/raw/master/data/images/lock_screen.png" class="img-fluid rounded" alt="Lock Screen">
-                            <p class="text-center text-light small mt-1">Lock Screen</p>
-                        </a>
+            <!-- Screenshots -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
+                    </button>
+                </h2>
+                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-android/master/data/images/main_screen.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-android/master/data/images/main_screen.png" class="img-fluid rounded" alt="Main Screen">
+                                    <p class="text-center text-light small mt-1">Main Screen</p>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-android/master/data/images/lock_screen.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-android/master/data/images/lock_screen.png" class="img-fluid rounded" alt="Lock Screen">
+                                    <p class="text-center text-light small mt-1">Lock Screen</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Ecosystem -->
-        <div class="mb-4">
-            <div class="smart-small-card">
-                <h4 class="text-primary"><i class="bi bi-diagram-3 me-2"></i>Ecosystem</h4>
-                <p class="text-light">Cross-platform 2FA Management Ecosystem:</p>
-                <div class="d-flex flex-wrap gap-2">
-                    <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-outline-primary btn-sm">Desktop (Python/PyQt5)</a>
-                    <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="btn btn-outline-primary btn-sm">CLI (Python)</a>
-                    <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="btn btn-outline-primary btn-sm">Bash</a>
-                    <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="btn btn-outline-primary btn-sm">Android (Kotlin)</a>
+            <!-- Ecosystem -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystem" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystem
+                    </button>
+                </h2>
+                <div id="collapseEcosystem" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Cross-platform 2FA Management Ecosystem:</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-outline-primary btn-sm">Desktop (Python/PyQt5)</a>
+                            <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="btn btn-outline-primary btn-sm">CLI (Python)</a>
+                            <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="btn btn-outline-primary btn-sm">Bash</a>
+                            <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="btn btn-outline-primary btn-sm">Android (Kotlin)</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
         <!-- Author & Links -->
