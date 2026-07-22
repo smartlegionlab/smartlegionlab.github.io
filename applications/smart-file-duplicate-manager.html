@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart File Duplicate Manager · Smart Legion Lab</title>
+    <meta name="description" content="Smart File Duplicate Manager — app for finding and managing duplicate files. Multi-threaded scanning, hash comparison, move and restore functionality. Built with Python and PyQt6.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/smart-file-duplicate-manager.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Smart File Duplicate Manager · Smart Legion Lab">
+    <meta property="og:description" content="App for finding and managing duplicate files. Multi-threaded scanning, hash comparison, move and restore functionality.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/smart-file-duplicate-manager.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Applications">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-primary">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item active"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart File Duplicate Manager <sup class="text-warning">v1.2.6</sup></h1>
+            <p class="text-light">App for finding and managing duplicate files</p>
+            <p class="text-light">Multi-threaded scanning, hash comparison, move and restore functionality.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">PyQt6</span>
+                <span class="badge bg-primary custom-style">Desktop</span>
+                <span class="badge bg-primary custom-style">Cross-Platform</span>
+                <span class="badge bg-primary custom-style">Duplicate Finder</span>
+                <span class="badge bg-primary custom-style">File Management</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Smart File Duplicate Manager</strong> is an app for finding and managing duplicate files.
+                    It's written in Python using PyQt6.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Duplicate Search -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSearch" aria-expanded="false">
+                        <i class="bi bi-search me-2 text-primary"></i> Duplicate Search
+                    </button>
+                </h2>
+                <div id="collapseSearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Scan the selected folder and all subfolders</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Compare files by size, then by hash (xxHash, or MD5 if none)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multi-threaded scanning (uses all available processor cores)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Filters by file size and extension</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Duplicate Management -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseManagement" aria-expanded="false">
+                        <i class="bi bi-files me-2 text-primary"></i> Duplicate Management
+                    </button>
+                </h2>
+                <div id="collapseManagement" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatically determines the primary file in each group based on strategy: Oldest/Newest, Smallest/Largest, Shortest/Longest Path</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>All other files in the group are automatically marked as duplicates</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Manually select files in each group (checkboxes)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Ability to change the primary file in a group</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Globally select all duplicates / deselect all</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Actions -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseActions" aria-expanded="false">
+                        <i class="bi bi-arrow-right me-2 text-primary"></i> File Actions
+                    </button>
+                </h2>
+                <div id="collapseActions" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Move</strong> — duplicates are moved to the destination folder in a subfolder with the date and time. A JSON log with all information about the moved files is saved in the folder.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Test Mode</strong> — simulates actions without actually moving</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restore -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRestore" aria-expanded="false">
+                        <i class="bi bi-arrow-counterclockwise me-2 text-primary"></i> Restore
+                    </button>
+                </h2>
+                <div id="collapseRestore" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>View all previously moved files from JSON logs</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Selective file restore to their original folders</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic log update and deletion of empty folders</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interface -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInterface" aria-expanded="false">
+                        <i class="bi bi-layout-three-columns me-2 text-primary"></i> Interface
+                    </button>
+                </h2>
+                <div id="collapseInterface" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Three main panels: Left — scan settings, Center — list of duplicate groups with statistics, Right — group details and file list with checkboxes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Search by file name</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Progress bar and status bar</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Confirmation of all important actions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Hotkeys for basic operations</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dark theme</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Hotkeys
+                    </button>
+                </h2>
+                <div id="collapseShortcuts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><span class="text-primary">Ctrl+Shift+O</span> — Select Scan Folder</p>
+                                <p><span class="text-primary">Ctrl+Shift+D</span> — Select Duplicates Folder</p>
+                                <p><span class="text-primary">Ctrl+R</span> — Start scan</p>
+                                <p><span class="text-primary">Ctrl+Shift+C</span> — Cancel scan</p>
+                                <p><span class="text-primary">Ctrl+X</span> — Reset</p>
+                                <p><span class="text-primary">Ctrl+Q</span> — Exit</p>
+                                <p><span class="text-primary">Ctrl+A</span> — Select all duplicates</p>
+                                <p><span class="text-primary">Ctrl+Shift+A</span> — Deselect all</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><span class="text-primary">Ctrl+T</span> — Test mode</p>
+                                <p><span class="text-primary">Ctrl+I</span> — Show statistics</p>
+                                <p><span class="text-primary">Ctrl+L</span> — Clear search</p>
+                                <p><span class="text-primary">Ctrl+M</span> — Move selected files</p>
+                                <p><span class="text-primary">Ctrl+Shift+R</span> — Restore files</p>
+                                <p><span class="text-primary">Ctrl+Shift+F</span> — Open duplicates folder</p>
+                                <p><span class="text-primary">Ctrl+/</span> — Keyboard Shortcuts</p>
+                                <p><span class="text-primary">F1</span> — Documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Integration -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesktop" aria-expanded="false">
+                        <i class="bi bi-pc-display me-2 text-primary"></i> Desktop Integration (Linux)
+                    </button>
+                </h2>
+                <div id="collapseDesktop" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">The application allows you to create desktop entries directly from the menu:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Go to <strong>File → Create Desktop Entry</strong></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Choose locations: Application Menu or Desktop</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Creates <code>.desktop</code> file with proper configuration</li>
+                        </ul>
+                        <p class="text-light small mt-2">Available on Linux systems with desktop environments that support <code>.desktop</code> files (GNOME, KDE, XFCE).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.8+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">GUI:</span> PyQt6</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Hashing:</span> xxhash (optional), MD5</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Windows / Linux / macOS</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Requirements -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRequirements" aria-expanded="false">
+                        <i class="bi bi-info-circle me-2 text-primary"></i> System Requirements
+                    </button>
+                </h2>
+                <div id="collapseRequirements" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python 3.8 or higher</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>PyQt6</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>xxhash (optional — for faster hashing)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Windows / Linux / macOS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
+                    </button>
+                </h2>
+                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-file-duplicate-manager/master/data/images/smart-file-duplicate-manager.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-file-duplicate-manager/master/data/images/smart-file-duplicate-manager.png" class="img-fluid rounded" alt="Smart File Duplicate Manager">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                    <p class="text-light small">
+                        <i class="bi bi-heart-fill text-danger"></i> Made with love for the open-source community
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/applications.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Applications
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
