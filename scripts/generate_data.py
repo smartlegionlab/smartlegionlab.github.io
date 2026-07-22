@@ -36,6 +36,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/applications/smart-password-manager-web.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/applications/smart-repository-manager-gui.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}applications/smart-password-manager-csharp-desktop.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}applications/smart-project-manager.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
 ]
 
 
