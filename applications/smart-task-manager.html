@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart 2FA Manager Desktop · Smart Legion Lab</title>
+    <meta name="description" content="Smart 2FA Manager Desktop — offline, independent TOTP 2FA manager for Linux with graphical interface. No cloud, no phone required. GPG-encrypted storage, QR codes, backups.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/smart-2fa-manager-desktop.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Smart 2FA Manager Desktop · Smart Legion Lab">
+    <meta property="og:description" content="Offline, independent TOTP 2FA manager for Linux with graphical interface. No cloud, no phone required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/smart-2fa-manager-desktop.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Applications">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-primary">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item active"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart 2FA Manager <sup class="text-warning">v1.1.5</sup></h1>
+            <p class="text-light">Offline, independent TOTP 2FA manager for Linux with graphical interface</p>
+            <p class="text-light">No cloud, no phone required. Store your secrets locally, generate codes, create encrypted backups, and sync with Google Authenticator via QR codes.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">PyQt5</span>
+                <span class="badge bg-primary custom-style">TOTP</span>
+                <span class="badge bg-primary custom-style">GPG</span>
+                <span class="badge bg-primary custom-style">Linux</span>
+                <span class="badge bg-primary custom-style">Offline</span>
+                <span class="badge bg-primary custom-style">QR Codes</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    Offline, independent TOTP 2FA manager for Linux with graphical interface.
+                    No cloud, no phone required. Store your secrets locally, generate codes, create encrypted backups, and sync with Google Authenticator via QR codes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Commands -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommands" aria-expanded="false">
+                        <i class="bi bi-grid-3x3-gap-fill me-2 text-primary"></i> Commands (GUI)
+                    </button>
+                </h2>
+                <div id="collapseCommands" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Main Buttons</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>+ Add Service</strong> — Add a new TOTP service</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🔄 Refresh Codes</strong> — Manually refresh all codes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>💾 Backup</strong> — Create encrypted backup with timestamp</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📂 Restore</strong> — Restore from encrypted backup</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Table Actions</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📋 Copy</strong> — Copy TOTP code to clipboard</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🔑 Get</strong> — Show TOTP code in dialog</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📱 QR</strong> — Show QR code for phone import</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🗑 Delete</strong> — Delete service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Dependencies:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>python-pyqt5 — REQUIRED for GUI</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>gpg — REQUIRED for encryption</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>oathtool — REQUIRED for TOTP codes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>qrencode — OPTIONAL for QR codes</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Install commands:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Arch Linux
+sudo pacman -S python-pyqt5 oath-toolkit gnupg qrencode
+
+# Debian/Ubuntu
+sudo apt install python3-pyqt5 oathtool gpg qrencode
+
+# Fedora/RHEL
+sudo dnf install python3-pyqt5 oathtool gnupg2 qrencode</pre>
+                        <p class="text-light mt-2"><strong>Setup:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-2fa-manager-desktop.git
+cd smart-2fa-manager-desktop
+python app.py</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Keyboard Shortcuts
+                    </button>
+                </h2>
+                <div id="collapseShortcuts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Global Shortcuts</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary">Ctrl + L</span> — Lock storage</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + E</span> — Exit application</li>
+                            <li class="mb-1"><span class="text-primary">F1</span> — Show About dialog</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + /</span> — Show Keyboard Shortcuts</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Services Shortcuts</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary">Ctrl + N</span> — Add new service</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + R</span> — Refresh all codes</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + B</span> — Create backup</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + Shift + R</span> — Restore from backup</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Table Actions (when row selected)</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary">Ctrl + C</span> — Copy code to clipboard</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + G</span> — Show code in dialog</li>
+                            <li class="mb-1"><span class="text-primary">Ctrl + Q</span> — Show QR code dialog</li>
+                            <li class="mb-1"><span class="text-primary">Del</span> — Delete service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFileStructure" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> File Structure
+                    </button>
+                </h2>
+                <div id="collapseFileStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+~/.2fa/
+├── secrets.gpg          # Encrypted master storage
+└── backups/
+    └── secrets.2026-04-06_14-30-00.gpg</pre>
+                        <p class="text-light small mt-2"><i class="bi bi-arrow-right"></i> Compatible with bash and Python CLI versions!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowItWorks" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> How It Works
+                    </button>
+                </h2>
+                <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secrets are stored locally in <code>~/.2fa/secrets.gpg</code> (AES-256 encrypted with GPG)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No internet connection required — codes generated locally using <code>oathtool</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Backups are encrypted with the same password</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>QR codes let you import secrets into Google Authenticator / Aegis</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Lost your phone? Just re-scan QR codes from your Linux machine</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Notes -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurity" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Security Notes
+                    </button>
+                </h2>
+                <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Your GPG password is never stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Backup files are encrypted with the same password</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Lock storage when leaving your computer (<strong>Ctrl + L</strong>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Keep backups in a safe place (encrypted USB drive, offline storage)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Integration -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesktop" aria-expanded="false">
+                        <i class="bi bi-pc-display me-2 text-primary"></i> Desktop Integration (Linux)
+                    </button>
+                </h2>
+                <div id="collapseDesktop" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">The application allows you to create desktop entries directly from the menu:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Go to <strong>File → Create Desktop Entry</strong></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Choose locations: Application Menu or Desktop</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Creates <code>.desktop</code> file with proper configuration</li>
+                        </ul>
+                        <p class="text-light small mt-2">Available on Linux systems with desktop environments that support <code>.desktop</code> files (GNOME, KDE, XFCE).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosystem -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystem" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystem
+                    </button>
+                </h2>
+                <div id="collapseEcosystem" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Your existing <code>~/.2fa/secrets.gpg</code> file works <strong>without additional settings</strong> in other versions of this ecosystem!</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="text-primary" target="_blank">Bash version</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="text-primary" target="_blank">Python CLI</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="text-primary" target="_blank">Android/Mobile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.6+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">GUI:</span> PyQt5</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Encryption:</span> GPG (AES-256)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">TOTP:</span> oathtool</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">QR Codes:</span> qrencode (optional)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
+                    </button>
+                </h2>
+                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-desktop/master/data/images/logo.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-desktop/master/data/images/logo.png" class="img-fluid rounded" alt="Smart 2FA Manager Desktop">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/applications.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Applications
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
