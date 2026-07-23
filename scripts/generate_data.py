@@ -40,6 +40,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/applications/smart-2fa-manager-bash.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/applications/github-ssh-key.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/applications/todo-app-cli.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/applications/smart-pip-collector.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/team.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/profiles/smartlegionlab.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/profiles/aixandrolab.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
