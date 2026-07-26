@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Social Network · Smart Legion Lab</title>
+    <meta name="description" content="Simple Social Network — Django-based web application with real-time messaging, friendship management, user profiles, and two-factor authentication. Modern dark-themed interface.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/simple-social-network.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Simple Social Network · Smart Legion Lab">
+    <meta property="og:description" content="Django-based web application with real-time messaging, friendship management, user profiles, and two-factor authentication.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/simple-social-network.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Applications">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-primary">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item active"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Simple Social Network <sup class="text-warning">v0.1.0</sup></h1>
+            <p class="text-light">Django-powered web application with real-time messaging, friendship management, user profiles, and two-factor authentication</p>
+            <p class="text-light">Designed for secure communication and social interaction with a modern, dark-themed interface.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">Django</span>
+                <span class="badge bg-primary custom-style">PostgreSQL</span>
+                <span class="badge bg-primary custom-style">Redis</span>
+                <span class="badge bg-primary custom-style">WebSocket</span>
+                <span class="badge bg-primary custom-style">2FA</span>
+                <span class="badge bg-primary custom-style">Semantic UI</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/aixandrolab/simple-social-network" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    Simple Social Network is a Django-based web application that provides real-time messaging, friendship management, user profiles, and two-factor authentication. The platform is designed for secure communication and social interaction with a modern, dark-themed interface.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>User Authentication</strong> — registration, login, email verification, password reset</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Two-Factor Authentication</strong> — TOTP-based 2FA with backup codes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Real-time Chat</strong> — WebSocket-powered messaging with edit/delete capabilities</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Friend System</strong> — send, accept, reject, and cancel friend requests</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>User Profiles</strong> — customizable profiles with avatars, biography, and personal information</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Chat Management</strong> — archive, mute, delete, and restore chats</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Message Status</strong> — read receipts and message timestamps</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>User Search</strong> — find users by username or first name</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive Design</strong> — works on desktop and mobile devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Technology Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Backend</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Django 6.0.5</strong> — Web framework</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>PostgreSQL</strong> — Database</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Redis</strong> — Caching and session storage</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Django Channels</strong> — WebSocket support for real-time features</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Frontend</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Django Templates</strong> — Server-side rendering</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Semantic UI</strong> — Frontend framework</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>JavaScript</strong> — Native WebSocket client</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Security</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>pyotp</strong> — TOTP generation/verification</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>bcrypt</strong> — Backup code hashing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Clone repository
+git clone https://github.com/aixandrolab/simple-social-network.git
+cd simple-social-network
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure PostgreSQL
+sudo pacman -S postgresql  # Arch Linux
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+# Create database (in psql)
+CREATE DATABASE simple_social_network_db
+    OWNER postgres
+    ENCODING 'UTF-8'
+    LC_COLLATE 'en_US.UTF-8'
+    LC_CTYPE 'en_US.UTF-8'
+    TEMPLATE template0;
+
+# Configure Redis
+sudo pacman -S redis
+sudo systemctl start redis
+sudo systemctl enable redis
+
+# Create .env file (see below)
+# Apply migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Collect static files
+python manage.py collectstatic
+
+# Run development server
+python manage.py runserver</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStructure" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> Project Structure
+                    </button>
+                </h2>
+                <div id="collapseStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+simple-social-network/
+├── chats/
+│   ├── signals.py            # Post-save signals
+│   ├── forms/                # Chat settings form
+│   ├── templatetags/         # Custom template tags
+│   ├── models/               # Chat, ChatStatus, ChatMessage
+│   └── views/                # Chat views
+├── core/
+│   ├── consumers.py          # WebSocket consumers
+│   ├── context_processors.py # Site config context
+│   ├── models.py             # SiteConfig singleton
+│   ├── services.py           # Email services
+│   ├── routing.py            # WebSocket routing
+│   ├── signals.py            # SiteConfig signals
+│   ├── utils/                # Pagination utilities
+│   └── views/                # Home, auth, password views
+├── friends/
+│   ├── services.py           # Friendship business logic
+│   ├── signals.py            # Status change logging
+│   ├── models/               # Friendship, FriendshipHistory
+│   └── views/                # Friend request views
+├── profiles/
+│   ├── middleware.py         # Last activity tracking
+│   ├── signals.py            # User profile creation
+│   ├── forms/                # Profile, 2FA, password forms
+│   ├── utils/                # Image validation
+│   ├── models/               # Profile, token models
+│   └── views/                # Profile, 2FA, settings views
+├── static/                   # Static files
+├── templates/                # Base templates and components
+├── media/                    # User-uploaded files
+├── .env                      # Environment variables
+├── manage.py
+├── requirements.txt
+└── README.md</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Models -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModels" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Key Models
+                    </button>
+                </h2>
+                <div id="collapseModels" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Profile</strong> — user profile with avatar, biography, 2FA settings. Tracks online status via Redis.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Friendship</strong> — manages friend relationships with status (pending/accepted/rejected). Maintains history of status changes.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Chat</strong> — two-user private chat with naming, archiving, muting, and deletion.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>ChatMessage</strong> — messages with content, read status, edit/delete support, and timestamp tracking.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>ChatStatus</strong> — per-user chat preferences (archived, muted, deleted, visible).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- URL Patterns -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseURLs" aria-expanded="false">
+                        <i class="bi bi-link-45deg me-2 text-primary"></i> URL Patterns
+                    </button>
+                </h2>
+                <div id="collapseURLs" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>URL</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>/</code></td><td>Home page</td></tr>
+                                    <tr><td><code>/login/</code></td><td>User login</td></tr>
+                                    <tr><td><code>/register/</code></td><td>User registration</td></tr>
+                                    <tr><td><code>/profile/detail/{slug}/</code></td><td>User profile</td></tr>
+                                    <tr><td><code>/profile/search/</code></td><td>Search users</td></tr>
+                                    <tr><td><code>/friends/@username/</code></td><td>Friends list</td></tr>
+                                    <tr><td><code>/friends/incoming/</code></td><td>Incoming friend requests</td></tr>
+                                    <tr><td><code>/friends/outgoing/</code></td><td>Outgoing friend requests</td></tr>
+                                    <tr><td><code>/chats/active/</code></td><td>Active chats list</td></tr>
+                                    <tr><td><code>/chats/archived/</code></td><td>Archived chats</td></tr>
+                                    <tr><td><code>/chats/deleted/</code></td><td>Deleted chats</td></tr>
+                                    <tr><td><code>/chats/create/{profile_id}/</code></td><td>Create new chat</td></tr>
+                                    <tr><td><code>/chat/details/{chat_id}/</code></td><td>Chat detail/messages</td></tr>
+                                    <tr><td><code>/chat/settings/{chat_id}/</code></td><td>Chat settings</td></tr>
+                                    <tr><td><code>/two-factor/</code></td><td>2FA management</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environment Variables -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnv" aria-expanded="false">
+                        <i class="bi bi-file-earmark-text me-2 text-primary"></i> Environment Variables
+                    </button>
+                </h2>
+                <div id="collapseEnv" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Core Settings
+DJANGO_ENV=development
+SECRET_KEY=your-secret-key-here
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# Database Settings
+DB_NAME=simple_social_network_db
+DB_USER=postgres
+DB_PASSWORD=your-db-password
+DB_HOST=localhost
+DB_PORT=5432
+
+# Redis Settings
+REDIS_URL=redis://localhost:6379/1
+
+# Email Settings (SMTP)
+EMAIL_ON=True
+EMAIL_HOST=smtp.gmail.com
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-password</pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/aixandrolab/simple-social-network" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/simple-social-network/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/aixandrolab.html" class="text-primary text-decoration-none" target="_blank">Alexander Suvorov (@aixandrolab)</a>
+                    </p>
+                    <p class="text-light small">
+                        <i class="bi bi-info-circle text-secondary"></i> This application is part of the <strong>@aixandrolab</strong> ecosystem.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/applications.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Applications
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
