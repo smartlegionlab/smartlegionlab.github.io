@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLI Files Manager · Smart Legion Lab</title>
+    <meta name="description" content="CLI Files Manager — comprehensive command-line file management tool with recursive size analysis, MD5 checksums, hex viewing, device-wide search, and desktop integration.">
+    <meta name="author" content="aixandrolab">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/cli-files-manager.html">
+    <link rel="author" href="https://github.com/aixandrolab">
+    <meta property="og:title" content="CLI Files Manager · Smart Legion Lab">
+    <meta property="og:description" content="Comprehensive command-line file management tool with recursive size analysis, MD5 checksums, hex viewing, device-wide search, and desktop integration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/cli-files-manager.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Applications">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-primary">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item active"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/aixandrolab">aixandrolab</a> | <a href="https://github.com/aixandrolab/aixandrolab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">CLI Files Manager <sup class="text-warning">v1.0.0</sup></h1>
+            <p class="text-light">Comprehensive command-line file management tool with advanced features for Linux</p>
+            <p class="text-light">Powerful file operations, MD5 checksums, hex viewing, recursive size analysis, device-wide search, and desktop integration.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">CLI</span>
+                <span class="badge bg-primary custom-style">Linux</span>
+                <span class="badge bg-primary custom-style">File Management</span>
+                <span class="badge bg-primary custom-style">Open Source</span>
+                <span class="badge bg-primary custom-style">No Dependencies</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/aixandrolab/cli-files-manager" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Powerful File Management:</strong> CLI Files Manager is a comprehensive command-line tool that brings advanced file operations to your terminal. From recursive size analysis and MD5 checksums to hex viewing and device-wide search, it's designed for power users who want efficiency and control.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Recursive Size Analysis</strong> — Scan folders and see detailed size breakdowns with progress bar</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Safe Deletion</strong> — Delete files and folders with confirmation prompts</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Text File Viewer</strong> — View any text file with paging support (less/more)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Hex/Binary Viewer</strong> — Examine raw file contents in hexadecimal format</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>MD5 Hash Calculator</strong> — Generate and verify file checksums</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Open Location</strong> — Open current or selected path in system file explorer</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Device-Wide Search</strong> — Find files by pattern with preview and navigation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive Directory Navigation</strong> — Change working directory with tab completion</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Detailed File Info</strong> — View metadata, timestamps, sizes, and MD5</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Desktop Integration</strong> — Create .desktop entries for app menu and desktop</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Color-Coded Output</strong> — Beautiful terminal UI with intuitive color coding</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Tab Completion</strong> — Auto-complete file and directory paths</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshot -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshot" aria-expanded="false">
+                        <i class="bi bi-image me-2 text-primary"></i> Screenshot
+                    </button>
+                </h2>
+                <div id="collapseScreenshot" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <a href="https://github.com/aixandrolab/cli-files-manager/blob/master/data/images/main_menu.png" target="_blank">
+                                    <img src="https://github.com/aixandrolab/cli-files-manager/raw/master/data/images/main_menu.png" class="img-fluid rounded" alt="CLI Files Manager Main Menu">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Menu -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMenu" aria-expanded="false">
+                        <i class="bi bi-menu-button-wide me-2 text-primary"></i> Main Menu Options
+                    </button>
+                </h2>
+                <div id="collapseMenu" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Option</th><th>Command</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>📊 ANALYZE SIZE</td><td>Analyze file/folder size with progress bar</td></tr>
+                                    <tr><td>2</td><td>🗑️ DELETE</td><td>Permanently delete files or folders</td></tr>
+                                    <tr><td>3</td><td>📖 VIEW TEXT</td><td>Display text file content with pager</td></tr>
+                                    <tr><td>4</td><td>🔍 VIEW HEX</td><td>Show binary/hexadecimal file view</td></tr>
+                                    <tr><td>5</td><td>🔐 MD5 HASH</td><td>Calculate MD5 checksum of any file</td></tr>
+                                    <tr><td>6</td><td>📂 OPEN LOCATION</td><td>Open path in system file explorer</td></tr>
+                                    <tr><td>7</td><td>🔎 SEARCH</td><td>Search entire device for files by pattern</td></tr>
+                                    <tr><td>8</td><td>📁 CHANGE DIR</td><td>Change working directory with TAB completion</td></tr>
+                                    <tr><td>9</td><td>💾 FILE INFO</td><td>Show detailed file metadata</td></tr>
+                                    <tr><td>10</td><td>🖥️ DESKTOP ENTRY</td><td>Install app to system menu/desktop</td></tr>
+                                    <tr><td>0</td><td>🚪 EXIT</td><td>Exit application</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Dependencies</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Arch Linux
+sudo pacman -S python python-pip
+
+# Debian/Ubuntu
+sudo apt install python3 python3-pip
+
+# Fedora/RHEL
+sudo dnf install python3 python3-pip
+
+# No additional Python packages required — uses only standard library!</pre>
+                        <p class="text-light mt-2"><strong>Setup from Repository</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cd ~
+git clone https://github.com/aixandrolab/cli-files-manager.git
+cd cli-files-manager
+python app.py</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Examples -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> Usage Examples
+                    </button>
+                </h2>
+                <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Analyze Folder Size</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+[████████████████████████████████████████] 1250/1250 files
+📁 TOTAL SIZE: 2.45 GB</pre>
+                        <p class="text-light mt-2"><strong>Search Files Device-Wide</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+🔍 Enter search pattern: *.mp3
+📁 Search root: /home/user/Music
+Results show all matches with sizes and paths</pre>
+                        <p class="text-light mt-2"><strong>Calculate MD5 Hash</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+MD5 Hash of file.iso:
+a1b2c3d4e5f678901234567890123456</pre>
+                        <p class="text-light mt-2"><strong>View Binary File in Hex</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  .PNG........IHDR
+00000010  00 00 02 00 00 00 02 00  08 06 00 00 00  ... etc</pre>
+                        <p class="text-light mt-2"><strong>Create Desktop Integration</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+✅ SUCCESS
+✓ Application Menu: /home/user/.local/share/applications/cli-files-manager.desktop
+✓ Desktop: /home/user/Desktop/cli-files-manager.desktop</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStructure" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> File Structure
+                    </button>
+                </h2>
+                <div id="collapseStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cli-files-manager/
+├── app.py                     # Main entry point
+├── utils/
+│   ├── asciiart.py            # ASCII logo and separators
+│   ├── colors.py              # Terminal color definitions
+│   ├── completer.py           # Tab completion handler
+│   ├── desktop_entry.py       # .desktop file creator
+│   └── file_manager.py        # Core file management logic
+├── data/
+│   ├── icons/
+│   │   └── icon.png           # Application icon
+│   └── images/
+│       └── main_menu.png      # Menu screenshot
+├── .gitignore
+├── LICENSE
+└── README.md</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowItWorks" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> How It Works
+                    </button>
+                </h2>
+                <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Pure Python 3</strong> — Uses only standard library (no external dependencies)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Tab Completion</strong> — Powered by Python's readline module with custom path completer</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Recursive Scanning</strong> — Efficient directory walking with real-time progress</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Hex Viewer</strong> — Binary-safe reading with hexdump-style formatting</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>MD5 Calculation</strong> — Streaming hash computation for files of any size</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Desktop Integration</strong> — Generates freedesktop.org-compatible .desktop files</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Paging Support</strong> — Uses less/more for long output, falls back to inline display</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurity" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Security & Safety Notes
+                    </button>
+                </h2>
+                <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-exclamation-triangle text-warning me-2"></i><strong>Deletion is permanent</strong> — No recycle bin, files are removed immediately</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>All operations require confirmation</strong> — Especially destructive actions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No data collection</strong> — Works completely offline, no telemetry</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Respects permissions</strong> — Cannot access files without proper OS permissions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Desktop files are safe</strong> — Created in user directories, not system-wide</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTroubleshooting" aria-expanded="false">
+                        <i class="bi bi-wrench me-2 text-primary"></i> Troubleshooting
+                    </button>
+                </h2>
+                <div id="collapseTroubleshooting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="text-primary fw-bold">Tab completion not working?</span><br>Install readline: <code>pip3 install readline</code></li>
+                            <li class="mb-2"><span class="text-primary fw-bold">"less" pager not found?</span><br>Install less: <code>sudo apt install less</code> (Debian/Ubuntu) or <code>sudo pacman -S less</code> (Arch)</li>
+                            <li class="mb-2"><span class="text-primary fw-bold">Desktop entries not showing?</span><br>Update desktop database: <code>update-desktop-database ~/.local/share/applications/</code></li>
+                            <li class="mb-2"><span class="text-primary fw-bold">Permission denied errors?</span><br>Run with appropriate user permissions, check file ownership with <code>ls -la /path/to/file</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux (cross-platform ready)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Dependencies:</span> None (standard library only)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-warning"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light">Software provided "AS IS" without warranty. You assume all risks for file operations, deletions, and system interactions.</p>
+                        <p class="text-light">Full legal disclaimer: <a href="https://github.com/aixandrolab/cli-files-manager/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/aixandrolab/cli-files-manager" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/cli-files-manager/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/cli-files-manager/issues" class="btn btn-outline-primary btn-sm">Report Issue</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/aixandrolab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                    <p class="text-light small">
+                        <i class="bi bi-star-fill text-warning"></i> If you find this useful, please star the repository!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/applications.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Applications
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/aixandrolab">aixandrolab</a> | <a href="https://github.com/aixandrolab/aixandrolab.github.io" target="_blank"><span data-smart-version>v7.1.4</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
