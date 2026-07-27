@@ -18,6 +18,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/libraries/babylonian-image-library.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smart-babylon-library.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/commandman.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/libraries/smartpathlibrary.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems/smart-passwords-ecosystem.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems/deterministic-ecosystem.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
