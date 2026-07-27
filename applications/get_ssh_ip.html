@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo App Web · Smart Legion Lab</title>
-    <meta name="description" content="ToDo App Web — simple, comfortable and affordable web-application for keeping and completing your tasks. Built with Django and MariaDB.">
+    <title>Get SSH IP · Telegram Bot · Smart Legion Lab</title>
+    <meta name="description" content="Get SSH IP — Telegram Bot for getting a command to connect to your SSH server. Simple, secure, and convenient.">
     <meta name="author" content="smartlegionlab">
-    <link rel="canonical" href="https://smartlegionlab.ru/applications/todo_app_web_version.html">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/get_ssh_ip.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="ToDo App Web · Smart Legion Lab">
-    <meta property="og:description" content="Simple, comfortable and affordable web-application for keeping and completing your tasks. Built with Django and MariaDB.">
+    <meta property="og:title" content="Get SSH IP · Telegram Bot · Smart Legion Lab">
+    <meta property="og:description" content="Telegram Bot for getting a command to connect to your SSH server. Simple, secure, and convenient.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.ru/applications/todo_app_web_version.html">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/get_ssh_ip.html">
     <meta property="og:site_name" content="Smart Legion Lab · Applications">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,19 +78,18 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">ToDo App Web <sup class="text-warning">v0.0.1</sup></h1>
-            <p class="text-light">Simple, comfortable and affordable web-application for keeping and completing your tasks</p>
-            <p class="text-light">Built with Django, MariaDB, and a clean modern interface.</p>
+            <h1 class="text-primary">Get SSH IP <sup class="text-warning">v0.1.0</sup></h1>
+            <p class="text-light">Telegram Bot for getting a command to connect to your SSH server</p>
+            <p class="text-light">Simple, secure, and convenient way to get your SSH connection details via Telegram.</p>
             <div class="badges mt-2">
                 <span class="badge bg-primary custom-style">Python</span>
-                <span class="badge bg-primary custom-style">Django</span>
-                <span class="badge bg-primary custom-style">MariaDB</span>
-                <span class="badge bg-primary custom-style">Web App</span>
+                <span class="badge bg-primary custom-style">Telegram Bot</span>
+                <span class="badge bg-primary custom-style">SSH</span>
                 <span class="badge bg-primary custom-style">Open Source</span>
                 <span class="badge bg-primary custom-style">BSD-3</span>
             </div>
             <div class="mt-3">
-                <a target="_blank" href="https://github.com/aixandrolab/todo_app_web_version" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
             </div>
         </div>
 
@@ -100,7 +99,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>Simple Task Management:</strong> ToDo App Web is a straightforward web application for managing your tasks. Built with Django and MariaDB, it provides a clean interface for creating, tracking, and completing tasks.
+                    <strong>SSH Connection Helper:</strong> Get SSH IP is a Telegram Bot that provides you with the command to connect to your SSH server. Perfect for when you need quick access to your server's connection details from anywhere.
                 </p>
             </div>
         </div>
@@ -118,47 +117,66 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Task Management</strong> — Create, edit, and delete tasks</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Task Completion</strong> — Mark tasks as completed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>User Authentication</strong> — Secure login and registration</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Database Storage</strong> — Persistent storage with MariaDB</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clean Interface</strong> — Simple and intuitive web UI</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Django Admin</strong> — Built-in admin interface for management</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Telegram Bot</strong> — Simple bot interface for getting SSH connection details</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Admin Control</strong> — Restrict access to specified Telegram chat IDs</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secure Configuration</strong> — Token and admins stored in JSON config</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Easy Setup</strong> — Simple configuration and deployment</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Lightweight</strong> — Minimal dependencies, easy to run</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- MariaDB Setup -->
+            <!-- Logo -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMariaDB" aria-expanded="false">
-                        <i class="bi bi-database me-2 text-primary"></i> MariaDB Setup
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLogo" aria-expanded="false">
+                        <i class="bi bi-image me-2 text-primary"></i> Logo
                     </button>
                 </h2>
-                <div id="collapseMariaDB" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseLogo" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-4">
+                                <img src="https://github.com/aixandrolab/get_ssh_ip/raw/master/data/images/logo.png" class="img-fluid rounded" alt="Get SSH IP Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConfig" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Configuration
+                    </button>
+                </h2>
+                <div id="collapseConfig" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
+                        <p class="text-light">Create a <code>config.json</code> file in your project root:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-# Install MariaDB
-sudo pacman -S mariadb libmariadbclient mariadb-clients
-
-# Initialize database
-sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-
-# Start and secure MariaDB
-sudo systemctl start mariadb
-sudo mysql_secure_installation
-sudo systemctl restart mariadb
-
-# Connect as root
-sudo mysql -u root -p
-
-# Create database and user
-CREATE USER 'USER_NAME'@'localhost' IDENTIFIED BY 'PASSWORD';
-CREATE DATABASE database_name CHARACTER SET utf8 COLLATE utf8_general_ci;
-GRANT ALL PRIVILEGES ON database_name.* TO 'USER_NAME'@'localhost';
-FLUSH PRIVILEGES;
-exit</pre>
+{
+    "token": "your-telegram-bot-token",
+    "admins": [
+        "chat_id1",
+        "chat_id2"
+    ]
+}</pre>
+                        <p class="text-light mt-2"><strong>How to get your Telegram Bot Token:</strong></p>
+                        <ol class="text-light">
+                            <li>Open Telegram and search for <strong>@BotFather</strong></li>
+                            <li>Send <code>/newbot</code> and follow the instructions</li>
+                            <li>Copy the token provided by BotFather</li>
+                            <li>Paste it in the <code>config.json</code> file</li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>How to get your Chat ID:</strong></p>
+                        <ol class="text-light">
+                            <li>Start a chat with your bot</li>
+                            <li>Send any message to the bot</li>
+                            <li>Check the bot logs or use <strong>@userinfobot</strong> to get your chat ID</li>
+                            <li>Add your chat ID to the <code>admins</code> list</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -167,78 +185,27 @@ exit</pre>
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
-                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                        <i class="bi bi-download me-2 text-primary"></i> Installation & Run
                     </button>
                 </h2>
                 <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Requirements</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python 3.8+</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>MariaDB</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Django</li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Setup</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 # Clone the repository
-git clone https://github.com/aixandrolab/todo_app_web_version.git
-cd todo_app_web_version
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate
+git clone https://github.com/aixandrolab/get_ssh_ip.git
+cd get_ssh_ip
 
 # Install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt</pre>
-                    </div>
-                </div>
-            </div>
+pip install -r requirements.txt
 
-            <!-- Environment Configuration -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnv" aria-expanded="false">
-                        <i class="bi bi-file-earmark-text me-2 text-primary"></i> Environment Configuration
-                    </button>
-                </h2>
-                <div id="collapseEnv" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light">Create a <code>.env</code> file in your project root:</p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-SECRET_KEY="your-django-secret-key"
-DB_NAME="todo_app_web_db"
-DB_USER="todo_app_web_user"
-DB_PASSWORD="your-password"
-DB_HOST="localhost"</pre>
-                        <p class="text-light mt-2"><strong>Generate Secret Key</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-python -c "import secrets; print(secrets.token_urlsafe(50))"</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Run -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRun" aria-expanded="false">
-                        <i class="bi bi-play me-2 text-primary"></i> Run
-                    </button>
-                </h2>
-                <div id="collapseRun" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-# Apply migrations
-python manage.py migrate
-
-# Create superuser
-python manage.py createsuperuser
-
-# Run development server
-python manage.py runserver
-
-# Open in browser
-http://127.0.0.1:8000</pre>
+# Create config.json with your token and admins
+# Then run the bot
+python app.py</pre>
+                        <p class="text-light mt-2"><strong>Dependencies:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python 3.6+</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>python-telegram-bot library</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -253,10 +220,9 @@ http://127.0.0.1:8000</pre>
                 <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><span class="text-primary fw-bold">Framework:</span> Django</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">Database:</span> MariaDB / MySQL</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.8+</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">Frontend:</span> HTML, CSS, Bootstrap</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.6+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Framework:</span> python-telegram-bot</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux / macOS / Windows</li>
                             <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
                         </ul>
                     </div>
@@ -286,9 +252,9 @@ http://127.0.0.1:8000</pre>
                 <div class="text-center">
                     <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <a target="_blank" href="https://github.com/aixandrolab/todo_app_web_version" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
-                        <a target="_blank" href="https://github.com/aixandrolab/todo_app_web_version/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
-                        <a target="_blank" href="https://github.com/aixandrolab/todo_app_web_version/issues" class="btn btn-outline-primary btn-sm">Report Issue</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip/issues" class="btn btn-outline-primary btn-sm">Report Issue</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
