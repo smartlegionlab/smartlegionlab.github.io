@@ -37,6 +37,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/libraries/smartpasslib-kotlin.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib-csharp.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib-go.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
+    {'loc': f"{BASE_URL}/libraries/smart-dynamic-path.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems/smart-passwords-ecosystem.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/ecosystems/deterministic-ecosystem.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart-dynamic-path · Smart Legion Lab</title>
+    <meta name="description" content="smart-dynamic-path — Dynamic, deterministic, time-dependent path generation. No storage. No database. No dependencies. Generate cryptographically secure paths that change automatically based on time.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/libraries/smart-dynamic-path.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="smart-dynamic-path · Smart Legion Lab">
+    <meta property="og:description" content="Dynamic, deterministic, time-dependent path generation. No storage. No database. No dependencies. Generate cryptographically secure paths that change automatically based on time.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/libraries/smart-dynamic-path.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Libraries">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-primary">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item active"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.10</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">smart-dynamic-path <sup class="text-warning">v1.0.1</sup></h1>
+            <p class="text-light">Dynamic, deterministic, time-dependent path generation</p>
+            <p class="text-light"><span class="text-primary">No storage.</span> <span class="text-primary">No database.</span> <span class="text-primary">No dependencies.</span></p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">Security</span>
+                <span class="badge bg-primary custom-style">Deterministic</span>
+                <span class="badge bg-primary custom-style">No Storage</span>
+                <span class="badge bg-primary custom-style">PyPI</span>
+                <span class="badge bg-primary custom-style">CLI</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-dynamic-path" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://pypi.org/project/smart-dynamic-path/" class="btn btn-outline-primary btn-sm">PyPI <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>smart-dynamic-path</strong> — dynamic, deterministic, time-dependent path generation.
+                    Generate cryptographically secure paths that change automatically based on time (day, month, hour) from a secret phrase.
+                </p>
+                <p class="text-light">
+                    Perfect for hiding admin panels, creating temporary access links, or building time-based API keys.
+                </p>
+                <p class="text-light small">
+                    <strong>Core idea:</strong> One secret phrase → one deterministic path per time period. Same phrase + same day = same path. No storage. No database. Just pure math.
+                </p>
+            </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>Use Cases:</strong></p>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Hide Django admin: <code>/admin/a1b2c3d4e5f6g7h8/</code></li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Temporary download links that expire after a day</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Time-rotating API endpoints</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>"Secret room" pattern for any web framework</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> — paths are regenerated, not stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Database</strong> — no persistence layer required</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Dependencies</strong> — pure Python, uses only hashlib</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> — same input always produces same output</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Time-Based Rotation</strong> — day, month, hour, or static</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLI & Python API</strong> — flexible usage options</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> — SHA-256 based</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pip install smart-dynamic-path</pre>
+                        <p class="text-light mt-2"><strong>Local usage without installation:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-dynamic-path
+cd smart-dynamic-path
+
+python -m smart_dynamic_path.cli --secret "my secret phrase"
+python -m smart_dynamic_path.cli --secret "my secret phrase" --period month --full
+python -m smart_dynamic_path.cli --secret "my secret phrase" --key-only</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLI Commands -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCLI" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> CLI Commands
+                    </button>
+                </h2>
+                <div id="collapseCLI" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Command</th><th>Output</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>smart-dynamic-path --secret "secret"</code></td><td>Full info (key + path + URL)</td></tr>
+                                    <tr><td><code>smart-dynamic-path --secret "secret" --key-only</code></td><td>Only SECRET_KEY (64 hex)</td></tr>
+                                    <tr><td><code>smart-dynamic-path --secret "secret" --path-only</code></td><td>Only path (32 hex)</td></tr>
+                                    <tr><td><code>smart-dynamic-path --secret "secret" --full</code></td><td>Only full URL <code>/xxxx/</code></td></tr>
+                                    <tr><td><code>smart-dynamic-path --secret "secret" --period month --full</code></td><td>Monthly rotation</td></tr>
+                                    <tr><td><code>smart-dynamic-path --secret "secret" --prefix admin --full</code></td><td>With prefix</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Python API -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAPI" aria-expanded="false">
+                        <i class="bi bi-code-square me-2 text-primary"></i> Python API
+                    </button>
+                </h2>
+                <div id="collapseAPI" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smart_dynamic_path import generate_secret_key, generate_path, secret_to_path
+
+# From secret phrase
+key = generate_secret_key("my secret phrase")
+path = generate_path(key, period='day')
+key, path = secret_to_path("my secret phrase", period='day')</pre>
+                        <p class="text-light mt-2"><strong>Quick start:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smart_dynamic_path import generate_path, secret_to_path
+
+# Generate path from secret key
+path = generate_path(secret_key='your_64_hex_secret_key', period='day')
+# Output: "4e30939634dfc6617f10a2f8fe259f44"
+
+# With prefix
+path = generate_path(secret_key='...', period='day', prefix='admin')
+# Output: "admin/4ab3b83e39bbb1d7e31e0978ea8cea05"
+
+# From secret phrase (local use only)
+key, path = secret_to_path('my secret phrase', period='day')</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowItWorks" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> How It Works
+                    </button>
+                </h2>
+                <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+SECRET_KEY = SHA256(secret_phrase)                 # 64 hex chars (256 bits)
+PATH = SHA256(SECRET_KEY + date)[:16].hex()        # 32 hex chars (128 bits)</pre>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secret phrase → SECRET_KEY (256 bits)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>SECRET_KEY + current date/time → path (128 bits)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Path changes automatically based on period (day/month/hour/static)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurity" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Security
+                    </button>
+                </h2>
+                <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> — paths are regenerated, not stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> — same input always produces same output</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>32 hex chars</strong> = 2¹²⁸ possible paths (no brute force)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Time-based rotation</strong> limits exposure window</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Paradigms -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResearch" aria-expanded="false">
+                        <i class="bi bi-mortarboard me-2 text-primary"></i> Implemented Paradigms
+                    </button>
+                </h2>
+                <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>1. Pointer-Based Security</strong></p>
+                        <p class="text-light small">The path is not stored anywhere. It is regenerated on demand from a secret phrase and current time. There is no stored "pointer" — only the ability to compute it.</p>
+                        <p class="text-light small"><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17204738" class="text-primary" target="_blank">10.5281/zenodo.17204738</a></p>
+
+                        <p class="text-light mt-2"><strong>2. Local Data Regeneration</strong></p>
+                        <p class="text-light small">The exact path is computed locally on the developer's machine using only the secret phrase and date, without accessing any server.</p>
+                        <p class="text-light small"><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17264327" class="text-primary" target="_blank">10.5281/zenodo.17264327</a></p>
+
+                        <p class="text-light mt-2"><strong>3. Position-Candidate-Hypothesis (PCH)</strong></p>
+                        <p class="text-light small">Among all possible paths (2¹²⁸ candidates), only one specific path generated by the secret phrase is valid at any given time.</p>
+                        <p class="text-light small"><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17614888" class="text-primary" target="_blank">10.5281/zenodo.17614888</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-dynamic-path/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-dynamic-path/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-dynamic-path" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://pypi.org/project/smart-dynamic-path/" class="btn btn-outline-primary btn-sm">PyPI</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-dynamic-path/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-dynamic-path/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/libraries.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Libraries
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.1.10</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
