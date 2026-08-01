@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Repository Manager GUI · Smart Legion Lab</title>
+    <meta name="description" content="Smart Repository Manager GUI — A powerful desktop application for managing GitHub repositories with intelligent synchronization, and comprehensive visual management tools.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/smart-repository-manager-gui.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Smart Repository Manager GUI · Smart Legion Lab">
+    <meta property="og:description" content="A powerful desktop application for managing GitHub repositories with intelligent synchronization, and comprehensive visual management tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/smart-repository-manager-gui.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.0</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart Repository Manager GUI <sup class="text-warning">v1.2.9</sup></h1>
+            <p class="text-light">A powerful desktop application for managing GitHub repositories</p>
+            <p class="text-light">Intelligent synchronization, and <span class="text-primary">comprehensive visual management tools</span>.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">PyQt6</span>
+                <span class="badge bg-primary custom-style">GUI</span>
+                <span class="badge bg-primary custom-style">GitHub</span>
+                <span class="badge bg-primary custom-style">Repository Manager</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-gui" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Smart Repository Manager GUI</strong> — a powerful desktop application for managing GitHub repositories with intelligent synchronization, and comprehensive visual management tools.
+                </p>
+                <p class="text-light">
+                    <strong>Key Benefits:</strong> Visual Management — Full graphical interface for all operations · Smart Table — Lazy-loading repository list with filtering and search · Multi-User Support — Switching between GitHub accounts · Keyboard-Driven — Complete keyboard shortcuts for power users.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- System Initialization -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInit" aria-expanded="false">
+                        <i class="bi bi-check2-circle me-2 text-primary"></i> System Initialization
+                    </button>
+                </h2>
+                <div id="collapseInit" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Every session begins with an <strong>8-step mandatory system checkup</strong>:</p>
+                        <ol class="text-light small">
+                            <li class="mb-1"><strong>Directory Structure</strong> — Creates and verifies workspace organization</li>
+                            <li class="mb-1"><strong>Internet Connection</strong> — Validates network connectivity</li>
+                            <li class="mb-1"><strong>User Management</strong> — Select or add GitHub account</li>
+                            <li class="mb-1"><strong>User Data</strong> — Fetches GitHub profile information</li>
+                            <li class="mb-1"><strong>Repository Loading</strong> — Retrieves complete repository list</li>
+                            <li class="mb-1"><strong>Local Copy Check</strong> — Scans for existing local repositories</li>
+                            <li class="mb-1"><strong>Update Detection</strong> — Identifies repositories needing updates</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Synchronization -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSync" aria-expanded="false">
+                        <i class="bi bi-arrow-repeat me-2 text-primary"></i> Synchronization Operations
+                    </button>
+                </h2>
+                <div id="collapseSync" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Synchronize All</strong> <code>(Ctrl+S)</code> — Complete bidirectional sync</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Update Needed Only</strong> <code>(Ctrl+U)</code> — Smart update detection</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clone Missing Only</strong> <code>(Ctrl+M)</code> — Selective cloning</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Sync with Repair</strong> <code>(Ctrl+R)</code> — Advanced recovery</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Re-clone All</strong> — Complete refresh</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Download All As Zip</strong> — Complete parallel download</li>
+                        </ul>
+                        <p class="text-light small mt-2"><strong>Live Console:</strong> Every sync operation displays real-time logs with timestamp, status, and duration for each repository.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDashboard" aria-expanded="false">
+                        <i class="bi bi-grid-3x3-gap-fill me-2 text-primary"></i> Main Dashboard
+                    </button>
+                </h2>
+                <div id="collapseDashboard" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Repository Table:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Lazy Loading</strong> — Loads 20 repositories at a time for optimal performance</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Smart Filtering</strong> — Filter by Local/Remote, Needs Update, Private/Public, Forks, Archived</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Instant Search</strong> — Real-time filtering by name, description, or language</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Visual Indicators</strong> — Status icons for local presence and update requirements</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Context Menu</strong> — Right-click actions for quick operations</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Status Panels:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Panel</th><th>Information Displayed</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Token</td><td>Token validity, API limits (remaining/total), reset time</td></tr>
+                                    <tr><td>Repositories</td><td>Total count, local copies, pending updates</td></tr>
+                                    <tr><td>User</td><td>Display name, public repos, followers count</td></tr>
+                                    <tr><td>Network</td><td>Connection status, external IP, GitHub accessibility</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Keyboard Shortcuts
+                    </button>
+                </h2>
+                <div id="collapseShortcuts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>File:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+B</code></td><td>Create Archive</td></tr>
+                                    <tr><td><code>F5</code></td><td>Refresh</td></tr>
+                                    <tr><td><code>Ctrl+Q</code></td><td>Exit</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Synchronization:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+S</code></td><td>Synchronize All</td></tr>
+                                    <tr><td><code>Ctrl+U</code></td><td>Update Needed Only</td></tr>
+                                    <tr><td><code>Ctrl+M</code></td><td>Clone Missing Only</td></tr>
+                                    <tr><td><code>Ctrl+Shift+R</code></td><td>Sync with Repair</td></tr>
+                                    <tr><td><code>Ctrl+Alt+R</code></td><td>Re-clone All Repositories</td></tr>
+                                    <tr><td><code>Ctrl+Shift+D</code></td><td>Download all repositories</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Repositories:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+Shift+B</code></td><td>Open in Browser</td></tr>
+                                    <tr><td><code>Ctrl+L</code></td><td>Open Local Folder</td></tr>
+                                    <tr><td><code>Ctrl+D</code></td><td>Show Details</td></tr>
+                                    <tr><td><code>Ctrl+R</code></td><td>Refresh List</td></tr>
+                                    <tr><td><code>Ctrl+Del</code></td><td>Delete Local Copy</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Tools & Help:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+I</code></td><td>User Information</td></tr>
+                                    <tr><td><code>Ctrl+T</code></td><td>Token Information</td></tr>
+                                    <tr><td><code>Ctrl+Shift+N</code></td><td>Network Information</td></tr>
+                                    <tr><td><code>Ctrl+Shift+M</code></td><td>Storage Management</td></tr>
+                                    <tr><td><code>F1</code></td><td>Documentation</td></tr>
+                                    <tr><td><code>Ctrl+/</code></td><td>Keyboard shortcuts</td></tr>
+                                    <tr><td><code>Ctrl+Shift+A</code></td><td>About</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Prerequisites:</strong> Python 3.8+, Git installed and configured, GitHub Personal Access Token (with <code>repo</code> scope), PyQt6</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Clone repository
+git clone https://github.com/smartlegionlab/smart-repository-manager-gui.git
+
+# Go to project folder
+cd smart-repository-manager-gui/
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+sudo apt install libxcb-cursor0
+
+# Launch application
+python app.py</pre>
+                        <p class="text-light small mt-2"><strong>Generate GitHub Token:</strong></p>
+                        <ol class="text-light small">
+                            <li>Visit <a href="https://github.com/settings/tokens/new" class="text-primary" target="_blank">GitHub Tokens</a></li>
+                            <li>Select <code>repo</code> (full repository access)</li>
+                            <li>Generate and copy token</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-User Management -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMultiUser" aria-expanded="false">
+                        <i class="bi bi-people me-2 text-primary"></i> Multi-User Management
+                    </button>
+                </h2>
+                <div id="collapseMultiUser" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Add Users</strong> — Quick token validation and GitHub profile fetch</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Switch Users</strong> — Instant context switching with visual feedback</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Delete Users</strong> — Complete removal of user data and tokens</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Avatar Support</strong> — Automatic avatar download and circular display</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Persistent Storage</strong> — Token storage per user</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Directory Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDir" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> Directory Structure
+                    </button>
+                </h2>
+                <div id="collapseDir" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+~/smart_repository_manager/
+├── config.json              # Multi-user configuration
+├── username_1/             # User-specific directories
+│   ├── repositories/       # Local Git repositories
+│   ├── archives/          # ZIP backups
+│   ├── downloads/          # Downloaded repositories as ZIP archives
+│   ├── logs/             # Operation logs
+│   ├── backups/          # Manual backups
+│   ├── temp/             # Temporary files
+│   └── avatar.png        # GitHub profile picture
+└── username_2/            # Additional users</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Projects -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRelated" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Related Projects
+                    </button>
+                </h2>
+                <div id="collapseRelated" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                <strong><a href="https://github.com/smartlegionlab/smart-repository-manager-core" class="text-primary" target="_blank">Smart Repository Manager Core</a></strong>
+                                — Python library for managing Git repositories with intelligent synchronization, SSH configuration validation, and GitHub integration
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                <strong><a href="https://github.com/smartlegionlab/smart-repository-manager-cli" class="text-primary" target="_blank">Smart Repository Manager CLI</a></strong>
+                                — Comprehensive command-line tool for users who prefer terminal-based workflows
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
+                    </button>
+                </h2>
+                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <a href="https://github.com/smartlegionlab/smart-repository-manager-gui/blob/master/data/images/smart_repository_manager_gui.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-repository-manager-gui/master/data/images/smart_repository_manager_gui.png" class="img-fluid rounded" alt="Smart Repository Manager GUI" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer & Development Status
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-warning"><strong>ACTIVE DEVELOPMENT</strong> — This project is under continuous development. While we strive for stability, you may encounter: Interface changes between versions · New features in active testing · Performance optimizations in progress · Documentation updates pending</p>
+                        <p class="text-light small mt-2"><strong>Recommended for:</strong> Development environments, personal use, testing<br>
+                        <strong>Not recommended for:</strong> Critical production systems without thorough testing</p>
+                        <p class="text-light small mt-2"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-repository-manager-gui/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-repository-manager-gui/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-gui" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-gui/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-gui/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-core" class="btn btn-outline-primary btn-sm">Core Library</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-cli" class="btn btn-outline-primary btn-sm">CLI Version</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.0</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
