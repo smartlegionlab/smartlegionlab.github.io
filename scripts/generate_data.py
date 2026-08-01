@@ -17,6 +17,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/projects/smart-repository-manager-gui.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smart-repository-manager-core.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smart-2fa-manager-desktop.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
+    {'loc': f"{BASE_URL}/projects/todo-app-cli.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/libraries.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/clipassman.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
