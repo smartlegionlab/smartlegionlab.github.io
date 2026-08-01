@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Suvorov · Academic Research Portfolio · Smart Legion Lab</title>
+    <meta name="description" content="Alexander Suvorov — Academic Research Portfolio. Independent Researcher, Software Architect, Paradigms Author. Published works in security architecture, information theory, and computational complexity.">
+    <meta name="author" content="Alexander Suvorov">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/alexander-suvorov.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Alexander Suvorov · Academic Research Portfolio · Smart Legion Lab">
+    <meta property="og:description" content="Academic research portfolio showcasing Alexander Suvorov's published paradigms in security architecture, information theory, and computational complexity.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/alexander-suvorov.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.0</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Alexander Suvorov <sup class="text-warning">v3.0.10</sup></h1>
+            <p class="text-light">Academic Research Portfolio</p>
+            <p class="text-light">Showcasing published paradigms in <span class="text-primary">security architecture</span>, <span class="text-primary">information theory</span>, and <span class="text-primary">computational complexity</span>.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Research</span>
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">GitHub Actions</span>
+                <span class="badge bg-primary custom-style">Zenodo</span>
+                <span class="badge bg-primary custom-style">Automated</span>
+                <span class="badge bg-primary custom-style">Static Site</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/alexander-suvorov" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary btn-sm">Live Site <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Alexander Suvorov</strong> — Academic research portfolio showcasing published paradigms in <strong>security architecture</strong>, <strong>information theory</strong>, and <strong>computational complexity</strong>.
+                </p>
+                <p class="text-light">
+                    This isn't a static site — it's an <span class="text-primary">automated research dashboard</span> that fetches live publication statistics from Zenodo daily.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- How It Works -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowItWorks" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Zero-Cost Automated Research Dashboard
+                    </button>
+                </h2>
+                <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>How It Works:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+GitHub Actions (cron) → Python Script → Zenodo API → JSON Data → Static Site
+         ↓                    ↓              ↓            ↓            ↓
+     Runs daily        Fetches stats   4 publications    Stores     Updates all
+    at midnight        for 4 DOIs       with metrics     locally     HTML pages</pre>
+                        <p class="text-light small mt-2"><strong>Features:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live Research Metrics</strong> — Daily Zenodo API calls via GitHub Actions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Automatic Fallback</strong> — Config.js stores hardcoded values, site works even if Zenodo API is down</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zero Client-Side API</strong> — All data fetched at build time, no CORS issues</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>DOI Integration</strong> — Every publication has permanent DOI links</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zero Cost</strong> — Hosted on GitHub Pages</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Research Metrics -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMetrics" aria-expanded="false">
+                        <i class="bi bi-bar-chart me-2 text-primary"></i> Live Research Metrics
+                    </button>
+                </h2>
+                <div id="collapseMetrics" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Paradigm</th><th>DOI</th><th>Metrics Displayed</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Pointer-Based Security</td><td><code>10.5281/zenodo.17204738</code></td><td>Unique/Total Views &amp; Downloads</td></tr>
+                                    <tr><td>Local Data Regeneration</td><td><code>10.5281/zenodo.17264327</code></td><td>Unique/Total Views &amp; Downloads</td></tr>
+                                    <tr><td>Deterministic Game Engine</td><td><code>10.5281/zenodo.17383447</code></td><td>Unique/Total Views &amp; Downloads</td></tr>
+                                    <tr><td>PCH Paradigm</td><td><code>10.5281/zenodo.17614888</code></td><td>Unique/Total Views &amp; Downloads</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>Aggregate Metrics:</strong> Total unique downloads (500+), total downloads (1000+), unique views (500+), total views (1000+), 4 publications, 3 paradigms</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStructure" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> File Structure
+                    </button>
+                </h2>
+                <div id="collapseStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+/
+├── .github/workflows/
+│   └── update-zenodo.yml        # Daily cron job (runs at midnight UTC)
+│
+├── scripts/
+│   └── fetch_zenodo.py    # Python script that hits Zenodo API for all 4 DOIs
+│
+├── data/
+│   └── zenodo.json               # AUTO-GENERATED: Fresh statistics every day
+│
+├── js/
+│   ├── config.js                  # CONFIG: Hardcoded fallback values + Zenodo record IDs
+│   ├── stats-manager.js           # LOGIC: Reads zenodo.json, merges with config, updates DOM
+│   ├── main.js                     # INIT: Bootstraps the PortfolioApp
+│   └── particle-background.js      # VISUAL: Animated tech word canvas background
+│
+├── research/                       # Individual research detail pages (8 total)
+│   ├── pointer-based-security.html
+│   ├── local-data-regeneration.html
+│   ├── deterministic-game-engine.html
+│   └── position-candidate-hypothesis.html
+│
+├── index.html                      # Home page with 4 main navigation cards
+├── about.html                      # Research profile, impact metrics, contact
+├── research.html                   # MAIN: Detailed cards for all 4 paradigms with stats
+├── expertise.html                  # Three core research areas with nested expertise items
+├── sitemap.xml                     # AUTO-MAINTAINED: Includes all 8 research pages
+└── css/
+    └── style.css                   # Dark academic theme with CSS variables</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Technology Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Frontend — Presentation Layer:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>HTML5</strong> — Semantic academic markup, Schema.org Person markup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CSS3</strong> — Dark academic theme with CSS variables</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Bootstrap 5</strong> — Responsive grid for research cards</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Vanilla JavaScript (ES6+)</strong> — 6 focused classes, no frameworks</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Backend — Automation Layer:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>GitHub Actions</strong> — Scheduled automation (cron job daily at 00:00 UTC)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python 3.8+</strong> — Data fetching</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Requests Library</strong> — HTTP client for Zenodo API</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zenodo API</strong> — Returns stats (unique_views, unique_downloads, views, downloads)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>JSON Storage</strong> — Local cache at <code>/data/zenodo.json</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Paradigms -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseParadigms" aria-expanded="false">
+                        <i class="bi bi-mortarboard me-2 text-primary"></i> The Four Research Paradigms
+                    </button>
+                </h2>
+                <div id="collapseParadigms" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>1. Pointer-Based Security Paradigm</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>DOI:</strong> <code>10.5281/zenodo.17204738</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Published:</strong> September 26, 2025</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Concept:</strong> Architectural transition from data protection to <strong>no vulnerable data</strong></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Transformations:</strong> Data Transmission → Synchronous Discovery, Secret Storage → Deterministic Regeneration</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>2. Local Data Regeneration Paradigm</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>DOI:</strong> <code>10.5281/zenodo.17264327</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Published:</strong> October 4, 2025</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Concept:</strong> Ontological shift from data transmission to <strong>synchronous state discovery</strong></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Postulates:</strong> Data as System State, Synchronous Local Regeneration (<code>D = F(S, P)</code>)</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>3. Deterministic Game Engine (Tech Report)</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>DOI:</strong> <code>10.5281/zenodo.17383447</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Published:</strong> October 18, 2025</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Concept:</strong> Practical implementation validating both paradigms</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Results:</strong> 2.8M elements/sec, O(1) constant-time state access, Linear O(n) entity simulation</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>4. Position-Candidate-Hypothesis (PCH) Paradigm</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>DOI:</strong> <code>10.5281/zenodo.17614888</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Published:</strong> November 15, 2025</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Concept:</strong> Structural-statistical approach to NP-complete problems</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Components:</strong> Positions (n), Candidates (n), Hypotheses (n)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Manager -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStatsManager" aria-expanded="false">
+                        <i class="bi bi-bar-chart-line me-2 text-primary"></i> Stats Manager
+                    </button>
+                </h2>
+                <div id="collapseStatsManager" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Core Logic (stats-manager.js):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+1. constructor() calls loadFromFile()
+2. loadFromFile() fetches /data/zenodo.json
+3. If fetch succeeds → uses file data
+4. If fetch fails → uses CONFIG.COUNTERS.RESEARCH_STATS (from config.js)
+5. updateAllStats() merges file data with config (per-paradigm)
+6. updateParadigmStats() updates each research card's view/download numbers
+7. updateHeaderStats() updates header stats (total unique downloads/views)
+8. updateMetricsStats() updates about page metrics</pre>
+                        <p class="text-light small mt-2"><strong>Data Format (zenodo.json):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+{
+  "pointerParadigm": {
+    "unique_views": 359,
+    "unique_downloads": 308,
+    "total_views": 573,
+    "total_downloads": 597
+  }
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Development -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDev" aria-expanded="false">
+                        <i class="bi bi-laptop me-2 text-primary"></i> Local Development
+                    </button>
+                </h2>
+                <div id="collapseDev" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Setup:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# 1. Clone the repository
+git clone https://github.com/smartlegionlab/alexander-suvorov.git
+cd alexander-suvorov
+
+# 2. Create virtual environment
+python -m venv venv
+
+# 3. Install requirements
+pip install -r scripts/requirements.txt
+
+# 4. Manually fetch latest Zenodo stats
+python scripts/fetch_zenodo_stats.py
+
+# 5. Start local server
+python -m http.server 8000</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
+                    </button>
+                </h2>
+                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/alexander-suvorov/master/data/images/portfolio.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/alexander-suvorov/master/data/images/portfolio.png" class="img-fluid rounded" alt="Academic Portfolio Preview" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/alexander-suvorov/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/alexander-suvorov/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/alexander-suvorov" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://alexander-suvorov.ru" class="btn btn-outline-primary btn-sm">Live Site</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/alexander-suvorov/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/alexander-suvorov/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://orcid.org/0009-0006-3427-9611" class="btn btn-outline-primary btn-sm">ORCID <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.0</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
