@@ -30,6 +30,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/projects/smart-password-manager-csharp-cli.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smart-password-generator-csharp-cli.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smartpasslib-csharp.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
+    {'loc': f"{BASE_URL}/projects/smartpasslib-js.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smart-project-manager.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/libraries.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
