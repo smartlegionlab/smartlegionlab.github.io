@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smartlegionlab · Smart Legion Lab</title>
+    <meta name="description" content="Alexander Suvorov — Software Architect · Full-Stack Developer · Independent Researcher · Paradigms Author. 10+ years experience, 6 ecosystems, 3 paradigms, 70+ projects.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/smartlegionlab.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="smartlegionlab · Smart Legion Lab">
+    <meta property="og:description" content="Alexander Suvorov — Software Architect · Full-Stack Developer · Independent Researcher · Paradigms Author.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/smartlegionlab.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.0</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">smartlegionlab</h1>
+            <p class="text-light">Software Architect · Full-Stack Developer · Independent Researcher · Paradigms Author</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Research</span>
+                <span class="badge bg-primary custom-style">Applications</span>
+                <span class="badge bg-primary custom-style">Libraries</span>
+                <span class="badge bg-primary custom-style">Projects</span>
+                <span class="badge bg-primary custom-style">Paradigms</span>
+                <span class="badge bg-primary custom-style">Architecture</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smartlegionlab" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Alexander Suvorov (@smartlegionlab)</strong> — Software Architect · Full-Stack Developer · Independent Researcher · Paradigms Author.
+                </p>
+                <p class="text-light">
+                    <strong>10+ years</strong> of building cross-platform ecosystems, applications, libraries, and CLI tools - from architecture to production.<br>
+                    <strong>6 ecosystems</strong>, <strong>3 paradigms</strong>, <strong>70+ projects</strong>, <strong>30+ libraries</strong>, <strong>26+ applications</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Who I Am -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>Who I Am</strong></p>
+                <p class="text-light">
+                    I architect cross-platform ecosystems from the ground up. I build applications across web, desktop, mobile, and CLI, and implement my own paradigms in working code.
+                </p>
+                <p class="text-light">
+                    <strong>Python</strong> is my primary language - 40+ projects. I also work with C#, Kotlin, Go, and JavaScript to deliver consistent logic across platforms.
+                </p>
+                <p class="text-light">
+                    I am an independent researcher with 4 published works in computer security, information theory, and computational complexity - 3 paradigms and 1 technical report, all with DOI and practical implementations.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Quick Stats -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStats" aria-expanded="false">
+                        <i class="bi bi-bar-chart me-2 text-primary"></i> Quick Stats
+                    </button>
+                </h2>
+                <div id="collapseStats" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Metric</th><th>Value</th><th>Metric</th><th>Value</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Years Experience</strong></td><td>10+</td><td><strong>Commits</strong></td><td>11,000+</td></tr>
+                                    <tr><td><strong>Public Projects</strong></td><td>70+</td><td><strong>Research Publications</strong></td><td>4+</td></tr>
+                                    <tr><td><strong>Libraries</strong></td><td>30+</td><td><strong>Monthly Downloads (PyPI)</strong></td><td>15,000+</td></tr>
+                                    <tr><td><strong>Applications</strong></td><td>26+</td><td><strong>Zenodo Views</strong></td><td>1,000+</td></tr>
+                                    <tr><td><strong>Zenodo Downloads</strong></td><td>1,000+</td><td></td><td></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What I Build -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBuild" aria-expanded="false">
+                        <i class="bi bi-code-square me-2 text-primary"></i> What I Build
+                    </button>
+                </h2>
+                <div id="collapseBuild" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Area</th><th>What I build</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Architecture</strong></td><td>Scalable systems, cross-platform ecosystems, microservices</td></tr>
+                                    <tr><td><strong>Ecosystems</strong></td><td>6 cross-platform ecosystems - one logic, multiple languages and interfaces</td></tr>
+                                    <tr><td><strong>Projects</strong></td><td>70+ public projects - from cryptographic libraries to full‑stack platforms</td></tr>
+                                    <tr><td><strong>Applications</strong></td><td>26+ apps: Desktop, Web, Mobile, CLI, Telegram Bots</td></tr>
+                                    <tr><td><strong>Libraries</strong></td><td>30+ libraries: Cryptographic cores, CLI frameworks, repository managers</td></tr>
+                                    <tr><td><strong>Research</strong></td><td>4 publications with DOI and practical implementations</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>One logic across 5 languages</strong> — Python, C#, Kotlin, Go, JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosystems -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystems" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystems
+                    </button>
+                </h2>
+                <div id="collapseEcosystems" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Ecosystem</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Smart Passwords Ecosystem</strong></td><td>Zero-storage deterministic password management — 5 languages, 8 platforms</td></tr>
+                                    <tr><td><strong>NP Problem Ecosystem</strong></td><td>Exact + heuristic TSP solvers (Go + Python)</td></tr>
+                                    <tr><td><strong>2FA Management Ecosystem</strong></td><td>Offline TOTP managers — Desktop, Android, CLI, Bash</td></tr>
+                                    <tr><td><strong>Repository Management Ecosystem</strong></td><td>GitHub/Forgejo automation — Core, GUI, CLI</td></tr>
+                                    <tr><td><strong>Deterministic Ecosystem</strong></td><td>Infinite generators for text and images (Babylon libraries)</td></tr>
+                                    <tr><td><strong>Research Ecosystem</strong></td><td>4 publications with DOI and practical implementations</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Publications -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResearch" aria-expanded="false">
+                        <i class="bi bi-mortarboard me-2 text-primary"></i> Research Publications
+                    </button>
+                </h2>
+                <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>#</th><th>Publication</th><th>Core Concept</th><th>DOI</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><strong>Pointer-Based Security Paradigm</strong></td>
+                                        <td>Architectural shift from data protection to data non-existence</td>
+                                        <td><a href="https://doi.org/10.5281/zenodo.17204738" class="text-primary" target="_blank">10.5281/zenodo.17204738</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><strong>Local Data Regeneration Paradigm</strong></td>
+                                        <td>Ontological shift from data transmission to synchronous state discovery</td>
+                                        <td><a href="https://doi.org/10.5281/zenodo.17264327" class="text-primary" target="_blank">10.5281/zenodo.17264327</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><strong>Deterministic Game Engine</strong> (Technical Report)</td>
+                                        <td>Practical implementation validating theoretical paradigms</td>
+                                        <td><a href="https://doi.org/10.5281/zenodo.17383447" class="text-primary" target="_blank">10.5281/zenodo.17383447</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><strong>Position-Candidate-Hypothesis (PCH) Paradigm</strong></td>
+                                        <td>Structural-statistical approach for NP-complete problems</td>
+                                        <td><a href="https://doi.org/10.5281/zenodo.17614888" class="text-primary" target="_blank">10.5281/zenodo.17614888</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Category</th><th>Technologies</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Languages</strong></td><td><strong>Python</strong> (primary) · Go · C# · Kotlin · JavaScript · Bash</td></tr>
+                                    <tr><td><strong>Backend</strong></td><td>Django, DRF, FastAPI, Flask, ASP.NET Core, Celery</td></tr>
+                                    <tr><td><strong>Frontend</strong></td><td>HTML5, CSS3, Bootstrap, JavaScript</td></tr>
+                                    <tr><td><strong>Databases</strong></td><td>PostgreSQL, Redis, MariaDB, SQLite</td></tr>
+                                    <tr><td><strong>DevOps</strong></td><td>Docker, Kubernetes, Linux (Arch), Nginx, GitHub Actions</td></tr>
+                                    <tr><td><strong>Desktop</strong></td><td>PyQt5/6, Flet, WinForms, WPF</td></tr>
+                                    <tr><td><strong>Mobile</strong></td><td>Android SDK, Kotlin</td></tr>
+                                    <tr><td><strong>Security</strong></td><td>TOTP/HOTP, 2FA, Zero-Storage Architecture, SHA-256, CSPRNG</td></tr>
+                                    <tr><td><strong>Algorithms</strong></td><td>Branch &amp; Bound, TSP, 2-opt, Christofides, Heuristic Optimization</td></tr>
+                                    <tr><td><strong>Research</strong></td><td>LaTeX, Zenodo, DOI Registration, ORCID</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>Development Environment:</strong> Arch Linux ❤️</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAchievements" aria-expanded="false">
+                        <i class="bi bi-trophy me-2 text-primary"></i> Key Achievements
+                    </button>
+                </h2>
+                <div id="collapseAchievements" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Achievement</th><th>Impact</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>📈 <strong>Revenue growth</strong></td><td>Systems that generated measurable profit increases</td></tr>
+                                    <tr><td>⚡ <strong>Operational efficiency</strong></td><td>80% manual work reduction through automation</td></tr>
+                                    <tr><td>🔄 <strong>System transformation</strong></td><td>Legacy → modern platforms supporting 500k+ users</td></tr>
+                                    <tr><td>💰 <strong>Cost optimization</strong></td><td>Reduced infrastructure and maintenance costs</td></tr>
+                                    <tr><td>📱 <strong>26+ applications</strong></td><td>Desktop, Web, Mobile, CLI, and Telegram Bots</td></tr>
+                                    <tr><td>📦 <strong>30+ libraries</strong></td><td>15,000+ monthly downloads</td></tr>
+                                    <tr><td>📚 <strong>4 research publications</strong></td><td>1,000+ Zenodo views, 1000+ downloads</td></tr>
+                                    <tr><td>💻 <strong>70+ projects</strong></td><td>11,000+ commits</td></tr>
+                                    <tr><td>🎓 <strong>3 groundbreaking paradigms</strong></td><td>Computer security, information theory, NP‑complete</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connect -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConnect" aria-expanded="false">
+                        <i class="bi bi-link-45deg me-2 text-primary"></i> Connect
+                    </button>
+                </h2>
+                <div id="collapseConnect" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="d-flex flex-wrap gap-2 justify-content-center">
+                            <a target="_blank" href="https://smartlegionlab.ru" class="btn btn-outline-primary btn-sm">🌐 Website</a>
+                            <a target="_blank" href="https://orcid.org/0009-0006-3427-9611" class="btn btn-outline-primary btn-sm">📚 ORCID</a>
+                            <a target="_blank" href="https://zenodo.org/records/17204738" class="btn btn-outline-primary btn-sm">🏛️ Zenodo</a>
+                            <a target="_blank" href="https://github.com/smartlegionlab" class="btn btn-outline-primary btn-sm">💻 GitHub</a>
+                            <a target="_blank" href="https://pypi.org/user/smartlegionlab/" class="btn btn-outline-primary btn-sm">🐍 PyPI</a>
+                            <a target="_blank" href="mailto:smartlegionlab@gmail.com" class="btn btn-outline-primary btn-sm">📧 Email</a>
+                        </div>
+                        <p class="text-light small mt-2 text-center">
+                            <strong>Open for:</strong> Architecture consulting · Research collaborations · Full‑cycle development<br>
+                            <strong>Location:</strong> Remote / Worldwide
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Stats -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGitHubStats" aria-expanded="false">
+                        <i class="bi bi-graph-up me-2 text-primary"></i> GitHub Stats
+                    </button>
+                </h2>
+                <div id="collapseGitHubStats" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-center">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-8">
+                                <a href="https://git.io/streak-stats" target="_blank">
+                                    <img src="https://streak-stats.demolab.com/?user=smartlegionlab&theme=dark&card_width=1000" class="img-fluid rounded" alt="GitHub Streak" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row g-2 justify-content-center mt-2">
+                            <div class="col-12 col-md-8">
+                                <a href="https://github.com/smartlegionlab/smartlegionlab" target="_blank">
+                                    <img src="https://github.com/smartlegionlab/smartlegionlab/raw/master/images/github-snake.svg" class="img-fluid rounded" alt="GitHub Contribution Snake" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartlegionlab/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smartlegionlab/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartlegionlab" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartlegionlab/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartlegionlab/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.0</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
