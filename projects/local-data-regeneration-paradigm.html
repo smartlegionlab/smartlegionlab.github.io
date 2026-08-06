@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Local Data Regeneration Paradigm · Smart Legion Lab</title>
+    <meta name="description" content="The Local Data Regeneration Paradigm — Ontological Shift from Data Transmission to Synchronous State Discovery. Fundamental theoretical work proposing an alternative to classical information transmission.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/research/local-data-regeneration-paradigm.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="The Local Data Regeneration Paradigm · Smart Legion Lab">
+    <meta property="og:description" content="Ontological Shift from Data Transmission to Synchronous State Discovery. Fundamental theoretical work proposing an alternative to classical information transmission.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/research/local-data-regeneration-paradigm.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Research">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-primary">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item active"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.1</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">The Local Data Regeneration Paradigm</h1>
+            <p class="text-light">Ontological Shift from Data Transmission to Synchronous State Discovery</p>
+            <p class="text-light">Fundamental theoretical work proposing an alternative to classical information transmission, where data is regenerated locally through <span class="text-primary">synchronized computation</span> rather than physically transferred.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Research</span>
+                <span class="badge bg-primary custom-style">Paradigm</span>
+                <span class="badge bg-primary custom-style">Information Theory</span>
+                <span class="badge bg-primary custom-style">Security</span>
+                <span class="badge bg-primary custom-style">Theoretical CS</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://doi.org/10.5281/zenodo.17264327" class="btn btn-outline-primary btn-sm">DOI <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://zenodo.org/records/17264327/files/suvorov-the-local-data-regeneration-paradigm.pdf?download=1" class="btn btn-outline-primary btn-sm">PDF <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Abstract -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Abstract</strong> — This work introduces the Local Data Regeneration Paradigm, which challenges the fundamental Shannonian model of information transmission. We propose an ontological shift where data is understood not as objects to be transferred, but as states reached by deterministic systems through synchronous application of shared algorithms to coordinated pointers. Communication is redefined as pointer coordination rather than content transmission. The paradigm is formalized through three foundational postulates, with analysis of applicability domains and fundamental implications for information theory and computer science.
+                </p>
+                <p class="text-light small">
+                    <strong>Published:</strong> October 4, 2025 · <strong>Status:</strong> Theoretical Research
+                </p>
+            </div>
+        </div>
+
+        <!-- Publication Details -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="table-responsive">
+                    <table class="table table-dark table-sm">
+                        <thead>
+                            <tr><th>Detail</th><th>Information</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Title</strong></td><td>The Local Data Regeneration Paradigm</td></tr>
+                            <tr><td><strong>DOI</strong></td><td><a href="https://doi.org/10.5281/zenodo.17264327" class="text-primary" target="_blank">10.5281/zenodo.17264327</a></td></tr>
+                            <tr><td><strong>Published</strong></td><td>October 4, 2025</td></tr>
+                            <tr><td><strong>License</strong></td><td>Creative Commons Attribution 4.0 International</td></tr>
+                            <tr><td><strong>Author</strong></td><td>Alexander Suvorov</td></tr>
+                            <tr><td><strong>ORCID</strong></td><td><a href="https://orcid.org/0009-0006-3427-9611" class="text-primary" target="_blank">0009-0006-3427-9611</a></td></tr>
+                            <tr><td><strong>Type</strong></td><td>Theoretical Research</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Foundational Postulates -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostulates" aria-expanded="false">
+                        <i class="bi bi-list-ul me-2 text-primary"></i> Foundational Postulates
+                    </button>
+                </h2>
+                <div id="collapsePostulates" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>From</th><th>To</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Data as Transferable Object</td><td>Data as System State</td></tr>
+                                    <tr><td>Data Transmission</td><td>Synchronous Local Regeneration</td></tr>
+                                    <tr><td>Information Transfer</td><td>Pointer Synchronization</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Detailed Postulates:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                <strong>1. Data as System State</strong><br>
+                                <span class="small">Information understood as computational state rather than transferable object</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                <strong>2. Synchronous Local Regeneration</strong><br>
+                                <span class="small">Identical states reached through shared algorithms: <code>D = F(S, P)</code></span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                                <strong>3. Communication as Pointer Synchronization</strong><br>
+                                <span class="small">Coordination of discovery coordinates rather than data transmission</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practical Implementation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImplementation" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Practical Implementation
+                    </button>
+                </h2>
+                <div id="collapseImplementation" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">The Local Data Regeneration Paradigm has been implemented in the <strong>Smart Password Ecosystem</strong>:</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Component</th><th>Description</th><th>Platform</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a></td><td>Core Python library</td><td>Python</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a></td><td>JavaScript implementation</td><td>JS</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a></td><td>Kotlin implementation</td><td>Kotlin</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a></td><td>Go implementation</td><td>Go</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a></td><td>C# implementation</td><td>C#</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" class="text-primary" target="_blank">Desktop Manager</a></td><td>Desktop application</td><td>Linux</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" class="text-primary" target="_blank">Desktop Manager (C#)</a></td><td>Desktop application</td><td>Windows</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/clipassman" class="text-primary" target="_blank">CLI PassMan</a></td><td>Console password manager</td><td>Cross-platform</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/clipassgen" class="text-primary" target="_blank">CLI PassGen</a></td><td>Console password generator</td><td>Cross-platform</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="text-primary" target="_blank">Web Manager</a></td><td>Web interface</td><td>Any browser</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="text-primary" target="_blank">Android Manager</a></td><td>Mobile application</td><td>Android</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cross-Platform Compatibility -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCrossPlatform" aria-expanded="false">
+                        <i class="bi bi-arrow-left-right me-2 text-primary"></i> Cross-Platform Compatibility
+                    </button>
+                </h2>
+                <div id="collapseCrossPlatform" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">The paradigm's practical implementation produces <strong>identical passwords</strong> across all platforms:</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Platform</th><th>Implementation</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Python</td><td><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a></td></tr>
+                                    <tr><td>JavaScript</td><td><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a></td></tr>
+                                    <tr><td>Kotlin</td><td><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a></td></tr>
+                                    <tr><td>Go</td><td><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a></td></tr>
+                                    <tr><td>C#</td><td><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a></td></tr>
+                                    <tr><td>Web</td><td><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="text-primary" target="_blank">Web Manager</a></td></tr>
+                                    <tr><td>Android</td><td><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="text-primary" target="_blank">Android Manager</a></td></tr>
+                                    <tr><td>Desktop</td><td><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" class="text-primary" target="_blank">Desktop Manager</a></td></tr>
+                                    <tr><td>CLI</td><td><a href="https://github.com/smartlegionlab/clipassman" class="text-primary" target="_blank">CLI PassMan</a> / <a href="https://github.com/smartlegionlab/clipassgen" class="text-primary" target="_blank">CLI PassGen</a></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connected Research -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConnected" aria-expanded="false">
+                        <i class="bi bi-link-45deg me-2 text-primary"></i> Connected Research
+                    </button>
+                </h2>
+                <div id="collapseConnected" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Pointer-Based Security Paradigm</strong></p>
+                        <p class="text-light small">Architectural Application of Regeneration Principles</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Paper:</strong> <a href="https://doi.org/10.5281/zenodo.17204738" class="text-primary" target="_blank">10.5281/zenodo.17204738</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Code:</strong> <a href="https://github.com/smartlegionlab/pointer-based-security-paradigm" class="text-primary" target="_blank">GitHub Repository</a></li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Position-Candidate-Hypothesis (PCH) Paradigm</strong></p>
+                        <p class="text-light small">A theoretical paradigm for structural-statistical analysis of NP-complete problems</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Paper:</strong> <a href="https://doi.org/10.5281/zenodo.17614888" class="text-primary" target="_blank">10.5281/zenodo.17614888</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Code:</strong> <a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" class="text-primary" target="_blank">GitHub Repository</a></li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Deterministic Game Engine</strong></p>
+                        <p class="text-light small">Experimental Validation of Theoretical Framework</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Paper:</strong> <a href="https://doi.org/10.5281/zenodo.17383447" class="text-primary" target="_blank">10.5281/zenodo.17383447</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Code:</strong> <a href="https://github.com/smartlegionlab/deterministic-game-engine-report" class="text-primary" target="_blank">GitHub Repository</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Citation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCitation" aria-expanded="false">
+                        <i class="bi bi-quote me-2 text-primary"></i> Citation
+                    </button>
+                </h2>
+                <div id="collapseCitation" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+@misc{suvorov_2025_17264327,
+  author       = {Suvorov, Alexander},
+  title        = {The Local Data Regeneration Paradigm: Ontological
+                   Shift from Data Transmission to Synchronous State
+                   Discovery},
+  month        = oct,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17264327},
+  url          = {https://doi.org/10.5281/zenodo.17264327},
+}</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer & Research Status
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-warning"><strong>ACADEMIC RESEARCH — NOT FOR PRACTICAL USE</strong></p>
+                        <p class="text-light small">This is theoretical research, not production software.</p>
+                        <p class="text-light small"><strong>Warning:</strong> This work is for academic discussion only. Do not use in production systems.</p>
+                        <p class="text-light small"><strong>Full academic disclaimer:</strong> See <a href="https://github.com/smartlegionlab/local-data-regeneration-paradigm/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" class="text-primary" target="_blank">Creative Commons Attribution 4.0 International</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/local-data-regeneration-paradigm" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://doi.org/10.5281/zenodo.17264327" class="btn btn-outline-primary btn-sm">DOI</a>
+                        <a target="_blank" href="https://zenodo.org/records/17264327/files/suvorov_local_data_regeneration_paradigm.pdf?download=1" class="btn btn-outline-primary btn-sm">PDF Download</a>
+                        <a target="_blank" href="https://dev.to/smartlegionlab/the-local-data-regeneration-paradigm-ontological-shift-from-data-transmission-to-synchronous-state-21e" class="btn btn-outline-primary btn-sm">Article</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.1</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
