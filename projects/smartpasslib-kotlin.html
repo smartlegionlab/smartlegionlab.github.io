@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>smartpasslib-csharp · Smart Legion Lab</title>
-    <meta name="description" content="smartpasslib-csharp — Smart Passwords Library for C#. Cryptographic password generation and management without storage. Cross-platform deterministic passwords for .NET applications.">
+    <title>smartpasslib-kotlin · Smart Legion Lab</title>
+    <meta name="description" content="smartpasslib-kotlin — Smart Passwords Library for Kotlin. Cryptographic password generation and management without storage. Cross-platform deterministic passwords for JVM and Android.">
     <meta name="author" content="Smart Legion Lab">
-    <link rel="canonical" href="https://smartlegionlab.ru/libraries/smartpasslib-csharp.html">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/smartpasslib-kotlin.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="smartpasslib-csharp · Smart Legion Lab">
-    <meta property="og:description" content="Smart Passwords Library for C#. Cryptographic password generation and management without storage. Cross-platform deterministic passwords for .NET applications.">
+    <meta property="og:title" content="smartpasslib-kotlin · Smart Legion Lab">
+    <meta property="og:description" content="Smart Passwords Library for Kotlin. Cryptographic password generation and management without storage. Cross-platform deterministic passwords for JVM and Android.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.ru/libraries/smartpasslib-csharp.html">
-    <meta property="og:site_name" content="Smart Legion Lab · Libraries">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/smartpasslib-kotlin.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
@@ -38,8 +38,8 @@
             <a href="/research.html" class="small text-light">Research</a>
             <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
             <a href="/applications.html" class="small text-light">Apps</a>
-            <a href="/projects.html" class="small text-light">Projects</a>
-            <a href="/libraries.html" class="small text-primary">Libraries</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
             <a href="/articles.html" class="small text-light">Articles</a>
             <a href="/team.html" class="small text-light">About & Team</a>
         </div>
@@ -59,8 +59,8 @@
         <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
         <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
         <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
-        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
-        <a href="/libraries.html" class="menu-item active"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
         <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
         <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
     </div>
@@ -78,19 +78,20 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">smartpasslib-csharp <sup class="text-warning">v4.0.0</sup></h1>
-            <p class="text-light">Smart Passwords Library for C#</p>
-            <p class="text-light">Cryptographic password generation and management <span class="text-primary">without storage</span>. Cross-platform deterministic passwords for <span class="text-primary">.NET applications</span>.</p>
+            <h1 class="text-primary">smartpasslib-kotlin <sup class="text-warning">v4.0.0</sup></h1>
+            <p class="text-light">Smart Passwords Library for Kotlin</p>
+            <p class="text-light">Cryptographic password generation and management <span class="text-primary">without storage</span>. Cross-platform deterministic passwords for <span class="text-primary">JVM and Android</span>.</p>
             <div class="badges mt-2">
-                <span class="badge bg-primary custom-style">C#</span>
-                <span class="badge bg-primary custom-style">.NET</span>
+                <span class="badge bg-primary custom-style">Kotlin</span>
                 <span class="badge bg-primary custom-style">Cryptography</span>
                 <span class="badge bg-primary custom-style">Zero-Storage</span>
                 <span class="badge bg-primary custom-style">Decentralized</span>
                 <span class="badge bg-primary custom-style">Cross-Platform</span>
+                <span class="badge bg-primary custom-style">JVM</span>
+                <span class="badge bg-primary custom-style">Android</span>
             </div>
             <div class="mt-3">
-                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
             </div>
         </div>
 
@@ -105,14 +106,14 @@
                 </p>
                 <p class="text-light">
                     <strong>Now with Cross-Platform Determinism</strong>: Same secret + same parameters = identical password on
-                    <strong>C#, Python, Go, Kotlin, JavaScript</strong> and any language with SHA-256.
+                    <strong>Kotlin, C#, Python, Go, JavaScript</strong> and any language with SHA-256.
                 </p>
                 <p class="text-light">
                     <strong>Decentralized by Design</strong>: Unlike traditional password managers that store encrypted vaults on central servers,
                     smartpasslib stores nothing. Your secrets never leave your device. Passwords are regenerated on-demand —
                     <span class="text-primary">no cloud, no database, no trust required</span>.
                 </p>
-                <p class="text-light small"><strong>No External Dependencies</strong> — Uses only System.Security.Cryptography.</p>
+                <p class="text-light small"><strong>JVM/Android Ready</strong> — Works on any Kotlin platform.</p>
             </div>
         </div>
 
@@ -120,8 +121,8 @@
         <div class="mb-4">
             <div class="smart-small-card border border-warning">
                 <p class="text-warning"><strong>⚠️ Breaking Change (v4.0.0)</strong></p>
-                <p class="text-light small">This version is <strong>NOT backward compatible</strong> with v1.0.5. Passwords generated with older versions <strong>cannot be regenerated</strong> with v4.0.0.</p>
-                <p class="text-light small">📖 <strong>Full migration instructions</strong> → see <a href="https://github.com/smartlegionlab/smartpasslib-csharp/blob/master/MIGRATION.md" class="text-primary" target="_blank">MIGRATION.md</a></p>
+                <p class="text-light small">This version is <strong>NOT backward compatible</strong> with v1.x.x. Passwords generated with older versions <strong>cannot be regenerated</strong> with v4.0.0.</p>
+                <p class="text-light small">📖 <strong>Full migration instructions</strong> → see <a href="https://github.com/smartlegionlab/smartpasslib-kotlin/blob/master/MIGRATION.md" class="text-primary" target="_blank">MIGRATION.md</a></p>
             </div>
         </div>
 
@@ -143,7 +144,7 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Platform Deterministic Generation</strong> — identical secret + parameters = identical password on any language</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Metadata Only</strong> — store only verification metadata (public keys, descriptions, lengths)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>On-Demand Regeneration</strong> — passwords are recalculated when needed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> — uses SHA-256</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> — uses SHA-256 and SecureRandom</li>
                         </ul>
                     </div>
                 </div>
@@ -165,8 +166,8 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secret Verification</strong> — verify secret without exposing it</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Random Password Generation</strong> — cryptographically secure random passwords</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Authentication Codes</strong> — short codes for 2FA/MFA (4-100 chars)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No External Dependencies</strong> — uses only System.Security.Cryptography</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full Test Coverage</strong> — 100% tested for reliability and security</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No External Dependencies</strong> — pure Kotlin, uses standard crypto</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>JVM/Android Ready</strong> — works on any Kotlin platform</li>
                         </ul>
                     </div>
                 </div>
@@ -203,7 +204,7 @@
                 </h2>
                 <div id="collapseTechFoundation" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Key derivation (same as Python/JS/Kotlin/Go versions):</strong></p>
+                        <p class="text-light"><strong>Key derivation (same as Python/JS/Go/C# versions v4.0.0):</strong></p>
                         <div class="table-responsive">
                             <table class="table table-dark table-sm">
                                 <thead>
@@ -237,7 +238,7 @@
                 </h2>
                 <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light">Copy <code>SmartPassLib.cs</code> to your project.</p>
+                        <p class="text-light">Copy <code>SmartPassLib.kt</code> to your project.</p>
                     </div>
                 </div>
             </div>
@@ -253,50 +254,43 @@
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Generate Smart Password:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-using SmartLegionLab.SmartPassLib;
+import com.smartlegionlab.smartpasslib.SmartPassLib
 
-var secret = "MyStrongSecretPhrase2026!";
-var length = 16;
+fun main() {
+    val secret = "MyStrongSecretPhrase2026!"
+    val length = 16
 
-var password = SmartPasswordGenerator.GenerateSmartPassword(secret, length);
-Console.WriteLine(password);</pre>
+    val password = SmartPassLib.generateSmartPassword(secret, length)
+    println(password)
+}</pre>
                         <p class="text-light mt-2"><strong>Generate Public/Private Keys:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-var secret = "MyStrongSecretPhrase2026!";
+val secret = "MyStrongSecretPhrase2026!"
 
-var publicKey = SmartPasswordGenerator.GeneratePublicKey(secret);
-var privateKey = SmartPasswordGenerator.GeneratePrivateKey(secret);
+val publicKey = SmartPassLib.generatePublicKey(secret)
+val privateKey = SmartPassLib.generatePrivateKey(secret)
 
-Console.WriteLine($"Public Key (store locally): {publicKey}");
-Console.WriteLine($"Private Key (never store): {privateKey}");</pre>
+println("Public Key (store locally): $publicKey")
+println("Private Key (never store): $privateKey")</pre>
                         <p class="text-light mt-2"><strong>Verify Secret Against Public Key:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-var secret = "MyStrongSecretPhrase2026!";
-var storedPublicKey = "..."; // from local storage
+val secret = "MyStrongSecretPhrase2026!"
+val storedPublicKey = "..." // from local
 
-var isValid = SmartPasswordGenerator.VerifySecret(secret, storedPublicKey);
-if (isValid)
-{
-    var password = SmartPasswordGenerator.GenerateSmartPassword(secret, 16);
+val isValid = SmartPassLib.verifySecret(secret, storedPublicKey)
+if (isValid) {
+    val password = SmartPassLib.generateSmartPassword(secret, 16)
 }</pre>
                         <p class="text-light mt-2"><strong>Generate Random Passwords:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 // Strong random (cryptographically secure)
-var strong = SmartPasswordGenerator.GenerateStrongPassword(20);
+val strong = SmartPassLib.generateStrongPassword(20)
 
 // Base random
-var basePwd = SmartPasswordGenerator.GenerateBasePassword(16);
+val base = SmartPassLib.generateBasePassword(16)
 
 // Authentication code (4-100 chars)
-var code = SmartPasswordGenerator.GenerateCode(8);</pre>
-                        <p class="text-light mt-2"><strong>Metadata Manager:</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-var manager = new SmartPasswordManager();
-var smartPassword = new SmartPassword(publicKey, "GitHub Account", 16);
-manager.AddSmartPassword(smartPassword);
-
-var retrieved = manager.GetSmartPassword(publicKey);
-manager.DeleteSmartPassword(publicKey);</pre>
+val code = SmartPassLib.generateCode(8)</pre>
                     </div>
                 </div>
             </div>
@@ -310,44 +304,32 @@ manager.DeleteSmartPassword(publicKey);</pre>
                 </h2>
                 <div id="collapseAPI" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Constants (SmartPasswordGenerator):</strong></p>
+                        <p class="text-light"><strong>Properties:</strong></p>
                         <div class="table-responsive">
                             <table class="table table-dark table-sm">
                                 <thead>
-                                    <tr><th>Constant</th><th>Type</th><th>Description</th></tr>
+                                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><code>Version</code></td><td>string</td><td>Library version (4.0.0)</td></tr>
-                                    <tr><td><code>Chars</code></td><td>string</td><td>Character set used for generation</td></tr>
+                                    <tr><td><code>VERSION</code></td><td>String</td><td>Library version (4.0.0)</td></tr>
+                                    <tr><td><code>CHARS</code></td><td>String</td><td>Character set used for generation</td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="text-light mt-2"><strong>Methods (SmartPasswordGenerator):</strong></p>
+                        <p class="text-light mt-2"><strong>Methods:</strong></p>
                         <div class="table-responsive">
                             <table class="table table-dark table-sm">
                                 <thead>
                                     <tr><th>Method</th><th>Parameters</th><th>Returns</th><th>Description</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><code>GeneratePrivateKey(secret)</code></td><td>secret: string</td><td>string</td><td>Private key (15-30 iterations)</td></tr>
-                                    <tr><td><code>GeneratePublicKey(secret)</code></td><td>secret: string</td><td>string</td><td>Public key (45-60 iterations)</td></tr>
-                                    <tr><td><code>VerifySecret(secret, publicKey)</code></td><td>secret, publicKey</td><td>bool</td><td>Verify secret matches public key</td></tr>
-                                    <tr><td><code>GenerateSmartPassword(secret, length)</code></td><td>secret, length</td><td>string</td><td>Deterministic password</td></tr>
-                                    <tr><td><code>GenerateStrongPassword(length)</code></td><td>length</td><td>string</td><td>Cryptographically random</td></tr>
-                                    <tr><td><code>GenerateBasePassword(length)</code></td><td>length</td><td>string</td><td>Simple random password</td></tr>
-                                    <tr><td><code>GenerateCode(length)</code></td><td>length</td><td>string</td><td>Short code (4-100 chars)</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-light mt-2"><strong>Classes:</strong></p>
-                        <div class="table-responsive">
-                            <table class="table table-dark table-sm">
-                                <thead>
-                                    <tr><th>Class</th><th>Description</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><code>SmartPassword</code></td><td>Metadata container (PublicKey, Description, Length)</td></tr>
-                                    <tr><td><code>SmartPasswordManager</code></td><td>Persistent storage for password metadata (JSON file)</td></tr>
+                                    <tr><td><code>generatePrivateKey(secret)</code></td><td>secret: String</td><td>String</td><td>Private key (15-30 iterations)</td></tr>
+                                    <tr><td><code>generatePublicKey(secret)</code></td><td>secret: String</td><td>String</td><td>Public key (45-60 iterations)</td></tr>
+                                    <tr><td><code>verifySecret(secret, publicKey)</code></td><td>secret, publicKey</td><td>Boolean</td><td>Verify secret matches public key</td></tr>
+                                    <tr><td><code>generateSmartPassword(secret, length)</code></td><td>secret, length</td><td>String</td><td>Deterministic password</td></tr>
+                                    <tr><td><code>generateStrongPassword(length)</code></td><td>length</td><td>String</td><td>Cryptographically random</td></tr>
+                                    <tr><td><code>generateBasePassword(length)</code></td><td>length</td><td>String</td><td>Simple random password</td></tr>
+                                    <tr><td><code>generateCode(length)</code></td><td>length</td><td>String</td><td>Short code (4-100 chars)</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -448,47 +430,25 @@ manager.DeleteSmartPassword(publicKey);</pre>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a> — Python</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a> — JavaScript</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a> — Kotlin</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a> — Go</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a> — C#</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Ecosystem -->
+            <!-- Testing -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystem" aria-expanded="false">
-                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystem
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTesting" aria-expanded="false">
+                        <i class="bi bi-bar-chart me-2 text-primary"></i> Testing
                     </button>
                 </h2>
-                <div id="collapseEcosystem" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseTesting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Core Libraries:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a> — Python</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a> — JavaScript</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a> — Kotlin</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a> — Go</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a> — C# (this)</li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>CLI Applications:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/clipassman" class="text-primary" target="_blank">CLI PassMan (Python)</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/clipassgen" class="text-primary" target="_blank">CLI PassGen (Python)</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" class="text-primary" target="_blank">CLI Manager (C#)</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" class="text-primary" target="_blank">CLI Generator (C#)</a></li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Desktop Applications:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" class="text-primary" target="_blank">Desktop Manager (Python)</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" class="text-primary" target="_blank">Desktop Manager (C#)</a></li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Other:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="text-primary" target="_blank">Web Manager</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="text-primary" target="_blank">Android Manager</a></li>
-                        </ul>
+                        <p class="text-light">Run the test script:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+kotlin test.kts</pre>
                     </div>
                 </div>
             </div>
@@ -504,8 +464,8 @@ manager.DeleteSmartPassword(publicKey);</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
                         <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
-                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartpasslib-csharp/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
-                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smartpasslib-csharp/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartpasslib-kotlin/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smartpasslib-kotlin/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
                     </div>
                 </div>
             </div>
@@ -518,10 +478,10 @@ manager.DeleteSmartPassword(publicKey);</pre>
                 <div class="text-center">
                     <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp/blob/master/MIGRATION.md" class="btn btn-outline-primary btn-sm">Migration Guide</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin/blob/master/MIGRATION.md" class="btn btn-outline-primary btn-sm">Migration Guide</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
