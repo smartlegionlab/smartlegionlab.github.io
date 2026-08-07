@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smartpathlibrary · Smart Legion Lab</title>
+    <meta name="description" content="smartpathlibrary — Library for working with paths to files and folders. Cross-platform utility for path normalization, directory traversal, file management, and recursive file discovery.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/smartpathlibrary.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="smartpathlibrary · Smart Legion Lab">
+    <meta property="og:description" content="Library for working with paths to files and folders. Cross-platform utility for path normalization, directory traversal, file management, and recursive file discovery.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/smartpathlibrary.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.1</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">smartpathlibrary <sup class="text-warning">v1.0.1</sup></h1>
+            <p class="text-light">Library for working with paths to files and folders</p>
+            <p class="text-light">Cross-platform utility for <span class="text-primary">path normalization</span>, <span class="text-primary">directory traversal</span>, and <span class="text-primary">file management</span>.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">File System</span>
+                <span class="badge bg-primary custom-style">Cross-Platform</span>
+                <span class="badge bg-primary custom-style">Path Management</span>
+                <span class="badge bg-primary custom-style">PyPI</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smartpathlibrary" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://pypi.org/project/smartpathlibrary/" class="btn btn-outline-primary btn-sm">PyPI <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>smartpathlibrary</strong> — a cross-platform library for working with paths to files and folders.
+                    Provides tools for path normalization, directory traversal, file management, and recursive file discovery.
+                </p>
+                <p class="text-light">
+                    <strong>Key capabilities:</strong> Check file/folder existence, normalize paths for different operating systems,
+                    traverse directories recursively, count files and folders, and manage path collections.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Path Normalization</strong> — cross-platform path formatting</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>File & Folder Existence</strong> — check if paths exist</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Directory Traversal</strong> — recursive file and folder discovery</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Path Manager</strong> — manage multiple paths in one collection</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Counting Utilities</strong> — count files, folders, and iterable items</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Platform</strong> — Windows, Linux, macOS, Termux</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Absolute Path Resolution</strong> — get root path relative to script</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Path Normalization -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNormalization" aria-expanded="false">
+                        <i class="bi bi-arrows-expand me-2 text-primary"></i> Path Normalization
+                    </button>
+                </h2>
+                <div id="collapseNormalization" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Normalize paths for different operating systems:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smartpathlibrary.tools import PathNormalizer
+
+# Path normalization for different OS
+normalized = PathNormalizer.normalize("/home/user/my file.txt")
+# On Linux: '/home/user/my\ file.txt'
+# On Windows: '/home/user/my file.txt'</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File & Folder Operations -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFiles" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> File & Folder Operations
+                    </button>
+                </h2>
+                <div id="collapseFiles" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smartpathlibrary.tools import File, Folder
+
+# Check existence
+file = File("document.txt")
+print(file.exists())  # False or True
+
+folder = Folder("/home/user/docs")
+print(folder.exists())</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Directory Traversal -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTraversal" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Directory Traversal
+                    </button>
+                </h2>
+                <div id="collapseTraversal" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smartpathlibrary.tools import Dir
+
+dir_obj = Dir("/home/user/project")
+
+# Get all files recursively
+for file in dir_obj.get_files(recursive=True):
+    print(file)
+
+# Only files in root folder (no subfolders)
+for file in dir_obj.get_files(recursive=False):
+    print(file)
+
+# Get all subdirectories
+for subdir in dir_obj.get_dirs(recursive=True):
+    print(subdir)
+
+# Count
+print(f"Files: {dir_obj.get_count_files(recursive=True)}")
+print(f"Folders: {dir_obj.get_count_dirs(recursive=True)}")</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Path Manager -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseManager" aria-expanded="false">
+                        <i class="bi bi-folder me-2 text-primary"></i> Path Manager
+                    </button>
+                </h2>
+                <div id="collapseManager" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Manage multiple paths in one collection:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smartpathlibrary.tools import PathManager
+
+pm = PathManager()
+
+# Add single paths
+pm.add_path("/home/user/project")
+pm.add_path("/home/user/notes.txt")
+
+# Add multiple paths
+pm.add_paths([
+    "/home/user/docs",
+    "/home/user/readme.md"
+])
+
+# Get all files (recursive through all added folders)
+all_files = list(pm.get_files(recursive=True))
+print(f"Files found: {len(all_files)}")
+
+# Get all subfolders
+all_dirs = list(pm.get_dirs(recursive=True))
+
+# Statistics
+print(f"Total paths added: {pm.count}")
+print(f"Total files (recursive): {pm.get_count_files()}")
+print(f"Total folders: {pm.get_count_dirs()}")
+
+# Remove paths
+pm.remove_path("/home/user/notes.txt")
+pm.remove_paths(["/home/user/docs"])
+
+print(pm)  # Paths(2)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pip install smartpathlibrary</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smartpathlibrary.tools import PathManager, Dir, File, get_root_path, PathNormalizer, Counter, Folder
+
+# ========== WORK WITH PATHS ==========
+
+# Check existence
+file = File("document.txt")
+print(file.exists())  # False or True
+
+folder = Folder("/home/user/docs")
+print(folder.exists())
+
+# Path normalization for different OS
+normalized = PathNormalizer.normalize("/home/user/my file.txt")
+
+
+# ========== DIRECTORY TRAVERSAL ==========
+
+dir_obj = Dir("/home/user/project")
+
+# Get all files recursively
+for file in dir_obj.get_files(recursive=True):
+    print(file)
+
+# Count
+print(f"Files: {dir_obj.get_count_files(recursive=True)}")
+print(f"Folders: {dir_obj.get_count_dirs(recursive=True)}")
+
+
+# ========== PATH MANAGER ==========
+
+pm = PathManager()
+pm.add_path("/home/user/project")
+pm.add_path("/home/user/notes.txt")
+
+all_files = list(pm.get_files(recursive=True))
+print(f"Files found: {len(all_files)}")
+
+print(f"Total paths added: {pm.count}")
+print(f"Total files (recursive): {pm.get_count_files()}")
+
+
+# ========== GET ABSOLUTE PATH ==========
+
+abs_path = get_root_path("data/config.json")
+print(abs_path)  # /full/path/to/script/folder/data/config.json
+
+
+# ========== COUNT ITEMS IN ITERABLE ==========
+
+counter = Counter()
+items = [1, 2, 3, 4, 5]
+print(counter.get_count(items))  # 5</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Utilities Reference -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUtils" aria-expanded="false">
+                        <i class="bi bi-tools me-2 text-primary"></i> Utilities Reference
+                    </button>
+                </h2>
+                <div id="collapseUtils" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Class/Function</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>PathManager</code></td><td>Manage multiple paths in one collection</td></tr>
+                                    <tr><td><code>Dir</code></td><td>Directory operations and traversal</td></tr>
+                                    <tr><td><code>File</code></td><td>File existence and operations</td></tr>
+                                    <tr><td><code>Folder</code></td><td>Folder existence and operations</td></tr>
+                                    <tr><td><code>PathNormalizer</code></td><td>Cross-platform path normalization</td></tr>
+                                    <tr><td><code>Counter</code></td><td>Count items in iterables</td></tr>
+                                    <tr><td><code>get_root_path()</code></td><td>Get absolute path relative to script</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartpathlibrary/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smartpathlibrary/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpathlibrary" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://pypi.org/project/smartpathlibrary/" class="btn btn-outline-primary btn-sm">PyPI</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpathlibrary/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpathlibrary/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.1</span></a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
