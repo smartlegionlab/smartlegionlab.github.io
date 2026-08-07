@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Legion Lab's Universe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        * { margin: 0; padding: 0; }
+        body {
+            overflow: hidden;
+            background: #05080f;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #fff;
+            user-select: none;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        .ui-overlay {
+            position: fixed;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .header-ui {
+            top: 20px;
+            left: 30px;
+            pointer-events: auto;
+        }
+        .header-ui h1 {
+            font-weight: 700;
+            text-shadow: 0 0 40px rgba(255, 193, 7, 0.3);
+            background: rgba(5, 8, 15, 0.8);
+            backdrop-filter: blur(16px);
+            padding: 12px 28px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            display: inline-block;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+        .header-ui h1 small {
+            color: #ffc107;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+        .header-ui .btn-home {
+            pointer-events: auto;
+            background: rgba(13, 110, 253, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: #ffc107;
+            padding: 8px 22px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            display: inline-block;
+            margin-left: 12px;
+        }
+        .header-ui .btn-home:hover {
+            background: rgba(255, 193, 7, 0.15);
+            border-color: #ffc107;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .history-panel {
+            position: fixed;
+            top: 90px;
+            left: 30px;
+            z-index: 15;
+            background: rgba(5, 8, 15, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 193, 7, 0.15);
+            border-radius: 16px;
+            padding: 12px 16px;
+            min-width: 220px;
+            max-width: 300px;
+            max-height: 60vh;
+            overflow-y: auto;
+            pointer-events: auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+        }
+        .history-panel::-webkit-scrollbar {
+            width: 4px;
+        }
+        .history-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .history-panel::-webkit-scrollbar-thumb {
+            background: #ffc10744;
+            border-radius: 10px;
+        }
+        .history-panel .panel-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6b7b98;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .history-panel .panel-title i {
+            color: #ffc107;
+        }
+
+        .history-accordion .accordion-item {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            margin-bottom: 2px;
+        }
+        .history-accordion .accordion-item:last-child {
+            border-bottom: none;
+        }
+        .history-accordion .accordion-header {
+            background: transparent;
+            padding: 0;
+        }
+        .history-accordion .accordion-button {
+            background: transparent;
+            color: #b0c4e0;
+            padding: 6px 8px;
+            font-size: 0.75rem;
+            border: none;
+            box-shadow: none;
+            border-radius: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-accordion .accordion-button:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .history-accordion .accordion-button .badge-count {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .history-accordion .accordion-button .traveler-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .history-accordion .accordion-body {
+            padding: 4px 8px 8px 8px;
+        }
+        .history-accordion .accordion-body .history-item {
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            color: #8aa0c9;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 2px solid transparent;
+        }
+        .history-accordion .accordion-body .history-item:hover {
+            background: rgba(255, 193, 7, 0.06);
+            border-left-color: #ffc107;
+            color: #fff;
+        }
+        .history-accordion .accordion-body .history-item .time {
+            color: #4a5a7a;
+            font-size: 0.6rem;
+        }
+        .history-accordion .accordion-body .history-item .type-icon {
+            margin-right: 6px;
+            opacity: 0.6;
+        }
+        .history-empty {
+            color: #4a5a7a;
+            font-size: 0.65rem;
+            font-style: italic;
+            padding: 4px 8px;
+        }
+
+        .stats-ui {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 10;
+            color: #8aa0c9;
+            font-size: 0.8rem;
+            background: rgba(5, 8, 15, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 10px 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            pointer-events: none;
+        }
+        .stats-ui span {
+            color: #ffc107;
+            font-weight: 600;
+        }
+        .legend-ui {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10;
+            color: #b0c4e0;
+            font-size: 0.7rem;
+            background: rgba(5, 8, 15, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 14px 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            pointer-events: none;
+        }
+        .legend-ui .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .legend-ui .row-legend {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .tooltip-ui {
+            position: fixed;
+            z-index: 20;
+            background: rgba(5, 8, 15, 0.92);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            padding: 10px 18px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.8rem;
+            pointer-events: none;
+            display: none;
+            max-width: 350px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.9);
+        }
+        .tooltip-ui .label {
+            color: #ffc107;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .tooltip-ui .url {
+            color: #8aa0c9;
+            font-size: 0.65rem;
+            word-break: break-all;
+            margin-top: 4px;
+        }
+        .tooltip-ui .type {
+            color: #6b7b98;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        .loading-ui {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            color: #ffc107;
+            font-size: 1.2rem;
+            background: rgba(5, 8, 15, 0.9);
+            padding: 30px 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            backdrop-filter: blur(20px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            transition: opacity 0.5s;
+        }
+        .loading-ui .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 193, 7, 0.1);
+            border-top: 3px solid #ffc107;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-ui.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 50;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(20px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-content {
+            background: rgba(5, 8, 15, 0.95);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 24px;
+            padding: 40px 50px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+            position: relative;
+        }
+        .modal-content .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #6b7b98;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .modal-content .close-btn:hover {
+            color: #ffc107;
+            transform: rotate(90deg);
+        }
+        .modal-content .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .modal-content h2 {
+            color: #ffc107;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .modal-content .modal-url {
+            color: #8aa0c9;
+            font-size: 0.8rem;
+            word-break: break-all;
+            margin-bottom: 15px;
+        }
+        .modal-content .modal-desc {
+            color: #b0c4e0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .modal-content .modal-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .modal-content .modal-buttons .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+        .modal-content .modal-buttons .btn-primary {
+            background: #0d6efd;
+            border: 1px solid #0d6efd;
+            color: #fff;
+        }
+        .modal-content .modal-buttons .btn-primary:hover {
+            background: #0b5ed7;
+            transform: scale(1.02);
+        }
+        .modal-content .modal-buttons .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0c4e0;
+        }
+        .modal-content .modal-buttons .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .modal-content .modal-type {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .header-ui h1 { font-size: 1.1rem; padding: 8px 16px; }
+            .header-ui .btn-home { font-size: 0.7rem; padding: 5px 12px; margin-left: 6px; }
+            .history-panel { left: 10px; top: 80px; min-width: 160px; max-width: 200px; padding: 8px 10px; }
+            .history-panel .panel-title { font-size: 0.6rem; }
+            .history-accordion .accordion-button { font-size: 0.65rem; padding: 4px 6px; }
+            .history-accordion .accordion-body .history-item { font-size: 0.6rem; padding: 3px 6px; }
+            .stats-ui { font-size: 0.6rem; padding: 6px 12px; bottom: 15px; left: 15px; }
+            .legend-ui { display: none; }
+            .loading-ui { padding: 20px 30px; font-size: 1rem; }
+            .modal-content { padding: 30px 20px; }
+            .modal-content .modal-buttons .btn { min-width: 80px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="canvas-container"></div>
+
+<div class="loading-ui" id="loadingUI">
+    <div class="spinner"></div>
+    <span>Loading universe...</span>
+    <span style="font-size:0.8rem; color:#6b7b98;">Analyzing sitemap.xml</span>
+</div>
+
+<div class="tooltip-ui" id="tooltip">
+    <div class="label" id="tooltipLabel">Title</div>
+    <div class="url" id="tooltipUrl">url</div>
+    <div class="type" id="tooltipType">type</div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <button class="close-btn" id="modalClose">&times;</button>
+        <div class="modal-icon" id="modalIcon">🚀</div>
+        <div class="modal-type" id="modalType">Planet</div>
+        <h2 id="modalTitle">Title</h2>
+        <div class="modal-url" id="modalUrl">https://...</div>
+        <div class="modal-desc" id="modalDesc">Description</div>
+        <div class="modal-buttons">
+            <a href="#" target="_blank" class="btn btn-primary" id="modalGoBtn">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Visit
+            </a>
+            <button class="btn btn-secondary" id="modalBackBtn">
+                <i class="bi bi-arrow-left me-1"></i> Back to space
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="ui-overlay header-ui">
+    <h1>
+        <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
+        Smart Legion Lab's <small>Universe</small>
+    </h1>
+    <a href="/" class="btn-home">
+        <i class="bi bi-house-door me-1"></i> To orbit
+    </a>
+</div>
+
+<div class="history-panel" id="historyPanel">
+    <div class="panel-title">
+        <i class="bi bi-clock-history"></i> History
+        <span style="margin-left:auto; font-size:0.6rem; color:#4a5a7a;">click to travel</span>
+    </div>
+    <div class="history-accordion" id="historyAccordion">
+    </div>
+</div>
+
+<div class="stats-ui">
+    <i class="bi bi-globe2 me-1"></i> Planets: <span id="planetCount">0</span> · Moons: <span id="moonCount">0</span>
+    <span style="margin-left:15px; color:#6b7b98;">👤 Travelers: <span id="shipCount">3</span></span>
+</div>
+
+<div class="legend-ui">
+    <div class="row-legend"><span class="dot" style="background: #ffc107; box-shadow: 0 0 20px #ffc107;"></span> Sun (home)</div>
+    <div class="row-legend"><span class="dot" style="background: #0d6efd;"></span> Planets (sections)</div>
+    <div class="row-legend"><span class="dot" style="background: #6c8cba;"></span> Moons (pages)</div>
+    <div class="row-legend" style="margin-top:8px; border-top:1px solid #1c2538; padding-top:8px; font-size:0.65rem; color:#6b7b98;">
+        <i class="bi bi-arrows-move me-1"></i> Drag · <i class="bi bi-zoom-in me-1"></i> Scroll · <i class="bi bi-eye me-1"></i> Hover · <i class="bi bi-hand-index me-1"></i> Click
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+    (function() {
+        const loadingUI = document.getElementById('loadingUI');
+        const planetCountEl = document.getElementById('planetCount');
+        const moonCountEl = document.getElementById('moonCount');
+
+        async function loadSitemap() {
+            try {
+                const response = await fetch('/sitemap.xml');
+                if (!response.ok) throw new Error('Failed to load sitemap.xml');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                const urls = xmlDoc.querySelectorAll('url');
+
+                const result = [];
+                urls.forEach(url => {
+                    const loc = url.querySelector('loc');
+                    if (loc) {
+                        const text = loc.textContent.trim();
+                        let label = text.replace('https://smartlegionlab.ru', '');
+                        if (!label || label === '/') {
+                            label = '🏠 Home';
+                        } else {
+                            label = label.replace(/^\/+/, '').replace(/\/+$/, '');
+                            const parts = label.split('/');
+                            let lastPart = parts[parts.length - 1];
+                            if (lastPart.endsWith('.html')) {
+                                lastPart = lastPart.replace('.html', '');
+                            }
+                            label = lastPart
+                                .replace(/-/g, ' ')
+                                .replace(/_/g, ' ')
+                                .replace(/\b\w/g, l => l.toUpperCase());
+                            if (parts.length === 1) {
+                                const icons = {
+                                    'projects': '📁 Projects',
+                                    'libraries': '📚 Libraries',
+                                    'ecosystems': '🌍 Ecosystems',
+                                    'applications': '📱 Applications',
+                                    'team': '👥 Team',
+                                    'profiles': '👤 Profiles',
+                                    'articles': '📰 Articles',
+                                    'research': '🔬 Research'
+                                };
+                                const key = parts[0].toLowerCase();
+                                if (icons[key]) label = icons[key];
+                                else label = '📂 ' + label;
+                            }
+                        }
+                        result.push({
+                            loc: text,
+                            label: label,
+                            path: text.replace('https://smartlegionlab.ru', '')
+                        });
+                    }
+                });
+                return result;
+            } catch (error) {
+                console.error('Sitemap load error:', error);
+                return getFallbackData();
+            } finally {
+                loadingUI.classList.add('hidden');
+            }
+        }
+
+        function getFallbackData() {
+            return [
+                { loc: 'https://smartlegionlab.ru/', label: '🏠 Home' },
+                { loc: 'https://smartlegionlab.ru/projects', label: '📁 Projects' },
+                { loc: 'https://smartlegionlab.ru/libraries', label: '📚 Libraries' },
+                { loc: 'https://smartlegionlab.ru/ecosystems', label: '🌍 Ecosystems' },
+                { loc: 'https://smartlegionlab.ru/applications', label: '📱 Applications' },
+                { loc: 'https://smartlegionlab.ru/team', label: '👥 Team' },
+                { loc: 'https://smartlegionlab.ru/articles', label: '📰 Articles' },
+                { loc: 'https://smartlegionlab.ru/research', label: '🔬 Research' }
+            ];
+        }
+
+        function buildGraph(urls) {
+            const nodes = [];
+            const edges = [];
+            const nodeMap = new Map();
+
+            const root = urls.find(u => u.path === '/' || u.path === '');
+            const rootId = 'root';
+            nodes.push({
+                id: rootId,
+                label: root ? root.label : '☀️ Smart Legion Lab',
+                group: 'root',
+                url: root ? root.loc : 'https://smartlegionlab.ru/'
+            });
+            nodeMap.set('https://smartlegionlab.ru/', rootId);
+
+            const sections = new Map();
+            urls.forEach(u => {
+                if (u.path === '/' || u.path === '') return;
+                let path = u.path.replace(/^\/+/, '').replace(/\/+$/, '');
+                if (!path) return;
+                const parts = path.split('/');
+                const section = parts[0];
+                if (!section) return;
+                if (!sections.has(section)) sections.set(section, []);
+                sections.get(section).push(u);
+            });
+
+            sections.forEach((items, sectionName) => {
+                const sectionId = 'sec_' + sectionName;
+                const indexPage = items.find(i => i.path === '/' + sectionName);
+                let sectionLabel = indexPage ? indexPage.label : sectionName;
+                if (!sectionLabel.match(/^[📁📚🌍📱👥👤📰🔬]/)) {
+                    const icons = {
+                        'projects': '📁',
+                        'libraries': '📚',
+                        'ecosystems': '🌍',
+                        'applications': '📱',
+                        'team': '👥',
+                        'articles': '📰',
+                        'research': '🔬'
+                    };
+                    sectionLabel = (icons[sectionName] || '📂') + ' ' + sectionLabel;
+                }
+
+                nodes.push({
+                    id: sectionId,
+                    label: sectionLabel,
+                    group: 'section',
+                    url: indexPage ? indexPage.loc : 'https://smartlegionlab.ru/' + sectionName + '.html'
+                });
+                nodeMap.set('section_' + sectionName, sectionId);
+                edges.push({ from: rootId, to: sectionId });
+
+                const pages = items.filter(i => i !== indexPage);
+                pages.forEach(page => {
+                    const nodeId = 'node_' + page.loc.replace(/[^a-zA-Z0-9]/g, '_');
+                    if (nodeMap.has(page.loc)) return;
+                    let pageLabel = page.label;
+                    if (pageLabel.length > 30) {
+                        pageLabel = pageLabel.substring(0, 27) + '…';
+                    }
+                    nodes.push({
+                        id: nodeId,
+                        label: pageLabel,
+                        group: 'page',
+                        url: page.loc,
+                        fullLabel: page.label
+                    });
+                    nodeMap.set(page.loc, nodeId);
+                    edges.push({ from: sectionId, to: nodeId });
+                });
+            });
+
+            return { nodes, edges };
+        }
+
+        let scene, camera, renderer, controls;
+        let nodeObjects = [];
+        let planetData = [];
+        let moonData = [];
+        let orbitLines = [];
+        let labelObjects = [];
+        let stars;
+        let raycaster, mouse;
+        let ships = [];
+        let shipTargets = [];
+        let clickableObjects = [];
+        let allNodes = [];
+        let allPlanets = [];
+        let allMoons = [];
+
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalType = document.getElementById('modalType');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalUrl = document.getElementById('modalUrl');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalGoBtn = document.getElementById('modalGoBtn');
+        const modalBackBtn = document.getElementById('modalBackBtn');
+
+        const historyData = {
+            'Aixandrolab': [],
+            'SmartLegionLab': [],
+            'You': []
+        };
+
+        const travelerColors = {
+            'Aixandrolab': '#ff3333',
+            'SmartLegionLab': '#3388ff',
+            'You': '#00ff88'
+        };
+
+        let historyEntryCounter = 0;
+
+        function addHistoryEntry(travelerName, target) {
+            if (!historyData[travelerName]) return;
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const entry = {
+                id: ++historyEntryCounter,
+                target: target,
+                time: timeStr,
+                timestamp: now.getTime(),
+                label: target.userData.fullLabel || target.userData.label,
+                url: target.userData.url,
+                type: target.userData.type,
+                group: target.userData.group,
+                icon: target.userData.type === '☀️ Sun' ? '☀️' : target.userData.type === '🪐 Planet' ? '🪐' : '🌙'
+            };
+
+            historyData[travelerName].push(entry);
+            renderHistory();
+
+            console.log(`📜 ${travelerName} visited: ${entry.label} at ${entry.time}`);
+        }
+
+        function renderHistory() {
+            const accordion = document.getElementById('historyAccordion');
+            if (!accordion) return;
+
+            let html = '';
+            const travelerNames = ['Aixandrolab', 'SmartLegionLab', 'You'];
+
+            travelerNames.forEach((name, idx) => {
+                const entries = historyData[name] || [];
+                const color = travelerColors[name] || '#ffffff';
+                const isPlayer = name === 'You';
+                const icon = isPlayer ? '👤' : '🚀';
+
+                html += `
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button class="accordion-button" onclick="toggleHistory('${name}')" style="color:${color};">
+                                <span>
+                                    <span class="traveler-dot" style="background:${color};"></span>
+                                    ${icon} ${name}
+                                </span>
+                                <span class="badge-count">${entries.length}</span>
+                            </button>
+                        </div>
+                        <div class="accordion-body" id="history_${name}" style="display:${idx === 0 ? 'block' : 'none'};">
+                            ${entries.length === 0 ? '<div class="history-empty">No visits yet...</div>' : ''}
+                            ${entries.slice().reverse().map((entry, i) => `
+                                <div class="history-item" onclick="travelToHistory('${name}', ${historyData[name].length - 1 - i})" title="Click to travel">
+                                    <span>
+                                        <span class="type-icon">${entry.icon}</span>
+                                        ${entry.label}
+                                    </span>
+                                    <span class="time">${entry.time}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            accordion.innerHTML = html;
+        }
+
+        window.toggleHistory = function(name) {
+            const body = document.getElementById('history_' + name);
+            if (!body) return;
+            const allBodies = document.querySelectorAll('.accordion-body');
+            allBodies.forEach(b => {
+                if (b.id !== 'history_' + name) {
+                    b.style.display = 'none';
+                }
+            });
+            if (body.style.display === 'none' || body.style.display === '') {
+                body.style.display = 'block';
+            } else {
+                body.style.display = 'none';
+            }
+        };
+
+        window.travelToHistory = function(travelerName, entryIndex) {
+            const entries = historyData[travelerName];
+            if (!entries || !entries[entryIndex]) return;
+            const entry = entries[entryIndex];
+
+            const targetObj = findObjectByUrl(entry.url);
+            if (!targetObj) {
+                console.warn('Target not found:', entry.url);
+                return;
+            }
+
+            openModal(targetObj.userData);
+
+            const playerShip = ships.find(s => s.userData.isPlayer);
+            if (playerShip && targetObj.userData.group !== 'root') {
+                if (playerShip.userData.currentTarget !== targetObj) {
+                    movePlayerTo(targetObj);
+                } else {
+                    playerShip.userData.isMoving = false;
+                    playerShip.userData.target = null;
+                }
+            }
+        };
+
+        function findObjectByUrl(url) {
+            for (const obj of clickableObjects) {
+                if (obj.userData && obj.userData.url === url) {
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+        function initScene() {
+            const container = document.getElementById('canvas-container');
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x05080f);
+
+            camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 500);
+            camera.position.set(30, 25, 40);
+            camera.lookAt(0, 0, 0);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            container.appendChild(renderer.domElement);
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.08;
+            controls.rotateSpeed = 0.6;
+            controls.zoomSpeed = 1.2;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 0.3;
+            controls.target.set(0, 0, 0);
+            controls.minDistance = 15;
+            controls.maxDistance = 80;
+
+            const ambient = new THREE.AmbientLight(0x334466, 0.3);
+            scene.add(ambient);
+
+            const dirLight = new THREE.DirectionalLight(0xffeedd, 0.8);
+            dirLight.position.set(15, 25, 15);
+            dirLight.castShadow = true;
+            scene.add(dirLight);
+
+            const dirLight2 = new THREE.DirectionalLight(0x4488ff, 0.3);
+            dirLight2.position.set(-15, -10, -15);
+            scene.add(dirLight2);
+
+            const pointLight = new THREE.PointLight(0xffc107, 1.2, 40);
+            pointLight.position.set(0, 0, 0);
+            scene.add(pointLight);
+
+            createStars();
+
+            raycaster = new THREE.Raycaster();
+            mouse = new THREE.Vector2();
+
+            setupInteraction();
+            setupResize();
+            setupModal();
+            animate();
+        }
+
+        function createStars() {
+            const starGeo = new THREE.BufferGeometry();
+            const starCount = 3000;
+            const starPos = new Float32Array(starCount * 3);
+            const starColors = new Float32Array(starCount * 3);
+
+            for (let i = 0; i < starCount; i++) {
+                const r = 60 + Math.random() * 200;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos((Math.random() * 2) - 1);
+                starPos[i*3] = Math.sin(phi) * Math.cos(theta) * r;
+                starPos[i*3+1] = Math.sin(phi) * Math.sin(theta) * r;
+                starPos[i*3+2] = Math.cos(phi) * r;
+
+                const temp = Math.random();
+                if (temp < 0.3) {
+                    starColors[i*3] = 0.6 + Math.random() * 0.4;
+                    starColors[i*3+1] = 0.7 + Math.random() * 0.3;
+                    starColors[i*3+2] = 1.0;
+                } else if (temp < 0.6) {
+                    starColors[i*3] = 1.0;
+                    starColors[i*3+1] = 0.8 + Math.random() * 0.2;
+                    starColors[i*3+2] = 0.4 + Math.random() * 0.2;
+                } else {
+                    const c = 0.7 + Math.random() * 0.3;
+                    starColors[i*3] = c;
+                    starColors[i*3+1] = c;
+                    starColors[i*3+2] = c;
+                }
+            }
+
+            starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+            starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+            const starMat = new THREE.PointsMaterial({
+                size: 0.3,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending,
+                sizeAttenuation: true
+            });
+            stars = new THREE.Points(starGeo, starMat);
+            scene.add(stars);
+        }
+
+        function createPlanetMesh(color, size, emissiveIntensity = 0.15, hasRing = false) {
+            const group = new THREE.Group();
+
+            const geo = new THREE.SphereGeometry(size, 24, 24);
+            const mat = new THREE.MeshPhongMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: emissiveIntensity,
+                transparent: true,
+                opacity: 0.92,
+                shininess: 40,
+                specular: 0x333355,
+                roughness: 0.3,
+                metalness: 0.1
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.castShadow = true;
+            group.add(mesh);
+
+            const atmosGeo = new THREE.SphereGeometry(size * 1.08, 24, 24);
+            const atmosMat = new THREE.MeshPhongMaterial({
+                color: color,
+                transparent: true,
+                opacity: 0.06,
+                side: THREE.BackSide,
+                blending: THREE.AdditiveBlending
+            });
+            const atmos = new THREE.Mesh(atmosGeo, atmosMat);
+            group.add(atmos);
+
+            if (hasRing) {
+                const ringGeo = new THREE.TorusGeometry(size * 1.6, size * 0.12, 12, 48);
+                const ringMat = new THREE.MeshPhongMaterial({
+                    color: color,
+                    transparent: true,
+                    opacity: 0.15,
+                    side: THREE.DoubleSide,
+                    emissive: color,
+                    emissiveIntensity: 0.03
+                });
+                const ring = new THREE.Mesh(ringGeo, ringMat);
+                ring.rotation.x = Math.PI / 3;
+                ring.rotation.z = 0.3;
+                group.add(ring);
+            }
+
+            return group;
+        }
+
+        function createLabel(text, color = '#ffffff', scale = 1) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 512;
+            canvas.height = 128;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.shadowColor = 'rgba(0,0,0,0.8)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 2;
+
+            ctx.font = 'Bold 40px "Segoe UI", system-ui, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            ctx.shadowBlur = 0;
+            ctx.strokeStyle = 'rgba(0,0,0,0.8)';
+            ctx.lineWidth = 5;
+            ctx.strokeText(text, canvas.width/2, canvas.height/2);
+
+            ctx.shadowColor = 'rgba(0,0,0,0.5)';
+            ctx.shadowBlur = 15;
+            ctx.fillStyle = color;
+            ctx.fillText(text, canvas.width/2, canvas.height/2);
+
+            ctx.shadowColor = color;
+            ctx.shadowBlur = 30;
+            ctx.globalAlpha = 0.2;
+            ctx.fillText(text, canvas.width/2, canvas.height/2);
+            ctx.globalAlpha = 1.0;
+
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.needsUpdate = true;
+
+            const material = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                depthTest: false,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending
+            });
+
+            const sprite = new THREE.Sprite(material);
+            sprite.scale.set(4 * scale, 1 * scale, 1);
+            return sprite;
+        }
+
+        function createTraveler(color, label) {
+            const group = new THREE.Group();
+
+            const bodyMat = new THREE.MeshPhongMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.2,
+                shininess: 60,
+                metalness: 0.3,
+                roughness: 0.4
+            });
+
+            const helmetGeo = new THREE.SphereGeometry(0.2, 12, 12);
+            const helmet = new THREE.Mesh(helmetGeo, bodyMat);
+            helmet.position.y = 0.35;
+            helmet.scale.set(1, 1.1, 1);
+            group.add(helmet);
+
+            const visorMat = new THREE.MeshPhongMaterial({
+                color: 0x88ccff,
+                emissive: 0x88ccff,
+                emissiveIntensity: 0.1,
+                transparent: true,
+                opacity: 0.4,
+                shininess: 100
+            });
+            const visorGeo = new THREE.SphereGeometry(0.12, 8, 8);
+            const visor = new THREE.Mesh(visorGeo, visorMat);
+            visor.position.set(0, 0.35, 0.15);
+            visor.scale.set(0.8, 0.7, 0.3);
+            group.add(visor);
+
+            const bodyGeo = new THREE.CylinderGeometry(0.15, 0.2, 0.3, 8);
+            const body = new THREE.Mesh(bodyGeo, bodyMat);
+            body.position.y = 0.1;
+            group.add(body);
+
+            const packMat = new THREE.MeshPhongMaterial({
+                color: 0x334466,
+                emissive: 0x334466,
+                emissiveIntensity: 0.05,
+                metalness: 0.6,
+                roughness: 0.3
+            });
+            const packGeo = new THREE.BoxGeometry(0.15, 0.2, 0.08);
+            const pack = new THREE.Mesh(packGeo, packMat);
+            pack.position.set(0, 0.2, -0.15);
+            group.add(pack);
+
+            const armMat = new THREE.MeshPhongMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.1
+            });
+            const armGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.25, 6);
+            const arm1 = new THREE.Mesh(armGeo, armMat);
+            arm1.position.set(0.18, 0.2, 0);
+            arm1.rotation.z = 0.3;
+            group.add(arm1);
+            const arm2 = new THREE.Mesh(armGeo, armMat);
+            arm2.position.set(-0.18, 0.2, 0);
+            arm2.rotation.z = -0.3;
+            group.add(arm2);
+
+            const legMat = new THREE.MeshPhongMaterial({
+                color: 0x223355,
+                metalness: 0.3,
+                roughness: 0.5
+            });
+            const legGeo = new THREE.CylinderGeometry(0.05, 0.06, 0.2, 6);
+            const leg1 = new THREE.Mesh(legGeo, legMat);
+            leg1.position.set(0.07, -0.1, 0);
+            group.add(leg1);
+            const leg2 = new THREE.Mesh(legGeo, legMat);
+            leg2.position.set(-0.07, -0.1, 0);
+            group.add(leg2);
+
+            const fireMat = new THREE.MeshBasicMaterial({
+                color: 0xff6600,
+                transparent: true,
+                opacity: 0.7
+            });
+            const fireGeo = new THREE.ConeGeometry(0.04, 0.15, 4);
+            const fire1 = new THREE.Mesh(fireGeo, fireMat);
+            fire1.position.set(0.06, -0.2, 0);
+            fire1.rotation.x = 0.2;
+            group.add(fire1);
+            const fire2 = new THREE.Mesh(fireGeo, fireMat);
+            fire2.position.set(-0.06, -0.2, 0);
+            fire2.rotation.x = -0.2;
+            group.add(fire2);
+
+            const glowMat = new THREE.MeshBasicMaterial({
+                color: color,
+                transparent: true,
+                opacity: 0.1,
+                blending: THREE.AdditiveBlending
+            });
+            const glowGeo = new THREE.SphereGeometry(0.3, 8, 8);
+            const glow = new THREE.Mesh(glowGeo, glowMat);
+            group.add(glow);
+
+            if (label) {
+                const travelerLabel = createLabel(label, '#ffffff', 0.35);
+                travelerLabel.position.set(0, 0.7, 0);
+                group.add(travelerLabel);
+            }
+
+            group.scale.set(1.2, 1.2, 1.2);
+            return group;
+        }
+
+        function buildSolarSystem(graph) {
+            nodeObjects.forEach(obj => scene.remove(obj));
+            planetData.forEach(obj => scene.remove(obj));
+            moonData.forEach(obj => scene.remove(obj));
+            orbitLines.forEach(obj => scene.remove(obj));
+            labelObjects.forEach(obj => scene.remove(obj));
+            ships.forEach(obj => scene.remove(obj));
+
+            nodeObjects = [];
+            planetData = [];
+            moonData = [];
+            orbitLines = [];
+            labelObjects = [];
+            ships = [];
+            allPlanets = [];
+            allMoons = [];
+            clickableObjects = [];
+            allNodes = graph.nodes;
+
+            const rootNode = graph.nodes.find(n => n.group === 'root');
+            const sections = graph.nodes.filter(n => n.group === 'section');
+
+            const sunGroup = new THREE.Group();
+            const sunGeo = new THREE.SphereGeometry(2.0, 48, 48);
+            const sunMat = new THREE.MeshPhongMaterial({
+                color: 0xffc107,
+                emissive: 0xffc107,
+                emissiveIntensity: 0.8,
+                transparent: true,
+                opacity: 1
+            });
+            const sun = new THREE.Mesh(sunGeo, sunMat);
+            sun.castShadow = true;
+            sunGroup.add(sun);
+
+            const coronaGeo = new THREE.SphereGeometry(3.5, 24, 24);
+            const coronaMat = new THREE.MeshBasicMaterial({
+                color: 0xffc107,
+                transparent: true,
+                opacity: 0.06,
+                blending: THREE.AdditiveBlending,
+                wireframe: true
+            });
+            const corona = new THREE.Mesh(coronaGeo, coronaMat);
+            sunGroup.add(corona);
+
+            sunGroup.position.set(0, 0, 0);
+            sunGroup.userData = {
+                nodeId: rootNode.id,
+                label: rootNode.label,
+                url: rootNode.url || 'https://smartlegionlab.ru/',
+                group: 'root',
+                type: '☀️ Sun',
+                description: 'Smart Legion Lab home page. Start your journey through the universe of projects, libraries and research.'
+            };
+            scene.add(sunGroup);
+            nodeObjects.push(sunGroup);
+            clickableObjects.push(sunGroup);
+
+            const sunLabel = createLabel('☀️ ' + rootNode.label, '#ffc107');
+            sunLabel.position.set(0, 3.5, 0);
+            scene.add(sunLabel);
+            labelObjects.push(sunLabel);
+
+            const orbitRadii = [7, 10, 13, 16, 19, 22, 25];
+            const colors = [0x0d6efd, 0x4a9eff, 0x00d4ff, 0x6c8cba, 0x4a7dbd, 0x2a5a9a, 0x1a4a8a];
+            const hasRing = [false, true, false, true, false, false, true];
+            const angleOffset = Math.random() * Math.PI * 2;
+
+            sections.forEach((section, idx) => {
+                const radius = orbitRadii[idx % orbitRadii.length] + (Math.floor(idx / orbitRadii.length) * 3);
+                const angle = (idx / sections.length) * Math.PI * 2 + angleOffset;
+                const x = Math.cos(angle) * radius;
+                const z = Math.sin(angle) * radius;
+                const y = (Math.random() - 0.5) * 2;
+
+                const size = 0.8 + Math.random() * 0.4;
+                const color = colors[idx % colors.length];
+                const planetGroup = createPlanetMesh(color, size, 0.2, hasRing[idx % hasRing.length]);
+                planetGroup.position.set(x, y, z);
+
+                const sectionUrl = section.url || 'https://smartlegionlab.ru/' + section.id.replace('sec_', '') + '.html';
+                planetGroup.userData = {
+                    nodeId: section.id,
+                    label: section.label,
+                    url: sectionUrl,
+                    group: 'section',
+                    type: '🪐 Planet',
+                    angle: angle,
+                    radius: radius,
+                    speed: 0.06 + Math.random() * 0.04,
+                    orbitY: y,
+                    description: `Section "${section.label.replace(/^[^\s]+\s/, '')}" — all related projects and pages.`
+                };
+                scene.add(planetGroup);
+                nodeObjects.push(planetGroup);
+                planetData.push(planetGroup);
+                clickableObjects.push(planetGroup);
+                allPlanets.push(planetGroup);
+
+                const label = createLabel(section.label, '#4a9eff');
+                label.position.set(0, size * 1.8 + 0.8, 0);
+                planetGroup.add(label);
+                labelObjects.push(label);
+
+                const orbitPoints = [];
+                const segments = 64;
+                for (let i = 0; i <= segments; i++) {
+                    const theta = (i / segments) * Math.PI * 2;
+                    const ox = Math.cos(theta) * radius;
+                    const oz = Math.sin(theta) * radius;
+                    orbitPoints.push(new THREE.Vector3(ox, y, oz));
+                }
+                const orbitGeo = new THREE.BufferGeometry().setFromPoints(orbitPoints);
+                const orbitMat = new THREE.LineBasicMaterial({
+                    color: color,
+                    transparent: true,
+                    opacity: 0.06
+                });
+                const orbitLine = new THREE.Line(orbitGeo, orbitMat);
+                scene.add(orbitLine);
+                orbitLines.push(orbitLine);
+
+                const sectionPages = graph.edges
+                    .filter(e => e.from === section.id)
+                    .map(e => graph.nodes.find(n => n.id === e.to))
+                    .filter(n => n && n.group === 'page');
+
+                sectionPages.forEach((page, pIdx) => {
+                    const moonRadius = 1.5 + (pIdx / Math.max(sectionPages.length, 1)) * 1.8;
+                    const moonAngle = (pIdx / Math.max(sectionPages.length, 1)) * Math.PI * 2 + Math.random() * 0.3;
+                    const mx = x + Math.cos(moonAngle) * moonRadius;
+                    const mz = z + Math.sin(moonAngle) * moonRadius;
+                    const my = y + (Math.random() - 0.5) * 1.2;
+
+                    const moonSize = 0.2 + Math.random() * 0.1;
+                    const moonGeo = new THREE.SphereGeometry(moonSize, 12, 12);
+                    const moonMat = new THREE.MeshPhongMaterial({
+                        color: 0x8aa0c9,
+                        emissive: 0x8aa0c9,
+                        emissiveIntensity: 0.05,
+                        transparent: true,
+                        opacity: 0.9,
+                        shininess: 30
+                    });
+                    const moon = new THREE.Mesh(moonGeo, moonMat);
+                    moon.position.set(mx, my, mz);
+                    moon.userData = {
+                        nodeId: page.id,
+                        label: page.label,
+                        url: page.url,
+                        fullLabel: page.fullLabel || page.label,
+                        group: 'page',
+                        type: '🌙 Moon',
+                        planet: planetGroup,
+                        angle: moonAngle,
+                        radius: moonRadius,
+                        speed: 0.15 + Math.random() * 0.12,
+                        orbitY: y,
+                        description: `Page "${page.fullLabel || page.label}" — part of "${section.label.replace(/^[^\s]+\s/, '')}" section.`
+                    };
+                    scene.add(moon);
+                    nodeObjects.push(moon);
+                    moonData.push(moon);
+                    clickableObjects.push(moon);
+                    allMoons.push(moon);
+
+                    const moonLabel = createLabel('✦ ' + page.label, '#8aa0c9', 0.6);
+                    moonLabel.scale.set(2.5, 0.6, 1);
+                    moonLabel.position.set(0, moonSize * 2.5 + 0.4, 0);
+                    moon.add(moonLabel);
+                    labelObjects.push(moonLabel);
+                });
+            });
+
+            planetCountEl.textContent = sections.length;
+            moonCountEl.textContent = graph.nodes.filter(n => n.group === 'page').length;
+
+            createTravelers();
+            renderHistory();
+        }
+
+        function createTravelers() {
+            const traveler1 = createTraveler(0xff3333, 'Aixandrolab');
+            traveler1.userData = {
+                name: 'Aixandrolab',
+                color: 0xff3333,
+                targetIndex: 0,
+                waitTimer: 0,
+                isWaiting: false,
+                speed: 0.012,
+                arrivalTimer: 0,
+                isArrived: false,
+                lastTarget: null
+            };
+            const startPos1 = getRandomPlanetPosition();
+            traveler1.position.copy(startPos1);
+            scene.add(traveler1);
+            ships.push(traveler1);
+
+            const traveler2 = createTraveler(0x3388ff, 'SmartLegionLab');
+            traveler2.userData = {
+                name: 'SmartLegionLab',
+                color: 0x3388ff,
+                targetIndex: 0,
+                waitTimer: 0,
+                isWaiting: false,
+                speed: 0.010,
+                arrivalTimer: 0,
+                isArrived: false,
+                lastTarget: null
+            };
+            const startPos2 = getRandomPlanetPosition();
+            traveler2.position.copy(startPos2);
+            scene.add(traveler2);
+            ships.push(traveler2);
+
+            const traveler3 = createTraveler(0x00ff88, '👤 You');
+            traveler3.userData = {
+                name: 'You',
+                color: 0x00ff88,
+                targetIndex: 0,
+                waitTimer: 0,
+                isWaiting: false,
+                speed: 0.02,
+                isPlayer: true,
+                target: null,
+                isMoving: false,
+                currentTarget: null,
+                arrivalTimer: 0,
+                isArrived: false,
+                lastTarget: null
+            };
+            const startPos3 = new THREE.Vector3(0, 2, 0);
+            traveler3.position.copy(startPos3);
+            scene.add(traveler3);
+            ships.push(traveler3);
+
+            document.getElementById('shipCount').textContent = ships.length;
+            updateShipTargets();
+        }
+
+        function getRandomPlanetPosition() {
+            if (allPlanets.length === 0) return new THREE.Vector3(0, 0, 0);
+            const planet = allPlanets[Math.floor(Math.random() * allPlanets.length)];
+            return planet.position.clone();
+        }
+
+        function getRandomTarget() {
+            const allTargets = [...allPlanets, ...allMoons];
+            if (allTargets.length === 0) return null;
+            return allTargets[Math.floor(Math.random() * allTargets.length)];
+        }
+
+        function updateShipTargets() {
+            shipTargets = [];
+            const allTargets = [...allPlanets, ...allMoons];
+            if (allTargets.length === 0) return;
+
+            ships.forEach((ship, idx) => {
+                if (ship.userData.isPlayer) {
+                    shipTargets.push(null);
+                    return;
+                }
+                let target;
+                let attempts = 0;
+                do {
+                    target = allTargets[Math.floor(Math.random() * allTargets.length)];
+                    attempts++;
+                } while (target === shipTargets[idx-1] && attempts < 10);
+                shipTargets.push(target);
+            });
+        }
+
+        function updateShips() {
+            const allTargets = [...allPlanets, ...allMoons];
+            if (allTargets.length === 0) return;
+
+            ships.forEach((ship, idx) => {
+                const data = ship.userData;
+
+                if (data.isPlayer) {
+                    if (data.isMoving && data.target) {
+                        moveShipToTarget(ship, data.target);
+                    }
+                    return;
+                }
+
+                if (!data.isWaiting) {
+                    const target = shipTargets[idx];
+                    if (target) {
+                        const dist = ship.position.distanceTo(target.position);
+                        if (dist < 0.3) {
+                            data.isWaiting = true;
+                            data.waitTimer = 120 + Math.random() * 180;
+                            data.isArrived = true;
+                            data.arrivalTimer = 0;
+                            if (data.lastTarget !== target) {
+                                addHistoryEntry(data.name, target);
+                                data.lastTarget = target;
+                            }
+                        } else {
+                            moveShipToTarget(ship, target);
+                        }
+                    }
+                } else {
+                    data.waitTimer--;
+                    if (data.waitTimer <= 0) {
+                        data.isWaiting = false;
+                        data.isArrived = false;
+                        let newTarget;
+                        let attempts = 0;
+                        do {
+                            newTarget = allTargets[Math.floor(Math.random() * allTargets.length)];
+                            attempts++;
+                        } while (newTarget === shipTargets[idx] && attempts < 10);
+                        shipTargets[idx] = newTarget;
+                    }
+                }
+            });
+        }
+
+        function moveShipToTarget(ship, target) {
+            const direction = new THREE.Vector3().copy(target.position).sub(ship.position);
+            const distance = direction.length();
+            if (distance < 0.05) return;
+
+            direction.normalize();
+            const speed = ship.userData.speed || 0.015;
+            const moveAmount = Math.min(speed, distance);
+            ship.position.add(direction.multiplyScalar(moveAmount));
+
+            ship.lookAt(target.position);
+            ship.rotateX(Math.PI / 2);
+        }
+
+        function movePlayerTo(target) {
+            const playerShip = ships.find(s => s.userData.isPlayer);
+            if (!playerShip) return;
+
+            const data = playerShip.userData;
+
+            if (data.currentTarget === target) {
+                data.isMoving = false;
+                data.target = null;
+                return;
+            }
+
+            data.target = target;
+            data.isMoving = true;
+            data.currentTarget = target;
+            data.isArrived = false;
+
+            addHistoryEntry('You', target);
+        }
+
+        function setupModal() {
+            modalClose.addEventListener('click', closeModal);
+            modalBackBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+        }
+
+        function openModal(data) {
+            const icons = {
+                'root': '☀️',
+                'section': '🪐',
+                'page': '🌙'
+            };
+            const types = {
+                'root': 'Sun',
+                'section': 'Planet',
+                'page': 'Moon'
+            };
+
+            modalIcon.textContent = icons[data.group] || '🚀';
+            modalType.textContent = types[data.group] || 'Object';
+            modalTitle.textContent = data.label || 'Untitled';
+            modalUrl.textContent = data.url || '—';
+            modalDesc.textContent = data.description || 'Smart Legion Lab page.';
+            modalGoBtn.href = data.url || '#';
+
+            if (data.fullLabel && data.fullLabel !== data.label) {
+                modalTitle.textContent = data.fullLabel;
+            }
+
+            modalOverlay.classList.add('active');
+            controls.autoRotate = false;
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            controls.autoRotate = true;
+        }
+
+        let hoveredObject = null;
+        const tooltip = document.getElementById('tooltip');
+        const tooltipLabel = document.getElementById('tooltipLabel');
+        const tooltipUrl = document.getElementById('tooltipUrl');
+        const tooltipType = document.getElementById('tooltipType');
+
+        function setupInteraction() {
+            renderer.domElement.addEventListener('mousemove', (event) => {
+                const rect = renderer.domElement.getBoundingClientRect();
+                mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(clickableObjects, true);
+
+                if (intersects.length > 0) {
+                    let obj = intersects[0].object;
+                    while (obj && !obj.userData?.label && obj.parent) {
+                        obj = obj.parent;
+                    }
+
+                    if (obj && obj.userData && obj.userData.label) {
+                        tooltip.style.display = 'block';
+                        let left = event.clientX + 15;
+                        let top = event.clientY - 10;
+                        if (left + 350 > window.innerWidth) left = event.clientX - 360;
+                        if (top + 100 > window.innerHeight) top = window.innerHeight - 110;
+                        tooltip.style.left = left + 'px';
+                        tooltip.style.top = top + 'px';
+
+                        tooltipLabel.textContent = obj.userData.fullLabel || obj.userData.label;
+                        tooltipUrl.textContent = obj.userData.url || '—';
+                        tooltipType.textContent = obj.userData.type || '';
+
+                        if (hoveredObject && hoveredObject !== obj) {
+                            if (hoveredObject.children) {
+                                hoveredObject.children.forEach(child => {
+                                    if (child.material && child.material.emissiveIntensity !== undefined) {
+                                        child.material.emissiveIntensity = 0.15;
+                                    }
+                                });
+                            }
+                        }
+                        hoveredObject = obj;
+                        if (obj.children) {
+                            obj.children.forEach(child => {
+                                if (child.material && child.material.emissiveIntensity !== undefined) {
+                                    child.material.emissiveIntensity = 0.6;
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    tooltip.style.display = 'none';
+                    if (hoveredObject && hoveredObject.children) {
+                        hoveredObject.children.forEach(child => {
+                            if (child.material && child.material.emissiveIntensity !== undefined) {
+                                child.material.emissiveIntensity = 0.15;
+                            }
+                        });
+                    }
+                    hoveredObject = null;
+                }
+            });
+
+            renderer.domElement.addEventListener('click', (event) => {
+                const rect = renderer.domElement.getBoundingClientRect();
+                mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(clickableObjects, true);
+
+                if (intersects.length > 0) {
+                    let obj = intersects[0].object;
+                    while (obj && !obj.userData?.url && obj.parent) {
+                        obj = obj.parent;
+                    }
+                    if (obj && obj.userData) {
+                        openModal(obj.userData);
+
+                        const playerShip = ships.find(s => s.userData.isPlayer);
+                        if (playerShip && obj.userData.group !== 'root') {
+                            if (playerShip.userData.currentTarget !== obj) {
+                                movePlayerTo(obj);
+                            } else {
+                                playerShip.userData.isMoving = false;
+                                playerShip.userData.target = null;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function setupResize() {
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        let time = 0;
+        let frameCount = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+            frameCount++;
+            controls.update();
+
+            planetData.forEach(planet => {
+                const data = planet.userData;
+                data.angle += data.speed * 0.01;
+                const x = Math.cos(data.angle) * data.radius;
+                const z = Math.sin(data.angle) * data.radius;
+                planet.position.x = x;
+                planet.position.z = z;
+                planet.rotation.y += 0.008;
+            });
+
+            moonData.forEach(moon => {
+                const data = moon.userData;
+                data.angle += data.speed * 0.015;
+                const planetPos = data.planet.position;
+                const mx = planetPos.x + Math.cos(data.angle) * data.radius;
+                const mz = planetPos.z + Math.sin(data.angle) * data.radius;
+                moon.position.x = mx;
+                moon.position.z = mz;
+                moon.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
+                moon.rotation.y += 0.015;
+            });
+
+            if (nodeObjects[0]) {
+                nodeObjects[0].rotation.y += 0.002;
+            }
+
+            updateShips();
+
+            if (frameCount % 10 === 0 && stars) {
+                stars.rotation.y += 0.00005;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        async function init() {
+            const urls = await loadSitemap();
+            const graph = buildGraph(urls);
+            initScene();
+            buildSolarSystem(graph);
+
+            setTimeout(() => {
+                updateShipTargets();
+            }, 1000);
+
+            setTimeout(() => {
+                if (controls) controls.autoRotate = true;
+            }, 1500);
+
+            console.log('🚀 Universe loaded!');
+            console.log('📊 Total URLs:', urls.length);
+            console.log('🪐 Planets:', graph.nodes.filter(n => n.group === 'section').length);
+            console.log('🌙 Moons:', graph.nodes.filter(n => n.group === 'page').length);
+            console.log('👤 Travelers:', ships.length);
+        }
+
+        init();
+    })();
+</script>
+</body>
+</html>
