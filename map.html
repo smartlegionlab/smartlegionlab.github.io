@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Space Map · Smart Legion Lab</title>
+    <title>Smart Legion Lab's Universe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
@@ -23,6 +23,7 @@
             height: 100vh;
             z-index: 1;
         }
+
         .ui-overlay {
             position: fixed;
             z-index: 10;
@@ -70,6 +71,129 @@
             color: #fff;
             transform: scale(1.05);
         }
+
+        .history-panel {
+            position: fixed;
+            top: 90px;
+            left: 30px;
+            z-index: 15;
+            background: rgba(5, 8, 15, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 193, 7, 0.15);
+            border-radius: 16px;
+            padding: 12px 16px;
+            min-width: 220px;
+            max-width: 300px;
+            max-height: 60vh;
+            overflow-y: auto;
+            pointer-events: auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+        }
+        .history-panel::-webkit-scrollbar {
+            width: 4px;
+        }
+        .history-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .history-panel::-webkit-scrollbar-thumb {
+            background: #ffc10744;
+            border-radius: 10px;
+        }
+        .history-panel .panel-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6b7b98;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .history-panel .panel-title i {
+            color: #ffc107;
+        }
+
+        .history-accordion .accordion-item {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            margin-bottom: 2px;
+        }
+        .history-accordion .accordion-item:last-child {
+            border-bottom: none;
+        }
+        .history-accordion .accordion-header {
+            background: transparent;
+            padding: 0;
+        }
+        .history-accordion .accordion-button {
+            background: transparent;
+            color: #b0c4e0;
+            padding: 6px 8px;
+            font-size: 0.75rem;
+            border: none;
+            box-shadow: none;
+            border-radius: 8px;
+            transition: 0.2s;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-accordion .accordion-button:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .history-accordion .accordion-button .badge-count {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        .history-accordion .accordion-button .traveler-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .history-accordion .accordion-body {
+            padding: 4px 8px 8px 8px;
+        }
+        .history-accordion .accordion-body .history-item {
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            color: #8aa0c9;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 2px solid transparent;
+        }
+        .history-accordion .accordion-body .history-item:hover {
+            background: rgba(255, 193, 7, 0.06);
+            border-left-color: #ffc107;
+            color: #fff;
+        }
+        .history-accordion .accordion-body .history-item .time {
+            color: #4a5a7a;
+            font-size: 0.6rem;
+        }
+        .history-accordion .accordion-body .history-item .type-icon {
+            margin-right: 6px;
+            opacity: 0.6;
+        }
+        .history-empty {
+            color: #4a5a7a;
+            font-size: 0.65rem;
+            font-style: italic;
+            padding: 4px 8px;
+        }
+
         .stats-ui {
             position: fixed;
             bottom: 30px;
@@ -295,6 +419,10 @@
         @media (max-width: 768px) {
             .header-ui h1 { font-size: 1.1rem; padding: 8px 16px; }
             .header-ui .btn-home { font-size: 0.7rem; padding: 5px 12px; margin-left: 6px; }
+            .history-panel { left: 10px; top: 80px; min-width: 160px; max-width: 200px; padding: 8px 10px; }
+            .history-panel .panel-title { font-size: 0.6rem; }
+            .history-accordion .accordion-button { font-size: 0.65rem; padding: 4px 6px; }
+            .history-accordion .accordion-body .history-item { font-size: 0.6rem; padding: 3px 6px; }
             .stats-ui { font-size: 0.6rem; padding: 6px 12px; bottom: 15px; left: 15px; }
             .legend-ui { display: none; }
             .loading-ui { padding: 20px 30px; font-size: 1rem; }
@@ -341,11 +469,20 @@
 <div class="ui-overlay header-ui">
     <h1>
         <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
-        Universe <small>· site map</small>
+        Smart Legion Lab's <small>Universe</small>
     </h1>
     <a href="/" class="btn-home">
         <i class="bi bi-house-door me-1"></i> To orbit
     </a>
+</div>
+
+<div class="history-panel" id="historyPanel">
+    <div class="panel-title">
+        <i class="bi bi-clock-history"></i> History
+        <span style="margin-left:auto; font-size:0.6rem; color:#4a5a7a;">click to travel</span>
+    </div>
+    <div class="history-accordion" id="historyAccordion">
+    </div>
 </div>
 
 <div class="stats-ui">
@@ -434,13 +571,13 @@
         function getFallbackData() {
             return [
                 { loc: 'https://smartlegionlab.ru/', label: '🏠 Home' },
-                { loc: 'https://smartlegionlab.ru/projects.html', label: '📁 Projects' },
-                { loc: 'https://smartlegionlab.ru/libraries.html', label: '📚 Libraries' },
-                { loc: 'https://smartlegionlab.ru/ecosystems.html', label: '🌍 Ecosystems' },
-                { loc: 'https://smartlegionlab.ru/applications.html', label: '📱 Applications' },
-                { loc: 'https://smartlegionlab.ru/team.html', label: '👥 Team' },
-                { loc: 'https://smartlegionlab.ru/articles.html', label: '📰 Articles' },
-                { loc: 'https://smartlegionlab.ru/research.html', label: '🔬 Research' }
+                { loc: 'https://smartlegionlab.ru/projects', label: '📁 Projects' },
+                { loc: 'https://smartlegionlab.ru/libraries', label: '📚 Libraries' },
+                { loc: 'https://smartlegionlab.ru/ecosystems', label: '🌍 Ecosystems' },
+                { loc: 'https://smartlegionlab.ru/applications', label: '📱 Applications' },
+                { loc: 'https://smartlegionlab.ru/team', label: '👥 Team' },
+                { loc: 'https://smartlegionlab.ru/articles', label: '📰 Articles' },
+                { loc: 'https://smartlegionlab.ru/research', label: '🔬 Research' }
             ];
         }
 
@@ -473,7 +610,7 @@
 
             sections.forEach((items, sectionName) => {
                 const sectionId = 'sec_' + sectionName;
-                const indexPage = items.find(i => i.path === '/' + sectionName + '.html');
+                const indexPage = items.find(i => i.path === '/' + sectionName);
                 let sectionLabel = indexPage ? indexPage.label : sectionName;
                 if (!sectionLabel.match(/^[📁📚🌍📱👥👤📰🔬]/)) {
                     const icons = {
@@ -482,7 +619,6 @@
                         'ecosystems': '🌍',
                         'applications': '📱',
                         'team': '👥',
-                        'profiles': '👤',
                         'articles': '📰',
                         'research': '🔬'
                     };
@@ -545,6 +681,134 @@
         const modalDesc = document.getElementById('modalDesc');
         const modalGoBtn = document.getElementById('modalGoBtn');
         const modalBackBtn = document.getElementById('modalBackBtn');
+
+        const historyData = {
+            'Aixandrolab': [],
+            'SmartLegionLab': [],
+            'You': []
+        };
+
+        const travelerColors = {
+            'Aixandrolab': '#ff3333',
+            'SmartLegionLab': '#3388ff',
+            'You': '#00ff88'
+        };
+
+        let historyEntryCounter = 0;
+
+        function addHistoryEntry(travelerName, target) {
+            if (!historyData[travelerName]) return;
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const entry = {
+                id: ++historyEntryCounter,
+                target: target,
+                time: timeStr,
+                timestamp: now.getTime(),
+                label: target.userData.fullLabel || target.userData.label,
+                url: target.userData.url,
+                type: target.userData.type,
+                group: target.userData.group,
+                icon: target.userData.type === '☀️ Sun' ? '☀️' : target.userData.type === '🪐 Planet' ? '🪐' : '🌙'
+            };
+
+            historyData[travelerName].push(entry);
+            renderHistory();
+
+            console.log(`📜 ${travelerName} visited: ${entry.label} at ${entry.time}`);
+        }
+
+        function renderHistory() {
+            const accordion = document.getElementById('historyAccordion');
+            if (!accordion) return;
+
+            let html = '';
+            const travelerNames = ['Aixandrolab', 'SmartLegionLab', 'You'];
+
+            travelerNames.forEach((name, idx) => {
+                const entries = historyData[name] || [];
+                const color = travelerColors[name] || '#ffffff';
+                const isPlayer = name === 'You';
+                const icon = isPlayer ? '👤' : '🚀';
+
+                html += `
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button class="accordion-button" onclick="toggleHistory('${name}')" style="color:${color};">
+                                <span>
+                                    <span class="traveler-dot" style="background:${color};"></span>
+                                    ${icon} ${name}
+                                </span>
+                                <span class="badge-count">${entries.length}</span>
+                            </button>
+                        </div>
+                        <div class="accordion-body" id="history_${name}" style="display:${idx === 0 ? 'block' : 'none'};">
+                            ${entries.length === 0 ? '<div class="history-empty">No visits yet...</div>' : ''}
+                            ${entries.slice().reverse().map((entry, i) => `
+                                <div class="history-item" onclick="travelToHistory('${name}', ${historyData[name].length - 1 - i})" title="Click to travel">
+                                    <span>
+                                        <span class="type-icon">${entry.icon}</span>
+                                        ${entry.label}
+                                    </span>
+                                    <span class="time">${entry.time}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            accordion.innerHTML = html;
+        }
+
+        window.toggleHistory = function(name) {
+            const body = document.getElementById('history_' + name);
+            if (!body) return;
+            const allBodies = document.querySelectorAll('.accordion-body');
+            allBodies.forEach(b => {
+                if (b.id !== 'history_' + name) {
+                    b.style.display = 'none';
+                }
+            });
+            if (body.style.display === 'none' || body.style.display === '') {
+                body.style.display = 'block';
+            } else {
+                body.style.display = 'none';
+            }
+        };
+
+        window.travelToHistory = function(travelerName, entryIndex) {
+            const entries = historyData[travelerName];
+            if (!entries || !entries[entryIndex]) return;
+            const entry = entries[entryIndex];
+
+            const targetObj = findObjectByUrl(entry.url);
+            if (!targetObj) {
+                console.warn('Target not found:', entry.url);
+                return;
+            }
+
+            openModal(targetObj.userData);
+
+            const playerShip = ships.find(s => s.userData.isPlayer);
+            if (playerShip && targetObj.userData.group !== 'root') {
+                if (playerShip.userData.currentTarget !== targetObj) {
+                    movePlayerTo(targetObj);
+                } else {
+                    playerShip.userData.isMoving = false;
+                    playerShip.userData.target = null;
+                }
+            }
+        };
+
+        function findObjectByUrl(url) {
+            for (const obj of clickableObjects) {
+                if (obj.userData && obj.userData.url === url) {
+                    return obj;
+                }
+            }
+            return null;
+        }
 
         function initScene() {
             const container = document.getElementById('canvas-container');
@@ -1035,6 +1299,7 @@
             moonCountEl.textContent = graph.nodes.filter(n => n.group === 'page').length;
 
             createTravelers();
+            renderHistory();
         }
 
         function createTravelers() {
@@ -1047,7 +1312,8 @@
                 isWaiting: false,
                 speed: 0.012,
                 arrivalTimer: 0,
-                isArrived: false
+                isArrived: false,
+                lastTarget: null
             };
             const startPos1 = getRandomPlanetPosition();
             traveler1.position.copy(startPos1);
@@ -1063,7 +1329,8 @@
                 isWaiting: false,
                 speed: 0.010,
                 arrivalTimer: 0,
-                isArrived: false
+                isArrived: false,
+                lastTarget: null
             };
             const startPos2 = getRandomPlanetPosition();
             traveler2.position.copy(startPos2);
@@ -1083,7 +1350,8 @@
                 isMoving: false,
                 currentTarget: null,
                 arrivalTimer: 0,
-                isArrived: false
+                isArrived: false,
+                lastTarget: null
             };
             const startPos3 = new THREE.Vector3(0, 2, 0);
             traveler3.position.copy(startPos3);
@@ -1149,6 +1417,10 @@
                             data.waitTimer = 120 + Math.random() * 180;
                             data.isArrived = true;
                             data.arrivalTimer = 0;
+                            if (data.lastTarget !== target) {
+                                addHistoryEntry(data.name, target);
+                                data.lastTarget = target;
+                            }
                         } else {
                             moveShipToTarget(ship, target);
                         }
@@ -1200,6 +1472,8 @@
             data.isMoving = true;
             data.currentTarget = target;
             data.isArrived = false;
+
+            addHistoryEntry('You', target);
         }
 
         function setupModal() {
