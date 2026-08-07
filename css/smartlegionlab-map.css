@@ -360,3 +360,40 @@
             .loading-ui { padding: 20px 30px; font-size: 1rem; }
             .modal-content { padding: 30px 20px; }
         }
+
+.modal-type.traveler {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+.author-link {
+    color: #ffc107;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.author-link:hover {
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+.legend-ui hr {
+    border-color: rgba(255, 255, 255, 0.06);
+    margin: 8px 0;
+}
+
+.legend-ui p {
+    margin-bottom: 0;
+    font-size: 0.6rem;
+    color: #4a5a7a;
+}
+
+.legend-ui p a {
+    color: #6b7b98;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.legend-ui p a:hover {
+    color: #ffc107;
+}

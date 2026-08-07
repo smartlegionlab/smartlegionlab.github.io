@@ -245,9 +245,29 @@
             'You': '#00ff88'
         };
 
+        const travelerInfo = {
+            'Aixandrolab': {
+                name: 'Aixandrolab',
+                url: 'https://github.com/aixandrolab',
+                description: 'AI researcher and developer'
+            },
+            'SmartLegionLab': {
+                name: 'Smart Legion Lab',
+                url: 'https://github.com/smartlegionlab',
+                description: 'Open source community'
+            },
+            'You': {
+                name: 'You',
+                url: '#',
+                description: 'Space traveler'
+            }
+        };
+
         let historyEntryCounter = 0;
         let clickTimer = null;
         let clickTarget = null;
+        let currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
 
         function addHistoryEntry(travelerName, target) {
             if (!historyData[travelerName]) return;
@@ -557,55 +577,6 @@
             return group;
         }
 
-        function createCraterTexture(baseColor) {
-            const canvas = document.createElement('canvas');
-            canvas.width = 128;
-            canvas.height = 128;
-            const ctx = canvas.getContext('2d');
-
-            const color = new THREE.Color(baseColor);
-            const hsl = { h: 0, s: 0, l: 0 };
-            color.getHSL(hsl);
-
-            for (let x = 0; x < 128; x++) {
-                for (let y = 0; y < 128; y++) {
-                    const noise = Math.random() * 0.15;
-                    const l = Math.max(0, Math.min(1, hsl.l + (Math.random() - 0.5) * 0.2 + noise));
-                    const s = Math.max(0, Math.min(1, hsl.s + (Math.random() - 0.5) * 0.1));
-                    const h = hsl.h + (Math.random() - 0.5) * 0.02;
-                    const c = new THREE.Color().setHSL(h, s, l);
-                    ctx.fillStyle = '#' + c.getHexString();
-                    ctx.fillRect(x, y, 1, 1);
-                }
-            }
-
-            for (let i = 0; i < 6; i++) {
-                const cx = 20 + Math.random() * 88;
-                const cy = 20 + Math.random() * 88;
-                const radius = 3 + Math.random() * 10;
-                const darkness = 0.3 + Math.random() * 0.4;
-
-                const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-                const darkColor = new THREE.Color(baseColor);
-                darkColor.offsetHSL(0, 0, -darkness);
-                const lightColor = new THREE.Color(baseColor);
-                lightColor.offsetHSL(0, 0, 0.15 + Math.random() * 0.2);
-
-                grad.addColorStop(0, '#' + darkColor.getHexString());
-                grad.addColorStop(0.3, '#' + darkColor.getHexString());
-                grad.addColorStop(0.5, '#' + lightColor.getHexString());
-                grad.addColorStop(0.8, '#' + darkColor.getHexString());
-                grad.addColorStop(1, 'rgba(0,0,0,0)');
-
-                ctx.fillStyle = grad;
-                ctx.beginPath();
-                ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-                ctx.fill();
-            }
-
-            return new THREE.CanvasTexture(canvas);
-        }
-
         function createMoon(moonColor, moonSize, planetSize) {
             const group = new THREE.Group();
 
@@ -619,12 +590,9 @@
                 0.1 + Math.random() * 0.5
             );
 
-            const texture = createCraterTexture(color);
-
             const geo = new THREE.SphereGeometry(finalSize, 12, 12);
             const mat = new THREE.MeshPhongMaterial({
-                map: texture,
-                color: 0xffffff,
+                color: color,
                 emissive: color,
                 emissiveIntensity: 0.05 + Math.random() * 0.08,
                 transparent: true,
@@ -657,8 +625,11 @@
         function createLabel(text, color = '#ffffff', scale = 1) {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
-            canvas.width = 512;
-            canvas.height = 128;
+
+            const width = Math.max(512, text.length * 18);
+            const height = 128;
+            canvas.width = width;
+            canvas.height = height;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -667,7 +638,12 @@
             ctx.shadowOffsetX = 0;
             ctx.shadowOffsetY = 2;
 
-            ctx.font = 'Bold 40px "Segoe UI", system-ui, sans-serif';
+            let fontSize = 40;
+            if (text.length > 20) fontSize = 32;
+            if (text.length > 30) fontSize = 26;
+            if (text.length > 40) fontSize = 20;
+
+            ctx.font = `Bold ${fontSize}px "Segoe UI", system-ui, sans-serif`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
 
@@ -699,8 +675,30 @@
             });
 
             const sprite = new THREE.Sprite(material);
-            sprite.scale.set(4 * scale, 1 * scale, 1);
+            const scaleX = Math.max(4, text.length * 0.25);
+            sprite.scale.set(scaleX * scale, 1 * scale, 1);
             return sprite;
+        }
+
+        function openTravelerModal(travelerName) {
+            const info = travelerInfo[travelerName];
+            if (!info) return;
+
+            const icon = travelerName === 'You' ? '👤' : '🚀';
+            const color = travelerColors[travelerName] || '#ffffff';
+
+            modalIcon.textContent = icon;
+            modalType.textContent = 'Traveler';
+            modalType.style.color = color;
+            modalType.style.borderColor = color;
+            modalTitle.textContent = info.name;
+            modalUrl.textContent = info.url;
+            modalDesc.textContent = info.description || 'Space traveler exploring the universe.';
+            modalGoBtn.href = info.url || '#';
+            modalGoBtn.textContent = '🔗 Visit Profile';
+
+            modalOverlay.classList.add('active');
+            controls.autoRotate = false;
         }
 
         function createTraveler(color, label) {
@@ -1006,12 +1004,17 @@
                 speed: 0.018,
                 arrivalTimer: 0,
                 isArrived: false,
-                lastTarget: null
+                lastTarget: null,
+                isTraveler: true,
+                label: 'Aixandrolab',
+                url: 'https://github.com/aixandrolab',
+                description: 'AI researcher and developer'
             };
             const startPos1 = getRandomPlanetPosition();
             traveler1.position.copy(startPos1);
             scene.add(traveler1);
             ships.push(traveler1);
+            clickableObjects.push(traveler1);
 
             const traveler2 = createTraveler(0x3388ff, 'SmartLegionLab');
             traveler2.userData = {
@@ -1023,12 +1026,17 @@
                 speed: 0.016,
                 arrivalTimer: 0,
                 isArrived: false,
-                lastTarget: null
+                lastTarget: null,
+                isTraveler: true,
+                label: 'SmartLegionLab',
+                url: 'https://github.com/smartlegionlab',
+                description: 'Open source community'
             };
             const startPos2 = getRandomPlanetPosition();
             traveler2.position.copy(startPos2);
             scene.add(traveler2);
             ships.push(traveler2);
+            clickableObjects.push(traveler2);
 
             const traveler3 = createTraveler(0x00ff88, '👤 You');
             traveler3.userData = {
@@ -1044,7 +1052,11 @@
                 currentTarget: null,
                 arrivalTimer: 0,
                 isArrived: false,
-                lastTarget: null
+                lastTarget: null,
+                isTraveler: true,
+                label: 'You',
+                url: '#',
+                description: 'Space traveler'
             };
             const startPos3 = new THREE.Vector3(0, 2, 0);
             traveler3.position.copy(startPos3);
@@ -1183,12 +1195,18 @@
                 'page': 'Moon'
             };
 
+            if (data.isTraveler) {
+                openTravelerModal(data.name);
+                return;
+            }
+
             modalIcon.textContent = icons[data.group] || '🚀';
             modalType.textContent = types[data.group] || 'Object';
             modalTitle.textContent = data.label || 'Untitled';
             modalUrl.textContent = data.url || '—';
             modalDesc.textContent = data.description || 'Smart Legion Lab page.';
             modalGoBtn.href = data.url || '#';
+            modalGoBtn.textContent = '🌐 Visit Page';
 
             if (data.fullLabel && data.fullLabel !== data.label) {
                 modalTitle.textContent = data.fullLabel;
