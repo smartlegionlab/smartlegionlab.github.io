@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Legion Lab's Universe</title>
+    <title>🚀 Smart Legion Lab's Universe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
@@ -89,16 +89,9 @@
             pointer-events: auto;
             box-shadow: 0 8px 32px rgba(0,0,0,0.8);
         }
-        .history-panel::-webkit-scrollbar {
-            width: 4px;
-        }
-        .history-panel::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .history-panel::-webkit-scrollbar-thumb {
-            background: #ffc10744;
-            border-radius: 10px;
-        }
+        .history-panel::-webkit-scrollbar { width: 4px; }
+        .history-panel::-webkit-scrollbar-track { background: transparent; }
+        .history-panel::-webkit-scrollbar-thumb { background: #ffc10744; border-radius: 10px; }
         .history-panel .panel-title {
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -109,9 +102,7 @@
             align-items: center;
             gap: 8px;
         }
-        .history-panel .panel-title i {
-            color: #ffc107;
-        }
+        .history-panel .panel-title i { color: #ffc107; }
 
         .history-accordion .accordion-item {
             background: transparent;
@@ -119,13 +110,8 @@
             border-bottom: 1px solid rgba(255,255,255,0.04);
             margin-bottom: 2px;
         }
-        .history-accordion .accordion-item:last-child {
-            border-bottom: none;
-        }
-        .history-accordion .accordion-header {
-            background: transparent;
-            padding: 0;
-        }
+        .history-accordion .accordion-item:last-child { border-bottom: none; }
+        .history-accordion .accordion-header { background: transparent; padding: 0; }
         .history-accordion .accordion-button {
             background: transparent;
             color: #b0c4e0;
@@ -142,9 +128,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        .history-accordion .accordion-button:hover {
-            background: rgba(255,255,255,0.03);
-        }
+        .history-accordion .accordion-button:hover { background: rgba(255,255,255,0.03); }
         .history-accordion .accordion-button .badge-count {
             background: rgba(255, 193, 7, 0.15);
             color: #ffc107;
@@ -159,9 +143,7 @@
             border-radius: 50%;
             margin-right: 6px;
         }
-        .history-accordion .accordion-body {
-            padding: 4px 8px 8px 8px;
-        }
+        .history-accordion .accordion-body { padding: 4px 8px 8px 8px; }
         .history-accordion .accordion-body .history-item {
             padding: 4px 8px;
             font-size: 0.7rem;
@@ -179,20 +161,9 @@
             border-left-color: #ffc107;
             color: #fff;
         }
-        .history-accordion .accordion-body .history-item .time {
-            color: #4a5a7a;
-            font-size: 0.6rem;
-        }
-        .history-accordion .accordion-body .history-item .type-icon {
-            margin-right: 6px;
-            opacity: 0.6;
-        }
-        .history-empty {
-            color: #4a5a7a;
-            font-size: 0.65rem;
-            font-style: italic;
-            padding: 4px 8px;
-        }
+        .history-accordion .accordion-body .history-item .time { color: #4a5a7a; font-size: 0.6rem; }
+        .history-accordion .accordion-body .history-item .type-icon { margin-right: 6px; opacity: 0.6; }
+        .history-empty { color: #4a5a7a; font-size: 0.65rem; font-style: italic; padding: 4px 8px; }
 
         .stats-ui {
             position: fixed;
@@ -208,10 +179,31 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
             pointer-events: none;
         }
-        .stats-ui span {
-            color: #ffc107;
-            font-weight: 600;
+        .stats-ui span { color: #ffc107; font-weight: 600; }
+
+        .fps-counter {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            z-index: 10;
+            color: #6b7b98;
+            font-size: 0.7rem;
+            background: rgba(5, 8, 15, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            pointer-events: none;
+            font-family: monospace;
         }
+        .fps-counter .fps-value {
+            color: #00ff88;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .fps-counter .fps-value.low { color: #ffaa00; }
+        .fps-counter .fps-value.critical { color: #ff4444; }
+
         .legend-ui {
             position: fixed;
             bottom: 30px;
@@ -233,11 +225,8 @@
             border-radius: 50%;
             margin-right: 8px;
         }
-        .legend-ui .row-legend {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-        }
+        .legend-ui .row-legend { margin-bottom: 5px; display: flex; align-items: center; }
+
         .tooltip-ui {
             position: fixed;
             z-index: 20;
@@ -253,24 +242,10 @@
             max-width: 350px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.9);
         }
-        .tooltip-ui .label {
-            color: #ffc107;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .tooltip-ui .url {
-            color: #8aa0c9;
-            font-size: 0.65rem;
-            word-break: break-all;
-            margin-top: 4px;
-        }
-        .tooltip-ui .type {
-            color: #6b7b98;
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
+        .tooltip-ui .label { color: #ffc107; font-weight: 600; font-size: 0.9rem; }
+        .tooltip-ui .url { color: #8aa0c9; font-size: 0.65rem; word-break: break-all; margin-top: 4px; }
+        .tooltip-ui .type { color: #6b7b98; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
         .loading-ui {
             position: fixed;
             top: 50%;
@@ -299,13 +274,9 @@
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .loading-ui.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-ui.hidden { opacity: 0; pointer-events: none; }
+
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -320,9 +291,7 @@
             align-items: center;
             animation: fadeIn 0.3s ease;
         }
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
@@ -348,37 +317,12 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .modal-content .close-btn:hover {
-            color: #ffc107;
-            transform: rotate(90deg);
-        }
-        .modal-content .modal-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        .modal-content h2 {
-            color: #ffc107;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .modal-content .modal-url {
-            color: #8aa0c9;
-            font-size: 0.8rem;
-            word-break: break-all;
-            margin-bottom: 15px;
-        }
-        .modal-content .modal-desc {
-            color: #b0c4e0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        .modal-content .modal-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+        .modal-content .close-btn:hover { color: #ffc107; transform: rotate(90deg); }
+        .modal-content .modal-icon { font-size: 3rem; margin-bottom: 10px; }
+        .modal-content h2 { color: #ffc107; font-weight: 700; font-size: 1.5rem; margin-bottom: 10px; }
+        .modal-content .modal-url { color: #8aa0c9; font-size: 0.8rem; word-break: break-all; margin-bottom: 15px; }
+        .modal-content .modal-desc { color: #b0c4e0; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; }
+        .modal-content .modal-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
         .modal-content .modal-buttons .btn {
             flex: 1;
             min-width: 120px;
@@ -394,18 +338,13 @@
             border: 1px solid #0d6efd;
             color: #fff;
         }
-        .modal-content .modal-buttons .btn-primary:hover {
-            background: #0b5ed7;
-            transform: scale(1.02);
-        }
+        .modal-content .modal-buttons .btn-primary:hover { background: #0b5ed7; transform: scale(1.02); }
         .modal-content .modal-buttons .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #b0c4e0;
         }
-        .modal-content .modal-buttons .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
+        .modal-content .modal-buttons .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
         .modal-content .modal-type {
             display: inline-block;
             padding: 2px 12px;
@@ -416,6 +355,7 @@
             color: #ffc107;
             margin-bottom: 12px;
         }
+
         @media (max-width: 768px) {
             .header-ui h1 { font-size: 1.1rem; padding: 8px 16px; }
             .header-ui .btn-home { font-size: 0.7rem; padding: 5px 12px; margin-left: 6px; }
@@ -424,10 +364,10 @@
             .history-accordion .accordion-button { font-size: 0.65rem; padding: 4px 6px; }
             .history-accordion .accordion-body .history-item { font-size: 0.6rem; padding: 3px 6px; }
             .stats-ui { font-size: 0.6rem; padding: 6px 12px; bottom: 15px; left: 15px; }
+            .fps-counter { font-size: 0.6rem; padding: 4px 10px; top: 15px; right: 15px; }
             .legend-ui { display: none; }
             .loading-ui { padding: 20px 30px; font-size: 1rem; }
             .modal-content { padding: 30px 20px; }
-            .modal-content .modal-buttons .btn { min-width: 80px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -437,8 +377,12 @@
 
 <div class="loading-ui" id="loadingUI">
     <div class="spinner"></div>
-    <span>Loading universe...</span>
+    <span>🚀 Loading universe...</span>
     <span style="font-size:0.8rem; color:#6b7b98;">Analyzing sitemap.xml</span>
+</div>
+
+<div class="fps-counter">
+    ⚡ FPS: <span class="fps-value" id="fpsCounter">60</span>
 </div>
 
 <div class="tooltip-ui" id="tooltip">
@@ -507,6 +451,7 @@
         const loadingUI = document.getElementById('loadingUI');
         const planetCountEl = document.getElementById('planetCount');
         const moonCountEl = document.getElementById('moonCount');
+        const fpsCounterEl = document.getElementById('fpsCounter');
 
         async function loadSitemap() {
             try {
@@ -571,13 +516,13 @@
         function getFallbackData() {
             return [
                 { loc: 'https://smartlegionlab.ru/', label: '🏠 Home' },
-                { loc: 'https://smartlegionlab.ru/projects', label: '📁 Projects' },
-                { loc: 'https://smartlegionlab.ru/libraries', label: '📚 Libraries' },
-                { loc: 'https://smartlegionlab.ru/ecosystems', label: '🌍 Ecosystems' },
-                { loc: 'https://smartlegionlab.ru/applications', label: '📱 Applications' },
-                { loc: 'https://smartlegionlab.ru/team', label: '👥 Team' },
-                { loc: 'https://smartlegionlab.ru/articles', label: '📰 Articles' },
-                { loc: 'https://smartlegionlab.ru/research', label: '🔬 Research' }
+                { loc: 'https://smartlegionlab.ru/projects.html', label: '📁 Projects' },
+                { loc: 'https://smartlegionlab.ru/libraries.html', label: '📚 Libraries' },
+                { loc: 'https://smartlegionlab.ru/ecosystems.html', label: '🌍 Ecosystems' },
+                { loc: 'https://smartlegionlab.ru/applications.html', label: '📱 Applications' },
+                { loc: 'https://smartlegionlab.ru/team.html', label: '👥 Team' },
+                { loc: 'https://smartlegionlab.ru/articles.html', label: '📰 Articles' },
+                { loc: 'https://smartlegionlab.ru/research.html', label: '🔬 Research' }
             ];
         }
 
@@ -597,45 +542,104 @@
             nodeMap.set('https://smartlegionlab.ru/', rootId);
 
             const sections = new Map();
+            const indexPages = new Map();
+            const validSections = ['projects', 'libraries', 'ecosystems', 'applications', 'team', 'articles', 'research'];
+
             urls.forEach(u => {
                 if (u.path === '/' || u.path === '') return;
                 let path = u.path.replace(/^\/+/, '').replace(/\/+$/, '');
                 if (!path) return;
                 const parts = path.split('/');
-                const section = parts[0];
+                let section = parts[0];
                 if (!section) return;
-                if (!sections.has(section)) sections.set(section, []);
-                sections.get(section).push(u);
+
+                if (section === 'profiles') {
+                    section = 'team';
+                }
+
+                if (!validSections.includes(section)) return;
+
+                const isIndex = path === section + '.html' || path === section;
+                if (isIndex && parts.length === 1) {
+                    indexPages.set(section, u);
+                } else if (parts.length > 1) {
+                    if (!sections.has(section)) sections.set(section, []);
+                    sections.get(section).push(u);
+                }
             });
 
+            const sectionList = [];
             sections.forEach((items, sectionName) => {
+                const indexPage = indexPages.get(sectionName);
+                let moonCount = items.length + (indexPage ? 1 : 0);
+                sectionList.push({
+                    name: sectionName,
+                    items: items,
+                    indexPage: indexPage,
+                    moonCount: moonCount,
+                    size: 0.7 + Math.min(moonCount / 6, 1.8)
+                });
+            });
+
+            sectionList.sort((a, b) => a.size - b.size);
+
+            const baseOrbitRadii = [10, 13, 16, 19, 22, 26, 30];
+            const hasRing = [false, true, false, true, false, false, true];
+            const angleOffset = Math.random() * Math.PI * 2;
+
+            sectionList.forEach((sectionData, idx) => {
+                const sectionName = sectionData.name;
+                const items = sectionData.items;
+                const indexPage = sectionData.indexPage;
+                const size = sectionData.size;
+
                 const sectionId = 'sec_' + sectionName;
-                const indexPage = items.find(i => i.path === '/' + sectionName);
-                let sectionLabel = indexPage ? indexPage.label : sectionName;
-                if (!sectionLabel.match(/^[📁📚🌍📱👥👤📰🔬]/)) {
-                    const icons = {
-                        'projects': '📁',
-                        'libraries': '📚',
-                        'ecosystems': '🌍',
-                        'applications': '📱',
-                        'team': '👥',
-                        'articles': '📰',
-                        'research': '🔬'
-                    };
-                    sectionLabel = (icons[sectionName] || '📂') + ' ' + sectionLabel;
-                }
+                const icons = {
+                    'projects': '📁',
+                    'libraries': '📚',
+                    'ecosystems': '🌍',
+                    'applications': '📱',
+                    'team': '👥',
+                    'articles': '📰',
+                    'research': '🔬'
+                };
+                const sectionLabel = (icons[sectionName] || '📂') + ' ' + sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
+                const sectionUrl = 'https://smartlegionlab.ru/' + sectionName + '.html';
+
+                const color = new THREE.Color().setHSL(
+                    0.55 + Math.random() * 0.35,
+                    0.4 + Math.random() * 0.5,
+                    0.3 + Math.random() * 0.4
+                );
 
                 nodes.push({
                     id: sectionId,
                     label: sectionLabel,
                     group: 'section',
-                    url: indexPage ? indexPage.loc : 'https://smartlegionlab.ru/' + sectionName + '.html'
+                    url: sectionUrl,
+                    size: size,
+                    orbitRadius: baseOrbitRadii[idx % baseOrbitRadii.length],
+                    color: color.getHex(),
+                    hasRing: hasRing[idx % hasRing.length],
+                    hsl: { h: color.getHSL({}).h, s: color.getHSL({}).s, l: color.getHSL({}).l }
                 });
                 nodeMap.set('section_' + sectionName, sectionId);
                 edges.push({ from: rootId, to: sectionId });
 
-                const pages = items.filter(i => i !== indexPage);
-                pages.forEach(page => {
+                if (indexPage && !nodeMap.has(indexPage.loc)) {
+                    const nodeId = 'node_' + indexPage.loc.replace(/[^a-zA-Z0-9]/g, '_');
+                    nodes.push({
+                        id: nodeId,
+                        label: '📋 ' + sectionName.charAt(0).toUpperCase() + sectionName.slice(1),
+                        group: 'page',
+                        url: indexPage.loc,
+                        fullLabel: sectionName.charAt(0).toUpperCase() + sectionName.slice(1) + ' (index)'
+                    });
+                    nodeMap.set(indexPage.loc, nodeId);
+                    edges.push({ from: sectionId, to: nodeId });
+                }
+
+                items.forEach(page => {
                     const nodeId = 'node_' + page.loc.replace(/[^a-zA-Z0-9]/g, '_');
                     if (nodeMap.has(page.loc)) return;
                     let pageLabel = page.label;
@@ -695,6 +699,8 @@
         };
 
         let historyEntryCounter = 0;
+        let clickTimer = null;
+        let clickTarget = null;
 
         function addHistoryEntry(travelerName, target) {
             if (!historyData[travelerName]) return;
@@ -810,13 +816,31 @@
             return null;
         }
 
+        function createStarTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64;
+            canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+
+            const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+            gradient.addColorStop(0, 'rgba(255,255,255,1)');
+            gradient.addColorStop(0.1, 'rgba(255,255,255,0.9)');
+            gradient.addColorStop(0.4, 'rgba(255,200,100,0.4)');
+            gradient.addColorStop(1, 'rgba(255,255,255,0)');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 64, 64);
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
         function initScene() {
             const container = document.getElementById('canvas-container');
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0x05080f);
 
             camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 500);
-            camera.position.set(30, 25, 40);
+            camera.position.set(35, 30, 45);
             camera.lookAt(0, 0, 0);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -834,8 +858,8 @@
             controls.autoRotate = true;
             controls.autoRotateSpeed = 0.3;
             controls.target.set(0, 0, 0);
-            controls.minDistance = 15;
-            controls.maxDistance = 80;
+            controls.minDistance = 20;
+            controls.maxDistance = 100;
 
             const ambient = new THREE.AmbientLight(0x334466, 0.3);
             scene.add(ambient);
@@ -865,46 +889,60 @@
         }
 
         function createStars() {
+            const starTexture = createStarTexture();
             const starGeo = new THREE.BufferGeometry();
-            const starCount = 3000;
+            const starCount = 1200;
             const starPos = new Float32Array(starCount * 3);
             const starColors = new Float32Array(starCount * 3);
+            const starSizes = new Float32Array(starCount);
 
             for (let i = 0; i < starCount; i++) {
-                const r = 60 + Math.random() * 200;
+                const r = 40 + Math.random() * 200;
                 const theta = Math.random() * Math.PI * 2;
                 const phi = Math.acos((Math.random() * 2) - 1);
                 starPos[i*3] = Math.sin(phi) * Math.cos(theta) * r;
-                starPos[i*3+1] = Math.sin(phi) * Math.sin(theta) * r;
+                starPos[i*3+1] = Math.sin(phi) * Math.sin(theta) * r * 0.8;
                 starPos[i*3+2] = Math.cos(phi) * r;
 
                 const temp = Math.random();
-                if (temp < 0.3) {
-                    starColors[i*3] = 0.6 + Math.random() * 0.4;
+                if (temp < 0.15) {
+                    starColors[i*3] = 0.5 + Math.random() * 0.3;
                     starColors[i*3+1] = 0.7 + Math.random() * 0.3;
                     starColors[i*3+2] = 1.0;
-                } else if (temp < 0.6) {
+                } else if (temp < 0.35) {
                     starColors[i*3] = 1.0;
-                    starColors[i*3+1] = 0.8 + Math.random() * 0.2;
+                    starColors[i*3+1] = 0.9 + Math.random() * 0.1;
                     starColors[i*3+2] = 0.4 + Math.random() * 0.2;
+                } else if (temp < 0.55) {
+                    starColors[i*3] = 1.0;
+                    starColors[i*3+1] = 0.6 + Math.random() * 0.2;
+                    starColors[i*3+2] = 0.2 + Math.random() * 0.2;
+                } else if (temp < 0.75) {
+                    starColors[i*3] = 1.0;
+                    starColors[i*3+1] = 0.3 + Math.random() * 0.2;
+                    starColors[i*3+2] = 0.1 + Math.random() * 0.1;
                 } else {
-                    const c = 0.7 + Math.random() * 0.3;
+                    const c = 0.8 + Math.random() * 0.2;
                     starColors[i*3] = c;
                     starColors[i*3+1] = c;
                     starColors[i*3+2] = c;
                 }
+                starSizes[i] = 0.15 + Math.random() * 0.6;
             }
 
             starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
             starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+            starGeo.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
 
             const starMat = new THREE.PointsMaterial({
-                size: 0.3,
+                size: 0.4,
+                map: starTexture,
                 vertexColors: true,
                 transparent: true,
                 opacity: 0.9,
                 blending: THREE.AdditiveBlending,
-                sizeAttenuation: true
+                sizeAttenuation: true,
+                depthWrite: false
             });
             stars = new THREE.Points(starGeo, starMat);
             scene.add(stars);
@@ -921,9 +959,7 @@
                 transparent: true,
                 opacity: 0.92,
                 shininess: 40,
-                specular: 0x333355,
-                roughness: 0.3,
-                metalness: 0.1
+                specular: 0x333355
             });
             const mesh = new THREE.Mesh(geo, mat);
             mesh.castShadow = true;
@@ -941,19 +977,140 @@
             group.add(atmos);
 
             if (hasRing) {
-                const ringGeo = new THREE.TorusGeometry(size * 1.6, size * 0.12, 12, 48);
+                const ringColor = new THREE.Color(color);
+                ringColor.offsetHSL(0, -0.2, 0.3);
+
+                const ringGeo = new THREE.TorusGeometry(size * 1.6, size * 0.1, 12, 48);
                 const ringMat = new THREE.MeshPhongMaterial({
-                    color: color,
+                    color: ringColor,
                     transparent: true,
-                    opacity: 0.15,
+                    opacity: 0.2,
                     side: THREE.DoubleSide,
-                    emissive: color,
+                    emissive: ringColor,
                     emissiveIntensity: 0.03
                 });
                 const ring = new THREE.Mesh(ringGeo, ringMat);
-                ring.rotation.x = Math.PI / 3;
+                ring.rotation.x = Math.PI / 2.8;
                 ring.rotation.z = 0.3;
                 group.add(ring);
+
+                const ring2Geo = new THREE.TorusGeometry(size * 1.8, size * 0.05, 12, 48);
+                const ring2Mat = new THREE.MeshPhongMaterial({
+                    color: 0x88aacc,
+                    transparent: true,
+                    opacity: 0.1,
+                    side: THREE.DoubleSide
+                });
+                const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+                ring2.rotation.x = Math.PI / 2.8;
+                ring2.rotation.z = -0.2;
+                group.add(ring2);
+            }
+
+            return group;
+        }
+
+        function createCraterTexture(baseColor) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 128;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+
+            const color = new THREE.Color(baseColor);
+            const hsl = { h: 0, s: 0, l: 0 };
+            color.getHSL(hsl);
+
+            for (let x = 0; x < 128; x++) {
+                for (let y = 0; y < 128; y++) {
+                    const noise = Math.random() * 0.15;
+                    const l = Math.max(0, Math.min(1, hsl.l + (Math.random() - 0.5) * 0.2 + noise));
+                    const s = Math.max(0, Math.min(1, hsl.s + (Math.random() - 0.5) * 0.1));
+                    const h = hsl.h + (Math.random() - 0.5) * 0.02;
+                    const c = new THREE.Color().setHSL(h, s, l);
+                    ctx.fillStyle = '#' + c.getHexString();
+                    ctx.fillRect(x, y, 1, 1);
+                }
+            }
+
+            for (let i = 0; i < 8; i++) {
+                const cx = 20 + Math.random() * 88;
+                const cy = 20 + Math.random() * 88;
+                const radius = 4 + Math.random() * 12;
+                const darkness = 0.3 + Math.random() * 0.4;
+
+                const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+                const darkColor = new THREE.Color(baseColor);
+                darkColor.offsetHSL(0, 0, -darkness);
+                const lightColor = new THREE.Color(baseColor);
+                lightColor.offsetHSL(0, 0, 0.15 + Math.random() * 0.2);
+
+                grad.addColorStop(0, '#' + darkColor.getHexString());
+                grad.addColorStop(0.3, '#' + darkColor.getHexString());
+                grad.addColorStop(0.5, '#' + lightColor.getHexString());
+                grad.addColorStop(0.8, '#' + darkColor.getHexString());
+                grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (Math.random() > 0.5) {
+                    const highlight = new THREE.Color(baseColor);
+                    highlight.offsetHSL(0, 0, 0.2);
+                    ctx.fillStyle = '#' + highlight.getHexString();
+                    ctx.beginPath();
+                    ctx.arc(cx - radius * 0.2, cy - radius * 0.2, radius * 0.15, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        function createMoon(moonColor, moonSize, planetSize) {
+            const group = new THREE.Group();
+
+            const maxSize = planetSize * 0.1;
+            const finalSize = Math.max(0.05, Math.min(moonSize, maxSize));
+
+            const color = new THREE.Color(moonColor);
+            color.offsetHSL(
+                (Math.random() - 0.5) * 0.25,
+                0.2 + Math.random() * 0.5,
+                0.1 + Math.random() * 0.5
+            );
+
+            const texture = createCraterTexture(color);
+
+            const geo = new THREE.SphereGeometry(finalSize, 12, 12);
+            const mat = new THREE.MeshPhongMaterial({
+                map: texture,
+                color: 0xffffff,
+                emissive: color,
+                emissiveIntensity: 0.05 + Math.random() * 0.08,
+                transparent: true,
+                opacity: 0.95,
+                shininess: 15 + Math.random() * 30,
+                specular: 0x224466
+            });
+
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.castShadow = true;
+            mesh.rotation.set(Math.random() * 6, Math.random() * 6, Math.random() * 6);
+            group.add(mesh);
+
+            if (Math.random() > 0.7) {
+                const glowGeo = new THREE.SphereGeometry(finalSize * 1.2, 6, 6);
+                const glowMat = new THREE.MeshBasicMaterial({
+                    color: color,
+                    transparent: true,
+                    opacity: 0.04,
+                    blending: THREE.AdditiveBlending,
+                    wireframe: true
+                });
+                const glow = new THREE.Mesh(glowGeo, glowMat);
+                group.add(glow);
             }
 
             return group;
@@ -1016,8 +1173,7 @@
                 emissive: color,
                 emissiveIntensity: 0.2,
                 shininess: 60,
-                metalness: 0.3,
-                roughness: 0.4
+                specular: 0x4488aa
             });
 
             const helmetGeo = new THREE.SphereGeometry(0.2, 12, 12);
@@ -1048,9 +1204,7 @@
             const packMat = new THREE.MeshPhongMaterial({
                 color: 0x334466,
                 emissive: 0x334466,
-                emissiveIntensity: 0.05,
-                metalness: 0.6,
-                roughness: 0.3
+                emissiveIntensity: 0.05
             });
             const packGeo = new THREE.BoxGeometry(0.15, 0.2, 0.08);
             const pack = new THREE.Mesh(packGeo, packMat);
@@ -1073,9 +1227,7 @@
             group.add(arm2);
 
             const legMat = new THREE.MeshPhongMaterial({
-                color: 0x223355,
-                metalness: 0.3,
-                roughness: 0.5
+                color: 0x223355
             });
             const legGeo = new THREE.CylinderGeometry(0.05, 0.06, 0.2, 6);
             const leg1 = new THREE.Mesh(legGeo, legMat);
@@ -1184,21 +1336,20 @@
             scene.add(sunLabel);
             labelObjects.push(sunLabel);
 
-            const orbitRadii = [7, 10, 13, 16, 19, 22, 25];
-            const colors = [0x0d6efd, 0x4a9eff, 0x00d4ff, 0x6c8cba, 0x4a7dbd, 0x2a5a9a, 0x1a4a8a];
-            const hasRing = [false, true, false, true, false, false, true];
             const angleOffset = Math.random() * Math.PI * 2;
 
             sections.forEach((section, idx) => {
-                const radius = orbitRadii[idx % orbitRadii.length] + (Math.floor(idx / orbitRadii.length) * 3);
+                const radius = section.orbitRadius || 12 + idx * 2;
                 const angle = (idx / sections.length) * Math.PI * 2 + angleOffset;
                 const x = Math.cos(angle) * radius;
                 const z = Math.sin(angle) * radius;
                 const y = (Math.random() - 0.5) * 2;
 
-                const size = 0.8 + Math.random() * 0.4;
-                const color = colors[idx % colors.length];
-                const planetGroup = createPlanetMesh(color, size, 0.2, hasRing[idx % hasRing.length]);
+                const size = section.size || 0.8;
+                const color = section.color || 0x0d6efd;
+                const hasRing = section.hasRing || false;
+
+                const planetGroup = createPlanetMesh(color, size, 0.2, hasRing);
                 planetGroup.position.set(x, y, z);
 
                 const sectionUrl = section.url || 'https://smartlegionlab.ru/' + section.id.replace('sec_', '') + '.html';
@@ -1210,8 +1361,9 @@
                     type: '🪐 Planet',
                     angle: angle,
                     radius: radius,
-                    speed: 0.06 + Math.random() * 0.04,
+                    speed: 0.04 + Math.random() * 0.03,
                     orbitY: y,
+                    planetSize: size,
                     description: `Section "${section.label.replace(/^[^\s]+\s/, '')}" — all related projects and pages.`
                 };
                 scene.add(planetGroup);
@@ -1220,8 +1372,9 @@
                 clickableObjects.push(planetGroup);
                 allPlanets.push(planetGroup);
 
-                const label = createLabel(section.label, '#4a9eff');
-                label.position.set(0, size * 1.8 + 0.8, 0);
+                const labelColor = '#' + new THREE.Color(color).getHexString();
+                const label = createLabel(section.label, labelColor);
+                label.position.set(0, size * 2.0 + 0.8, 0);
                 planetGroup.add(label);
                 labelObjects.push(label);
 
@@ -1255,19 +1408,21 @@
                     const mz = z + Math.sin(moonAngle) * moonRadius;
                     const my = y + (Math.random() - 0.5) * 1.2;
 
-                    const moonSize = 0.2 + Math.random() * 0.1;
-                    const moonGeo = new THREE.SphereGeometry(moonSize, 12, 12);
-                    const moonMat = new THREE.MeshPhongMaterial({
-                        color: 0x8aa0c9,
-                        emissive: 0x8aa0c9,
-                        emissiveIntensity: 0.05,
-                        transparent: true,
-                        opacity: 0.9,
-                        shininess: 30
-                    });
-                    const moon = new THREE.Mesh(moonGeo, moonMat);
-                    moon.position.set(mx, my, mz);
-                    moon.userData = {
+                    const minSize = size * 0.04;
+                    const maxSize = size * 0.1;
+                    const moonSize = minSize + Math.random() * (maxSize - minSize);
+
+                    const moonColor = new THREE.Color(color);
+                    moonColor.offsetHSL(
+                        (Math.random() - 0.5) * 0.25,
+                        0.2 + Math.random() * 0.5,
+                        0.2 + Math.random() * 0.4
+                    );
+
+                    const moonGroup = createMoon(moonColor, moonSize, size);
+                    moonGroup.position.set(mx, my, mz);
+
+                    moonGroup.userData = {
                         nodeId: page.id,
                         label: page.label,
                         url: page.url,
@@ -1277,20 +1432,20 @@
                         planet: planetGroup,
                         angle: moonAngle,
                         radius: moonRadius,
-                        speed: 0.15 + Math.random() * 0.12,
+                        speed: 0.12 + Math.random() * 0.15,
                         orbitY: y,
                         description: `Page "${page.fullLabel || page.label}" — part of "${section.label.replace(/^[^\s]+\s/, '')}" section.`
                     };
-                    scene.add(moon);
-                    nodeObjects.push(moon);
-                    moonData.push(moon);
-                    clickableObjects.push(moon);
-                    allMoons.push(moon);
+                    scene.add(moonGroup);
+                    nodeObjects.push(moonGroup);
+                    moonData.push(moonGroup);
+                    clickableObjects.push(moonGroup);
+                    allMoons.push(moonGroup);
 
-                    const moonLabel = createLabel('✦ ' + page.label, '#8aa0c9', 0.6);
+                    const moonLabel = createLabel('✦ ' + page.label, '#8aa0c9', 0.5);
                     moonLabel.scale.set(2.5, 0.6, 1);
-                    moonLabel.position.set(0, moonSize * 2.5 + 0.4, 0);
-                    moon.add(moonLabel);
+                    moonLabel.position.set(0, moonSize * 4 + 0.3, 0);
+                    moonGroup.add(moonLabel);
                     labelObjects.push(moonLabel);
                 });
             });
@@ -1310,7 +1465,7 @@
                 targetIndex: 0,
                 waitTimer: 0,
                 isWaiting: false,
-                speed: 0.012,
+                speed: 0.018,
                 arrivalTimer: 0,
                 isArrived: false,
                 lastTarget: null
@@ -1327,7 +1482,7 @@
                 targetIndex: 0,
                 waitTimer: 0,
                 isWaiting: false,
-                speed: 0.010,
+                speed: 0.016,
                 arrivalTimer: 0,
                 isArrived: false,
                 lastTarget: null
@@ -1344,7 +1499,7 @@
                 targetIndex: 0,
                 waitTimer: 0,
                 isWaiting: false,
-                speed: 0.02,
+                speed: 0.025,
                 isPlayer: true,
                 target: null,
                 isMoving: false,
@@ -1366,12 +1521,6 @@
             if (allPlanets.length === 0) return new THREE.Vector3(0, 0, 0);
             const planet = allPlanets[Math.floor(Math.random() * allPlanets.length)];
             return planet.position.clone();
-        }
-
-        function getRandomTarget() {
-            const allTargets = [...allPlanets, ...allMoons];
-            if (allTargets.length === 0) return null;
-            return allTargets[Math.floor(Math.random() * allTargets.length)];
         }
 
         function updateShipTargets() {
@@ -1412,9 +1561,9 @@
                     const target = shipTargets[idx];
                     if (target) {
                         const dist = ship.position.distanceTo(target.position);
-                        if (dist < 0.3) {
+                        if (dist < 0.4) {
                             data.isWaiting = true;
-                            data.waitTimer = 120 + Math.random() * 180;
+                            data.waitTimer = 60 + Math.random() * 100;
                             data.isArrived = true;
                             data.arrivalTimer = 0;
                             if (data.lastTarget !== target) {
@@ -1593,17 +1742,35 @@
                         obj = obj.parent;
                     }
                     if (obj && obj.userData) {
-                        openModal(obj.userData);
-
-                        const playerShip = ships.find(s => s.userData.isPlayer);
-                        if (playerShip && obj.userData.group !== 'root') {
-                            if (playerShip.userData.currentTarget !== obj) {
-                                movePlayerTo(obj);
-                            } else {
-                                playerShip.userData.isMoving = false;
-                                playerShip.userData.target = null;
+                        if (clickTimer) {
+                            clearTimeout(clickTimer);
+                            clickTimer = null;
+                            if (clickTarget === obj) {
+                                openModal(obj.userData);
+                                clickTarget = null;
+                                return;
                             }
                         }
+                        clickTarget = obj;
+                        clickTimer = setTimeout(() => {
+                            const playerShip = ships.find(s => s.userData.isPlayer);
+                            if (playerShip && obj.userData.group !== 'root') {
+                                if (playerShip.userData.currentTarget !== obj) {
+                                    movePlayerTo(obj);
+                                } else {
+                                    playerShip.userData.isMoving = false;
+                                    playerShip.userData.target = null;
+                                }
+                            }
+                            clickTimer = null;
+                            clickTarget = null;
+                        }, 300);
+                    }
+                } else {
+                    if (clickTimer) {
+                        clearTimeout(clickTimer);
+                        clickTimer = null;
+                        clickTarget = null;
                     }
                 }
             });
@@ -1617,6 +1784,8 @@
             });
         }
 
+        let fpsFrames = 0;
+        let fpsTime = 0;
         let time = 0;
         let frameCount = 0;
 
@@ -1624,6 +1793,23 @@
             requestAnimationFrame(animate);
             time += 0.01;
             frameCount++;
+
+            fpsFrames++;
+            const now = performance.now();
+            if (now - fpsTime > 1000) {
+                const fps = fpsFrames;
+                fpsCounterEl.textContent = fps;
+                if (fps < 25) {
+                    fpsCounterEl.className = 'fps-value critical';
+                } else if (fps < 45) {
+                    fpsCounterEl.className = 'fps-value low';
+                } else {
+                    fpsCounterEl.className = 'fps-value';
+                }
+                fpsFrames = 0;
+                fpsTime = now;
+            }
+
             controls.update();
 
             planetData.forEach(planet => {
@@ -1645,7 +1831,8 @@
                 moon.position.x = mx;
                 moon.position.z = mz;
                 moon.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
-                moon.rotation.y += 0.015;
+                moon.rotation.y += 0.02;
+                moon.rotation.x += 0.01;
             });
 
             if (nodeObjects[0]) {
@@ -1654,8 +1841,8 @@
 
             updateShips();
 
-            if (frameCount % 10 === 0 && stars) {
-                stars.rotation.y += 0.00005;
+            if (stars) {
+                stars.rotation.y += 0.0001;
             }
 
             renderer.render(scene, camera);
