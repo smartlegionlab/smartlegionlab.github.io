@@ -1,453 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 Smart Legion Lab's Universe</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        * { margin: 0; padding: 0; }
-        body {
-            overflow: hidden;
-            background: #05080f;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            color: #fff;
-            user-select: none;
-        }
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 1;
-        }
-
-        .ui-overlay {
-            position: fixed;
-            z-index: 10;
-            pointer-events: none;
-        }
-        .header-ui {
-            top: 20px;
-            left: 30px;
-            pointer-events: auto;
-        }
-        .header-ui h1 {
-            font-weight: 700;
-            text-shadow: 0 0 40px rgba(255, 193, 7, 0.3);
-            background: rgba(5, 8, 15, 0.8);
-            backdrop-filter: blur(16px);
-            padding: 12px 28px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 193, 7, 0.2);
-            display: inline-block;
-            font-size: 1.6rem;
-            letter-spacing: -0.5px;
-        }
-        .header-ui h1 small {
-            color: #ffc107;
-            font-weight: 300;
-            font-size: 1rem;
-        }
-        .header-ui .btn-home {
-            pointer-events: auto;
-            background: rgba(13, 110, 253, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            color: #ffc107;
-            padding: 8px 22px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: 0.3s;
-            display: inline-block;
-            margin-left: 12px;
-        }
-        .header-ui .btn-home:hover {
-            background: rgba(255, 193, 7, 0.15);
-            border-color: #ffc107;
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        .history-panel {
-            position: fixed;
-            top: 90px;
-            left: 30px;
-            z-index: 15;
-            background: rgba(5, 8, 15, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 193, 7, 0.15);
-            border-radius: 16px;
-            padding: 12px 16px;
-            min-width: 220px;
-            max-width: 300px;
-            max-height: 60vh;
-            overflow-y: auto;
-            pointer-events: auto;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
-        }
-        .history-panel::-webkit-scrollbar { width: 4px; }
-        .history-panel::-webkit-scrollbar-track { background: transparent; }
-        .history-panel::-webkit-scrollbar-thumb { background: #ffc10744; border-radius: 10px; }
-        .history-panel .panel-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #6b7b98;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .history-panel .panel-title i { color: #ffc107; }
-
-        .history-accordion .accordion-item {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            margin-bottom: 2px;
-        }
-        .history-accordion .accordion-item:last-child { border-bottom: none; }
-        .history-accordion .accordion-header { background: transparent; padding: 0; }
-        .history-accordion .accordion-button {
-            background: transparent;
-            color: #b0c4e0;
-            padding: 6px 8px;
-            font-size: 0.75rem;
-            border: none;
-            box-shadow: none;
-            border-radius: 8px;
-            transition: 0.2s;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .history-accordion .accordion-button:hover { background: rgba(255,255,255,0.03); }
-        .history-accordion .accordion-button .badge-count {
-            background: rgba(255, 193, 7, 0.15);
-            color: #ffc107;
-            font-size: 0.6rem;
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-        .history-accordion .accordion-button .traveler-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        .history-accordion .accordion-body { padding: 4px 8px 8px 8px; }
-        .history-accordion .accordion-body .history-item {
-            padding: 4px 8px;
-            font-size: 0.7rem;
-            color: #8aa0c9;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: 0.2s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 2px solid transparent;
-        }
-        .history-accordion .accordion-body .history-item:hover {
-            background: rgba(255, 193, 7, 0.06);
-            border-left-color: #ffc107;
-            color: #fff;
-        }
-        .history-accordion .accordion-body .history-item .time { color: #4a5a7a; font-size: 0.6rem; }
-        .history-accordion .accordion-body .history-item .type-icon { margin-right: 6px; opacity: 0.6; }
-        .history-empty { color: #4a5a7a; font-size: 0.65rem; font-style: italic; padding: 4px 8px; }
-
-        .stats-ui {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 10;
-            color: #8aa0c9;
-            font-size: 0.8rem;
-            background: rgba(5, 8, 15, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 10px 20px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            pointer-events: none;
-        }
-        .stats-ui span { color: #ffc107; font-weight: 600; }
-
-        .fps-counter {
-            position: fixed;
-            top: 20px;
-            right: 30px;
-            z-index: 10;
-            color: #6b7b98;
-            font-size: 0.7rem;
-            background: rgba(5, 8, 15, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 8px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            pointer-events: none;
-            font-family: monospace;
-        }
-        .fps-counter .fps-value {
-            color: #00ff88;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        .fps-counter .fps-value.low { color: #ffaa00; }
-        .fps-counter .fps-value.critical { color: #ff4444; }
-
-        .legend-ui {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 10;
-            color: #b0c4e0;
-            font-size: 0.7rem;
-            background: rgba(5, 8, 15, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 14px 20px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            pointer-events: none;
-        }
-        .legend-ui .dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        .legend-ui .row-legend { margin-bottom: 5px; display: flex; align-items: center; }
-
-        .tooltip-ui {
-            position: fixed;
-            z-index: 20;
-            background: rgba(5, 8, 15, 0.92);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            padding: 10px 18px;
-            border-radius: 12px;
-            color: #fff;
-            font-size: 0.8rem;
-            pointer-events: none;
-            display: none;
-            max-width: 350px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.9);
-        }
-        .tooltip-ui .label { color: #ffc107; font-weight: 600; font-size: 0.9rem; }
-        .tooltip-ui .url { color: #8aa0c9; font-size: 0.65rem; word-break: break-all; margin-top: 4px; }
-        .tooltip-ui .type { color: #6b7b98; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-
-        .loading-ui {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 100;
-            color: #ffc107;
-            font-size: 1.2rem;
-            background: rgba(5, 8, 15, 0.9);
-            padding: 30px 50px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 193, 7, 0.2);
-            backdrop-filter: blur(20px);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            transition: opacity 0.5s;
-        }
-        .loading-ui .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 193, 7, 0.1);
-            border-top: 3px solid #ffc107;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-ui.hidden { opacity: 0; pointer-events: none; }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 50;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(20px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease;
-        }
-        .modal-overlay.active { display: flex; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .modal-content {
-            background: rgba(5, 8, 15, 0.95);
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            border-radius: 24px;
-            padding: 40px 50px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.9);
-            position: relative;
-        }
-        .modal-content .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: #6b7b98;
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .modal-content .close-btn:hover { color: #ffc107; transform: rotate(90deg); }
-        .modal-content .modal-icon { font-size: 3rem; margin-bottom: 10px; }
-        .modal-content h2 { color: #ffc107; font-weight: 700; font-size: 1.5rem; margin-bottom: 10px; }
-        .modal-content .modal-url { color: #8aa0c9; font-size: 0.8rem; word-break: break-all; margin-bottom: 15px; }
-        .modal-content .modal-desc { color: #b0c4e0; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; }
-        .modal-content .modal-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-        .modal-content .modal-buttons .btn {
-            flex: 1;
-            min-width: 120px;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: 0.3s;
-            text-decoration: none;
-            text-align: center;
-        }
-        .modal-content .modal-buttons .btn-primary {
-            background: #0d6efd;
-            border: 1px solid #0d6efd;
-            color: #fff;
-        }
-        .modal-content .modal-buttons .btn-primary:hover { background: #0b5ed7; transform: scale(1.02); }
-        .modal-content .modal-buttons .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #b0c4e0;
-        }
-        .modal-content .modal-buttons .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
-        .modal-content .modal-type {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            background: rgba(255, 193, 7, 0.1);
-            border: 1px solid rgba(255, 193, 7, 0.2);
-            color: #ffc107;
-            margin-bottom: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .header-ui h1 { font-size: 1.1rem; padding: 8px 16px; }
-            .header-ui .btn-home { font-size: 0.7rem; padding: 5px 12px; margin-left: 6px; }
-            .history-panel { left: 10px; top: 80px; min-width: 160px; max-width: 200px; padding: 8px 10px; }
-            .history-panel .panel-title { font-size: 0.6rem; }
-            .history-accordion .accordion-button { font-size: 0.65rem; padding: 4px 6px; }
-            .history-accordion .accordion-body .history-item { font-size: 0.6rem; padding: 3px 6px; }
-            .stats-ui { font-size: 0.6rem; padding: 6px 12px; bottom: 15px; left: 15px; }
-            .fps-counter { font-size: 0.6rem; padding: 4px 10px; top: 15px; right: 15px; }
-            .legend-ui { display: none; }
-            .loading-ui { padding: 20px 30px; font-size: 1rem; }
-            .modal-content { padding: 30px 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<div id="canvas-container"></div>
-
-<div class="loading-ui" id="loadingUI">
-    <div class="spinner"></div>
-    <span>🚀 Loading universe...</span>
-    <span style="font-size:0.8rem; color:#6b7b98;">Analyzing sitemap.xml</span>
-</div>
-
-<div class="fps-counter">
-    ⚡ FPS: <span class="fps-value" id="fpsCounter">60</span>
-</div>
-
-<div class="tooltip-ui" id="tooltip">
-    <div class="label" id="tooltipLabel">Title</div>
-    <div class="url" id="tooltipUrl">url</div>
-    <div class="type" id="tooltipType">type</div>
-</div>
-
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-content">
-        <button class="close-btn" id="modalClose">&times;</button>
-        <div class="modal-icon" id="modalIcon">🚀</div>
-        <div class="modal-type" id="modalType">Planet</div>
-        <h2 id="modalTitle">Title</h2>
-        <div class="modal-url" id="modalUrl">https://...</div>
-        <div class="modal-desc" id="modalDesc">Description</div>
-        <div class="modal-buttons">
-            <a href="#" target="_blank" class="btn btn-primary" id="modalGoBtn">
-                <i class="bi bi-box-arrow-up-right me-1"></i> Visit
-            </a>
-            <button class="btn btn-secondary" id="modalBackBtn">
-                <i class="bi bi-arrow-left me-1"></i> Back to space
-            </button>
-        </div>
-    </div>
-</div>
-
-<div class="ui-overlay header-ui">
-    <h1>
-        <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
-        Smart Legion Lab's <small>Universe</small>
-    </h1>
-    <a href="/" class="btn-home">
-        <i class="bi bi-house-door me-1"></i> To orbit
-    </a>
-</div>
-
-<div class="history-panel" id="historyPanel">
-    <div class="panel-title">
-        <i class="bi bi-clock-history"></i> History
-        <span style="margin-left:auto; font-size:0.6rem; color:#4a5a7a;">click to travel</span>
-    </div>
-    <div class="history-accordion" id="historyAccordion">
-    </div>
-</div>
-
-<div class="stats-ui">
-    <i class="bi bi-globe2 me-1"></i> Planets: <span id="planetCount">0</span> · Moons: <span id="moonCount">0</span>
-    <span style="margin-left:15px; color:#6b7b98;">👤 Travelers: <span id="shipCount">3</span></span>
-</div>
-
-<div class="legend-ui">
-    <div class="row-legend"><span class="dot" style="background: #ffc107; box-shadow: 0 0 20px #ffc107;"></span> Sun (home)</div>
-    <div class="row-legend"><span class="dot" style="background: #0d6efd;"></span> Planets (sections)</div>
-    <div class="row-legend"><span class="dot" style="background: #6c8cba;"></span> Moons (pages)</div>
-    <div class="row-legend" style="margin-top:8px; border-top:1px solid #1c2538; padding-top:8px; font-size:0.65rem; color:#6b7b98;">
-        <i class="bi bi-arrows-move me-1"></i> Drag · <i class="bi bi-zoom-in me-1"></i> Scroll · <i class="bi bi-eye me-1"></i> Hover · <i class="bi bi-hand-index me-1"></i> Click
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-
-<script>
-    (function() {
+(function() {
         const loadingUI = document.getElementById('loadingUI');
         const planetCountEl = document.getElementById('planetCount');
         const moonCountEl = document.getElementById('moonCount');
@@ -571,27 +122,25 @@
             const sectionList = [];
             sections.forEach((items, sectionName) => {
                 const indexPage = indexPages.get(sectionName);
-                let moonCount = items.length + (indexPage ? 1 : 0);
                 sectionList.push({
                     name: sectionName,
                     items: items,
-                    indexPage: indexPage,
-                    moonCount: moonCount,
-                    size: 0.7 + Math.min(moonCount / 6, 1.8)
+                    indexPage: indexPage
                 });
             });
 
-            sectionList.sort((a, b) => a.size - b.size);
-
-            const baseOrbitRadii = [10, 13, 16, 19, 22, 26, 30];
-            const hasRing = [false, true, false, true, false, false, true];
+            const planetColors = [
+                0x0d6efd, 0x4a9eff, 0xff6b35, 0x00d4ff,
+                0xff4444, 0x6c8cba, 0xffaa00, 0x8b5cf6
+            ];
+            const hasRing = [false, true, false, true, true, false, true, false];
+            const orbitRadii = [7, 10, 13, 16, 19, 22, 25];
             const angleOffset = Math.random() * Math.PI * 2;
 
             sectionList.forEach((sectionData, idx) => {
                 const sectionName = sectionData.name;
                 const items = sectionData.items;
                 const indexPage = sectionData.indexPage;
-                const size = sectionData.size;
 
                 const sectionId = 'sec_' + sectionName;
                 const icons = {
@@ -606,11 +155,10 @@
                 const sectionLabel = (icons[sectionName] || '📂') + ' ' + sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
                 const sectionUrl = 'https://smartlegionlab.ru/' + sectionName + '.html';
 
-                const color = new THREE.Color().setHSL(
-                    0.55 + Math.random() * 0.35,
-                    0.4 + Math.random() * 0.5,
-                    0.3 + Math.random() * 0.4
-                );
+                const size = 0.7 + Math.random() * 0.5;
+                const color = planetColors[idx % planetColors.length];
+                const ring = hasRing[idx % hasRing.length];
+                const radius = orbitRadii[idx % orbitRadii.length] + (Math.floor(idx / orbitRadii.length) * 3);
 
                 nodes.push({
                     id: sectionId,
@@ -618,10 +166,9 @@
                     group: 'section',
                     url: sectionUrl,
                     size: size,
-                    orbitRadius: baseOrbitRadii[idx % baseOrbitRadii.length],
-                    color: color.getHex(),
-                    hasRing: hasRing[idx % hasRing.length],
-                    hsl: { h: color.getHSL({}).h, s: color.getHSL({}).s, l: color.getHSL({}).l }
+                    orbitRadius: radius,
+                    color: color,
+                    hasRing: ring
                 });
                 nodeMap.set('section_' + sectionName, sectionId);
                 edges.push({ from: rootId, to: sectionId });
@@ -840,7 +387,7 @@
             scene.background = new THREE.Color(0x05080f);
 
             camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 500);
-            camera.position.set(35, 30, 45);
+            camera.position.set(30, 25, 40);
             camera.lookAt(0, 0, 0);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -858,8 +405,8 @@
             controls.autoRotate = true;
             controls.autoRotateSpeed = 0.3;
             controls.target.set(0, 0, 0);
-            controls.minDistance = 20;
-            controls.maxDistance = 100;
+            controls.minDistance = 15;
+            controls.maxDistance = 80;
 
             const ambient = new THREE.AmbientLight(0x334466, 0.3);
             scene.add(ambient);
@@ -1032,10 +579,10 @@
                 }
             }
 
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 6; i++) {
                 const cx = 20 + Math.random() * 88;
                 const cy = 20 + Math.random() * 88;
-                const radius = 4 + Math.random() * 12;
+                const radius = 3 + Math.random() * 10;
                 const darkness = 0.3 + Math.random() * 0.4;
 
                 const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
@@ -1054,15 +601,6 @@
                 ctx.beginPath();
                 ctx.arc(cx, cy, radius, 0, Math.PI * 2);
                 ctx.fill();
-
-                if (Math.random() > 0.5) {
-                    const highlight = new THREE.Color(baseColor);
-                    highlight.offsetHSL(0, 0, 0.2);
-                    ctx.fillStyle = '#' + highlight.getHexString();
-                    ctx.beginPath();
-                    ctx.arc(cx - radius * 0.2, cy - radius * 0.2, radius * 0.15, 0, Math.PI * 2);
-                    ctx.fill();
-                }
             }
 
             return new THREE.CanvasTexture(canvas);
@@ -1361,7 +899,7 @@
                     type: '🪐 Planet',
                     angle: angle,
                     radius: radius,
-                    speed: 0.04 + Math.random() * 0.03,
+                    speed: 0.04 + Math.random() * 0.04,
                     orbitY: y,
                     planetSize: size,
                     description: `Section "${section.label.replace(/^[^\s]+\s/, '')}" — all related projects and pages.`
@@ -1414,7 +952,7 @@
 
                     const moonColor = new THREE.Color(color);
                     moonColor.offsetHSL(
-                        (Math.random() - 0.5) * 0.25,
+                        (Math.random() - 0.5) * 0.3,
                         0.2 + Math.random() * 0.5,
                         0.2 + Math.random() * 0.4
                     );
@@ -1871,6 +1409,3 @@
 
         init();
     })();
-</script>
-</body>
-</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Smart Legion Lab's Universe</title>
+    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/smartlegionlab-map.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="canvas-container"></div>
+
+<div class="loading-ui" id="loadingUI">
+    <div class="spinner"></div>
+    <span>🚀 Loading universe...</span>
+    <span style="font-size:0.8rem; color:#6b7b98;">Analyzing sitemap.xml</span>
+</div>
+
+<div class="fps-counter">
+    ⚡ FPS: <span class="fps-value" id="fpsCounter">60</span>
+</div>
+
+<div class="tooltip-ui" id="tooltip">
+    <div class="label" id="tooltipLabel">Title</div>
+    <div class="url" id="tooltipUrl">url</div>
+    <div class="type" id="tooltipType">type</div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <button class="close-btn" id="modalClose">&times;</button>
+        <div class="modal-icon" id="modalIcon">🚀</div>
+        <div class="modal-type" id="modalType">Planet</div>
+        <h2 id="modalTitle">Title</h2>
+        <div class="modal-url" id="modalUrl">https://...</div>
+        <div class="modal-desc" id="modalDesc">Description</div>
+        <div class="modal-buttons">
+            <a href="#" target="_blank" class="btn btn-primary" id="modalGoBtn">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Visit
+            </a>
+            <button class="btn btn-secondary" id="modalBackBtn">
+                <i class="bi bi-arrow-left me-1"></i> Back to space
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="ui-overlay header-ui">
+    <h1>
+        <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
+        Smart Legion Lab's <small>Universe</small>
+    </h1>
+    <a href="/" class="btn-home">
+        <i class="bi bi-house-door me-1"></i> To Home
+    </a>
+</div>
+
+<div class="history-panel" id="historyPanel">
+    <div class="panel-title">
+        <i class="bi bi-clock-history"></i> History
+        <span style="margin-left:auto; font-size:0.6rem; color:#4a5a7a;">click to travel</span>
+    </div>
+    <div class="history-accordion" id="historyAccordion">
+    </div>
+</div>
+
+<div class="stats-ui">
+    <i class="bi bi-globe2 me-1"></i> Planets: <span id="planetCount">0</span> · Moons: <span id="moonCount">0</span>
+    <span style="margin-left:15px; color:#6b7b98;">👤 Travelers: <span id="shipCount">3</span></span>
+</div>
+
+<div class="legend-ui">
+    <div class="row-legend"><span class="dot" style="background: #ffc107; box-shadow: 0 0 20px #ffc107;"></span> Sun (home)</div>
+    <div class="row-legend"><span class="dot" style="background: #0d6efd;"></span> Planets (sections)</div>
+    <div class="row-legend"><span class="dot" style="background: #6c8cba;"></span> Moons (pages)</div>
+    <div class="row-legend" style="margin-top:8px; border-top:1px solid #1c2538; padding-top:8px; font-size:0.65rem; color:#6b7b98;">
+        <i class="bi bi-arrows-move me-1"></i> Drag · <i class="bi bi-zoom-in me-1"></i> Scroll · <i class="bi bi-eye me-1"></i> Hover · <i class="bi bi-hand-index me-1"></i> Double-click
+    </div>
+</div>
+
+<script src="js/three.min.js"></script>
+<script src="js/OrbitControls.js"></script>
+<script src="js/smartlegionlab-map.js"></script>
+</body>
+</html>
