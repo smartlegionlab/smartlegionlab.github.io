@@ -274,6 +274,8 @@
     let lastTapTime = 0;
     let tapTimeout = null;
 
+    let lastTime = 0;
+
     function addHistoryEntry(travelerName, target) {
         if (!historyData[travelerName]) return;
         const now = new Date();
@@ -455,7 +457,7 @@
         setupInteraction();
         setupResize();
         setupModal();
-        animate();
+        animate(0);
     }
 
     function createStars() {
@@ -1094,7 +1096,7 @@
         });
     }
 
-    function updateShips() {
+    function updateShips(delta = 1) {
         const allTargets = [...allPlanets, ...allMoons];
         if (allTargets.length === 0) return;
 
@@ -1103,7 +1105,7 @@
 
             if (data.isPlayer) {
                 if (data.isMoving && data.target) {
-                    moveShipToTarget(ship, data.target);
+                    moveShipToTarget(ship, data.target, delta);
                 }
                 return;
             }
@@ -1122,11 +1124,11 @@
                             data.lastTarget = target;
                         }
                     } else {
-                        moveShipToTarget(ship, target);
+                        moveShipToTarget(ship, target, delta);
                     }
                 }
             } else {
-                data.waitTimer--;
+                data.waitTimer -= delta;
                 if (data.waitTimer <= 0) {
                     data.isWaiting = false;
                     data.isArrived = false;
@@ -1142,13 +1144,13 @@
         });
     }
 
-    function moveShipToTarget(ship, target) {
+    function moveShipToTarget(ship, target, delta = 1) {
         const direction = new THREE.Vector3().copy(target.position).sub(ship.position);
         const distance = direction.length();
         if (distance < 0.05) return;
 
         direction.normalize();
-        const speed = ship.userData.speed || 0.015;
+        const speed = (ship.userData.speed || 0.015) * delta;
         const moveAmount = Math.min(speed, distance);
         ship.position.add(direction.multiplyScalar(moveAmount));
 
@@ -1389,9 +1391,20 @@
     let time = 0;
     let frameCount = 0;
 
-    function animate() {
+    function animate(timestamp) {
         requestAnimationFrame(animate);
-        time += 0.01;
+
+        let delta = 1;
+        if (lastTime === 0) {
+            lastTime = timestamp;
+        } else {
+            delta = (timestamp - lastTime) / 16.667;
+            if (delta > 3) delta = 3;
+            if (delta < 0.1) delta = 0.1;
+            lastTime = timestamp;
+        }
+
+        time += 0.01 * delta;
         frameCount++;
 
         fpsFrames++;
@@ -1414,35 +1427,35 @@
 
         planetData.forEach(planet => {
             const data = planet.userData;
-            data.angle += data.speed * 0.01;
+            data.angle += data.speed * 0.01 * delta;
             const x = Math.cos(data.angle) * data.radius;
             const z = Math.sin(data.angle) * data.radius;
             planet.position.x = x;
             planet.position.z = z;
-            planet.rotation.y += 0.008;
+            planet.rotation.y += 0.008 * delta;
         });
 
         moonData.forEach(moon => {
             const data = moon.userData;
-            data.angle += data.speed * 0.015;
+            data.angle += data.speed * 0.015 * delta;
             const planetPos = data.planet.position;
             const mx = planetPos.x + Math.cos(data.angle) * data.radius;
             const mz = planetPos.z + Math.sin(data.angle) * data.radius;
             moon.position.x = mx;
             moon.position.z = mz;
             moon.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
-            moon.rotation.y += 0.02;
-            moon.rotation.x += 0.01;
+            moon.rotation.y += 0.02 * delta;
+            moon.rotation.x += 0.01 * delta;
         });
 
         if (nodeObjects[0]) {
-            nodeObjects[0].rotation.y += 0.002;
+            nodeObjects[0].rotation.y += 0.002 * delta;
         }
 
-        updateShips();
+        updateShips(delta);
 
         if (stars) {
-            stars.rotation.y += 0.0001;
+            stars.rotation.y += 0.0001 * delta;
         }
 
         renderer.render(scene, camera);
