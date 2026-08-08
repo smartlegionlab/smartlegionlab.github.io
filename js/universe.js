@@ -1475,7 +1475,7 @@
             if (controls) controls.autoRotate = true;
         }, 1500);
 
-        console.log('🚀 Universe loaded!');
+        console.log('🚀 Smart Legion Lab Universe loaded!');
         console.log('📊 Total URLs:', urls.length);
         console.log('🪐 Planets:', graph.nodes.filter(n => n.group === 'section').length);
         console.log('🌙 Moons:', graph.nodes.filter(n => n.group === 'page').length);
