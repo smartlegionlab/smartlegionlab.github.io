@@ -10,7 +10,8 @@
 
 **Modern, self-updating technical portfolio** showcasing expertise in **Python development**, **system architecture**, and **open-source contributions**. This isn't just a static site—it's a fully automated ecosystem that fetches live data and builds itself daily.
 
-![Preview](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
+![Main Page](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
+![Site Map](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/universe.png)
 
 ---
 
