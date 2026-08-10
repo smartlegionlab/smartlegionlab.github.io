@@ -13,7 +13,7 @@ const CONFIG = {
             name: 'Alexander Suvorov',
             github: 'smartlegionlab',
             orcid: '0009-0006-3427-9611',
-            career_start: 2015
+            career_start: 2011
         },
         {
             id: 'alexander-suvorov-jr',
@@ -71,5 +71,5 @@ const CONFIG = {
         }
     },
 
-    VERSION: 'v7.2.5'
+    VERSION: 'v7.2.6'
 };
