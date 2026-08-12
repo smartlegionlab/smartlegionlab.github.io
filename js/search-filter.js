@@ -1,16 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     var searchInput = document.getElementById('searchInput');
     var clearSearch = document.getElementById('clearSearch');
-    var filterSelect = document.getElementById('filterSelect');
+    var filterDropdownMenu = document.getElementById('filterDropdownMenu');
+    var selectedFilterText = document.getElementById('selectedFilterText');
     var searchStats = document.getElementById('searchStats');
 
-    if (!searchInput || !filterSelect) return;
+    if (!searchInput || !filterDropdownMenu) return;
 
     var cards = document.querySelectorAll('.col-lg-6.mb-4.d-flex');
+    var currentFilter = 'all';
+
+    function updateDropdownText(value) {
+        if (!selectedFilterText) return;
+        var items = filterDropdownMenu.querySelectorAll('.dropdown-item');
+        for (var i = 0; i < items.length; i++) {
+            items[i].classList.remove('active');
+            if (items[i].getAttribute('data-value') === value) {
+                selectedFilterText.textContent = items[i].textContent;
+                items[i].classList.add('active');
+            }
+        }
+    }
 
     function filterItems() {
         var term = searchInput.value.toLowerCase().trim();
-        var filterValue = filterSelect.value;
+        var filterValue = currentFilter;
         var visibleCount = 0;
 
         for (var i = 0; i < cards.length; i++) {
@@ -19,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var author = card.querySelector('.author');
             var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
             var authorText = author ? author.textContent.trim().toLowerCase() : '';
-            console.log(authorText)
             var fullText = card.textContent.toLowerCase();
 
             var matchSearch = term === '' || fullText.indexOf(term) !== -1;
@@ -40,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             statsText += ' matching "' + term + '"';
         }
         if (filterValue !== 'all') {
-            statsText += ' in ' + filterValue.charAt(0).toUpperCase() + filterValue.slice(1);
+            var filterLabel = selectedFilterText ? selectedFilterText.textContent : filterValue;
+            statsText += ' in ' + filterLabel;
         }
         if (visibleCount === total && term === '' && filterValue === 'all') {
             statsText = 'Showing all ' + total + ' ' + pageName.toLowerCase();
@@ -49,7 +63,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     searchInput.addEventListener('input', filterItems);
-    filterSelect.addEventListener('change', filterItems);
+
+    filterDropdownMenu.addEventListener('click', function(e) {
+        var target = e.target.closest('.dropdown-item');
+        if (!target) return;
+        var value = target.getAttribute('data-value');
+        if (value !== null) {
+            currentFilter = value;
+            updateDropdownText(value);
+            filterItems();
+            var dropdownToggle = document.getElementById('filterDropdown');
+            if (dropdownToggle && typeof bootstrap !== 'undefined') {
+                var dropdown = bootstrap.Dropdown.getInstance(dropdownToggle);
+                if (dropdown) dropdown.hide();
+            }
+        }
+    });
 
     if (clearSearch) {
         clearSearch.addEventListener('click', function() {
@@ -59,5 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    updateDropdownText('all');
     filterItems();
 });
