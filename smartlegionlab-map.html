@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Legion Lab's Universe</title>
+
+    <meta name="description" content="Smart Legion Lab's Universe - Site Map.">
+    <meta name="author" content="Smart Legion Lab">
+    <meta name="copyright" content="Smart Legion Lab">
+
+    <link rel="canonical" href="https://smartlegionlab.ru/smartlegionlab-map.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+
+    <meta property="og:title" content="Smart Legion Lab's Universe · Smart Legion Lab">
+    <meta property="og:description" content="Smart Legion Lab's Universe - Site Map.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/smartlegionlab-map.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Smart Legion Lab's Universe">
+
     <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
     <link href="css/smartlegionlab-map.css" rel="stylesheet">
@@ -51,11 +65,9 @@
 <div class="ui-overlay header-ui">
     <h1>
         <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
-        Smart Legion Lab's <small>Universe</small>
+        <a href="index.html" class="text-decoration-none text-white">Smart Legion Lab's <small>Universe</small></a>
     </h1>
-    <a href="/" class="btn-home">
-        <i class="bi bi-house-door me-1"></i> To Home
-    </a>
+    <button id="pauseBtn" class="btn-pause">⏸️ Pause</button>
 </div>
 
 <div class="history-panel" id="historyPanel">
@@ -68,14 +80,14 @@
 </div>
 
 <div class="stats-ui">
-    <i class="bi bi-globe2 me-1"></i> Planets: <span id="planetCount">0</span> · Moons: <span id="moonCount">0</span>
-    <span style="margin-left:15px; color:#6b7b98;">👤 Travelers: <span id="shipCount">3</span></span>
+    <i class="bi bi-globe2 me-1"></i> Sections: <span id="sectionCount">0</span> · Pages: <span id="pageCount">0</span>
+    <span style="margin-left:15px; color:#6b7b98;">👤 Users: <span id="userCount">3</span></span>
 </div>
 
 <div class="legend-ui">
     <div class="row-legend"><span class="dot" style="background: #ffc107; box-shadow: 0 0 20px #ffc107;"></span> Sun (home)</div>
-    <div class="row-legend"><span class="dot" style="background: #0d6efd;"></span> Planets (sections)</div>
-    <div class="row-legend"><span class="dot" style="background: #6c8cba;"></span> Moons (pages)</div>
+    <div class="row-legend"><span class="dot" style="background: #0d6efd;"></span> Sections</div>
+    <div class="row-legend"><span class="dot" style="background: #6c8cba;"></span> Pages</div>
     <div class="row-legend" style="margin-top:8px; border-top:1px solid #1c2538; padding-top:8px; font-size:0.65rem; color:#6b7b98;">
         <i class="bi bi-arrows-move me-1"></i> Drag · <i class="bi bi-zoom-in me-1"></i> Scroll · <i class="bi bi-eye me-1"></i> Hover · <i class="bi bi-hand-index me-1"></i> Double-click
     </div>

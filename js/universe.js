@@ -1,8 +1,11 @@
 (function() {
     const loadingUI = document.getElementById('loadingUI');
-    const planetCountEl = document.getElementById('planetCount');
-    const moonCountEl = document.getElementById('moonCount');
+    const sectionCountEl = document.getElementById('sectionCount');
+    const pageCountEl = document.getElementById('pageCount');
     const fpsCounterEl = document.getElementById('fpsCounter');
+
+    let isPaused = false;
+    const pauseBtn = document.getElementById('pauseBtn');
 
     async function loadSitemap() {
         try {
@@ -129,7 +132,7 @@
             });
         });
 
-        const planetColors = [
+        const sectionColors = [
             0x0d6efd, 0x4a9eff, 0xff6b35, 0x00d4ff,
             0xff4444, 0x6c8cba, 0xffaa00, 0x8b5cf6
         ];
@@ -156,7 +159,7 @@
             const sectionUrl = 'https://smartlegionlab.ru/' + sectionName + '.html';
 
             const size = 0.7 + Math.random() * 0.5;
-            const color = planetColors[idx % planetColors.length];
+            const color = sectionColors[idx % sectionColors.length];
             const ring = hasRing[idx % hasRing.length];
             const radius = orbitRadii[idx % orbitRadii.length] + (Math.floor(idx / orbitRadii.length) * 3);
 
@@ -209,9 +212,9 @@
     }
 
     let scene, camera, renderer, controls;
-    let nodeObjects = [];
-    let planetData = [];
-    let moonData = [];
+    let sectionObjects = [];
+    let sectionData = [];
+    let pageData = [];
     let orbitLines = [];
     let labelObjects = [];
     let stars;
@@ -220,8 +223,8 @@
     let shipTargets = [];
     let clickableObjects = [];
     let allNodes = [];
-    let allPlanets = [];
-    let allMoons = [];
+    let allSections = [];
+    let allPages = [];
 
     const modalOverlay = document.getElementById('modalOverlay');
     const modalClose = document.getElementById('modalClose');
@@ -239,13 +242,13 @@
         'You': []
     };
 
-    const travelerColors = {
+    const userColors = {
         'Aixandrolab': '#ff3333',
         'SmartLegionLab': '#3388ff',
         'You': '#00ff88'
     };
 
-    const travelerInfo = {
+    const userInfo = {
         'Aixandrolab': {
             name: 'Aixandrolab',
             url: 'https://github.com/aixandrolab',
@@ -276,8 +279,23 @@
 
     let lastTime = 0;
 
-    function addHistoryEntry(travelerName, target) {
-        if (!historyData[travelerName]) return;
+    function togglePause() {
+        isPaused = !isPaused;
+        if (isPaused) {
+            pauseBtn.innerHTML = '▶️ Play';
+            pauseBtn.classList.add('paused');
+            if (controls) controls.autoRotate = false;
+        } else {
+            pauseBtn.innerHTML = '⏸️ Pause';
+            pauseBtn.classList.remove('paused');
+            if (controls) controls.autoRotate = true;
+        }
+    }
+
+    pauseBtn.addEventListener('click', togglePause);
+
+    function addHistoryEntry(userName, target) {
+        if (!historyData[userName]) return;
         const now = new Date();
         const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
         const entry = {
@@ -289,13 +307,13 @@
             url: target.userData.url,
             type: target.userData.type,
             group: target.userData.group,
-            icon: target.userData.type === '☀️ Sun' ? '☀️' : target.userData.type === '🪐 Planet' ? '🪐' : '🌙'
+            icon: target.userData.type === '☀️ Main Page' ? '☀️' : target.userData.type === '🪐 Section' ? '🪐' : '📄'
         };
 
-        historyData[travelerName].push(entry);
+        historyData[userName].push(entry);
         renderHistory();
 
-        console.log(`📜 ${travelerName} visited: ${entry.label} at ${entry.time}`);
+        console.log(`📜 ${userName} visited: ${entry.label} at ${entry.time}`);
     }
 
     function renderHistory() {
@@ -303,11 +321,11 @@
         if (!accordion) return;
 
         let html = '';
-        const travelerNames = ['You', 'Aixandrolab', 'SmartLegionLab'];
+        const userNames = ['You', 'Aixandrolab', 'SmartLegionLab'];
 
-        travelerNames.forEach((name, idx) => {
+        userNames.forEach((name, idx) => {
             const entries = historyData[name] || [];
-            const color = travelerColors[name] || '#ffffff';
+            const color = userColors[name] || '#ffffff';
             const isPlayer = name === 'You';
             const icon = isPlayer ? '👤' : '🚀';
 
@@ -316,7 +334,7 @@
                     <div class="accordion-header">
                         <button class="accordion-button" onclick="toggleHistory('${name}')" style="color:${color};">
                             <span>
-                                <span class="traveler-dot" style="background:${color};"></span>
+                                <span class="user-dot" style="background:${color};"></span>
                                 ${icon} ${name}
                             </span>
                             <span class="badge-count">${entries.length}</span>
@@ -357,8 +375,8 @@
         }
     };
 
-    window.travelToHistory = function(travelerName, entryIndex) {
-        const entries = historyData[travelerName];
+    window.travelToHistory = function(userName, entryIndex) {
+        const entries = historyData[userName];
         if (!entries || !entries[entryIndex]) return;
         const entry = entries[entryIndex];
 
@@ -520,7 +538,7 @@
         scene.add(stars);
     }
 
-    function createPlanetMesh(color, size, emissiveIntensity = 0.15, hasRing = false) {
+    function createSectionMesh(color, size, emissiveIntensity = 0.15, hasRing = false) {
         const group = new THREE.Group();
 
         const geo = new THREE.SphereGeometry(size, 20, 20);
@@ -581,13 +599,13 @@
         return group;
     }
 
-    function createMoon(moonColor, moonSize, planetSize) {
+    function createPageMesh(pageColor, pageSize, sectionSize) {
         const group = new THREE.Group();
 
-        const maxSize = planetSize * 0.1;
-        const finalSize = Math.max(0.05, Math.min(moonSize, maxSize));
+        const maxSize = sectionSize * 0.1;
+        const finalSize = Math.max(0.05, Math.min(pageSize, maxSize));
 
-        const color = new THREE.Color(moonColor);
+        const color = new THREE.Color(pageColor);
         color.offsetHSL(
             (Math.random() - 0.5) * 0.25,
             0.2 + Math.random() * 0.5,
@@ -683,15 +701,15 @@
         return sprite;
     }
 
-    function openTravelerModal(travelerName) {
-        const info = travelerInfo[travelerName];
+    function openUserModal(userName) {
+        const info = userInfo[userName];
         if (!info) return;
 
-        const icon = travelerName === 'You' ? '👤' : '🚀';
-        const color = travelerColors[travelerName] || '#ffffff';
+        const icon = userName === 'You' ? '👤' : '🚀';
+        const color = userColors[userName] || '#ffffff';
 
         modalIcon.textContent = icon;
-        modalType.textContent = 'Traveler';
+        modalType.textContent = 'User';
         modalType.style.color = color;
         modalType.style.borderColor = color;
         modalTitle.textContent = info.name;
@@ -701,10 +719,10 @@
         modalGoBtn.textContent = '🔗 Visit Profile';
 
         modalOverlay.classList.add('active');
-        controls.autoRotate = false;
+        if (!isPaused) controls.autoRotate = false;
     }
 
-    function createTraveler(color, label) {
+    function createUser(color, label) {
         const group = new THREE.Group();
 
         const bodyMat = new THREE.MeshPhongMaterial({
@@ -802,9 +820,9 @@
         group.add(glow);
 
         if (label) {
-            const travelerLabel = createLabel(label, '#ffffff', 0.35);
-            travelerLabel.position.set(0, 0.7, 0);
-            group.add(travelerLabel);
+            const userLabel = createLabel(label, '#ffffff', 0.35);
+            userLabel.position.set(0, 0.7, 0);
+            group.add(userLabel);
         }
 
         group.scale.set(1.2, 1.2, 1.2);
@@ -812,21 +830,21 @@
     }
 
     function buildSolarSystem(graph) {
-        nodeObjects.forEach(obj => scene.remove(obj));
-        planetData.forEach(obj => scene.remove(obj));
-        moonData.forEach(obj => scene.remove(obj));
+        sectionObjects.forEach(obj => scene.remove(obj));
+        sectionData.forEach(obj => scene.remove(obj));
+        pageData.forEach(obj => scene.remove(obj));
         orbitLines.forEach(obj => scene.remove(obj));
         labelObjects.forEach(obj => scene.remove(obj));
         ships.forEach(obj => scene.remove(obj));
 
-        nodeObjects = [];
-        planetData = [];
-        moonData = [];
+        sectionObjects = [];
+        sectionData = [];
+        pageData = [];
         orbitLines = [];
         labelObjects = [];
         ships = [];
-        allPlanets = [];
-        allMoons = [];
+        allSections = [];
+        allPages = [];
         clickableObjects = [];
         allNodes = graph.nodes;
 
@@ -862,11 +880,11 @@
             label: rootNode.label,
             url: rootNode.url || 'https://smartlegionlab.ru/',
             group: 'root',
-            type: '☀️ Sun',
+            type: '☀️ Main page',
             description: 'Smart Legion Lab home page. Start your journey through the universe of projects, libraries and research.'
         };
         scene.add(sunGroup);
-        nodeObjects.push(sunGroup);
+        sectionObjects.push(sunGroup);
         clickableObjects.push(sunGroup);
 
         const sunLabel = createLabel('☀️ ' + rootNode.label, '#ffc107');
@@ -887,33 +905,33 @@
             const color = section.color || 0x0d6efd;
             const hasRing = section.hasRing || false;
 
-            const planetGroup = createPlanetMesh(color, size, 0.2, hasRing);
-            planetGroup.position.set(x, y, z);
+            const sectionGroup = createSectionMesh(color, size, 0.2, hasRing);
+            sectionGroup.position.set(x, y, z);
 
             const sectionUrl = section.url || 'https://smartlegionlab.ru/' + section.id.replace('sec_', '') + '.html';
-            planetGroup.userData = {
+            sectionGroup.userData = {
                 nodeId: section.id,
                 label: section.label,
                 url: sectionUrl,
                 group: 'section',
-                type: '🪐 Planet',
+                type: '🪐 Section',
                 angle: angle,
                 radius: radius,
                 speed: 0.04 + Math.random() * 0.04,
                 orbitY: y,
-                planetSize: size,
+                sectionSize: size,
                 description: `Section "${section.label.replace(/^[^\s]+\s/, '')}" — all related projects and pages.`
             };
-            scene.add(planetGroup);
-            nodeObjects.push(planetGroup);
-            planetData.push(planetGroup);
-            clickableObjects.push(planetGroup);
-            allPlanets.push(planetGroup);
+            scene.add(sectionGroup);
+            sectionObjects.push(sectionGroup);
+            sectionData.push(sectionGroup);
+            clickableObjects.push(sectionGroup);
+            allSections.push(sectionGroup);
 
             const labelColor = '#' + new THREE.Color(color).getHexString();
             const label = createLabel(section.label, labelColor);
             label.position.set(0, size * 2.0 + 0.8, 0);
-            planetGroup.add(label);
+            sectionGroup.add(label);
             labelObjects.push(label);
 
             const orbitPoints = [];
@@ -940,64 +958,64 @@
                 .filter(n => n && n.group === 'page');
 
             sectionPages.forEach((page, pIdx) => {
-                const moonRadius = 1.5 + (pIdx / Math.max(sectionPages.length, 1)) * 1.8;
-                const moonAngle = (pIdx / Math.max(sectionPages.length, 1)) * Math.PI * 2 + Math.random() * 0.3;
-                const mx = x + Math.cos(moonAngle) * moonRadius;
-                const mz = z + Math.sin(moonAngle) * moonRadius;
-                const my = y + (Math.random() - 0.5) * 1.2;
+                const pageOrbitRadius = 1.5 + (pIdx / Math.max(sectionPages.length, 1)) * 1.8;
+                const pageAngle = (pIdx / Math.max(sectionPages.length, 1)) * Math.PI * 2 + Math.random() * 0.3;
+                const px = x + Math.cos(pageAngle) * pageOrbitRadius;
+                const pz = z + Math.sin(pageAngle) * pageOrbitRadius;
+                const py = y + (Math.random() - 0.5) * 1.2;
 
                 const minSize = size * 0.04;
                 const maxSize = size * 0.1;
-                const moonSize = minSize + Math.random() * (maxSize - minSize);
+                const pageSize = minSize + Math.random() * (maxSize - minSize);
 
-                const moonColor = new THREE.Color(color);
-                moonColor.offsetHSL(
+                const pageColor = new THREE.Color(color);
+                pageColor.offsetHSL(
                     (Math.random() - 0.5) * 0.3,
                     0.2 + Math.random() * 0.5,
                     0.2 + Math.random() * 0.4
                 );
 
-                const moonGroup = createMoon(moonColor, moonSize, size);
-                moonGroup.position.set(mx, my, mz);
+                const pageGroup = createPageMesh(pageColor, pageSize, size);
+                pageGroup.position.set(px, py, pz);
 
-                moonGroup.userData = {
+                pageGroup.userData = {
                     nodeId: page.id,
                     label: page.label,
                     url: page.url,
                     fullLabel: page.fullLabel || page.label,
                     group: 'page',
-                    type: '🌙 Moon',
-                    planet: planetGroup,
-                    angle: moonAngle,
-                    radius: moonRadius,
+                    type: '📄 Page',
+                    section: sectionGroup,
+                    angle: pageAngle,
+                    radius: pageOrbitRadius,
                     speed: 0.12 + Math.random() * 0.15,
                     orbitY: y,
                     description: `Page "${page.fullLabel || page.label}" — part of "${section.label.replace(/^[^\s]+\s/, '')}" section.`
                 };
-                scene.add(moonGroup);
-                nodeObjects.push(moonGroup);
-                moonData.push(moonGroup);
-                clickableObjects.push(moonGroup);
-                allMoons.push(moonGroup);
+                scene.add(pageGroup);
+                sectionObjects.push(pageGroup);
+                pageData.push(pageGroup);
+                clickableObjects.push(pageGroup);
+                allPages.push(pageGroup);
 
-                const moonLabel = createLabel('✦ ' + page.label, '#8aa0c9', 0.5);
-                moonLabel.scale.set(2.5, 0.6, 1);
-                moonLabel.position.set(0, moonSize * 4 + 0.3, 0);
-                moonGroup.add(moonLabel);
-                labelObjects.push(moonLabel);
+                const pageLabel = createLabel('✦ ' + page.label, '#8aa0c9', 0.5);
+                pageLabel.scale.set(2.5, 0.6, 1);
+                pageLabel.position.set(0, pageSize * 4 + 0.3, 0);
+                pageGroup.add(pageLabel);
+                labelObjects.push(pageLabel);
             });
         });
 
-        planetCountEl.textContent = sections.length;
-        moonCountEl.textContent = graph.nodes.filter(n => n.group === 'page').length;
+        sectionCountEl.textContent = sections.length;
+        pageCountEl.textContent = graph.nodes.filter(n => n.group === 'page').length;
 
-        createTravelers();
+        createUsers();
         renderHistory();
     }
 
-    function createTravelers() {
-        const traveler1 = createTraveler(0xff3333, 'Aixandrolab');
-        traveler1.userData = {
+    function createUsers() {
+        const user1 = createUser(0xff3333, 'Aixandrolab');
+        user1.userData = {
             name: 'Aixandrolab',
             color: 0xff3333,
             targetIndex: 0,
@@ -1007,19 +1025,19 @@
             arrivalTimer: 0,
             isArrived: false,
             lastTarget: null,
-            isTraveler: true,
+            isUser: true,
             label: 'Aixandrolab',
             url: 'https://github.com/aixandrolab',
             description: 'AI researcher and developer'
         };
-        const startPos1 = getRandomPlanetPosition();
-        traveler1.position.copy(startPos1);
-        scene.add(traveler1);
-        ships.push(traveler1);
-        clickableObjects.push(traveler1);
+        const startPos1 = getRandomSectionPosition();
+        user1.position.copy(startPos1);
+        scene.add(user1);
+        ships.push(user1);
+        clickableObjects.push(user1);
 
-        const traveler2 = createTraveler(0x3388ff, 'SmartLegionLab');
-        traveler2.userData = {
+        const user2 = createUser(0x3388ff, 'SmartLegionLab');
+        user2.userData = {
             name: 'SmartLegionLab',
             color: 0x3388ff,
             targetIndex: 0,
@@ -1029,19 +1047,19 @@
             arrivalTimer: 0,
             isArrived: false,
             lastTarget: null,
-            isTraveler: true,
+            isUser: true,
             label: 'SmartLegionLab',
             url: 'https://github.com/smartlegionlab',
             description: 'Open source community'
         };
-        const startPos2 = getRandomPlanetPosition();
-        traveler2.position.copy(startPos2);
-        scene.add(traveler2);
-        ships.push(traveler2);
-        clickableObjects.push(traveler2);
+        const startPos2 = getRandomSectionPosition();
+        user2.position.copy(startPos2);
+        scene.add(user2);
+        ships.push(user2);
+        clickableObjects.push(user2);
 
-        const traveler3 = createTraveler(0x00ff88, '👤 You');
-        traveler3.userData = {
+        const user3 = createUser(0x00ff88, '👤 You');
+        user3.userData = {
             name: 'You',
             color: 0x00ff88,
             targetIndex: 0,
@@ -1055,30 +1073,30 @@
             arrivalTimer: 0,
             isArrived: false,
             lastTarget: null,
-            isTraveler: true,
+            isUser: true,
             label: 'You',
             url: '#',
             description: 'Space traveler'
         };
         const startPos3 = new THREE.Vector3(0, 2, 0);
-        traveler3.position.copy(startPos3);
-        scene.add(traveler3);
-        ships.push(traveler3);
-        clickableObjects.push(traveler3);
+        user3.position.copy(startPos3);
+        scene.add(user3);
+        ships.push(user3);
+        clickableObjects.push(user3);
 
-        document.getElementById('shipCount').textContent = ships.length;
+        document.getElementById('userCount').textContent = ships.length;
         updateShipTargets();
     }
 
-    function getRandomPlanetPosition() {
-        if (allPlanets.length === 0) return new THREE.Vector3(0, 0, 0);
-        const planet = allPlanets[Math.floor(Math.random() * allPlanets.length)];
-        return planet.position.clone();
+    function getRandomSectionPosition() {
+        if (allSections.length === 0) return new THREE.Vector3(0, 0, 0);
+        const section = allSections[Math.floor(Math.random() * allSections.length)];
+        return section.position.clone();
     }
 
     function updateShipTargets() {
         shipTargets = [];
-        const allTargets = [...allPlanets, ...allMoons];
+        const allTargets = [...allSections, ...allPages];
         if (allTargets.length === 0) return;
 
         ships.forEach((ship, idx) => {
@@ -1097,7 +1115,9 @@
     }
 
     function updateShips(delta = 1) {
-        const allTargets = [...allPlanets, ...allMoons];
+        if (isPaused) return;
+
+        const allTargets = [...allSections, ...allPages];
         if (allTargets.length === 0) return;
 
         ships.forEach((ship, idx) => {
@@ -1190,16 +1210,16 @@
         const icons = {
             'root': '☀️',
             'section': '🪐',
-            'page': '🌙'
+            'page': '📄'
         };
         const types = {
-            'root': 'Sun',
-            'section': 'Planet',
-            'page': 'Moon'
+            'root': 'Main Page',
+            'section': 'Section',
+            'page': 'Page'
         };
 
-        if (data.isTraveler) {
-            openTravelerModal(data.name);
+        if (data.isUser) {
+            openUserModal(data.name);
             return;
         }
 
@@ -1216,12 +1236,12 @@
         }
 
         modalOverlay.classList.add('active');
-        controls.autoRotate = false;
+        if (!isPaused) controls.autoRotate = false;
     }
 
     function closeModal() {
         modalOverlay.classList.remove('active');
-        controls.autoRotate = true;
+        if (!isPaused) controls.autoRotate = true;
     }
 
     let hoveredObject = null;
@@ -1245,7 +1265,7 @@
         clickTarget = obj;
         clickTimer = setTimeout(() => {
             const playerShip = ships.find(s => s.userData.isPlayer);
-            if (playerShip && obj.userData.group !== 'root' && !obj.userData.isTraveler) {
+            if (playerShip && obj.userData.group !== 'root' && !obj.userData.isUser) {
                 if (playerShip.userData.currentTarget !== obj) {
                     movePlayerTo(obj);
                 } else {
@@ -1425,37 +1445,39 @@
 
         controls.update();
 
-        planetData.forEach(planet => {
-            const data = planet.userData;
-            data.angle += data.speed * 0.01 * delta;
-            const x = Math.cos(data.angle) * data.radius;
-            const z = Math.sin(data.angle) * data.radius;
-            planet.position.x = x;
-            planet.position.z = z;
-            planet.rotation.y += 0.008 * delta;
-        });
+        if (!isPaused) {
+            sectionData.forEach(section => {
+                const data = section.userData;
+                data.angle += data.speed * 0.01 * delta;
+                const x = Math.cos(data.angle) * data.radius;
+                const z = Math.sin(data.angle) * data.radius;
+                section.position.x = x;
+                section.position.z = z;
+                section.rotation.y += 0.008 * delta;
+            });
 
-        moonData.forEach(moon => {
-            const data = moon.userData;
-            data.angle += data.speed * 0.015 * delta;
-            const planetPos = data.planet.position;
-            const mx = planetPos.x + Math.cos(data.angle) * data.radius;
-            const mz = planetPos.z + Math.sin(data.angle) * data.radius;
-            moon.position.x = mx;
-            moon.position.z = mz;
-            moon.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
-            moon.rotation.y += 0.02 * delta;
-            moon.rotation.x += 0.01 * delta;
-        });
+            pageData.forEach(page => {
+                const data = page.userData;
+                data.angle += data.speed * 0.015 * delta;
+                const sectionPos = data.section.position;
+                const px = sectionPos.x + Math.cos(data.angle) * data.radius;
+                const pz = sectionPos.z + Math.sin(data.angle) * data.radius;
+                page.position.x = px;
+                page.position.z = pz;
+                page.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
+                page.rotation.y += 0.02 * delta;
+                page.rotation.x += 0.01 * delta;
+            });
 
-        if (nodeObjects[0]) {
-            nodeObjects[0].rotation.y += 0.002 * delta;
-        }
+            if (sectionObjects[0]) {
+                sectionObjects[0].rotation.y += 0.002 * delta;
+            }
 
-        updateShips(delta);
+            updateShips(delta);
 
-        if (stars) {
-            stars.rotation.y += 0.0001 * delta;
+            if (stars) {
+                stars.rotation.y += 0.0001 * delta;
+            }
         }
 
         renderer.render(scene, camera);
@@ -1477,9 +1499,9 @@
 
         console.log('🚀 Smart Legion Lab Universe loaded!');
         console.log('📊 Total URLs:', urls.length);
-        console.log('🪐 Planets:', graph.nodes.filter(n => n.group === 'section').length);
-        console.log('🌙 Moons:', graph.nodes.filter(n => n.group === 'page').length);
-        console.log('👤 Travelers:', ships.length);
+        console.log('🪐 Sections:', graph.nodes.filter(n => n.group === 'section').length);
+        console.log('📄 Pages:', graph.nodes.filter(n => n.group === 'page').length);
+        console.log('👤 Users:', ships.length);
     }
 
     init();
