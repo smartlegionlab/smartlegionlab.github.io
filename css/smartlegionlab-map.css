@@ -397,3 +397,185 @@
 .legend-ui p a:hover {
     color: #ffc107;
 }
+
+.btn-pause {
+    pointer-events: auto;
+    background: rgba(13, 110, 253, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    color: #ffc107;
+    padding: 8px 22px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-left: 12px;
+    cursor: pointer;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.05);
+}
+
+.btn-pause:hover {
+    background: rgba(255, 193, 7, 0.15);
+    border-color: #ffc107;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.1);
+}
+
+.btn-pause:active {
+    transform: scale(0.95);
+}
+
+.btn-pause.paused {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: #00ff88;
+    color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+.btn-pause.paused:hover {
+    background: rgba(0, 255, 136, 0.15);
+    border-color: #00ff88;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+}
+
+@media (max-width: 768px) {
+    .header-ui {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .header-ui h1 {
+        font-size: 1rem;
+        padding: 8px 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-ui h1 small {
+        font-size: 0.7rem;
+    }
+
+    .btn-pause {
+        font-size: 0.75rem;
+        padding: 6px 16px;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .history-panel {
+        top: auto;
+        bottom: 70px;
+        left: 10px;
+        right: 10px;
+        min-width: unset;
+        max-width: unset;
+        max-height: 35vh;
+        padding: 10px 12px;
+        border-radius: 12px;
+    }
+
+    .history-panel .panel-title {
+        font-size: 0.6rem;
+    }
+
+    .history-accordion .accordion-button {
+        font-size: 0.65rem;
+        padding: 4px 6px;
+    }
+
+    .history-accordion .accordion-body .history-item {
+        font-size: 0.6rem;
+        padding: 3px 6px;
+    }
+
+    .stats-ui {
+        font-size: 0.6rem;
+        padding: 6px 12px;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        text-align: center;
+    }
+
+    .fps-counter {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .legend-ui {
+        display: none;
+    }
+
+    .loading-ui {
+        padding: 20px 30px;
+        font-size: 1rem;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+        margin: 10px;
+        max-width: 95%;
+    }
+
+    .modal-content .modal-icon {
+        font-size: 2rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .modal-content .modal-buttons .btn {
+        min-width: 80px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-ui h1 {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    .btn-pause {
+        font-size: 0.65rem;
+        padding: 5px 12px;
+    }
+
+    .history-panel {
+        max-height: 30vh;
+        bottom: 60px;
+        padding: 8px 10px;
+    }
+
+    .stats-ui {
+        font-size: 0.5rem;
+        padding: 4px 10px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .fps-counter {
+        font-size: 0.5rem;
+        padding: 3px 8px;
+        top: 8px;
+        right: 8px;
+    }
+}

@@ -4,6 +4,9 @@
     const pageCountEl = document.getElementById('pageCount');
     const fpsCounterEl = document.getElementById('fpsCounter');
 
+    let isPaused = false;
+    const pauseBtn = document.getElementById('pauseBtn');
+
     async function loadSitemap() {
         try {
             const response = await fetch('/sitemap.xml');
@@ -275,6 +278,21 @@
     let tapTimeout = null;
 
     let lastTime = 0;
+
+    function togglePause() {
+        isPaused = !isPaused;
+        if (isPaused) {
+            pauseBtn.innerHTML = '▶️ Play';
+            pauseBtn.classList.add('paused');
+            if (controls) controls.autoRotate = false;
+        } else {
+            pauseBtn.innerHTML = '⏸️ Pause';
+            pauseBtn.classList.remove('paused');
+            if (controls) controls.autoRotate = true;
+        }
+    }
+
+    pauseBtn.addEventListener('click', togglePause);
 
     function addHistoryEntry(userName, target) {
         if (!historyData[userName]) return;
@@ -701,7 +719,7 @@
         modalGoBtn.textContent = '🔗 Visit Profile';
 
         modalOverlay.classList.add('active');
-        controls.autoRotate = false;
+        if (!isPaused) controls.autoRotate = false;
     }
 
     function createUser(color, label) {
@@ -1097,6 +1115,8 @@
     }
 
     function updateShips(delta = 1) {
+        if (isPaused) return;
+
         const allTargets = [...allSections, ...allPages];
         if (allTargets.length === 0) return;
 
@@ -1216,12 +1236,12 @@
         }
 
         modalOverlay.classList.add('active');
-        controls.autoRotate = false;
+        if (!isPaused) controls.autoRotate = false;
     }
 
     function closeModal() {
         modalOverlay.classList.remove('active');
-        controls.autoRotate = true;
+        if (!isPaused) controls.autoRotate = true;
     }
 
     let hoveredObject = null;
@@ -1425,37 +1445,39 @@
 
         controls.update();
 
-        sectionData.forEach(section => {
-            const data = section.userData;
-            data.angle += data.speed * 0.01 * delta;
-            const x = Math.cos(data.angle) * data.radius;
-            const z = Math.sin(data.angle) * data.radius;
-            section.position.x = x;
-            section.position.z = z;
-            section.rotation.y += 0.008 * delta;
-        });
+        if (!isPaused) {
+            sectionData.forEach(section => {
+                const data = section.userData;
+                data.angle += data.speed * 0.01 * delta;
+                const x = Math.cos(data.angle) * data.radius;
+                const z = Math.sin(data.angle) * data.radius;
+                section.position.x = x;
+                section.position.z = z;
+                section.rotation.y += 0.008 * delta;
+            });
 
-        pageData.forEach(page => {
-            const data = page.userData;
-            data.angle += data.speed * 0.015 * delta;
-            const sectionPos = data.section.position;
-            const px = sectionPos.x + Math.cos(data.angle) * data.radius;
-            const pz = sectionPos.z + Math.sin(data.angle) * data.radius;
-            page.position.x = px;
-            page.position.z = pz;
-            page.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
-            page.rotation.y += 0.02 * delta;
-            page.rotation.x += 0.01 * delta;
-        });
+            pageData.forEach(page => {
+                const data = page.userData;
+                data.angle += data.speed * 0.015 * delta;
+                const sectionPos = data.section.position;
+                const px = sectionPos.x + Math.cos(data.angle) * data.radius;
+                const pz = sectionPos.z + Math.sin(data.angle) * data.radius;
+                page.position.x = px;
+                page.position.z = pz;
+                page.position.y = data.orbitY + Math.sin(time * 0.5 + data.angle) * 0.3;
+                page.rotation.y += 0.02 * delta;
+                page.rotation.x += 0.01 * delta;
+            });
 
-        if (sectionObjects[0]) {
-            sectionObjects[0].rotation.y += 0.002 * delta;
-        }
+            if (sectionObjects[0]) {
+                sectionObjects[0].rotation.y += 0.002 * delta;
+            }
 
-        updateShips(delta);
+            updateShips(delta);
 
-        if (stars) {
-            stars.rotation.y += 0.0001 * delta;
+            if (stars) {
+                stars.rotation.y += 0.0001 * delta;
+            }
         }
 
         renderer.render(scene, camera);
