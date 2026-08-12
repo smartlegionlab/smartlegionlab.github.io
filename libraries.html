@@ -156,29 +156,32 @@
 
         <div class="row g-2 mb-4 align-items-center">
             <div class="col-12 col-md-7">
-                <div class="input-group">
-                    <span class="input-group-text bg-dark border-secondary text-success">
+                <div class="input-group smart-input-group">
+                    <span class="input-group-text">
                         <i class="bi bi-search"></i>
                     </span>
-                    <input type="text" id="searchInput" class="form-control bg-dark text-light border-secondary" placeholder="Search libraries...">
-                    <button class="btn btn-outline-secondary" id="clearSearch" type="button">
+                    <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search applications...">
+                    <button class="btn smart-clear-btn" id="clearSearch" type="button">
                         <i class="bi bi-x-lg"></i>
                     </button>
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <select id="filterSelect" class="form-select bg-dark text-light border-secondary">
-                    <option value="all">All</option>
-                    <option value="python">Python</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="kotlin">Kotlin</option>
-                    <option value="go">Go</option>
-                    <option value="c#">C#</option>
-                </select>
+                <div class="dropdown w-100" id="filterDropdownContainer">
+                    <button class="btn smart-select dropdown-toggle text-start w-100" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span id="selectedFilterText">All Types</span>
+                    </button>
+                    <ul class="dropdown-menu smart-dropdown-menu w-100" aria-labelledby="filterDropdown" id="filterDropdownMenu">
+                        <li><button class="dropdown-item active" type="button" data-value="all">All</button></li>
+                        <li><button class="dropdown-item" type="button" data-value="python">Python</button></li>
+                        <li><button class="dropdown-item" type="button" data-value="javascript">JavaScript</button></li>
+                        <li><button class="dropdown-item" type="button" data-value="kotlin">Kotlin</button></li>
+                        <li><button class="dropdown-item" type="button" data-value="go">Go</button></li>
+                        <li><button class="dropdown-item" type="button" data-value="c#">C#</button></li>
+                    </ul>
+                </div>
             </div>
         </div>
-
-        <div id="searchStats" class="text-secondary small mt-2" style="min-height: 20px;"></div>
 
         <div class="content-section">
             <div class="container">
