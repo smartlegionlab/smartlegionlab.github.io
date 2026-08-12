@@ -1,102 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Legion Lab's Universe</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smart Legion Lab's Universe</title>
 
-    <meta name="description" content="Smart Legion Lab's Universe - Site Map.">
-    <meta name="author" content="Smart Legion Lab">
-    <meta name="copyright" content="Smart Legion Lab">
+        <meta name="description" content="Smart Legion Lab's Universe - Site Map.">
+        <meta name="author" content="Smart Legion Lab">
+        <meta name="copyright" content="Smart Legion Lab">
 
-    <link rel="canonical" href="https://smartlegionlab.ru/smartlegionlab-map.html">
-    <link rel="author" href="https://github.com/smartlegionlab">
+        <link rel="canonical" href="https://smartlegionlab.ru/smartlegionlab-map.html">
+        <link rel="author" href="https://github.com/smartlegionlab">
 
-    <meta property="og:title" content="Smart Legion Lab's Universe · Smart Legion Lab">
-    <meta property="og:description" content="Smart Legion Lab's Universe - Site Map.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.ru/smartlegionlab-map.html">
-    <meta property="og:site_name" content="Smart Legion Lab · Smart Legion Lab's Universe">
+        <meta property="og:title" content="Smart Legion Lab's Universe · Smart Legion Lab">
+        <meta property="og:description" content="Smart Legion Lab's Universe - Site Map.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://smartlegionlab.ru/smartlegionlab-map.html">
+        <meta property="og:site_name" content="Smart Legion Lab · Smart Legion Lab's Universe">
 
-    <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/smartlegionlab-map.css" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
-</head>
-<body>
+        <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/smartlegionlab-map.css" rel="stylesheet">
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+    </head>
+    <body>
 
-<div id="canvas-container"></div>
+    <div id="canvas-container"></div>
 
-<div class="loading-ui" id="loadingUI">
-    <div class="spinner"></div>
-    <span>🚀 Loading universe...</span>
-    <span style="font-size:0.8rem; color:#6b7b98;">Analyzing sitemap.xml</span>
-</div>
+    <div class="loading-ui" id="loadingUI">
+        <div class="spinner"></div>
+        <span>🚀 Loading universe...</span>
+        <span style="font-size:0.8rem; color:#6b7b98;">Analyzing sitemap.xml</span>
+    </div>
 
-<div class="fps-counter">
-    ⚡ FPS: <span class="fps-value" id="fpsCounter">60</span>
-</div>
+    <div class="fps-counter">
+        ⚡ FPS: <span class="fps-value" id="fpsCounter">60</span>
+    </div>
 
-<div class="tooltip-ui" id="tooltip">
-    <div class="label" id="tooltipLabel">Title</div>
-    <div class="url" id="tooltipUrl">url</div>
-    <div class="type" id="tooltipType">type</div>
-</div>
+    <div class="tooltip-ui" id="tooltip">
+        <div class="label" id="tooltipLabel">Title</div>
+        <div class="url" id="tooltipUrl">url</div>
+        <div class="type" id="tooltipType">type</div>
+    </div>
 
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-content">
-        <button class="close-btn" id="modalClose">&times;</button>
-        <div class="modal-icon" id="modalIcon">🚀</div>
-        <div class="modal-type" id="modalType">Planet</div>
-        <h2 id="modalTitle">Title</h2>
-        <div class="modal-url" id="modalUrl">https://...</div>
-        <div class="modal-desc" id="modalDesc">Description</div>
-        <div class="modal-buttons">
-            <a href="#" target="_blank" class="btn btn-primary" id="modalGoBtn">
-                <i class="bi bi-box-arrow-up-right me-1"></i> Visit
-            </a>
-            <button class="btn btn-secondary" id="modalBackBtn">
-                <i class="bi bi-arrow-left me-1"></i> Back to space
-            </button>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="close-btn" id="modalClose">&times;</button>
+            <div class="modal-icon" id="modalIcon">🚀</div>
+            <div class="modal-type" id="modalType">Planet</div>
+            <h2 id="modalTitle">Title</h2>
+            <div class="modal-url" id="modalUrl">https://...</div>
+            <div class="modal-desc" id="modalDesc">Description</div>
+            <div class="modal-buttons">
+                <a href="#" target="_blank" class="btn btn-primary" id="modalGoBtn">
+                    <i class="bi bi-box-arrow-up-right me-1"></i> Visit
+                </a>
+                <button class="btn btn-secondary" id="modalBackBtn">
+                    <i class="bi bi-arrow-left me-1"></i> Back to space
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="ui-overlay header-ui">
-    <h1>
-        <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
-        <a href="index.html" class="text-decoration-none text-white">Smart Legion Lab's <small>Universe</small></a>
-    </h1>
-    <button id="pauseBtn" class="btn-pause">⏸️ Pause</button>
-</div>
-
-<div class="history-panel" id="historyPanel">
-    <div class="panel-title">
-        <i class="bi bi-clock-history"></i> History
-        <span style="margin-left:auto; font-size:0.6rem; color:#4a5a7a;">click to travel</span>
+    <div class="modal-overlay" id="helpModalOverlay">
+        <div class="modal-content help-modal-content">
+            <button class="close-btn" id="helpModalClose">&times;</button>
+            <h2 class="help-modal-title">HELP &amp; LEGEND</h2>
+            <div class="help-modal-body">
+                <div class="help-section">
+                    <div class="help-section-title">🎨 LEGEND</div>
+                    <div class="help-legend-item">
+                        <span class="help-dot" style="background: #ffc107; box-shadow: 0 0 20px #ffc107;"></span>
+                        Sun (Home)
+                    </div>
+                    <div class="help-legend-item">
+                        <span class="help-dot" style="background: #0d6efd;"></span>
+                        Planets (Sections)
+                    </div>
+                    <div class="help-legend-item">
+                        <span class="help-dot" style="background: #6c8cba;"></span>
+                        Moons (Pages)
+                    </div>
+                </div>
+                <div class="help-divider"></div>
+                <div class="help-section">
+                    <div class="help-section-title">🖱️ MOUSE CONTROLS</div>
+                    <div class="help-item">
+                        <span class="help-key">Drag</span>
+                        <span class="help-desc">Rotate camera</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Scroll</span>
+                        <span class="help-desc">Zoom in / out</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Hover</span>
+                        <span class="help-desc">Show info in tooltip</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Single Click</span>
+                        <span class="help-desc">Open object details</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Double Click</span>
+                        <span class="help-desc">Send "You" ship to object</span>
+                    </div>
+                </div>
+                <div class="help-divider"></div>
+                <div class="help-section">
+                    <div class="help-section-title">📱 PHONE CONTROLS</div>
+                    <div class="help-item">
+                        <span class="help-key">One Finger Drag</span>
+                        <span class="help-desc">Rotate camera</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Pinch</span>
+                        <span class="help-desc">Zoom in / out</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Double Tap</span>
+                        <span class="help-desc">Open object details</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Single Tap</span>
+                        <span class="help-desc">Send "You" ship to object</span>
+                    </div>
+                </div>
+                <div class="help-divider"></div>
+                <div class="help-section">
+                    <div class="help-section-title">🎮 CONTROLS</div>
+                    <div class="help-item">
+                        <span class="help-key">⏸️ Pause / ▶️ Play</span>
+                        <span class="help-desc">Stop / resume animations</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">📜 History</span>
+                        <span class="help-desc">Click entry to travel back</span>
+                    </div>
+                </div>
+            </div>
+            <div class="help-modal-footer">
+                <button class="btn btn-primary" id="helpModalCloseBtn">Got it! 🚀</button>
+            </div>
+        </div>
     </div>
-    <div class="history-accordion" id="historyAccordion">
+
+    <div class="ui-overlay header-ui">
+        <h1>
+            <i class="bi bi-star-fill text-warning me-2" style="text-shadow:0 0 20px #ffc107;"></i>
+            <a href="index.html" class="text-decoration-none text-white">Smart Legion Lab's <small>Universe</small></a>
+        </h1>
+        <button id="pauseBtn" class="btn-pause">⏸️ Pause</button>
     </div>
-</div>
 
-<div class="stats-ui">
-    <i class="bi bi-globe2 me-1"></i> Sections: <span id="sectionCount">0</span> · Pages: <span id="pageCount">0</span>
-    <span style="margin-left:15px; color:#6b7b98;">👤 Users: <span id="userCount">3</span></span>
-</div>
-
-<div class="legend-ui">
-    <div class="row-legend"><span class="dot" style="background: #ffc107; box-shadow: 0 0 20px #ffc107;"></span> Sun (home)</div>
-    <div class="row-legend"><span class="dot" style="background: #0d6efd;"></span> Sections</div>
-    <div class="row-legend"><span class="dot" style="background: #6c8cba;"></span> Pages</div>
-    <div class="row-legend" style="margin-top:8px; border-top:1px solid #1c2538; padding-top:8px; font-size:0.65rem; color:#6b7b98;">
-        <i class="bi bi-arrows-move me-1"></i> Drag · <i class="bi bi-zoom-in me-1"></i> Scroll · <i class="bi bi-eye me-1"></i> Hover · <i class="bi bi-hand-index me-1"></i> Double-click
+    <div class="history-panel" id="historyPanel">
+        <div class="panel-title">
+            <i class="bi bi-clock-history"></i> History
+            <span style="margin-left:auto; font-size:0.6rem; color:#4a5a7a;">click to travel</span>
+        </div>
+        <div class="history-accordion" id="historyAccordion">
+        </div>
     </div>
-    <hr>
-    <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
-</div>
 
-<script src="js/three.min.js"></script>
-<script src="js/OrbitControls.js"></script>
-<script src="js/universe.js"></script>
-</body>
-</html>
+    <button id="helpBtn" class="help-btn">
+        <i class="bi bi-question-circle"></i> HELP
+    </button>
+
+    <div class="stats-ui">
+        <i class="bi bi-globe2 me-1"></i> Sections: <span id="sectionCount">0</span> · Pages: <span id="pageCount">0</span>
+        <span style="margin-left:15px; color:#6b7b98;">👤 Users: <span id="userCount">3</span></span>
+    </div>
+
+    <div class="copyright-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" class="author-link" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
+    </div>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/universe.js"></script>
+    </body>
+    </html>
