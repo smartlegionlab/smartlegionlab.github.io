@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart-social-network · Smart Legion Lab</title>
+    <meta name="description" content="smart-social-network — A comprehensive, feature-rich social networking platform built from the ground up with Django. Complete suite of social features with real-time interactions, custom 2FA, WebSocket chat, and advanced user profiles.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/smart-social-network.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="smart-social-network · Smart Legion Lab">
+    <meta property="og:description" content="A comprehensive, feature-rich social networking platform built from the ground up with Django. Complete suite of social features with real-time interactions, custom 2FA, WebSocket chat, and advanced user profiles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/smart-social-network.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">smart-social-network <sup class="text-warning">v1.0.2</sup></h1>
+            <p class="text-light">Modern Django-Powered Social Network Platform</p>
+            <p class="text-light">A comprehensive, feature-rich social networking platform built from the ground up with Django. Complete suite of social features with <span class="text-primary">real-time interactions</span>.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Django</span>
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">PostgreSQL</span>
+                <span class="badge bg-primary custom-style">Redis</span>
+                <span class="badge bg-primary custom-style">WebSocket</span>
+                <span class="badge bg-primary custom-style">Celery</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-social-network" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://dev.to/smartlegionlab/what-it-takes-to-build-a-modern-social-network-in-django-24dd" class="btn btn-outline-primary btn-sm">Dev.to Article <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Smart Social Network</strong> is a comprehensive, feature-rich social networking platform built from the ground up with Django. It offers a complete suite of social features with real-time interactions.
+                </p>
+                <p class="text-light small">
+                    <strong>Development Note:</strong> The complete development history, including experimental features, iterations, and testing phases, was conducted in a private repository. The full development history with over 1000+ commits is available upon request for serious collaborators or potential employers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="row g-2 justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/smart_social_network.png" target="_blank">
+                            <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/smart_social_network.png" class="img-fluid rounded" alt="Smart Social Network" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Key Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Key Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Advanced Authentication System:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secure and minimized Registration & Login</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Custom Two-Factor Authentication</strong> via Telegram bot integration</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Password Recovery with Telegram bot verification</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Session Management with comprehensive login history tracking</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Complete User Profiles:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Customizable Profiles with avatar management</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time User Status Indicators (online/offline)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Profile Visits Tracking with management</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Advanced Friends System with request management</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Granular Privacy Controls for profile visibility settings</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Content Management:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Personal Walls for user posts</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Rich Text Posts with emoji support (51+ integrated emojis)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Post Interactions - likes, comments, editing, deletion</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Intelligent Rate Limiting for posts, comments and interactions</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Advanced Messaging System:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time Chat with WebSocket integration</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Group Chats & Direct Messaging</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Message Editing with instant synchronization</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Typing Indicators for enhanced communication</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Chat Categories - active, archived, deleted</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Multimedia Integration:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Smart Audio Player with visualizations</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Image Gallery with comments, likes and privacy controls</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Document Management with visibility settings</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Applications:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Integrated Apps Platform for future extensions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Built-in Smart Password Manager</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArchitecture" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Architecture & Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseArchitecture" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Backend Technologies:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Django 5++</strong> — Full-stack web framework</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>PostgreSQL 15+</strong> — Production-grade relational database</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Redis</strong> — High-performance caching and message broker</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Celery</strong> — Distributed task queue</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>WebSocket</strong> — Real-time bidirectional communication</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Django Channels</strong> — WebSocket integration</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Frontend Technologies:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive Design</strong> — Mobile-first approach</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dark Theme</strong> — Modern UI/UX design</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>JavaScript</strong> — Dynamic client-side interactions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>WebSocket Client</strong> — Real-time frontend-backend communication</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Security Framework:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Custom Two-Factor Authentication via Telegram</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Custom Rate Limiting for abuse protection</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>SQL Injection Protection with Django ORM</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>CSRF Protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>System Requirements:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>OS</strong>: Arch Linux (recommended) or other Linux</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python</strong>: 3.10+</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Database</strong>: PostgreSQL 15+</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cache</strong>: Redis/Valkey</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Installation:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Clone repository
+git clone https://github.com/smartlegionlab/smart-social-network.git
+cd smart-social-network
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Apply migrations
+python manage.py migrate
+
+# Load fixtures
+python manage.py loaddata data/fixtures/cities.json
+python manage.py loaddata data/fixtures/emoji.json
+
+# Create superuser
+python manage.py createsuperuser
+
+# Run server
+python manage.py runserver</pre>
+                        <p class="text-light mt-2"><strong>Celery Workers (separate terminals):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Terminal 2 - Celery Worker
+celery -A smart_social_network worker --loglevel=info
+
+# Terminal 3 - Celery Beat (optional)
+celery -A smart_social_network beat --loglevel=info</pre>
+                        <p class="text-light small mt-2">Access at: <code>http://localhost:8000</code> | Admin: <code>http://localhost:8000/admin</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Authentication -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAuth" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Authentication & Security
+                    </button>
+                </h2>
+                <div id="collapseAuth" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Custom Two-Factor Authentication System:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Proprietary Implementation developed from scratch</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Telegram Bot Integration for secure code delivery</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Time-based Code Generation with custom algorithm</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secure Session Management with comprehensive tracking</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Login History Tracking with IP logging and device information</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Password Management:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Built-in Password Generator — cryptographically secure</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secure Password Reset with Telegram-based verification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots Gallery -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGallery" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Screenshots Gallery
+                    </button>
+                </h2>
+                <div id="collapseGallery" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2">
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/auth.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/auth.png" class="img-fluid rounded" alt="Auth" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/profile.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/profile.png" class="img-fluid rounded" alt="Profile" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/wall.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/wall.png" class="img-fluid rounded" alt="Wall" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/chats.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/chats.png" class="img-fluid rounded" alt="Chats" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/messages.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/messages.png" class="img-fluid rounded" alt="Messages" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/friends.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/friends.png" class="img-fluid rounded" alt="Friends" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/visits.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/visits.png" class="img-fluid rounded" alt="Visits" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/notifications.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/notifications.png" class="img-fluid rounded" alt="Notifications" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/search.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/search.png" class="img-fluid rounded" alt="Search" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/articles.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/articles.png" class="img-fluid rounded" alt="Articles" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/audio.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/audio.png" class="img-fluid rounded" alt="Audio" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/images.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/images.png" class="img-fluid rounded" alt="Images" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/smart-pass-man.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/smart-pass-man.png" class="img-fluid rounded" alt="Password Manager" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/tg-2fa.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/tg-2fa.png" class="img-fluid rounded" alt="TG 2FA" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/admin-system.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/admin-system.png" class="img-fluid rounded" alt="Admin System" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/admin-users.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-social-network/master/data/images/admin-users.png" class="img-fluid rounded" alt="Admin Users" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Statistics -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStats" aria-expanded="false">
+                        <i class="bi bi-bar-chart me-2 text-primary"></i> Development Statistics
+                    </button>
+                </h2>
+                <div id="collapseStats" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>1000+ Commits</strong> — Comprehensive development history</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>6+ Months</strong> — Intensive active development period</li>
+                        </ul>
+                        <p class="text-light small mt-2">
+                            <strong>Note</strong>: This platform is still under active development. The system features a proprietary two-factor authentication system with Telegram integration. This list of features is not exhaustive - the platform includes many additional capabilities beyond those described here. The platform is designed for scalability, maintainability, and excellent user experience across all devices, but should be used responsibly and in accordance with all applicable laws.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-social-network/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-social-network/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-social-network" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-social-network/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-social-network/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://dev.to/smartlegionlab/what-it-takes-to-build-a-modern-social-network-in-django-24dd" class="btn btn-outline-primary btn-sm">Dev.to Article</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                    <p class="text-light small">Copyright © 2025, Alexander Suvorov</p>
+                    <p class="text-light small">
+                        <i class="bi bi-envelope text-primary"></i>
+                        <a href="mailto:smartlegiondev@gmail.com" class="text-primary text-decoration-none">smartlegiondev@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
