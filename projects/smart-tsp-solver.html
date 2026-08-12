@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart-tsp-solver · Smart Legion Lab</title>
+    <meta name="description" content="smart-tsp-solver — A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by 25% on real-world clustered data.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/smart-tsp-solver.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="smart-tsp-solver · Smart Legion Lab">
+    <meta property="og:description" content="A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by 25% on real-world clustered data.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/smart-tsp-solver.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">smart-tsp-solver <sup class="text-warning">v1.0.1</sup></h1>
+            <p class="text-light">High-performance Python library for solving the Traveling Salesman Problem</p>
+            <p class="text-light">Features advanced algorithms that outperform classical methods by <span class="text-success">25%</span> on real-world clustered data while maintaining practical computational efficiency.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">TSP</span>
+                <span class="badge bg-primary custom-style">Heuristics</span>
+                <span class="badge bg-primary custom-style">Numba</span>
+                <span class="badge bg-primary custom-style">Optimization</span>
+                <span class="badge bg-primary custom-style">PyPI</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://pypi.org/project/smart-tsp-solver/" class="btn btn-outline-primary btn-sm">PyPI <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>smart-tsp-solver</strong> — a high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by <strong>25%</strong> on real-world clustered data while maintaining practical computational efficiency.
+                </p>
+                <p class="text-light">
+                    <strong>Research-driven design:</strong> This library implements cutting-edge spatial optimization techniques including <strong>dynamic gravitational attraction modeling</strong> and <strong>angular-radial spatial indexing</strong> for intelligent pathfinding.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Gravity Algorithms</strong> — Physics-inspired approach simulating momentum and gravitational attraction for natural, efficient routing</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Angular-Radial Methods</strong> — Space-partitioning heuristics with adaptive look-ahead for superior performance on geographical data</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Benchmarking Framework</strong> — Professional-grade testing infrastructure with configurable scenarios and detailed metrics</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>High-Performance Core</strong> — Numba JIT compilation with cache optimization for near-native execution speed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algorithmic Innovations -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlgorithms" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Algorithmic Innovations
+                    </button>
+                </h2>
+                <div id="collapseAlgorithms" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Dynamic Gravity Approach</strong> — <code>O(n²)</code></p>
+                        <p class="text-light small">This algorithm models a physical process of attraction, where the next point is selected based on a combination of proximity and current direction of movement. The <code>delta</code> parameter acts as an "inertia coefficient," preventing sharp turns and creating smooth, natural-looking routes.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Strengths:</strong> Predictable execution time, consistently high solution quality, efficient cluster traversal</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Ideal Use Case:</strong> The balance of speed and quality, processing medium-sized datasets</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Angular-Radial Method</strong> — <code>O(n²)</code> <em>with near O(n·log n) practical performance</em></p>
+                        <p class="text-light small">A "smart look-ahead" strategy (<code>look_ahead</code>). Points are pre-sorted in a polar coordinate system, which drastically narrows the search space for each subsequent choice.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Strengths:</strong> Best-in-class final route quality, near-linear practical performance, exceptional efficiency on clustered data</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Ideal Use Case:</strong> Offline calculations where route length is critical and tasks require scaling</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Hierarchical TSP Solver</strong></p>
+                        <p class="text-light small">A TSP solver using hierarchical decomposition and metaheuristics. Core philosophy: Divide-and-Conquer with Geometric Intelligence.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Spatial Decomposition:</strong> Recursively partition the problem into manageable clusters</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Local Optimization:</strong> Solve subproblems optimally within each cluster</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Global Integration:</strong> Intelligently combine local solutions into a global route</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Refinement:</strong> Apply local search to polish the final solution</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Comparison -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerformance" aria-expanded="false">
+                        <i class="bi bi-speedometer2 me-2 text-primary"></i> Performance Comparison
+                    </button>
+                </h2>
+                <div id="collapsePerformance" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Algorithm</th><th>Complexity</th><th>Quality</th><th>Speed</th><th>Primary Use Case</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Greedy v2</td><td><code>O(n²)</code></td><td>█████</td><td>█████</td><td>Real-time, microseconds</td></tr>
+                                    <tr><td>Dynamic-gravity v2</td><td><code>O(n²)</code></td><td>████████</td><td>█████</td><td>Balanced, milliseconds</td></tr>
+                                    <tr><td>Angular-radial v2</td><td><code>O(n²)</code>*</td><td>████████</td><td>█████</td><td>Quality, offline</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2">*Practical performance approaches O(n·log n) due to spatial heuristics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pip install smart-tsp-solver</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false">
+                        <i class="bi bi-code-square me-2 text-primary"></i> Example
+                    </button>
+                </h2>
+                <div id="collapseExample" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Launch using <a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a>:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pip install smart-tsp-benchmark</pre>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+from smart_tsp_benchmark.tsp_benchmark import TSPBenchmark, AlgorithmConfig
+
+from smart_tsp_solver import hierarchical_tsp_solver_v2
+from smart_tsp_solver.algorithms.angular_radial.v1 import angular_radial_tsp_v1
+from smart_tsp_solver.algorithms.angular_radial.v2 import angular_radial_tsp_v2
+from smart_tsp_solver.algorithms.dynamic_gravity.v1 import dynamic_gravity_tsp_v1
+from smart_tsp_solver.algorithms.dynamic_gravity.v2 import dynamic_gravity_tsp_v2
+from smart_tsp_solver.algorithms.other.greedy.v2 import greedy_tsp_v2
+
+def main():
+    config = {
+        'n_points': 1000,
+        'seed': 123,
+        'point_generation': 'cluster',
+        'use_post_optimization': False,
+        'plot_results': True,
+        'verbose': True
+    }
+    benchmark = TSPBenchmark(config=config)
+    benchmark.add_algorithm(
+        name='Angular-radial v1',
+        config=AlgorithmConfig(
+            function=angular_radial_tsp_v1,
+            params={"sort_by": "angle_distance", "look_ahead": 100, "max_2opt_iter": 100},
+            post_optimize=True,
+            description="Angular-radial v1",
+            is_class=False
+        )
+    )
+    benchmark.add_algorithm(
+        name='Angular-radial v2',
+        config=AlgorithmConfig(
+            function=angular_radial_tsp_v2,
+            params={"sort_by": "angle_distance", "look_ahead": 100, "max_2opt_iter": 100},
+            post_optimize=True,
+            description="Angular-radial v2",
+            is_class=False
+        )
+    )
+    benchmark.add_algorithm(
+        name='Dynamic-gravity v1',
+        config=AlgorithmConfig(
+            function=dynamic_gravity_tsp_v1,
+            params={"delta": 0.5, "fast_2opt_iter": 100},
+            post_optimize=True,
+            description="Dynamic-gravity v1",
+            is_class=False
+        )
+    )
+    benchmark.add_algorithm(
+        name='Dynamic-gravity v2',
+        config=AlgorithmConfig(
+            function=dynamic_gravity_tsp_v2,
+            params={"delta": 0.5, "fast_2opt_iter": 100},
+            post_optimize=True,
+            description="Dynamic-gravity v2",
+            is_class=False
+        )
+    )
+    benchmark.add_algorithm(
+        name='Greedy v2',
+        config=AlgorithmConfig(
+            function=greedy_tsp_v2,
+            params={},
+            post_optimize=False,
+            description="Classic greedy TSP algorithm",
+            is_class=False,
+        )
+    )
+    benchmark.add_algorithm(
+        name='Hierarchical TSP',
+        config=AlgorithmConfig(
+            function=hierarchical_tsp_solver_v2,
+            params={"cluster_size": 100, "post_optimize": True},
+            post_optimize=False,
+            description="Hierarchical clustering TSP solver",
+            is_class=False
+        )
+    )
+    benchmark.run_benchmark()
+
+if __name__ == '__main__':
+    main()</pre>
+                        <p class="text-light mt-2"><strong>Local Development:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-tsp-solver.git
+cd smart-tsp-solver
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python main.py</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Visualization -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVisualization" aria-expanded="false">
+                        <i class="bi bi-images me-2 text-primary"></i> Advanced Visualization
+                    </button>
+                </h2>
+                <div id="collapseVisualization" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <p class="text-light"><em>Visual analysis showing Angular-radial's optimal sector-based routing, Dynamic-gravity's smooth trajectories, Greedy's suboptimal clustering</em></p>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-4">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-tsp-solver/master/data/images/tsp100.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-tsp-solver/master/data/images/tsp100.png" class="img-fluid rounded" alt="TSP 100 points" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-tsp-solver/master/data/images/tsp1001.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-tsp-solver/master/data/images/tsp1001.png" class="img-fluid rounded" alt="TSP 1001 points" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-tsp-solver/master/data/images/tsp_25_08_25.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-tsp-solver/master/data/images/tsp_25_08_25.png" class="img-fluid rounded" alt="TSP 25 points" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Output -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutput" aria-expanded="false">
+                        <i class="bi bi-file-text me-2 text-primary"></i> Sample Output
+                    </button>
+                </h2>
+                <div id="collapseOutput" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>100 points (cluster):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+==================================================
+          SMART TSP ALGORITHMS BENCHMARK
+==================================================
+Points:           100
+Seed:           123
+Generation:     cluster
+Post-opt:       OFF
+Algorithms:
+  - Angular-radial v1:
+  - Angular-radial v2:
+  - Dynamic-gravity v1:
+  - Dynamic-gravity v2:
+  - Greedy v2:
+  - Hierarchical TSP:
+==================================================
+
+Running Angular-radial v1... Completed in 0.0848s, Length: 553.66
+Running Angular-radial v2... Completed in 0.0082s, Length: 553.66
+Running Dynamic-gravity v1... Completed in 0.0070s, Length: 567.00
+Running Dynamic-gravity v2... Completed in 0.0067s, Length: 534.90
+Running Greedy v2... Completed in 0.0016s, Length: 609.21
+Running Hierarchical TSP... Completed in 0.0343s, Length: 524.25
+
+============================================================================================================================
+                                               DETAILED ALGORITHM COMPARISON
+============================================================================================================================
+Algorithm            | Time (s) |  vs Best  | Length | vs Best | Params
+----------------------------------------------------------------------------------------------------------------------------
+Greedy v2            | 0.0016 | BEST | 609.21 | +16.21% |
+Dynamic-gravity v2   | 0.0067 | +332.71%  | 534.90 | +2.03%  | delta=0.5, fast_2opt_iter=100
+Dynamic-gravity v1   | 0.0070 | +349.52%  | 567.00 | +8.15%  | delta=0.5, fast_2opt_iter=100
+Angular-radial v2    | 0.0082 | +430.93%  | 553.66 | +5.61%  | sort_by=angle_distance, look_ahead=100
+Hierarchical TSP     | 0.0343 | +2110.90% | 524.25 | BEST | cluster_size=100, post_optimize=True
+Angular-radial v1    | 0.0848 | +5361.28% | 553.66 | +5.61%  | sort_by=angle_distance, look_ahead=100
+============================================================================================================================
+
+PERFORMANCE ANALYSIS:
+- Fastest algorithm(s): Greedy v2 (0.0016 sec)
+- Shortest route(s): Hierarchical TSP (524.25 units)</pre>
+                        <p class="text-light mt-2"><strong>50 points (random):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+Points: 50 | Generation: random
+Fastest: Greedy v2 (0.0016 sec)
+Shortest: Dynamic-gravity v2 (577.06 units)</pre>
+                        <p class="text-light mt-2"><strong>1001 points (random):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+Points: 1001 | Generation: random
+Fastest: Greedy v2 (0.0023 sec)
+Shortest: Angular-radial v1, Angular-radial v2 (2545.21 units)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Research -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResearch" aria-expanded="false">
+                        <i class="bi bi-mortarboard me-2 text-primary"></i> Related Research
+                    </button>
+                </h2>
+                <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="text-primary" target="_blank">Exact TSP Solutions (TSP ORACLE)</a> — Optimal solutions for small instances</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a> — Professional algorithm testing infrastructure</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://doi.org/10.5281/zenodo.17614888" class="text-primary" target="_blank">Position-Candidate-Hypothesis (PCH) Paradigm</a> — A New Research Direction for NP-Complete Problems</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Spatial Optimization:</strong> Computational geometry approaches for large-scale problems</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Heuristic Analysis:</strong> Comparative study of modern TSP approaches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArchitecture" aria-expanded="false">
+                        <i class="bi bi-cpu me-2 text-primary"></i> Architecture & Implementation
+                    </button>
+                </h2>
+                <div id="collapseArchitecture" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Performance Optimization:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Numba JIT Compilation:</strong> Critical paths compiled to native code</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Memory Efficiency:</strong> Pre-allocated arrays and minimal copying</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cache Optimization:</strong> Intelligent memoization and reuse</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Vectorized Operations:</strong> NumPy-based efficient computations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-tsp-solver/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-tsp-solver/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                        <p class="text-light small mt-2"><strong>Note:</strong> Performance results shown are for clustered/random distributions. Results may vary based on spatial characteristics. Always evaluate algorithms on your specific problem domains.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://pypi.org/project/smart-tsp-solver/" class="btn btn-outline-primary btn-sm">PyPI</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="btn btn-outline-primary btn-sm">Smart TSP Benchmark</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver" class="btn btn-outline-primary btn-sm">Exact TSP Solver</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
