@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>github-repos-backup-tools · Smart Legion Lab</title>
+    <meta name="description" content="github-repos-backup-tools — A professional solution for automatic cloning and backup of all your GitHub repositories. Full backup of public and private repositories, smart updates, automatic retries, and detailed reports.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/github-repos-backup-tools.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="github-repos-backup-tools · Smart Legion Lab">
+    <meta property="og:description" content="A professional solution for automatic cloning and backup of all your GitHub repositories. Full backup of public and private repositories, smart updates, automatic retries, and detailed reports.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/github-repos-backup-tools.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">github-repos-backup-tools <sup class="text-warning">v1.6.1</sup></h1>
+            <p class="text-light">Professional solution for automatic cloning and backup of all your GitHub repositories</p>
+            <p class="text-light">Full backup of <span class="text-primary">public and private</span> repositories, smart updates, automatic retries, and detailed reports.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Python</span>
+                <span class="badge bg-primary custom-style">CLI</span>
+                <span class="badge bg-primary custom-style">GitHub</span>
+                <span class="badge bg-primary custom-style">Backup</span>
+                <span class="badge bg-primary custom-style">Repository</span>
+                <span class="badge bg-primary custom-style">Cross-Platform</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/github-repos-backup-tools" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>github-repos-backup-tools</strong> — a professional solution for automatic cloning and backup of all your GitHub repositories. Full backup of public and private repositories, smart updates, automatic retries, and detailed reports.
+                </p>
+            </div>
+        </div>
+
+        <!-- Related Projects -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>You can also use my other projects to work with repositories:</strong></p>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-repository-manager-gui" class="text-primary" target="_blank">Smart Repository Manager GUI</a> — Desktop application for managing GitHub repositories with intelligent synchronization and visual management tools</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-repository-manager-cli" class="text-primary" target="_blank">Smart Repository Manager CLI</a> — Comprehensive command-line tool for managing GitHub repositories</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-repository-manager-core" class="text-primary" target="_blank">Smart Repository Manager Core</a> — Python library for managing Git repositories with GitHub integration</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full Backup</strong> — clones ALL repositories (public and private) from your account and organizations</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Smart Update</strong> — compares local commits with GitHub, updates only when needed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Automatic Retries</strong> — up to 5 attempts with exponential backoff on failures</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Health Check</strong> — automatic integrity verification of each repository</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No SSH Required</strong> — uses only HTTPS with token authentication</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Token Persistence</strong> — token is saved after first use and reused on subsequent runs</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Progress with Error Counter</strong> — visual progress bar showing current/total/errors</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Detailed Report</strong> — statistics on cloned/updated/synced/skipped/failed repositories</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>User Profile Export</strong> — saves GitHub user information to <code>user_info.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Branch Pruning</strong> — automatically removes local branches deleted on remote (Full Mode)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Organized Backups</strong> — all archives and reports stored in <code>backups/</code> folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Power Management</strong> — shutdown/reboot after completion (optional)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Fast Mode (Default)</strong> — clones only default branch for maximum speed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full Mode</strong> — <code>--all-branches</code> flag to enable synchronization of ALL branches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStructure" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> Structure
+                    </button>
+                </h2>
+                <div id="collapseStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+~/github_repos_backup_tools/              # Main application folder
+└── username/                              # Your GitHub username
+    ├── repositories/                       # All cloned repositories
+    │   ├── repo1/                          # Repository copy
+    │   ├── repo2/
+    │   └── ...
+    ├── backups/                            # All backup artifacts
+    │   ├── backup_report_2026-02-28_15-30-45.json
+    │   └── username_github_backup_2026-02-28_15-30-45.zip
+    ├── config.json                          # Token file (automatically created)
+    └── user_info.json                       # Your GitHub profile information</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirements -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRequirements" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> System Requirements
+                    </button>
+                </h2>
+                <div id="collapseRequirements" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python</strong>: 3.8+ (standard library only, no external dependencies)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Git</strong>: 2.20+</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Storage</strong>: depends on repository sizes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Network</strong>: stable internet connection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>1. Installation:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/github-repos-backup-tools.git
+cd github-repos-backup-tools</pre>
+                        <p class="text-light mt-2"><strong>2. First Run:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+python app.py -r</pre>
+                        <p class="text-light small">On first run, the program will ask for your GitHub token and save it.</p>
+                        <p class="text-light mt-2"><strong>3. Get GitHub Token:</strong></p>
+                        <ol class="text-light small">
+                            <li>Go to <a href="https://github.com/settings/tokens/new" class="text-primary" target="_blank">GitHub Tokens</a></li>
+                            <li>Select permissions: <code>repo</code> (full repository access), <code>read:org</code> (access to organization repositories)</li>
+                            <li>Generate and copy the token</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commands -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommands" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> Commands
+                    </button>
+                </h2>
+                <div id="collapseCommands" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Command</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>-r</code></td><td>Clone/update repositories</td></tr>
+                                    <tr><td><code>-t</code></td><td>Update token (delete old and request new)</td></tr>
+                                    <tr><td><code>--no-archive</code></td><td>Disable archive creation (archive is created by default)</td></tr>
+                                    <tr><td><code>--timeout N</code></td><td>Timeout for Git operations in seconds (default: 30)</td></tr>
+                                    <tr><td><code>--all-branches</code></td><td>Enable full branch synchronization (slower, clones ALL branches)</td></tr>
+                                    <tr><td><code>--shutdown</code></td><td>Shutdown computer after completion</td></tr>
+                                    <tr><td><code>--reboot</code></td><td>Reboot computer after completion</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Usage Examples:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Fast mode - only default branch (DEFAULT)
+python app.py -r
+
+# Full mode - ALL branches (slower but complete)
+python app.py -r --all-branches
+
+# Backup without archive
+python app.py -r --no-archive
+
+# With increased timeout
+python app.py -r --timeout 60
+
+# Update token
+python app.py -t
+
+# Backup with shutdown
+python app.py -r --shutdown</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowItWorks" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> How It Works
+                    </button>
+                </h2>
+                <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Operation Modes:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Mode</th><th>Command</th><th>Behavior</th><th>Use Case</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Fast (Default)</strong></td><td><code>python app.py -r</code></td><td>Code only, default branch after clone</td><td>Quick daily sync</td></tr>
+                                    <tr><td><strong>Full</strong></td><td><code>python app.py -r --all-branches</code></td><td>Full backup with ALL branches + sync</td><td>Complete backup</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Status Meanings in Logs:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Status</th><th>Mode</th><th>Meaning</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>CLONE</strong></td><td>Both</td><td>New repository - full clone</td></tr>
+                                    <tr><td><strong>PULL</strong></td><td>Fast</td><td>Code update (current branch only)</td></tr>
+                                    <tr><td><strong>PULL</strong></td><td>Full</td><td>Code + all branches update</td></tr>
+                                    <tr><td><strong>SKIP</strong></td><td>Fast</td><td>Skipped - no changes</td></tr>
+                                    <tr><td><strong>SYNC</strong></td><td>Full</td><td>Branch sync only - code hasn't changed</td></tr>
+                                    <tr><td><strong>CLONE (recover)</strong></td><td>Full</td><td>Re-clone on error</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Update Logic:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Quick check</strong>: compare local commit date with GitHub pushed_at</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>If difference > 5 minutes</strong>: compare actual commit hashes via <code>ls-remote</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>If hashes differ</strong>: perform <code>git pull</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>After pull</strong>: verify repository health with <code>git rev-parse HEAD</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>If corrupted</strong>: automatic re-clone with retries</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurity" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Security
+                    </button>
+                </h2>
+                <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Token stored in <code>~/github_repos_backup_tools/[username]/config.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Uses HTTPS with token in URL (not transmitted in plain text)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Path traversal attack protection</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No telemetry or third-party data transmission</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Token can be updated with <code>-t</code> command</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Archives contain ONLY repositories, no tokens or configs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Known Limitations -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLimitations" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Known Limitations
+                    </button>
+                </h2>
+                <div id="collapseLimitations" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Gists not supported</strong> — utility works with repositories only</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Git required</strong> — must be installed on the system</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Token permissions</strong> — requires <code>repo</code> and <code>read:org</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTroubleshooting" aria-expanded="false">
+                        <i class="bi bi-wrench me-2 text-primary"></i> Troubleshooting
+                    </button>
+                </h2>
+                <div id="collapseTroubleshooting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <dl class="text-light small">
+                            <dt><strong>Q: Authentication fails?</strong></dt>
+                            <dd>Verify token has <code>repo</code> and <code>read:org</code> permissions. Use <code>-t</code> to update.</dd>
+                            <dt class="mt-2"><strong>Q: Clone timeout?</strong></dt>
+                            <dd>Increase timeout: <code>--timeout 60</code></dd>
+                            <dt class="mt-2"><strong>Q: Where is token stored?</strong></dt>
+                            <dd>In <code>~/github_repos_backup_tools/[username]/config.json</code></dd>
+                            <dt class="mt-2"><strong>Q: Where are backups stored?</strong></dt>
+                            <dd>All archives and reports are in <code>~/github_repos_backup_tools/[username]/backups/</code></dd>
+                            <dt class="mt-2"><strong>Q: What's in user_info.json?</strong></dt>
+                            <dd>Your GitHub profile information - login, name, email, repo counts, followers, etc.</dd>
+                            <dt class="mt-2"><strong>Q: How to cancel scheduled shutdown?</strong></dt>
+                            <dd><code>shutdown -c</code> (Linux/macOS) or <code>shutdown /a</code> (Windows)</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What's New -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWhatsNew" aria-expanded="false">
+                        <i class="bi bi-stars me-2 text-primary"></i> What's New in v1.6.1
+                    </button>
+                </h2>
+                <div id="collapseWhatsNew" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>User profile export</strong> — saves GitHub user info to <code>user_info.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Organized backups</strong> — all archives and reports in <code>backups/</code> folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cleaner archives</strong> — ZIP contains only repositories, no configs or tokens</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Improved structure</strong> — <code>~/github_repos_backup_tools/[username]/backups/</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Branch pruning</strong> — automatically removes local branches deleted on remote</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No SSH required</strong> — uses only HTTPS with token authentication</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Smart update</strong> — two-stage verification (date + hash) before pull</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Health checks</strong> — verifies repository integrity after each operation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Automatic recovery</strong> — re-clones corrupted repositories</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Exponential backoff</strong> — up to 5 retries with increasing delays</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Two operation modes</strong> — Fast (default) and Full (<code>--all-branches</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Output -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutput" aria-expanded="false">
+                        <i class="bi bi-file-text me-2 text-primary"></i> Example Output
+                    </button>
+                </h2>
+                <div id="collapseOutput" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+********************************************************************************
+----------------------- GitHub Repositories Backup Tools -----------------------
+
+🔧 Arguments Parsing:
+   Backup: Repositories, Archive
+   Timeout: 30s
+   Branches: ⚡ Fast mode (default branch only)
+   Power: ❌ No action
+
+🔐 GitHub Authentication
+   Found existing user: smartlegionlab
+✅ Authenticated as: smartlegionlab
+
+🔍 Scanning repositories...
+   ✅ Found 52 repositories
+
+📁 Backup location: /home/user/github_repos_backup_tools/smartlegionlab
+
+[██████████████████████████████] 100.0% | 52/52/0 | SKIP | smartlegionlab/repo
+✅ Repository processing complete!
+
+============================================================
+📋 BACKUP REPORT
+============================================================
+👤 User: smartlegionlab
+⏱️  Duration: 0:05:18
+
+📊 REPOSITORY STATISTICS:
+   Total:           52 repositories
+   ⏭️ Skipped:        52 repositories (no changes)
+   ❌ Failed:          0 repositories
+
+✅ Success rate: 100.0%
+============================================================
+
+📦 Archive created: smartlegionlab_github_backup_2026-02-27_17-24-20.zip
+   📊 Size: 15.19 MB
+------------------------------------------------------------------------------------
+----------------------- Copyright © 2026, Alexander Suvorov ------------------------
+************************************************************************************</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/github-repos-backup-tools/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/github-repos-backup-tools/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/github-repos-backup-tools" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/github-repos-backup-tools/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/github-repos-backup-tools/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-gui" class="btn btn-outline-primary btn-sm">Smart Repository Manager GUI</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-cli" class="btn btn-outline-primary btn-sm">Smart Repository Manager CLI</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-core" class="btn btn-outline-primary btn-sm">Smart Repository Manager Core</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
