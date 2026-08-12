@@ -7,6 +7,39 @@
     let isPaused = false;
     const pauseBtn = document.getElementById('pauseBtn');
 
+    const helpBtn = document.getElementById('helpBtn');
+    const helpModalOverlay = document.getElementById('helpModalOverlay');
+    const helpModalClose = document.getElementById('helpModalClose');
+    const helpModalCloseBtn = document.getElementById('helpModalCloseBtn');
+
+    function openHelpModal() {
+        helpModalOverlay.classList.add('active');
+        if (controls) controls.autoRotate = false;
+    }
+
+    function closeHelpModal() {
+        helpModalOverlay.classList.remove('active');
+        if (controls && !isPaused) controls.autoRotate = true;
+    }
+
+    if (helpBtn) {
+        helpBtn.addEventListener('click', openHelpModal);
+    }
+
+    if (helpModalClose) {
+        helpModalClose.addEventListener('click', closeHelpModal);
+    }
+
+    if (helpModalCloseBtn) {
+        helpModalCloseBtn.addEventListener('click', closeHelpModal);
+    }
+
+    if (helpModalOverlay) {
+        helpModalOverlay.addEventListener('click', (e) => {
+            if (e.target === helpModalOverlay) closeHelpModal();
+        });
+    }
+
     async function loadSitemap() {
         try {
             const response = await fetch('/sitemap.xml');
@@ -192,13 +225,9 @@
             items.forEach(page => {
                 const nodeId = 'node_' + page.loc.replace(/[^a-zA-Z0-9]/g, '_');
                 if (nodeMap.has(page.loc)) return;
-                let pageLabel = page.label;
-                if (pageLabel.length > 30) {
-                    pageLabel = pageLabel.substring(0, 27) + '…';
-                }
                 nodes.push({
                     id: nodeId,
-                    label: pageLabel,
+                    label: page.label,
                     group: 'page',
                     url: page.loc,
                     fullLabel: page.label
