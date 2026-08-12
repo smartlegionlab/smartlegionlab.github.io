@@ -61,6 +61,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/projects/smart-2fa-secure.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/exact-tsp-solver.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smart-tsp-benchmark.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
+    {'loc': f"{BASE_URL}/projects/smart-password-generator.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/libraries.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/clipassman.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
