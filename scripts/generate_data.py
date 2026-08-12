@@ -73,6 +73,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/projects/smart-babylon-library.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/babylonian-image-library.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/smart-task-manager.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
+    {'loc': f"{BASE_URL}/projects/smart-text-randomizer.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/libraries.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/clipassman.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
