@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exact-tsp-solver · Smart Legion Lab</title>
+    <meta name="description" content="exact-tsp-solver — A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Go. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/projects/exact-tsp-solver.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="exact-tsp-solver · Smart Legion Lab">
+    <meta property="og:description" content="A high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Go. Utilizes an intelligent Branch and Bound algorithm with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/projects/exact-tsp-solver.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">exact-tsp-solver <sup class="text-warning">v1.0.1</sup></h1>
+            <p class="text-light">High-performance exact solver for the Traveling Salesman Problem</p>
+            <p class="text-light">Utilizes an intelligent <span class="text-primary">Branch and Bound algorithm</span> with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Go</span>
+                <span class="badge bg-primary custom-style">TSP</span>
+                <span class="badge bg-primary custom-style">Algorithm</span>
+                <span class="badge bg-primary custom-style">Branch and Bound</span>
+                <span class="badge bg-primary custom-style">NP-Hard</span>
+                <span class="badge bg-primary custom-style">Optimization</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>exact-tsp-solver</strong> — a high-performance, exact solver for the Traveling Salesman Problem (TSP) implemented in Go.
+                </p>
+                <p class="text-light">
+                    Utilizes an intelligent <strong>Branch and Bound algorithm</strong> with adaptive thresholding to find the globally optimal solution for small to medium-sized TSP instances.
+                </p>
+            </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="mb-4">
+            <div class="smart-small-card border border-warning">
+                <p class="text-warning"><strong>⚠️ Important Notice</strong></p>
+                <p class="text-light small"><strong>ATTENTION!</strong> Use <code>tsp_oracle/v2/tsp_oracle_v2.go</code> or <code>tsp_oracle/v3/tsp_oracle_v3.go</code></p>
+                <p class="text-light small"><code>tsp_oracle/v1/tsp_oracle_v1.go</code> — This is v1 version, not recommended for use, serves only as an example for comparison.</p>
+                <p class="text-light small mt-2"><strong>Disclaimer:</strong> The TSP is NP-Hard. This solver is designed for <strong>educational and research purposes</strong> and is practical for instances up to ~20-35 points on standard hardware. For larger instances, consider heuristic approaches.</p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Branch and Bound -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBranchBound" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> What is "Branch and Bound" with Adaptive Thresholding?
+                    </button>
+                </h2>
+                <div id="collapseBranchBound" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">This isn't a naive brute-force search. It's a sophisticated method that:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Sets a smart initial threshold</strong> based on a quick heuristic solution (Greedy + 2-opt)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Uses a lower bound</strong> (based on Minimum Spanning Tree) to prune futile branches of the search tree</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamically adjusts the threshold</strong> every iteration: lowers it if a better solution is found, or raises it if the search space is too constrained</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Employs neighborhood ordering</strong> by checking nearest neighbors first to maximize pruning effectiveness</li>
+                        </ul>
+                        <p class="text-light mt-2">This combination makes it significantly faster than a pure brute-force approach for finding provably optimal solutions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Provably Optimal</strong> — Finds the absolute shortest possible route, not an approximation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Adaptive Algorithm</strong> — Smart Branch and Bound with dynamic threshold adjustment for efficient search</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Benchmarking</strong> — Compare optimal vs. heuristic solutions and see the performance gap</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Production-Grade Go</strong> — Compiled to a single binary, static typing, no external dependencies</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Progress Tracking</strong> — Real-time console output showing search speed and number of paths evaluated</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> Usage
+                    </button>
+                </h2>
+                <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/exact-tsp-solver.git
+cd exact-tsp-solver</pre>
+                        <p class="text-light mt-2"><strong>v2 (stable):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+go run tsp_oracle/v2/tsp_oracle_v2.go -n 10 -seed 123</pre>
+                        <p class="text-light mt-2"><strong>v1 (old — not recommended):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+go run tsp_oracle/v1/tsp_oracle_v1.go -n 10 -seed 123</pre>
+                        <div class="table-responsive mt-2">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Flag</th><th>Default</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>-n</code></td><td><code>10</code></td><td>Number of points to generate</td></tr>
+                                    <tr><td><code>-seed</code></td><td><code>42</code></td><td>Random seed for reproducible point generation</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUseCases" aria-expanded="false">
+                        <i class="bi bi-briefcase me-2 text-primary"></i> Use Cases
+                    </button>
+                </h2>
+                <div id="collapseUseCases" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Academic Research</strong> — Validate the performance of heuristic algorithms against the true optimum on small graphs</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Education</strong> — Perfect for teaching and understanding the Branch and Bound technique and the complexity of NP-Hard problems</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Algorithmic Competitions</strong> — As a reference solver for small test cases</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Basis for Hybrid Solvers</strong> — The optimal solver can be used in large-scale solvers that break the problem into smaller, solvable sub-problems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Output -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutput" aria-expanded="false">
+                        <i class="bi bi-file-text me-2 text-primary"></i> Sample Output
+                    </button>
+                </h2>
+                <div id="collapseOutput" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>20 points (v2):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+go run tsp_oracle/v2/tsp_oracle_v2.go -n 20 -seed 123
+
+==================================================
+TSP ORACLE v2 - 20 POINTS
+SEED: 123
+==================================================
+
+Coordinates of points:
+   Dot 0: (581.32, 26.22)
+   Dot 1: (249.97, 615.85)
+   Dot 2: (229.48, 636.50)
+   Dot 3: (64.10, 448.80)
+   Dot 4: (805.03, 382.43)
+   Dot 5: (510.44, 503.08)
+   Dot 6: (17.24, 930.66)
+   Dot 7: (272.70, 204.95)
+   Dot 8: (272.45, 156.08)
+   Dot 9: (857.67, 846.22)
+   Dot 10: (113.95, 530.24)
+   Dot 11: (874.01, 291.98)
+   Dot 12: (201.23, 548.09)
+   Dot 13: (774.84, 533.88)
+   Dot 14: (740.95, 317.05)
+   Dot 15: (554.59, 325.05)
+   Dot 16: (910.44, 311.79)
+   Dot 17: (473.72, 932.95)
+   Dot 18: (163.15, 236.74)
+   Dot 19: (299.14, 485.05)
+1. Launching the multi-start greedy algorithm...
+   Multi-start greedy + 2-opt: length = 4322.31
+2. Launching adaptive search...
+   We start the search from 3890.08 (90.0%)
+   Threshold: 3890.08 (90.0%)... ✗ cut off (63ms)
+   Threshold: 4162.38 (96.3%)... ✓ found: 3975.71 (195ms)
+   Threshold: 3697.41 (85.5%)... ✗ cut off (13ms)
+   The optimum has been found.: 3975.71
+
+RESULTS:
+==================================================
+Number of points: 20
+Seed: 123
+Total possible paths: so many
+Checked paths: 0
+Execution time: 0.27 seconds
+Speed: 0 paths/sec
+Greedy + 2-opt: 4322.309878
+Optimal length: 3975.712587
+Improvement: 346.597291 (8.019%)
+
+Greedy way: [3 10 12 1 2 6 17 9 13 4 16 11 14 15 5 19 18 7 8 0]
+The optimal path: [0 15 5 14 11 16 4 13 9 17 6 2 1 19 12 10 3 18 7 8]</pre>
+                        <p class="text-light mt-2"><strong>30 points (v3):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+go run tsp_oracle/v3/tsp_oracle_v3.go -n 30 -seed 1222
+
+WARNING: for 30 points there will be approximately so many permutations
+This may take a considerable amount of time.
+Continue? (y/n): y
+==================================================
+TSP SOLVER (ORACLE v2) - 30 POINTS
+SEED: 1222
+==================================================
+
+Coordinates of points:
+   Dot 0: (521.84, 998.65)
+   Dot 1: (239.34, 374.98)
+   Dot 2: (552.09, 440.40)
+   Dot 3: (538.79, 510.33)
+   Dot 4: (726.68, 971.58)
+   Dot 5: (197.46, 506.00)
+   Dot 6: (499.57, 105.44)
+   Dot 7: (742.56, 269.45)
+   Dot 8: (333.14, 347.61)
+   Dot 9: (490.19, 146.89)
+   Dot 10: (752.69, 175.08)
+   Dot 11: (395.82, 967.65)
+   Dot 12: (71.30, 843.90)
+   Dot 13: (703.35, 764.47)
+   Dot 14: (342.65, 498.74)
+   Dot 15: (467.98, 545.24)
+   Dot 16: (515.63, 415.79)
+   Dot 17: (720.26, 874.17)
+   Dot 18: (525.53, 686.15)
+   Dot 19: (429.43, 105.12)
+   Dot 20: (218.80, 919.85)
+   Dot 21: (234.23, 65.48)
+   Dot 22: (127.28, 688.89)
+   Dot 23: (740.72, 901.09)
+   Dot 24: (708.35, 971.53)
+   Dot 25: (755.63, 123.60)
+   Dot 26: (168.76, 324.78)
+   Dot 27: (573.87, 134.81)
+   Dot 28: (52.38, 309.08)
+   Dot 29: (946.31, 544.56)
+1. Launching the multi-start greedy algorithm...
+   Multi-start greedy + 2-opt: length = 4478.33
+2. Launching adaptive search...
+   We start the search from 4030.50 (90.0%)
+   Threshold: 4030.50 (90.0%)... ✗ cut off (142ms)
+Checked: 309 paths | Speed: 69/sec | Time: 4s✓ found: 4180.48 (4.626s)
+   Threshold: 3887.85 (86.8%)... ✗ cut off (17ms)
+   The optimum has been found.: 4180.48
+
+RESULTS:
+==================================================
+Number of points: 30
+Seed: 1222
+Total possible paths: so many
+Checked paths: 0
+Execution time: 4.79 seconds
+Speed: 0 paths/sec
+Greedy + 2-opt: 4478.332474
+Optimal length: 4180.479698
+Improvement: 297.852776 (6.651%)
+
+Greedy way: [1 8 26 28 5 14 16 2 3 15 18 22 12 20 11 0 24 4 23 17 13 29 7 10 25 27 6 9 19 21]
+The optimal path: [0 11 20 12 22 5 14 15 18 3 2 16 8 1 26 28 21 19 9 6 27 25 10 7 29 13 17 23 4 24]</pre>
+                        <p class="text-light mt-2"><strong>35 points (v3):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+go run tsp_oracle/v3/tsp_oracle_v3.go -n 35 -seed 1222
+
+WARNING: for 35 points there will be approximately so many permutations
+This may take a considerable amount of time.
+Continue? (y/n): y
+==================================================
+TSP SOLVER (ORACLE v2) - 35 POINTS
+SEED: 1222
+==================================================
+
+Coordinates of points:
+   Dot 0: (521.84, 998.65)
+   ...
+1. Launching the multi-start greedy algorithm...
+   Multi-start greedy + 2-opt: length = 4682.18
+2. Launching adaptive search...
+   We start the search from 4213.96 (90.0%)
+   Threshold: 4213.96 (90.0%)... ✗ cut off (57ms)
+Checked: 151 paths | Speed: 39/sec | Time: 4s✓ found: 4446.24 (4.301s)
+   Threshold: 4135.00 (88.3%)... ✗ cut off (18ms)
+   The optimum has been found.: 4446.24
+
+RESULTS:
+==================================================
+Number of points: 35
+Seed: 1222
+Total possible paths: so many
+Checked paths: 0
+Execution time: 4.38 seconds
+Speed: 0 paths/sec
+Greedy + 2-opt: 4682.180857
+Optimal length: 4446.237222
+Improvement: 235.943636 (5.039%)
+
+Greedy way: [2 16 3 15 18 22 12 20 11 0 24 4 23 17 13 29 32 30 31 7 10 25 27 6 9 19 21 34 28 33 26 1 5 14 8]
+The optimal path: [0 11 20 12 22 5 14 8 1 26 33 28 34 21 19 9 6 27 25 10 7 32 29 30 31 16 2 3 15 18 13 17 23 4 24]</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- See Also -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeeAlso" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> See Also
+                    </button>
+                </h2>
+                <div id="collapseSeeAlso" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="text-primary" target="_blank">Smart TSP Solver</a> — Python library featuring advanced heuristics (<code>Dynamic Gravity</code>, <code>Angular Radial</code>) for solving <em>large</em> TSP instances</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-oracle" class="text-primary" target="_blank">Smart TSP Oracle</a> — High-performance exact solver for TSP implemented in Python</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a> — Professional algorithm testing infrastructure with customizable scenarios and detailed metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/exact-tsp-solver/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/exact-tsp-solver/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-outline-primary btn-sm">Smart TSP Solver</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-oracle" class="btn btn-outline-primary btn-sm">Smart TSP Oracle</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="btn btn-outline-primary btn-sm">Smart TSP Benchmark</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
+                    </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
