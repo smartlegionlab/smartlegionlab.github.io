@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart 2FA Manager Desktop · Smart Legion Lab</title>
-    <meta name="description" content="Smart 2FA Manager Desktop — offline, independent TOTP 2FA manager for Linux with graphical interface. No cloud, no phone required. GPG-encrypted storage, QR codes, backups.">
+    <title>smart-task-manager · Smart Legion Lab</title>
+    <meta name="description" content="smart-task-manager — A modern desktop task management application built with Python and PyQt5, featuring an intuitive dark theme interface, priority-based organization, and automatic data persistence.">
     <meta name="author" content="Smart Legion Lab">
-    <link rel="canonical" href="https://smartlegionlab.ru/applications/smart-2fa-manager-desktop.html">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/smart-task-manager.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="Smart 2FA Manager Desktop · Smart Legion Lab">
-    <meta property="og:description" content="Offline, independent TOTP 2FA manager for Linux with graphical interface. No cloud, no phone required.">
+    <meta property="og:title" content="smart-task-manager · Smart Legion Lab">
+    <meta property="og:description" content="A modern desktop task management application built with Python and PyQt5, featuring an intuitive dark theme interface, priority-based organization, and automatic data persistence.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.ru/applications/smart-2fa-manager-desktop.html">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/smart-task-manager.html">
     <meta property="og:site_name" content="Smart Legion Lab · Applications">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,20 +78,19 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">Smart 2FA Manager <sup class="text-warning">v1.1.5</sup></h1>
-            <p class="text-light">Offline, independent TOTP 2FA manager for Linux with graphical interface</p>
-            <p class="text-light">No cloud, no phone required. Store your secrets locally, generate codes, create encrypted backups, and sync with Google Authenticator via QR codes.</p>
+            <h1 class="text-primary">Smart Task Manager <sup class="text-warning">v1.1.3</sup></h1>
+            <p class="text-light">Modern desktop task management application</p>
+            <p class="text-light">Built with <span class="text-primary">Python and PyQt5</span>, featuring an intuitive dark theme interface, priority-based organization, and automatic data persistence.</p>
             <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Desktop</span>
                 <span class="badge bg-primary custom-style">Python</span>
                 <span class="badge bg-primary custom-style">PyQt5</span>
-                <span class="badge bg-primary custom-style">TOTP</span>
-                <span class="badge bg-primary custom-style">GPG</span>
+                <span class="badge bg-primary custom-style">Task Manager</span>
+                <span class="badge bg-primary custom-style">Productivity</span>
                 <span class="badge bg-primary custom-style">Linux</span>
-                <span class="badge bg-primary custom-style">Offline</span>
-                <span class="badge bg-primary custom-style">QR Codes</span>
             </div>
             <div class="mt-3">
-                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-task-manager" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
             </div>
         </div>
 
@@ -101,37 +100,75 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    Offline, independent TOTP 2FA manager for Linux with graphical interface.
-                    No cloud, no phone required. Store your secrets locally, generate codes, create encrypted backups, and sync with Google Authenticator via QR codes.
+                    <strong>Smart Task Manager</strong> is a feature-rich desktop application designed to help you efficiently organize and track your tasks. With a clean dark-themed interface, priority management, due date tracking, and automatic saving, it's the perfect tool for personal productivity.
                 </p>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="row g-2 justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <a href="https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/data/images/smart-task-manager.png" target="_blank">
+                            <img src="https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/data/images/smart-task-manager.png" class="img-fluid rounded" alt="Smart Task Manager" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Features Accordion -->
         <div class="accordion accordion-flush mb-4" id="featuresAccordion">
 
-            <!-- Commands -->
+            <!-- Features -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommands" aria-expanded="false">
-                        <i class="bi bi-grid-3x3-gap-fill me-2 text-primary"></i> Commands (GUI)
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
                     </button>
                 </h2>
-                <div id="collapseCommands" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Main Buttons</strong></p>
+                        <p class="text-light"><strong>Task Management:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>+ Add Service</strong> — Add a new TOTP service</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🔄 Refresh Codes</strong> — Manually refresh all codes</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>💾 Backup</strong> — Create encrypted backup with timestamp</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📂 Restore</strong> — Restore from encrypted backup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create tasks with title, description, priority, and due date</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Edit tasks anytime with full detail modification</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>View task details in a dedicated dialog</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Delete tasks individually or clear completed tasks in bulk</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>Table Actions</strong></p>
+                        <p class="text-light mt-2"><strong>Priority System:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📋 Copy</strong> — Copy TOTP code to clipboard</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🔑 Get</strong> — Show TOTP code in dialog</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📱 QR</strong> — Show QR code for phone import</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🗑 Delete</strong> — Delete service</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Three priority levels</strong>: High, Medium, Low</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Color-coded visual indicators</strong> for quick identification</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Task Status:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion status with one click</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Visual strikethrough for completed tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Overdue task highlighting (red text for overdue items)</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Data Management:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic saving to <code>~/.todos.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Persistent storage between sessions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON-based data format for easy backup and migration</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Statistics tracking (total, completed, pending tasks)</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>User Interface:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dark theme with modern styling</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Responsive table layout with resizable columns</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menu for quick actions (right-click on tasks)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task statistics displayed in real-time</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Additional Features:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Due date calendar picker with visual date selection</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task descriptions with word wrap</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Overdue task notifications (visual indicators)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Help documentation built into the application</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Confirmation dialogs for destructive actions</li>
                         </ul>
                     </div>
                 </div>
@@ -146,201 +183,234 @@
                 </h2>
                 <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Dependencies:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>python-pyqt5 — REQUIRED for GUI</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>gpg — REQUIRED for encryption</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>oathtool — REQUIRED for TOTP codes</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>qrencode — OPTIONAL for QR codes</li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Install commands:</strong></p>
+                        <p class="text-light"><strong>Prerequisites:</strong> Python 3.7+, PyQt5</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-# Arch Linux
-sudo pacman -S python-pyqt5 oath-toolkit gnupg qrencode
+# Clone the repository
+git clone https://github.com/smartlegionlab/smart-task-manager.git
+cd smart-task-manager
 
-# Debian/Ubuntu
-sudo apt install python3-pyqt5 oathtool gpg qrencode
+# Install required dependencies
+pip install -r requirements.txt
 
-# Fedora/RHEL
-sudo dnf install python3-pyqt5 oathtool gnupg2 qrencode</pre>
-                        <p class="text-light mt-2"><strong>Setup:</strong></p>
+# Run the application
+python task_manager.py</pre>
+                        <p class="text-light mt-2"><strong>One-line Installation:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-git clone https://github.com/smartlegionlab/smart-2fa-manager-desktop.git
-cd smart-2fa-manager-desktop
-python app.py</pre>
+git clone https://github.com/smartlegionlab/smart-task-manager.git && cd smart-task-manager && pip install PyQt5 && python task_manager.py</pre>
                     </div>
                 </div>
             </div>
 
-            <!-- Keyboard Shortcuts -->
+            <!-- Usage -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts" aria-expanded="false">
-                        <i class="bi bi-keyboard me-2 text-primary"></i> Keyboard Shortcuts
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage" aria-expanded="false">
+                        <i class="bi bi-tools me-2 text-primary"></i> Usage Guide
                     </button>
                 </h2>
-                <div id="collapseShortcuts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Global Shortcuts</strong></p>
+                        <p class="text-light"><strong>Creating a New Task:</strong></p>
+                        <ol class="text-light small">
+                            <li>Click the <strong>"➕ Add Task"</strong> button</li>
+                            <li>Fill in the task details:
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Title</strong> (required): Brief description of the task</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Description</strong> (optional): Detailed notes</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Priority</strong>: Select from High, Medium, or Low</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Due Date</strong>: Choose from the calendar picker</li>
+                                </ul>
+                            </li>
+                            <li>Click <strong>"Create Task"</strong></li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>Managing Tasks:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><span class="text-primary">Ctrl + L</span> — Lock storage</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + E</span> — Exit application</li>
-                            <li class="mb-1"><span class="text-primary">F1</span> — Show About dialog</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + /</span> — Show Keyboard Shortcuts</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Toggle Completion</strong>: Click the status button (⏳/✅)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>View Details</strong>: Click the "👁 View" button</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Edit Task</strong>: Click the "✏️ Edit" button</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Delete Task</strong>: Click the "🗑️" button</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>Services Shortcuts</strong></p>
+                        <p class="text-light mt-2"><strong>Quick Actions (Context Menu):</strong></p>
+                        <p class="text-light small">Right-click on any task in the table to access:</p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><span class="text-primary">Ctrl + N</span> — Add new service</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + R</span> — Refresh all codes</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + B</span> — Create backup</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + Shift + R</span> — Restore from backup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Mark as Complete/Pending</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Edit Task</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>View Details</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Delete Task</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>Table Actions (when row selected)</strong></p>
+                        <p class="text-light mt-2"><strong>Bulk Operations:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><span class="text-primary">Ctrl + C</span> — Copy code to clipboard</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + G</span> — Show code in dialog</li>
-                            <li class="mb-1"><span class="text-primary">Ctrl + Q</span> — Show QR code dialog</li>
-                            <li class="mb-1"><span class="text-primary">Del</span> — Delete service</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clear Completed Tasks</strong>: Click "🗑️ Clear Completed" to remove all completed tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Exit Confirmation</strong>: Application warns if unsaved tasks exist on exit</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- File Structure -->
+            <!-- Data Storage -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFileStructure" aria-expanded="false">
-                        <i class="bi bi-folder2-open me-2 text-primary"></i> File Structure
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStorage" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> Data Storage
                     </button>
                 </h2>
-                <div id="collapseFileStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseStorage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
+                        <p class="text-light"><strong>File Location:</strong></p>
+                        <p class="text-light small">Tasks are automatically saved to: <code>~/.todos.json</code></p>
+                        <p class="text-light mt-2"><strong>Data Format:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-~/.2fa/
-├── secrets.gpg          # Encrypted master storage
-└── backups/
-    └── secrets.2026-04-06_14-30-00.gpg</pre>
-                        <p class="text-light small mt-2"><i class="bi bi-arrow-right"></i> Compatible with bash and Python CLI versions!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- How It Works -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowItWorks" aria-expanded="false">
-                        <i class="bi bi-diagram-3 me-2 text-primary"></i> How It Works
-                    </button>
-                </h2>
-                <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
+{
+  "task-uuid-here": {
+    "id": "uuid-string",
+    "title": "Task Title",
+    "description": "Task Description",
+    "priority": 1,
+    "completed": false,
+    "created_at": "2025-12-05T10:30:00.000000",
+    "due_date": "2025-12-10"
+  }
+}</pre>
+                        <p class="text-light mt-2"><strong>Backup & Migration:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secrets are stored locally in <code>~/.2fa/secrets.gpg</code> (AES-256 encrypted with GPG)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No internet connection required — codes generated locally using <code>oathtool</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Backups are encrypted with the same password</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>QR codes let you import secrets into Google Authenticator / Aegis</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Lost your phone? Just re-scan QR codes from your Linux machine</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Simply copy the <code>~/.todos.json</code> file to back up your tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The JSON format is human-readable and editable</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Security Notes -->
+            <!-- Windows Executable -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurity" aria-expanded="false">
-                        <i class="bi bi-shield-lock me-2 text-primary"></i> Security Notes
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWindows" aria-expanded="false">
+                        <i class="bi bi-windows me-2 text-primary"></i> Windows Standalone Executable
                     </button>
                 </h2>
-                <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseWindows" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
+                        <p class="text-light">Build a standalone <code>smart_task_manager.exe</code> that runs without Python installation:</p>
+                        <p class="text-light mt-2"><strong>Step 1: Get the Project Files</strong></p>
+                        <ol class="text-light small">
+                            <li>Download project ZIP from GitHub</li>
+                            <li>Extract to: <code>C:\smart-task-manager-master\</code></li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>Step 2: Install Python</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Your GPG password is never stored</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Backup files are encrypted with the same password</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Lock storage when leaving your computer (<strong>Ctrl + L</strong>)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Keep backups in a safe place (encrypted USB drive, offline storage)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Download from: <a href="https://python.org/downloads/" class="text-primary" target="_blank">python.org</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>IMPORTANT:</strong> Check "Add Python to PATH"</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Step 3: Open Command Prompt</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cd C:\smart-task-manager-master</pre>
+                        <p class="text-light mt-2"><strong>Step 4: Create Virtual Environment</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+python -m venv venv
+.\venv\Scripts\activate</pre>
+                        <p class="text-light mt-2"><strong>Step 5: Install Dependencies</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pip install pyinstaller
+pip install PyQt5==5.15.9</pre>
+                        <p class="text-light mt-2"><strong>Step 6: Build Executable</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pyinstaller --onefile --windowed --name "smart_task_manager.exe" --additional-hooks-dir=. app.py</pre>
+                        <p class="text-light mt-2"><strong>Step 7: Find and Use</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Location:</strong> <code>C:\smart-task-manager-master\dist\smart_task_manager.exe</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create desktop shortcut and rename to "Smart Task Manager"</li>
+                        </ul>
+                        <p class="text-light small mt-2"><strong>What you get:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Single file: <code>smart_task_manager.exe</code> (~50MB)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No Python required to run</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Works on any Windows 10/11 PC</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Can be copied to USB drive</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Desktop Integration -->
+            <!-- Technical Details -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesktop" aria-expanded="false">
-                        <i class="bi bi-pc-display me-2 text-primary"></i> Desktop Integration (Linux)
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechnical" aria-expanded="false">
+                        <i class="bi bi-cpu me-2 text-primary"></i> Technical Details
                     </button>
                 </h2>
-                <div id="collapseDesktop" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseTechnical" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light">The application allows you to create desktop entries directly from the menu:</p>
+                        <p class="text-light"><strong>Architecture:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Go to <strong>File → Create Desktop Entry</strong></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Choose locations: Application Menu or Desktop</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Creates <code>.desktop</code> file with proper configuration</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model</strong>: <code>Task</code> class representing individual tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Controller</strong>: <code>TaskManager</code> handling data persistence and operations</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>View</strong>: PyQt5-based GUI with dialog windows and table view</li>
                         </ul>
-                        <p class="text-light small mt-2">Available on Linux systems with desktop environments that support <code>.desktop</code> files (GNOME, KDE, XFCE).</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ecosystem -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystem" aria-expanded="false">
-                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystem
-                    </button>
-                </h2>
-                <div id="collapseEcosystem" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light">Your existing <code>~/.2fa/secrets.gpg</code> file works <strong>without additional settings</strong> in other versions of this ecosystem!</p>
+                        <p class="text-light mt-2"><strong>Key Components:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="text-primary" target="_blank">Bash version</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="text-primary" target="_blank">Python CLI</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="text-primary" target="_blank">Android/Mobile</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>MainWindow</strong>: Primary application interface with task table</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>TaskInputDialog</strong>: Modal dialog for creating/editing tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>TaskDisplayDialog</strong>: Modal dialog for viewing task details</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Context Menu</strong>: Right-click menu for quick task operations</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Dependencies:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>PyQt5</strong>: GUI framework</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python Standard Library</strong>: json, os, uuid, datetime, typing</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Tech Stack -->
+            <!-- Troubleshooting -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
-                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTroubleshooting" aria-expanded="false">
+                        <i class="bi bi-wrench me-2 text-primary"></i> Troubleshooting
                     </button>
                 </h2>
-                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseTroubleshooting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.6+</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">GUI:</span> PyQt5</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">Encryption:</span> GPG (AES-256)</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">TOTP:</span> oathtool</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">QR Codes:</span> qrencode (optional)</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux</li>
-                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
-                        </ul>
+                        <ol class="text-light small">
+                            <li class="mb-2"><strong>"ModuleNotFoundError: No module named 'PyQt5'"</strong>
+                                <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+pip install -r requirements.txt</pre>
+                            </li>
+                            <li class="mb-2"><strong>Application won't start</strong>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Ensure Python 3.7+ is installed</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Check file permissions on <code>~/.todos.json</code></li>
+                                </ul>
+                            </li>
+                            <li class="mb-2"><strong>Tasks not saving</strong>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Verify write permissions in home directory</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Check disk space availability</li>
+                                </ul>
+                            </li>
+                            <li class="mb-2"><strong>UI elements look wrong</strong>
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Ensure all dependencies are installed</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Try restarting the application</li>
+                                </ul>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
 
-            <!-- Screenshots -->
+            <!-- Disclaimer -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
-                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
                     </button>
                 </h2>
-                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body">
-                        <div class="row g-2 justify-content-center">
-                            <div class="col-12 col-md-8">
-                                <a href="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-desktop/master/data/images/logo.png" target="_blank">
-                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-desktop/master/data/images/logo.png" class="img-fluid rounded" alt="Smart 2FA Manager Desktop">
-                                </a>
-                            </div>
-                        </div>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-task-manager/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-task-manager/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
                     </div>
                 </div>
             </div>
@@ -353,15 +423,16 @@ python app.py</pre>
                 <div class="text-center">
                     <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-task-manager" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-task-manager/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-task-manager/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
                         <i class="bi bi-person-circle text-primary"></i> Created by
                         <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
                     </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov</p>
                 </div>
             </div>
         </div>
