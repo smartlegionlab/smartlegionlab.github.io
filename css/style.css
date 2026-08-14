@@ -1259,6 +1259,14 @@ hr {
     background: #00ff9d;
 }
 
+.smart-console-toggle {
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    opacity: 0.7;
+    border-radius: 20px;
+}
+
 @media (min-width: 768px) {
     #devConsole {
         width: 500px !important;
