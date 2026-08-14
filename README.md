@@ -1,9 +1,10 @@
-# Smart Legion Lab · Official Website
+# Smart Legion Lab · Official Website <sup>v7.4.0</sup>
 
 [![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/)
 [![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/network/members)
 
 **The official website of Smart Legion Lab** - a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
 
