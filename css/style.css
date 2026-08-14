@@ -1267,6 +1267,22 @@ hr {
     border-radius: 20px;
 }
 
+.smart-dev-console {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    left: 20px;
+    width: 90%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    border-right: 3px solid #00ff9d;
+    border-radius: 6px;
+    z-index: 9998;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
 @media (min-width: 768px) {
     #devConsole {
         width: 500px !important;
