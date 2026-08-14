@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>android-todo-app · Smart Legion Lab</title>
+    <meta name="description" content="android-todo-app — A simple yet powerful task management application with full CRUD operations, priority system, deadline reminders, and persistent local storage. Built for Android with Kotlin.">
+    <meta name="author" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.ru/applications/android-todo-app.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="android-todo-app · Smart Legion Lab">
+    <meta property="og:description" content="A simple yet powerful task management application with full CRUD operations, priority system, deadline reminders, and persistent local storage.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.ru/applications/android-todo-app.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Applications">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230d6efd'/><stop offset='100%' stop-color='%230b5ed7'/></linearGradient></defs><path d='M50 15 L20 30 L20 45 C20 65 35 85 50 90 C65 85 80 65 80 45 L80 30 Z' fill='url(%23grad)' stroke='%23ffffff' stroke-width='2'/><path d='M45 55 L35 45 L40 40 L45 45 L60 30 L65 35 Z' fill='%23ffffff'/></svg>">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-primary">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item active"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">android-todo-app <sup class="text-warning">v1.0.1</sup></h1>
+            <p class="text-light">Simple yet powerful task management application for Android</p>
+            <p class="text-light">Full CRUD operations, priority system, deadline reminders, and <span class="text-primary">persistent local storage</span>. Built with Kotlin.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Kotlin</span>
+                <span class="badge bg-primary custom-style">Android</span>
+                <span class="badge bg-primary custom-style">Todo</span>
+                <span class="badge bg-primary custom-style">MVVM</span>
+                <span class="badge bg-primary custom-style">Mobile</span>
+                <span class="badge bg-primary custom-style">Material Design</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/aixandrolab/android-todo-app" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>android-todo-app</strong> — a simple yet powerful task management application with full CRUD operations, priority system, deadline reminders, and persistent local storage. Designed for productivity: create, track, and complete tasks with intuitive gestures, smart notifications, and beautiful dark theme interface.
+                </p>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="row g-2 justify-content-center">
+                    <div class="col-6 col-md-4">
+                        <a href="https://raw.githubusercontent.com/aixandrolab/android-todo-app/master/data/images/main_menu.png" target="_blank">
+                            <img src="https://raw.githubusercontent.com/aixandrolab/android-todo-app/master/data/images/main_menu.png" class="img-fluid rounded" alt="Main Menu" referrerpolicy="no-referrer">
+                        </a>
+                        <p class="text-light small text-center mt-1">Main Screen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Core Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Core Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full CRUD Operations</strong> — Create, Read, Update, and Delete tasks with ease</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Priority Levels</strong> — Low (green), Medium (yellow), High (red)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deadline Management</strong> — Set exact date and time for each task</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Smart Notifications</strong> — Automatic reminders for overdue, urgent, and upcoming tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Swipe Gestures</strong> — Left to complete/uncomplete, right to delete</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Drag & Drop</strong> — Reorder tasks by long pressing and dragging</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Persistent Storage</strong> — Data saved in Documents folder (survives app updates)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dark Theme</strong> — Beautiful dark interface with orange accents</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive Help Mode</strong> — Tooltips explaining every button</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Startup Summary</strong> — Dialog showing overdue/today/tomorrow tasks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Prerequisites:</strong> Android 7.0 (API level 24) or higher</p>
+                        <p class="text-light mt-2"><strong>Installation:</strong></p>
+                        <ol class="text-light small">
+                            <li>Download the APK from the <a href="https://github.com/aixandrolab/android-todo-app/releases" class="text-primary" target="_blank">Releases</a> page</li>
+                            <li>Enable "Unknown Sources" in your Android settings (if needed)</li>
+                            <li>Install the APK and open the app</li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>First Launch:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grant Storage Permission — Required for saving tasks in Documents folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Grant Notification Permission (Android 13+) — Required for deadline reminders</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Start adding your tasks!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Guide -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUserGuide" aria-expanded="false">
+                        <i class="bi bi-tools me-2 text-primary"></i> User Guide
+                    </button>
+                </h2>
+                <div id="collapseUserGuide" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Creating a Task:</strong></p>
+                        <ol class="text-light small">
+                            <li>Tap the <strong>+ button</strong> (floating action button in bottom-right corner)</li>
+                            <li>Enter <strong>Title</strong> (required)</li>
+                            <li>Enter <strong>Description</strong> (optional)</li>
+                            <li>Select <strong>Priority</strong> (Low/Medium/High)</li>
+                            <li>Set <strong>Deadline</strong> (date and time picker)</li>
+                            <li>Tap <strong>Save</strong></li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>Viewing Task Details:</strong></p>
+                        <p class="text-light small">Tap the <strong>VIEW button</strong> on any task card to see full description, priority, deadline, status, and creation date.</p>
+                        <p class="text-light mt-2"><strong>Editing a Task:</strong></p>
+                        <ol class="text-light small">
+                            <li>Tap the <strong>EDIT button</strong> on any task card</li>
+                            <li>Modify title, description, priority, or deadline</li>
+                            <li>Tap <strong>Save</strong></li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>Deleting a Task:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Method 1:</strong> Tap the <strong>DELETE button</strong> on the task card</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Method 2:</strong> <strong>Swipe RIGHT</strong> on the task card</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Confirmation dialog prevents accidental deletion</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Completing Tasks:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Swipe LEFT</strong> on any task to mark as completed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Swipe LEFT again</strong> on completed task to mark as not completed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Completed tasks have a <strong>green border</strong> and <strong>"✓ COMPLETED" badge</strong> in the corner</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Reordering Tasks:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Long press</strong> on any task card</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Drag up or down</strong> to move the task</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Release</strong> — order is saved automatically</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Indicators -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVisual" aria-expanded="false">
+                        <i class="bi bi-palette me-2 text-primary"></i> Visual Indicators
+                    </button>
+                </h2>
+                <div id="collapseVisual" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Indicator</th><th>Meaning</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>🔴 Red deadline text</td><td>Task is OVERDUE</td></tr>
+                                    <tr><td>🟠 Orange deadline text</td><td>Task is due TODAY</td></tr>
+                                    <tr><td>🟡 Yellow deadline text</td><td>Task is due TOMORROW</td></tr>
+                                    <tr><td>🟢 Green border</td><td>Task is COMPLETED</td></tr>
+                                    <tr><td>Dimmed appearance</td><td>Task is completed</td></tr>
+                                    <tr><td>✓ COMPLETED badge</td><td>Task is completed (top-right corner)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Priority Colors:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Priority</th><th>Color</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>LOW</td><td><span style="background:#4CAF50; color:white; padding:2px 8px; border-radius:4px;">Green</span></td></tr>
+                                    <tr><td>MEDIUM</td><td><span style="background:#FFC107; color:black; padding:2px 8px; border-radius:4px;">Yellow</span></td></tr>
+                                    <tr><td>HIGH</td><td><span style="background:#F44336; color:white; padding:2px 8px; border-radius:4px;">Red</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNotifications" aria-expanded="false">
+                        <i class="bi bi-bell me-2 text-primary"></i> Notifications
+                    </button>
+                </h2>
+                <div id="collapseNotifications" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">The app checks for deadlines every <strong>hour</strong> and sends notifications based on urgency:</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Type</th><th>Condition</th><th>Priority</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>⚠️ OVERDUE</td><td>Past deadline</td><td>High + Vibe</td></tr>
+                                    <tr><td>🔔 URGENT</td><td>Due in less than 12 hours</td><td>High + Vibe</td></tr>
+                                    <tr><td>📅 REMINDER</td><td>Due in less than 24 hours</td><td>Normal</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>On startup:</strong> A dialog shows all tasks that are overdue, due today, or due tomorrow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage & Permissions -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStorage" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> Storage & Permissions
+                    </button>
+                </h2>
+                <div id="collapseStorage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Storage Locations:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Type</th><th>Path</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Tasks file</td><td><code>Documents/android-todo-app/todos.json</code></td></tr>
+                                    <tr><td>Order file</td><td><code>Documents/android-todo-app/order.json</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>Note:</strong> Your data persists even after app updates or reinstallation.</p>
+                        <p class="text-light mt-2"><strong>Permissions:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Permission</th><th>Required For</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>POST_NOTIFICATIONS</code> (Android 13+)</td><td>Deadline reminders</td></tr>
+                                    <tr><td><code>WRITE_EXTERNAL_STORAGE</code> (Android 10-)</td><td>Saving tasks to Documents folder</td></tr>
+                                    <tr><td><code>READ_EXTERNAL_STORAGE</code> (Android 10-)</td><td>Reading saved tasks</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2">Storage permission is required for the app to work properly. Notification permission is optional but recommended for reminders.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArchitecture" aria-expanded="false">
+                        <i class="bi bi-cpu me-2 text-primary"></i> Architecture
+                    </button>
+                </h2>
+                <div id="collapseArchitecture" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Component</th><th>Technology</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Language</td><td>Kotlin</td></tr>
+                                    <tr><td>UI</td><td>Material Design + XML</td></tr>
+                                    <tr><td>Architecture</td><td>MVVM (ViewModel + LiveData)</td></tr>
+                                    <tr><td>Background</td><td>WorkManager (periodic checks)</td></tr>
+                                    <tr><td>Storage</td><td>Local JSON files (Gson)</td></tr>
+                                    <tr><td>Minimum SDK</td><td>24 (Android 7.0 Nougat)</td></tr>
+                                    <tr><td>Target SDK</td><td>36 (Android 15)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Build from Source:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/aixandrolab/android-todo-app.git
+# Open in Android Studio
+# Wait for Gradle sync to complete
+./gradlew assembleDebug</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks. The author is not responsible for any data loss or damages arising from using this application.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/aixandrolab/android-todo-app/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/aixandrolab/android-todo-app/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/aixandrolab/android-todo-app" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/android-todo-app/releases" class="btn btn-outline-primary btn-sm">Releases (APK)</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/android-todo-app/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/android-todo-app/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/aixandrolab.html" class="text-primary text-decoration-none">Aixandrolab</a>
+                    </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/applications.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Applications
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.2.6</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed" style="bottom: 20px; left: 20px; z-index: 9999; opacity: 0.7; border-radius: 20px;">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" style="display: none; position: fixed; bottom: 70px; left: 20px; width: 90%; max-width: 500px; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); border-right: 3px solid #00ff9d; border-radius: 6px; z-index: 9998; font-family: 'Courier New', monospace; box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" style="background: transparent; border: none; color: #00ff9d; font-family: 'Courier New', monospace; font-size: 11px; width: 85%; outline: none; margin-left: 5px;">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof ScrollManager !== 'undefined') new ScrollManager();
+    });
+</script>
+</body>
+</html>
