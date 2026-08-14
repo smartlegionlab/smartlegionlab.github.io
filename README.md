@@ -6,7 +6,7 @@
 [![Static Site](https://img.shields.io/badge/Hosting-GitHub%20Pages-orange?logo=github)](https://pages.github.com)
 [![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-blue?logo=github-actions)](https://github.com/features/actions)
 
-**Modern, self-updating technical portfolio** showcasing the work of Alexander Suvorov and Smart Legion Lab in **software architecture**, **open-source development**, and **theoretical computer science research**. This isn't just a static site—it's a fully automated ecosystem that fetches live data and builds itself daily.
+**Modern, technical portfolio** showcasing the work of Alexander Suvorov and Smart Legion Lab in **software architecture**, **open-source development**, and **theoretical computer science research**. This isn't just a static site—it's a fully automated ecosystem that fetches live data and update all counters itself daily.
 
 ![Main Page](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
 
@@ -22,7 +22,7 @@
 
 ---
 
-## ⚡ Project Overview
+## Project Overview
 
 This portfolio is designed to be a central hub for all activities of Smart Legion Lab. It automatically aggregates and presents information from various sources (GitHub, PyPI, Dev.to, Zenodo), creating a unified and always up-to-date showcase.
 
@@ -32,11 +32,10 @@ This portfolio is designed to be a central hub for all activities of Smart Legio
 *   **Zero-Cost Hosting**: Hosted on GitHub Pages, requiring only a domain name.
 *   **Dynamic Content**: All project stats, package versions, and research metrics are pulled live.
 *   **Secure Architecture**: A static site with no database or backend is inherently more secure.
-*   **Atomic Deployment**: The site only updates if *all* pages generate successfully, guaranteeing zero downtime.
 
 ---
 
-## 🌐 Site Structure & Screenshots
+## Site Structure & Screenshots
 
 The site is organized into several key sections, each serving a specific purpose.
 
@@ -127,13 +126,13 @@ An overview of the team behind Smart Legion Lab.
 
 ---
 
-## 🛸 Extra: Developer Console & 3D Site Map
+## Extra: Developer Console & 3D Site Map
 
 Beyond the standard navigation, the site includes two unique interactive features that showcase the technical depth of the project.
 
 ---
 
-### 🖥️ In-Browser Developer Console
+### In-Browser Developer Console
 
 A fully functional terminal built into the site, accessible via the **"Console"** button in the bottom-left corner of any page. It's a direct interface to the `smartpasslib` library and other site utilities.
 
@@ -155,7 +154,7 @@ This is not just a gimmick; it's a practical demonstration of the `smartpasslib`
 
 ---
 
-### 🌌 3D Interactive Site Map ("Universe")
+### 3D Interactive Site Map ("Universe")
 
 An immersive 3D visualization of the entire website structure, accessible via the **"Site Map"** link in the footer or by typing `map` in the developer console. It renders the `sitemap.xml` as an explorable solar system.
 
@@ -176,7 +175,7 @@ An immersive 3D visualization of the entire website structure, accessible via th
 
 ---
 
-## ✨ Advanced Site Features
+## Advanced Site Features
 
 *   **Live Statistics**: Key metrics (e.g., article count, ecosystem count) are automatically updated via the `StatsManager` (`/js/stats-manager.js`).
 *   **Scroll Progress**: A visual indicator (`ScrollManager`) shows your reading progress on any page.
@@ -184,7 +183,7 @@ An immersive 3D visualization of the entire website structure, accessible via th
 
 ---
 
-## 🚀 Local Development
+## Local Development
 
 You can run the entire build process locally.
 
@@ -199,24 +198,7 @@ You can run the entire build process locally.
     cd smartlegionlab.github.io
     ```
 
-2.  **Install dependencies**
-    ```bash
-    pip install requests beautifulsoup4 jinja2 markdown pygments
-    ```
-
-3.  **Run the full build pipeline**
-    ```bash
-    # 1. Fetch live data from APIs
-    python scripts/fetch_github.py
-    python scripts/fetch_devto.py
-    python scripts/fetch_pypi.py
-    python scripts/fetch_zenodo.py
-
-    # 2. Generate all static HTML files
-    python scripts/generate_data.py
-    ```
-
-4.  **Preview the site**
+2. **Preview the site**
     ```bash
     python -m http.server 8000
     ```
@@ -224,13 +206,13 @@ You can run the entire build process locally.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 📬 Connect
+## Connect
 
 *   **🌐 Portfolio:** [smartlegionlab.ru](https://smartlegionlab.ru)
 *   **💻 GitHub:** [@smartlegionlab](https://github.com/smartlegionlab)
