@@ -1283,6 +1283,17 @@ hr {
     box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
 }
 
+.smart-console-input {
+    background: transparent;
+    border: none;
+    color: #00ff9d;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    width: 85%;
+    outline: none;
+    margin-left: 5px;
+}
+
 @media (min-width: 768px) {
     #devConsole {
         width: 500px !important;
