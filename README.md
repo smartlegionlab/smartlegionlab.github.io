@@ -1,12 +1,11 @@
-# Smart Legion Lab · Automated Technical Portfolio <sup>v7.3.1</sup>
+# Smart Legion Lab · Official Website
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
+[![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.8+-green?logo=python)](https://python.org)
-[![Static Site](https://img.shields.io/badge/Hosting-GitHub%20Pages-orange?logo=github)](https://pages.github.com)
-[![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-blue?logo=github-actions)](https://github.com/features/actions)
+[![GitHub release](https://img.shields.io/github/v/release/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/)
+[![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
 
-**Modern, technical portfolio** showcasing the work of Alexander Suvorov and Smart Legion Lab in **software architecture**, **open-source development**, and **theoretical computer science research**. This isn't just a static site—it's a fully automated ecosystem that fetches live data and update all counters itself daily.
+**The official website of Smart Legion Lab** - a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
 
 ![Main Page](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
 
@@ -22,30 +21,31 @@
 
 ---
 
-## Project Overview
+## About the Website
 
-This portfolio is designed to be a central hub for all activities of Smart Legion Lab. It automatically aggregates and presents information from various sources (GitHub, PyPI, Dev.to, Zenodo), creating a unified and always up-to-date showcase.
+Smart Legion Lab is a software research and development laboratory founded by Alexander Suvorov and his team. This website serves as the central hub for all lab activities, presenting:
 
-### Key Features
+- **90+ open-source projects** across multiple programming languages
+- **30+ Python packages** published on PyPI
+- **4 foundational research paradigms** with DOI publications
+- **7 cross-platform ecosystems** (Smart Passwords, 2FA Management, NP Problem, etc.)
+- **34+ applications** (Desktop, Web, Mobile, CLI, Telegram Bots)
+- **Team of two** (Alexander Suvorov Sr. & Jr.)
 
-*   **Fully Automated CI/CD**: The site rebuilds itself daily via GitHub Actions, fetching fresh data from APIs.
-*   **Zero-Cost Hosting**: Hosted on GitHub Pages, requiring only a domain name.
-*   **Dynamic Content**: All project stats, package versions, and research metrics are pulled live.
-*   **Secure Architecture**: A static site with no database or backend is inherently more secure.
+The site is designed to be a **static, secure, and comprehensive** showcase that requires **no database**, **no backend**, and can be hosted **anywhere** with zero maintenance overhead.
 
 ---
 
-## Site Structure & Screenshots
-
-The site is organized into several key sections, each serving a specific purpose.
-
 ### 1. Homepage
-The central dashboard providing a quick overview of the lab's work and key metrics.
+The central dashboard providing a quick overview of the lab's work.
 
 ![Homepage Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
 
-*   **Overview**: Introduction to Smart Legion Lab and its core activities.
-*   **Key Metrics**: Quick access to the number of projects, libraries, publications, and more.
+**Content:**
+- Introduction to Smart Legion Lab
+- Key metrics counters (Projects, Libraries, Publications, etc.)
+- Quick navigation to all major sections
+- Links to GitHub, Zenodo, and contact information
 
 ---
 
@@ -54,13 +54,12 @@ A dedicated section for Alexander Suvorov's independent research in fundamental 
 
 ![Research Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/research.png)
 
-*   **Published Paradigms**: Showcases four foundational paradigms with DOI links, including:
-    *   Pointer‑Based Security Paradigm
-    *   Local Data Regeneration Paradigm
-    *   Position-Candidate-Hypothesis Paradigm
-    *   Deterministic Game Engine (Tech Report)
-*   **Zenodo Integration**: Real-time view/download statistics from Zenodo for each publication.
-*   **ORCID & Zenodo Links**: Direct access to academic profiles.
+**Content:**
+- **4 Published Paradigms** with DOI links
+- **Zenodo Integration**: View/download statistics for each publication
+- **ORCID & Zenodo Links**: Direct access to academic profiles
+- **Research Ecosystem**: A dedicated ecosystem page linking all research-related projects
+- **Research Community**: We maintain an active [Zenodo Community](https://zenodo.org/communities/smartlegionlab) where all our research outputs are published and discoverable. This open-access repository ensures our work is freely available to the global research community.
 
 ---
 
@@ -69,30 +68,34 @@ This section highlights the cross‑platform ecosystems built by Smart Legion La
 
 ![Ecosystems Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/ecosystems.png)
 
-*   **Unified Logic, Many Platforms**: Each ecosystem (e.g., Smart Passwords, 2FA Management) is a suite of apps and libraries built for different platforms (Web, Desktop, Mobile, CLI) from a single idea.
-*   **Ecosystem List**: Includes Smart Passwords, NP Problem, 2FA Management, Repository Management, Deterministic, Research, and ToDo Ecosystems.
+**Content:**
+- **7 Ecosystems**
+- **Unified Logic, Many Platforms**: Each ecosystem spans multiple platforms
+- **Detailed Pages**: Each ecosystem has a dedicated page with full project list
 
 ---
 
 ### 4. Applications
-A showcase of all desktop, web, mobile, CLI tools, and Telegram bots.
+A complete showcase of all applications developed by Smart Legion Lab.
 
 ![Applications Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/applications.png)
 
-*   **Search & Filter**: Quickly find an app by name, type, or author (e.g., `@smartlegionlab` or `@aixandrolab`).
-*   **Application Cards**: Each card displays the app's type, version, description, and a direct link to its details page and GitHub repository.
-*   **Interactive Badges**: Visual tags for `web`, `desktop`, `mobile`, `cli`, and `bot` for easy scanning.
+**Content:**
+- **34+ Applications**
+- **Search & Filter**: Filter by type (`web`, `desktop`, `mobile`, `cli`, `bot`) or author
+- **Detailed Pages**: Each application has a dedicated page with full description and GitHub link
 
 ---
 
 ### 5. Projects
-A complete, filterable list of all public repositories.
+A comprehensive, filterable list of all public repositories.
 
 ![Projects Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/projects.png)
 
-*   **Full Repository List**: Showcases all 90+ public projects.
-*   **Advanced Filtering**: Filter by language (Python, Go, C#, etc.) or author (`@smartlegionlab`, `@aixandrolab`).
-*   **Project Details**: Each card provides a description, key topics, and links to the project's detail page and GitHub repo.
+**Content:**
+- **90+ Public Repositories**
+- **Project Cards**: Each displays description, topics, and links to GitHub
+- **Detailed Pages**: Every project has a dedicated page with full metadata
 
 ---
 
@@ -101,9 +104,10 @@ A detailed view of all PyPI packages and libraries developed by Smart Legion Lab
 
 ![Libraries Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/libraries.png)
 
-*   **PyPI Integration**: Displays real-time version badges and PyPI links for every library.
-*   **Language Support**: Highlights libraries for Python, Go, JavaScript, Kotlin, and C#.
-*   **Library Cards**: Each card shows the library's description, a "View" button, and direct links to GitHub and PyPI.
+**Content:**
+- **30+ Libraries**
+- **PyPI Integration**: Real-time version badges and direct PyPI links
+- **Library Cards**: Description, tags, and direct links to GitHub and PyPI
 
 ---
 
@@ -112,7 +116,9 @@ A curated list of articles and blog posts published on Dev.to and other platform
 
 ![Articles Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/articles.png)
 
-*   **Article List**: Cards for each article, including metadata and a preview of the content.
+**Content:**
+- **4+ Articles**
+- **Article Cards**: Preview, tags, and direct links to full articles
 
 ---
 
@@ -121,88 +127,57 @@ An overview of the team behind Smart Legion Lab.
 
 ![Team Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/team.png)
 
-*   **Team Profiles**: Detailed profiles for Alexander Suvorov (Sr.) and Alexander Suvorov (Jr.).
-*   **Contact Information**: Direct links to email, GitHub, and other professional networks.
+**Content:**
+- **Team Profiles**:
+  - **Alexander Suvorov (Sr.)** - Founder, Chief Systems Architect & Researcher
+  - **Alexander Suvorov (Jr.)** - Full-Stack Python/Django Developer
 
 ---
 
-## Extra: Developer Console & 3D Site Map
+## Extra Features
 
-Beyond the standard navigation, the site includes two unique interactive features that showcase the technical depth of the project.
+Beyond the main sections, the website includes two unique interactive features.
 
 ---
 
-### In-Browser Developer Console
+### Developer Console
 
-A fully functional terminal built into the site, accessible via the **"Console"** button in the bottom-left corner of any page. It's a direct interface to the `smartpasslib` library and other site utilities.
+A fully functional terminal embedded in the site, accessible via the **"Console"** button in the bottom-left corner.
 
 ![Developer Console Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/console.png)
 
-**Console Features:**
-*   **Password Generation**:
-    *   `smartpass` — Generates a deterministic password from a secret phrase (identical algorithm to the core library).
-    *   `randpass` — Generates a cryptographically secure random password.
-*   **Utilities**:
-    *   `calc` — Evaluate mathematical expressions directly in the console.
-    *   `demo` — A visual demo showcasing the build process and project stats.
-    *   `map` — Launches a rocket animation and redirects to the 3D Site Map.
-    *   `clear` / `history` — Manage the terminal session.
-*   **Mini-Game**: `dino` — A playable Chrome Dino-style game built in vanilla JS.
-*   **Command History & Autocomplete**: Navigate previously used commands with the `↑` and `↓` arrow keys.
-
-This is not just a gimmick; it's a practical demonstration of the `smartpasslib` JavaScript implementation and the site's modular architecture.
+**Features:**
+- **Password Generation**:
+  - `smartpass` - Deterministic password generation from a secret phrase
+  - `randpass` - Cryptographically secure random password
+- **Utilities**:
+  - `calc` - Mathematical expression evaluator
+  - `demo` - Visual demo of the lab's work
+  - `map` - Launch to the 3D Site Map
+  - `clear` / `history` - Terminal management
+- **Mini-Game**: `dino` - Chrome Dino-style game
+- **Command History**: Navigate with `↑`/`↓` arrows
 
 ---
 
 ### 3D Interactive Site Map ("Universe")
 
-An immersive 3D visualization of the entire website structure, accessible via the **"Site Map"** link in the footer or by typing `map` in the developer console. It renders the `sitemap.xml` as an explorable solar system.
+An immersive 3D visualization of the entire website, accessible via the **"Site Map"** link in the footer or the `map` command.
 
 ![3D Site Map Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/universe.png)
 
-**Universe Features:**
-*   **Visual Hierarchy**:
-    *   **The Sun** — The homepage (central node).
-    *   **Planets** — The main sections of the site (Research, Projects, Applications, etc.).
-    *   **Moons** — Individual pages within each section.
-*   **Interactive Controls**:
-    *   **Drag** to rotate the camera.
-    *   **Scroll** to zoom in/out.
-    *   **Click** a planet or moon to send your "ship" (the "You" avatar) to it.
-    *   **Double-click** any object to open a modal with details and a direct link to that page.
-*   **History Panel**: Tracks the journey of three "users" (You, SmartLegionLab, Aixandrolab) as they navigate the universe. Click any history entry to instantly travel to that page.
-*   **Live Stats**: Displays the total number of sections and pages parsed from the `sitemap.xml`.
-
----
-
-## Advanced Site Features
-
-*   **Live Statistics**: Key metrics (e.g., article count, ecosystem count) are automatically updated via the `StatsManager` (`/js/stats-manager.js`).
-*   **Scroll Progress**: A visual indicator (`ScrollManager`) shows your reading progress on any page.
-*   **Particle Background**: A dynamic, tech-themed particle system (`ParticleBackground`) creates an immersive atmosphere.
-
----
-
-## Local Development
-
-You can run the entire build process locally.
-
-### Prerequisites
-*   Python 3.8+
-*   Git
-
-### Setup & Build
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/smartlegionlab/smartlegionlab.github.io.git
-    cd smartlegionlab.github.io
-    ```
-
-2. **Preview the site**
-    ```bash
-    python -m http.server 8000
-    ```
-    Open your browser to `http://localhost:8000`.
+**Features:**
+- **Visual Hierarchy**:
+  - **The Sun** - Homepage (central node)
+  - **Planets** - Main sections (Research, Projects, etc.)
+  - **Moons** - Individual pages within each section
+- **Interactive Controls**:
+  - **Drag** to rotate camera
+  - **Scroll** to zoom in/out
+  - **Click** any object to send your "ship" to it
+  - **Double-click** to open details modal with direct link
+- **History Panel**: Tracks journeys of three users through the universe
+- **Live Stats**: Real-time section and page counts from `sitemap.xml`
 
 ---
 
@@ -212,19 +187,21 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
 
 ---
 
-## Connect
+## 📬 Connect
 
-*   **🌐 Portfolio:** [smartlegionlab.ru](https://smartlegionlab.ru)
-*   **💻 GitHub:** [@smartlegionlab](https://github.com/smartlegionlab)
-*   **📝 Dev.to Blog:** [@smartlegionlab](https://dev.to/smartlegionlab)
-*   **📦 PyPI Packages:** [@smartlegionlab](https://pypi.org/user/smartlegionlab)
-*   **📚 ORCID:** [0009-0006-3427-9611](https://orcid.org/0009-0006-3427-9611)
-*   **🏛️ Zenodo:** [Research Community](https://zenodo.org/communities/smartlegionlab)
+[![Website](https://img.shields.io/badge/Website-smartlegionlab.ru-blue)](https://smartlegionlab.ru)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0006--3427--9611-brightgreen)](https://orcid.org/0009-0006-3427-9611)
+[![Zenodo](https://img.shields.io/badge/Zenodo-Research_Profile-orange)](https://zenodo.org/communities/smartlegionlab)
+[![GitHub](https://img.shields.io/badge/GitHub-@smartlegionlab-black)](https://github.com/smartlegionlab)
+[![PyPI](https://img.shields.io/badge/PyPI-@smartlegionlab-orange)](https://pypi.org/user/smartlegionlab/)
+[![Email](https://img.shields.io/badge/Email-smartlegionlab@gmail.com-red)](mailto:smartlegionlab@gmail.com)
+[![Dev.to](https://img.shields.io/badge/Dev.to-@smartlegionlab-purple)](https://dev.to/smartlegionlab)
+
 
 ---
 
 <div align="center">
   <sub>Built with ❤️ by Alexander Suvorov</sub>
   <br>
-  <sub>© 2026 Alexander Suvorov. All rights reserved.</sub>
+  <sub>© 2026 Smart Legion Lab. All rights reserved.</sub>
 </div>
