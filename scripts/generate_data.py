@@ -80,6 +80,7 @@ BASE_PAGES = [
     {'loc': f"{BASE_URL}/projects/deterministic-game-engine-report.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/aixandrolab.github.io.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/projects/simple-social-network.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
+    {'loc': f"{BASE_URL}/projects/qr-code-scanner.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.9'},
     {'loc': f"{BASE_URL}/libraries.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/smartpasslib.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
     {'loc': f"{BASE_URL}/libraries/clipassman.html", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '0.8'},
