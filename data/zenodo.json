@@ -13,14 +13,14 @@
   },
   "deterministicEngine": {
     "unique_views": 266,
-    "unique_downloads": 216,
+    "unique_downloads": 217,
     "total_views": 336,
-    "total_downloads": 345
+    "total_downloads": 346
   },
   "pchParadigm": {
     "unique_views": 174,
-    "unique_downloads": 167,
+    "unique_downloads": 172,
     "total_views": 218,
-    "total_downloads": 265
+    "total_downloads": 270
   }
 }
