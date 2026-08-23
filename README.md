@@ -1,4 +1,4 @@
-# Smart Legion Lab · Official Website <sup>v7.4.0</sup>
+# Smart Legion Lab · Official Website <sup>v7.4.1</sup>
 
 [![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.com-blue?style=for-the-badge&logo=github)](https://smartlegionlab.com)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
