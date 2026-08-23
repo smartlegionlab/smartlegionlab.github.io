@@ -1,6 +1,6 @@
 # Smart Legion Lab · Official Website <sup>v7.4.0</sup>
 
-[![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.ru-blue?style=for-the-badge&logo=github)](https://smartlegionlab.ru)
+[![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.com-blue?style=for-the-badge&logo=github)](https://smartlegionlab.com)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/)
 [![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
@@ -190,7 +190,7 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
 
 ## 📬 Connect
 
-[![Website](https://img.shields.io/badge/Website-smartlegionlab.ru-blue)](https://smartlegionlab.ru)
+[![Website](https://img.shields.io/badge/Website-smartlegionlab.com-blue)](https://smartlegionlab.com)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--3427--9611-brightgreen)](https://orcid.org/0009-0006-3427-9611)
 [![Zenodo](https://img.shields.io/badge/Zenodo-Research_Profile-orange)](https://zenodo.org/communities/smartlegionlab)
 [![GitHub](https://img.shields.io/badge/GitHub-@smartlegionlab-black)](https://github.com/smartlegionlab)

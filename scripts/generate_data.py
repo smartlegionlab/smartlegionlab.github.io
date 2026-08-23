@@ -3,7 +3,7 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 
 SITEMAP_PATH = 'sitemap.xml'
-BASE_URL = 'https://smartlegionlab.ru'
+BASE_URL = 'https://smartlegionlab.com'
 
 BASE_PAGES = [
     {'loc': f"{BASE_URL}/", 'lastmod': '2026-07-01', 'changefreq': 'weekly', 'priority': '1.0'},

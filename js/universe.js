@@ -54,7 +54,7 @@
                 const loc = url.querySelector('loc');
                 if (loc) {
                     const text = loc.textContent.trim();
-                    let label = text.replace('https://smartlegionlab.ru', '');
+                    let label = text.replace('https://smartlegionlab.com', '');
                     if (!label || label === '/') {
                         label = '🏠 Home';
                     } else {
@@ -87,7 +87,7 @@
                     result.push({
                         loc: text,
                         label: label,
-                        path: text.replace('https://smartlegionlab.ru', '')
+                        path: text.replace('https://smartlegionlab.com', '')
                     });
                 }
             });
@@ -102,14 +102,14 @@
 
     function getFallbackData() {
         return [
-            { loc: 'https://smartlegionlab.ru/', label: '🏠 Home' },
-            { loc: 'https://smartlegionlab.ru/projects.html', label: '📁 Projects' },
-            { loc: 'https://smartlegionlab.ru/libraries.html', label: '📚 Libraries' },
-            { loc: 'https://smartlegionlab.ru/ecosystems.html', label: '🌍 Ecosystems' },
-            { loc: 'https://smartlegionlab.ru/applications.html', label: '📱 Applications' },
-            { loc: 'https://smartlegionlab.ru/team.html', label: '👥 Team' },
-            { loc: 'https://smartlegionlab.ru/articles.html', label: '📰 Articles' },
-            { loc: 'https://smartlegionlab.ru/research.html', label: '🔬 Research' }
+            { loc: 'https://smartlegionlab.com/', label: '🏠 Home' },
+            { loc: 'https://smartlegionlab.com/projects.html', label: '📁 Projects' },
+            { loc: 'https://smartlegionlab.com/libraries.html', label: '📚 Libraries' },
+            { loc: 'https://smartlegionlab.com/ecosystems.html', label: '🌍 Ecosystems' },
+            { loc: 'https://smartlegionlab.com/applications.html', label: '📱 Applications' },
+            { loc: 'https://smartlegionlab.com/team.html', label: '👥 Team' },
+            { loc: 'https://smartlegionlab.com/articles.html', label: '📰 Articles' },
+            { loc: 'https://smartlegionlab.com/research.html', label: '🔬 Research' }
         ];
     }
 
@@ -124,9 +124,9 @@
             id: rootId,
             label: root ? root.label : '☀️ Smart Legion Lab',
             group: 'root',
-            url: root ? root.loc : 'https://smartlegionlab.ru/'
+            url: root ? root.loc : 'https://smartlegionlab.com/'
         });
-        nodeMap.set('https://smartlegionlab.ru/', rootId);
+        nodeMap.set('https://smartlegionlab.com/', rootId);
 
         const sections = new Map();
         const indexPages = new Map();
@@ -189,7 +189,7 @@
                 'research': '🔬'
             };
             const sectionLabel = (icons[sectionName] || '📂') + ' ' + sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
-            const sectionUrl = 'https://smartlegionlab.ru/' + sectionName + '.html';
+            const sectionUrl = 'https://smartlegionlab.com/' + sectionName + '.html';
 
             const size = 0.7 + Math.random() * 0.5;
             const color = sectionColors[idx % sectionColors.length];
@@ -907,7 +907,7 @@
         sunGroup.userData = {
             nodeId: rootNode.id,
             label: rootNode.label,
-            url: rootNode.url || 'https://smartlegionlab.ru/',
+            url: rootNode.url || 'https://smartlegionlab.com/',
             group: 'root',
             type: '☀️ Main page',
             description: 'Smart Legion Lab home page. Start your journey through the universe of projects, libraries and research.'
@@ -937,7 +937,7 @@
             const sectionGroup = createSectionMesh(color, size, 0.2, hasRing);
             sectionGroup.position.set(x, y, z);
 
-            const sectionUrl = section.url || 'https://smartlegionlab.ru/' + section.id.replace('sec_', '') + '.html';
+            const sectionUrl = section.url || 'https://smartlegionlab.com/' + section.id.replace('sec_', '') + '.html';
             sectionGroup.userData = {
                 nodeId: section.id,
                 label: section.label,
