@@ -63,3 +63,18 @@ class ScrollManager {
         }
     }
 }
+
+(function() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollManager);
+    } else {
+        initScrollManager();
+    }
+
+    function initScrollManager() {
+        if (typeof ScrollManager !== 'undefined' && !window._scrollManagerInitialized) {
+            new ScrollManager();
+            window._scrollManagerInitialized = true;
+        }
+    }
+})();
