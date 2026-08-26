@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Libraries · Smart Legion Lab</title>
-    <meta name="description" content="Libraries by Smart Legion Lab: Python, Go, JavaScript. Kotlin, C#.">
+    <meta name="description" content="Smart Legion Lab libraries for developers — cryptographic password generators, TSP solvers, GitHub and Forgejo tools, Redis utilities, and CLI libraries in Python, Go, C#, Kotlin, Rust, and JS.">
     <meta name="author" content="Smart Legion Lab">
     <meta name="copyright" content="Smart Legion Lab">
 
@@ -13,7 +13,7 @@
     <link rel="author" href="https://github.com/smartlegionlab">
 
     <meta property="og:title" content="Libraries · Smart Legion Lab">
-    <meta property="og:description" content="Libraries by Smart Legion Lab: Python, Go, JavaScript. Kotlin, C#.">
+    <meta property="og:description" content="Smart Legion Lab libraries for developers — cryptographic password generators, TSP solvers, GitHub and Forgejo tools, Redis utilities, and CLI libraries in Python, Go, C#, Kotlin, Rust, and JS.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/libraries.html">
     <meta property="og:site_name" content="Smart Legion Lab · Libraries">
@@ -127,7 +127,14 @@
     </div>
 
     <div class="sidebar-footer">
-        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.4.3</span></a></p>
+        <p>©
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">
+                Smart Legion Lab
+            </a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+                <span data-smart-version>v7.4.3</span>
+            </a>
+        </p>
     </div>
 </div>
 
@@ -141,1047 +148,1203 @@
 
 <!-- end nav -->
 
-    <!-- content -->
+<!-- content -->
 
-<div class="container">
-    <div class="custom-margin-top">
+<div class="container custom-margin-top">
 
-        <h1 class="text-center text-primary">Libraries <sup class="text-warning" data-smart-key="libraries">30+</sup></h1>
-        <p class="text-center">Libraries by <a target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a>: Python, Go, JavaScript, Kotlin, C#.</p>
-        <div class="badges">
-            <span class="badge bg-primary custom-style">python</span>
-            <span class="badge bg-primary custom-style">go</span>
-            <span class="badge bg-primary custom-style">javascript</span>
-            <span class="badge bg-primary custom-style">kotlin</span>
-            <span class="badge bg-primary custom-style">C#</span>
-        </div>
+    <h1 class="text-center text-primary">Libraries <sup class="text-warning" data-smart-key="libraries">30+</sup></h1>
 
-        <hr>
+    <p class="text-center">
+        <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Libraries</span> is a collection
+        of production-ready libraries for developers — from cryptographic password generators and TSP
+        solvers to utilities for Redis, GitHub API, Forgejo, console applications, and file path management.
+        Built with <span class="text-primary">Python, Go, C#, Kotlin, Rust, and JavaScript</span>,
+        these libraries solve real-world challenges in security, automation, algorithms, and CLI tool development.
+    </p>
 
-        <div class="row g-2 mb-4 align-items-center">
-            <div class="col-12 col-md-7">
-                <div class="input-group smart-input-group">
-                    <span class="input-group-text">
-                        <i class="bi bi-search"></i>
-                    </span>
-                    <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search applications...">
-                    <button class="btn smart-clear-btn" id="clearSearch" type="button">
-                        <i class="bi bi-x-lg"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col-12 col-md-5">
-                <div class="dropdown w-100" id="filterDropdownContainer">
-                    <button class="btn smart-select dropdown-toggle text-start w-100" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span id="selectedFilterText">All Types</span>
-                    </button>
-                    <ul class="dropdown-menu smart-dropdown-menu w-100" aria-labelledby="filterDropdown" id="filterDropdownMenu">
-                        <li><button class="dropdown-item active" type="button" data-value="all">All</button></li>
-                        <li><button class="dropdown-item" type="button" data-value="python">Python</button></li>
-                        <li><button class="dropdown-item" type="button" data-value="javascript">JavaScript</button></li>
-                        <li><button class="dropdown-item" type="button" data-value="kotlin">Kotlin</button></li>
-                        <li><button class="dropdown-item" type="button" data-value="go">Go</button></li>
-                        <li><button class="dropdown-item" type="button" data-value="c#">C#</button></li>
-                    </ul>
-                </div>
+    <hr>
+
+    <div class="row g-2 mb-4 align-items-center">
+        <div class="col-12 col-md-7">
+            <div class="input-group smart-input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search applications...">
+                <button class="btn smart-clear-btn" id="clearSearch" type="button">
+                    <i class="bi bi-x-lg"></i>
+                </button>
             </div>
         </div>
-
-        <div class="content-section">
-            <div class="container">
-                <div class="row text-center">
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartpasslib</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Passwords Library: Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smartpasslib</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                                <span class="badge bg-primary custom-style">decentralization</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartpasslib.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartpasslib" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">clipassman</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Console Smart Password Manager - Terminal-based smart password manager with deterministic password generation. Generate, manage, and retrieve passwords without storing them - all from your command line.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smart-password-manager</span>
-                                <span class="badge bg-primary custom-style">python-app</span>
-                                <span class="badge bg-primary custom-style">cli-app</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/clipassman.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/clipassman" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/clipassman/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-tsp-solver</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by ~25% on real-world clustered data while maintaining practical computational efficiency.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">np-problem</span>
-                                <span class="badge bg-primary custom-style">tsp-solver</span>
-                                <span class="badge bg-primary custom-style">tsp-oracle</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-tsp-solver.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-tsp-solver/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">clipassgen</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Console Smart Password Generator - Terminal-based smart password generator with deterministic password generation. Generate passwords from secret phrases - same secret always produces the same password, no storage required.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smart-password-generator</span>
-                                <span class="badge bg-primary custom-style">python-app</span>
-                                <span class="badge bg-primary custom-style">cli-app</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/clipassgen.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/clipassgen/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/clipassgen/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-tsp-benchmark</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart TSP Benchmark is a professional algorithm testing infrastructure with customizable scenarios and detailed metrics.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">tsp-benchmark</span>
-                                <span class="badge bg-primary custom-style">np-problem</span>
-                                <span class="badge bg-primary custom-style">tsp</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-tsp-benchmark.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-tsp-benchmark/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-2fa-secure</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v0.2.4</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Advanced Two-Factor Authentication system with enhanced security features.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">2fa</span>
-                                <span class="badge bg-primary custom-style">auth</span>
-                                <span class="badge bg-primary custom-style">cybersecurity</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-2fa-secure.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-secure/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-2fa-secure/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">babylonian-image-library</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    A deterministic infinite image library generator inspired by Borges' 'The Library of Babel'. Generate unique, deterministic images based on coordinate systems without storing image data.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">babylonian-library</span>
-                                <span class="badge bg-primary custom-style">image-generator</span>
-                                <span class="badge bg-primary custom-style">babylon</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/babylonian-image-library.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/babylonian-image-library/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/babylonian-image-library/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-babylon-library</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.1.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Babylon Library. A deterministic infinite library generator. Generate unique, deterministic books and pages based on coordinate systems without storing any data.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">babylonian-library</span>
-                                <span class="badge bg-primary custom-style">text-generator</span>
-                                <span class="badge bg-primary custom-style">babylon</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-babylon-library.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-babylon-library/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-babylon-library/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">commandman</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Console utility for working with command packages. Storage, execution, autorun.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">command-executor</span>
-                                <span class="badge bg-primary custom-style">command-manager</span>
-                                <span class="badge bg-primary custom-style">cli-app</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/commandman.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/commandman/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/projectcommandman/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartpathlibrary</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Library for working with paths to files and folders.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">folders</span>
-                                <span class="badge bg-primary custom-style">files</span>
-                                <span class="badge bg-primary custom-style">cli-app</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartpathlibrary.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartpathlibrary/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartpathlibrary/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartexecutorlib</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart executors.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">executors</span>
-                                <span class="badge bg-primary custom-style">executor</span>
-                                <span class="badge bg-primary custom-style">python-library</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartexecutorlib.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartexecutorlib/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartexecutorlib/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">climan</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Cross-platform config and manager for click console utilities.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">click</span>
-                                <span class="badge bg-primary custom-style">cross-platform</span>
-                                <span class="badge bg-primary custom-style">python-library</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/climan.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/climan/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/climan/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">github-ssh-key</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    GitHub ssh key manager. Console utility for creating, getting, testing, using public ssh keys for GitHub.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">github-api</span>
-                                <span class="badge bg-primary custom-style">ssh</span>
-                                <span class="badge bg-primary custom-style">ssn-manage</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/github-ssh-key.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/github-ssh-key/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/github-ssh-key/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">commandpack</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">cross-platform</span>
-                                <span class="badge bg-primary custom-style">command-manager</span>
-                                <span class="badge bg-primary custom-style">executor</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/commandpack.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/commandpack/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/commandpack/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartprinter</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v0.4.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Cross-platform Python library, smart printer for console applications.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">text-decorator</span>
-                                <span class="badge bg-primary custom-style">cli-library</span>
-                                <span class="badge bg-primary custom-style">printer</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartprinter.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartprinter/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartprinter/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartcliapp</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Cross-platform library of tools for creating console applications, based on the click library.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">cross-platform</span>
-                                <span class="badge bg-primary custom-style">click</span>
-                                <span class="badge bg-primary custom-style">cli-library</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartcliapp.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartcliapp/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartcliapp/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">commandex</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    A cross-platform library for creation, storage, management of commands and command packages. Execution of commands, parsing of files with command packages.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">cross-platform</span>
-                                <span class="badge bg-primary custom-style">command-manager</span>
-                                <span class="badge bg-primary custom-style">executor</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/commandex.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/commandex/" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/commandex/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartrandom</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Random data generators. Allows you to generate random strings of a given length from letters, numbers and symbols, as well as randomize text. Helps generate passwords, service codes (for example, for sending via SMS), hashes and much more. Generates smart, recoverable passwords.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">generator</span>
-                                <span class="badge bg-primary custom-style">smart-password-generator</span>
-                                <span class="badge bg-primary custom-style">text-generator</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartrandom.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartrandom" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartrandom/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smarttextdecorator</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    A cross-platform library for decorating strings and displaying them beautifully in the console. Generates and displays lines to the full width of the console with the specified text and a placeholder character. Generates and displays a line with the specified text, decorated at the top and bottom with filler characters along the length of the line. Use for beautiful design of console applications.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">text-generator</span>
-                                <span class="badge bg-primary custom-style">cli-library</span>
-                                <span class="badge bg-primary custom-style">printer</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smarttextdecorator.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smarttextdecorator" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smarttextdecorator" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartauthen</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart, simple, lightweight, secure cross-platform authentication for any application.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">auth</span>
-                                <span class="badge bg-primary custom-style">cross-platform</span>
-                                <span class="badge bg-primary custom-style">python-library</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartauthen.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartauthen" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smartauthen" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-redis-storage</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Convenient work with Redis.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">redis</span>
-                                <span class="badge bg-primary custom-style">python-library</span>
-                                <span class="badge bg-primary custom-style">redis-storage</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-redis-storage.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-redis-storage" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-redis-storage" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-text-randomizer</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v0.1.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Text Randomizer
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">text-generator</span>
-                                <span class="badge bg-primary custom-style">python-library</span>
-                                <span class="badge bg-primary custom-style">random</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-text-randomizer.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-text-randomizer" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-text-randomizer" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-repository-manager-core</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Repository Manager Core - A Python library for managing Git repositories with intelligent synchronization, SSH configuration validation, and GitHub integration.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">repository-manager</span>
-                                <span class="badge bg-primary custom-style">downloader</span>
-                                <span class="badge bg-primary custom-style">github-api</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-repository-manager-core.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-core" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-repository-manager-core" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">forgejo-sync-manager-core</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.2</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Universal core library for Forgejo repository synchronization.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">repository-manager</span>
-                                <span class="badge bg-primary custom-style">clone</span>
-                                <span class="badge bg-primary custom-style">forgejo-api</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/forgejo-sync-manager-core.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/forgejo-sync-manager-core/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                JavaScript
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartpasslib-js</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Passwords Library (JS): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smartpasslib</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                                <span class="badge bg-primary custom-style">decentralization</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartpasslib-js.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Kotlin
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartpasslib-kotlin</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Passwords Library (Kotlin): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smartpasslib</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                                <span class="badge bg-primary custom-style">decentralization</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartpasslib-kotlin.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="btn btn-outline-primary">Github <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                C#
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartpasslib-csharp</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Passwords Library (C#): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smartpasslib</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                                <span class="badge bg-primary custom-style">decentralization</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartpasslib-csharp.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Go
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smartpasslib-go</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Smart Passwords Library (Golang): Cryptographic password generation and management without storage. Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">smartpasslib</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                                <span class="badge bg-primary custom-style">decentralization</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smartpasslib-go.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">smart-dynamic-path</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Dynamic, deterministic, time-dependent path generation. No storage. No database. No dependencies. Generate cryptographically secure paths that change automatically based on time (day, month, hour) from a secret phrase. Perfect for hiding admin panels, creating temporary access links, or building time-based API keys.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">web</span>
-                                <span class="badge bg-primary custom-style">utility</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/smart-dynamic-path.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-dynamic-path" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/smart-dynamic-path/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
-                        <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                Python
-                            </span>
-                            <div class="mb-2">
-                                <h4 class="mt-2 text-light">django-smart-dynamic-path</h4>
-                                <div class="mt-1 mb-1">
-                                    <i class="bi bi-person-circle text-secondary me-1"></i>
-                                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
-                                        @smartlegionlab
-                                    </a>
-                                    <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.2</span>
-                                </div>
-                            </div>
-                            <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
-                                <p class="mb-0 text-center small">
-                                    Dynamic secret admin URL for Django. Time-based, deterministic, no storage. Hide your Django admin behind a URL that changes daily/monthly. Only you know the secret phrase to generate the current path.
-                                </p>
-                            </div>
-                            <div class="badges mb-3">
-                                <span class="badge bg-primary custom-style">django</span>
-                                <span class="badge bg-primary custom-style">django-admins</span>
-                                <span class="badge bg-primary custom-style">determinism</span>
-                            </div>
-                            <div class="btn-group btn-group-sm text-center mt-auto">
-                                <a href="/libraries/django-smart-dynamic-path.html" class="btn btn-outline-primary">View</a>
-                                <a target="_blank" href="https://github.com/smartlegionlab/django-smart-dynamic-path" class="btn btn-outline-primary">GitHub <i class="bi bi-box-arrow-in-up-right"></i></a>
-                                <a target="_blank" href="https://pypi.org/project/django-smart-dynamic-path/" class="btn btn-outline-info">PyPi <i class="bi bi-box-arrow-in-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+        <div class="col-12 col-md-5">
+            <div class="dropdown w-100" id="filterDropdownContainer">
+                <button class="btn smart-select dropdown-toggle text-start w-100" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="selectedFilterText">All Types</span>
+                </button>
+                <ul class="dropdown-menu smart-dropdown-menu w-100" aria-labelledby="filterDropdown" id="filterDropdownMenu">
+                    <li><button class="dropdown-item active" type="button" data-value="all">All</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="python">Python</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="rust">Rust</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="javascript">JavaScript</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="kotlin">Kotlin</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="go">Go</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="c#">C#</button></li>
+                </ul>
             </div>
         </div>
-
     </div>
+
+    <div class="container">
+        <div class="row text-center">
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartpasslib</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Passwords Library: Cryptographic password generation and management without storage.
+                            Generate passwords from secrets, verify knowledge without exposure,
+                            manage metadata securely.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smartpasslib</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                        <span class="badge bg-primary custom-style">decentralization</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartpasslib.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartpasslib" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">clipassman</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Console Smart Password Manager - Terminal-based smart password manager with deterministic
+                            password generation. Generate, manage, and retrieve passwords without storing
+                            them - all from your command line.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smart-password-manager</span>
+                        <span class="badge bg-primary custom-style">python-app</span>
+                        <span class="badge bg-primary custom-style">cli-app</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/clipassman.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/clipassman" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/clipassman/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-tsp-solver</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            A high-performance Python library for solving the Traveling Salesman Problem (TSP) using
+                            novel heuristic approaches. Features advanced algorithms that outperform classical
+                            methods by ~25% on real-world clustered data while maintaining practical
+                            computational efficiency.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">np-problem</span>
+                        <span class="badge bg-primary custom-style">tsp-solver</span>
+                        <span class="badge bg-primary custom-style">tsp-oracle</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-tsp-solver.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-tsp-solver/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">clipassgen</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Console Smart Password Generator - Terminal-based smart password generator with
+                            deterministic password generation. Generate passwords from secret phrases - same secret
+                            always produces the same password, no storage required.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smart-password-generator</span>
+                        <span class="badge bg-primary custom-style">python-app</span>
+                        <span class="badge bg-primary custom-style">cli-app</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/clipassgen.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/clipassgen/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/clipassgen/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-tsp-benchmark</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart TSP Benchmark is a professional algorithm testing infrastructure with
+                            customizable scenarios and detailed metrics.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">tsp-benchmark</span>
+                        <span class="badge bg-primary custom-style">np-problem</span>
+                        <span class="badge bg-primary custom-style">tsp</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-tsp-benchmark.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-tsp-benchmark/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-2fa-secure</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v0.2.4</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Advanced Two-Factor Authentication system with enhanced security features.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">2fa</span>
+                        <span class="badge bg-primary custom-style">auth</span>
+                        <span class="badge bg-primary custom-style">cybersecurity</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-2fa-secure.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-secure/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-2fa-secure/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">babylonian-image-library</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            A deterministic infinite image library generator inspired by Borges' 'The Library of Babel'.
+                            Generate unique, deterministic images based on coordinate systems without storing image data.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">babylonian-library</span>
+                        <span class="badge bg-primary custom-style">image-generator</span>
+                        <span class="badge bg-primary custom-style">babylon</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/babylonian-image-library.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/babylonian-image-library/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/babylonian-image-library/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-babylon-library</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.1.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Babylon Library. A deterministic infinite library generator. Generate unique,
+                            deterministic books and pages based on coordinate systems without storing any data.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">babylonian-library</span>
+                        <span class="badge bg-primary custom-style">text-generator</span>
+                        <span class="badge bg-primary custom-style">babylon</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-babylon-library.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-babylon-library/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-babylon-library/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">commandman</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Console utility for working with command packages. Storage, execution, autorun.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">command-executor</span>
+                        <span class="badge bg-primary custom-style">command-manager</span>
+                        <span class="badge bg-primary custom-style">cli-app</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/commandman.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/commandman/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/projectcommandman/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartpathlibrary</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Library for working with paths to files and folders.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">folders</span>
+                        <span class="badge bg-primary custom-style">files</span>
+                        <span class="badge bg-primary custom-style">cli-app</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartpathlibrary.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpathlibrary/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartpathlibrary/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartexecutorlib</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart executors.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">executors</span>
+                        <span class="badge bg-primary custom-style">executor</span>
+                        <span class="badge bg-primary custom-style">python-library</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartexecutorlib.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartexecutorlib/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartexecutorlib/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">climan</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Cross-platform config and manager for click console utilities.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">click</span>
+                        <span class="badge bg-primary custom-style">cross-platform</span>
+                        <span class="badge bg-primary custom-style">python-library</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/climan.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/climan/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/climan/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">github-ssh-key</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            GitHub ssh key manager. Console utility for creating, getting, testing,
+                            using public ssh keys for GitHub.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">github-api</span>
+                        <span class="badge bg-primary custom-style">ssh</span>
+                        <span class="badge bg-primary custom-style">ssn-manage</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/github-ssh-key.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/github-ssh-key/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/github-ssh-key/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">commandpack</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            A cross-platform library for creation, storage, management of commands and command packages.
+                            Execution of commands, parsing of files with command packages.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">cross-platform</span>
+                        <span class="badge bg-primary custom-style">command-manager</span>
+                        <span class="badge bg-primary custom-style">executor</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/commandpack.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/commandpack/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/commandpack/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartprinter</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v0.4.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Cross-platform Python library, smart printer for console applications.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">text-decorator</span>
+                        <span class="badge bg-primary custom-style">cli-library</span>
+                        <span class="badge bg-primary custom-style">printer</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartprinter.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartprinter/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartprinter/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartcliapp</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Cross-platform library of tools for creating console applications,
+                            based on the click library.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">cross-platform</span>
+                        <span class="badge bg-primary custom-style">click</span>
+                        <span class="badge bg-primary custom-style">cli-library</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartcliapp.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartcliapp/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartcliapp/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">commandex</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            A cross-platform library for creation, storage, management of commands and command packages.
+                            Execution of commands, parsing of files with command packages.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">cross-platform</span>
+                        <span class="badge bg-primary custom-style">command-manager</span>
+                        <span class="badge bg-primary custom-style">executor</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/commandex.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/commandex/" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/commandex/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartrandom</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Random data generators. Allows you to generate random strings of a given
+                            length from letters, numbers and symbols, as well as randomize text. Helps generate
+                            passwords, service codes (for example, for sending via SMS), hashes and much more.
+                            Generates smart, recoverable passwords.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">generator</span>
+                        <span class="badge bg-primary custom-style">smart-password-generator</span>
+                        <span class="badge bg-primary custom-style">text-generator</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartrandom.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartrandom" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartrandom/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smarttextdecorator</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            A cross-platform library for decorating strings and displaying them beautifully
+                            in the console. Generates and displays lines to the full width of the console
+                            with the specified text and a placeholder character. Generates and displays a
+                            line with the specified text, decorated at the top and bottom with filler characters
+                            along the length of the line. Use for beautiful design of console applications.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">text-generator</span>
+                        <span class="badge bg-primary custom-style">cli-library</span>
+                        <span class="badge bg-primary custom-style">printer</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smarttextdecorator.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smarttextdecorator" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smarttextdecorator" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartauthen</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart, simple, lightweight, secure cross-platform authentication for any application.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">auth</span>
+                        <span class="badge bg-primary custom-style">cross-platform</span>
+                        <span class="badge bg-primary custom-style">python-library</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartauthen.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartauthen" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smartauthen" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-redis-storage</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Convenient work with Redis.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">redis</span>
+                        <span class="badge bg-primary custom-style">python-library</span>
+                        <span class="badge bg-primary custom-style">redis-storage</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-redis-storage.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-redis-storage" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-redis-storage" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-text-randomizer</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v0.1.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Text Randomizer
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">text-generator</span>
+                        <span class="badge bg-primary custom-style">python-library</span>
+                        <span class="badge bg-primary custom-style">random</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-text-randomizer.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-text-randomizer" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-text-randomizer" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-repository-manager-core</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Repository Manager Core - A Python library for managing Git repositories with
+                            intelligent synchronization, SSH configuration validation, and GitHub integration.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">repository-manager</span>
+                        <span class="badge bg-primary custom-style">downloader</span>
+                        <span class="badge bg-primary custom-style">github-api</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-repository-manager-core.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-repository-manager-core" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-repository-manager-core" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">forgejo-sync-manager-core</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.2</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Universal core library for Forgejo repository synchronization.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">repository-manager</span>
+                        <span class="badge bg-primary custom-style">clone</span>
+                        <span class="badge bg-primary custom-style">forgejo-api</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/forgejo-sync-manager-core.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/forgejo-sync-manager-core/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        JavaScript
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartpasslib-js</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Passwords Library (JS): Cryptographic password generation and management without
+                            storage. Generate passwords from secrets, verify knowledge without exposure,
+                            manage metadata securely.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smartpasslib</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                        <span class="badge bg-primary custom-style">decentralization</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartpasslib-js.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Kotlin
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartpasslib-kotlin</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Passwords Library (Kotlin): Cryptographic password generation and management without
+                            storage. Generate passwords from secrets, verify knowledge without exposure,
+                            manage metadata securely.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smartpasslib</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                        <span class="badge bg-primary custom-style">decentralization</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartpasslib-kotlin.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="btn btn-outline-primary">
+                            Github <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        C#
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartpasslib-csharp</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Passwords Library (C#): Cryptographic password generation and management
+                            without storage. Generate passwords from secrets, verify knowledge without exposure,
+                            manage metadata securely.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smartpasslib</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                        <span class="badge bg-primary custom-style">decentralization</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartpasslib-csharp.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-csharp" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Go
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smartpasslib-go</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v4.0.0</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Smart Passwords Library (Golang): Cryptographic password generation and management
+                            without storage. Generate passwords from secrets, verify knowledge
+                            without exposure, manage metadata securely.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">smartpasslib</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                        <span class="badge bg-primary custom-style">decentralization</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smartpasslib-go.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-go" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">smart-dynamic-path</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.1</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Dynamic, deterministic, time-dependent path generation. No storage. No database.
+                            No dependencies. Generate cryptographically secure paths that change automatically
+                            based on time (day, month, hour) from a secret phrase. Perfect for hiding admin panels,
+                            creating temporary access links, or building time-based API keys.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">web</span>
+                        <span class="badge bg-primary custom-style">utility</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/smart-dynamic-path.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-dynamic-path" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/smart-dynamic-path/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">
+                        Python
+                    </span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">django-smart-dynamic-path</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                                Alexander Suvorov Sr.
+                            </a>
+                            <span class="text-warning me-1"><i class="bi bi-git"></i> v1.0.2</span>
+                        </div>
+                    </div>
+                    <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
+                        <p class="mb-0 text-center small">
+                            Dynamic secret admin URL for Django. Time-based, deterministic, no storage.
+                            Hide your Django admin behind a URL that changes daily/monthly.
+                            Only you know the secret phrase to generate the current path.
+                        </p>
+                    </div>
+                    <div class="badges mb-3">
+                        <span class="badge bg-primary custom-style">django</span>
+                        <span class="badge bg-primary custom-style">django-admins</span>
+                        <span class="badge bg-primary custom-style">determinism</span>
+                    </div>
+                    <div class="btn-group btn-group-sm text-center mt-auto">
+                        <a href="/libraries/django-smart-dynamic-path.html" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/django-smart-dynamic-path" class="btn btn-outline-primary">
+                            GitHub <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                        <a target="_blank" href="https://pypi.org/project/django-smart-dynamic-path/" class="btn btn-outline-info">
+                            PyPi <i class="bi bi-box-arrow-in-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="badges">
+        <span class="badge bg-primary custom-style">python</span>
+        <span class="badge bg-primary custom-style">rust</span>
+        <span class="badge bg-primary custom-style">go</span>
+        <span class="badge bg-primary custom-style">javascript</span>
+        <span class="badge bg-primary custom-style">kotlin</span>
+        <span class="badge bg-primary custom-style">C#</span>
+    </div>
+
 </div>
 
 <!-- end content -->
@@ -1190,7 +1353,18 @@
 
 <div class="content-section">
     <div class="sidebar-footer">
-        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.4.3</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">
+                Smart Legion Lab
+            </a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+                <span data-smart-version>v7.4.3</span>
+            </a> |
+            <a href="/smartlegionlab-map.html" target="_blank">
+                Site Map
+            </a>
+        </p>
     </div>
 </div>
 
