@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>smartpasslib-js · Smart Legion Lab</title>
-    <meta name="description" content="smartpasslib-js — Smart Passwords Library for JavaScript. Cryptographic password generation and management without storage. Cross-platform deterministic passwords with Web Crypto API.">
-    <meta name="author" content="Smart Legion Lab">
-    <link rel="canonical" href="https://smartlegionlab.com/projects/smartpasslib-js.html">
+    <title>smartpasslib (Rust) · Smart Legion Lab</title>
+    <meta name="description" content="smartpasslib (Rust) — Smart Passwords Library for Rust. Cryptographic password generation and management without storage. Cross-platform deterministic passwords for Rust applications.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/smartpasslib-rs.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="smartpasslib-js · Smart Legion Lab">
-    <meta property="og:description" content="Smart Passwords Library for JavaScript. Cryptographic password generation and management without storage. Cross-platform deterministic passwords with Web Crypto API.">
+    <meta property="og:title" content="smartpasslib (Rust) · Smart Legion Lab">
+    <meta property="og:description" content="Smart Passwords Library for Rust. Cryptographic password generation and management without storage. Cross-platform deterministic passwords for Rust applications.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.com/projects/smartpasslib-js.html">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/smartpasslib-rs.html">
     <meta property="og:site_name" content="Smart Legion Lab · Projects">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -82,19 +82,21 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">smartpasslib-js <sup class="text-warning">v4.0.0</sup></h1>
-            <p class="text-light">Smart Passwords Library for JavaScript</p>
-            <p class="text-light">Cryptographic password generation and management <span class="text-primary">without storage</span>. Cross-platform deterministic passwords with <span class="text-primary">Web Crypto API</span>.</p>
+            <h1 class="text-primary">smartpasslib <sup class="text-warning">v4.0.0</sup></h1>
+            <p class="text-light">Smart Passwords Library for Rust</p>
+            <p class="text-light">Cryptographic password generation and management <span class="text-primary">without storage</span>. Cross-platform deterministic passwords for <span class="text-primary">Rust applications</span>.</p>
             <div class="badges mt-2">
-                <span class="badge bg-primary custom-style">JavaScript</span>
+                <span class="badge bg-primary custom-style">Rust</span>
                 <span class="badge bg-primary custom-style">Cryptography</span>
                 <span class="badge bg-primary custom-style">Zero-Storage</span>
                 <span class="badge bg-primary custom-style">Decentralized</span>
                 <span class="badge bg-primary custom-style">Cross-Platform</span>
-                <span class="badge bg-primary custom-style">Web Crypto API</span>
+                <span class="badge bg-primary custom-style">SHA-256</span>
             </div>
             <div class="mt-3">
-                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://crates.io/crates/smartpasslib" class="btn btn-outline-primary btn-sm">Crates.io <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://docs.rs/smartpasslib" class="btn btn-outline-primary btn-sm">Docs.rs <i class="bi bi-box-arrow-up-right ms-1"></i></a>
             </div>
         </div>
 
@@ -105,26 +107,16 @@
             <div class="smart-small-card">
                 <p class="text-light">
                     <strong>Smart Passwords Library</strong>: Cryptographic password generation and management without storage.
-                    Generate passwords from secrets, verify knowledge without exposure, manage metadata securely.
+                    Generate passwords from secrets, verify knowledge without exposure.
                 </p>
                 <p class="text-light">
-                    <strong>Now with Cross-Platform Determinism</strong>: Same secret + same parameters = identical password on
-                    <strong>JavaScript, C#, Python, Go, Kotlin</strong> and any language with SHA-256.
+                    <strong>Cross-Platform Determinism</strong>: Same secret + same parameters = identical password on
+                    <strong>Rust, C#, Python, Kotlin, Go, JavaScript</strong>.
                 </p>
                 <p class="text-light">
-                    <strong>Decentralized by Design</strong>: Unlike traditional password managers that store encrypted vaults on central servers,
-                    smartpasslib stores nothing. Your secrets never leave your device. Passwords are regenerated on-demand —
-                    <span class="text-primary">no cloud, no database, no trust required</span>.
+                    <strong>Decentralized by Design</strong>: No cloud, no database, no trust required.
                 </p>
-            </div>
-        </div>
-
-        <!-- Breaking Change -->
-        <div class="mb-4">
-            <div class="smart-small-card border border-warning">
-                <p class="text-warning"><strong>⚠️ Breaking Change (v4.0.0)</strong></p>
-                <p class="text-light small">This version is <strong>NOT backward compatible</strong> with v1.x.x. Passwords generated with older versions <strong>cannot be regenerated</strong> with v4.0.0.</p>
-                <p class="text-light small">📖 <strong>Full migration instructions</strong> → see <a href="https://github.com/smartlegionlab/smartpasslib-js/blob/master/MIGRATION.md" class="text-primary" target="_blank">MIGRATION.md</a></p>
+                <p class="text-light small"><strong>No External Dependencies</strong> — Pure Rust, uses standard crypto.</p>
             </div>
         </div>
 
@@ -141,12 +133,12 @@
                 <div id="collapsePrinciples" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zero-Storage Security</strong> — no passwords or secret phrases are ever stored or transmitted</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Decentralized Architecture</strong> — no central servers, no cloud dependency</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Platform Deterministic Generation</strong> — identical secret + parameters = identical password on any language</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Metadata Only</strong> — store only verification metadata (public keys, descriptions, lengths)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>On-Demand Regeneration</strong> — passwords are recalculated when needed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> — uses Web Crypto API</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zero-Storage Security</strong> — No passwords or secret phrases are ever stored or transmitted</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Decentralized Architecture</strong> — No central servers, no cloud dependency</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Platform Deterministic Generation</strong> — SHA-256 based, identical across languages</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Metadata Only</strong> — Store only public keys and descriptions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>On-Demand Regeneration</strong> — Passwords are recalculated when needed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> — Uses SHA-256 and <code>rand</code> crate</li>
                         </ul>
                     </div>
                 </div>
@@ -162,13 +154,14 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Decentralized & Serverless</strong> — no central database, no cloud lock-in</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Smart Password Generation</strong> — deterministic from secret phrase</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Public/Private Key System</strong> — 15-30 iterations for private key, 45-60 for public key</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secret Verification</strong> — verify secret without exposing it</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Random Password Generation</strong> — cryptographically secure random passwords</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Authentication Codes</strong> — short codes for 2FA/MFA (4-100 chars)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Dependencies</strong> — pure JavaScript, uses Web Crypto API</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Decentralized & Serverless</strong> — No central database, no cloud lock-in</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Smart Password Generation</strong> — Deterministic from secret phrase</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Public/Private Key System</strong> — 15-30 iterations for private key, 45-60 for public key (dynamic per secret)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secret Verification</strong> — Verify secret without exposing it</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Random Password Generation</strong> — Cryptographically secure random passwords</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Authentication Codes</strong> — Short codes for 2FA/MFA (4-100 chars)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Metadata Manager</strong> — Store and manage password metadata locally</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No External Dependencies</strong> — Pure Rust, uses standard crypto</li>
                         </ul>
                     </div>
                 </div>
@@ -184,207 +177,14 @@
                 <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Proof of Knowledge</strong> — public keys verify secrets without exposing them</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Decentralized Trust</strong> — no third party needed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic Security</strong> — same input = same output, always reproducible across platforms</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Iteration Counts</strong> — private key: 15-30, public key: 45-60</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zero Storage of Secrets</strong> — secret phrases exist only in your memory</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Recovery Backdoors</strong> — lost secret = permanently lost passwords</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Proof of Knowledge</strong> — Public keys verify secrets without exposing them</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Decentralized Trust</strong> — No third party needed — you control your secrets completely</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic Security</strong> — Same input = same output, always reproducible across platforms</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Iteration Counts</strong> — Private key uses 15-30 iterations, public key uses 45-60 iterations (deterministic per secret)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Vulnerable Metadata Storage</strong> — Only public keys and descriptions can be stored (optional)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Zero Storage of Secrets</strong> — Secret phrases exist only in your memory, private keys are derived on-demand and never persisted</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Recovery Backdoors</strong> — Lost secret = permanently lost passwords (by design)</li>
                         </ul>
-                        <p class="text-light small mt-2"><strong>Validation Rules:</strong> Secret phrase: min 12 chars · Password length: 12-100 chars · Code: 4-100 chars</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Foundation -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechFoundation" aria-expanded="false">
-                        <i class="bi bi-cpu me-2 text-primary"></i> Technical Foundation
-                    </button>
-                </h2>
-                <div id="collapseTechFoundation" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Key derivation (same as Python/C#/Go/Kotlin versions v4.0.0):</strong></p>
-                        <div class="table-responsive">
-                            <table class="table table-dark table-sm">
-                                <thead>
-                                    <tr><th>Key Type</th><th>Iterations</th><th>Purpose</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Private Key</td><td>15-30 (dynamic)</td><td>Password generation (never stored, never transmitted)</td></tr>
-                                    <tr><td>Public Key</td><td>45-60 (dynamic)</td><td>Verification (stored locally)</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-light"><strong>Character Set:</strong></p>
-                        <p class="text-light small">!@#$%^&*()_+-=[]{};:,.<>?/ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz</p>
-                        <p class="text-light mt-2"><strong>Decentralized Architecture:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No central authority required</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Metadata can be synced via any channel (USB, cloud, even paper)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Your security depends only on your secret phrase</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Works offline — no internet connection required</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Installation -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
-                        <i class="bi bi-gear me-2 text-primary"></i> Installation
-                    </button>
-                </h2>
-                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light">Just copy <code>smartpasslib.js</code> to your project and include it:</p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-&lt;script src="path/to/smartpasslib.js"&gt;&lt;/script&gt;</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quick Start -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
-                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
-                    </button>
-                </h2>
-                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Generate Smart Password:</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-const secret = "MyStrongSecretPhrase2026!";
-const length = 16;
-
-const password = await SmartPassLib.generateSmartPassword(secret, length);
-console.log(password);</pre>
-                        <p class="text-light mt-2"><strong>Generate Public/Private Keys:</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-const secret = "MyStrongSecretPhrase2026!";
-
-const publicKey = await SmartPassLib.generatePublicKey(secret);
-const privateKey = await SmartPassLib.generatePrivateKey(secret);
-
-console.log('Public Key (store locally):', publicKey);
-console.log('Private Key (never store):', privateKey);</pre>
-                        <p class="text-light mt-2"><strong>Verify Secret Against Public Key:</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-const secret = "MyStrongSecretPhrase2026!";
-const storedPublicKey = "..."; // from local
-
-const isValid = await SmartPassLib.verifySecret(secret, storedPublicKey);
-if (isValid) {
-    const password = await SmartPassLib.generateSmartPassword(secret, 16);
-}</pre>
-                        <p class="text-light mt-2"><strong>Generate Random Passwords:</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-// Strong random (cryptographically secure)
-const strong = await SmartPassLib.generateStrongPassword(20);
-
-// Base random
-const base = await SmartPassLib.generateBasePassword(16);
-
-// Authentication code (4-100 chars)
-const code = await SmartPassLib.generateCode(8);</pre>
-                    </div>
-                </div>
-            </div>
-
-            <!-- API Reference -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAPI" aria-expanded="false">
-                        <i class="bi bi-code-square me-2 text-primary"></i> API Reference
-                    </button>
-                </h2>
-                <div id="collapseAPI" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Properties:</strong></p>
-                        <div class="table-responsive">
-                            <table class="table table-dark table-sm">
-                                <thead>
-                                    <tr><th>Property</th><th>Type</th><th>Description</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><code>VERSION</code></td><td>string</td><td>Library version (4.0.0)</td></tr>
-                                    <tr><td><code>CHARS</code></td><td>string</td><td>Character set used for generation</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-light mt-2"><strong>Methods:</strong></p>
-                        <div class="table-responsive">
-                            <table class="table table-dark table-sm">
-                                <thead>
-                                    <tr><th>Method</th><th>Parameters</th><th>Returns</th><th>Description</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><code>generatePrivateKey(secret)</code></td><td>secret: string</td><td>Promise&lt;string&gt;</td><td>Private key (15-30 iterations)</td></tr>
-                                    <tr><td><code>generatePublicKey(secret)</code></td><td>secret: string</td><td>Promise&lt;string&gt;</td><td>Public key (45-60 iterations)</td></tr>
-                                    <tr><td><code>verifySecret(secret, publicKey)</code></td><td>secret, publicKey</td><td>Promise&lt;boolean&gt;</td><td>Verify secret matches public key</td></tr>
-                                    <tr><td><code>generateSmartPassword(secret, length)</code></td><td>secret, length</td><td>Promise&lt;string&gt;</td><td>Deterministic password</td></tr>
-                                    <tr><td><code>generateStrongPassword(length)</code></td><td>length</td><td>Promise&lt;string&gt;</td><td>Cryptographically random</td></tr>
-                                    <tr><td><code>generateBasePassword(length)</code></td><td>length</td><td>Promise&lt;string&gt;</td><td>Simple random password</td></tr>
-                                    <tr><td><code>generateCode(length)</code></td><td>length</td><td>Promise&lt;string&gt;</td><td>Short code (4-100 chars)</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-light mt-2"><strong>Input Validation:</strong></p>
-                        <div class="table-responsive">
-                            <table class="table table-dark table-sm">
-                                <thead>
-                                    <tr><th>Parameter</th><th>Minimum</th><th>Maximum</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>Secret phrase</td><td>12 chars</td><td>unlimited</td></tr>
-                                    <tr><td>Password length</td><td>12 chars</td><td>100 chars</td></tr>
-                                    <tr><td>Code length</td><td>4 chars</td><td>100 chars</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Security Requirements -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurityReq" aria-expanded="false">
-                        <i class="bi bi-shield me-2 text-primary"></i> Security Requirements
-                    </button>
-                </h2>
-                <div id="collapseSecurityReq" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Secret Phrase Requirements:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Minimum 12 characters (enforced)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Case-sensitive</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Use mix of: uppercase, lowercase, numbers, symbols</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Never store digitally</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>NEVER</strong> use your password description as secret phrase</li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Strong Secret Examples:</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-✅ "MyStrongSecretPhrase2026!"   — mixed case + numbers + symbols
-✅ "P@ssw0rd!LongSecret"         — special chars + numbers + length
-✅ "GitHubPersonal2026!"         — description + extra chars</pre>
-                        <p class="text-light mt-2"><strong>Weak Secret Examples (avoid):</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-❌ "short"                       — too short, raises exception
-❌ "GitHub Account"              — using description as secret (weak!)
-❌ "password"                    — dictionary word, too short
-❌ "1234567890"                  — only digits, too short</pre>
-                        <p class="text-light mt-2"><strong>Decentralized Nature:</strong></p>
-                        <p class="text-light small">There is no "forgot password" button. This is by design:</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No central server can reset your passwords</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No support team can recover your access</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Your secret phrase is the ONLY key</li>
-                        </ul>
-                        <p class="text-light small"><strong>This is the price of true decentralization</strong> — you are completely in control.</p>
                     </div>
                 </div>
             </div>
@@ -416,6 +216,163 @@ const code = await SmartPassLib.generateCode(8);</pre>
                 </div>
             </div>
 
+            <!-- Technical Foundation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechFoundation" aria-expanded="false">
+                        <i class="bi bi-cpu me-2 text-primary"></i> Technical Foundation
+                    </button>
+                </h2>
+                <div id="collapseTechFoundation" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Key derivation (same as Python/JS/Kotlin/Go/C# versions v4.0.0):</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Key Type</th><th>Iterations</th><th>Purpose</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Private Key</td><td>15-30 (dynamic)</td><td>Password generation (never stored, never transmitted)</td></tr>
+                                    <tr><td>Public Key</td><td>45-60 (dynamic)</td><td>Verification (stored locally)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light"><strong>Character Set:</strong></p>
+                        <p class="text-light small">!@#$%^&*()_+-=[]{};:,.<>?/ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz</p>
+                        <p class="text-light mt-2"><strong>Validation Rules:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secret phrase: minimum 12 characters</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Password length: 12-100 characters</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Code length: 4-100 characters</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Add to your <code>Cargo.toml</code>:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+[dependencies]
+smartpasslib = "4.0"</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Generate Smart Password:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+use smartpasslib::generate_smart_password_sync;
+
+let secret = "MyStrongSecretPhrase2026!";
+let password = generate_smart_password_sync(secret, 16).unwrap();
+println!("{}", password);</pre>
+                        <p class="text-light mt-2"><strong>Generate Public/Private Keys:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+use smartpasslib::{generate_private_key, generate_public_key};
+
+let secret = "MyStrongSecretPhrase2026!";
+
+let public_key = generate_public_key(secret).unwrap();
+let private_key = generate_private_key(secret).unwrap();</pre>
+                        <p class="text-light mt-2"><strong>Verify Secret:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+use smartpasslib::{generate_public_key, verify_secret};
+
+let secret = "MyStrongSecretPhrase2026!";
+let stored_public_key = "...";
+
+let is_valid = verify_secret(secret, &stored_public_key).unwrap();</pre>
+                        <p class="text-light mt-2"><strong>Generate Random:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+use smartpasslib::{generate_strong_password, generate_code};
+
+let strong = generate_strong_password(20).unwrap();
+let code = generate_code(8).unwrap();</pre>
+                        <p class="text-light mt-2"><strong>Metadata Manager:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+use smartpasslib::{SmartPasswordManager, SmartPassword};
+
+let mut manager = SmartPasswordManager::new().unwrap();
+
+let sp = SmartPassword::new(public_key, "GitHub".to_string(), 16).unwrap();
+manager.add(sp).unwrap();
+
+let retrieved = manager.get(&public_key).unwrap();
+manager.delete(&public_key).unwrap();</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Reference -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAPI" aria-expanded="false">
+                        <i class="bi bi-code-square me-2 text-primary"></i> API Reference
+                    </button>
+                </h2>
+                <div id="collapseAPI" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Constants:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Constant</th><th>Type</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>VERSION</code></td><td>&str</td><td>Library version (4.0.0)</td></tr>
+                                    <tr><td><code>CHARS</code></td><td>&str</td><td>Character set used for generation</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Functions:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Function</th><th>Parameters</th><th>Returns</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>generate_private_key(secret)</code></td><td>secret: &str</td><td>Result&lt;String, Error&gt;</td><td>Private key (15-30 iterations)</td></tr>
+                                    <tr><td><code>generate_public_key(secret)</code></td><td>secret: &str</td><td>Result&lt;String, Error&gt;</td><td>Public key (45-60 iterations)</td></tr>
+                                    <tr><td><code>verify_secret(secret, public_key)</code></td><td>secret, public_key</td><td>Result&lt;bool, Error&gt;</td><td>Verify secret matches public key</td></tr>
+                                    <tr><td><code>generate_smart_password_sync(secret, length)</code></td><td>secret, length</td><td>Result&lt;String, Error&gt;</td><td>Deterministic password</td></tr>
+                                    <tr><td><code>generate_strong_password(length)</code></td><td>length: usize</td><td>Result&lt;String, Error&gt;</td><td>Cryptographically random</td></tr>
+                                    <tr><td><code>generate_base_password(length)</code></td><td>length: usize</td><td>Result&lt;String, Error&gt;</td><td>Simple random password</td></tr>
+                                    <tr><td><code>generate_code(length)</code></td><td>length: usize</td><td>Result&lt;String, Error&gt;</td><td>Short code (4-100 chars)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Classes:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Class</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>SmartPassword</code></td><td>Metadata container (public_key, description, length)</td></tr>
+                                    <tr><td><code>SmartPasswordManager</code></td><td>Persistent storage for password metadata (JSON file)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Cross-Platform -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
@@ -425,13 +382,22 @@ const code = await SmartPassLib.generateCode(8);</pre>
                 </h2>
                 <div id="collapseCrossPlatform" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light">Same deterministic algorithm is available in multiple languages:</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a> — Python</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a> — Kotlin</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a> — Go</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a> — C#</li>
-                        </ul>
+                        <p class="text-light">The same deterministic algorithm is available in multiple languages. SmartPassLib Rust produces <strong>identical passwords</strong> to:</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Language</th><th>Repository</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Python</td><td><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a></td></tr>
+                                    <tr><td>JavaScript</td><td><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a></td></tr>
+                                    <tr><td>Kotlin</td><td><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a></td></tr>
+                                    <tr><td>Go</td><td><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a></td></tr>
+                                    <tr><td>C#</td><td><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a></td></tr>
+                                    <tr><td><span class="text-primary">Rust</span></td><td><span class="text-primary">smartpasslib</span> (this)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -448,10 +414,11 @@ const code = await SmartPassLib.generateCode(8);</pre>
                         <p class="text-light"><strong>Core Libraries:</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib" class="text-primary" target="_blank">smartpasslib</a> — Python</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a> — JavaScript (this)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-js" class="text-primary" target="_blank">smartpasslib-js</a> — JavaScript</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="text-primary" target="_blank">smartpasslib-kotlin</a> — Kotlin</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-go" class="text-primary" target="_blank">smartpasslib-go</a> — Go</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="text-primary" target="_blank">smartpasslib-csharp</a> — C#</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smartpasslib-rs" class="text-primary" target="_blank">smartpasslib-rs</a> — Rust (this)</li>
                         </ul>
                         <p class="text-light mt-2"><strong>CLI Applications:</strong></p>
                         <ul class="list-unstyled">
@@ -467,23 +434,41 @@ const code = await SmartPassLib.generateCode(8);</pre>
                         </ul>
                         <p class="text-light mt-2"><strong>Other:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="text-primary" target="_blank">Web Smart Password Manager</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="text-primary" target="_blank">Android Smart Password Manager</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="text-primary" target="_blank">Smart Password Web Manager</a></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="text-primary" target="_blank">Smart Password Android Manager</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Testing -->
+            <!-- Development -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTesting" aria-expanded="false">
-                        <i class="bi bi-bar-chart me-2 text-primary"></i> Testing
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDev" aria-expanded="false">
+                        <i class="bi bi-laptop me-2 text-primary"></i> Development
                     </button>
                 </h2>
-                <div id="collapseTesting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseDev" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light">Open <code>test.html</code> in your browser to run the test suite.</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smartpasslib-rs
+cd smartpasslib-rs
+
+cargo build
+cargo test
+cargo run --example demo
+cargo bench
+cargo doc --open</pre>
+                        <p class="text-light mt-2"><strong>Commands:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo check</code> — Compilation check</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo test</code> — Run tests</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo run --example demo</code> — Run demo</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo bench</code> — Run benchmarks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo doc --open</code> — Documentation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo fmt</code> — Format</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>cargo clippy</code> — Linter</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -499,8 +484,8 @@ const code = await SmartPassLib.generateCode(8);</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
                         <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
-                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartpasslib-js/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
-                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smartpasslib-js/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smartpasslib-rs/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smartpasslib-rs/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
                     </div>
                 </div>
             </div>
@@ -513,16 +498,18 @@ const code = await SmartPassLib.generateCode(8);</pre>
                 <div class="text-center">
                     <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-js/blob/master/MIGRATION.md" class="btn btn-outline-primary btn-sm">Migration Guide</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://crates.io/crates/smartpasslib" class="btn btn-outline-primary btn-sm">Crates.io</a>
+                        <a target="_blank" href="https://docs.rs/smartpasslib" class="btn btn-outline-primary btn-sm">Documentation</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smartpasslib-rs/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
                         <i class="bi bi-person-circle text-primary"></i> Created by
                         <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov</a>
                     </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov. All rights reserved.</p>
                 </div>
             </div>
         </div>
