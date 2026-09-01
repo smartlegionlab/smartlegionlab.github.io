@@ -1,4 +1,4 @@
-# Smart Legion Lab · Official Website <sup>v7.4.4</sup>
+# Smart Legion Lab · Official Website <sup>v7.4.5</sup>
 
 [![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.com-blue?style=for-the-badge&logo=github)](https://smartlegionlab.com)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
@@ -27,10 +27,10 @@
 Smart Legion Lab is a software research and development laboratory founded by Alexander Suvorov and his team. This website serves as the central hub for all lab activities, presenting:
 
 - **90+ open-source projects** across multiple programming languages
-- **30+ Python packages** published on PyPI
+- **33+ libraries**
 - **4 foundational research paradigms** with DOI publications
 - **7 cross-platform ecosystems** (Smart Passwords, 2FA Management, NP Problem, etc.)
-- **34+ applications** (Desktop, Web, Mobile, CLI, Telegram Bots)
+- **36+ applications** (Desktop, Web, Mobile, CLI, Telegram Bots)
 - **Team of two** (Alexander Suvorov Sr. & Jr.)
 
 The site is designed to be a **static, secure, and comprehensive** showcase that requires **no database**, **no backend**, and can be hosted **anywhere** with zero maintenance overhead.
@@ -82,7 +82,7 @@ A complete showcase of all applications developed by Smart Legion Lab.
 ![Applications Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/applications.png)
 
 **Content:**
-- **34+ Applications**
+- **36+ Applications**
 - **Search & Filter**: Filter by type (`web`, `desktop`, `mobile`, `cli`, `bot`) or author
 - **Detailed Pages**: Each application has a dedicated page with full description and GitHub link
 
@@ -106,7 +106,7 @@ A detailed view of all PyPI packages and libraries developed by Smart Legion Lab
 ![Libraries Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/libraries.png)
 
 **Content:**
-- **30+ Libraries**
+- **33+ Libraries**
 - **PyPI Integration**: Real-time version badges and direct PyPI links
 - **Library Cards**: Description, tags, and direct links to GitHub and PyPI
 

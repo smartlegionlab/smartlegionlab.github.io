@@ -21,7 +21,7 @@
  *   are fetched when corresponding data-smart-key elements exist.
  *
  * Example:
- *   <span data-smart-key="projects">70+</span>
+ *   <span data-smart-key="projects">90+</span>
  *   <span data-smart-key="paradigm.unique_views">1K+</span>
  *   <span data-smart-key="pointerParadigm.unique_views">425</span>
  *

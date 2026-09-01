@@ -27,12 +27,12 @@ const CONFIG = {
 
     CONSTANTS: {
         ECOSYSTEMS_COUNT: 6,
-        PROJECTS_COUNT: 70,
+        PROJECTS_COUNT: 90,
         ARTICLES_COUNT: 4,
         PARADIGMS: 3,
-        APPLICATIONS: 26,
+        APPLICATIONS: 36,
         PUBLICATIONS: 4,
-        LIBRARIES_COUNT: 30
+        LIBRARIES_COUNT: 33
     },
 
     ZENODO_RECORDS: {
@@ -71,5 +71,5 @@ const CONFIG = {
         }
     },
 
-    VERSION: 'v7.4.4'
+    VERSION: 'v7.4.5'
 };
