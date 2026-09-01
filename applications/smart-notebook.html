@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Notebook · Smart Legion Lab</title>
+    <meta name="description" content="Smart Notebook — A powerful, feature-rich note-taking application for Android built with Kotlin. Features voice input, attachments, reminders, drag & drop sorting, and local storage.">
+    <meta name="author" content="Aixandrolab">
+    <link rel="canonical" href="https://smartlegionlab.com/applications/smart-notebook.html">
+    <link rel="author" href="https://github.com/aixandrolab">
+    <meta property="og:title" content="Smart Notebook · Smart Legion Lab">
+    <meta property="og:description" content="A powerful, feature-rich note-taking application for Android built with Kotlin. Features voice input, attachments, reminders, drag & drop sorting, and local storage.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/applications/smart-notebook.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Applications">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-primary">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item active"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.4.3</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart Notebook <sup class="text-warning">v1.0.1</sup></h1>
+            <p class="text-light">A powerful, feature-rich note-taking application for Android</p>
+            <p class="text-light">Built with <span class="text-primary">Kotlin</span> for Android devices. Features voice input, attachments, reminders, drag & drop sorting, and <span class="text-primary">local storage</span>.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Kotlin</span>
+                <span class="badge bg-primary custom-style">Android</span>
+                <span class="badge bg-primary custom-style">Note-Taking</span>
+                <span class="badge bg-primary custom-style">Voice Input</span>
+                <span class="badge bg-primary custom-style">Reminders</span>
+                <span class="badge bg-primary custom-style">Attachments</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/aixandrolab/smart-notebook" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/aixandrolab/smart-notebook/releases/tag/v1.0.1" class="btn btn-outline-primary btn-sm">Download APK <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>Smart Notebook</strong> — a powerful, feature-rich note-taking application for Android built with Kotlin.
+                </p>
+                <p class="text-light">
+                    All data stored locally in JSON format — <span class="text-primary">no cloud dependency</span>, complete privacy and offline access.
+                </p>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-4 text-center">
+            <a href="https://raw.githubusercontent.com/aixandrolab/smart-notebook/master/data/images/main_screen.jpg" target="_blank">
+                <img src="https://raw.githubusercontent.com/aixandrolab/smart-notebook/master/data/images/main_screen.jpg" class="img-fluid rounded" alt="Smart Notebook" style="max-width: 300px;" referrerpolicy="no-referrer">
+            </a>
+            <p class="text-light small mt-2">Smart Notebook — Main Screen</p>
+        </div>
+
+        <hr>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>📝 Notes</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit, and delete notes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Drag & Drop sorting – long press and drag the handle (≡) to reorder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Swipe left/right to delete with confirmation</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>🎤 Voice Input</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Voice recognition for Title and Content</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tap microphone icon next to any input field</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Works in creation and editing modes</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>📎 Attachments</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Images – capture from camera or choose from gallery</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Files – attach any file type (PDF, DOC, TXT, ZIP, APK, etc.)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full-screen preview – tap images to view</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Long press on any attachment to delete it</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>⏰ Reminders</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Set date and time reminders for any note</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Notifications work even when app is closed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Notification actions: Open Note and Dismiss</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>💾 Storage</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>All data stored locally in <code>Documents/smart-notebook/</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON format – <code>notes.json</code> and <code>order.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No cloud dependency – complete privacy and offline access</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>🎨 UI/UX</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dark theme with orange accents</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Material Design components</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Smooth animations and transitions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuickStart" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuickStart" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Creating a Note</strong> — Tap <strong>+</strong> → Enter Title and Content → Tap <strong>Save Note</strong></li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Voice Input</strong> — Tap <strong>microphone icon</strong> → Speak → Text automatically inserted</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Adding Attachments</strong> — Open note → Tap <strong>Attach</strong> → Choose Photo/Image/File</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Setting Reminder</strong> — Open note → Tap <strong>Reminder</strong> → Select Date and Time</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reordering Notes</strong> — <strong>Long press</strong> the handle (≡) → Drag up/down → Order saved automatically</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deleting Note</strong> — <strong>Swipe</strong> left/right → Confirm <strong>OR</strong> Open note → Tap <strong>Delete Note</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Requirements -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRequirements" aria-expanded="false">
+                        <i class="bi bi-phone me-2 text-primary"></i> Requirements
+                    </button>
+                </h2>
+                <div id="collapseRequirements" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Android 7.0 (API 24)</strong> or higher</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Google Play Services</strong> (for speech recognition)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>~10 MB storage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage Location -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStorage" aria-expanded="false">
+                        <i class="bi bi-folder me-2 text-primary"></i> Storage Location
+                    </button>
+                </h2>
+                <div id="collapseStorage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+Documents/smart-notebook/
+├── notes.json          # All note data
+├── order.json          # Custom note order
+├── images/             # Image attachments
+└── files/              # File attachments</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Permissions -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePermissions" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Permissions
+                    </button>
+                </h2>
+                <div id="collapsePermissions" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Permission</th><th>Purpose</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Storage</td><td>Read/write notes and attachments</td></tr>
+                                    <tr><td>Camera</td><td>Capture photos for notes</td></tr>
+                                    <tr><td>Microphone</td><td>Voice input</td></tr>
+                                    <tr><td>Notifications</td><td>Show reminders</td></tr>
+                                    <tr><td>Exact Alarm</td><td>Precise reminder timing</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/aixandrolab/smart-notebook/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/aixandrolab/smart-notebook/blob/master/LICENSE" class="text-primary" target="_blank">All Rights Reserved</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/aixandrolab/smart-notebook" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/smart-notebook/releases/tag/v1.0.1" class="btn btn-outline-primary btn-sm">Download APK</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/smart-notebook/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/smart-notebook/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/aixandrolab.html" class="text-primary text-decoration-none">Aixandrolab</a>
+                    </p>
+                    <p class="text-light small">© 2026 Smart Notebook – All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/applications.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Applications
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.4.3</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
