@@ -27,7 +27,7 @@ const CONFIG = {
 
     CONSTANTS: {
         ECOSYSTEMS_COUNT: 6,
-        PROJECTS_COUNT: 90,
+        PROJECTS_COUNT: 95,
         ARTICLES_COUNT: 4,
         PARADIGMS: 3,
         APPLICATIONS: 36,
