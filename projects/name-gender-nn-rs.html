@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name-gender-nn-rs · Smart Legion Lab</title>
+    <meta name="description" content="name-gender-nn-rs — Gender classifier for first names. A small fully connected neural network written from scratch in Rust, without external ML libraries.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/name-gender-nn-rs.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="name-gender-nn-rs · Smart Legion Lab">
+    <meta property="og:description" content="Gender classifier for first names. A small fully connected neural network written from scratch in Rust, without external ML libraries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/name-gender-nn-rs.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Applications</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.4.5</span></a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">name-gender-nn-rs <sup class="text-warning">v0.1.0</sup></h1>
+            <p class="text-light">Gender classifier for first names</p>
+            <p class="text-light">A small <span class="text-primary">fully connected neural network</span> written from scratch in Rust, without external ML libraries.</p>
+            <div class="badges mt-2">
+                <span class="badge bg-primary custom-style">Rust</span>
+                <span class="badge bg-primary custom-style">Neural Network</span>
+                <span class="badge bg-primary custom-style">From Scratch</span>
+                <span class="badge bg-primary custom-style">Gender Classification</span>
+                <span class="badge bg-primary custom-style">Educational</span>
+                <span class="badge bg-primary custom-style">CLI</span>
+            </div>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/name-gender-nn-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>name-gender-nn-rs</strong> — Rust port of <a href="https://github.com/smartlegionlab/name-gender-nn-py" class="text-primary" target="_blank">name-gender-nn-py</a>. Same algorithm, same datasets, ~40× faster training.
+                </p>
+                <p class="text-light">
+                    Determines whether a first name is male or female. Ships with two datasets:
+                </p>
+                <ul class="text-light">
+                    <li>Russian (<code>data/names_ru.json</code>) — Cyrillic alphabet, 108 names</li>
+                    <li>English (<code>data/names_en.json</code>) — Latin alphabet, 100 names</li>
+                </ul>
+                <p class="text-light">
+                    Each dataset defines its own alphabet. You train a separate model per dataset, and each model works only with names from its own alphabet.
+                </p>
+            </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="mb-4">
+            <div class="smart-small-card border border-warning">
+                <p class="text-warning"><strong>⚠️ Educational project</strong></p>
+                <p class="text-light small">Not production-ready. Shows how a small neural network works from scratch, without external ML libraries.</p>
+                <p class="text-light small"><strong>Scope:</strong> models are trained on <strong>full name forms</strong> (<code>александр</code>, <code>екатерина</code>, <code>alexander</code>, <code>elizabeth</code>). Diminutive and hypocoristic forms (<code>коля</code>, <code>соня</code>, <code>катя</code> in Russian; <code>kate</code>, <code>bob</code>, <code>liz</code> in English) are <strong>not</strong> in the datasets and are outside the intended use case.</p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- What it does -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWhat" aria-expanded="false">
+                        <i class="bi bi-info-circle me-2 text-primary"></i> What it does
+                    </button>
+                </h2>
+                <div id="collapseWhat" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Determines whether a first name is male or female. Ships with two datasets:</p>
+                        <ul class="text-light">
+                            <li>Russian (<code>data/names_ru.json</code>) — Cyrillic alphabet, 108 names</li>
+                            <li>English (<code>data/names_en.json</code>) — Latin alphabet, 100 names</li>
+                        </ul>
+                        <p class="text-light">Each dataset defines its own alphabet. You train a separate model per dataset, and each model works only with names from its own alphabet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How it works -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHow" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> How it works
+                    </button>
+                </h2>
+                <div id="collapseHow" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Same as the Python reference:</p>
+                        <ul class="text-light">
+                            <li><strong>Alphabet.</strong> Each dataset defines its own alphabet as a string of characters plus a <code>_</code> pad character. The Russian dataset uses the 33-letter Cyrillic alphabet; the English dataset uses the 26-letter Latin alphabet.</li>
+                            <li><strong>Features.</strong> Each name is split into three blocks: letters from the start, letters from the end, and the 2-letter suffix. Every character is one-hot encoded over the dataset alphabet.</li>
+                            <li><strong>Model.</strong> Fully connected: input → hidden layer (40 neurons, sigmoid) → output (1 neuron, sigmoid). Trained with SGD, <code>lr = 0.1</code>, 8000 epochs.</li>
+                            <li><strong>Data.</strong> Russian: 108 names (49 female, 59 male). English: 100 names (50 female, 50 male).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-download me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/name-gender-nn-rs.git
+cd name-gender-nn-rs
+cargo build --release</pre>
+                        <p class="text-light">Binary: <code>target/release/name-gender-nn-rs</code>.</p>
+                        <p class="text-light"><strong>Requirements:</strong> Rust 1.85+ (2024 edition), Cargo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> Usage
+                    </button>
+                </h2>
+                <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">All commands are subcommands of a single binary.</p>
+
+                        <p class="text-primary mt-3"><strong>Validate a dataset</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo run --release -- check --data data/names_ru.json
+cargo run --release -- check --data data/names_en.json</pre>
+                        <p class="text-light small">Output for the Russian dataset:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+File: data/names_ru.json
+Alphabet size: 34
+Loaded 49 female and 59 male names
+
+Alphabet check: OK
+Duplicate check: OK
+Cross-gender check: OK
+
+All checks passed.</pre>
+                        <p class="text-light small">Checks: all names use only characters from the dataset alphabet; no duplicates inside each list; no name appears in both <code>female</code> and <code>male</code>.</p>
+
+                        <p class="text-primary mt-3"><strong>Train</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo run --release -- train --data data/names_ru.json --out weights_ru.json
+cargo run --release -- train --data data/names_en.json --out weights_en.json</pre>
+                        <p class="text-light small">Output for the Russian dataset:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+Loaded 108 names from data/names_ru.json
+Alphabet size: 34
+epoch     0  error=13.671195  t=0.0s
+epoch   500  error=0.019290  t=0.1s
+...
+epoch  7500  error=0.000797  t=0.9s
+
+Train accuracy: 108/108 = 100.0%
+Weights saved to weights_ru.json
+Total time: 1.0s</pre>
+
+                        <p class="text-primary mt-3"><strong>Predict</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo run --release -- predict --weights weights_ru.json александр
+cargo run --release -- predict --weights weights_en.json alexander</pre>
+                        <p class="text-light small">One-liner output:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+александр -> male  (confidence 99.7%)
+alexander -> male  (confidence 99.8%)</pre>
+                        <p class="text-light small">Interactive mode (no name argument):</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo run --release -- predict --weights weights_ru.json
+
+Enter a name (or 'exit' to quit):
+> анна
+анна -> female  (confidence 99.8%)
+> exit</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerformance" aria-expanded="false">
+                        <i class="bi bi-speedometer2 me-2 text-primary"></i> Performance
+                    </button>
+                </h2>
+                <div id="collapsePerformance" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small">Measured on the same machine as the Python reference implementation.</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Task</th><th>Python</th><th>Rust (release)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Train Russian model</td><td>~41 s</td><td>~1.0 s</td></tr>
+                                    <tr><td>Train English model</td><td>~38 s</td><td>~0.9 s</td></tr>
+                                    <tr><td>Single prediction</td><td>~0.2 s</td><td>~0.01 s</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small">Same algorithm, same accuracy. The speedup comes from the release build profile (<code>opt-level = 3</code>, <code>lto = true</code>, <code>codegen-units = 1</code>).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sanity check -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSanity" aria-expanded="false">
+                        <i class="bi bi-clipboard-check me-2 text-primary"></i> Sanity check
+                    </button>
+                </h2>
+                <div id="collapseSanity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-primary"><strong>Inputs from the datasets</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+анна       -> female  (confidence 99.8%)
+дмитрий    -> male    (confidence 100.0%)
+ольга      -> female  (confidence 99.5%)
+александр  -> male    (confidence 99.7%)
+екатерина  -> female  (confidence 100.0%)
+mary       -> female  (confidence 99.0%)
+john       -> male    (confidence 100.0%)
+elizabeth  -> female  (confidence 99.7%)
+alexander  -> male    (confidence 99.8%)
+catherine  -> female  (confidence 99.9%)</pre>
+
+                        <p class="text-primary mt-3"><strong>Full forms not in the datasets</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+сара       -> female  (confidence 85.5%)
+мара       -> female  (confidence 93.9%)
+федот      -> male    (confidence 96.1%)
+жанна      -> female  (confidence 99.9%)
+ева        -> female  (confidence 62.1%)
+karl       -> male    (confidence 95.0%)
+victoria   -> female  (confidence 94.9%)
+diana      -> female  (confidence 99.7%)
+george     -> male    (confidence 100.0%)
+peter      -> female  (confidence 99.7%)   wrong</pre>
+                        <p class="text-light small">19 out of 20 correct. The single failure (<code>peter</code>) is a known limitation of the small training set: the model has never seen a short male name ending in <code>-er</code>, and the closest patterns in the training data are female (<code>elizabeth</code>, <code>catherine</code>, <code>mary</code>).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project layout -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false">
+                        <i class="bi bi-folder me-2 text-primary"></i> Project layout
+                    </button>
+                </h2>
+                <div id="collapseLayout" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+name-gender-nn-rs/
+├── Cargo.toml
+├── Cargo.lock
+├── data/
+│   ├── names_ru.json   # Russian dataset (Cyrillic)
+│   └── names_en.json   # English dataset (Latin)
+├── src/
+│   ├── main.rs         # CLI entry point (clap)
+│   ├── model.rs        # NameNet: forward, train_step, save, load
+│   ├── train.rs        # training
+│   ├── predict.rs      # inference
+│   └── check_data.rs   # dataset validation
+├── LICENSE             # BSD 3-Clause License
+├── DISCLAIMER.md       # full legal disclaimer
+└── README.md</pre>
+                        <p class="text-light small"><code>weights_*.json</code> files are generated by <code>train</code> and are not tracked by git.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adding names -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAddNames" aria-expanded="false">
+                        <i class="bi bi-plus-circle me-2 text-primary"></i> Adding names
+                    </button>
+                </h2>
+                <div id="collapseAddNames" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small">Open the dataset file and add a name to either <code>female</code> or <code>male</code>:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+{
+  "alphabet": "абвгдеёжзийклмнопрстуфхцчшщъыьэюя_",
+  "female": ["анна", "...", "александра"],
+  "male":   ["иван", "...", "александр"]
+}</pre>
+                        <p class="text-light small">Then retrain:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo run --release -- train --data data/names_ru.json --out weights_ru.json</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adding a new language -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAddLang" aria-expanded="false">
+                        <i class="bi bi-globe me-2 text-primary"></i> Adding a new language
+                    </button>
+                </h2>
+                <div id="collapseAddLang" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small">Create <code>data/names_XX.json</code> with the correct alphabet and name lists, then train:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo run --release -- train --data data/names_XX.json --out weights_XX.json
+cargo run --release -- predict --weights weights_XX.json</pre>
+                        <p class="text-light small">The model reads the alphabet from the dataset, so any language with a single-alphabet script works out of the box.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related projects -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRelated" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Related projects
+                    </button>
+                </h2>
+                <div id="collapseRelated" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/name-gender-nn-py" class="text-primary" target="_blank">name-gender-nn-py</a> — Python reference implementation. Same algorithm, same datasets, intended as an educational project.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/name-gender-nn-rs/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/name-gender-nn-rs/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/name-gender-nn-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/name-gender-nn-py" class="btn btn-outline-primary btn-sm">Python Reference</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/name-gender-nn-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/name-gender-nn-rs/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                    </p>
+                    <p class="text-light small">Copyright © 2026, Alexander Suvorov</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div class="text-center mt-4 mb-5">
+            <a href="/projects.html" class="btn btn-outline-primary btn-sm px-4">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>© <span id="currentYear">2026</span> <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> | <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.4.5</span></a> | <a href="/smartlegionlab-map.html" target="_blank">Site Map</a></p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/particle-background.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
