@@ -56,16 +56,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var statsText;
 
         if (term === '' && filterValue === 'all') {
-            statsText = 'Showing all ' + total + ' projects';
+            statsText = 'found ' + total + ' ' + (total === 1 ? 'item' : 'items');
         } else {
-            var noun = visibleCount === 1 ? 'project' : 'projects';
-            statsText = 'Showing ' + visibleCount + ' of ' + total + ' ' + noun;
+            var noun = visibleCount === 1 ? 'item' : 'items';
+            statsText = 'found ' + visibleCount + ' of ' + total + ' ' + noun;
             if (term !== '') {
-                statsText += ' | search: "' + term + '"';
+                statsText += ' --grep="' + term + '"';
             }
             if (filterValue !== 'all') {
                 var filterLabel = selectedFilterText ? selectedFilterText.textContent : filterValue;
-                statsText += ' | filter: ' + filterLabel;
+                statsText += ' --type=' + filterLabel.toLowerCase();
             }
         }
 

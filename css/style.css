@@ -1325,3 +1325,17 @@ hr {
         height: 120px !important;
     }
 }
+
+.smart-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background-color: #0d6efd;
+    vertical-align: -0.15em;
+    margin-left: 2px;
+    animation: smart-cursor-blink 1s step-end infinite;
+}
+@keyframes smart-cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
