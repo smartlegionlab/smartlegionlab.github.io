@@ -95,237 +95,234 @@
 
 <!-- content -->
 
-<div class="container">
+<div class="container custom-margin-top">
     <div class="custom-margin-top">
-
-        <div class="custom-margin-top">
-            <h1 class="text-center text-primary">Research Ecosystem</h1>
-            <p class="text-center small text-muted">
-                Research Ecosystem unifies five specialized domains — <strong class="text-primary">Smart Passwords Ecosystem</strong> for zero-storage password management,
-                <strong class="text-primary">Deterministic Ecosystem</strong> for infinite deterministic generation and <strong class="text-primary">NP Problem Ecosystem</strong> for exact and heuristic route optimization —
-                all built on published research paradigms (<strong class="text-primary">Pointer-Based Security</strong>, <strong class="text-primary">Local Data Regeneration</strong>, <strong class="text-primary">Position-Candidate-Hypothesis</strong>)
-                and implemented across <strong class="text-primary">C#</strong>, <strong class="text-primary">Python</strong>, <strong class="text-primary">Go</strong>, <strong class="text-primary">Kotlin</strong>, <strong class="text-primary">JavaScript</strong>,
-                CLI, Desktop, Web, Android, and bash clients.
-            </p>
-            <hr>
-            <div class="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-person-circle text-primary" style="font-size: 1.2rem;"></i>
-                    <span class="text-muted small">Author:</span>
-                    <a href="/profiles/smartlegionlab.html" class="text-decoration-none">
-                        Alexander Suvorov Sr.
-                    </a>
-                </div>
+        <h1 class="text-center text-primary">Research Ecosystem</h1>
+        <div class="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-person-circle text-primary" style="font-size: 1.2rem;"></i>
+                <span class="text-muted small">Author:</span>
+                <a href="/profiles/smartlegionlab.html" class="text-decoration-none">
+                    Alexander Suvorov Sr.
+                </a>
             </div>
-            <div class="tech-stack justify-content-center mt-4">
-                <span class="language-badge"><i class="bi bi-shield-check"></i> Pointer‑Based Security</span>
-                <span class="language-badge"><i class="bi bi-arrow-repeat"></i> Local Data Regeneration</span>
-                <span class="language-badge"><i class="bi bi-puzzle"></i> PCH Paradigm</span>
-                <span class="language-badge"><i class="bi bi-cpu"></i> Deterministic Game Engine</span>
-                <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
-                <span class="language-badge"><i class="bi bi-filetype-cs"></i> C#</span>
-                <span class="language-badge"><i class="bi bi-filetype-go"></i> Go</span>
-                <span class="language-badge"><i class="bi bi-filetype-java"></i> Kotlin</span>
-                <span class="language-badge"><i class="bi bi-filetype-js"></i> JavaScript</span>
+        </div>
+        <p class="text-center small text-muted">
+            Research Ecosystem unifies five specialized domains — <strong class="text-primary">Smart Passwords Ecosystem</strong> for zero-storage password management,
+            <strong class="text-primary">Deterministic Ecosystem</strong> for infinite deterministic generation and <strong class="text-primary">NP Problem Ecosystem</strong> for exact and heuristic route optimization —
+            all built on published research paradigms (<strong class="text-primary">Pointer-Based Security</strong>, <strong class="text-primary">Local Data Regeneration</strong>, <strong class="text-primary">Position-Candidate-Hypothesis</strong>)
+            and implemented across <strong class="text-primary">C#</strong>, <strong class="text-primary">Python</strong>, <strong class="text-primary">Go</strong>, <strong class="text-primary">Kotlin</strong>, <strong class="text-primary">JavaScript</strong>,
+            CLI, Desktop, Web, Android, and bash clients.
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- Accordion -->
+    <div class="accordion accordion-flush mt-4" id="ecoAccordion">
+
+        <!-- Applications -->
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseApps"
+                        aria-expanded="false" aria-controls="collapseApps">
+                    <i class="bi bi-grid-3x3-gap-fill me-2"></i>
+                    Applications <span class="badge bg-primary ms-2">11+</span>
+                </button>
+            </h2>
+            <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/clipassman" class="fw-bold text-primary text-decoration-none">CliPassMan</a>
+                            <p class="small text-secondary mb-0">Console Smart Password Manager with deterministic generation</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/clipassgen" class="fw-bold text-primary text-decoration-none">CliPassGen</a>
+                            <p class="small text-secondary mb-0">Terminal-based smart password generator</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" class="fw-bold text-primary text-decoration-none">Smart Password Manager (C# CLI)</a>
+                            <p class="small text-secondary mb-0">Terminal-based manager - secret never leaves device</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" class="fw-bold text-primary text-decoration-none">Smart Password Generator (C# CLI)</a>
+                            <p class="small text-secondary mb-0">Deterministic password generator from secret phrases</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" class="fw-bold text-primary text-decoration-none">Smart Password Manager Desktop</a>
+                            <p class="small text-secondary mb-0">Cross-platform desktop manager (PyQt5)</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" class="fw-bold text-primary text-decoration-none">Smart Password Manager (C# Desktop)</a>
+                            <p class="small text-secondary mb-0">Windows desktop manager with .NET</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="fw-bold text-primary text-decoration-none">Smart Password Manager (Android)</a>
+                            <p class="small text-secondary mb-0">Offline Android app with deterministic generation</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="fw-bold text-primary text-decoration-none">Smart Password Manager Web</a>
+                            <p class="small text-secondary mb-0">Web-based manager - secret never leaves browser</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="fw-bold text-primary text-decoration-none">Exact TSP Solver</a>
+                            <p class="small text-secondary mb-0">Dual-mode TSP solver in Go: exact Branch & Bound plus heuristic</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-tsp-oracle" class="fw-bold text-primary text-decoration-none">Smart TSP Oracle</a>
+                            <p class="small text-secondary mb-0">Exact solver in Python with intelligent Branch and Bound</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="fw-bold text-primary text-decoration-none">Smart TSP Benchmark</a>
+                            <p class="small text-secondary mb-0">Professional testing infrastructure for TSP algorithms</p></div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/applications.html" class="text-primary">Applications page</a></p>
+                </div>
             </div>
         </div>
 
-        <hr>
-
-        <!-- Accordion -->
-        <div class="accordion accordion-flush mt-4" id="ecoAccordion">
-
-            <!-- Applications -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseApps"
-                            aria-expanded="false" aria-controls="collapseApps">
-                        <i class="bi bi-grid-3x3-gap-fill me-2"></i>
-                        Applications <span class="badge bg-primary ms-2">11+</span>
-                    </button>
-                </h2>
-                <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/clipassman" class="fw-bold text-primary text-decoration-none">CliPassMan</a>
-                                <p class="small text-secondary mb-0">Console Smart Password Manager with deterministic generation</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/clipassgen" class="fw-bold text-primary text-decoration-none">CliPassGen</a>
-                                <p class="small text-secondary mb-0">Terminal-based smart password generator</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpCli" class="fw-bold text-primary text-decoration-none">Smart Password Manager (C# CLI)</a>
-                                <p class="small text-secondary mb-0">Terminal-based manager - secret never leaves device</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/SmartPasswordGeneratorCsharpCli" class="fw-bold text-primary text-decoration-none">Smart Password Generator (C# CLI)</a>
-                                <p class="small text-secondary mb-0">Deterministic password generator from secret phrases</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-password-manager-desktop" class="fw-bold text-primary text-decoration-none">Smart Password Manager Desktop</a>
-                                <p class="small text-secondary mb-0">Cross-platform desktop manager (PyQt5)</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/SmartPasswordManagerCsharpDesktop" class="fw-bold text-primary text-decoration-none">Smart Password Manager (C# Desktop)</a>
-                                <p class="small text-secondary mb-0">Windows desktop manager with .NET</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-password-manager-android" class="fw-bold text-primary text-decoration-none">Smart Password Manager (Android)</a>
-                                <p class="small text-secondary mb-0">Offline Android app with deterministic generation</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-password-manager-web" class="fw-bold text-primary text-decoration-none">Smart Password Manager Web</a>
-                                <p class="small text-secondary mb-0">Web-based manager - secret never leaves browser</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="fw-bold text-primary text-decoration-none">Exact TSP Solver</a>
-                                <p class="small text-secondary mb-0">Dual-mode TSP solver in Go: exact Branch & Bound plus heuristic</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-tsp-oracle" class="fw-bold text-primary text-decoration-none">Smart TSP Oracle</a>
-                                <p class="small text-secondary mb-0">Exact solver in Python with intelligent Branch and Bound</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="fw-bold text-primary text-decoration-none">Smart TSP Benchmark</a>
-                                <p class="small text-secondary mb-0">Professional testing infrastructure for TSP algorithms</p></div>
-                            </div>
+        <!-- Libraries -->
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseLibs"
+                        aria-expanded="false" aria-controls="collapseLibs">
+                    <i class="bi bi-box-seam me-2"></i>
+                    Libraries <span class="badge bg-primary ms-2">8+</span>
+                </button>
+            </h2>
+            <div id="collapseLibs" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smartpasslib" class="fw-bold text-primary text-decoration-none">smartpasslib (Python)</a>
+                            <p class="small text-secondary mb-0">Cryptographic password generation without storage</p></div>
                         </div>
-                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/applications.html" class="text-primary">Applications page</a></p>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smartpasslib-go" class="fw-bold text-primary text-decoration-none">smartpasslib-go</a>
+                            <p class="small text-secondary mb-0">Go implementation - same secret = same password</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="fw-bold text-primary text-decoration-none">smartpasslib-csharp</a>
+                            <p class="small text-secondary mb-0">C# library for deterministic password generation</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="fw-bold text-primary text-decoration-none">smartpasslib-kotlin</a>
+                            <p class="small text-secondary mb-0">Kotlin library for Android and backend</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smartpasslib-js" class="fw-bold text-primary text-decoration-none">smartpasslib-js</a>
+                            <p class="small text-secondary mb-0">JavaScript library for web-based password management</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-babylon-library" class="fw-bold text-primary text-decoration-none">Smart Babylon Library</a>
+                            <p class="small text-secondary mb-0">Deterministic infinite library generator</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/babylonian-image-library" class="fw-bold text-primary text-decoration-none">Babylonian Image Library</a>
+                            <p class="small text-secondary mb-0">Deterministic infinite image generator</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="fw-bold text-primary text-decoration-none">Smart TSP Solver</a>
+                            <p class="small text-secondary mb-0">High-performance Python library - outperforms classical methods by ~25%</p></div>
+                        </div>
                     </div>
+                    <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/libraries.html" class="text-primary">Libraries page</a></p>
                 </div>
             </div>
-
-            <!-- Libraries -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseLibs"
-                            aria-expanded="false" aria-controls="collapseLibs">
-                        <i class="bi bi-box-seam me-2"></i>
-                        Libraries <span class="badge bg-primary ms-2">8+</span>
-                    </button>
-                </h2>
-                <div id="collapseLibs" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smartpasslib" class="fw-bold text-primary text-decoration-none">smartpasslib (Python)</a>
-                                <p class="small text-secondary mb-0">Cryptographic password generation without storage</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smartpasslib-go" class="fw-bold text-primary text-decoration-none">smartpasslib-go</a>
-                                <p class="small text-secondary mb-0">Go implementation - same secret = same password</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smartpasslib-csharp" class="fw-bold text-primary text-decoration-none">smartpasslib-csharp</a>
-                                <p class="small text-secondary mb-0">C# library for deterministic password generation</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smartpasslib-kotlin" class="fw-bold text-primary text-decoration-none">smartpasslib-kotlin</a>
-                                <p class="small text-secondary mb-0">Kotlin library for Android and backend</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smartpasslib-js" class="fw-bold text-primary text-decoration-none">smartpasslib-js</a>
-                                <p class="small text-secondary mb-0">JavaScript library for web-based password management</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-babylon-library" class="fw-bold text-primary text-decoration-none">Smart Babylon Library</a>
-                                <p class="small text-secondary mb-0">Deterministic infinite library generator</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/babylonian-image-library" class="fw-bold text-primary text-decoration-none">Babylonian Image Library</a>
-                                <p class="small text-secondary mb-0">Deterministic infinite image generator</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="fw-bold text-primary text-decoration-none">Smart TSP Solver</a>
-                                <p class="small text-secondary mb-0">High-performance Python library - outperforms classical methods by ~25%</p></div>
-                            </div>
-                        </div>
-                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/libraries.html" class="text-primary">Libraries page</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Related Research -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseResearch"
-                            aria-expanded="false" aria-controls="collapseResearch">
-                        <i class="bi bi-mortarboard-fill me-2"></i>
-                        Related Research <span class="badge bg-primary ms-2">4+</span>
-                    </button>
-                </h2>
-                <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="/research/pointer-based-security-paradigm.html" class="fw-bold text-primary text-decoration-none">Pointer‑Based Security Paradigm</a>
-                                <p class="small text-secondary mb-0">Architectural shift from data protection to data non‑existence</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="/research/local-data-regeneration-paradigm.html" class="fw-bold text-primary text-decoration-none">Local Data Regeneration</a>
-                                <p class="small text-secondary mb-0">Synchronous state discovery - regenerate data locally</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="/research/position-candidate-hypothesis-paradigm.html" class="fw-bold text-primary text-decoration-none">Position‑Candidate‑Hypothesis</a>
-                                <p class="small text-secondary mb-0">Structural-statistical approach to NP-complete problems</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="/research/deterministic-game-engine-tech-report.html" class="fw-bold text-primary text-decoration-none">Deterministic Game Engine</a>
-                                <p class="small text-secondary mb-0">2.8M elements/sec, O(1) state access - tech report</p></div>
-                            </div>
-                        </div>
-                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/research.html" class="text-primary">Research page</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Related Ecosystems -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseEco"
-                            aria-expanded="false" aria-controls="collapseEco">
-                        <i class="bi bi-diagram-3 me-2"></i>
-                        Related Ecosystems <span class="badge bg-primary ms-2">3+</span>
-                    </button>
-                </h2>
-                <div id="collapseEco" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="./smart-passwords-ecosystem.html" class="fw-bold text-primary text-decoration-none">Smart Passwords Ecosystem</a>
-                                <p class="small text-secondary mb-0">Deterministic Smart Password Generators, Managers and Libraries</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="./np-problem-ecosystem.html" class="fw-bold text-primary text-decoration-none">NP Problem Ecosystem</a>
-                                <p class="small text-secondary mb-0">Traveling Salesman Problem Solvers and Benchmark</p></div>
-                            </div>
-                            <div class="col-md-6 col-lg-6 mb-3">
-                                <div><a href="./deterministic-ecosystem.html" class="fw-bold text-primary text-decoration-none">Deterministic Ecosystem</a>
-                                <p class="small text-secondary mb-0">Deterministic Infinite Generators</p></div>
-                            </div>
-                        </div>
-                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/ecosystems.html" class="text-primary">Ecosystems page</a></p>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <hr>
+        <!-- Related Research -->
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseResearch"
+                        aria-expanded="false" aria-controls="collapseResearch">
+                    <i class="bi bi-mortarboard-fill me-2"></i>
+                    Related Research <span class="badge bg-primary ms-2">4+</span>
+                </button>
+            </h2>
+            <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="/research/pointer-based-security-paradigm.html" class="fw-bold text-primary text-decoration-none">Pointer‑Based Security Paradigm</a>
+                            <p class="small text-secondary mb-0">Architectural shift from data protection to data non‑existence</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="/research/local-data-regeneration-paradigm.html" class="fw-bold text-primary text-decoration-none">Local Data Regeneration</a>
+                            <p class="small text-secondary mb-0">Synchronous state discovery - regenerate data locally</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="/research/position-candidate-hypothesis-paradigm.html" class="fw-bold text-primary text-decoration-none">Position‑Candidate‑Hypothesis</a>
+                            <p class="small text-secondary mb-0">Structural-statistical approach to NP-complete problems</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="/research/deterministic-game-engine-tech-report.html" class="fw-bold text-primary text-decoration-none">Deterministic Game Engine</a>
+                            <p class="small text-secondary mb-0">2.8M elements/sec, O(1) state access - tech report</p></div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/research.html" class="text-primary">Research page</a></p>
+                </div>
+            </div>
+        </div>
 
-        <div class="text-center mt-4 mb-5">
-            <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm px-4">
-                <i class="bi bi-arrow-left"></i> Back to Ecosystems
-            </a>
+        <!-- Related Ecosystems -->
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapseEco"
+                        aria-expanded="false" aria-controls="collapseEco">
+                    <i class="bi bi-diagram-3 me-2"></i>
+                    Related Ecosystems <span class="badge bg-primary ms-2">3+</span>
+                </button>
+            </h2>
+            <div id="collapseEco" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="./smart-passwords-ecosystem.html" class="fw-bold text-primary text-decoration-none">Smart Passwords Ecosystem</a>
+                            <p class="small text-secondary mb-0">Deterministic Smart Password Generators, Managers and Libraries</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="./np-problem-ecosystem.html" class="fw-bold text-primary text-decoration-none">NP Problem Ecosystem</a>
+                            <p class="small text-secondary mb-0">Traveling Salesman Problem Solvers and Benchmark</p></div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="./deterministic-ecosystem.html" class="fw-bold text-primary text-decoration-none">Deterministic Ecosystem</a>
+                            <p class="small text-secondary mb-0">Deterministic Infinite Generators</p></div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/ecosystems.html" class="text-primary">Ecosystems page</a></p>
+                </div>
+            </div>
         </div>
 
     </div>
+
+    <hr>
+
+    <div class="tech-stack justify-content-center mt-4 mb-2">
+        <span class="language-badge"><i class="bi bi-shield-check"></i> Pointer‑Based Security</span>
+        <span class="language-badge"><i class="bi bi-arrow-repeat"></i> Local Data Regeneration</span>
+        <span class="language-badge"><i class="bi bi-puzzle"></i> PCH Paradigm</span>
+        <span class="language-badge"><i class="bi bi-cpu"></i> Deterministic Game Engine</span>
+        <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
+        <span class="language-badge"><i class="bi bi-filetype-cs"></i> C#</span>
+        <span class="language-badge"><i class="bi bi-filetype-go"></i> Go</span>
+        <span class="language-badge"><i class="bi bi-filetype-java"></i> Kotlin</span>
+        <span class="language-badge"><i class="bi bi-filetype-js"></i> JavaScript</span>
+    </div>
+
+    <div class="text-center mt-4 mb-5">
+        <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm px-4">
+            <i class="bi bi-arrow-left"></i> Back to Ecosystems
+        </a>
+    </div>
+
 </div>
 
 <!-- end content -->
