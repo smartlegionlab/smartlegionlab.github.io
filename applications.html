@@ -154,7 +154,7 @@
 <div class="container">
     <div class="custom-margin-top">
 
-        <h1 class="text-center text-primary">Applications <sup class="text-warning">36+</sup></h1>
+        <h1 class="text-center text-primary">Smart Legion Lab Applications <sup class="text-warning" id="projectsCountBadge">36</sup>+</h1>
         <p class="text-center">
             <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Applications</span>
             is a diverse collection of tools built for real-world tasks — from password managers
@@ -167,67 +167,6 @@
         </p>
 
         <hr>
-
-        <div class="content-section">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 mb-2">
-                        <div class="p-3 card-custom position-relative explore-block-style" title="All applications">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                36+
-                            </span>
-                            <i class="bi bi-grid-3x3-gap text-primary fs-1"></i>
-                            <div class="fw-bold mt-2 text-light">All</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 mb-2">
-                        <div class="p-3 card-custom position-relative explore-block-style">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                15+
-                            </span>
-                            <i class="bi bi-terminal text-primary fs-1"></i>
-                            <div class="fw-bold mt-2 text-light">Cli</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 mb-2">
-                        <div class="p-3 card-custom position-relative explore-block-style">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                9+
-                            </span>
-                            <i class="bi bi-pc-display text-primary fs-1"></i>
-                            <div class="fw-bold mt-2 text-light">Desktop</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 mb-2">
-                        <div class="p-3 card-custom position-relative explore-block-style">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                4+
-                            </span>
-                            <i class="bi bi-browser-chrome text-primary fs-1"></i>
-                            <div class="fw-bold mt-2 text-light">Web</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 mb-2">
-                        <div class="p-3 card-custom position-relative explore-block-style">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                5+
-                            </span>
-                            <i class="bi bi-phone text-primary fs-1"></i>
-                            <div class="fw-bold mt-2 text-light">Mobile</div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 mb-2">
-                        <div class="p-3 card-custom position-relative explore-block-style">
-                            <span class="badge text-light rounded-pill position-absolute smart-badge">
-                                3+
-                            </span>
-                            <i class="bi bi-robot text-primary fs-1"></i>
-                            <div class="fw-bold mt-2 text-light">Bots</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="row g-2 mb-4 align-items-center">
             <div class="col-12 col-md-7">
@@ -260,8 +199,17 @@
             </div>
         </div>
 
+                <div class="row mb-1">
+                    <div class="col-12">
+                        <div id="projectsStatusBar" class="small text-secondary">
+                            <i class="bi bi-collection me-1"></i>
+                            <span id="projectsStatusText">Loading applications…</span>
+                        </div>
+                    </div>
+                </div>
+
         <div class="container content-section">
-            <div class="row text-center">
+            <div class="row text-center" id="projectsGrid">
 
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
                     <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">

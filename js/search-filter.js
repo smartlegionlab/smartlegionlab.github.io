@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
             var noun = visibleCount === 1 ? 'project' : 'projects';
             statsText = 'Showing ' + visibleCount + ' of ' + total + ' ' + noun;
             if (term !== '') {
-                statsText += ' · search: "' + term + '"';
+                statsText += ' | search: "' + term + '"';
             }
             if (filterValue !== 'all') {
                 var filterLabel = selectedFilterText ? selectedFilterText.textContent : filterValue;
-                statsText += ' · filter: ' + filterLabel;
+                statsText += ' | filter: ' + filterLabel;
             }
         }
 
