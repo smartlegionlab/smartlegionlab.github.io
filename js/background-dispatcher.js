@@ -16,6 +16,17 @@
             || /projects/i.test(document.title);
     }
 
+    function getBasePath() {
+        var scripts = document.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+            var src = scripts[i].getAttribute('src') || '';
+            if (src.indexOf('background-dispatcher.js') !== -1) {
+                return src.replace(/background-dispatcher\.js.*$/, '');
+            }
+        }
+        return 'js/';
+    }
+
     function loadScript(src) {
         return new Promise(function (resolve, reject) {
             var s = document.createElement('script');
@@ -34,9 +45,9 @@
             return;
         }
 
-        var src = (isMobile() || isProjectsPage())
-            ? 'js/console-background.js'
-            : 'js/particle-background.js';
+        var base = getBasePath();
+        var useConsole = isMobile() || isProjectsPage();
+        var src = base + (useConsole ? 'console-background.js' : 'particle-background.js');
 
         console.log('[background-dispatcher] loading', src);
 
