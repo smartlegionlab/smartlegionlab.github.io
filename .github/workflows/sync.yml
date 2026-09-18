@@ -1,8 +1,9 @@
 name: Sync to Custom Domain Repo
 
 on:
-  push:
-    branches: [master]
+  release:
+    types: [published]
+  workflow_dispatch:
 
 jobs:
   sync:
