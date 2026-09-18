@@ -4,9 +4,6 @@ class ParticleBackground {
             return window.particleBackgroundInstance;
         }
 
-        // this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-//        if (this.isMobile) return;
-
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.particlesArray = [];
@@ -54,9 +51,8 @@ class ParticleBackground {
             'Cross-Platform',
             'Decentralized',
             'Zero Trust',
-            'Full-Cycle Development',
+            'Full-Cycle Development'
         ];
-
 
         window.particleBackgroundInstance = this;
         this.init();
@@ -86,6 +82,19 @@ class ParticleBackground {
         return 30;
     }
 
+    pickColor(text) {
+        if (/Paradigm|Zero-Storage|Data Non-Existence|Deterministic Systems/i.test(text)) {
+            return '255, 193, 7';
+        }
+        if (/Security|Cryptography|SHA|TOTP|2FA|Zero Trust/i.test(text)) {
+            return '220, 53, 69';
+        }
+        if (/^(Python|Go|C#|Kotlin|JavaScript|Rust|PyQt|Django|Flask|Android|Redis|PostgreSQL|Docker|GitHub API)$/.test(text)) {
+            return '13, 202, 240';
+        }
+        return '13, 110, 253';
+    }
+
     handleResize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
@@ -97,32 +106,48 @@ class ParticleBackground {
         const count = this.getParticleCount();
 
         for (let i = 0; i < count; i++) {
+            const text = this.techWords[Math.floor(Math.random() * this.techWords.length)];
             this.particlesArray.push({
                 x: Math.random() * this.canvas.width,
                 y: Math.random() * this.canvas.height,
                 speedX: (Math.random() - 0.5) * 0.2,
                 speedY: (Math.random() - 0.5) * 0.2,
                 size: Math.random() * 12 + 12,
-                text: this.techWords[Math.floor(Math.random() * this.techWords.length)],
-                opacity: Math.random() * 0.25 + 0.1,
-                rotation: 0
+                text: text,
+                color: this.pickColor(text),
+                opacity: Math.random() * 0.15 + 0.05,
+                targetOpacity: Math.random() * 0.15 + 0.05
             });
         }
     }
 
-    updateParticles() {
+        updateParticles() {
         for (let particle of this.particlesArray) {
             particle.x += particle.speedX;
             particle.y += particle.speedY;
 
-            particle.opacity += (Math.random() - 0.5) * 0.01;
-            if (particle.opacity < 0.1) particle.opacity = 0.1;
-            if (particle.opacity > 0.3) particle.opacity = 0.3;
+            const margin = 100;
+            if (particle.x > this.canvas.width + margin) {
+                particle.x = -margin;
+                particle.opacity = 0;
+                particle.targetOpacity = Math.random() * 0.15 + 0.05;
+            } else if (particle.x < -margin) {
+                particle.x = this.canvas.width + margin;
+                particle.opacity = 0;
+                particle.targetOpacity = Math.random() * 0.15 + 0.05;
+            }
+            if (particle.y > this.canvas.height + margin) {
+                particle.y = -margin;
+                particle.opacity = 0;
+                particle.targetOpacity = Math.random() * 0.15 + 0.05;
+            } else if (particle.y < -margin) {
+                particle.y = this.canvas.height + margin;
+                particle.opacity = 0;
+                particle.targetOpacity = Math.random() * 0.15 + 0.05;
+            }
 
-            if (particle.x > this.canvas.width + 100) particle.x = -100;
-            else if (particle.x < -100) particle.x = this.canvas.width + 100;
-            if (particle.y > this.canvas.height + 100) particle.y = -100;
-            else if (particle.y < -100) particle.y = this.canvas.height + 100;
+            const target = Math.min(0.2, Math.max(0.05, particle.targetOpacity));
+            particle.opacity += (target - particle.opacity) * 0.01;
         }
     }
 
@@ -134,9 +159,9 @@ class ParticleBackground {
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
         this.ctx.font = `500 ${this.getResponsiveFontSize()}px 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace`;
-        
+
         for (let particle of this.particlesArray) {
-            this.ctx.fillStyle = `rgba(13, 110, 253, ${particle.opacity})`;
+            this.ctx.fillStyle = `rgba(${particle.color}, ${particle.opacity})`;
             this.ctx.fillText(particle.text, particle.x, particle.y);
         }
     }
