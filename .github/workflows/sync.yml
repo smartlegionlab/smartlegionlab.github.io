@@ -1,0 +1,20 @@
+name: Sync to Custom Domain Repo
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Mirror Repo
+        run: |
+          git remote add mirror https://${{ secrets.GH_PAT }}@://github.com{{ github.repository_owner }}/smartlegionlab-com.git
+          git push mirror master:master --force
