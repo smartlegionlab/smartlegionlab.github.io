@@ -21,6 +21,10 @@
         {
             test: function (ctx) { return ctx.matchesPath(/projects/i); },
             engine: 'console-background.js'
+        },
+        {
+            test: function (ctx) { return ctx.matchesPath(/research/i); },
+            engine: 'tsp-background.js'
         }
     ];
 
