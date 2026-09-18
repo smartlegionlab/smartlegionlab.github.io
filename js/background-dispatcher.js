@@ -16,7 +16,7 @@
     var RULES = [
         {
             test: function (ctx) { return ctx.isMobile; },
-            engine: 'console-background.js'
+            engine: 'tsp-background.js'
         },
         {
             test: function (ctx) { return ctx.matchesPath(/projects/i); },
@@ -33,16 +33,13 @@
         var smallScreen = window.innerWidth < 768;
 
         var pathname = window.location.pathname;
-        var title = document.title;
 
         return {
             isMobile: uaMobile || touchDevice || smallScreen,
             isTouch: touchDevice,
             isSmallScreen: smallScreen,
             pathname: pathname,
-            title: title,
-            matchesPath: function (re) { return re.test(pathname); },
-            matchesTitle: function (re) { return re.test(title); }
+            matchesPath: function (re) { return re.test(pathname); }
         };
     }
 
