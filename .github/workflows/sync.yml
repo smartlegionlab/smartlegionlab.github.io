@@ -24,11 +24,13 @@ jobs:
             exit 1
           fi
 
+          git config --local --unset-all http.https://github.com/.extraheader || true
+
           echo "smartlegionlab.com" > CNAME
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -f CNAME
           git commit -m "chore: add CNAME" || true
 
-          git remote add mirror "https://github.com/smartlegionlab/smartlegionlab-com.git"
-          git -c http.extraHeader="AUTHORIZATION: bearer ${GH_PAT}" push mirror master:master --force
+          git remote add mirror "https://x-access-token:${GH_PAT}@github.com/smartlegionlab/smartlegionlab-com.git"
+          git push mirror master:master --force
