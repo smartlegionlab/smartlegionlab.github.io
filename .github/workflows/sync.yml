@@ -2,8 +2,7 @@ name: Sync to Custom Domain Repo
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   sync:
@@ -15,6 +14,13 @@ jobs:
           fetch-depth: 0
 
       - name: Push to Mirror Repo
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git remote add mirror https://x-access-token:${{ secrets.GH_PAT }}@github.com/smartlegionlab/smartlegionlab-com.git
-          git push mirror master:master --force
+          set -e
+          if [ -z "$GH_PAT" ]; then
+            echo "::error::GH_PAT is empty. Check repository secrets."
+            exit 1
+          fi
+          git remote add mirror "https://github.com/smartlegionlab/smartlegionlab-com.git"
+          git -c http.extraHeader="AUTHORIZATION: bearer ${GH_PAT}" push mirror master:master --force
