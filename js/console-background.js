@@ -1,15 +1,15 @@
 /**
  * Console Background — self-typing session log.
  * Multiple scenarios, random pick per session.
- * Activated only when <div id="console-bg-trigger" hidden></div> is present.
- * v0.0.1
+ * Activated only when <div id="background-trigger" hidden></div> is present.
+ * v0.0.2
  */
 
 (function () {
     'use strict';
 
-    document.addEventListener('DOMContentLoaded', () => {
-        if (!document.getElementById('console-bg-trigger')) return;
+    function start() {
+        if (!document.getElementById('background-trigger')) return;
         if (document.getElementById('console-bg')) return;
 
         const container = document.createElement('div');
@@ -471,5 +471,11 @@
         }
 
         loop();
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+    } else {
+        start();
+    }
 })();

@@ -327,6 +327,16 @@ class ParticleBackground {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    new ParticleBackground();
-});
+(function () {
+    function start() {
+        if (!window.particleBackgroundInstance) {
+            new ParticleBackground();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+    } else {
+        start();
+    }
+})();
