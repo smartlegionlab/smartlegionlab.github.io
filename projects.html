@@ -145,7 +145,7 @@
 
 <div class="container custom-margin-top">
 
-    <h1 class="text-center text-primary">Smart Legion Lab projects</h1>
+    <h1 class="text-center text-primary">Smart Legion Lab Projects <sup class="text-warning" id="projectsCountBadge">99</sup>+</h1>
 
     <p class="text-center">
         <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Projects</span> is the complete collection of all
@@ -194,8 +194,17 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+        <div class="col-12">
+            <div id="projectsStatusBar" class="small text-secondary">
+                <i class="bi bi-collection me-1"></i>
+                <span id="projectsStatusText">Loading projects…</span>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center" id="projectsGrid">
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
                 <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">

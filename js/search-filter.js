@@ -4,11 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
     var filterDropdownMenu = document.getElementById('filterDropdownMenu');
     var selectedFilterText = document.getElementById('selectedFilterText');
     var searchStats = document.getElementById('searchStats');
+    var projectsCountBadge = document.getElementById('projectsCountBadge');
+    var projectsStatusText = document.getElementById('projectsStatusText');
 
     if (!searchInput || !filterDropdownMenu) return;
 
-    var cards = document.querySelectorAll('.col-lg-6.mb-4.d-flex');
+    var cards = document.querySelectorAll('#projectsGrid .card-custom');
     var currentFilter = 'all';
+
+    if (projectsCountBadge) {
+        projectsCountBadge.textContent = cards.length;
+    }
 
     function updateDropdownText(value) {
         if (!selectedFilterText) return;
@@ -39,27 +45,32 @@ document.addEventListener('DOMContentLoaded', function() {
             var matchFilter = filterValue === 'all' || badgeText === filterValue || authorText === filterValue;
 
             if (matchSearch && matchFilter) {
-                card.style.setProperty('display', 'flex', 'important');
+                card.parentElement.style.setProperty('display', 'flex', 'important');
                 visibleCount++;
             } else {
-                card.style.setProperty('display', 'none', 'important');
+                card.parentElement.style.setProperty('display', 'none', 'important');
             }
         }
 
         var total = cards.length;
-        var pageName = document.title.split('·')[0].trim() || 'items';
-        var statsText = 'Found ' + visibleCount + ' ' + pageName.toLowerCase() + (visibleCount !== 1 ? 's' : '');
-        if (term !== '') {
-            statsText += ' matching "' + term + '"';
+        var statsText;
+
+        if (term === '' && filterValue === 'all') {
+            statsText = 'Showing all ' + total + ' projects';
+        } else {
+            var noun = visibleCount === 1 ? 'project' : 'projects';
+            statsText = 'Showing ' + visibleCount + ' of ' + total + ' ' + noun;
+            if (term !== '') {
+                statsText += ' · search: "' + term + '"';
+            }
+            if (filterValue !== 'all') {
+                var filterLabel = selectedFilterText ? selectedFilterText.textContent : filterValue;
+                statsText += ' · filter: ' + filterLabel;
+            }
         }
-        if (filterValue !== 'all') {
-            var filterLabel = selectedFilterText ? selectedFilterText.textContent : filterValue;
-            statsText += ' in ' + filterLabel;
-        }
-        if (visibleCount === total && term === '' && filterValue === 'all') {
-            statsText = 'Showing all ' + total + ' ' + pageName.toLowerCase();
-        }
+
         if (searchStats) searchStats.textContent = statsText;
+        if (projectsStatusText) projectsStatusText.textContent = statsText;
     }
 
     searchInput.addEventListener('input', filterItems);
