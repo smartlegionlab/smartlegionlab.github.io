@@ -202,7 +202,7 @@
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.4.5</span>
+                <span data-smart-version>v7.4.6</span>
             </a>
         </p>
     </div>
@@ -223,7 +223,7 @@
 <div class="container custom-margin-top">
 
     <h1 class="text-center text-primary">
-        Research & Publications <sup class="text-warning" data-smart-key="publications">4+</sup>
+        Research & Publications <sup class="text-warning" id="projectsCountBadge">4+</sup>
     </h1>
 
     <hr>
@@ -251,7 +251,7 @@
             <span class="text-danger">information transmission</span>.
         </p>
 
-        <div class="text-center">
+        <div class="text-center mb-4">
             <a target="_blank" href="https://orcid.org/0009-0006-3427-9611" class="btn btn-sm btn-outline-warning">
                 ORCID
             </a>
@@ -268,9 +268,46 @@
 
     </div>
 
-    <div class="container content-section">
+    <div class="row g-2 mb-4 align-items-center">
+        <div class="col-12 col-md-7">
+            <div class="input-group smart-input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search research...">
+                <button class="btn smart-clear-btn" id="clearSearch" type="button">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="dropdown w-100" id="filterDropdownContainer">
+                <button class="btn smart-select dropdown-toggle text-start w-100" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="selectedFilterText">All Types</span>
+                </button>
+                <ul class="dropdown-menu smart-dropdown-menu w-100" aria-labelledby="filterDropdown" id="filterDropdownMenu">
+                    <li><button class="dropdown-item active" type="button" data-value="all">All</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="alexander suvorov sr.">smartlegionlab</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="@aixandrolab">aixandrolab</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-        <div class="row text-center">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div id="projectsStatusBar" class="font-monospace small">
+                <span class="text-success">$</span>
+                <span class="text-primary">smartlegion</span><span class="text-secondary">@</span><span class="text-primary">lab</span><span class="text-secondary">:</span><span class="text-info">~/research</span><span class="text-secondary">$</span>
+                <span id="projectsStatusText" class="text-light">loading…</span>
+                <span class="smart-cursor"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row text-center" id="projectsGrid">
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
                 <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
@@ -281,7 +318,7 @@
                         <h4 class="mt-2 text-light">Pointer‑Based Security Paradigm</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -314,7 +351,7 @@
                         <h4 class="mt-2 text-light">Local Data Regeneration Paradigm</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -347,7 +384,7 @@
                         <h4 class="mt-2 text-light">Deterministic Game Engine</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -379,7 +416,7 @@
                         <h4 class="mt-2 text-light">Position-Candidate-Hypothesis Paradigm</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -427,7 +464,7 @@
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.4.5</span>
+                <span data-smart-version>v7.4.6</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map
@@ -469,6 +506,7 @@
 <script src="js/console.js"></script>
 <script src="js/sidebar.js"></script>
 
+<script src="js/search-filter.js"></script>
 <!-- end scripts -->
 
 </body>
