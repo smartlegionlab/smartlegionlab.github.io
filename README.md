@@ -6,7 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/network/members)
 
-**The official website of Smart Legion Lab** - a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
+**The official website of Smart Legion Lab** — a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
 
 ![Main Page](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
 
@@ -182,6 +182,70 @@ An immersive 3D visualization of the entire website, accessible via the **"Site 
 
 ---
 
+### Adaptive Background System
+
+The site ships an adaptive background engine that selects the right
+visual for the right context — desktop, mobile, or specific pages —
+without loading unnecessary scripts.
+
+**How it works:**
+- `js/background-dispatcher.js` is the single entry point.
+- It inspects the page context (device type, viewport, pathname)
+  and loads exactly one of the available engines.
+- Only the required engine is fetched at runtime; the others are
+  never downloaded on that device.
+- Adding a new engine means adding a rule to the dispatcher's `RULES`
+  array, no changes to the dispatcher logic itself.
+
+**Rules (priority order, first match wins):**
+
+| Context                                      | Engine                           | File                        |
+|----------------------------------------------|----------------------------------|-----------------------------|
+| Mobile device (UA / touch / narrow viewport) | TSP traveling-salesman animation | `js/tsp-background.js`      |
+| Path matching `/projects/i`                  | Self-typing console session log  | `js/console-background.js`  |
+| Everything else (desktop)                    | Floating tech words on canvas    | `js/particle-background.js` |
+
+**Engines:**
+
+- **TSP Background** — white dots drift slowly, a greedy route is
+  built periodically (nearest neighbor) and animated with a glowing
+  traveler leaving a fading trail. Cheaper than the particle engine:
+  no `fillText`, no O(n²) per frame. Route is built once per cycle.
+- **Console Background** — self-typing coherent session log with five
+  scenarios (research, smartpasslib, TSP, 2FA, infrastructure),
+  randomly picked per session. Uses only DOM + CSS. Loads on mobile
+  and on the projects page.
+- **Particle Background** — floating tech words on canvas with color
+  coding (paradigms yellow, security red, languages cyan), edge fade,
+  breathing opacity, and soft repulsion. Loads on desktop pages that
+  are not projects.
+
+**Shared behaviour across all engines:**
+
+- Activated only when `<div id="background-trigger" hidden></div>`
+  is present on the page.
+- `prefers-reduced-motion` is respected — animation stops completely.
+- `visibilitychange` pauses the animation when the tab is hidden.
+- Mobile scroll and address bar resize do not cause jitter.
+- `orientationchange` is handled with a short delay so the engines
+  recompute layout after the browser updates `innerWidth`/`innerHeight`.
+
+**Adding a new engine:**
+
+1. Create `js/your-background.js` as a self-contained module.
+2. Add a rule to `RULES` in `js/background-dispatcher.js`:
+
+```javascript
+{
+    test: function (ctx) { return ctx.matchesPath(/your-section/i); },
+    engine: 'your-background.js'
+}
+```
+
+3. That's it — no other changes needed.
+
+---
+
 ## License
 
 This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](LICENSE) file for details.
@@ -206,3 +270,4 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
   <br>
   <sub>© 2026 Smart Legion Lab. All rights reserved.</sub>
 </div>
+
