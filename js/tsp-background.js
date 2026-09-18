@@ -1,7 +1,6 @@
 /**
  * TSP Background — traveling salesman path animation.
- * Loads dots, builds a greedy route, animates a traveler along it.
- * Pure Canvas 2D. No dependencies.
+ * Dots drift slowly, greedy route is animated with a fading trail.
  */
 
 class TSPBackground {
@@ -84,9 +83,13 @@ class TSPBackground {
         const h = this.canvas.height;
 
         for (let i = 0; i < count; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 0.12 + 0.03;
             this.points.push({
                 x: pad + Math.random() * (w - pad * 2),
                 y: pad + Math.random() * (h - pad * 2),
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
                 opacity: Math.random() * 0.25 + 0.15,
                 size: Math.random() * 1.2 + 1.0,
                 pulsePhase: Math.random() * Math.PI * 2,
@@ -156,6 +159,32 @@ class TSPBackground {
         this.state = 'traveling';
     }
 
+    updatePoints() {
+        const w = this.canvas.width;
+        const h = this.canvas.height;
+        const pad = 40;
+
+        for (const p of this.points) {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < pad) {
+                p.x = pad;
+                p.vx = Math.abs(p.vx);
+            } else if (p.x > w - pad) {
+                p.x = w - pad;
+                p.vx = -Math.abs(p.vx);
+            }
+            if (p.y < pad) {
+                p.y = pad;
+                p.vy = Math.abs(p.vy);
+            } else if (p.y > h - pad) {
+                p.y = h - pad;
+                p.vy = -Math.abs(p.vy);
+            }
+        }
+    }
+
     updateTraveler() {
         if (this.state !== 'traveling') return;
         if (this.routeIndex >= this.route.length - 1) {
@@ -168,7 +197,6 @@ class TSPBackground {
         const b = this.points[this.route[this.routeIndex + 1]];
         const dist = this.distance(a, b);
 
-        const baseSpeed = 2.2;
         const speedPerPixel = this.segmentSpeed * Math.min(3, 80 / (dist + 20));
         this.segmentProgress += speedPerPixel;
 
@@ -276,6 +304,7 @@ class TSPBackground {
     animate(time) {
         if (this.isPaused) return;
 
+        this.updatePoints();
         this.updateTraveler();
         this.draw(time || 0);
         this.animationId = requestAnimationFrame((t) => this.animate(t));

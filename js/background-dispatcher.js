@@ -47,7 +47,7 @@
 
         var base = getBasePath();
         var useConsole = isMobile() || isProjectsPage();
-        var src = base + (useConsole ? 'console-background.js' : 'particle-background.js');
+        var src = base + (useConsole ? 'tsp-background.js' : 'particle-background.js');
 
         console.log('[background-dispatcher] loading', src);
 
