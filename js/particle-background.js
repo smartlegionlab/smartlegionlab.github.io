@@ -95,6 +95,15 @@ class ParticleBackground {
         return '13, 110, 253';
     }
 
+    getEdgeFade(x, y) {
+        const w = this.canvas.width;
+        const h = this.canvas.height;
+        const edge = 120;
+        const fx = Math.min(x / edge, (w - x) / edge, 1);
+        const fy = Math.min(y / edge, (h - y) / edge, 1);
+        return Math.max(0, Math.min(1, Math.min(fx, fy)));
+    }
+
     handleResize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
@@ -116,13 +125,28 @@ class ParticleBackground {
                 text: text,
                 color: this.pickColor(text),
                 opacity: Math.random() * 0.15 + 0.05,
-                targetOpacity: Math.random() * 0.15 + 0.05
+                targetOpacity: Math.random() * 0.15 + 0.05,
+                breathPhase: Math.random() * Math.PI * 2,
+                breathSpeed: 0.005 + Math.random() * 0.005
             });
         }
     }
 
-        updateParticles() {
+    updateParticles() {
         for (let particle of this.particlesArray) {
+            for (let other of this.particlesArray) {
+                if (other === particle) continue;
+                const dx = particle.x - other.x;
+                const dy = particle.y - other.y;
+                const d2 = dx * dx + dy * dy;
+                if (d2 > 1 && d2 < 6400) {
+                    const d = Math.sqrt(d2);
+                    const force = (80 - d) / 80 * 0.02;
+                    particle.x += (dx / d) * force;
+                    particle.y += (dy / d) * force;
+                }
+            }
+
             particle.x += particle.speedX;
             particle.y += particle.speedY;
 
@@ -146,7 +170,9 @@ class ParticleBackground {
                 particle.targetOpacity = Math.random() * 0.15 + 0.05;
             }
 
-            const target = Math.min(0.2, Math.max(0.05, particle.targetOpacity));
+            particle.breathPhase += particle.breathSpeed;
+            const base = Math.min(0.2, Math.max(0.05, particle.targetOpacity));
+            const target = base + Math.sin(particle.breathPhase) * 0.03;
             particle.opacity += (target - particle.opacity) * 0.01;
         }
     }
@@ -161,7 +187,9 @@ class ParticleBackground {
         this.ctx.font = `500 ${this.getResponsiveFontSize()}px 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace`;
 
         for (let particle of this.particlesArray) {
-            this.ctx.fillStyle = `rgba(${particle.color}, ${particle.opacity})`;
+            const edgeFade = this.getEdgeFade(particle.x, particle.y);
+            if (edgeFade <= 0.01) continue;
+            this.ctx.fillStyle = `rgba(${particle.color}, ${particle.opacity * edgeFade})`;
             this.ctx.fillText(particle.text, particle.x, particle.y);
         }
     }
@@ -175,18 +203,25 @@ class ParticleBackground {
     drawConnections() {
         for (let i = 0; i < this.particlesArray.length; i++) {
             for (let j = i + 1; j < this.particlesArray.length; j++) {
-                const dx = this.particlesArray[i].x - this.particlesArray[j].x;
-                const dy = this.particlesArray[i].y - this.particlesArray[j].y;
+                const a = this.particlesArray[i];
+                const b = this.particlesArray[j];
+                const dx = a.x - b.x;
+                const dy = a.y - b.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < 150) {
-                    const opacity = 1 - (distance / 150);
-                    this.ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.25})`;
-                    this.ctx.lineWidth = 0.8;
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(this.particlesArray[i].x, this.particlesArray[i].y);
-                    this.ctx.lineTo(this.particlesArray[j].x, this.particlesArray[j].y);
-                    this.ctx.stroke();
+                    const t = 1 - (distance / 150);
+                    const fadeA = this.getEdgeFade(a.x, a.y);
+                    const fadeB = this.getEdgeFade(b.x, b.y);
+                    const alpha = t * 0.25 * fadeA * fadeB;
+                    if (alpha > 0.01) {
+                        this.ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                        this.ctx.lineWidth = 0.8;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(a.x, a.y);
+                        this.ctx.lineTo(b.x, b.y);
+                        this.ctx.stroke();
+                    }
                 }
             }
         }
