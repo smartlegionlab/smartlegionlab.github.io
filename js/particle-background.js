@@ -9,6 +9,8 @@ class ParticleBackground {
         this.particlesArray = [];
         this.animationId = null;
         this.isPaused = false;
+        this.lastWidth = 0;
+        this.lastHeight = 0;
 
         this.techWords = [
             'Pointer-Based Security',
@@ -68,6 +70,9 @@ class ParticleBackground {
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
         `;
         document.body.prepend(this.canvas);
 
@@ -105,9 +110,24 @@ class ParticleBackground {
     }
 
     handleResize() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.createParticles();
+        const oldWidth = this.canvas.width;
+        const oldHeight = this.canvas.height;
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+
+        this.canvas.width = newWidth;
+        this.canvas.height = newHeight;
+
+        if (Math.abs(newWidth - oldWidth) > 10) {
+            this.createParticles();
+        } else {
+            const ratio = newHeight / oldHeight;
+            if (isFinite(ratio) && ratio > 0.5 && ratio < 2) {
+                for (const p of this.particlesArray) {
+                    p.y *= ratio;
+                }
+            }
+        }
     }
 
     createParticles() {
@@ -252,8 +272,27 @@ class ParticleBackground {
     }
 
     setupEventListeners() {
-        const debouncedResize = this.debounce(() => this.handleResize(), 250);
-        window.addEventListener('resize', debouncedResize);
+        this.lastWidth = window.innerWidth;
+        this.lastHeight = window.innerHeight;
+
+        const onResize = () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+
+            const widthChanged = w !== this.lastWidth;
+            const heightChangedALot = Math.abs(h - this.lastHeight) > 120;
+
+            if (widthChanged || heightChangedALot) {
+                this.lastWidth = w;
+                this.lastHeight = h;
+                this.debouncedResize();
+            } else {
+                this.lastHeight = h;
+            }
+        };
+
+        this.debouncedResize = this.debounce(() => this.handleResize(), 250);
+        window.addEventListener('resize', onResize);
 
         document.addEventListener('visibilitychange', () => {
             this.isPaused = document.hidden;
