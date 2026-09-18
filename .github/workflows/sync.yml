@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Push to Mirror Repo
+      - name: Push to Mirror Repo with CNAME
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
@@ -22,5 +22,13 @@ jobs:
             echo "::error::GH_PAT is empty. Check repository secrets."
             exit 1
           fi
+
+          echo "smartlegionlab.com" > CNAME
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f CNAME
+          git commit -m "chore: add CNAME for custom domain" || echo "CNAME unchanged, skipping commit"
+
           git remote add mirror "https://github.com/smartlegionlab/smartlegionlab-com.git"
           git -c http.extraHeader="AUTHORIZATION: bearer ${GH_PAT}" push mirror master:master --force
