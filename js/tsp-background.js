@@ -72,6 +72,7 @@ class TSPBackground {
         if (widthChanged || heightChangedALot) {
             this.createPoints();
             this.resetRoute();
+            this.scheduleNextRoute(400);
         }
     }
 
@@ -187,9 +188,9 @@ class TSPBackground {
 
     updateTraveler() {
         if (this.state !== 'traveling') return;
-        if (this.routeIndex >= this.route.length - 1) {
+        if (this.route.length === 0 || this.routeIndex >= this.route.length - 1) {
             this.state = 'idle';
-            this.scheduleNextRoute(2500 + Math.random() * 2000);
+            this.scheduleNextRoute(1500);
             return;
         }
 
@@ -244,7 +245,7 @@ class TSPBackground {
         if (this.trail.length === 0) return;
 
         for (const seg of this.trail) {
-            const alpha = seg.life * 0.55;
+            const alpha = seg.life * 0.35;
             if (alpha <= 0.01) continue;
             this.ctx.strokeStyle = `rgba(13, 110, 253, ${alpha})`;
             this.ctx.lineWidth = 1.2 * seg.life;
@@ -263,7 +264,7 @@ class TSPBackground {
         const b = this.points[this.route[this.routeIndex + 1]];
         const t = this.segmentProgress;
 
-        this.ctx.strokeStyle = `rgba(13, 110, 253, 0.7)`;
+        this.ctx.strokeStyle = `rgba(13, 110, 253, 0.28)`;
         this.ctx.lineWidth = 1.4;
         this.ctx.beginPath();
         this.ctx.moveTo(a.x, a.y);
@@ -279,8 +280,8 @@ class TSPBackground {
             this.traveler.x, this.traveler.y, 0,
             this.traveler.x, this.traveler.y, r * 4
         );
-        gradient.addColorStop(0, 'rgba(13, 202, 240, 0.9)');
-        gradient.addColorStop(0.4, 'rgba(13, 110, 253, 0.4)');
+        gradient.addColorStop(0, 'rgba(13, 202, 240, 0.55)');
+        gradient.addColorStop(0.4, 'rgba(13, 110, 253, 0.18)');
         gradient.addColorStop(1, 'rgba(13, 110, 253, 0)');
         this.ctx.fillStyle = gradient;
         this.ctx.beginPath();
@@ -289,7 +290,7 @@ class TSPBackground {
 
         this.ctx.beginPath();
         this.ctx.arc(this.traveler.x, this.traveler.y, r, 0, Math.PI * 2);
-        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
         this.ctx.fill();
     }
 
@@ -353,7 +354,9 @@ class TSPBackground {
         this.debouncedResize = this.debounce(() => this.handleResize(), 250);
         window.addEventListener('resize', onResize);
         window.addEventListener('orientationchange', () => {
-            this.debouncedResize();
+            setTimeout(() => {
+                this.debouncedResize();
+            }, 200);
         });
 
         document.addEventListener('visibilitychange', () => {
