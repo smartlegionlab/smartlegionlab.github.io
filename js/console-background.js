@@ -1,6 +1,8 @@
 /**
- * Console Background — self-typing coherent session log.
+ * Console Background — self-typing session log.
+ * Multiple scenarios, random pick per session.
  * Activated only when <div id="console-bg-trigger" hidden></div> is present.
+ * v0.0.1
  */
 
 (function () {
@@ -55,56 +57,62 @@
 
         applyLayout();
 
-        const SCENARIOS = [
-            // --- Session start ---
-            { cmd: '$ uname -a', out: [
-                { t: '> Linux arch 6.12.4 x86_64 GNU/Linux', c: '#6c757d' }
+        const SCENARIO_RESEARCH = [
+            { cmd: '$ uname -srm', out: [
+                { t: '> Linux 6.12.4-arch1-1 x86_64', c: '#6c757d' }
             ]},
-            { cmd: '$ cd ~/projects', out: [] },
+            { cmd: '$ cd ~/research', out: [] },
             { cmd: '$ ls', out: [
-                { t: '> smartpasslib        smart-tsp-solver       smart-2fa-manager-cli', c: '#6c757d' },
-                { t: '> smart-babylon       name-gender-nn         blockchain', c: '#6c757d' },
-                { t: '> smart-repo-manager  qr-codes-generator     personal-tg-bot', c: '#6c757d' },
-                { t: '> ... 75 repositories total', c: '#0dcaf0' }
+                { t: '> pointer-based-security-paradigm   local-data-regeneration-paradigm', c: '#6c757d' },
+                { t: '> position-candidate-hypothesis      deterministic-game-engine-report', c: '#6c757d' }
             ]},
-
-            // --- Research: paradigms ---
-            { cmd: '$ cd ~/research/pointer-based-security-paradigm', out: [] },
-            { cmd: '$ ls *.tex', out: [
-                { t: '> main.tex  references.bib  figures/  Makefile', c: '#6c757d' }
+            { cmd: '$ cd pointer-based-security-paradigm', out: [] },
+            { cmd: '$ ls', out: [
+                { t: '> main.tex  references.bib  figures/  Makefile  README.md', c: '#6c757d' }
             ]},
             { cmd: '$ make', out: [
-                { t: '> pdflatex main.tex', c: '#6c757d' },
+                { t: '> pdflatex -interaction=nonstopmode main.tex', c: '#6c757d' },
                 { t: '> bibtex main', c: '#6c757d' },
-                { t: '> pdflatex main.tex (x2)', c: '#6c757d' },
+                { t: '> pdflatex main.tex', c: '#6c757d' },
+                { t: '> pdflatex main.tex', c: '#6c757d' },
                 { t: '> Output written on main.pdf (24 pages, 342 KiB)', c: '#198754' }
             ]},
-            { cmd: '$ zenodo upload main.pdf --doi', out: [
-                { t: '> uploading to Zenodo...', c: '#6c757d' },
+            { cmd: '$ git status', out: [
+                { t: '> On branch master', c: '#6c757d' },
+                { t: '>     modified: main.tex', c: '#dc3545' },
+                { t: '>     modified: references.bib', c: '#dc3545' }
+            ]},
+            { cmd: '$ git add . && git commit -m "docs: final proofreading"', out: [
+                { t: '> [master 8f3a1c2] docs: final proofreading', c: '#198754' },
+                { t: '> 2 files changed, 18 insertions(+), 7 deletions(-)', c: '#6c757d' }
+            ]},
+            { cmd: '$ git push origin master', out: [
+                { t: '> To github.com:smartlegionlab/pointer-based-security-paradigm.git', c: '#6c757d' },
+                { t: '>    a91f2b4..8f3a1c2  master -> master', c: '#198754' }
+            ]},
+            { cmd: '$ zenodo upload main.pdf --metadata zenodo.json', out: [
+                { t: '> uploading 342 KiB', c: '#6c757d' },
                 { t: '> DOI: 10.5281/zenodo.17204738', c: '#0dcaf0' },
                 { t: '> published', c: '#198754' }
             ]},
-
-            // --- Clone & setup ---
-            { cmd: '$ cd ~/projects', out: [] },
-            { cmd: '$ git clone git@github.com:smartlegionlab/smartpasslib.git', out: [
-                { t: '> Cloning into "smartpasslib"...', c: '#6c757d' },
-                { t: '> Receiving objects: 100% (1248/1248)', c: '#198754' },
-                { t: '> Resolving deltas: 100% (712/712), done.', c: '#198754' }
+            { cmd: '$ curl -s https://zenodo.org/api/records/17204738 | jq .stats', out: [
+                { t: '> { views: 1842, downloads: 612, unique_views: 1420 }', c: '#0dcaf0' }
             ]},
-            { cmd: '$ cd smartpasslib', out: [] },
-            { cmd: '$ python -m venv .venv && source .venv/bin/activate', out: [
+            { cmd: '$ orcid-export --format bibtex > orcid.bib', out: [
+                { t: '> exported 4 works', c: '#198754' }
+            ]},
+            { cmd: '$ exit', out: [
+                { t: '> session closed', c: '#6c757d' }
+            ]}
+        ];
+
+        const SCENARIO_SMARTPASSLIB = [
+            { cmd: '$ cd ~/projects/smartpasslib', out: [] },
+            { cmd: '$ source .venv/bin/activate', out: [
                 { t: '> (.venv) activated', c: '#0dcaf0' }
             ]},
-            { cmd: '$ pip install -r requirements.txt', out: [
-                { t: '> Collecting cryptography>=42.0', c: '#6c757d' },
-                { t: '> Collecting pyqt5>=5.15', c: '#6c757d' },
-                { t: '> Successfully installed 24 packages', c: '#198754' }
-            ]},
-
-            // --- Test ---
-            { cmd: '$ pytest -q tests/', out: [
-                { t: '> collecting 128 items...', c: '#6c757d' },
+            { cmd: '$ pytest -q', out: [
+                { t: '> collecting 128 items', c: '#6c757d' },
                 { t: '> ...F..F..', c: '#dc3545' },
                 { t: '> 3 failed, 125 passed in 2.41s', c: '#dc3545' }
             ]},
@@ -116,80 +124,41 @@
             { cmd: '$ git checkout -b fix/deterministic-seed', out: [
                 { t: '> Switched to a new branch "fix/deterministic-seed"', c: '#198754' }
             ]},
-
-            // --- Fix ---
             { cmd: '$ vim smartpasslib/core.py', out: [
-                { t: '> editing core.py', c: '#6c757d' },
+                { t: '> 42,11 → 84,29', c: '#6c757d' },
                 { t: '> :wq', c: '#6c757d' }
             ]},
-            { cmd: '$ pytest -q tests/', out: [
+            { cmd: '$ pytest -q', out: [
                 { t: '> 128 passed in 2.18s', c: '#198754' },
                 { t: '> coverage: 94.2%', c: '#0dcaf0' }
             ]},
-
-            // --- Password generation demo ---
             { cmd: '$ python -m smartpasslib --generate --secret "***" --length 24', out: [
                 { t: '> SHA-256 seed computed', c: '#6c757d' },
-                { t: '> deterministic hash: 0x8f4a1b2c9d3e', c: '#0dcaf0' },
                 { t: '> password: Xk9#mP2$vQ7nL4wR8tY6bH3', c: '#198754' }
             ]},
             { cmd: '$ python -m smartpasslib --verify --secret "***" --hash 0x8f4a...', out: [
                 { t: '> proof of knowledge without exposure', c: '#6c757d' },
                 { t: '> verification: OK', c: '#198754' }
             ]},
-
-            // --- Commit & PR ---
-            { cmd: '$ git status', out: [
-                { t: '> On branch fix/deterministic-seed', c: '#6c757d' },
-                { t: '>     modified: smartpasslib/core.py', c: '#dc3545' },
-                { t: '>     modified: tests/test_core.py', c: '#dc3545' }
-            ]},
-            { cmd: '$ git add .', out: [
-                { t: '> staged 2 files', c: '#6c757d' }
-            ]},
-            { cmd: '$ git commit -m "fix: deterministic seed for short inputs and unicode"', out: [
+            { cmd: '$ git add . && git commit -m "fix: deterministic seed for short inputs and unicode"', out: [
                 { t: '> [fix/deterministic-seed 3a1b2c3] fix: deterministic seed', c: '#198754' },
                 { t: '> 2 files changed, 42 insertions(+), 11 deletions(-)', c: '#6c757d' }
             ]},
-            { cmd: '$ git push -u origin fix/deterministic-seed', out: [
-                { t: '> To github.com:smartlegionlab/smartpasslib.git', c: '#6c757d' },
-                { t: '>  * [new branch]      fix/deterministic-seed -> fix/deterministic-seed', c: '#198754' }
-            ]},
             { cmd: '$ gh pr create --fill', out: [
-                { t: '> Creating pull request...', c: '#6c757d' },
                 { t: '> https://github.com/smartlegionlab/smartpasslib/pull/42', c: '#0dcaf0' }
             ]},
             { cmd: '$ gh pr merge 42 --squash --delete-branch', out: [
                 { t: '> Merged pull request #42', c: '#198754' },
-                { t: '> Deleted branch fix/deterministic-seed', c: '#6c757d' },
                 { t: '> Switched to branch "master"', c: '#6c757d' }
             ]},
-
-            // --- Release ---
-            { cmd: '$ git pull origin master', out: [
-                { t: '> Already up to date.', c: '#6c757d' }
-            ]},
             { cmd: '$ python -m build', out: [
-                { t: '> Building sdist and wheel...', c: '#6c757d' },
                 { t: '> Successfully built smartpasslib-1.4.1.tar.gz', c: '#198754' },
                 { t: '> Successfully built smartpasslib-1.4.1-py3-none-any.whl', c: '#198754' }
             ]},
             { cmd: '$ twine upload dist/*', out: [
-                { t: '> Uploading smartpasslib-1.4.1-py3-none-any.whl', c: '#6c757d' },
                 { t: '> View at: https://pypi.org/project/smartpasslib/1.4.1/', c: '#0dcaf0' }
             ]},
-            { cmd: '$ gh release create v1.4.1 --generate-notes', out: [
-                { t: '> creating release v1.4.1', c: '#6c757d' },
-                { t: '> uploaded 3 assets', c: '#198754' }
-            ]},
-
-            // --- Cross-language parity: Rust ---
-            { cmd: '$ cd ../smartpasslib-rs', out: [] },
-            { cmd: '$ cargo build --release', out: [
-                { t: '> Compiling smartpasslib v0.4.2', c: '#6c757d' },
-                { t: '> Finished release [optimized] in 12.84s', c: '#198754' }
-            ]},
-            { cmd: '$ cargo test', out: [
+            { cmd: '$ cd ../smartpasslib-rs && cargo test --release', out: [
                 { t: '> running 42 tests', c: '#6c757d' },
                 { t: '> test result: ok. 42 passed; 0 failed', c: '#198754' }
             ]},
@@ -197,149 +166,142 @@
                 { t: '> Uploading smartpasslib v0.4.2', c: '#6c757d' },
                 { t: '> View at: https://crates.io/crates/smartpasslib', c: '#0dcaf0' }
             ]},
-
-            // --- Cross-language parity: Go ---
-            { cmd: '$ cd ../smartpasslib-go', out: [] },
-            { cmd: '$ go test ./...', out: [
+            { cmd: '$ cd ../smartpasslib-go && go test ./...', out: [
                 { t: '> ok  github.com/smartlegionlab/smartpasslib-go  0.142s', c: '#198754' }
             ]},
-            { cmd: '$ go build -o smartpasslib .', out: [
-                { t: '> built binary: smartpasslib', c: '#198754' }
-            ]},
-
-            // --- Cross-language parity: C# ---
-            { cmd: '$ cd ../smartpasslib-csharp', out: [] },
-            { cmd: '$ dotnet test', out: [
+            { cmd: '$ cd ../smartpasslib-csharp && dotnet test', out: [
                 { t: '> Passed! - Failed: 0, Passed: 42, Skipped: 0', c: '#198754' }
             ]},
-            { cmd: '$ dotnet pack -c Release', out: [
-                { t: '> Successfully created package SmartPassLib.0.4.2.nupkg', c: '#198754' }
+            { cmd: '$ cd ../smartpasslib-kotlin && ./gradlew test', out: [
+                { t: '> BUILD SUCCESSFUL in 8s', c: '#198754' }
             ]},
-
-            // --- Cross-language parity: Kotlin ---
-            { cmd: '$ cd ../smartpasslib-kotlin', out: [] },
-            { cmd: '$ ./gradlew test', out: [
-                { t: '> BUILD SUCCESSFUL in 8s', c: '#198754' },
-                { t: '> 42 tests passed', c: '#198754' }
-            ]},
-
-            // --- Cross-language parity: JS ---
-            { cmd: '$ cd ../smartpasslib-js', out: [] },
-            { cmd: '$ npm test', out: [
+            { cmd: '$ cd ../smartpasslib-js && npm test', out: [
                 { t: '> 42 passing (312ms)', c: '#198754' }
             ]},
             { cmd: '$ npm publish', out: [
                 { t: '> + smartpasslib@0.4.2', c: '#0dcaf0' }
             ]},
+            { cmd: '$ exit', out: [
+                { t: '> session closed', c: '#6c757d' }
+            ]}
+        ];
 
-            // --- TSP solvers ---
-            { cmd: '$ cd ../smart-tsp-solver', out: [] },
-            { cmd: '$ python -m smart_tsp --solve --input cities.txt', out: [
-                { t: '> running heuristic solver', c: '#6c757d' },
+        const SCENARIO_TSP = [
+            { cmd: '$ cd ~/projects/smart-tsp-solver', out: [] },
+            { cmd: '$ source .venv/bin/activate', out: [
+                { t: '> (.venv) activated', c: '#0dcaf0' }
+            ]},
+            { cmd: '$ ls tsplib/', out: [
+                { t: '> eil51.tsp  berlin52.tsp  st70.tsp  kroA100.tsp  ch150.tsp', c: '#6c757d' }
+            ]},
+            { cmd: '$ python -m smart_tsp --solve --input tsplib/eil51.tsp', out: [
+                { t: '> loading TSPLIB instance: eil51', c: '#6c757d' },
+                { t: '> heuristic solver running', c: '#6c757d' },
                 { t: '> iterations: 10,000', c: '#6c757d' },
-                { t: '> improved vs reference by 24.7%', c: '#0dcaf0' },
-                { t: '> path length: 3,812', c: '#198754' }
+                { t: '> known optimum: 426', c: '#0dcaf0' },
+                { t: '> path length: 428  (gap: 0.47%)', c: '#198754' }
             ]},
-            { cmd: '$ python -m smart_tsp_benchmark --compare all', out: [
-                { t: '> benchmarking 4 solvers', c: '#6c757d' },
-                { t: '> branch & bound  : 0.42s (optimal)', c: '#198754' },
-                { t: '> dynamic gravity : 0.11s (-24.7%)', c: '#0dcaf0' },
-                { t: '> pch improver    : 0.08s (-8.2%)', c: '#0dcaf0' },
-                { t: '> angular-radial  : 0.14s (-18.4%)', c: '#0dcaf0' }
+            { cmd: '$ python -m smart_tsp --solve --input tsplib/berlin52.tsp', out: [
+                { t: '> loading TSPLIB instance: berlin52', c: '#6c757d' },
+                { t: '> known optimum: 7542', c: '#0dcaf0' },
+                { t: '> path length: 7544  (gap: 0.03%)', c: '#198754' }
             ]},
-
-            // --- Rust TSP ---
+            { cmd: '$ python -m smart_tsp_benchmark --compare all --instances tsplib/*.tsp', out: [
+                { t: '> benchmarking 4 solvers on 5 instances', c: '#6c757d' },
+                { t: '> branch & bound  : avg 0.42s   (optimal)', c: '#198754' },
+                { t: '> dynamic gravity : avg 0.11s   (-24.7%)', c: '#0dcaf0' },
+                { t: '> pch improver    : avg 0.08s   (-8.2%)', c: '#0dcaf0' },
+                { t: '> angular-radial  : avg 0.14s   (-18.4%)', c: '#0dcaf0' }
+            ]},
             { cmd: '$ cd ../smart-dynamic-gravity-tsp-rs', out: [] },
-            { cmd: '$ cargo run --release -- --input tsplib/eil51.tsp', out: [
+            { cmd: '$ cargo build --release', out: [
+                { t: '> Compiling smart-dynamic-gravity-tsp v0.2.0', c: '#6c757d' },
+                { t: '> Finished release [optimized] in 8.42s', c: '#198754' }
+            ]},
+            { cmd: '$ cargo run --release -- --input ../smart-tsp-solver/tsplib/eil51.tsp', out: [
                 { t: '> loading TSPLIB instance: eil51', c: '#6c757d' },
                 { t: '> dynamic gravity iterations: 5000', c: '#6c757d' },
                 { t: '> best path length: 428', c: '#0dcaf0' },
                 { t: '> known optimum: 426 (gap: 0.47%)', c: '#198754' }
             ]},
-
-            // --- PCH improver ---
             { cmd: '$ cd ../smart-pch-tsp-rs', out: [] },
             { cmd: '$ cargo run --release -- --input best_path.json', out: [
                 { t: '> applying PCH paradigm', c: '#6c757d' },
                 { t: '> statistical analysis of path', c: '#6c757d' },
                 { t: '> synthesized shorter path: -8.2%', c: '#198754' }
             ]},
+            { cmd: '$ cd ../exact-tsp-solver-rs', out: [] },
+            { cmd: '$ cargo run --release -- --input ../smart-tsp-solver/tsplib/berlin52.tsp', out: [
+                { t: '> exact Branch & Bound', c: '#6c757d' },
+                { t: '> explored nodes: 12,847', c: '#6c757d' },
+                { t: '> optimal path: 7542', c: '#198754' },
+                { t: '> proven optimal ✓', c: '#198754' }
+            ]},
+            { cmd: '$ exit', out: [
+                { t: '> session closed', c: '#6c757d' }
+            ]}
+        ];
 
-            // --- Babylon ---
-            { cmd: '$ cd ../smart-babylon-library', out: [] },
-            { cmd: '$ python -m smart_babylon --book 42 --page 7', out: [
-                { t: '> coordinates: (42, 7)', c: '#6c757d' },
-                { t: '> deterministic generation complete', c: '#198754' },
-                { t: '> text regenerated from seed', c: '#0dcaf0' }
+        const SCENARIO_2FA = [
+            { cmd: '$ cd ~/projects/smart-2fa-manager-cli', out: [] },
+            { cmd: '$ source .venv/bin/activate', out: [
+                { t: '> (.venv) activated', c: '#0dcaf0' }
             ]},
-            { cmd: '$ cd ../babylonian-image-library', out: [] },
-            { cmd: '$ python -m babylonian_image --coord 128,64 --size 512', out: [
-                { t: '> generating image from coordinates', c: '#6c757d' },
-                { t: '> deterministic output ready', c: '#198754' }
+            { cmd: '$ smart-2fa list', out: [
+                { t: '> github      TOTP  SHA1    6 digits  30s', c: '#6c757d' },
+                { t: '> gitlab      TOTP  SHA1    6 digits  30s', c: '#6c757d' },
+                { t: '> aws         TOTP  SHA256  6 digits  30s', c: '#6c757d' }
             ]},
-
-            // --- Neural network ---
-            { cmd: '$ cd ../name-gender-nn-py', out: [] },
-            { cmd: '$ python -m name_gender_nn --train dataset.txt', out: [
-                { t: '> loading dataset...', c: '#6c757d' },
-                { t: '> epoch 10/10  loss 0.0412  acc 0.987', c: '#0dcaf0' },
-                { t: '> model trained', c: '#198754' }
-            ]},
-            { cmd: '$ python -m name_gender_nn --predict "Alexander"', out: [
-                { t: '> prediction: male (0.998)', c: '#198754' }
-            ]},
-            { cmd: '$ cd ../name-gender-nn-rs && cargo run --release -- --predict "Sophia"', out: [
-                { t: '> prediction: female (0.994)', c: '#198754' }
-            ]},
-
-            // --- 2FA ---
-            { cmd: '$ cd ../smart-2fa-manager-cli', out: [] },
             { cmd: '$ smart-2fa generate --totp --account github', out: [
                 { t: '> TOTP: 482913', c: '#0dcaf0' },
                 { t: '> valid for 28s', c: '#6c757d' }
             ]},
+            { cmd: '$ smart-2fa generate --totp --account aws', out: [
+                { t: '> TOTP: 719204', c: '#0dcaf0' },
+                { t: '> valid for 21s', c: '#6c757d' }
+            ]},
+            { cmd: '$ smart-2fa add --account digitalocean --qr', out: [
+                { t: '> scanning QR code...', c: '#6c757d' },
+                { t: '> secret encrypted (AES-256-GCM)', c: '#0dcaf0' },
+                { t: '> account added', c: '#198754' }
+            ]},
+            { cmd: '$ smart-2fa export --account github --qr out.png', out: [
+                { t: '> exporting for Google Authenticator', c: '#6c757d' },
+                { t: '> saved: out.png', c: '#198754' }
+            ]},
             { cmd: '$ smart-2fa backup --encrypt --gpg', out: [
                 { t: '> encrypting with AES-256-GCM', c: '#6c757d' },
+                { t: '> GPG signing backup', c: '#6c757d' },
                 { t: '> backup saved: 2fa_backup.gpg', c: '#198754' }
             ]},
+            { cmd: '$ smart-2fa verify backup 2fa_backup.gpg', out: [
+                { t: '> GPG signature: valid', c: '#198754' },
+                { t: '> decrypting...', c: '#6c757d' },
+                { t: '> 4 accounts restored', c: '#198754' }
+            ]},
+            { cmd: '$ cd ../smart-2fa-secure && pytest -q', out: [
+                { t: '> 64 passed in 1.21s', c: '#198754' },
+                { t: '> coverage: 96.8%', c: '#0dcaf0' }
+            ]},
+            { cmd: '$ cd ../smart-2fa-manager-desktop && python -m smart_2fa_gui', out: [
+                { t: '> loading Qt5...', c: '#6c757d' },
+                { t: '> opened GUI window', c: '#198754' }
+            ]},
+            { cmd: '$ exit', out: [
+                { t: '> session closed', c: '#6c757d' }
+            ]}
+        ];
 
-            // --- Deploy ---
-            { cmd: '$ cd ../smart-social-network', out: [] },
-            { cmd: '$ docker compose up -d', out: [
-                { t: '> Creating network "sll_default"', c: '#6c757d' },
-                { t: '> Container sll_redis  Started', c: '#198754' },
-                { t: '> Container sll_db     Started', c: '#198754' },
-                { t: '> Container sll_app    Started', c: '#198754' }
-            ]},
-            { cmd: '$ docker compose exec app python manage.py migrate', out: [
-                { t: '> Applying contenttypes... OK', c: '#198754' },
-                { t: '> Applying auth... OK', c: '#198754' },
-                { t: '> Applying smart_social... OK', c: '#198754' }
-            ]},
-            { cmd: '$ docker compose ps', out: [
-                { t: '> NAME        STATUS         PORTS', c: '#6c757d' },
-                { t: '> sll_app     Up 2 seconds   0.0.0.0:8000->8000/tcp', c: '#198754' },
-                { t: '> sll_db      Up 3 seconds   5432/tcp', c: '#198754' },
-                { t: '> sll_redis   Up 3 seconds   6379/tcp', c: '#198754' }
-            ]},
-
-            // --- Blockchain ---
-            { cmd: '$ cd ../blockchain && python -m blockchain start --port 5000', out: [
-                { t: '> genesis block created', c: '#6c757d' },
-                { t: '> consensus: PoW', c: '#6c757d' },
-                { t: '> node listening on http://0.0.0.0:5000', c: '#198754' }
-            ]},
-
-            // --- Bot ---
-            { cmd: '$ cd ../personal-telegram-bot && python -m bot', out: [
-                { t: '> bot started', c: '#198754' },
-                { t: '> polling updates...', c: '#6c757d' }
-            ]},
-
-            // --- Sync & backup ---
+        const SCENARIO_INFRA = [
             { cmd: '$ cd ~', out: [] },
+            { cmd: '$ github-ssh-key test', out: [
+                { t: '> testing SSH connection to github.com', c: '#6c757d' },
+                { t: '> Hi smartlegionlab! You have successfully authenticated.', c: '#198754' }
+            ]},
             { cmd: '$ smart-repository-manager sync --all', out: [
+                { t: '> fetching repository list from GitHub', c: '#6c757d' },
                 { t: '> fetched 75 repositories', c: '#6c757d' },
+                { t: '> syncing...', c: '#6c757d' },
                 { t: '> synced 75 / 75 OK', c: '#198754' }
             ]},
             { cmd: '$ smart-repository-manager health --check-ssh', out: [
@@ -348,45 +310,48 @@
             ]},
             { cmd: '$ forgejo-sync --repo smartpasslib-rs', out: [
                 { t: '> pulling master...', c: '#6c757d' },
-                { t: '> 3 commits fetched', c: '#198754' },
-                { t: '> repository up to date', c: '#0dcaf0' }
+                { t: '> 3 commits fetched', c: '#198754' }
+            ]},
+            { cmd: '$ forgejo-sync --all', out: [
+                { t: '> syncing 12 Forgejo repositories', c: '#6c757d' },
+                { t: '> 12 / 12 up to date', c: '#198754' }
             ]},
             { cmd: '$ github-repos-backup --all --include-gists', out: [
                 { t: '> backing up 75 repositories', c: '#6c757d' },
                 { t: '> backing up 12 gists', c: '#6c757d' },
-                { t: '> archive created: backup_2026-09-18.tar.gz', c: '#198754' }
+                { t: '> archive: backup_2026-09-18.tar.gz', c: '#198754' },
+                { t: '> sha256: 8f4a1b2c9d3e...', c: '#0dcaf0' }
             ]},
-            { cmd: '$ github-ssh-key test', out: [
-                { t: '> testing SSH connection to github.com', c: '#6c757d' },
-                { t: '> Hi smartlegionlab! You have successfully authenticated.', c: '#198754' }
-            ]},
-
-            // --- Extras ---
             { cmd: '$ smart-pip-collector --dir ./projects', out: [
                 { t: '> scanning 75 projects', c: '#6c757d' },
                 { t: '> collected 128 unique dependencies', c: '#6c757d' },
                 { t: '> archives downloaded', c: '#198754' }
             ]},
-            { cmd: '$ smartrandom --type password --length 32', out: [
-                { t: '> generated: 7fK9$mP2vQ8nL4wR8tY6bH3xZ1cV5', c: '#0dcaf0' }
+            { cmd: '$ docker compose -f ~/infra/docker-compose.yml up -d', out: [
+                { t: '> Container infra_nginx    Started', c: '#198754' },
+                { t: '> Container infra_redis    Started', c: '#198754' },
+                { t: '> Container infra_postgres Started', c: '#198754' }
             ]},
-            { cmd: '$ qr-codes-generator --text "https://smartlegionlab.com" --output qr.png', out: [
-                { t: '> generating QR code', c: '#6c757d' },
-                { t: '> saved: qr.png', c: '#198754' }
+            { cmd: '$ docker compose -f ~/infra/docker-compose.yml ps', out: [
+                { t: '> NAME             STATUS         PORTS', c: '#6c757d' },
+                { t: '> infra_nginx      Up 2 seconds   0.0.0.0:80->80/tcp', c: '#198754' },
+                { t: '> infra_redis      Up 3 seconds   6379/tcp', c: '#198754' },
+                { t: '> infra_postgres   Up 3 seconds   5432/tcp', c: '#198754' }
             ]},
-
-            // --- Session end ---
-            { cmd: '$ neofetch', out: [
-                { t: '> OS: Arch Linux x86_64', c: '#0dcaf0' },
-                { t: '> Kernel: 6.12.4-arch1-1', c: '#6c757d' },
-                { t: '> Shell: bash 5.2', c: '#6c757d' },
-                { t: '> Terminal: kitty', c: '#6c757d' },
-                { t: '> CPU: (16) @ 4.2GHz', c: '#198754' },
-                { t: '> Memory: 8.4GiB / 32GiB', c: '#6c757d' }
+            { cmd: '$ du -sh ~/backups/2026-09-18', out: [
+                { t: '> 2.4G    ~/backups/2026-09-18', c: '#6c757d' }
             ]},
             { cmd: '$ exit', out: [
                 { t: '> session closed', c: '#6c757d' }
             ]}
+        ];
+
+        const SCENARIOS = [
+            SCENARIO_RESEARCH,
+            SCENARIO_SMARTPASSLIB,
+            SCENARIO_TSP,
+            SCENARIO_2FA,
+            SCENARIO_INFRA
         ];
 
         function maxLines() {
@@ -436,32 +401,48 @@
         }
 
         async function playScenario(scenario) {
-            const cmdSpan = makeLine('#c9d1d9');
-            await new Promise(res => {
-                typeText(cmdSpan, scenario.cmd, 22, res);
-            });
+            for (const step of scenario) {
+                if (stopped) return;
 
-            await wait(150);
+                const cmdSpan = makeLine('#c9d1d9');
+                await new Promise(res => {
+                    typeText(cmdSpan, step.cmd, 22, res);
+                });
 
-            for (const out of scenario.out) {
-                const span = makeLine(out.c);
-                await wait(90);
-                typeText(span, out.t, 8, null);
-                await wait(50);
+                await wait(150);
+
+                for (const out of step.out) {
+                    if (stopped) return;
+                    const span = makeLine(out.c);
+                    await wait(90);
+                    typeText(span, out.t, 8, null);
+                    await wait(50);
+                }
+
+                await wait(220);
+                trimLines();
             }
-
-            await wait(220);
-            trimLines();
         }
 
         let stopped = false;
+        let lastIndex = -1;
+
+        function pickScenario() {
+            if (SCENARIOS.length === 1) return SCENARIOS[0];
+            let idx;
+            do {
+                idx = Math.floor(Math.random() * SCENARIOS.length);
+            } while (idx === lastIndex);
+            lastIndex = idx;
+            return SCENARIOS[idx];
+        }
 
         async function loop() {
             while (!stopped) {
-                for (let i = 0; i < SCENARIOS.length && !stopped; i++) {
-                    await playScenario(SCENARIOS[i]);
-                }
+                const scenario = pickScenario();
+                await playScenario(scenario);
                 if (stopped) break;
+
                 await wait(4500);
                 stream.innerHTML = '';
             }
