@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NP Problem Ecosystem · Smart Legion Lab</title>
     <meta name="description" content="NP Problem Ecosystem: exact solvers (Go/Python), heuristic (+25%), benchmark framework for Traveling Salesman Problem.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="NP Problem Ecosystem"><meta property="og:description" content="Exact + heuristic solvers for Traveling Salesman Problem">
+    <meta property="og:title" content="NP Problem Ecosystem">
+    <meta property="og:description" content="Exact + heuristic solvers for Traveling Salesman Problem">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
@@ -19,7 +23,8 @@
     <link rel="manifest" href="/site.webmanifest?v=5">
 </head>
 <body>
-    <!-- nav -->
+
+<!-- nav -->
 
 <nav class="fixed-top-nav">
     <div class="nav-container">
@@ -34,30 +39,14 @@
         </div>
 
         <div class="d-none d-lg-flex gap-3 mx-auto main-links">
-            <a href="/" class="small text-light">
-                Home
-            </a>
-            <a href="/research.html" class="small text-light">
-                Research
-            </a>
-            <a href="/ecosystems.html" class="small text-primary">
-                Ecosystems
-            </a>
-            <a href="/applications.html" class="small text-light">
-                Apps
-            </a>
-            <a href="/projects.html" class="small text-light">
-                Projects
-            </a>
-            <a href="/libraries.html" class="small text-light">
-                Libraries
-            </a>
-            <a href="/articles.html" class="small text-light">
-                Articles
-            </a>
-            <a href="/team.html" class="small text-light">
-                About & Team
-            </a>
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-primary">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
         </div>
     </div>
     <div class="nav-progress">
@@ -74,44 +63,18 @@
     </button>
 
     <div class="sidebar-header">
-        <a href="/" class="logo">
-            Smart Legion Lab
-        </a>
+        <a href="/" class="logo">Smart Legion Lab</a>
     </div>
 
     <div class="sidebar-menu">
-        <a href="/" class="menu-item">
-            <i class="bi bi-house"></i>
-            <span>Home</span>
-        </a>
-         <a href="/research.html" class="menu-item">
-            <i class="bi bi-mortarboard"></i>
-            <span>Research & Publications</span>
-        </a>
-        <a href="/ecosystems.html" class="menu-item active">
-            <i class="bi bi-diagram-3"></i>
-            <span>Ecosystems</span>
-        </a>
-        <a href="/applications.html" class="menu-item">
-            <i class="bi bi-grid-3x3-gap-fill"></i>
-            <span>Applications</span>
-        </a>
-        <a href="/projects.html" class="menu-item">
-            <i class="bi bi-code-slash"></i>
-            <span>Projects</span>
-        </a>
-        <a href="/libraries.html" class="menu-item">
-            <i class="bi bi-box-seam"></i>
-            <span>Libraries</span>
-        </a>
-        <a href="/articles.html" class="menu-item">
-            <i class="bi bi-newspaper"></i>
-            <span>Articles</span>
-        </a>
-        <a href="/team.html" class="menu-item">
-            <i class="bi bi-people"></i>
-            <span>About & Team</span>
-        </a>
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item active"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
     </div>
 
     <div class="sidebar-footer">
@@ -135,14 +98,14 @@
     <div class="custom-margin-top">
 
         <div class="custom-margin-top">
-        <h1 class="text-center text-primary">NP Problem Ecosystem</h1>
-        <p class="text-center small text-muted">
-            The <strong class="text-primary">NP Problem Ecosystem</strong> is a comprehensive suite of exact and heuristic solvers for the Traveling Salesman Problem —
-            featuring <strong class="text-primary">Exact TSP Solver (Go)</strong> and <strong class="text-primary">Smart TSP Oracle (Python)</strong> for provably optimal solutions via branch-and-bound,
-            <strong class="text-primary">Smart TSP Solver (Python)</strong> for large-scale heuristic routing with Dynamic Gravity and Angular-Radial algorithms,
-            and <strong class="text-primary">Smart TSP Benchmark</strong> for professional algorithm testing - all grounded in
-            the <strong class="text-primary">Position-Candidate-Hypothesis (PCH)</strong> paradigm for NP-complete problems.
-        </p>
+            <h1 class="text-center text-primary">NP Problem Ecosystem</h1>
+            <p class="text-center small text-muted">
+                The <strong class="text-primary">NP Problem Ecosystem</strong> is a comprehensive suite of exact and heuristic solvers for the Traveling Salesman Problem —
+                featuring <strong class="text-primary">Exact TSP Solver (Go)</strong> and <strong class="text-primary">Smart TSP Oracle (Python)</strong> for provably optimal solutions via branch-and-bound,
+                <strong class="text-primary">Smart TSP Solver (Python)</strong> for large-scale heuristic routing with Dynamic Gravity and Angular-Radial algorithms,
+                and <strong class="text-primary">Smart TSP Benchmark</strong> for professional algorithm testing - all grounded in
+                the <strong class="text-primary">Position-Candidate-Hypothesis (PCH)</strong> paradigm for NP-complete problems.
+            </p>
             <hr>
             <div class="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
                 <div class="d-flex align-items-center gap-2">
@@ -153,163 +116,133 @@
                     </a>
                 </div>
             </div>
-        <div class="tech-stack justify-content-center mt-4">
-            <span class="language-badge"><i class="bi bi-filetype-go"></i> Go</span>
-            <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
-            <span class="language-badge"><i class="bi bi-calculator"></i> Branch & Bound</span>
-            <span class="language-badge"><i class="bi bi-graph-up"></i> Heuristic</span>
-            <span class="language-badge"><i class="bi bi-bar-chart"></i> Benchmark</span>
-            <span class="language-badge"><i class="bi bi-puzzle"></i> PCH</span>
+            <div class="tech-stack justify-content-center mt-4">
+                <span class="language-badge"><i class="bi bi-filetype-go"></i> Go</span>
+                <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
+                <span class="language-badge"><i class="bi bi-filetype-rust"></i> Rust</span>
+                <span class="language-badge"><i class="bi bi-calculator"></i> Branch & Bound</span>
+                <span class="language-badge"><i class="bi bi-graph-up"></i> Heuristic</span>
+                <span class="language-badge"><i class="bi bi-bar-chart"></i> Benchmark</span>
+                <span class="language-badge"><i class="bi bi-puzzle"></i> PCH</span>
+            </div>
         </div>
-    </div>
 
         <hr>
 
-        <div class="content-section">
-            <div class="container">
-                <h3 class="section-title">
-                    <i class="bi bi-grid-3x3-gap-fill text-primary"></i> Applications <sub class="text-warning">4+</sub>
-                </h3>
-                <div class="row g-4">
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-terminal-fill text-primary fs-3"></i>
-                                <span class="platform-badge">Go</span>
+        <!-- Accordion -->
+        <div class="accordion accordion-flush mt-4" id="ecoAccordion">
+
+            <!-- Applications -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseApps"
+                            aria-expanded="false" aria-controls="collapseApps">
+                        <i class="bi bi-grid-3x3-gap-fill me-2"></i>
+                        Applications <span class="badge bg-primary ms-2">4+</span>
+                    </button>
+                </h2>
+                <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="fw-bold text-primary text-decoration-none">Exact TSP Solver</a>
+                                <p class="small text-secondary mb-0">Dual-mode TSP solver in Go: exact Branch & Bound plus heuristic threshold search</p></div>
                             </div>
-                            <h5 class="mt-2">Exact TSP Solver</h5>
-                            <p class="small text-muted">Dual-mode TSP solver in Go: exact Branch & Bound with proven optimality, plus heuristic threshold search with reference gap.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/exact-tsp-solver" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-tsp-oracle" class="fw-bold text-primary text-decoration-none">Smart TSP Oracle</a>
+                                <p class="small text-secondary mb-0">Exact solver in Python with adaptive thresholding for optimal solutions</p></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-terminal-fill text-primary fs-3"></i>
-                                <span class="platform-badge">Python</span>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="fw-bold text-primary text-decoration-none">Smart TSP Benchmark</a>
+                                <p class="small text-secondary mb-0">Professional testing infrastructure with configurable scenarios</p></div>
                             </div>
-                            <h5 class="mt-2">Smart TSP Oracle</h5>
-                            <p class="small text-muted">Exact solver for TSP implemented in Python. Uses intelligent Branch and Bound algorithm with adaptive thresholding for globally optimal solutions.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-oracle" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-bar-chart-steps text-primary fs-3"></i>
-                                <span class="platform-badge">Python</span>
-                            </div>
-                            <h5 class="mt-2">Smart TSP Benchmark</h5>
-                            <p class="small text-muted">Professional-grade testing infrastructure with configurable scenarios, detailed metrics, and comparative analysis for TSP algorithms.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="fw-bold text-primary text-decoration-none">Angular‑Radial & Dynamic Gravity</a>
+                                <p class="small text-secondary mb-0">Spatial intelligence algorithms - improve TSP solutions by up to 25%</p></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-symmetry-horizontal text-primary fs-2"></i>
-                                <span class="platform-badge">Python</span>
-                            </div>
-                            <h5 class="mt-2">Angular‑Radial & Dynamic Gravity</h5>
-                            <p class="small text-muted">Spatial intelligence algorithms that improve TSP solutions by up to 25% on clustered and real-world data.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-                            </div>
-                        </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/applications.html" class="text-primary">Applications page</a></p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <div class="container">
-                <h3 class="section-title">
-                    <i class="bi bi-box-seam text-primary"></i> Libraries <sub class="text-warning">2+</sub>
-                </h3>
-                <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-filetype-py text-primary fs-2"></i>
-                                <span class="platform-badge">Python</span>
+            <!-- Libraries -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseLibs"
+                            aria-expanded="false" aria-controls="collapseLibs">
+                        <i class="bi bi-box-seam me-2"></i>
+                        Libraries <span class="badge bg-primary ms-2">2+</span>
+                    </button>
+                </h2>
+                <div id="collapseLibs" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="fw-bold text-primary text-decoration-none">Smart TSP Solver</a>
+                                <p class="small text-secondary mb-0">High-performance Python library - outperforms classical methods by ~25%</p></div>
                             </div>
-                            <h5 class="mt-2">Smart TSP Solver</h5>
-                            <p class="small text-muted">High-performance Python library for solving TSP using novel heuristics. Outperforms classical methods by ~25% on real and clustered data using spatial intelligence.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-solver" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-bar-chart-steps text-primary fs-3"></i>
-                                <span class="platform-badge">Python</span>
-                            </div>
-                            <h5 class="mt-2">Smart TSP Benchmark</h5>
-                            <p class="small text-muted">Professional-grade testing infrastructure with configurable scenarios, detailed metrics, and comparative analysis for TSP algorithms.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="fw-bold text-primary text-decoration-none">Smart TSP Benchmark</a>
+                                <p class="small text-secondary mb-0">Professional testing infrastructure for TSP algorithms</p></div>
                             </div>
                         </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/libraries.html" class="text-primary">Libraries page</a></p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <div class="container">
-                <h3 class="section-title">
-                    <i class="bi bi-mortarboard-fill text-primary"></i> Related Research <sub class="text-warning">1+</sub>
-                </h3>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-puzzle text-primary fs-2"></i>
-                                <span class="platform-badge">Paradigm</span>
-                            </div>
-                            <h5 class="mt-2">Position‑Candidate‑Hypothesis</h5>
-                            <p class="small text-muted">Structural-statistical approach to NP-complete problems — n hypotheses, n positions, n candidates.</p>
-                            <div class="mt-auto">
-                                <a href="/research/position-candidate-hypothesis-paradigm.html" class="btn btn-sm btn-outline-primary w-100">Read more <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <!-- Related Research -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseResearch"
+                            aria-expanded="false" aria-controls="collapseResearch">
+                        <i class="bi bi-mortarboard-fill me-2"></i>
+                        Related Research <span class="badge bg-primary ms-2">1+</span>
+                    </button>
+                </h2>
+                <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="/research/position-candidate-hypothesis-paradigm.html" class="fw-bold text-primary text-decoration-none">Position‑Candidate‑Hypothesis</a>
+                                <p class="small text-secondary mb-0">Structural-statistical approach to NP-complete problems</p></div>
                             </div>
                         </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/research.html" class="text-primary">Research page</a></p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <div class="container">
-                <h3 class="section-title">
-                    <i class="bi bi-diagram-3 text-primary"></i> Related Ecosystems <sub class="text-warning">1+</sub>
-                </h3>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-shield-lock text-primary fs-2"></i>
-                                <span class="platform-badge">Ecosystem</span>
-                            </div>
-                            <h5 class="mt-2">Research Ecosystem</h5>
-                            <p class="small text-muted">4 paradigms with DOI and Ecosystems.</p>
-                            <div class="mt-auto">
-                                <a href="./research-ecosystem.html" class="btn btn-sm btn-outline-primary w-100">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+            <!-- Related Ecosystems -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseEco"
+                            aria-expanded="false" aria-controls="collapseEco">
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        Related Ecosystems <span class="badge bg-primary ms-2">1+</span>
+                    </button>
+                </h2>
+                <div id="collapseEco" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="./research-ecosystem.html" class="fw-bold text-primary text-decoration-none">Research Ecosystem</a>
+                                <p class="small text-secondary mb-0">4 paradigms with DOI and Ecosystems</p></div>
                             </div>
                         </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/ecosystems.html" class="text-primary">Ecosystems page</a></p>
                     </div>
                 </div>
             </div>
+
         </div>
 
-    <hr>
+        <hr>
 
         <div class="text-center mt-4 mb-5">
             <a href="/ecosystems.html" class="btn btn-outline-primary btn-sm px-4">
@@ -319,6 +252,7 @@
 
     </div>
 </div>
+
 <!-- end content -->
 
 <!-- footer -->
@@ -348,7 +282,6 @@
 </div>
 
 <!-- end footer -->
-
 
 <!-- scripts -->
 <script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2FA Management Ecosystem · Smart Legion Lab</title>
     <meta name="description" content="2FA Management Ecosystem: TOTP offline managers for Desktop, Android, CLI, Bash. Cross‑platform authentication.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/ecosystems/2fa-management-ecosystem.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="2FA Management Ecosystem"><meta property="og:description" content="TOTP · offline · cross‑platform">
+    <meta property="og:title" content="2FA Management Ecosystem">
+    <meta property="og:description" content="TOTP · offline · cross‑platform">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/ecosystems/2fa-management-ecosystem.html">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
@@ -19,7 +23,8 @@
     <link rel="manifest" href="/site.webmanifest?v=5">
 </head>
 <body>
-        <!-- nav -->
+
+<!-- nav -->
 
 <nav class="fixed-top-nav">
     <div class="nav-container">
@@ -34,30 +39,14 @@
         </div>
 
         <div class="d-none d-lg-flex gap-3 mx-auto main-links">
-            <a href="/" class="small text-light">
-                Home
-            </a>
-            <a href="/research.html" class="small text-light">
-                Research
-            </a>
-            <a href="/ecosystems.html" class="small text-primary">
-                Ecosystems
-            </a>
-            <a href="/applications.html" class="small text-light">
-                Apps
-            </a>
-            <a href="/projects.html" class="small text-light">
-                Projects
-            </a>
-            <a href="/libraries.html" class="small text-light">
-                Libraries
-            </a>
-            <a href="/articles.html" class="small text-light">
-                Articles
-            </a>
-            <a href="/team.html" class="small text-light">
-                About & Team
-            </a>
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-primary">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
         </div>
     </div>
     <div class="nav-progress">
@@ -74,44 +63,18 @@
     </button>
 
     <div class="sidebar-header">
-        <a href="/" class="logo">
-            Smart Legion Lab
-        </a>
+        <a href="/" class="logo">Smart Legion Lab</a>
     </div>
 
     <div class="sidebar-menu">
-        <a href="/" class="menu-item">
-            <i class="bi bi-house"></i>
-            <span>Home</span>
-        </a>
-         <a href="/research.html" class="menu-item">
-            <i class="bi bi-mortarboard"></i>
-            <span>Research & Publications</span>
-        </a>
-        <a href="/ecosystems.html" class="menu-item active">
-            <i class="bi bi-diagram-3"></i>
-            <span>Ecosystems</span>
-        </a>
-        <a href="/applications.html" class="menu-item">
-            <i class="bi bi-grid-3x3-gap-fill"></i>
-            <span>Applications</span>
-        </a>
-        <a href="/projects.html" class="menu-item">
-            <i class="bi bi-code-slash"></i>
-            <span>Projects</span>
-        </a>
-        <a href="/libraries.html" class="menu-item">
-            <i class="bi bi-box-seam"></i>
-            <span>Libraries</span>
-        </a>
-        <a href="/articles.html" class="menu-item">
-            <i class="bi bi-newspaper"></i>
-            <span>Articles</span>
-        </a>
-        <a href="/team.html" class="menu-item">
-            <i class="bi bi-people"></i>
-            <span>About & Team</span>
-        </a>
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item active"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
     </div>
 
     <div class="sidebar-footer">
@@ -135,8 +98,7 @@
     <div class="custom-margin-top">
 
         <div class="custom-margin-top">
-        <h1 class="text-center text-primary">2FA Management Ecosystem</h1>
-
+            <h1 class="text-center text-primary">2FA Management Ecosystem</h1>
             <p class="text-center small text-muted">
                 The 2FA Management Ecosystem is a cross-platform offline TOTP management suite — featuring
                 CLI (<strong class="text-primary">Python/Bash</strong>), Desktop <strong class="text-primary">GUI (PyQt5)</strong>, <strong class="text-primary">Android</strong> app, and a secure backend library —
@@ -144,7 +106,6 @@
                 for generating time-based one-time passwords.
             </p>
             <hr>
-
             <div class="d-flex justify-content-center align-items-center gap-4 my-3 flex-wrap">
                 <div class="d-flex align-items-center gap-2">
                     <i class="bi bi-person-circle text-primary" style="font-size: 1.2rem;"></i>
@@ -154,69 +115,126 @@
                     </a>
                 </div>
             </div>
+            <div class="tech-stack justify-content-center mt-4">
+                <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
+                <span class="language-badge"><i class="bi bi-filetype-sh"></i> Bash</span>
+                <span class="language-badge"><i class="bi bi-android2"></i> Kotlin/Java</span>
+                <span class="language-badge"><i class="bi bi-window-desktop"></i> PyQt5</span>
+                <span class="language-badge"><i class="bi bi-key"></i> TOTP</span>
+                <span class="language-badge"><i class="bi bi-shield-lock"></i> AES‑256‑GCM</span>
+                <span class="language-badge"><i class="bi bi-qr-code"></i> QR Support</span>
+            </div>
         </div>
 
+        <hr>
 
-        <div class="content-section">
-            <div class="container">
-                <h3 class="section-title">
-                    <i class="bi bi-grid-3x3-gap-fill text-primary"></i> Applications <sub class="text-warning">4+</sub>
-                </h3>
-                <div class="row g-4">
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-window-desktop text-primary fs-3"></i>
-                                <span class="platform-badge">Desktop</span>
+        <!-- Accordion -->
+        <div class="accordion accordion-flush mt-4" id="ecoAccordion">
+
+            <!-- Applications -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseApps"
+                            aria-expanded="false" aria-controls="collapseApps">
+                        <i class="bi bi-grid-3x3-gap-fill me-2"></i>
+                        Applications <span class="badge bg-primary ms-2">4+</span>
+                    </button>
+                </h2>
+                <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="fw-bold text-primary text-decoration-none">Smart 2FA Manager Desktop</a>
+                                <p class="small text-secondary mb-0">Offline, independent TOTP 2FA manager for Linux (PyQt5)</p></div>
                             </div>
-                            <h5 class="mt-2">Smart 2FA Manager Desktop</h5>
-                            <p class="small text-muted">Offline, independent TOTP 2FA manager for Linux with graphical interface (PyQt5). AES-256-GCM encrypted storage.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="fw-bold text-primary text-decoration-none">Smart 2FA Manager Android</a>
+                                <p class="small text-secondary mb-0">Lightweight, offline TOTP manager for Android</p></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-phone text-primary fs-3"></i>
-                                <span class="platform-badge">Android</span>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="fw-bold text-primary text-decoration-none">Smart 2FA Manager Bash</a>
+                                <p class="small text-secondary mb-0">Pure bash TOTP 2FA manager for Linux</p></div>
                             </div>
-                            <h5 class="mt-2">Smart 2FA Manager Android</h5>
-                            <p class="small text-muted">Lightweight, offline TOTP manager for Android. Store 2FA secrets encrypted locally, generate codes without internet.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-terminal text-primary fs-3"></i>
-                                <span class="platform-badge">Bash</span>
-                            </div>
-                            <h5 class="mt-2">Smart 2FA Manager Bash</h5>
-                            <p class="small text-muted">Lightweight, offline, independent TOTP 2FA manager for Linux. Pure bash implementation with minimal dependencies.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="fw-bold text-primary text-decoration-none">Smart 2FA Manager CLI</a>
+                                <p class="small text-secondary mb-0">Lightweight, offline TOTP 2FA manager for Linux (CLI)</p></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card-custom related-card p-3">
-                            <div class="d-flex justify-content-between align-items-start">
-                                <i class="bi bi-terminal text-primary fs-3"></i>
-                                <span class="platform-badge">Python</span>
-                            </div>
-                            <h5 class="mt-2">Smart 2FA Manager CLI</h5>
-                            <p class="small text-muted">Lightweight, offline, independent TOTP 2FA manager for Linux. Python CLI with encrypted storage support.</p>
-                            <div class="mt-auto">
-                                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="btn btn-sm btn-outline-primary w-100">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-                            </div>
-                        </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/applications.html" class="text-primary">Applications page</a></p>
                     </div>
                 </div>
             </div>
+
+            <!-- Libraries -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseLibs"
+                            aria-expanded="false" aria-controls="collapseLibs">
+                        <i class="bi bi-box-seam me-2"></i>
+                        Libraries <span class="badge bg-primary ms-2">1+</span>
+                    </button>
+                </h2>
+                <div id="collapseLibs" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="https://github.com/smartlegionlab/smart-2fa-secure" class="fw-bold text-primary text-decoration-none">smart-2fa-secure</a>
+                                <p class="small text-secondary mb-0">Advanced Two-Factor Authentication library with enhanced security features</p></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/libraries.html" class="text-primary">Libraries page</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Research -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseResearch"
+                            aria-expanded="false" aria-controls="collapseResearch">
+                        <i class="bi bi-mortarboard-fill me-2"></i>
+                        Related Research <span class="badge bg-primary ms-2">1+</span>
+                    </button>
+                </h2>
+                <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="/research/pointer-based-security-paradigm.html" class="fw-bold text-primary text-decoration-none">Pointer‑Based Security Paradigm</a>
+                                <p class="small text-secondary mb-0">Architectural shift from data protection to data non‑existence</p></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/research.html" class="text-primary">Research page</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Ecosystems -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseEco"
+                            aria-expanded="false" aria-controls="collapseEco">
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        Related Ecosystems <span class="badge bg-primary ms-2">1+</span>
+                    </button>
+                </h2>
+                <div id="collapseEco" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div><a href="./research-ecosystem.html" class="fw-bold text-primary text-decoration-none">Research Ecosystem</a>
+                                <p class="small text-secondary mb-0">4 paradigms with DOI and Ecosystems</p></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-2 small"><i class="bi bi-plus-circle"></i> Full list on <a href="/ecosystems.html" class="text-primary">Ecosystems page</a></p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <hr>
@@ -228,18 +246,8 @@
         </div>
 
     </div>
-
-    <div class="tech-stack justify-content-center mt-4">
-        <span class="language-badge"><i class="bi bi-filetype-py"></i> Python</span>
-        <span class="language-badge"><i class="bi bi-filetype-sh"></i> Bash</span>
-        <span class="language-badge"><i class="bi bi-android2"></i> Kotlin/Java</span>
-        <span class="language-badge"><i class="bi bi-window-desktop"></i> PyQt5</span>
-        <span class="language-badge"><i class="bi bi-key"></i> TOTP</span>
-        <span class="language-badge"><i class="bi bi-shield-lock"></i> AES‑256‑GCM</span>
-        <span class="language-badge"><i class="bi bi-qr-code"></i> QR Support</span>
-    </div>
-
 </div>
+
 <!-- end content -->
 
 <!-- footer -->
@@ -270,7 +278,6 @@
 
 <!-- end footer -->
 
-
 <!-- scripts -->
 <script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/config.js"></script>
@@ -284,5 +291,6 @@
 <script src="/js/sidebar.js"></script>
 
 <!-- end scripts -->
+
 </body>
 </html>
