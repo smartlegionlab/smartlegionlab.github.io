@@ -136,7 +136,7 @@
 
 <div class="container custom-margin-top">
 
-    <h1 class="text-center text-primary">Ecosystems <sup class="text-warning" data-smart-key="ecosystems">6+</sup></h1>
+    <h1 class="text-center text-primary">Ecosystems <sup class="text-warning" id="projectsCountBadge">6+</sup></h1>
 
     <p class="text-center">
         <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Ecosystems</span> is a suite of complete, cross‑platform
@@ -149,9 +149,46 @@
 
     <hr>
 
+    <div class="row g-2 mb-4 align-items-center">
+        <div class="col-12 col-md-7">
+            <div class="input-group smart-input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search ecosystems...">
+                <button class="btn smart-clear-btn" id="clearSearch" type="button">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="dropdown w-100" id="filterDropdownContainer">
+                <button class="btn smart-select dropdown-toggle text-start w-100" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="selectedFilterText">All Types</span>
+                </button>
+                <ul class="dropdown-menu smart-dropdown-menu w-100" aria-labelledby="filterDropdown" id="filterDropdownMenu">
+                    <li><button class="dropdown-item active" type="button" data-value="all">All</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="alexander suvorov sr.">smartlegionlab</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="@aixandrolab">aixandrolab</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <div id="projectsStatusBar" class="font-monospace small">
+                <span class="text-success">$</span>
+                <span class="text-primary">smartlegion</span><span class="text-secondary">@</span><span class="text-primary">lab</span><span class="text-secondary">:</span><span class="text-info">~/ecosystems</span><span class="text-secondary">$</span>
+                <span id="projectsStatusText" class="text-light">loading…</span>
+                <span class="smart-cursor"></span>
+            </div>
+        </div>
+    </div>
+
     <div class="container content-section">
 
-        <div class="row text-center">
+        <div class="row text-center" id="projectsGrid">
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
                 <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
@@ -162,7 +199,7 @@
                         <h4 class="mt-2 text-light">Smart Passwords Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -170,12 +207,14 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small">Deterministic Smart Password Generators, Managers and Libraries</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">smartpasslib</span>
-                        <span class="badge bg-primary custom-style">deterministic</span>
-                        <span class="badge bg-primary custom-style">decentralization</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">8</span> apps</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-seam me-1"></i><span class="text-warning">5</span> libs</span>
+                        <span class="badge bg-primary"><i class="bi bi-mortarboard-fill me-1"></i><span class="text-warning">2</span> research</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/smart-passwords-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -190,7 +229,7 @@
                         <h4 class="mt-2 text-light">NP Problem Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -198,12 +237,14 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small">Traveling Salesman Problem Solvers and Benchmarks</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">np-problem</span>
-                        <span class="badge bg-primary custom-style">tsp-solver</span>
-                        <span class="badge bg-primary custom-style">tsp-oracle</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">4</span> apps</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-seam me-1"></i><span class="text-warning">2</span> libs</span>
+                        <span class="badge bg-primary"><i class="bi bi-mortarboard-fill me-1"></i><span class="text-warning">1</span> research</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/np-problem-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -218,7 +259,7 @@
                         <h4 class="mt-2 text-light">2FA Management Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -226,12 +267,12 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small">Cross-Platform 2fa TOTP Managers</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">2fa</span>
-                        <span class="badge bg-primary custom-style">security</span>
-                        <span class="badge bg-primary custom-style">TOTP</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">4</span> apps</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/2fa-management-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -246,7 +287,7 @@
                         <h4 class="mt-2 text-light">Repository Management Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -254,12 +295,13 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small">Smart Repository Managers and Cores</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">repository-management</span>
-                        <span class="badge bg-primary custom-style">github-repository-manager</span>
-                        <span class="badge bg-primary custom-style">forgejo-repository-manager</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">4</span> apps</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-seam me-1"></i><span class="text-warning">2</span> libs</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/repository-management-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -274,7 +316,7 @@
                         <h4 class="mt-2 text-light">Deterministic Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -282,12 +324,14 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small">Deterministic Infinite Generators</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">determinism</span>
-                        <span class="badge bg-primary custom-style">decentralization</span>
-                        <span class="badge bg-primary custom-style">smartpasslib</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">8</span> apps</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-seam me-1"></i><span class="text-warning">7</span> libs</span>
+                        <span class="badge bg-primary"><i class="bi bi-mortarboard-fill me-1"></i><span class="text-warning">2</span> research</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/deterministic-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -302,7 +346,7 @@
                         <h4 class="mt-2 text-light">Research Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small">
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">
                                 Alexander Suvorov Sr.
                             </a>
                         </div>
@@ -310,12 +354,15 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small"><span class="text-warning" data-smart-key="publications">4+</span> paradigms with DOI and Ecosystems</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">paradigms</span>
-                        <span class="badge bg-primary custom-style">research</span>
-                        <span class="badge bg-primary custom-style">publications</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">11</span> apps</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-seam me-1"></i><span class="text-warning">8</span> libs</span>
+                        <span class="badge bg-primary"><i class="bi bi-mortarboard-fill me-1"></i><span class="text-warning">4</span> research</span>
+                        <span class="badge bg-primary"><i class="bi bi-diagram-3 me-1"></i><span class="text-warning">3</span> eco</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/research-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -330,7 +377,7 @@
                         <h4 class="mt-2 text-light">ToDO Ecosystem</h4>
                         <div class="mt-1 mb-1">
                             <i class="bi bi-person-circle text-secondary me-1"></i>
-                            <a href="/profiles/aixandrolab.html" class="text-decoration-none small">
+                            <a href="/profiles/aixandrolab.html" class="text-decoration-none small author">
                                 @aixandrolab
                             </a>
                         </div>
@@ -338,12 +385,12 @@
                     <div class="pdf-header d-flex justify-content-center align-items-center flex-wrap p-3 smart-text-block flex-grow-1">
                         <p class="mb-0 text-center small">ToDO list apps · One Place == All Tasks · Cross‑Platform</p>
                     </div>
-                    <div class="badges mb-3">
-                        <span class="badge bg-primary custom-style">todo</span>
-                        <span class="badge bg-primary custom-style">tasks</span>
-                        <span class="badge bg-primary custom-style">task-management</span>
+
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-grid-3x3-gap-fill me-1"></i><span class="text-warning">4</span> apps</span>
                     </div>
-                    <div class="btn-group btn-group-sm text-center mt-auto">
+
+                    <div class="btn-group btn-group-sm text-center">
                         <a href="/ecosystems/todo-ecosystem.html" class="btn btn-outline-primary">View <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -406,6 +453,7 @@
 <script src="js/console.js"></script>
 <script src="js/sidebar.js"></script>
 
+<script src="js/search-filter.js"></script>
 <!-- end scripts -->
 
 </body>
