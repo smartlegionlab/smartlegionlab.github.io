@@ -16,7 +16,7 @@
     var RULES = [
         {
             test: function (ctx) { return ctx.isMobile; },
-            engine: 'tsp-background.js'
+            engine: 'console-background.js'
         },
         {
             test: function (ctx) { return ctx.matchesPath(/projects/i); },
