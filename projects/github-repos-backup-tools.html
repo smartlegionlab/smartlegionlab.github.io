@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>github-repos-backup-tools · Smart Legion Lab</title>
+    <title>GitHub Repositories Backup Tools · Smart Legion Lab</title>
     <meta name="description" content="github-repos-backup-tools — A professional solution for automatic cloning and backup of all your GitHub repositories. Full backup of public and private repositories, smart updates, automatic retries, and detailed reports.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/github-repos-backup-tools.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="github-repos-backup-tools · Smart Legion Lab">
+    <meta property="og:title" content="GitHub Repositories Backup Tools · Smart Legion Lab">
     <meta property="og:description" content="A professional solution for automatic cloning and backup of all your GitHub repositories. Full backup of public and private repositories, smart updates, automatic retries, and detailed reports.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/github-repos-backup-tools.html">
@@ -82,7 +82,7 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">github-repos-backup-tools</h1>
+            <h1 class="text-primary">GitHub Repositories Backup Tools</h1>
             <p class="text-light">Professional solution for automatic cloning and backup of all your GitHub repositories</p>
             <p class="text-light">Full backup of <span class="text-primary">public and private</span> repositories, smart updates, automatic retries, and detailed reports.</p>
             <hr>
@@ -139,6 +139,32 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Power Management</strong> — shutdown/reboot after completion (optional)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Fast Mode (Default)</strong> — clones only default branch for maximum speed</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full Mode</strong> — <code>--all-branches</code> flag to enable synchronization of ALL branches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operation Modes -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModes" aria-expanded="false">
+                        <i class="bi bi-arrow-left-right me-2 text-primary"></i> Operation Modes
+                    </button>
+                </h2>
+                <div id="collapseModes" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Fast Mode (Default)</strong> — <code>python app.py -r</code></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLONE</strong> — new repository, full clone (all branches on first clone)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>PULL</strong> — has changes, updates only code in current branch</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>SKIP</strong> — no changes, skips the repository</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Full Mode</strong> — <code>python app.py -r --all-branches</code></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLONE</strong> — new repository, full clone (all branches)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>PULL</strong> — has changes, updates code + all branches</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>SYNC</strong> — no changes, only syncs branches (fetch + create local branches)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLONE (recover)</strong> — fetch failed, re-clones the repository</li>
                         </ul>
                     </div>
                 </div>
@@ -447,9 +473,7 @@ python app.py -r --shutdown</pre>
    ❌ Failed:          0 repositories
 
 ✅ Success rate: 100.0%
-============================================================
-
-📦 Archive created: smartlegionlab_github_backup_2026-02-27_17-24-20.zip
+============================================================📦 Archive created: smartlegionlab_github_backup_2026-02-27_17-24-20.zip
    📊 Size: 15.19 MB
 ------------------------------------------------------------------------------------
 ----------------------- Copyright © 2026, Alexander Suvorov ------------------------
