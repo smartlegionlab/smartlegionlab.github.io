@@ -12,6 +12,145 @@
     const helpModalClose = document.getElementById('helpModalClose');
     const helpModalCloseBtn = document.getElementById('helpModalCloseBtn');
 
+    const UNIVERSE_DATA = {
+        sun: {
+            label: 'Smart Legion Lab',
+            url: 'https://smartlegionlab.com/',
+            description: 'Smart Legion Lab home page. Start your journey through the universe of projects, libraries and research.'
+        },
+        planets: [
+            {
+                name: 'projects',
+                label: '📁 Projects',
+                url: 'https://smartlegionlab.com/projects.html',
+                description: 'All projects: apps, CLI tools, desktop programs and experiments.',
+                moons: [
+                    { label: 'CliPassMan', url: 'https://smartlegionlab.com/projects/clipassman.html' },
+                    { label: 'smartpasslib', url: 'https://smartlegionlab.com/projects/smartpasslib.html' },
+                    { label: 'smart-2fa-secure', url: 'https://smartlegionlab.com/projects/smart-2fa-secure.html' },
+                    { label: 'smart-babylon-library', url: 'https://smartlegionlab.com/projects/smart-babylon-library.html' },
+                    { label: 'smart-tsp-solver', url: 'https://smartlegionlab.com/projects/smart-tsp-solver.html' },
+                    { label: 'smart-tsp-benchmark', url: 'https://smartlegionlab.com/projects/smart-tsp-benchmark.html' },
+                    { label: 'smart-dynamic-path', url: 'https://smartlegionlab.com/projects/smart-dynamic-path.html' },
+                    { label: 'django-smart-dynamic-path', url: 'https://smartlegionlab.com/projects/django-smart-dynamic-path.html' },
+                    { label: 'github-ssh-key', url: 'https://smartlegionlab.com/projects/github-ssh-key.html' },
+                    { label: 'smartauthen', url: 'https://smartlegionlab.com/projects/smartauthen.html' },
+                    { label: 'smartcliapp', url: 'https://smartlegionlab.com/projects/smartcliapp.html' },
+                    { label: 'smartrandom', url: 'https://smartlegionlab.com/projects/smartrandom.html' },
+                    { label: 'smarttextdecorator', url: 'https://smartlegionlab.com/projects/smarttextdecorator.html' },
+                    { label: 'smartprinter', url: 'https://smartlegionlab.com/projects/smartprinter.html' },
+                    { label: 'smartpathlibrary', url: 'https://smartlegionlab.com/projects/smartpathlibrary.html' },
+                    { label: 'smartexecutorlib', url: 'https://smartlegionlab.com/projects/smartexecutorlib.html' },
+                    { label: 'smart-redis-storage', url: 'https://smartlegionlab.com/projects/smart-redis-storage.html' },
+                    { label: 'commandex', url: 'https://smartlegionlab.com/projects/commandex.html' },
+                    { label: 'commandman', url: 'https://smartlegionlab.com/projects/commandman.html' },
+                    { label: 'commandpack', url: 'https://smartlegionlab.com/projects/commandpack.html' },
+                    { label: 'smart-pch-tsp-rs', url: 'https://smartlegionlab.com/projects/smart-pch-tsp.html' },
+                    { label: 'smart-dynamic-gravity-tsp-rs', url: 'https://smartlegionlab.com/projects/smart-dynamic-gravity-tsp-rs.html' },
+                    { label: 'smartpasslib-rs', url: 'https://smartlegionlab.com/projects/smartpasslib-rs.html' },
+                    { label: 'smartpasslib-csharp', url: 'https://smartlegionlab.com/projects/smartpasslib-csharp.html' },
+                    { label: 'smartpasslib-go', url: 'https://smartlegionlab.com/projects/smartpasslib-go.html' },
+                    { label: 'smartpasslib-js', url: 'https://smartlegionlab.com/projects/smartpasslib-js.html' },
+                    { label: 'smartpasslib-kotlin', url: 'https://smartlegionlab.com/projects/smartpasslib-kotlin.html' },
+                    { label: 'forgejo-sync-manager-core', url: 'https://smartlegionlab.com/projects/forgejo-sync-manager-core.html' },
+                    { label: 'smart-repository-manager-core', url: 'https://smartlegionlab.com/projects/smart-repository-manager-core.html' }
+                ]
+            },
+            {
+                name: 'libraries',
+                label: '📚 Libraries',
+                url: 'https://smartlegionlab.com/libraries.html',
+                description: 'Reusable libraries and core modules.',
+                moons: [
+                    { label: 'smartpasslib', url: 'https://smartlegionlab.com/libraries/smartpasslib.html' },
+                    { label: 'smartpasslib-rs', url: 'https://smartlegionlab.com/libraries/smartpasslib-rs.html' },
+                    { label: 'smartpasslib-csharp', url: 'https://smartlegionlab.com/libraries/smartpasslib-csharp.html' },
+                    { label: 'smartpasslib-go', url: 'https://smartlegionlab.com/libraries/smartpasslib-go.html' },
+                    { label: 'smartpasslib-js', url: 'https://smartlegionlab.com/libraries/smartpasslib-js.html' },
+                    { label: 'smartpasslib-kotlin', url: 'https://smartlegionlab.com/libraries/smartpasslib-kotlin.html' },
+                    { label: 'smartcliapp', url: 'https://smartlegionlab.com/libraries/smartcliapp.html' },
+                    { label: 'smartprinter', url: 'https://smartlegionlab.com/libraries/smartprinter.html' },
+                    { label: 'smartpathlibrary', url: 'https://smartlegionlab.com/libraries/smartpathlibrary.html' },
+                    { label: 'smartexecutorlib', url: 'https://smartlegionlab.com/libraries/smartexecutorlib.html' },
+                    { label: 'smartrandom', url: 'https://smartlegionlab.com/libraries/smartrandom.html' },
+                    { label: 'smarttextdecorator', url: 'https://smartlegionlab.com/libraries/smarttextdecorator.html' },
+                    { label: 'smart-redis-storage', url: 'https://smartlegionlab.com/libraries/smart-redis-storage.html' },
+                    { label: 'smart-babylon-library', url: 'https://smartlegionlab.com/libraries/smart-babylon-library.html' },
+                    { label: 'commandex', url: 'https://smartlegionlab.com/libraries/commandex.html' },
+                    { label: 'commandman', url: 'https://smartlegionlab.com/libraries/commandman.html' },
+                    { label: 'commandpack', url: 'https://smartlegionlab.com/libraries/commandpack.html' },
+                    { label: 'smartauthen', url: 'https://smartlegionlab.com/libraries/smartauthen.html' },
+                    { label: 'django-smart-dynamic-path', url: 'https://smartlegionlab.com/libraries/django-smart-dynamic-path.html' },
+                    { label: 'smart-dynamic-path', url: 'https://smartlegionlab.com/libraries/smart-dynamic-path.html' },
+                    { label: 'smart-2fa-secure', url: 'https://smartlegionlab.com/libraries/smart-2fa-secure.html' },
+                    { label: 'smart-tsp-solver', url: 'https://smartlegionlab.com/libraries/smart-tsp-solver.html' },
+                    { label: 'smart-tsp-benchmark', url: 'https://smartlegionlab.com/libraries/smart-tsp-benchmark.html' },
+                    { label: 'smart-pch-tsp-rs', url: 'https://smartlegionlab.com/libraries/smart-pch-tsp-rs.html' },
+                    { label: 'smart-dynamic-gravity-tsp-rs', url: 'https://smartlegionlab.com/libraries/smart-dynamic-gravity-tsp-rs.html' },
+                    { label: 'forgejo-sync-manager-core', url: 'https://smartlegionlab.com/libraries/forgejo-sync-manager-core.html' },
+                    { label: 'smart-repository-manager-core', url: 'https://smartlegionlab.com/libraries/smart-repository-manager-core.html' },
+                    { label: 'github-ssh-key', url: 'https://smartlegionlab.com/libraries/github-ssh-key.html' }
+                ]
+            },
+            {
+                name: 'ecosystems',
+                label: '🌍 Ecosystems',
+                url: 'https://smartlegionlab.com/ecosystems.html',
+                description: 'Groups of projects that work together.',
+                moons: [
+                    { label: 'Smart Passwords Ecosystem', url: 'https://smartlegionlab.com/ecosystems/smart-passwords-ecosystem.html' },
+                    { label: 'Deterministic Ecosystem', url: 'https://smartlegionlab.com/ecosystems/deterministic-ecosystem.html' },
+                    { label: 'Repository Management Ecosystem', url: 'https://smartlegionlab.com/ecosystems/repository-management-ecosystem.html' },
+                    { label: '2FA Management Ecosystem', url: 'https://smartlegionlab.com/ecosystems/2fa-management-ecosystem.html' },
+                    { label: 'NP Problem Ecosystem', url: 'https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html' },
+                    { label: 'Research Ecosystem', url: 'https://smartlegionlab.com/ecosystems/research-ecosystem.html' },
+                    { label: 'Todo Ecosystem', url: 'https://smartlegionlab.com/ecosystems/todo-ecosystem.html' }
+                ]
+            },
+            {
+                name: 'applications',
+                label: '📱 Applications',
+                url: 'https://smartlegionlab.com/applications.html',
+                description: 'Ready-to-use applications for desktop, mobile and web.',
+                moons: []
+            },
+            {
+                name: 'team',
+                label: '👥 Team',
+                url: 'https://smartlegionlab.com/team.html',
+                description: 'People behind Smart Legion Lab.',
+                moons: [
+                    { label: 'Smart Legion Lab profile', url: 'https://smartlegionlab.com/profiles/smartlegionlab.html' },
+                    { label: 'Aixandrolab profile', url: 'https://smartlegionlab.com/profiles/aixandrolab.html' }
+                ]
+            },
+            {
+                name: 'articles',
+                label: '📰 Articles',
+                url: 'https://smartlegionlab.com/articles.html',
+                description: 'Articles and essays.',
+                moons: [
+                    { label: 'Pointer-Based Security Paradigm', url: 'https://smartlegionlab.com/articles/pointer-based-security-paradigm-article.html' },
+                    { label: 'Local Data Regeneration Paradigm', url: 'https://smartlegionlab.com/articles/local-data-regeneration-paradigm-article.html' },
+                    { label: 'Deterministic Game Engine', url: 'https://smartlegionlab.com/articles/deterministic-game-engine-tech-report-article.html' },
+                    { label: 'Position-Candidate-Hypothesis', url: 'https://smartlegionlab.com/articles/position-candidate-hypothesis-paradigm-article.html' }
+                ]
+            },
+            {
+                name: 'research',
+                label: '🔬 Research',
+                url: 'https://smartlegionlab.com/research.html',
+                description: 'Research papers and paradigms.',
+                moons: [
+                    { label: 'Pointer-Based Security Paradigm', url: 'https://smartlegionlab.com/research/pointer-based-security-paradigm.html' },
+                    { label: 'Local Data Regeneration Paradigm', url: 'https://smartlegionlab.com/research/local-data-regeneration-paradigm.html' },
+                    { label: 'Deterministic Game Engine', url: 'https://smartlegionlab.com/research/deterministic-game-engine-tech-report.html' },
+                    { label: 'Position-Candidate-Hypothesis', url: 'https://smartlegionlab.com/research/position-candidate-hypothesis-paradigm.html' }
+                ]
+            }
+        ]
+    };
+
     function openHelpModal() {
         helpModalOverlay.classList.add('active');
         if (controls) controls.autoRotate = false;
@@ -40,129 +179,18 @@
         });
     }
 
-    async function loadSitemap() {
-        try {
-            const response = await fetch('/sitemap.xml');
-            if (!response.ok) throw new Error('Failed to load sitemap.xml');
-            const xmlText = await response.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-            const urls = xmlDoc.querySelectorAll('url');
-
-            const result = [];
-            urls.forEach(url => {
-                const loc = url.querySelector('loc');
-                if (loc) {
-                    const text = loc.textContent.trim();
-                    let label = text.replace('https://smartlegionlab.com', '');
-                    if (!label || label === '/') {
-                        label = '🏠 Home';
-                    } else {
-                        label = label.replace(/^\/+/, '').replace(/\/+$/, '');
-                        const parts = label.split('/');
-                        let lastPart = parts[parts.length - 1];
-                        if (lastPart.endsWith('.html')) {
-                            lastPart = lastPart.replace('.html', '');
-                        }
-                        label = lastPart
-                            .replace(/-/g, ' ')
-                            .replace(/_/g, ' ')
-                            .replace(/\b\w/g, l => l.toUpperCase());
-                        if (parts.length === 1) {
-                            const icons = {
-                                'projects': '📁 Projects',
-                                'libraries': '📚 Libraries',
-                                'ecosystems': '🌍 Ecosystems',
-                                'applications': '📱 Applications',
-                                'team': '👥 Team',
-                                'profiles': '👤 Profiles',
-                                'articles': '📰 Articles',
-                                'research': '🔬 Research'
-                            };
-                            const key = parts[0].toLowerCase();
-                            if (icons[key]) label = icons[key];
-                            else label = '📂 ' + label;
-                        }
-                    }
-                    result.push({
-                        loc: text,
-                        label: label,
-                        path: text.replace('https://smartlegionlab.com', '')
-                    });
-                }
-            });
-            return result;
-        } catch (error) {
-            console.error('Sitemap load error:', error);
-            return getFallbackData();
-        } finally {
-            loadingUI.classList.add('hidden');
-        }
-    }
-
-    function getFallbackData() {
-        return [
-            { loc: 'https://smartlegionlab.com/', label: '🏠 Home' },
-            { loc: 'https://smartlegionlab.com/projects.html', label: '📁 Projects' },
-            { loc: 'https://smartlegionlab.com/libraries.html', label: '📚 Libraries' },
-            { loc: 'https://smartlegionlab.com/ecosystems.html', label: '🌍 Ecosystems' },
-            { loc: 'https://smartlegionlab.com/applications.html', label: '📱 Applications' },
-            { loc: 'https://smartlegionlab.com/team.html', label: '👥 Team' },
-            { loc: 'https://smartlegionlab.com/articles.html', label: '📰 Articles' },
-            { loc: 'https://smartlegionlab.com/research.html', label: '🔬 Research' }
-        ];
-    }
-
-    function buildGraph(urls) {
+    function buildGraph() {
         const nodes = [];
         const edges = [];
-        const nodeMap = new Map();
 
-        const root = urls.find(u => u.path === '/' || u.path === '');
+        const sun = UNIVERSE_DATA.sun;
         const rootId = 'root';
         nodes.push({
             id: rootId,
-            label: root ? root.label : '☀️ Smart Legion Lab',
+            label: sun.label,
             group: 'root',
-            url: root ? root.loc : 'https://smartlegionlab.com/'
-        });
-        nodeMap.set('https://smartlegionlab.com/', rootId);
-
-        const sections = new Map();
-        const indexPages = new Map();
-        const validSections = ['projects', 'libraries', 'ecosystems', 'applications', 'team', 'articles', 'research'];
-
-        urls.forEach(u => {
-            if (u.path === '/' || u.path === '') return;
-            let path = u.path.replace(/^\/+/, '').replace(/\/+$/, '');
-            if (!path) return;
-            const parts = path.split('/');
-            let section = parts[0];
-            if (!section) return;
-
-            if (section === 'profiles') {
-                section = 'team';
-            }
-
-            if (!validSections.includes(section)) return;
-
-            const isIndex = path === section + '.html' || path === section;
-            if (isIndex && parts.length === 1) {
-                indexPages.set(section, u);
-            } else if (parts.length > 1) {
-                if (!sections.has(section)) sections.set(section, []);
-                sections.get(section).push(u);
-            }
-        });
-
-        const sectionList = [];
-        sections.forEach((items, sectionName) => {
-            const indexPage = indexPages.get(sectionName);
-            sectionList.push({
-                name: sectionName,
-                items: items,
-                indexPage: indexPage
-            });
+            url: sun.url,
+            description: sun.description
         });
 
         const sectionColors = [
@@ -171,68 +199,37 @@
         ];
         const hasRing = [false, true, false, true, true, false, true, false];
         const orbitRadii = [7, 10, 13, 16, 19, 22, 25];
-        const angleOffset = Math.random() * Math.PI * 2;
 
-        sectionList.forEach((sectionData, idx) => {
-            const sectionName = sectionData.name;
-            const items = sectionData.items;
-            const indexPage = sectionData.indexPage;
-
-            const sectionId = 'sec_' + sectionName;
-            const icons = {
-                'projects': '📁',
-                'libraries': '📚',
-                'ecosystems': '🌍',
-                'applications': '📱',
-                'team': '👥',
-                'articles': '📰',
-                'research': '🔬'
-            };
-            const sectionLabel = (icons[sectionName] || '📂') + ' ' + sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
-            const sectionUrl = 'https://smartlegionlab.com/' + sectionName + '.html';
-
-            const size = 0.7 + Math.random() * 0.5;
+        UNIVERSE_DATA.planets.forEach((planet, idx) => {
+            const sectionId = 'sec_' + planet.name;
             const color = sectionColors[idx % sectionColors.length];
             const ring = hasRing[idx % hasRing.length];
-            const radius = orbitRadii[idx % orbitRadii.length] + (Math.floor(idx / orbitRadii.length) * 3);
+            const radius = orbitRadii[idx % orbitRadii.length];
+            const size = 0.7 + Math.random() * 0.5;
 
             nodes.push({
                 id: sectionId,
-                label: sectionLabel,
+                label: planet.label,
                 group: 'section',
-                url: sectionUrl,
+                url: planet.url,
+                description: planet.description,
                 size: size,
                 orbitRadius: radius,
                 color: color,
                 hasRing: ring
             });
-            nodeMap.set('section_' + sectionName, sectionId);
             edges.push({ from: rootId, to: sectionId });
 
-            if (indexPage && !nodeMap.has(indexPage.loc)) {
-                const nodeId = 'node_' + indexPage.loc.replace(/[^a-zA-Z0-9]/g, '_');
+            (planet.moons || []).forEach(moon => {
+                const nodeId = 'node_' + moon.url.replace(/[^a-zA-Z0-9]/g, '_');
                 nodes.push({
                     id: nodeId,
-                    label: '📋 ' + sectionName.charAt(0).toUpperCase() + sectionName.slice(1),
+                    label: moon.label,
                     group: 'page',
-                    url: indexPage.loc,
-                    fullLabel: sectionName.charAt(0).toUpperCase() + sectionName.slice(1) + ' (index)'
+                    url: moon.url,
+                    fullLabel: moon.label,
+                    description: moon.description || ('Page: ' + moon.label)
                 });
-                nodeMap.set(indexPage.loc, nodeId);
-                edges.push({ from: sectionId, to: nodeId });
-            }
-
-            items.forEach(page => {
-                const nodeId = 'node_' + page.loc.replace(/[^a-zA-Z0-9]/g, '_');
-                if (nodeMap.has(page.loc)) return;
-                nodes.push({
-                    id: nodeId,
-                    label: page.label,
-                    group: 'page',
-                    url: page.loc,
-                    fullLabel: page.label
-                });
-                nodeMap.set(page.loc, nodeId);
                 edges.push({ from: sectionId, to: nodeId });
             });
         });
@@ -910,7 +907,7 @@
             url: rootNode.url || 'https://smartlegionlab.com/',
             group: 'root',
             type: '☀️ Main page',
-            description: 'Smart Legion Lab home page. Start your journey through the universe of projects, libraries and research.'
+            description: rootNode.description || 'Smart Legion Lab home page. Start your journey through the universe of projects, libraries and research.'
         };
         scene.add(sunGroup);
         sectionObjects.push(sunGroup);
@@ -937,19 +934,19 @@
             const sectionGroup = createSectionMesh(color, size, 0.2, hasRing);
             sectionGroup.position.set(x, y, z);
 
-            const sectionUrl = section.url || 'https://smartlegionlab.com/' + section.id.replace('sec_', '') + '.html';
+            const sectionUrl = section.url;
             sectionGroup.userData = {
                 nodeId: section.id,
                 label: section.label,
                 url: sectionUrl,
                 group: 'section',
                 type: '🪐 Section',
+                description: section.description || ('Section ' + section.label),
                 angle: angle,
                 radius: radius,
                 speed: 0.04 + Math.random() * 0.04,
                 orbitY: y,
-                sectionSize: size,
-                description: `Section "${section.label.replace(/^[^\s]+\s/, '')}" — all related projects and pages.`
+                sectionSize: size
             };
             scene.add(sectionGroup);
             sectionObjects.push(sectionGroup);
@@ -1014,12 +1011,12 @@
                     fullLabel: page.fullLabel || page.label,
                     group: 'page',
                     type: '📄 Page',
+                    description: page.description || ('Page ' + page.label),
                     section: sectionGroup,
                     angle: pageAngle,
                     radius: pageOrbitRadius,
                     speed: 0.12 + Math.random() * 0.15,
-                    orbitY: y,
-                    description: `Page "${page.fullLabel || page.label}" — part of "${section.label.replace(/^[^\s]+\s/, '')}" section.`
+                    orbitY: y
                 };
                 scene.add(pageGroup);
                 sectionObjects.push(pageGroup);
@@ -1512,9 +1509,8 @@
         renderer.render(scene, camera);
     }
 
-    async function init() {
-        const urls = await loadSitemap();
-        const graph = buildGraph(urls);
+    function init() {
+        const graph = buildGraph();
         initScene();
         buildSolarSystem(graph);
 
@@ -1526,8 +1522,9 @@
             if (controls) controls.autoRotate = true;
         }, 1500);
 
+        if (loadingUI) loadingUI.classList.add('hidden');
+
         console.log('🚀 Smart Legion Lab Universe loaded!');
-        console.log('📊 Total URLs:', urls.length);
         console.log('🪐 Sections:', graph.nodes.filter(n => n.group === 'section').length);
         console.log('📄 Pages:', graph.nodes.filter(n => n.group === 'page').length);
         console.log('👤 Users:', ships.length);
