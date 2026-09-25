@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>github-repos-downloader · Smart Legion Lab</title>
+    <title>GitHub Repository Backup Tool · Smart Legion Lab</title>
     <meta name="description" content="github-repos-downloader — A powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. Downloads code as ZIP archives with parallel processing for speed and detailed reporting.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/github-repos-downloader.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="github-repos-downloader · Smart Legion Lab">
+    <meta property="og:title" content="GitHub Repository Backup Tool · Smart Legion Lab">
     <meta property="og:description" content="A powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. Downloads code as ZIP archives with parallel processing for speed and detailed reporting.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/github-repos-downloader.html">
@@ -82,9 +82,9 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">github-repos-downloader</h1>
-            <p class="text-light">Powerful Python utility for automating comprehensive GitHub backups</p>
-            <p class="text-light">Downloads your repositories and gists as <span class="text-primary">ZIP archives</span> with parallel processing for speed and detailed reporting for insight.</p>
+            <h1 class="text-primary">GitHub Repository Backup Tool</h1>
+            <p class="text-light">Powerful Python utility for automating comprehensive backups of your GitHub repositories and gists</p>
+            <p class="text-light">Downloads code as <span class="text-primary">ZIP archives</span> with parallel processing for speed and detailed reporting for insight.</p>
             <hr>
             <div class="mt-3">
                 <a target="_blank" href="https://github.com/aixandrolab/github-repos-downloader" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
@@ -96,6 +96,9 @@
             <div class="smart-small-card">
                 <p class="text-light">
                     <strong>github-repos-downloader</strong> — a powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. This tool downloads your code as <code>.zip</code> archives for safe keeping, with parallel processing for speed and detailed reporting for insight.
+                </p>
+                <p class="text-light">
+                    <strong>Complete Backup Solution:</strong> Downloads all your repositories and gists as <code>.zip</code> archives for safe keeping, with robust error handling and detailed reports.
                 </p>
             </div>
         </div>
@@ -310,6 +313,26 @@ python app.py -t</pre>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Token Storage</strong> — Stored in encrypted format at <code>~/.config/github_repos_downloader/github_token.json</code></li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Data Sent Elsewhere</strong> — Only communicates with GitHub's API</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clean Operations</strong> — Temporary files deleted after use, failed downloads cleaned up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.7+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Dependencies:</span> requests, concurrent.futures</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">External Tools:</span> curl</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux / macOS / Windows</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
                         </ul>
                     </div>
                 </div>
