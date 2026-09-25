@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart File Duplicate Manager RS · Smart Legion Lab</title>
+    <meta name="description" content="smart-file-duplicate-manager-rs — A safe, fast, and controllable duplicate file manager for the command line, written in Rust. Byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/smart-file-duplicate-manager-rs.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Smart File Duplicate Manager RS · Smart Legion Lab">
+    <meta property="og:description" content="A safe, fast, and controllable duplicate file manager for the command line, written in Rust. Byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/smart-file-duplicate-manager-rs.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+
+<!-- content -->
+<div class="container">
+    <div class="custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart File Duplicate Manager RS</h1>
+            <p class="text-light">A safe, fast, and controllable duplicate file manager for the command line</p>
+            <p class="text-light">Written in <span class="text-primary">Rust</span>. Byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.</p>
+            <hr>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>smart-file-duplicate-manager-rs</strong> — a safe, fast, and controllable duplicate file manager for the command line, written in Rust.
+                </p>
+                <p class="text-light">
+                    Not just a duplicate finder. It is a complete workflow for locating, reviewing, and cleaning duplicate files — with byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.
+                </p>
+            </div>
+        </div>
+
+        <!-- Why this tool -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>Why this tool</strong></p>
+                <p class="text-light small">Most duplicate finders give you a list and expect you to figure out the rest. This one is built around <strong>control</strong> and <strong>safety</strong>:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Nothing is deleted by default</strong> — every destructive action is a dry-run unless you pass <code>--yes</code> or <code>--interactive</code></li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Byte-level accuracy</strong> — duplicates confirmed by byte-by-byte comparison, not just a hash</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reversible by default</strong> — <code>trash</code> action moves files to XDG trash, restorable at any time</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Per-file confirmation</strong> — <code>--interactive</code> prompts before each deletion</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reusable reports</strong> — scan once, inspect, act later without rescanning</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reviewable scripts</strong> — <code>--output shell</code> produces a bash script you can read and edit before running</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Fast on large files</strong> — optional sampling mode reads 3 chunks per file (start, middle, end) for 10–100× speedups</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Human-readable sizes</strong> — write <code>300M</code>, <code>1.5G</code>, <code>500KB</code> instead of raw bytes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">Detection</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multi-stage pipeline: size → prefix hash (4 KB) → full BLAKE3 hash → byte-by-byte confirmation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Reads full file contents only for real candidates, not for every file</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Parallel hashing via <code>rayon</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Optional sampling mode for very large files (opt-in, off by default)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Symlink-aware (<code>--follow-links</code>)</li>
+                        </ul>
+                        <p class="text-light fw-bold mt-2">Control</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dry-run by default for every destructive action</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Reversible <code>trash</code> action (XDG-compliant)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Interactive mode: confirm each file individually</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Validation of size and mtime before each action (in <code>--from-report</code> mode)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Never touches anything without an explicit flag</li>
+                        </ul>
+                        <p class="text-light fw-bold mt-2">Actions</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>report</code> — show groups, delete nothing (default)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>trash</code> — move duplicates to XDG trash (reversible)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>move</code> — move duplicates to a chosen folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>delete</code> — permanently remove duplicates</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>hardlink</code> — replace duplicates with hard links to the kept file</li>
+                        </ul>
+                        <p class="text-light fw-bold mt-2">Strategies &amp; Filters</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Keep <code>first</code> (alphabetical), <code>newest</code>, <code>oldest</code>, or <code>shortest</code> path</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Min/max file size (with human-readable suffixes)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Extension allow-list</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Path exclusion (substring match, prunes subtrees)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Hidden files (excluded by default)</li>
+                        </ul>
+                        <p class="text-light fw-bold mt-2">Output and integration</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Plain text with ANSI colors (auto-detected)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON output for scripts and pipelines</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Shell script output for manual review</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Reusable reports: <code>--from-report &lt;FILE&gt;</code> skips scanning</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Progress bars for long-running phases</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Quiet mode when piping JSON</li>
+                        </ul>
+                        <p class="text-light fw-bold mt-2">Quality</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>68 unit and integration tests</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No <code>unsafe</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No warnings on <code>cargo build --release</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tests run in isolated temporary directories</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algorithm -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlgorithm" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Algorithm
+                    </button>
+                </h2>
+                <div id="collapseAlgorithm" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Duplicate detection runs in <strong>five phases</strong>. Each phase filters the candidate set further, so that expensive operations run only on files that survived all previous checks.</p>
+                        <ol class="text-light">
+                            <li class="mb-1"><strong>Scan</strong> — walk the directory tree, collect files (path, size, mtime)</li>
+                            <li class="mb-1"><strong>Group by size</strong> — files of different sizes cannot be duplicates</li>
+                            <li class="mb-1"><strong>Prefix hash</strong> — hash the first 4 KB of each candidate (fast filter)</li>
+                            <li class="mb-1"><strong>Full hash</strong> — BLAKE3 over full content, parallelized with <code>rayon</code></li>
+                            <li class="mb-1"><strong>Confirm</strong> — byte-by-byte comparison to rule out hash collisions</li>
+                        </ol>
+                        <p class="text-light small mt-2">With the optional <code>--sample-chunk</code> flag, phases 4 and 5 read only three chunks per file (start, middle, end) instead of the whole file. This is a probabilistic check.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Requires Rust 1.70 or newer.</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-file-duplicate-manager-rs
+cd smart-file-duplicate-manager-rs
+cargo build --release</pre>
+                        <p class="text-light mt-2"><strong>Binary:</strong> <code>target/release/smart_file_duplicate_manager</code></p>
+                        <p class="text-light mt-2"><strong>Install for system-wide use (Linux):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+mkdir -p ~/.local/bin
+ln -sf "$PWD/target/release/smart_file_duplicate_manager" ~/.local/bin/sfdm</pre>
+                        <p class="text-light small mt-2">Make sure <code>~/.local/bin</code> is in your <code>PATH</code>. Add this to <code>~/.bashrc</code> if needed:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+export PATH="$HOME/.local/bin:$PATH"</pre>
+                        <p class="text-light mt-2"><strong>Verify:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+which sfdm
+sfdm --version</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> Usage
+                    </button>
+                </h2>
+                <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Basic:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Downloads
+smart_file_duplicate_manager -p ~/Pictures</pre>
+                        <p class="text-light mt-2"><strong>Options:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Option</th><th>Description</th><th>Default</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>-p, --path &lt;PATH&gt;</code></td><td>Directory to scan (required unless <code>--from-report</code> is used)</td><td>—</td></tr>
+                                    <tr><td><code>--from-report &lt;FILE&gt;</code></td><td>Load duplicate groups from a JSON report instead of scanning</td><td>—</td></tr>
+                                    <tr><td><code>--min-size &lt;SIZE&gt;</code></td><td>Minimum file size (e.g. <code>1</code>, <code>100K</code>, <code>10M</code>, <code>1.5G</code>)</td><td><code>1</code></td></tr>
+                                    <tr><td><code>--max-size &lt;SIZE&gt;</code></td><td>Maximum file size</td><td>—</td></tr>
+                                    <tr><td><code>--sample-chunk &lt;SIZE&gt;</code></td><td>Read only 3 chunks (0 = read fully)</td><td><code>0</code></td></tr>
+                                    <tr><td><code>--sample-threshold &lt;SIZE&gt;</code></td><td>Apply sampling only to files at least this large</td><td><code>100M</code></td></tr>
+                                    <tr><td><code>--ext &lt;LIST&gt;</code></td><td>Only these extensions (comma-separated)</td><td>—</td></tr>
+                                    <tr><td><code>--exclude &lt;LIST&gt;</code></td><td>Skip paths containing these substrings</td><td>—</td></tr>
+                                    <tr><td><code>--hidden</code></td><td>Include hidden files</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--follow-links</code></td><td>Follow symbolic links</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--keep &lt;STRATEGY&gt;</code></td><td><code>first</code>, <code>newest</code>, <code>oldest</code>, <code>shortest</code></td><td><code>first</code></td></tr>
+                                    <tr><td><code>--action &lt;ACTION&gt;</code></td><td><code>report</code>, <code>trash</code>, <code>move</code>, <code>delete</code>, <code>hardlink</code></td><td><code>report</code></td></tr>
+                                    <tr><td><code>--action-dir &lt;DIR&gt;</code></td><td>Destination for <code>move</code> action</td><td>—</td></tr>
+                                    <tr><td><code>--yes</code></td><td>Execute destructive actions</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--dry-run</code></td><td>Force dry-run even with <code>--yes</code></td><td><code>false</code></td></tr>
+                                    <tr><td><code>--interactive</code></td><td>Ask confirmation for each file (requires TTY)</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--limit &lt;N&gt;</code></td><td>Show only top N groups in report</td><td>—</td></tr>
+                                    <tr><td><code>--group-by-dir</code></td><td>Show directories with most duplicates</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--output &lt;FORMAT&gt;</code></td><td><code>text</code>, <code>json</code>, or <code>shell</code></td><td><code>text</code></td></tr>
+                                    <tr><td><code>--output-file &lt;PATH&gt;</code></td><td>Write output to file</td><td>—</td></tr>
+                                    <tr><td><code>--color &lt;WHEN&gt;</code></td><td><code>auto</code>, <code>always</code>, <code>never</code></td><td><code>auto</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>Size format:</strong> <code>K</code>/<code>KB</code>/<code>KiB</code>, <code>M</code>/<code>MB</code>/<code>MiB</code>, <code>G</code>/<code>GB</code>/<code>GiB</code>, <code>T</code>/<code>TB</code>/<code>TiB</code>. All suffixes are 1024-based (IEC).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamples" aria-expanded="false">
+                        <i class="bi bi-code-square me-2 text-primary"></i> Examples
+                    </button>
+                </h2>
+                <div id="collapseExamples" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Report only (safe):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Photos</pre>
+                        <p class="text-light mt-2"><strong>Only images, keep the newest copy, show top 10 groups:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Photos \
+    --ext jpg,jpeg,png,heic \
+    --keep newest \
+    --limit 10</pre>
+                        <p class="text-light mt-2"><strong>Find duplicates larger than 10 MB, exclude .git and node_modules:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Projects \
+    --min-size 10M \
+    --exclude .git,node_modules,target</pre>
+                        <p class="text-light mt-2"><strong>Preview trash operation (dry-run):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Downloads --action trash</pre>
+                        <p class="text-light mt-2"><strong>Execute trash operation:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Downloads --action trash --yes</pre>
+                        <p class="text-light mt-2"><strong>Execute trash operation with per-file confirmation:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Downloads --action trash --interactive</pre>
+                        <p class="text-light mt-2"><strong>Export JSON report to file:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart_file_duplicate_manager --path ~/Music --output json --output-file report.json</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Command cheat sheet -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCheatsheet" aria-expanded="false">
+                        <i class="bi bi-journal-code me-2 text-primary"></i> Command Cheat Sheet
+                    </button>
+                </h2>
+                <div id="collapseCheatsheet" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">Scan and report</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Report duplicates in a directory (safe, nothing is deleted)
+smart_file_duplicate_manager --path ~/Downloads
+
+# Report duplicates in current directory
+smart_file_duplicate_manager --path .
+
+# Only files larger than 100 MB
+smart_file_duplicate_manager --path ~/Videos --min-size 100M
+
+# Only files between 10 MB and 1 GB
+smart_file_duplicate_manager --path ~/Videos --min-size 10M --max-size 1G
+
+# Only images
+smart_file_duplicate_manager --path ~/Photos --ext jpg,jpeg,png,heic
+
+# Exclude .git and node_modules
+smart_file_duplicate_manager --path ~/Projects --exclude .git,node_modules,target
+
+# Include hidden files
+smart_file_duplicate_manager --path ~/Documents --hidden
+
+# Show top 10 groups only
+smart_file_duplicate_manager --path ~/Music --limit 10
+
+# Show directories with the most duplicates
+smart_file_duplicate_manager --path ~/Videos --group-by-dir
+
+# No color (for logs or files)
+smart_file_duplicate_manager --path ~/Downloads --color never</pre>
+                        <p class="text-light fw-bold mt-2">Keep strategies</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Keep the first by path (alphabetical)
+smart_file_duplicate_manager --path ~/Photos --keep first
+
+# Keep the most recently modified
+smart_file_duplicate_manager --path ~/Photos --keep newest
+
+# Keep the oldest by modification time
+smart_file_duplicate_manager --path ~/Photos --keep oldest
+
+# Keep the file with the shortest path
+smart_file_duplicate_manager --path ~/Photos --keep shortest</pre>
+                        <p class="text-light fw-bold mt-2">Actions (dry-run by default)</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Dry-run (no changes, just the plan)
+smart_file_duplicate_manager --path ~/Downloads --action trash
+smart_file_duplicate_manager --path ~/Downloads --action delete
+smart_file_duplicate_manager --path ~/Downloads --action move --action-dir /tmp/dupes_out
+smart_file_duplicate_manager --path ~/Downloads --action hardlink
+
+# Move duplicates to ~/.local/share/Trash (reversible)
+smart_file_duplicate_manager --path ~/Downloads --action trash --yes
+
+# Move duplicates to a custom folder
+smart_file_duplicate_manager --path ~/Downloads --action move --action-dir /tmp/dupes_out --yes
+
+# Replace duplicates with hard links to the kept file
+smart_file_duplicate_manager --path ~/Downloads --action hardlink --yes
+
+# Permanently delete duplicates (irreversible)
+smart_file_duplicate_manager --path ~/Downloads --action delete --yes</pre>
+                        <p class="text-light fw-bold mt-2">Interactive mode</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Confirm each file individually (requires a TTY)
+smart_file_duplicate_manager --path ~/Downloads --action trash --interactive
+
+# Interactive with a saved report (no rescanning)
+smart_file_duplicate_manager --from-report /tmp/dupes.json --action trash --interactive</pre>
+                        <p class="text-light small mt-2"><strong>Prompt keys:</strong> <code>y</code> — do it · <code>n</code> or Enter — skip · <code>a</code> — apply to all remaining · <code>q</code> — quit</p>
+                        <p class="text-light fw-bold mt-2">Fast mode for large files</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Sample 3 chunks per large file (fast, not guaranteed)
+smart_file_duplicate_manager --path /media/data --sample-chunk 4M
+
+# Sample only files >= 500 MB, with 4 MB chunks
+smart_file_duplicate_manager --path /media/data \
+    --min-size 500M \
+    --sample-chunk 4M \
+    --sample-threshold 500M</pre>
+                        <p class="text-light fw-bold mt-2">Reuse a saved report (no rescanning)</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Step 1: scan once and save
+smart_file_duplicate_manager --path /media/data \
+    --min-size 100M \
+    --output json --output-file /tmp/dupes.json
+
+# Step 2: inspect the plan (instant)
+smart_file_duplicate_manager --from-report /tmp/dupes.json
+
+# Step 3: apply an action (still dry-run unless --yes is given)
+smart_file_duplicate_manager --from-report /tmp/dupes.json --action trash
+
+# Step 4: execute
+smart_file_duplicate_manager --from-report /tmp/dupes.json --action trash --yes</pre>
+                        <p class="text-light fw-bold mt-2">Shell script output</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Generate a delete script (does NOT execute it)
+smart_file_duplicate_manager --path /media/data \
+    --action delete --output shell --output-file /tmp/cleanup.sh
+
+less /tmp/cleanup.sh     # inspect
+bash -n /tmp/cleanup.sh  # syntax check
+bash /tmp/cleanup.sh     # execute when ready</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output formats -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutputFormats" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Output Formats
+                    </button>
+                </h2>
+                <div id="collapseOutputFormats" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>JSON output:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+{
+  "path": "/home/user/Downloads",
+  "keep_strategy": "First",
+  "action": "Report",
+  "groups": [
+    {
+      "index": 1,
+      "size": 5242880,
+      "wasted": 5242880,
+      "keep": {
+        "path": "/home/user/Downloads/file.bin",
+        "size": 5242880,
+        "mtime": 1700000000
+      },
+      "delete": [
+        {
+          "path": "/home/user/Downloads/file copy.bin",
+          "size": 5242880,
+          "mtime": 1700000000
+        }
+      ]
+    }
+  ],
+  "total_groups": 1,
+  "total_files": 2,
+  "total_wasted": 5242880
+}</pre>
+                        <p class="text-light small mt-2">When <code>--output json</code> is combined with <code>--output-file</code>, the file contains pure JSON. Progress bars, phase logs, and informational messages go to stderr.</p>
+                        <p class="text-light mt-2"><strong>Shell script output:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Action</th><th>Generated command</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>delete</code></td><td><code>rm -- &lt;path&gt;</code></td></tr>
+                                    <tr><td><code>move</code></td><td><code>mv -- &lt;src&gt; &lt;--action-dir&gt;/&lt;name&gt;</code></td></tr>
+                                    <tr><td><code>hardlink</code></td><td><code>ln -f -- &lt;keep&gt; &lt;tmp&gt; &amp;&amp; rm -- &lt;del&gt; &amp;&amp; mv -- -- &lt;tmp&gt; &lt;del&gt;</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small mt-2"><strong>Not supported:</strong> <code>--action report</code> (use <code>--output text</code>) · <code>--action trash</code> (XDG trash requires metadata; use directly).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exit codes & Testing -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTesting" aria-expanded="false">
+                        <i class="bi bi-check2-square me-2 text-primary"></i> Exit Codes & Testing
+                    </button>
+                </h2>
+                <div id="collapseTesting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Exit codes:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>0</code> — success</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>1</code> — invalid arguments, path does not exist, or report cannot be loaded</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Testing:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo test</pre>
+                        <p class="text-light small mt-2">Runs unit and integration tests in isolated temporary directories. Never touches real files.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Rust 1.70+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Hashing:</span> BLAKE3 (prefix + full)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Parallelism:</span> rayon</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux / macOS / Windows</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-file-duplicate-manager-rs/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-file-duplicate-manager-rs/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager-rs/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-file-duplicate-manager" class="btn btn-outline-primary btn-sm">Python GUI Version</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="badges mt-2 mb-2">
+            <span class="badge bg-primary custom-style">Rust</span>
+            <span class="badge bg-primary custom-style">CLI</span>
+            <span class="badge bg-primary custom-style">Duplicate Finder</span>
+            <span class="badge bg-primary custom-style">File Management</span>
+            <span class="badge bg-primary custom-style">Cross-Platform</span>
+            <span class="badge bg-primary custom-style">Safety</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">
+                Smart Legion Lab
+            </a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+                <span data-smart-version>v7.6.1</span>
+            </a> |
+            <a href="/smartlegionlab-map.html" target="_blank">
+                Site Map
+            </a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
