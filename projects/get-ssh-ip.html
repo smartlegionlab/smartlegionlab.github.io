@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>get_ssh_ip · Smart Legion Lab</title>
+    <title>Get SSH IP · Telegram Bot · Smart Legion Lab</title>
     <meta name="description" content="get_ssh_ip — Telegram Bot for get a command for connect to your SSH server. Simple bot that provides SSH connection commands to authorized users.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/get-ssh-ip.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="get_ssh_ip · Smart Legion Lab">
+    <meta property="og:title" content="Get SSH IP · Telegram Bot · Smart Legion Lab">
     <meta property="og:description" content="Telegram Bot for get a command for connect to your SSH server. Simple bot that provides SSH connection commands to authorized users.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/get-ssh-ip.html">
@@ -82,7 +82,7 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">get_ssh_ip</h1>
+            <h1 class="text-primary">Get SSH IP</h1>
             <p class="text-light">Telegram Bot for getting SSH server connection commands</p>
             <p class="text-light">Simple Telegram bot that provides <span class="text-primary">SSH connection commands</span> to authorized users.</p>
             <hr>
@@ -96,6 +96,9 @@
             <div class="smart-small-card">
                 <p class="text-light">
                     <strong>get_ssh_ip</strong> — Telegram Bot for getting a command to connect to your SSH server. Simple bot that provides SSH connection commands to authorized users.
+                </p>
+                <p class="text-light">
+                    <strong>SSH Connection Helper:</strong> Get SSH IP is a Telegram Bot that provides you with the command to connect to your SSH server. Perfect for when you need quick access to your server's connection details from anywhere.
                 </p>
             </div>
         </div>
@@ -115,6 +118,7 @@
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Telegram Bot Integration</strong> — Access SSH commands via Telegram</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Admin Authorization</strong> — Only authorized users can access the bot</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secure Configuration</strong> — Token and admins stored in JSON config</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Simple Configuration</strong> — Easy setup with JSON config file</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Lightweight</strong> — Minimal dependencies, easy to deploy</li>
                         </ul>
@@ -122,11 +126,31 @@
                 </div>
             </div>
 
-            <!-- Installation -->
+            <!-- Logo -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLogo" aria-expanded="false">
+                        <i class="bi bi-image me-2 text-primary"></i> Logo
+                    </button>
+                </h2>
+                <div id="collapseLogo" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-md-4">
+                                <a href="https://raw.githubusercontent.com/aixandrolab/get_ssh_ip/master/data/images/logo.png" target="_blank">
+                                    <img src="https://raw.githubusercontent.com/aixandrolab/get_ssh_ip/master/data/images/logo.png" class="img-fluid rounded" alt="Get SSH IP Logo" referrerpolicy="no-referrer">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation & Configuration -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
-                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation & Configuration
                     </button>
                 </h2>
                 <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
@@ -134,7 +158,10 @@
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 # Clone the repository
 git clone https://github.com/aixandrolab/get_ssh_ip.git
-cd get_ssh_ip</pre>
+cd get_ssh_ip
+
+# Install dependencies
+pip install -r requirements.txt</pre>
                         <p class="text-light mt-2"><strong>Configuration:</strong></p>
                         <p class="text-light small">Create <code>config.json</code> file in the project root:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
@@ -145,6 +172,20 @@ cd get_ssh_ip</pre>
         "chat_id2"
     ]
 }</pre>
+                        <p class="text-light mt-2"><strong>How to get your Telegram Bot Token:</strong></p>
+                        <ol class="text-light">
+                            <li>Open Telegram and search for <strong>@BotFather</strong></li>
+                            <li>Send <code>/newbot</code> and follow the instructions</li>
+                            <li>Copy the token provided by BotFather</li>
+                            <li>Paste it in the <code>config.json</code> file</li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>How to get your Chat ID:</strong></p>
+                        <ol class="text-light">
+                            <li>Start a chat with your bot</li>
+                            <li>Send any message to the bot</li>
+                            <li>Check the bot logs or use <strong>@userinfobot</strong> to get your chat ID</li>
+                            <li>Add your chat ID to the <code>admins</code> list</li>
+                        </ol>
                         <p class="text-light mt-2"><strong>Run:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 python app.py</pre>
@@ -167,14 +208,25 @@ python app.py</pre>
                             <li class="mb-1">If authorized, bot returns SSH connection command</li>
                             <li class="mb-1">If not authorized, bot denies access</li>
                         </ol>
-                        <p class="text-light small mt-2"><strong>Logo:</strong></p>
-                        <div class="row g-2 justify-content-center">
-                            <div class="col-4 col-md-3">
-                                <a href="https://raw.githubusercontent.com/aixandrolab/get_ssh_ip/master/data/images/logo.png" target="_blank">
-                                    <img src="https://raw.githubusercontent.com/aixandrolab/get_ssh_ip/master/data/images/logo.png" class="img-fluid rounded" alt="Logo" referrerpolicy="no-referrer">
-                                </a>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.6+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Framework:</span> python-telegram-bot</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux / macOS / Windows</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -213,6 +265,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
                         <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
                         <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/aixandrolab/get_ssh_ip/issues" class="btn btn-outline-primary btn-sm">Report Issue</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
