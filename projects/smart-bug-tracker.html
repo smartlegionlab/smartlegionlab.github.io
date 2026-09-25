@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>smart-bug-tracker · Smart Legion Lab</title>
+    <title>Smart Bug Tracker · Professional Task Management System · Smart Legion Lab</title>
     <meta name="description" content="smart-bug-tracker — Professional task management and bug tracking system built with Python and PyQt5. Supports Developer and Tester roles with role-specific workflows, sound system, and GitHub integration.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-bug-tracker.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="smart-bug-tracker · Smart Legion Lab">
+    <meta property="og:title" content="Smart Bug Tracker · Professional Task Management System · Smart Legion Lab">
     <meta property="og:description" content="Professional task management and bug tracking system built with Python and PyQt5. Supports Developer and Tester roles with role-specific workflows, sound system, and GitHub integration.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/smart-bug-tracker.html">
@@ -82,7 +82,7 @@
 
         <!-- Header -->
         <div class="text-center mb-4">
-            <h1 class="text-primary">smart-bug-tracker</h1>
+            <h1 class="text-primary">Smart Bug Tracker</h1>
             <p class="text-light">Professional task management and bug tracking system</p>
             <p class="text-light">Built with <span class="text-primary">Python and PyQt5</span>. Supports Developer and Tester roles with role-specific workflows, sound system, and GitHub integration.</p>
             <hr>
@@ -97,11 +97,37 @@
                 <p class="text-light">
                     <strong>smart-bug-tracker</strong> — professional task management and bug tracking system built with Python and PyQt5. Supports Developer and Tester roles with role-specific workflows, sound system, and GitHub integration.
                 </p>
+                <p class="text-light">
+                    <strong>Professional Task Management:</strong> Comprehensive desktop application for managing tasks and bugs in software development projects. With separate Developer and Tester modes, it streamlines the entire workflow from bug reporting to task completion.
+                </p>
             </div>
         </div>
 
         <!-- Features Accordion -->
         <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Core Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCore" aria-expanded="false">
+                        <i class="bi bi-shield-check me-2 text-primary"></i> Core Features
+                    </button>
+                </h2>
+                <div id="collapseCore" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dual-Mode Operation</strong> — Developer and Tester roles with tailored workflows</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Single Instance Protection</strong> — Prevents multiple application instances with smart focus switching</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Comprehensive Help System</strong> — F1 hotkey access with categorized keyboard shortcuts</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>GitHub Integration</strong> — URL validation, template support, and one-click copy</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Sound System</strong> — Toggle sound effects (Ctrl+M) with audio feedback</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Natural Version Sorting</strong> — dev → test → alpha → beta → rc → v1.0.0</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dark Theme</strong> — Modern dark UI designed for long working sessions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export Capabilities</strong> — Statistics and reports in multiple formats</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <!-- What's New -->
             <div class="accordion-item bg-transparent">
@@ -112,39 +138,155 @@
                 </h2>
                 <div id="collapseWhatsNew" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Enhanced Single Instance Protection:</strong></p>
+                        <p class="text-light fw-bold">✨ Major New Features</p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Intelligent Launch Control — Prevents running multiple application instances</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic Focus — New instances automatically bring existing window to front</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Smart Detection — Cross-platform compatibility with multiple fallback methods</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Enhanced Single Instance Protection</strong> — Intelligent launch control with automatic focus</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Comprehensive Help System</strong> — Extended keyboard shortcuts, organized help dialog</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Advanced Keyboard Navigation</strong> — Task management shortcuts (Ctrl+D, Ctrl+P)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>F1 Hotkey</strong> — Instant access to help from any window</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>Comprehensive Help System:</strong></p>
+                        <p class="text-light fw-bold mt-2">🔧 Technical Improvements</p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Extended Keyboard Shortcuts — Dozens of new keyboard shortcuts for efficiency</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Detailed Help Dialog — Organized, searchable help with categorized shortcuts</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>F1 Hotkey — Instant access to help from any window</li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Advanced Keyboard Navigation:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task Management Shortcuts — Quick task status changes (Ctrl+D, Ctrl+P)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Bug Tracking Shortcuts — Fast bug status updates (Ctrl+Shift+D, Ctrl+Shift+P)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tab Navigation — Quick tab switching (Ctrl+1, Ctrl+2, Ctrl+3)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Search Focus — Instant search field access (Ctrl+F, Ctrl+Shift+F)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Single Application Pattern</strong> — Robust singleton implementation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Platform Compatibility</strong> — Linux and macOS support</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Improved Error Handling</strong> — Better recovery from edge cases</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Enhanced Memory Management</strong> — Reduced resource consumption</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Tech Stack -->
+            <!-- Keyboard Shortcuts -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTech" aria-expanded="false">
-                        <i class="bi bi-code-slash me-2 text-primary"></i> Technical Information
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Keyboard Shortcuts
                     </button>
                 </h2>
-                <div id="collapseTech" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseShortcuts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Project Structure:</strong></p>
+                        <p class="text-light fw-bold">Global Shortcuts</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>F1</code></td><td>Open Help Dialog</td></tr>
+                                    <tr><td><code>Ctrl+Q</code></td><td>Exit Application</td></tr>
+                                    <tr><td><code>Ctrl+M</code></td><td>Toggle Sound</td></tr>
+                                    <tr><td><code>Ctrl+O</code></td><td>Open Project</td></tr>
+                                    <tr><td><code>Ctrl+S</code></td><td>Save Project</td></tr>
+                                    <tr><td><code>Ctrl+F</code></td><td>Focus Search</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-2">Tab Navigation</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+1</code></td><td>Tasks Tab</td></tr>
+                                    <tr><td><code>Ctrl+2</code></td><td>Bugs Tab</td></tr>
+                                    <tr><td><code>Ctrl+3</code></td><td>Statistics Tab</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-2">Task Management</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+N</code></td><td>New Task</td></tr>
+                                    <tr><td><code>Ctrl+E</code></td><td>Edit Task</td></tr>
+                                    <tr><td><code>Ctrl+D</code></td><td>Mark Task Done</td></tr>
+                                    <tr><td><code>Ctrl+P</code></td><td>Mark Task In Progress</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-2">Bug Management</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+Shift+N</code></td><td>New Bug</td></tr>
+                                    <tr><td><code>Ctrl+Shift+E</code></td><td>Edit Bug</td></tr>
+                                    <tr><td><code>Ctrl+Shift+D</code></td><td>Mark Bug Done</td></tr>
+                                    <tr><td><code>Ctrl+Shift+P</code></td><td>Mark Bug In Progress</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation & Quick Start
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Requirements:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python 3.8+</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>PyQt5</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>Installation:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/aixandrolab/smart-bug-tracker.git
+cd smart-bug-tracker
+pip install -r requirements.txt
+python main.py</pre>
+                        <p class="text-light mt-2"><strong>First Run:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Choose Developer or Tester mode</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create a new project or open existing <code>.bugtracker.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Start managing tasks and bugs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role Modes -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRoles" aria-expanded="false">
+                        <i class="bi bi-people me-2 text-primary"></i> Role Modes
+                    </button>
+                </h2>
+                <div id="collapseRoles" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">Developer Mode:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create and manage tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>View and update bug reports</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Track development progress</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Assign tasks to team members</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Version management and GitHub integration</li>
+                        </ul>
+                        <p class="text-light fw-bold mt-2">Tester Mode:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Report bugs with detailed reproduction steps</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Upload screenshots and attachments</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Track bug status and resolution</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>View task progress and test instructions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Comment on bugs and tasks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Structure -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStructure" aria-expanded="false">
+                        <i class="bi bi-folder2-open me-2 text-primary"></i> Project Structure
+                    </button>
+                </h2>
+                <div id="collapseStructure" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Project Files:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 smart-bug-tracker/
 ├── core/                    # Core application logic
@@ -156,27 +298,9 @@ smart-bug-tracker/
 │   └── utils/              # Utility functions
 ├── core/data/sounds/       # Sound effects
 ├── main.py                 # Application entry point
-├── README.md               # This file
+├── README.md               # Documentation
 └── requirements.txt        # Python dependencies</pre>
-                        <p class="text-light mt-2"><strong>Dependencies:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>PyQt5</strong> — GUI framework</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python 3.8+</strong> — Runtime environment</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Structure -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseData" aria-expanded="false">
-                        <i class="bi bi-database me-2 text-primary"></i> Data Structure
-                    </button>
-                </h2>
-                <div id="collapseData" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light">Projects are saved as <code>.bugtracker.json</code> files:</p>
+                        <p class="text-light mt-2"><strong>Data Structure (.bugtracker.json):</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 {
   "meta": {
@@ -201,20 +325,22 @@ smart-bug-tracker/
                 </div>
             </div>
 
-            <!-- Installation -->
+            <!-- Tech Stack -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
-                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
                     </button>
                 </h2>
-                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-git clone https://github.com/aixandrolab/smart-bug-tracker.git
-cd smart-bug-tracker
-pip install -r requirements.txt
-python main.py</pre>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Python 3.8+</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">GUI Framework:</span> PyQt5</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux / macOS / Windows</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> MIT</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Dependencies:</span> PyQt5, Python Standard Library</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -230,20 +356,55 @@ python main.py</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Version 1.1.3 (Current Release - 2025)</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Single instance protection with smart focus switching</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Comprehensive help system with keyboard shortcuts reference</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Dozens of new keyboard shortcuts for improved productivity</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: F1 help hotkey in all application windows</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Enhanced: Cross-platform compatibility and stability</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Improved: Application architecture and code maintainability</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Single instance protection with smart focus switching</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Comprehensive help system with keyboard shortcuts reference</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Dozens of new keyboard shortcuts for improved productivity</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> F1 help hotkey in all application windows</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Enhanced:</strong> Cross-platform compatibility and stability</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Improved:</strong> Application architecture and code maintainability</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Version 1.1.2</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Project editing capabilities for developers</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Automatic version selection on startup</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Sound system with toggle (Ctrl+M)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Added: Enhanced GitHub integration features</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Project editing capabilities for developers</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Automatic version selection on startup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Sound system with toggle (Ctrl+M)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Added:</strong> Enhanced GitHub integration features</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFaq" aria-expanded="false">
+                        <i class="bi bi-question-circle me-2 text-primary"></i> FAQ
+                    </button>
+                </h2>
+                <div id="collapseFaq" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">General Questions</p>
+                        <dl class="text-light small">
+                            <dt><strong>Q: Can I run multiple instances?</strong></dt>
+                            <dd>A: No. The application prevents multiple instances and focuses existing windows.</dd>
+                            <dt class="mt-2"><strong>Q: Can I turn off sounds?</strong></dt>
+                            <dd>A: Yes! Press <code>Ctrl+M</code> at any time or click the sound button in the header.</dd>
+                            <dt class="mt-2"><strong>Q: What Python version do I need?</strong></dt>
+                            <dd>A: Python 3.8 or higher is required.</dd>
+                            <dt class="mt-2"><strong>Q: Can I run this on a server?</strong></dt>
+                            <dd>A: This is a desktop application designed for local use. For team collaboration, share the project file.</dd>
+                        </dl>
+                        <p class="text-light fw-bold mt-2">Usage Questions</p>
+                        <dl class="text-light small">
+                            <dt><strong>Q: How do I assign tasks to team members?</strong></dt>
+                            <dd>A: Use the "Assigned To" field when creating or editing tasks.</dd>
+                            <dt class="mt-2"><strong>Q: Can I change bug priorities after creation?</strong></dt>
+                            <dd>A: Yes! Edit any bug to change its priority.</dd>
+                            <dt class="mt-2"><strong>Q: What's the difference between "Won't Fix" and "Invalid"?</strong></dt>
+                            <dd>A: "Won't Fix" means it's a bug but won't be addressed. "Invalid" means it's not actually a bug.</dd>
+                            <dt class="mt-2"><strong>Q: How do I track which bugs belong to which tasks?</strong></dt>
+                            <dd>A: When reporting bugs, you can associate them with tasks. Use the task filter to see all related bugs.</dd>
+                        </dl>
                     </div>
                 </div>
             </div>
@@ -258,14 +419,10 @@ python main.py</pre>
                 <div id="collapseTroubleshooting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <dl class="text-light small">
-                            <dt><strong>Q: Can I turn off sounds?</strong></dt>
-                            <dd>Yes! Press <code>Ctrl+M</code> at any time or click the sound button in the header.</dd>
-                            <dt class="mt-2"><strong>Q: What Python version do I need?</strong></dt>
-                            <dd>Python 3.8 or higher is required.</dd>
-                            <dt class="mt-2"><strong>Q: Where are screenshots stored?</strong></dt>
-                            <dd>Screenshots are referenced by file path, not embedded. Keep the image files accessible.</dd>
+                            <dt><strong>Q: Where are screenshots stored?</strong></dt>
+                            <dd>A: Screenshots are referenced by file path, not embedded. Keep the image files accessible.</dd>
                             <dt class="mt-2"><strong>Q: Can I export my data for reporting?</strong></dt>
-                            <dd>Yes! Use the export options in the Statistics tab or File menu.</dd>
+                            <dd>A: Yes! Use the export options in the Statistics tab or File menu.</dd>
                         </dl>
                     </div>
                 </div>
