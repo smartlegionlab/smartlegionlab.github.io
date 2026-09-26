@@ -29,8 +29,8 @@
 <nav class="fixed-top-nav">
     <div class="nav-container">
         <div class="nav-left">
-            <button class="sidebar-toggle-btn" id="sidebarToggle">
-                <i class="bi bi-list"></i>
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
             </button>
             <a href="/" class="nav-logo">
                 <i class="bi bi-incognito"></i>
@@ -56,7 +56,7 @@
 
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 <div class="boot-sidebar" id="bootSidebar">
-    <button class="sidebar-close" id="sidebarClose"><i class="bi bi-x-lg"></i></button>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
     <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
     <div class="sidebar-menu">
         <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
@@ -74,7 +74,7 @@
 </div>
 
 <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
-<button class="scroll-to-top" id="scrollToTop"><i class="bi bi-chevron-up"></i></button>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
 
 <!-- content -->
 <div class="container">
@@ -302,7 +302,7 @@ if __name__ == '__main__':
 <div id="devConsole" class="smart-dev-console" style="display: none;">
     <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
         <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
-        <button id="consoleClose" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg"></i></button>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
     </div>
     <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
         <div style="color: #666;">╰─$ Type 'help' for commands</div>
