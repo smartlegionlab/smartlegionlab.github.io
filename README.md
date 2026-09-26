@@ -178,7 +178,7 @@ An immersive 3D visualization of the entire website, accessible via the **"Site 
   - **Click** any object to send your "ship" to it
   - **Double-click** to open details modal with direct link
 - **History Panel**: Tracks journeys of three users through the universe
-- **Live Stats**: Real-time section and page counts from `sitemap.xml`
+- **Live Stats**: Section and page counts are computed from an inline `UNIVERSE_DATA` manifest in `js/universe.js` (no `sitemap.xml` fetch)
 
 ---
 
