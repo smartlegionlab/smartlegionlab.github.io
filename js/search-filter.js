@@ -37,12 +37,25 @@ document.addEventListener('DOMContentLoaded', function() {
             var card = cards[i];
             var badge = card.querySelector('.smart-badge');
             var author = card.querySelector('.author');
+            var titleEl = card.querySelector('h2, h3');
+            var descEls = card.querySelectorAll('p');
+
             var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
             var authorText = author ? author.textContent.trim().toLowerCase() : '';
-            var fullText = card.textContent.toLowerCase();
+            var titleText = titleEl ? titleEl.textContent.toLowerCase() : '';
 
-            var matchSearch = term === '' || fullText.indexOf(term) !== -1;
-            var matchFilter = filterValue === 'all' || badgeText === filterValue || authorText === filterValue;
+            var descText = '';
+            for (var j = 0; j < descEls.length; j++) {
+                descText += ' ' + descEls[j].textContent.toLowerCase();
+            }
+
+            var matchSearch = term === '' ||
+                titleText.indexOf(term) !== -1 ||
+                descText.indexOf(term) !== -1;
+
+            var matchFilter = filterValue === 'all' ||
+                badgeText === filterValue ||
+                authorText === filterValue;
 
             if (matchSearch && matchFilter) {
                 card.parentElement.style.setProperty('display', 'flex', 'important');
