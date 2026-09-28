@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart-command-runner-rs · Smart Legion Lab</title>
+    <meta name="description" content="smart-command-runner-rs — Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging. Dry-run by default.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/smart-command-runner-rs.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="smart-command-runner-rs · Smart Legion Lab">
+    <meta property="og:description" content="Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging. Dry-run by default.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/smart-command-runner-rs.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <i class="bi bi-incognito"></i>
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/projects.html" class="small text-primary">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="sidebar-header"><a href="/" class="logo">Smart Legion Lab</a></div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<!-- content -->
+<div class="container custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">smart-command-runner-rs</h1>
+            <p class="text-light">Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging</p>
+            <p class="text-light"><span class="text-primary">Dry-run by default</span> — nothing runs unless you pass <code>--yes</code>, <code>--interactive-block</code>, or <code>--interactive-command</code>.</p>
+            <hr>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>cmdrun</strong> reads a TOML file with named blocks of shell commands and runs them. Blocks can be selected individually, all at once, or with per-block / per-command confirmation.
+                </p>
+                <p class="text-light">
+                    <strong>Why this tool:</strong> when setting up a fresh Linux install, you usually have a list of commands to run — sometimes dozens, sometimes hundreds. Typing them by hand is slow and error-prone. Shell scripts work, but you lose <strong>named blocks</strong> (run just "the base part" or "the Manjaro part"), <strong>per-block / per-command confirmation</strong> for the first dry run, and <strong>logs</strong> (what ran, what failed, how long it took). <code>cmdrun</code> solves this with a single TOML file reused across distributions without duplication.
+                </p>
+                <p class="text-light small">
+                    <strong>Origin:</strong> This project is a revival of an earlier tool called <strong>Commandoro</strong> (2018), which performed a similar job: read a declarative file of grouped shell commands and run them. The original repository was closed and the project was abandoned. <code>cmdrun</code> is a rewrite from scratch in Rust, with a stricter data model (atomic commands, independent blocks, explicit ordering on the command line) and proper logging.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Concepts -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConcepts" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Concepts
+                    </button>
+                </h2>
+                <div id="collapseConcepts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">The tool operates on two levels of granularity.</p>
+                        <p class="text-light"><strong>Command</strong> — a single shell invocation. One command performs one action:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+"sudo apt update -y"</pre>
+                        <p class="text-light mt-2"><strong>Block</strong> — a named group of independent commands:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+[base]
+commands = [
+    "sudo apt update -y",
+    "sudo apt install -y git curl wget",
+]</pre>
+                        <p class="text-light mt-2"><strong>Rules:</strong></p>
+                        <ol class="text-light small">
+                            <li class="mb-2"><strong>Each command is atomic.</strong> If two actions depend on each other, they are one command, not two. Combine: <code>"git clone ... ~/y && cd ~/y && make install"</code>.</li>
+                            <li class="mb-2"><strong>Commands within a block are independent.</strong> A failure of one command does not affect the others. Execution continues.</li>
+                            <li class="mb-2"><strong>Block dependencies are declared on the command line</strong>, not inside the file: <code>cmdrun --file setup.toml --run base,manjaro --yes</code>. The TOML file is declarative. No <code>depends_on</code>, no inheritance, no macros.</li>
+                            <li class="mb-2"><strong>Command failures are collected, not fatal.</strong> A failed command does not stop the block, the file, or the process. All failures are reported at the end, and the process exit code is <code>0</code> unless a configuration error occurred.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Features
+                    </button>
+                </h2>
+                <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>TOML file with named blocks of commands</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Run all blocks or a specific subset (<code>--run base,manjaro</code>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>--list</code> to see blocks without running anything</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Two execution modes: dry-run (default) and execute</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Three confirmation modes: <code>--yes</code>, <code>--interactive-block</code>, <code>--interactive-command</code> (last two can be combined)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-command output with exit status and timing</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Log file with timestamps (default: <code>~/.local/share/cmdrun/cmdrun.log</code>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>--no-log</code> to disable logging</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Non-zero exit codes of failed commands are recorded in the log</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Continues on errors — reports them at the end</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Requires Rust 1.70 or newer.</p>
+                        <p class="text-light mt-2"><strong>Build from source:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-command-runner-rs
+cd smart-command-runner-rs
+cargo build --release</pre>
+                        <p class="text-light small mt-2">Binary: <code>target/release/cmdrun</code></p>
+                        <p class="text-light mt-2"><strong>Install for system-wide use (Linux):</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+mkdir -p ~/.local/bin
+ln -sf "$PWD/target/release/cmdrun" ~/.local/bin/cmdrun</pre>
+                        <p class="text-light small mt-2">If <code>~/.local/bin</code> is not in your <code>PATH</code>, add to <code>~/.bashrc</code>:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+export PATH="$HOME/.local/bin:$PATH"
+source ~/.bashrc</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Format -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormat" aria-expanded="false">
+                        <i class="bi bi-file-earmark-code me-2 text-primary"></i> File Format
+                    </button>
+                </h2>
+                <div id="collapseFormat" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">A TOML file with one or more named blocks. Each block has:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>description</code> — optional string.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>commands</code> — required array of strings. Each string is one atomic command.</li>
+                        </ul>
+                        <pre class="text-light small mt-2" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+[base]
+description = "Common setup for all Linux systems"
+commands = [
+    "sudo apt update -y",
+    "sudo apt install -y git curl wget htop neovim",
+    "mkdir -p ~/.local/bin",
+]
+
+[ubuntu]
+description = "Ubuntu-specific packages"
+commands = [
+    "sudo apt install -y build-essential pkg-config libssl-dev",
+]
+
+[manjaro]
+description = "Manjaro-specific packages"
+commands = [
+    "sudo pacman -Syu --noconfirm",
+    "sudo pacman -S --noconfirm base-devel openssl",
+]
+
+[dev-tools]
+description = "Cross-distro dev tools"
+commands = [
+    "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
+    "rustup component add clippy rustfmt",
+]</pre>
+                        <p class="text-light small mt-2"><strong>Blocks run in this order:</strong> the order passed to <code>--run</code>, or — if <code>--run</code> is omitted — alphabetical order of block names.</p>
+                        <p class="text-light small"><strong>No <code>depends_on</code>, no inheritance, no macros.</strong> If block B needs block A, pass both: <code>--run a,b</code>. Explicit is better than magic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage" aria-expanded="false">
+                        <i class="bi bi-play me-2 text-primary"></i> Usage
+                    </button>
+                </h2>
+                <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cmdrun --file &lt;FILE&gt; [OPTIONS]</pre>
+                        <p class="text-light mt-2"><strong>Options:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Option</th><th>Description</th><th>Default</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>-f, --file &lt;PATH&gt;</code></td><td>TOML file with blocks (required)</td><td>—</td></tr>
+                                    <tr><td><code>-r, --run &lt;LIST&gt;</code></td><td>Run only these blocks, in this order (comma-separated)</td><td>all blocks alphabetically</td></tr>
+                                    <tr><td><code>--list</code></td><td>Show blocks in the file and exit</td><td>—</td></tr>
+                                    <tr><td><code>-y, --yes</code></td><td>Run everything without asking</td><td><code>false</code></td></tr>
+                                    <tr><td><code>-i, --interactive-block</code></td><td>Ask confirmation per block</td><td><code>false</code></td></tr>
+                                    <tr><td><code>-c, --interactive-command</code></td><td>Ask confirmation per command</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--dry-run</code></td><td>Force dry-run even with <code>--yes</code></td><td>default without <code>-y/-i/-c</code></td></tr>
+                                    <tr><td><code>--log &lt;PATH&gt;</code></td><td>Log file path</td><td><code>~/.local/share/cmdrun/cmdrun.log</code></td></tr>
+                                    <tr><td><code>--no-log</code></td><td>Do not write a log file</td><td><code>false</code></td></tr>
+                                    <tr><td><code>--sh &lt;PATH&gt;</code></td><td>Shell used to run each command (with <code>-c</code>)</td><td><code>sh</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Modes:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Command line</th><th>Behaviour</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>cmdrun --file X</code></td><td>Dry-run: show plan, execute nothing</td></tr>
+                                    <tr><td><code>cmdrun --file X --yes</code></td><td>Execute everything, no questions</td></tr>
+                                    <tr><td><code>cmdrun --file X -i</code></td><td>Ask confirmation per block</td></tr>
+                                    <tr><td><code>cmdrun --file X -c</code></td><td>Ask confirmation per command</td></tr>
+                                    <tr><td><code>cmdrun --file X -i -c</code></td><td>Ask per block, then per command inside each block</td></tr>
+                                    <tr><td><code>cmdrun --file X --yes --dry-run</code></td><td>Still dry-run</td></tr>
+                                    <tr><td><code>cmdrun --file X -i -y</code></td><td>Error (conflict)</td></tr>
+                                    <tr><td><code>cmdrun --file X -c -y</code></td><td>Error (conflict)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Interactive prompt — per block:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+Block [base] — Common setup for all Linux systems
+  Commands: 3
+Run this block? [y/N/a/q]</pre>
+                        <p class="text-light mt-2"><strong>Interactive prompt — per command:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+  [1/3] [base] sudo apt update -y? [y/N/a/q]</pre>
+                        <p class="text-light small mt-2"><strong>Answers:</strong> <code>y</code> — run this one · <code>n</code> or Enter — skip · <code>a</code> — run all remaining without asking · <code>q</code> — quit.</p>
+                        <p class="text-light mt-2"><strong>Examples:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# List blocks
+cmdrun --file linux-setup.toml --list
+
+# Dry-run (default — nothing is executed)
+cmdrun --file linux-setup.toml
+
+# Run everything without questions
+cmdrun --file linux-setup.toml --yes
+
+# Run only the common setup, then Manjaro-specific
+cmdrun --file linux-setup.toml --run base,manjaro --yes
+
+# First run — review every block, then every command
+cmdrun --file linux-setup.toml -i -c
+
+# Custom log path
+cmdrun --file linux-setup.toml --yes --log ~/manjaro-setup.log
+
+# No log file
+cmdrun --file linux-setup.toml --yes --no-log</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Log Format -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLog" aria-expanded="false">
+                        <i class="bi bi-journal-text me-2 text-primary"></i> Log Format
+                    </button>
+                </h2>
+                <div id="collapseLog" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Default path: <code>~/.local/share/cmdrun/cmdrun.log</code>. The file is appended to on each run.</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+[2026-09-28T10:23:45Z] === cmdrun START file=linux-setup.toml blocks=base,manjaro
+[2026-09-28T10:23:45Z] [base] [1/2] RUN: sudo apt update -y
+[2026-09-28T10:23:47Z] [base] [1/2] OK (2.10s)
+[2026-09-28T10:23:47Z] [base] [2/2] RUN: sudo apt install -y git curl wget htop neovim
+[2026-09-28T10:23:52Z] [base] [2/2] OK (4.71s)
+[2026-09-28T10:23:52Z] [base] BLOCK DONE (6.81s)
+[2026-09-28T10:23:52Z] [manjaro] [1/2] RUN: sudo pacman -Syu --noconfirm
+[2026-09-28T10:23:59Z] [manjaro] [1/2] OK (7.12s)
+[2026-09-28T10:23:59Z] [manjaro] [2/2] RUN: some-missing-command
+[2026-09-28T10:23:59Z] [manjaro] [2/2] FAIL (0.00s): exit 127: sh: some-missing-command: not found
+[2026-09-28T10:23:59Z] [manjaro] BLOCK DONE (7.12s)
+[2026-09-28T10:23:59Z] === cmdrun END run=3 skipped=0 failed=1</pre>
+                        <p class="text-light small mt-2">Successful commands are logged as <code>OK (Ns)</code>. Failed commands are logged as <code>FAIL (Ns): exit N: &lt;output&gt;</code>. Non-zero exit codes are preserved. A failed command does not stop the block.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exit Codes -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExit" aria-expanded="false">
+                        <i class="bi bi-info-circle me-2 text-primary"></i> Exit Codes
+                    </button>
+                </h2>
+                <div id="collapseExit" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>0</code> — success (even if some commands failed; check the summary)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>1</code> — invalid arguments, file missing, TTY required but missing, or block name not found</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTesting" aria-expanded="false">
+                        <i class="bi bi-bar-chart me-2 text-primary"></i> Testing
+                    </button>
+                </h2>
+                <div id="collapseTesting" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo test</pre>
+                        <p class="text-light small mt-2">Runs unit tests (in <code>src/main.rs</code>) and integration tests (in <code>tests/integration.rs</code>).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="badges mt-2 mb-2">
+            <span class="badge bg-primary custom-style">Rust</span>
+            <span class="badge bg-primary custom-style">CLI</span>
+            <span class="badge bg-primary custom-style">TOML</span>
+            <span class="badge bg-primary custom-style">Automation</span>
+            <span class="badge bg-primary custom-style">Linux Setup</span>
+        </div>
+
+</div>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">
+                Smart Legion Lab
+            </a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+                <span data-smart-version>v7.6.2</span>
+            </a> |
+            <a href="/smartlegionlab-map.html" target="_blank">
+                Site Map
+            </a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/smartpasslib.js"></script>
+<script src="../js/console-game.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
