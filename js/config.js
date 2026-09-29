@@ -45,31 +45,31 @@ const CONFIG = {
     DEFAULTS: {
         RESEARCH_STATS: {
             pointerParadigm: {
-                unique_views: 485,
-                unique_downloads: 370,
-                total_views: 727,
-                total_downloads: 708
+                unique_views: 562,
+                unique_downloads: 412,
+                total_views: 811,
+                total_downloads: 756
             },
             localDataParadigm: {
-                unique_views: 324,
-                unique_downloads: 282,
-                total_views: 427,
-                total_downloads: 452
+                unique_views: 366,
+                unique_downloads: 332,
+                total_views: 471,
+                total_downloads: 508
             },
             deterministicEngine: {
-                unique_views: 244,
-                unique_downloads: 186,
-                total_views: 311,
-                total_downloads: 311
+                unique_views: 291,
+                unique_downloads: 241,
+                total_views: 361,
+                total_downloads: 372
             },
             pchParadigm: {
-                unique_views: 158,
-                unique_downloads: 145,
-                total_views: 201,
-                total_downloads: 242
+                unique_views: 202,
+                unique_downloads: 201,
+                total_views: 246,
+                total_downloads: 304
             }
         }
     },
 
-    VERSION: 'v7.6.5'
+    VERSION: 'v7.6.6'
 };
