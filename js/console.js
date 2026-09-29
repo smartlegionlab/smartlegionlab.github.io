@@ -9,6 +9,54 @@ const consoleClose = document.getElementById('consoleClose');
 const consoleInput = document.getElementById('consoleInput');
 const consoleOutput = document.getElementById('consoleOutput');
 
+/* ============================================
+   LAZY-LOAD INFRASTRUCTURE
+   ============================================ */
+
+const SCRIPT_CACHE = {};
+
+function loadScript(src) {
+    if (SCRIPT_CACHE[src]) return SCRIPT_CACHE[src];
+    SCRIPT_CACHE[src] = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = false;
+        s.onload = () => resolve();
+        s.onerror = () => reject(new Error('Failed to load ' + src));
+        document.head.appendChild(s);
+    });
+    return SCRIPT_CACHE[src];
+}
+
+function getJsBasePath() {
+    const scripts = document.getElementsByTagName('script');
+    for (let i = 0; i < scripts.length; i++) {
+        const src = scripts[i].getAttribute('src') || '';
+        if (src.indexOf('console.js') !== -1) {
+            return src.replace(/console\.js.*$/, '');
+        }
+    }
+    return 'js/';
+}
+
+const JS_BASE = getJsBasePath();
+
+async function ensureModule(name, globalCheck) {
+    if (globalCheck()) return true;
+    try {
+        addConsoleLine(`  Loading ${name}...`);
+        await loadScript(JS_BASE + name);
+        return true;
+    } catch (e) {
+        addConsoleLine(`  Failed to load ${name}: ${e.message}`);
+        return false;
+    }
+}
+
+/* ============================================
+   CONSOLE UTILITIES
+   ============================================ */
+
 function clearConsole() {
     consoleOutput.innerHTML = '';
     if (typeof stopDinoGame !== 'undefined') {
@@ -58,6 +106,10 @@ function calculate(expression) {
         return null;
     }
 }
+
+/* ============================================
+   ROCKET ANIMATION (map command)
+   ============================================ */
 
 function startRocketAnimation() {
     clearConsole();
@@ -298,6 +350,10 @@ function startRocketAnimation() {
     animateRocket();
 }
 
+/* ============================================
+   COMMAND PROCESSOR
+   ============================================ */
+
 async function processCommand(cmd) {
     addConsoleLine(`> ${cmd}`);
     addToHistory(cmd);
@@ -315,17 +371,13 @@ async function processCommand(cmd) {
         addConsoleLine('  exit       - Close console');
     }
     else if (cmd === 'randpass') {
-        if (typeof SmartPassLib === 'undefined') {
-            addConsoleLine('  SmartPassLib not loaded. Check static files.');
-        } else {
+        if (await ensureModule('smartpasslib.js', () => typeof SmartPassLib !== 'undefined')) {
             addConsoleLine('  Enter password length (12-100):');
             window.waitingForRandLength = true;
         }
     }
     else if (cmd === 'smartpass') {
-        if (typeof SmartPassLib === 'undefined') {
-            addConsoleLine('  SmartPassLib not loaded. Check static files.');
-        } else {
+        if (await ensureModule('smartpasslib.js', () => typeof SmartPassLib !== 'undefined')) {
             addConsoleLine('  Enter secret phrase (min 12 chars):');
             window.waitingForSecret = true;
         }
@@ -343,9 +395,7 @@ async function processCommand(cmd) {
         addConsoleLine('  Usage: calc 2+2, calc 10*5, calc (10+5)*2');
     }
     else if (cmd === 'dino') {
-        if (typeof startDinoGame === 'undefined') {
-            addConsoleLine('  Game not loaded. Check static files.');
-        } else {
+        if (await ensureModule('console-game.js', () => typeof startDinoGame !== 'undefined')) {
             if (window.gameActive) {
                 stopDinoGame();
             }
@@ -354,14 +404,12 @@ async function processCommand(cmd) {
         }
     }
     else if (cmd === 'demo') {
-        if (typeof startDemo !== 'undefined') {
+        if (await ensureModule('demo.js', () => typeof startDemo !== 'undefined')) {
             if (window._stopDemo) {
                 window._stopDemo();
                 window._stopDemo = null;
             }
             setTimeout(() => startDemo(), 100);
-        } else {
-            addConsoleLine('  Demo module not loaded');
         }
     }
     else if (cmd === 'map') {
@@ -451,6 +499,10 @@ async function processCommand(cmd) {
         }
     }
 }
+
+/* ============================================
+   EVENT HANDLERS
+   ============================================ */
 
 if (consoleToggle) {
     consoleToggle.onclick = () => {
