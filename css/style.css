@@ -434,11 +434,28 @@ body {
     width: 24px;
 }
 
-.sidebar-menu .menu-item:hover,
+@media (hover: hover) and (pointer: fine) {
+    .sidebar-menu .menu-item:not(.active):hover {
+        background: rgba(13, 110, 253, 0.08);
+        color: var(--accent);
+        border-left-color: var(--accent);
+    }
+}
+
 .sidebar-menu .menu-item.active {
-    background: rgba(13, 110, 253, 0.1);
-    color: var(--accent);
-    border-left-color: var(--accent);
+    background: var(--accent);
+    color: #ffffff;
+    border-left-color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar-menu .menu-item.active i {
+    color: #ffffff;
+}
+
+.sidebar-menu .menu-item:active {
+    background: rgba(13, 110, 253, 0.25);
+    color: #ffffff;
 }
 
 .sidebar-footer {
