@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NP Problem Ecosystem · Smart Legion Lab</title>
-    <meta name="description" content="NP Problem Ecosystem: exact solvers (Go/Python), heuristic (+25%), benchmark framework for Traveling Salesman Problem.">
+    <meta name="description" content="NP Problem Ecosystem: exact solvers (Rust/Go/Python), heuristic, benchmark framework for Traveling Salesman Problem.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html">
     <link rel="author" href="https://github.com/smartlegionlab">
     <meta property="og:title" content="NP Problem Ecosystem">
-    <meta property="og:description" content="Exact + heuristic solvers for Traveling Salesman Problem">
+    <meta property="og:description" content="Exact solvers (Rust/Go/Python), heuristic, benchmark framework for Traveling Salesman Problem.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html">
     <meta name="theme-color" content="#0d1117">
@@ -108,7 +108,7 @@
         </div>
         <p class="text-center small text-muted">
             The <strong class="text-primary">NP Problem Ecosystem</strong> is a comprehensive suite of exact and heuristic solvers for the Traveling Salesman Problem —
-            featuring <strong class="text-primary">Exact TSP Solver (Go)</strong> and <strong class="text-primary">Smart TSP Oracle (Python)</strong> for provably optimal solutions via branch-and-bound,
+            featuring <strong class="text-primary">Exact TSP Solver (Rust) </strong>, <strong class="text-primary">Exact TSP Solver (Go)</strong> and <strong class="text-primary">Smart TSP Oracle (Python)</strong> for provably optimal solutions via branch-and-bound,
             <strong class="text-primary">Smart TSP Solver (Python)</strong> for large-scale heuristic routing with Dynamic Gravity and Angular-Radial algorithms,
             and <strong class="text-primary">Smart TSP Benchmark</strong> for professional algorithm testing - all grounded in
             the <strong class="text-primary">Position-Candidate-Hypothesis (PCH)</strong> paradigm for NP-complete problems.
@@ -127,12 +127,16 @@
                         data-bs-toggle="collapse" data-bs-target="#collapseApps"
                         aria-expanded="false" aria-controls="collapseApps">
                     <i class="bi bi-grid-3x3-gap-fill me-2"></i>
-                    Applications <span class="badge bg-primary ms-2">4+</span>
+                    Applications <span class="badge bg-primary ms-2">5+</span>
                 </button>
             </h2>
             <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
                 <div class="accordion-body">
                     <div class="row">
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div><a href="https://github.com/smartlegionlab/exact-tsp-solver-rs" class="fw-bold text-primary text-decoration-none">Exact TSP Solver (Rust)</a>
+                            <p class="small text-secondary mb-0">Dual-mode TSP solver in Rust: exact Branch & Bound with proven optimality, plus heuristic threshold search with reference gap.</p></div>
+                        </div>
                         <div class="col-md-6 col-lg-6 mb-3">
                             <div><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="fw-bold text-primary text-decoration-none">Exact TSP Solver</a>
                             <p class="small text-secondary mb-0">Dual-mode TSP solver in Go: exact Branch & Bound plus heuristic threshold search</p></div>
@@ -162,12 +166,28 @@
                         data-bs-toggle="collapse" data-bs-target="#collapseLibs"
                         aria-expanded="false" aria-controls="collapseLibs">
                     <i class="bi bi-box-seam me-2"></i>
-                    Libraries <span class="badge bg-primary ms-2">2+</span>
+                    Libraries <span class="badge bg-primary ms-2">4+</span>
                 </button>
             </h2>
             <div id="collapseLibs" class="accordion-collapse collapse" data-bs-parent="#ecoAccordion">
                 <div class="accordion-body">
                     <div class="row">
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div>
+                                <a href="https://github.com/smartlegionlab/smart-pch-tsp-rs" class="fw-bold text-primary text-decoration-none">smart-pch-tsp-rs</a>
+                                <p class="small text-secondary mb-0">
+                                    Universal TSP path improver using the PCH (Position-Candidate-Hypothesis) paradigm. PCH takes ANY TSP path (from ANY algorithm), statistically analyzes it, and synthesizes a shorter path.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 mb-3">
+                            <div>
+                                <a href="https://github.com/smartlegionlab/smart-dynamic-gravity-tsp-rs" class="fw-bold text-primary text-decoration-none">smart-dynamic-gravity-tsp-rs</a>
+                                <p class="small text-secondary mb-0">
+                                    A high-performance Rust library for solving the Traveling Salesman Problem (TSP) using the novel Dynamic Gravity algorithm.
+                                </p>
+                            </div>
+                        </div>
                         <div class="col-md-6 col-lg-6 mb-3">
                             <div><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="fw-bold text-primary text-decoration-none">Smart TSP Solver</a>
                             <p class="small text-secondary mb-0">High-performance Python library - outperforms classical methods by ~25%</p></div>
