@@ -9,8 +9,8 @@
 const CONFIG = {
     PROFILES: [
         {
-            id: 'alexander-suvorov',
-            name: 'Alexander Suvorov',
+            id: 'alexander-suvorov-sr',
+            name: 'Alexander Suvorov Sr.',
             github: 'smartlegionlab',
             orcid: '0009-0006-3427-9611',
             career_start: 2011
@@ -71,5 +71,5 @@ const CONFIG = {
         }
     },
 
-    VERSION: 'v7.6.6'
+    VERSION: 'v7.6.7'
 };
