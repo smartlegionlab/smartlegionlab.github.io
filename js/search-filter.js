@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var i = 0; i < cards.length; i++) {
             var card = cards[i];
             var badge = card.querySelector('.smart-badge');
-            var author = card.querySelector('.author');
-            var titleEl = card.querySelector('h2, h3');
+            var author = card.querySelector('.author') || card.querySelector('a[href^="/profiles/"]');
+            var titleEl = card.querySelector('h2, h3, h4, h5, h6');
             var descEls = card.querySelectorAll('p');
 
             var badgeText = badge ? badge.textContent.trim().toLowerCase() : '';
