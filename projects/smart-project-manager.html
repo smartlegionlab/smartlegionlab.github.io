@@ -158,26 +158,134 @@
                 </div>
             </div>
 
+            <!-- Requirements -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRequirements" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Requirements
+                    </button>
+                </h2>
+                <div id="collapseRequirements" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python 3.7 or higher</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Git (only for the installer)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>curl (only for the installer)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>PyQt5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- Installation -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
-                        <i class="bi bi-gear me-2 text-primary"></i> Installation & Launch
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
                     </button>
                 </h2>
                 <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Prerequisites:</strong> Python 3.7+, PyQt5</p>
+                        <p class="text-light">There are <strong>two independent ways</strong> to use this application:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Run from source</strong> — clone the repo, create a virtual environment, launch manually. Nothing is installed system-wide.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Install system-wide</strong> — one command creates a menu entry. Desktop shortcut is opt-in.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Option 1 — Run from Source (no system install)</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/smartlegionlab/smart-project-manager.git
 cd smart-project-manager
 
-# Install dependencies (recommended to use virtual environment)
+# 2. Create a virtual environment
+python3 -m venv venv
+
+# 3. Activate it
+source venv/bin/activate
+
+# 4. Install dependencies
 pip install -r requirements.txt
 
-# Run the application
+# 5. Launch the app
 python app.py</pre>
+
+                        <p class="text-light mt-3"><strong>Option 2 — Install System-Wide (recommended)</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/install.sh | bash</pre>
+                        <p class="text-light small"><strong>What the installer does:</strong></p>
+                        <ol class="text-light small">
+                            <li>Downloads the source code from GitHub.</li>
+                            <li>Installs the application to <code>~/.local/share/smart-project-manager/</code>. No root, no sudo.</li>
+                            <li>Creates a dedicated Python virtual environment at <code>~/.local/share/smart-project-manager/venv/</code> and installs dependencies into it.</li>
+                            <li>Registers the app in your desktop environment by creating <code>~/.local/share/applications/smart-project-manager.desktop</code>.</li>
+                            <li>Refreshes the desktop database so the menu entry appears without a full re-login on most systems.</li>
+                        </ol>
+
+                        <p class="text-light mt-2"><strong>Desktop shortcut (opt-in):</strong></p>
+                        <p class="text-light small">By default, no Desktop shortcut is created. This is intentional — on GNOME (default on Ubuntu), desktop icons are hidden by default. To also create a Desktop shortcut during install, pass the <code>SPM_CREATE_DESKTOP_SHORTCUT=1</code> environment variable to <strong>bash</strong> — the second command in the pipeline:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/install.sh | SPM_CREATE_DESKTOP_SHORTCUT=1 bash</pre>
+                        <p class="text-light small">Or export it first, then run the normal installer:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+export SPM_CREATE_DESKTOP_SHORTCUT=1
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/install.sh | bash</pre>
+                        <p class="text-warning small"><strong>Note:</strong> Writing <code>SPM_CREATE_DESKTOP_SHORTCUT=1 curl ... | bash</code> does not work — in a shell pipeline, an environment variable prefix applies only to the command on the left side of the pipe. Pass it to <code>bash</code> directly, or export it beforehand.</p>
+
+                        <p class="text-light mt-2"><strong>Uninstall:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/uninstall.sh | bash</pre>
+                        <p class="text-light small">The uninstaller removes the application, menu entry, and Desktop shortcut (if present). It <strong>never touches</strong> your projects data at <code>~/.smart_project_manager/projects.json</code>.</p>
+
+                        <p class="text-light mt-3"><strong>Installation Paths:</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Item</th><th>Path</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Application files</td><td><code>~/.local/share/smart-project-manager/</code></td></tr>
+                                    <tr><td>Virtual environment</td><td><code>~/.local/share/smart-project-manager/venv/</code></td></tr>
+                                    <tr><td>Application menu entry</td><td><code>~/.local/share/applications/smart-project-manager.desktop</code></td></tr>
+                                    <tr><td>Desktop shortcut (opt-in)</td><td><code>~/Desktop/smart-project-manager.desktop</code></td></tr>
+                                    <tr><td>User data (projects)</td><td><code>~/.smart_project_manager/projects.json</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Integration -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesktop" aria-expanded="false">
+                        <i class="bi bi-window-desktop me-2 text-primary"></i> Desktop Integration (Linux)
+                    </button>
+                </h2>
+                <div id="collapseDesktop" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>Note:</strong> If you installed the app via <code>install.sh</code>, the application menu entry is already created automatically. The in-app option described below is useful when you run the app manually from a custom location, or when you want to add a Desktop shortcut on demand. It is also the recommended way for development: it creates a shortcut pointing to the <strong>currently running instance</strong> (your working copy), not to a copy under <code>~/.local/share/</code>.</p>
+
+                        <p class="text-light"><strong>Creating Application Shortcuts:</strong></p>
+                        <p class="text-light small">The application allows you to create desktop entries directly from the menu:</p>
+                        <ol class="text-light small">
+                            <li>Go to <strong>File → Create Desktop Entry</strong></li>
+                            <li>Choose locations: Application Menu (<code>~/.local/share/applications/</code>) and/or Desktop (<code>~/Desktop/</code>)</li>
+                            <li>Click <strong>Create Entry</strong></li>
+                        </ol>
+                        <p class="text-light small"><strong>What happens:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Creates <code>.desktop</code> file(s) with proper configuration</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Sets executable permissions automatically</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Uses application icon if available</li>
+                        </ul>
+                        <p class="text-light small"><strong>After creation:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Application Menu</strong>: Log out and back in (or restart desktop) for entry to appear</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Desktop shortcut</strong>: May show "Unsecured Application Launcher" warning — right-click → "Allow Launching" or "Trust" (one-time action)</li>
+                        </ul>
+                        <p class="text-light small"><strong>Note:</strong> This feature is only available on Linux systems with desktop environments that support <code>.desktop</code> files (GNOME, KDE, XFCE, etc.).</p>
                     </div>
                 </div>
             </div>
@@ -300,6 +408,7 @@ python app.py</pre>
                         <a target="_blank" href="https://github.com/smartlegionlab/smart-project-manager" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
                         <a target="_blank" href="https://github.com/smartlegionlab/smart-project-manager/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
                         <a target="_blank" href="https://github.com/smartlegionlab/smart-project-manager/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-project-manager/releases" class="btn btn-outline-primary btn-sm">Releases</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
