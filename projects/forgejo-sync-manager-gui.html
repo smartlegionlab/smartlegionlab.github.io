@@ -127,36 +127,128 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Visual Repository List</strong> — with search and filter capabilities</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Re-cloning Option</strong> — full repository recloning</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Local Deletion</strong> — delete local repositories</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Batch Delete All</strong> — delete all local copies with progress tracking</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>One-click Open</strong> — open in browser or local folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Persistent Configuration</strong> — connection settings stored locally</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Multi-selection</strong> — batch operations on multiple repositories</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Requirements & Installation -->
+            <!-- Requirements -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
-                        <i class="bi bi-gear me-2 text-primary"></i> Requirements & Installation
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRequirements" aria-expanded="false">
+                        <i class="bi bi-list-check me-2 text-primary"></i> Requirements
                     </button>
                 </h2>
-                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div id="collapseRequirements" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Requirements:</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Python 3.8+</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Git</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Forgejo server with API access</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>PyQt6</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>PyQt5</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">There are <strong>two independent ways</strong> to use this application:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Run from source</strong> — clone the repo, create a virtual environment, launch manually. Nothing is installed system-wide.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Install system-wide</strong> — one command creates a menu entry. Desktop shortcut is opt-in.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Option 1 — Run from Source (no system install)</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# 1. Clone the repository
 git clone https://github.com/smartlegionlab/forgejo-sync-manager-gui.git
 cd forgejo-sync-manager-gui
-python -m venv venv
+
+# 2. Create a virtual environment
+python3 -m venv venv
+
+# 3. Activate it
 source venv/bin/activate
+
+# 4. Install dependencies
 pip install -r requirements.txt
+
+# 5. Launch the app
 python app.py</pre>
+
+                        <p class="text-light mt-3"><strong>Option 2 — Install System-Wide (recommended)</strong></p>
+                        <p class="text-light small">Requirements: Python 3.8+, git, curl, Linux desktop with <code>.desktop</code> support.</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/forgejo-sync-manager-gui/master/install.sh | bash</pre>
+                        <p class="text-light small"><strong>What the installer does:</strong></p>
+                        <ol class="text-light small">
+                            <li>Downloads the source code from GitHub.</li>
+                            <li>Installs the application to <code>~/.local/share/forgejo-sync-manager-gui/</code>. No root, no sudo.</li>
+                            <li>Creates a dedicated Python virtual environment at <code>~/.local/share/forgejo-sync-manager-gui/venv/</code> and installs dependencies into it.</li>
+                            <li>Registers the app in your desktop environment by creating <code>~/.local/share/applications/forgejo-sync-manager-gui.desktop</code>.</li>
+                            <li>Refreshes the desktop database so the menu entry appears without a full re-login on most systems.</li>
+                        </ol>
+
+                        <p class="text-light mt-2"><strong>Desktop shortcut (opt-in):</strong></p>
+                        <p class="text-light small">By default, no Desktop shortcut is created. This is intentional — on GNOME (default on Ubuntu), desktop icons are hidden by default. To also create a Desktop shortcut during install, pass the <code>SPM_CREATE_DESKTOP_SHORTCUT=1</code> environment variable to <strong>bash</strong> — the second command in the pipeline:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/forgejo-sync-manager-gui/master/install.sh | SPM_CREATE_DESKTOP_SHORTCUT=1 bash</pre>
+                        <p class="text-light small">Or export it first, then run the normal installer:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+export SPM_CREATE_DESKTOP_SHORTCUT=1
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/forgejo-sync-manager-gui/master/install.sh | bash</pre>
+                        <p class="text-warning small"><strong>Note:</strong> Writing <code>SPM_CREATE_DESKTOP_SHORTCUT=1 curl ... | bash</code> does not work — in a shell pipeline, an environment variable prefix applies only to the command on the left side of the pipe. Pass it to <code>bash</code> directly, or export it beforehand.</p>
+
+                        <p class="text-light mt-2"><strong>Uninstall:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/forgejo-sync-manager-gui/master/uninstall.sh | bash</pre>
+                        <p class="text-light small">The uninstaller removes the application, menu entry, and Desktop shortcut (if present). It <strong>never touches</strong> your connection settings at <code>~/forgejo-sync-manager/config.json</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Integration -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesktop" aria-expanded="false">
+                        <i class="bi bi-window-desktop me-2 text-primary"></i> Desktop Integration (Linux)
+                    </button>
+                </h2>
+                <div id="collapseDesktop" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>Note:</strong> If you installed the app via <code>install.sh</code>, the application menu entry is already created automatically. The in-app option described below is useful when you run the app manually from a custom location, or when you want to add a Desktop shortcut on demand. It is also the recommended way for development: it creates a shortcut pointing to the <strong>currently running instance</strong> (your working copy), not to a copy under <code>~/.local/share/</code>.</p>
+
+                        <p class="text-light"><strong>Creating Application Shortcuts:</strong></p>
+                        <p class="text-light small">The application allows you to create desktop entries directly from the menu:</p>
+                        <ol class="text-light small">
+                            <li>Go to <strong>File → Create Desktop Entry</strong></li>
+                            <li>Choose locations: Application Menu (<code>~/.local/share/applications/</code>) and/or Desktop (<code>~/Desktop/</code>)</li>
+                            <li>Click <strong>Create Entry</strong></li>
+                        </ol>
+                        <p class="text-light small"><strong>What happens:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Creates <code>.desktop</code> file(s) with proper configuration</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Sets executable permissions automatically</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Uses application icon if available</li>
+                        </ul>
+                        <p class="text-light small"><strong>After creation:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Application Menu</strong>: Log out and back in (or restart desktop) for entry to appear</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Desktop shortcut</strong>: May show "Unsecured Application Launcher" warning — right-click → "Allow Launching" or "Trust" (one-time action)</li>
+                        </ul>
+                        <p class="text-light small"><strong>Note:</strong> This feature is only available on Linux systems with desktop environments that support <code>.desktop</code> files (GNOME, KDE, XFCE, etc.).</p>
                     </div>
                 </div>
             </div>
@@ -195,7 +287,7 @@ python app.py</pre>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Info Panel</strong> — Connection status, user info (clickable), server URL (clickable), repository statistics</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repository Table</strong> — List of all repositories with columns: <code>#</code>, <code>Repository</code>, <code>Type</code> (Public 🔒/Private 🌍), <code>Size</code>, <code>Status</code> (Local 📁/Remote 🌐)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Search & Filter</strong> — Search by name, filter by Public/Private/Forks/Local/Remote</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Action Buttons</strong> — Sync All, Update Only, Re-clone All</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Action Buttons</strong> — Sync All, Update Only, Re-clone All, Delete All</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Context Menu (Right-click on repository):</strong></p>
                         <ul class="list-unstyled">
@@ -227,6 +319,7 @@ python app.py</pre>
                                     <tr><td><code>Ctrl+Shift+S</code></td><td>Sync All Repositories</td></tr>
                                     <tr><td><code>Ctrl+Shift+U</code></td><td>Update Only Existing Repositories</td></tr>
                                     <tr><td><code>Ctrl+Shift+R</code></td><td>Re-clone All Repositories</td></tr>
+                                    <tr><td><code>Ctrl+Shift+D</code></td><td>Delete All Local Repositories</td></tr>
                                     <tr><td><code>Ctrl+Q</code></td><td>Exit Application</td></tr>
                                     <tr><td><code>Ctrl+,</code></td><td>Open Settings</td></tr>
                                     <tr><td><code>Ctrl+/</code></td><td>Show Keyboard Shortcuts</td></tr>
@@ -259,6 +352,27 @@ python app.py</pre>
                 </div>
             </div>
 
+            <!-- Delete All Dialog -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDelete" aria-expanded="false">
+                        <i class="bi bi-trash me-2 text-primary"></i> Delete All Dialog
+                    </button>
+                </h2>
+                <div id="collapseDelete" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">When clicking the "Delete All" button, a dialog appears showing:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time progress bar</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Current repository being deleted</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Operation log with timestamps</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Summary statistics upon completion (deleted / not found / failed)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Cancel option to stop the operation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- How It Works -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
@@ -278,11 +392,41 @@ python app.py</pre>
                 </div>
             </div>
 
-            <!-- Powered By & Related Projects -->
+            <!-- Ecosystem -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystem" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystem
+                    </button>
+                </h2>
+                <div id="collapseEcosystem" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">This project is part of the <a href="https://smartlegionlab.github.io/ecosystems/repository-management-ecosystem.html" class="text-primary" target="_blank">Repository Management Ecosystem</a> — a family of applications and libraries for GitHub / Forgejo automation: sync, backup, and SSH management.</p>
+
+                        <p class="text-light mt-2"><strong>Applications:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-repository-manager-gui" class="text-primary" target="_blank">Smart Repository Manager GUI</a> — GitHub repository management with visual interface, multi-user support, batch operations</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-repository-manager-cli" class="text-primary" target="_blank">Smart Repository Manager CLI</a> — GitHub repository management from the command line</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Forgejo Sync Manager GUI</strong> (this) — Desktop GUI for batch synchronization of Forgejo repositories</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-cli" class="text-primary" target="_blank">Forgejo Sync Manager CLI</a> — Command-line Forgejo sync tool</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/github-repos-backup-tools" class="text-primary" target="_blank">GitHub Repos Backup Tools</a> — Automated backup of GitHub repositories and GISTs</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/github-ssh-key" class="text-primary" target="_blank">GitHub SSH Key Manager</a> — Manage GitHub SSH keys from the command line</li>
+                        </ul>
+
+                        <p class="text-light mt-2"><strong>Libraries:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="text-primary" target="_blank">forgejo-sync-manager-core</a> — Universal core library for Forgejo repository synchronization</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-repository-manager-core" class="text-primary" target="_blank">smart-repository-manager-core</a> — Python library for managing Git repositories with SSH validation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Powered By -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePowered" aria-expanded="false">
-                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Powered By & Related Projects
+                        <i class="bi bi-cpu me-2 text-primary"></i> Powered By
                     </button>
                 </h2>
                 <div id="collapsePowered" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
@@ -294,17 +438,12 @@ python app.py</pre>
                                     <tr><th>Library</th><th>Description</th><th>Version</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="text-primary" target="_blank">forgejo-sync-manager-core</a></td><td>Universal core library for Forgejo repository synchronization</td><td>v1.0.0</td></tr>
-                                    <tr><td>PyQt6</td><td>Python bindings for Qt6 framework</td><td>≥6.5.0</td></tr>
+                                    <tr><td><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="text-primary" target="_blank">forgejo-sync-manager-core</a></td><td>Universal core library for Forgejo repository synchronization</td><td>v1.0.2</td></tr>
+                                    <tr><td>PyQt5</td><td>Python bindings for Qt5 framework</td><td>≥5.15.9</td></tr>
                                     <tr><td>requests</td><td>HTTP library for Python</td><td>≥2.31.0</td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="text-light mt-2"><strong>Related Projects:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-cli" class="text-primary" target="_blank">forgejo-sync-manager-cli</a> — Command-line interface for batch synchronization</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="text-primary" target="_blank">forgejo-sync-manager-core</a> — Universal core library</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -359,6 +498,7 @@ python app.py</pre>
                         <a target="_blank" href="https://github.com/smartlegionlab/forgejo-sync-manager-gui/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
                         <a target="_blank" href="https://github.com/smartlegionlab/forgejo-sync-manager-cli" class="btn btn-outline-primary btn-sm">CLI Version</a>
                         <a target="_blank" href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="btn btn-outline-primary btn-sm">Core Library</a>
+                        <a target="_blank" href="https://smartlegionlab.github.io/ecosystems/repository-management-ecosystem.html" class="btn btn-outline-primary btn-sm">Ecosystem</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
