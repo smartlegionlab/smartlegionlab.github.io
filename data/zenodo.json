@@ -6,9 +6,9 @@
     "total_downloads": 770
   },
   "localDataParadigm": {
-    "unique_views": 368,
+    "unique_views": 369,
     "unique_downloads": 337,
-    "total_views": 473,
+    "total_views": 474,
     "total_downloads": 516
   },
   "deterministicEngine": {
@@ -19,8 +19,8 @@
   },
   "pchParadigm": {
     "unique_views": 204,
-    "unique_downloads": 206,
+    "unique_downloads": 207,
     "total_views": 248,
-    "total_downloads": 312
+    "total_downloads": 313
   }
 }
