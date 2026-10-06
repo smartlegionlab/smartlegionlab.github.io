@@ -271,3 +271,5 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
   <sub>© 2026 Smart Legion Lab. All rights reserved.</sub>
 </div>
 
+---
+
