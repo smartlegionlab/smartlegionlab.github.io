@@ -8,8 +8,6 @@
 
 **The official website of Smart Legion Lab** — a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
 
-![Main Page](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/main-page.png)
-
 ---
 
 ## ⚠️ Disclaimer
@@ -40,7 +38,7 @@ The site is designed to be a **static, secure, and comprehensive** showcase that
 ### 1. Homepage
 The central dashboard providing a quick overview of the lab's work.
 
-![Homepage Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/logo.png)
+![Homepage Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/main-page.png)
 
 **Content:**
 - Introduction to Smart Legion Lab
