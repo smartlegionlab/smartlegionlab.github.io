@@ -26,13 +26,13 @@ const CONFIG = {
     ],
 
     CONSTANTS: {
-        ECOSYSTEMS_COUNT: 6,
+        ECOSYSTEMS_COUNT: 7,
         PROJECTS_COUNT: 101,
         ARTICLES_COUNT: 4,
         PARADIGMS: 3,
         APPLICATIONS: 52,
         PUBLICATIONS: 4,
-        LIBRARIES_COUNT: 33
+        LIBRARIES_COUNT: 37
     },
 
     ZENODO_RECORDS: {
@@ -45,31 +45,31 @@ const CONFIG = {
     DEFAULTS: {
         RESEARCH_STATS: {
             pointerParadigm: {
-                unique_views: 562,
-                unique_downloads: 412,
-                total_views: 811,
-                total_downloads: 756
+                unique_views: 569,
+                unique_downloads: 424,
+                total_views: 818,
+                total_downloads: 783
             },
             localDataParadigm: {
-                unique_views: 366,
-                unique_downloads: 332,
-                total_views: 471,
-                total_downloads: 508
+                unique_views: 372,
+                unique_downloads: 343,
+                total_views: 477,
+                total_downloads: 529
             },
             deterministicEngine: {
-                unique_views: 291,
-                unique_downloads: 241,
-                total_views: 361,
-                total_downloads: 372
+                unique_views: 299,
+                unique_downloads: 249,
+                total_views: 369,
+                total_downloads: 388
             },
             pchParadigm: {
-                unique_views: 202,
-                unique_downloads: 201,
-                total_views: 246,
-                total_downloads: 304
+                unique_views: 207,
+                unique_downloads: 209,
+                total_views: 251,
+                total_downloads: 316
             }
         }
     },
 
-    VERSION: 'v7.6.12'
+    VERSION: 'v7.6.14'
 };
