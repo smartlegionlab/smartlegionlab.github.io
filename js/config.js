@@ -30,7 +30,7 @@ const CONFIG = {
         PROJECTS_COUNT: 101,
         ARTICLES_COUNT: 4,
         PARADIGMS: 3,
-        APPLICATIONS: 52,
+        APPLICATIONS: 53,
         PUBLICATIONS: 4,
         LIBRARIES_COUNT: 37
     },
