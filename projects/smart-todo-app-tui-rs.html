@@ -112,11 +112,11 @@
             </div>
         </div>
 
-        <!-- Description -->
+        <!-- Overview -->
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>smart-todo-app-tui-rs</strong> — a self-contained terminal application. It renders a full interface in your terminal using <code>ratatui</code>, handles input via <code>crossterm</code>, and persists tasks to a JSON file in the standard user data directory for your operating system.
+                    <strong>smart-todo-app-tui-rs</strong> is a self-contained terminal application. It renders a full interface in your terminal using <code>ratatui</code>, handles input via <code>crossterm</code>, and persists tasks to a JSON file in the standard user data directory for your operating system.
                 </p>
                 <p class="text-light">
                     Runs entirely offline. No external dependencies at runtime, no network access.
@@ -127,7 +127,7 @@
         <!-- Screenshot -->
         <div class="mb-4">
             <div class="smart-small-card text-center">
-                <img src="/data/images/projects/smart-todo-app-tui-rs/smart-todo-app-tui-rs.png" alt="Smart TODO TUI" class="img-fluid rounded" style="max-height: 420px;">
+                <img src="/data/images/projects/smart-todo-app-tui-rs/smart-todo-app-tui-rs.png" alt="Smart TODO TUI — main view" class="img-fluid rounded" style="max-height: 420px;">
             </div>
         </div>
 
@@ -140,6 +140,8 @@
                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Add, edit, toggle, and delete tasks with single-key shortcuts</li>
                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Two-press delete confirmation to prevent accidental removal</li>
                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Modal input for adding and editing task titles</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task titles limited to 200 characters, with a live counter in the input modal that turns yellow near the limit and red once it is reached</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Long titles truncated with an ellipsis in the list, input modal scrolls horizontally so the cursor is always visible</li>
                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>About screen with version, author, license, and project links</li>
                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic persistence to a JSON file after every change</li>
                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Cross-platform user data directory handling (Linux, macOS, Windows)</li>
@@ -203,6 +205,23 @@
                 </div>
             </div>
 
+            <!-- Command Line -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCli" aria-expanded="false">
+                        <i class="bi bi-terminal me-2 text-primary"></i> Command Line
+                    </button>
+                </h2>
+                <div id="collapseCli" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart-todo-app-tui --help
+smart-todo-app-tui --version</pre>
+                        <p class="text-light small mt-2">With no arguments the application starts in interactive mode.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Data Storage -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
@@ -231,11 +250,12 @@
     "done": false
   },
   {
-    "title": "Ship version 0.1.0",
+    "title": "Ship version 0.1.3",
     "done": true
   }
 ]</pre>
                         <p class="text-light small mt-2">The file is created automatically on first save. If it does not exist at startup, the application begins with an empty task list.</p>
+                        <p class="text-light small">Task titles are limited to 200 characters. Longer titles are truncated on save, so the stored JSON never contains a title beyond that limit.</p>
                     </div>
                 </div>
             </div>
@@ -259,7 +279,7 @@ chmod +x smart-todo-app-tui-&lt;version&gt;-linux-x86_64-musl
 ./smart-todo-app-tui-&lt;version&gt;-linux-x86_64-musl</pre>
                         <p class="text-light small mt-2">Statically linked, runs on any modern Linux distribution without additional dependencies.</p>
                         <p class="text-light fw-bold mt-3">From source</p>
-                        <p class="text-light small">Requires Rust 1.85 or newer (edition 2024).</p>
+                        <p class="text-light small">Requires Rust 1.88 or newer (edition 2024).</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 git clone https://github.com/smartlegionlab/smart-todo-app-tui-rs.git
 cd smart-todo-app-tui-rs
@@ -302,7 +322,7 @@ smart-todo-app-tui-rs/
 ├── install.sh
 ├── uninstall.sh
 └── src/
-    ├── main.rs       Entry point, terminal setup, event loop
+    ├── main.rs       Entry point, terminal setup, event loop, CLI parsing
     ├── app.rs        Application state, todo model, mode enum
     ├── events.rs     Keyboard event handling per mode
     ├── ui.rs         Rendering of header, list, footer, modals
@@ -321,7 +341,7 @@ smart-todo-app-tui-rs/
                 <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Rust 1.85+ (edition 2024)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Rust 1.88+ (edition 2024)</li>
                             <li class="mb-1"><span class="text-primary fw-bold">Terminal UI:</span> <code>ratatui</code></li>
                             <li class="mb-1"><span class="text-primary fw-bold">Input:</span> <code>crossterm</code></li>
                             <li class="mb-1"><span class="text-primary fw-bold">Storage:</span> JSON in user data directory</li>
@@ -359,7 +379,7 @@ smart-todo-app-tui-rs/
                         <a target="_blank" href="https://github.com/smartlegionlab/smart-todo-app-tui-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
                         <a target="_blank" href="https://crates.io/crates/smart-todo-app-tui" class="btn btn-outline-info btn-sm">crates.io</a>
                         <a target="_blank" href="https://github.com/smartlegionlab/smart-todo-app-tui-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
-                        <a target="_blank" href="https://smartlegionlab.com" class="btn btn-outline-primary btn-sm">Website</a>
+                        <a target="_blank" href="https://smartlegionlab.github.io" class="btn btn-outline-primary btn-sm">Website</a>
                     </div>
                     <hr class="border-secondary">
                     <p class="text-light">
