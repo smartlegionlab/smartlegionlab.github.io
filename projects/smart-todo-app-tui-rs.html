@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart TODO TUI · Smart Legion Lab</title>
+    <meta name="description" content="smart-todo-app-tui-rs — A terminal user interface todo application written in Rust. Manage tasks with keyboard shortcuts, store them locally as JSON. No cloud, no accounts, no telemetry.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/smart-todo-app-tui-rs.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Smart TODO TUI · Smart Legion Lab">
+    <meta property="og:description" content="A terminal user interface todo application written in Rust. Manage tasks with keyboard shortcuts, store them locally as JSON. No cloud, no accounts, no telemetry.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/smart-todo-app-tui-rs.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light" aria-label="View Home">
+                Home
+            </a>
+            <a href="/research.html" class="small text-light" aria-label="View Research">
+                Research
+            </a>
+            <a href="/ecosystems.html" class="small text-light" aria-label="View Ecosystems">
+                Ecosystems
+            </a>
+            <a href="/applications.html" class="small text-light" aria-label="View Applications">
+                Apps
+            </a>
+            <a href="/projects.html" class="small text-primary" aria-label="View Projects">
+                Projects
+            </a>
+            <a href="/libraries.html" class="small text-light" aria-label="View Libraries">
+                Libraries
+            </a>
+            <a href="/articles.html" class="small text-light" aria-label="View Articles">
+                Articles
+            </a>
+            <a href="/team.html" class="small text-light" aria-label="View About and Team">
+                About & Team
+            </a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<!-- content -->
+<main class="container custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart TODO TUI</h1>
+            <p class="text-light">A terminal user interface todo application written in Rust</p>
+            <p class="text-light">Manage tasks with keyboard shortcuts, store them locally as JSON. <span class="text-primary">No cloud, no accounts, no telemetry.</span></p>
+            <hr>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-todo-app-tui-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://crates.io/crates/smart-todo-app-tui" class="btn btn-outline-info btn-sm">crates.io <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>smart-todo-app-tui-rs</strong> — a self-contained terminal application. It renders a full interface in your terminal using <code>ratatui</code>, handles input via <code>crossterm</code>, and persists tasks to a JSON file in the standard user data directory for your operating system.
+                </p>
+                <p class="text-light">
+                    Runs entirely offline. No external dependencies at runtime, no network access.
+                </p>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-4">
+            <div class="smart-small-card text-center">
+                <img src="/data/images/projects/smart-todo-app-tui-rs/smart-todo-app-tui-rs.png" alt="Smart TODO TUI" class="img-fluid rounded" style="max-height: 420px;">
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>Features</strong></p>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full-screen terminal interface with borders, colors, and highlighted selection</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Add, edit, toggle, and delete tasks with single-key shortcuts</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Two-press delete confirmation to prevent accidental removal</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Modal input for adding and editing task titles</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>About screen with version, author, license, and project links</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic persistence to a JSON file after every change</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Cross-platform user data directory handling (Linux, macOS, Windows)</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No external dependencies at runtime, no network access</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Key Bindings -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKeys" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Key Bindings
+                    </button>
+                </h2>
+                <div id="collapseKeys" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Up</code> / <code>k</code></td><td>Move selection up</td></tr>
+                                    <tr><td><code>Down</code> / <code>j</code></td><td>Move selection down</td></tr>
+                                    <tr><td><code>Space</code></td><td>Toggle done state of the selected task</td></tr>
+                                    <tr><td><code>Enter</code></td><td>Toggle done state of the selected task</td></tr>
+                                    <tr><td><code>a</code></td><td>Add a new task</td></tr>
+                                    <tr><td><code>e</code></td><td>Edit the selected task</td></tr>
+                                    <tr><td><code>d</code></td><td>Delete the selected task (press twice)</td></tr>
+                                    <tr><td><code>i</code></td><td>Open the About screen</td></tr>
+                                    <tr><td><code>q</code> / <code>Esc</code></td><td>Quit the application</td></tr>
+                                    <tr><td><code>Ctrl+C</code></td><td>Quit immediately</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-2">Inside the input modal</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Enter</code></td><td>Save and close</td></tr>
+                                    <tr><td><code>Esc</code></td><td>Cancel and close</td></tr>
+                                    <tr><td><code>Backspace</code></td><td>Delete previous char</td></tr>
+                                    <tr><td><code>Left</code></td><td>Move cursor left</td></tr>
+                                    <tr><td><code>Right</code></td><td>Move cursor right</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-2">Inside the About screen</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Esc</code> / <code>q</code> / <code>i</code> / <code>Enter</code></td><td>Close</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Storage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseData" aria-expanded="false">
+                        <i class="bi bi-database me-2 text-primary"></i> Data Storage
+                    </button>
+                </h2>
+                <div id="collapseData" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Tasks are stored as JSON. The file location depends on your operating system and follows the standard user data directory convention:</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Platform</th><th>Path</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Linux</td><td><code>~/.local/share/smart-todo-app-tui/todos.json</code></td></tr>
+                                    <tr><td>macOS</td><td><code>~/Library/Application Support/com.smartlegionlab.smart-todo-app-tui/todos.json</code></td></tr>
+                                    <tr><td>Windows</td><td><code>%APPDATA%\smartlegionlab\smart-todo-app-tui\data\todos.json</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light mt-2"><strong>Format:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+[
+  {
+    "title": "Write documentation",
+    "done": false
+  },
+  {
+    "title": "Ship version 0.1.0",
+    "done": true
+  }
+]</pre>
+                        <p class="text-light small mt-2">The file is created automatically on first save. If it does not exist at startup, the application begins with an empty task list.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">From crates.io</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo install smart-todo-app-tui</pre>
+                        <p class="text-light fw-bold mt-3">Prebuilt binary (Linux, static musl)</p>
+                        <p class="text-light small">Download from the Releases page:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+chmod +x smart-todo-app-tui-&lt;version&gt;-linux-x86_64-musl
+./smart-todo-app-tui-&lt;version&gt;-linux-x86_64-musl</pre>
+                        <p class="text-light small mt-2">Statically linked, runs on any modern Linux distribution without additional dependencies.</p>
+                        <p class="text-light fw-bold mt-3">From source</p>
+                        <p class="text-light small">Requires Rust 1.85 or newer (edition 2024).</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-todo-app-tui-rs.git
+cd smart-todo-app-tui-rs
+cargo build --release
+./target/release/smart-todo-app-tui</pre>
+                        <p class="text-light fw-bold mt-3">Build and install to your home directory</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo build --release
+install -Dm755 target/release/smart-todo-app-tui ~/.local/bin/smart-todo-app-tui</pre>
+                        <p class="text-light small mt-2">Ensure <code>~/.local/bin</code> is in your <code>PATH</code>, then run:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart-todo-app-tui</pre>
+                        <p class="text-light fw-bold mt-3">One-command install</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-todo-app-tui-rs/master/install.sh | bash</pre>
+                        <p class="text-light small mt-2">Installs the binary to <code>~/.local/bin/</code> and registers the application in your desktop menu.</p>
+                        <p class="text-light fw-bold mt-3">Uninstall</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+rm -f ~/.local/bin/smart-todo-app-tui
+rm -rf ~/.local/share/smart-todo-app-tui</pre>
+                        <p class="text-light small mt-2">The second command removes your task file. Skip it if you want to keep your tasks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Layout -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false">
+                        <i class="bi bi-folder me-2 text-primary"></i> Project Layout
+                    </button>
+                </h2>
+                <div id="collapseLayout" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart-todo-app-tui-rs/
+├── Cargo.toml
+├── LICENSE
+├── README.md
+├── install.sh
+├── uninstall.sh
+└── src/
+    ├── main.rs       Entry point, terminal setup, event loop
+    ├── app.rs        Application state, todo model, mode enum
+    ├── events.rs     Keyboard event handling per mode
+    ├── ui.rs         Rendering of header, list, footer, modals
+    └── storage.rs    JSON persistence and user data directory</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechStack" aria-expanded="false">
+                        <i class="bi bi-code-slash me-2 text-primary"></i> Tech Stack
+                    </button>
+                </h2>
+                <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><span class="text-primary fw-bold">Language:</span> Rust 1.85+ (edition 2024)</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Terminal UI:</span> <code>ratatui</code></li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Input:</span> <code>crossterm</code></li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Storage:</span> JSON in user data directory</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">Platform:</span> Linux / macOS / Windows</li>
+                            <li class="mb-1"><span class="text-primary fw-bold">License:</span> BSD 3-Clause</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-todo-app-tui-rs/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-todo-app-tui-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://crates.io/crates/smart-todo-app-tui" class="btn btn-outline-info btn-sm">crates.io</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-todo-app-tui-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://smartlegionlab.com" class="btn btn-outline-primary btn-sm">Website</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+</main>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">
+                Smart Legion Lab
+            </a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+                <span data-smart-version>v7.6.14</span>
+            </a> |
+            <a href="/smartlegionlab-map.html" target="_blank">
+                Site Map
+            </a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
