@@ -85,7 +85,7 @@ a:hover { text-decoration: underline; }
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 6px;
 }
@@ -95,6 +95,7 @@ a:hover { text-decoration: underline; }
     border-radius: 8px;
     padding: 14px 8px;
     text-align: center;
+    min-width: 0;
 }
 .stat-num {
     font-size: 24px;
@@ -108,6 +109,7 @@ a:hover { text-decoration: underline; }
     color: #8b949e;
     text-transform: uppercase;
     letter-spacing: .5px;
+    overflow-wrap: break-word;
 }
 
 .entry { margin-bottom: 14px; page-break-inside: avoid; }
@@ -136,6 +138,7 @@ a:hover { text-decoration: underline; }
     font-size: 11.5px;
     color: #6e7681;
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    overflow-wrap: anywhere;
 }
 .doi a { color: #6e7681; }
 
@@ -188,6 +191,44 @@ a:hover { text-decoration: underline; }
 }
 .print-fab:hover { background: #388bfd; }
 
+@media (max-width: 768px) {
+    .cv {
+        margin: 0;
+        padding: 24px 18px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    .cv-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    .cv-name { font-size: 24px; }
+    .cv-role { font-size: 12.5px; }
+    .cv-contacts { font-size: 12px; }
+
+    .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .stat-num { font-size: 20px; }
+    .stat-label { font-size: 9.5px; }
+
+    .entry-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+    .doi { font-size: 10.5px; }
+
+    .two-col { columns: 1; }
+
+    .print-fab {
+        top: 12px; right: 12px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cv-name { font-size: 21px; }
+}
+
 @media print {
     @page { size: A4; margin: 12mm 13mm; }
     body {
@@ -225,7 +266,7 @@ a:hover { text-decoration: underline; }
         padding-bottom: 3px;
     }
 
-    .stats { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .stats { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
     .stat {
         background: #f5f5f5 !important;
         border: 1px solid #ccc !important;
@@ -238,7 +279,7 @@ a:hover { text-decoration: underline; }
     .entry-title { font-size: 9.8pt; color: #000 !important; }
     .entry-title a { color: #000 !important; }
     .entry-desc { color: #222 !important; font-size: 9pt; }
-    .doi { color: #555 !important; }
+    .doi { color: #555 !important; font-size: 8pt; }
     .doi a { color: #555 !important; }
 
     .cv-list li { font-size: 9pt; margin-bottom: 2.5px; }
