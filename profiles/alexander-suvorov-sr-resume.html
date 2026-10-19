@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander Suvorov Sr. — Resume / CV</title>
+<link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    margin: 0;
+    line-height: 1.55;
+    font-size: 14px;
+}
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.cv {
+    max-width: 920px;
+    margin: 32px auto;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 48px 56px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.4);
+}
+
+.cv-header {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 2px solid #1f6feb;
+    margin-bottom: 26px;
+}
+.cv-photo {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1f6feb;
+    flex-shrink: 0;
+}
+.cv-name {
+    margin: 0 0 4px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -.3px;
+}
+.cv-name sup { color: #d29922; font-size: .55em; font-weight: 600; }
+.cv-role {
+    color: #8b949e;
+    font-size: 13.5px;
+    margin: 0 0 10px;
+}
+.cv-contacts {
+    font-size: 12.5px;
+    line-height: 1.7;
+    margin: 0;
+}
+.cv-contacts a { color: #58a6ff; }
+.cv-contacts span.sep { color: #484f58; margin: 0 4px; }
+
+.cv-section { margin-bottom: 26px; page-break-inside: avoid; }
+.cv-section h2 {
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #1f6feb;
+    font-weight: 700;
+    margin: 0 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #30363d;
+}
+.cv-section h2 span.count {
+    color: #8b949e;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 6px;
+}
+.stat {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 14px 8px;
+    text-align: center;
+}
+.stat-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f6feb;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.stat-label {
+    font-size: 10.5px;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.entry { margin-bottom: 14px; page-break-inside: avoid; }
+.entry:last-child { margin-bottom: 0; }
+.entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.entry-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e6edf3;
+    margin: 0;
+}
+.entry-title a { color: #e6edf3; }
+.entry-title a:hover { color: #58a6ff; }
+.entry-desc {
+    font-size: 13px;
+    color: #c9d1d9;
+    margin: 2px 0 0;
+}
+.doi {
+    font-size: 11.5px;
+    color: #6e7681;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.doi a { color: #6e7681; }
+
+.cv-list {
+    padding-left: 18px;
+    margin: 0;
+}
+.cv-list li {
+    font-size: 13px;
+    margin-bottom: 5px;
+    line-height: 1.55;
+}
+.two-col { columns: 2; column-gap: 28px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tag {
+    font-size: 11.5px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.see-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12.5px;
+    color: #1f6feb;
+    margin-top: 8px;
+    font-weight: 600;
+}
+.see-more:hover { text-decoration: underline; }
+
+.print-fab {
+    position: fixed;
+    top: 22px; right: 22px;
+    z-index: 100;
+    background: #1f6feb;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(31,111,235,.4);
+}
+.print-fab:hover { background: #388bfd; }
+
+@media print {
+    @page { size: A4; margin: 12mm 13mm; }
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 9.8pt;
+        line-height: 1.42;
+    }
+    .cv {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .print-fab { display: none !important; }
+    a { color: #000 !important; text-decoration: none; }
+
+    .cv-header { border-bottom: 2px solid #1a3a5c; padding-bottom: 12px; margin-bottom: 16px; }
+    .cv-name { font-size: 21pt; color: #1a3a5c !important; }
+    .cv-name sup { color: #8a6d00 !important; }
+    .cv-role { color: #444 !important; font-size: 9.5pt; }
+    .cv-contacts { font-size: 8.5pt; color: #000 !important; }
+    .cv-contacts a { color: #000 !important; }
+    .cv-photo { border-color: #1a3a5c; width: 85px; height: 85px; }
+
+    .cv-section { margin-bottom: 12px; }
+    .cv-section h2 {
+        color: #1a3a5c !important;
+        border-bottom: 1px solid #1a3a5c !important;
+        font-size: 9.5pt;
+        margin-bottom: 7px;
+        padding-bottom: 3px;
+    }
+
+    .stats { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .stat {
+        background: #f5f5f5 !important;
+        border: 1px solid #ccc !important;
+        padding: 7px 4px;
+    }
+    .stat-num { color: #1a3a5c !important; font-size: 15pt; }
+    .stat-label { color: #555 !important; font-size: 6.8pt; }
+
+    .entry { margin-bottom: 7px; }
+    .entry-title { font-size: 9.8pt; color: #000 !important; }
+    .entry-title a { color: #000 !important; }
+    .entry-desc { color: #222 !important; font-size: 9pt; }
+    .doi { color: #555 !important; }
+    .doi a { color: #555 !important; }
+
+    .cv-list li { font-size: 9pt; margin-bottom: 2.5px; }
+    .two-col { columns: 2; }
+
+    .tag {
+        background: #f0f0f0 !important;
+        border: 1px solid #ccc !important;
+        color: #222 !important;
+        font-size: 7.5pt;
+    }
+    .see-more { color: #1a3a5c !important; font-size: 8pt; }
+    .cv-section { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<button class="print-fab" onclick="window.print()">
+    <i class="bi bi-printer"></i> Save as PDF
+</button>
+
+<main class="cv">
+
+    <header class="cv-header">
+        <img src="/data/images/avatars/smartlegionlab.jpeg" alt="Alexander Suvorov Sr." class="cv-photo">
+        <div>
+            <h1 class="cv-name">Alexander Suvorov <sup>Sr.</sup></h1>
+            <p class="cv-role">
+                Chief Systems Architect · Computer Science Researcher · Paradigm Creator · Founder, Smart Legion Lab
+            </p>
+            <p class="cv-contacts">
+                <a href="mailto:smartlegionlab@gmail.com">smartlegionlab@gmail.com</a>
+                <span class="sep">·</span>
+                <a href="https://smartlegionlab.com">smartlegionlab.com</a>
+                <span class="sep">·</span>
+                <a href="https://github.com/smartlegionlab">GitHub</a>
+                <span class="sep">·</span>
+                <a href="https://gitlab.com/smartlegionlab">GitLab</a>
+                <span class="sep">·</span>
+                <a href="https://www.linkedin.com/in/smartlegionlab/">LinkedIn</a>
+                <span class="sep">·</span>
+                <a href="https://orcid.org/0009-0006-3427-9611">ORCID</a>
+                <span class="sep">·</span>
+                <a href="https://pypi.org/user/smartlegionlab">PyPI</a>
+                <span class="sep">·</span>
+                <a href="https://crates.io/users/smartlegionlab">crates.io</a>
+                <span class="sep">·</span>
+                <a href="https://zenodo.org/communities/smartlegionlab">Zenodo</a>
+                <span class="sep">·</span>
+                <a href="https://dev.to/smartlegionlab">Dev.to</a>
+            </p>
+        </div>
+    </header>
+
+    <section class="cv-section">
+        <h2>Summary</h2>
+        <p style="margin:0; font-size:13px;">
+            Systems architect and independent researcher. I design and build multi-layer, cross-platform
+            software ecosystems — from foundational paradigms with registered DOIs to fully working systems.
+            Founder of <strong>Smart Legion Lab</strong>. Primary language: <strong>Python</strong>; also design
+            and write in <strong>Rust, Go, C#, Kotlin, JavaScript</strong>. I implement and maintain consistent
+            system logic across the entire multi-language stack. My open-source libraries (BSD-3-Clause) are
+            used by developers worldwide and my publications on Zenodo have confirmed interest from the
+            academic community. I also build information systems — CRM, internal platforms and
+            business-process automation.
+        </p>
+    </section>
+
+    <section class="cv-section">
+        <h2>By the Numbers</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">6</div>
+                <div class="stat-label">Ecosystems</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">4+</div>
+                <div class="stat-label">Paradigms / DOI</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">80+</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Applications</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Libraries</div>
+            </div>
+        </div>
+        <a class="see-more" href="https://smartlegionlab.com/projects.html" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> Full project &amp; library index on smartlegionlab.com
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Research &amp; Author's Paradigms <span class="count">— 4 with DOI</span></h2>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/research/local-data-regeneration-paradigm.html">Local Data Regeneration Paradigm</a></p>
+                <span class="doi"><a href="https://doi.org/10.5281/zenodo.17264327">DOI: 10.5281/zenodo.17264327</a></span>
+            </div>
+            <p class="entry-desc">Data transmission → synchronous state discovery.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/research/pointer-based-security-paradigm.html">Pointer-Based Security Paradigm</a></p>
+                <span class="doi"><a href="https://doi.org/10.5281/zenodo.17204738">DOI: 10.5281/zenodo.17204738</a></span>
+            </div>
+            <p class="entry-desc">Architectural shift from data protection to data non-existence.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/research/position-candidate-hypothesis-paradigm.html">Position-Candidate-Hypothesis (PCH) Paradigm</a></p>
+                <span class="doi"><a href="https://doi.org/10.5281/zenodo.17614888">DOI: 10.5281/zenodo.17614888</a></span>
+            </div>
+            <p class="entry-desc">Structural-statistical approach to NP-complete problems.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/research/deterministic-game-engine-tech-report.html">Deterministic Game Engine — Tech Report</a></p>
+                <span class="doi"><a href="https://doi.org/10.5281/zenodo.17383447">DOI: 10.5281/zenodo.17383447</a></span>
+            </div>
+            <p class="entry-desc">Practical validation of theoretical paradigms — 2.8M elements/sec, O(1) state access.</p>
+        </div>
+
+        <a class="see-more" href="https://smartlegionlab.com/research.html" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> All research &amp; publications
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Ecosystems <span class="count">— 6 total</span></h2>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/ecosystems/smart-passwords-ecosystem.html">Smart Passwords Ecosystem</a></p>
+            </div>
+            <p class="entry-desc">Deterministic smart password generators, managers and libraries — no storage, no cloud. Full vertical stack: theory → core → CLI, TUI, GUI, web, Android, C#.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html">NP Problem Ecosystem</a></p>
+            </div>
+            <p class="entry-desc">TSP solvers, benchmarks and exact Branch &amp; Bound implementations across Python, Rust and Go.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/ecosystems/2fa-management-ecosystem.html">2FA Management Ecosystem</a></p>
+            </div>
+            <p class="entry-desc">Cross-platform TOTP managers — desktop, Android, CLI and Bash.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/ecosystems/repository-management-ecosystem.html">Repository Management Ecosystem</a></p>
+            </div>
+            <p class="entry-desc">Smart repository managers, Forgejo sync cores, GitHub backup automation.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/ecosystems/deterministic-ecosystem.html">Deterministic Ecosystem</a></p>
+            </div>
+            <p class="entry-desc">Deterministic infinite generators — text, image and library generators.</p>
+        </div>
+
+        <div class="entry">
+            <div class="entry-head">
+                <p class="entry-title"><a href="https://smartlegionlab.com/ecosystems/research-ecosystem.html">Research Ecosystem</a></p>
+            </div>
+            <p class="entry-desc">4+ paradigms with DOI and working reference implementations.</p>
+        </div>
+
+        <a class="see-more" href="https://smartlegionlab.com/ecosystems.html" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> All ecosystems
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Applications <span class="count">— 30+ total</span></h2>
+
+        <ul class="cv-list">
+            <li><strong>Smart Password Manager</strong> — CLI, TUI, GUI (Rust); Desktop (PyQt5); Android (Kotlin); Web; C# Desktop; C# CLI. Deterministic generation, zero storage.</li>
+            <li><strong>Smart Password Generator</strong> — C# CLI, Python console (CliPassGen).</li>
+            <li><strong>Smart 2FA Manager</strong> — Desktop (PyQt5), Android (Kotlin), CLI, Bash. Offline TOTP.</li>
+            <li><strong>Smart Repository Manager</strong> — GUI and CLI for GitHub repository management.</li>
+            <li><strong>Forgejo Sync Manager</strong> — GUI and CLI batch sync for Forgejo repositories.</li>
+            <li><strong>Smart TODO / Task / Project Manager</strong> — TUI (Rust), Desktop (PyQt5), Web, Telegram bot.</li>
+            <li><strong>Smart Command Runner (Rust)</strong> — grouped shell commands from TOML with confirmation modes and logging.</li>
+            <li><strong>Smart File Duplicate Manager</strong> — GUI (PyQt6) and Rust CLI.</li>
+            <li><strong>Smart Social Network</strong> — Django-powered platform with real-time messaging.</li>
+            <li><strong>Personal Telegram Bot / Todo TG Bot</strong> — async automation bots.</li>
+            <li><strong>GitHub Repos Backup Tools / GitHub SSH Key Manager / Smart Pip Collector</strong> — automation and DevOps utilities.</li>
+            <li><strong>CliPassMan / CliPassGen</strong> — console smart password manager and generator (Python).</li>
+        </ul>
+
+        <a class="see-more" href="https://smartlegionlab.com/applications.html" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> Full list of 30+ applications
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Selected Projects <span class="count">— 80+ total</span></h2>
+
+        <ul class="cv-list">
+            <li><strong>smartpasslib</strong> — cryptographic password generation without storage. Python, PyPI; ported to Rust, Go, C#, Kotlin, JavaScript.</li>
+            <li><strong>smart-tsp-solver</strong> — heuristic TSP solver, ~25% improvement over baseline; companion benchmark &amp; exact solver.</li>
+            <li><strong>smart-tsp-oracle / exact-tsp-solver / exact-tsp-solver-rs</strong> — exact TSP solvers (Branch &amp; Bound) in Python, Go and Rust.</li>
+            <li><strong>smart-pch-tsp-rs / smart-dynamic-gravity-tsp-rs</strong> — high-performance Rust TSP implementations.</li>
+            <li><strong>smart-2fa-secure</strong> — advanced TOTP 2FA system; cross-platform client implementations.</li>
+            <li><strong>smart-repository-manager-core / forgejo-sync-manager-core</strong> — repository management and batch sync cores.</li>
+            <li><strong>smart-babylon-library / babylonian-image-library</strong> — deterministic infinite text and image generators.</li>
+            <li><strong>smartlegionlab.github.io</strong> — self-updating technical portfolio, live data from GitHub.</li>
+            <li><strong>name-gender-nn-rs / name-gender-nn-py</strong> — gender classifier neural nets implemented from scratch (no ML libraries).</li>
+            <li><strong>commandex / commandpack / commandman / climan / smartcliapp</strong> — CLI framework family.</li>
+            <li><strong>smartprinter / smartpathlibrary / smartexecutorlib / smarttextdecorator / smartrandom / smartauthen</strong> — utility library suite.</li>
+            <li><strong>smart-dynamic-path / django-smart-dynamic-path</strong> — deterministic time-based path generation and Django integration.</li>
+            <li><strong>blockchain / python-patterns</strong> — educational implementations: Python blockchain and design-pattern collection.</li>
+            <li><strong>qr-codes-generator / clitodo / smart-legion-lab-library</strong> — utilities and meta-library.</li>
+        </ul>
+
+        <a class="see-more" href="https://smartlegionlab.com/projects.html" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> Full list of 80+ projects
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Open Source &amp; Libraries <span class="count">— 30+ total</span></h2>
+
+        <p style="margin:0 0 8px; font-size:13px;">
+            Author of <strong>30+ BSD-3-Clause packages</strong> published on international registries —
+            <a href="https://pypi.org/user/smartlegionlab">PyPI</a> and
+            <a href="https://crates.io/users/smartlegionlab">crates.io</a> — with real usage in industrial
+            and open-source development.
+        </p>
+
+        <div class="tags">
+            <span class="tag">smartpasslib (Py)</span>
+            <span class="tag">smartpasslib-rs</span>
+            <span class="tag">smartpasslib-go</span>
+            <span class="tag">smartpasslib-csharp</span>
+            <span class="tag">smartpasslib-kotlin</span>
+            <span class="tag">smartpasslib-js</span>
+            <span class="tag">smart-tsp-solver</span>
+            <span class="tag">smart-tsp-benchmark</span>
+            <span class="tag">smart-tsp-oracle</span>
+            <span class="tag">exact-tsp-solver</span>
+            <span class="tag">exact-tsp-solver-rs</span>
+            <span class="tag">smart-pch-tsp-rs</span>
+            <span class="tag">smart-dynamic-gravity-tsp-rs</span>
+            <span class="tag">smart-babylon-library</span>
+            <span class="tag">babylonian-image-library</span>
+            <span class="tag">smart-2fa-secure</span>
+            <span class="tag">smart-repository-manager-core</span>
+            <span class="tag">forgejo-sync-manager-core</span>
+            <span class="tag">commandex</span>
+            <span class="tag">commandpack</span>
+            <span class="tag">commandman</span>
+            <span class="tag">climan</span>
+            <span class="tag">smartcliapp</span>
+            <span class="tag">smartprinter</span>
+            <span class="tag">smartpathlibrary</span>
+            <span class="tag">smartexecutorlib</span>
+            <span class="tag">smarttextdecorator</span>
+            <span class="tag">smartrandom</span>
+            <span class="tag">smartauthen</span>
+            <span class="tag">smart-redis-storage</span>
+            <span class="tag">smart-dynamic-path</span>
+            <span class="tag">django-smart-dynamic-path</span>
+            <span class="tag">smart-text-randomizer</span>
+            <span class="tag">github-ssh-key</span>
+            <span class="tag">clipassman</span>
+            <span class="tag">clipassgen</span>
+            <span class="tag">smart-pip-collector</span>
+        </div>
+
+        <a class="see-more" href="https://smartlegionlab.com/libraries.html" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> All 30+ libraries
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Technical Stack</h2>
+        <ul class="cv-list two-col">
+            <li><strong>Languages:</strong> Python (primary) · Rust · Go · C# · Kotlin · JavaScript · Bash · LaTeX · HTML/CSS</li>
+            <li><strong>Backend &amp; API:</strong> Django · DRF · FastAPI · Flask · ASP.NET Core · Celery · REST · Async I/O · WebSockets/SSE</li>
+            <li><strong>Frontend:</strong> HTML5 · CSS3 · Bootstrap · JavaScript · HTMX · Alpine.js</li>
+            <li><strong>Desktop / Mobile:</strong> PyQt5/6 · Flet · WinForms · WPF · Tkinter · Pygame · Android SDK (Kotlin) · Jetpack Compose</li>
+            <li><strong>Databases &amp; Caching:</strong> PostgreSQL · Redis · MariaDB · SQLite · Django ORM · SQLAlchemy</li>
+            <li><strong>Data &amp; Imaging:</strong> NumPy · Pillow · Matplotlib · Pandas</li>
+            <li><strong>DevOps &amp; Infra:</strong> Docker · Kubernetes · Linux (Arch) · Nginx · Gunicorn/Uvicorn · GitHub Actions · Terraform · Ansible · systemd</li>
+            <li><strong>QA &amp; Tooling:</strong> pytest · mypy · flake8 · black · ruff · pre-commit · Coverage</li>
+            <li><strong>Security &amp; Crypto:</strong> Zero-Knowledge · Zero-Storage Cryptography · TOTP/HOTP · 2FA · AES-256-GCM · SHA-256 · CSPRNG · GPG · SSH</li>
+            <li><strong>Algorithms:</strong> Heuristic Optimization · TSP · 2-opt/3-opt · Christofides · Branch &amp; Bound · Dynamic Gravity · Angular-Radial · PCH Improver</li>
+            <li><strong>CLI Frameworks:</strong> Click · argparse · smartcliapp · climan · commandex · commandpack · commandman</li>
+            <li><strong>Bots &amp; Async:</strong> aiogram · python-telegram-bot · asyncio · Celery workers · Telegram/VK automation</li>
+            <li><strong>Packaging:</strong> PyPI · Cargo/Crates.io · NuGet · npm · Maven/Gradle · pyproject.toml · setuptools/hatchling</li>
+            <li><strong>Academic:</strong> Zenodo · ORCID · DOI Registration · LaTeX/BibTeX · TikZ</li>
+            <li><strong>Information Systems:</strong> CRM · internal platforms · business-process automation</li>
+            <li><strong>Native Environment:</strong> Arch Linux · systemd · Git · Forgejo</li>
+        </ul>
+    </section>
+
+    <section class="cv-section">
+        <h2>Core Competencies</h2>
+        <div class="tags">
+            <span class="tag">Systems Architecture</span>
+            <span class="tag">Paradigm Creation (R&amp;D)</span>
+            <span class="tag">Cryptography</span>
+            <span class="tag">Zero-Storage Architecture</span>
+            <span class="tag">NP-Hard Optimization</span>
+            <span class="tag">Multi-Language Development</span>
+            <span class="tag">Full-Stack</span>
+            <span class="tag">Cross-Platform Porting</span>
+            <span class="tag">Deterministic Systems</span>
+            <span class="tag">Information Security</span>
+            <span class="tag">Ecosystem Engineering</span>
+            <span class="tag">Academic Publishing</span>
+            <span class="tag">R&amp;D Leadership</span>
+            <span class="tag">High-Load &amp; Performance</span>
+            <span class="tag">Repository Management (Git/Forgejo)</span>
+            <span class="tag">Information Systems / CRM</span>
+        </div>
+    </section>
+
+    <section class="cv-section">
+        <h2>Publications (Zenodo)</h2>
+        <ul class="cv-list">
+            <li>Suvorov, A. <em>Local Data Regeneration Paradigm.</em> Zenodo. <span class="doi">doi:10.5281/zenodo.17264327</span></li>
+            <li>Suvorov, A. <em>Pointer-Based Security Paradigm.</em> Zenodo. <span class="doi">doi:10.5281/zenodo.17204738</span></li>
+            <li>Suvorov, A. <em>Position-Candidate-Hypothesis (PCH) Paradigm.</em> Zenodo. <span class="doi">doi:10.5281/zenodo.17614888</span></li>
+            <li>Suvorov, A. <em>Deterministic Game Engine — Tech Report.</em> Zenodo. <span class="doi">doi:10.5281/zenodo.17383447</span></li>
+        </ul>
+        <a class="see-more" href="https://zenodo.org/communities/smartlegionlab" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> Zenodo community
+        </a>
+    </section>
+
+    <section class="cv-section">
+        <h2>Availability</h2>
+        <p style="margin:0; font-size:13px;">
+            Open for: architecture consulting · research collaborations · full-cycle software development ·
+            multi-language cores and ecosystems.<br>
+            <strong>Location:</strong> Remote / Worldwide.
+        </p>
+    </section>
+
+</main>
+
+</body>
+</html>
