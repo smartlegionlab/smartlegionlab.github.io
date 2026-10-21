@@ -173,6 +173,32 @@
         <a target="_blank" href="https://github.com/smartlegionlab">One lab</a> — complete coverage.
     </p>
     <p class="text-center small text-muted">Open to consulting, development, research collaborations</p>
+
+    <div class="text-center mt-4 mb-2">
+        <div class="d-inline-flex align-items-center gap-2">
+            <span class="text-warning fw-bold small text-uppercase" id="metaphorLabel">The Name Is a Metaphor</span>
+            <button id="langToggle" class="btn btn-sm btn-outline-warning" type="button" aria-label="Toggle language">
+                <span id="langToggleText">RU</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="metaphorEn" class="small text-muted text-center">
+        <p><strong>Smart Legion Lab</strong> — the name is a metaphor.</p>
+        <p>«Smart» here is not about «us being smart» — it is about an <strong>intelligent system</strong>: smart components, smart architecture, smart tools.</p>
+        <p>«Legion» is not about the Roman army and not about pathos. It is a <strong>metaphor of structure</strong>: many units — developers, architects, testers — organized into a single whole, acting in concert. A legion is <strong>a multitude gathered into a system</strong>.</p>
+        <p>«Lab» is a <strong>laboratory</strong>, not a corporation. A place where things are researched, built, and tested.</p>
+        <p class="text-warning"><strong>Together:</strong> Smart Legion Lab is a laboratory where many smart units (people and tools) are gathered into a legion — an organized system that thinks and builds as a single whole.</p>
+    </div>
+
+    <div id="metaphorRu" class="small text-muted text-center" style="display:none;">
+        <p><strong>Smart Legion Lab</strong> — метафорическое название.</p>
+        <p>«Smart» здесь — не про «умных нас», а про <strong>интеллектуальную систему</strong>: умные компоненты, умная архитектура, умные инструменты.</p>
+        <p>«Legion» — не про римскую армию и не про пафос. Это <strong>метафора структуры</strong>: множество единиц — разработчики, архитекторы, тестировщики — организованных в единое целое, действующее согласованно. Легион — это <strong>множество, собранное в систему</strong>.</p>
+        <p>«Lab» — <strong>лаборатория</strong>, а не корпорация. Место, где исследуют, строят и тестируют.</p>
+        <p class="text-warning"><strong>Вместе:</strong> Smart Legion Lab — это лаборатория, где множество умных единиц (людей и инструментов) собраны в легион — организованную систему, которая думает и строит как единое целое.</p>
+    </div>
+
     <div class="text-center mt-4 d-flex justify-content-center gap-2 flex-wrap">
         <a href="mailto:official@smartlegionlab.com" class="btn btn-sm btn-outline-warning">
             Email <i class="bi bi-envelope ms-1"></i>
@@ -319,6 +345,36 @@
 <script src="js/console.js"></script>
 <script src="js/sidebar.js"></script>
 <!-- end scripts -->
+
+<script>
+(function () {
+    var btn = document.getElementById('langToggle');
+    var btnText = document.getElementById('langToggleText');
+    var label = document.getElementById('metaphorLabel');
+    var en = document.getElementById('metaphorEn');
+    var ru = document.getElementById('metaphorRu');
+    if (!btn || !en || !ru) return;
+
+    var lang = 'en';
+    var labels = {
+        en: { label: 'The Name Is a Metaphor', toggle: 'RU' },
+        ru: { label: 'Название — это метафора', toggle: 'EN' }
+    };
+
+    btn.addEventListener('click', function () {
+        lang = (lang === 'en') ? 'ru' : 'en';
+        if (lang === 'ru') {
+            en.style.display = 'none';
+            ru.style.display = 'block';
+        } else {
+            en.style.display = 'block';
+            ru.style.display = 'none';
+        }
+        label.textContent = labels[lang].label;
+        btnText.textContent = labels[lang].toggle;
+    });
+})();
+</script>
 
 </body>
 </html>
