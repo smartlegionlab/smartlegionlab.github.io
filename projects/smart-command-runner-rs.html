@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>smart-command-runner-rs · Smart Legion Lab</title>
-    <meta name="description" content="smart-command-runner-rs — Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging. Dry-run by default.">
+    <meta name="description" content="smart-command-runner-rs - Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging. Dry-run by default.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-command-runner-rs.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -104,7 +104,7 @@
         <div class="text-center mb-4">
             <h1 class="text-primary">smart-command-runner-rs</h1>
             <p class="text-light">Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging</p>
-            <p class="text-light"><span class="text-primary">Dry-run by default</span> — nothing runs unless you pass <code>--yes</code>, <code>--interactive-block</code>, or <code>--interactive-command</code>.</p>
+            <p class="text-light"><span class="text-primary">Dry-run by default</span> - nothing runs unless you pass <code>--yes</code>, <code>--interactive-block</code>, or <code>--interactive-command</code>.</p>
             <hr>
             <div class="mt-3">
                 <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
@@ -118,7 +118,7 @@
                     <strong>cmdrun</strong> reads a TOML file with named blocks of shell commands and runs them. Blocks can be selected individually, all at once, or with per-block / per-command confirmation.
                 </p>
                 <p class="text-light">
-                    <strong>Why this tool:</strong> when setting up a fresh Linux install, you usually have a list of commands to run — sometimes dozens, sometimes hundreds. Typing them by hand is slow and error-prone. Shell scripts work, but you lose <strong>named blocks</strong> (run just "the base part" or "the Manjaro part"), <strong>per-block / per-command confirmation</strong> for the first dry run, and <strong>logs</strong> (what ran, what failed, how long it took). <code>cmdrun</code> solves this with a single TOML file reused across distributions without duplication.
+                    <strong>Why this tool:</strong> when setting up a fresh Linux install, you usually have a list of commands to run - sometimes dozens, sometimes hundreds. Typing them by hand is slow and error-prone. Shell scripts work, but you lose <strong>named blocks</strong> (run just "the base part" or "the Manjaro part"), <strong>per-block / per-command confirmation</strong> for the first dry run, and <strong>logs</strong> (what ran, what failed, how long it took). <code>cmdrun</code> solves this with a single TOML file reused across distributions without duplication.
                 </p>
                 <p class="text-light small">
                     <strong>Origin:</strong> This project is a revival of an earlier tool called <strong>Commandoro</strong> (2018), which performed a similar job: read a declarative file of grouped shell commands and run them. The original repository was closed and the project was abandoned. <code>cmdrun</code> is a rewrite from scratch in Rust, with a stricter data model (atomic commands, independent blocks, explicit ordering on the command line) and proper logging.
@@ -139,10 +139,10 @@
                 <div id="collapseConcepts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <p class="text-light">The tool operates on two levels of granularity.</p>
-                        <p class="text-light"><strong>Command</strong> — a single shell invocation. One command performs one action:</p>
+                        <p class="text-light"><strong>Command</strong> - a single shell invocation. One command performs one action:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 "sudo apt update -y"</pre>
-                        <p class="text-light mt-2"><strong>Block</strong> — a named group of independent commands:</p>
+                        <p class="text-light mt-2"><strong>Block</strong> - a named group of independent commands:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 [base]
 commands = [
@@ -179,7 +179,7 @@ commands = [
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Log file with timestamps (default: <code>~/.local/share/cmdrun/cmdrun.log</code>)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>--no-log</code> to disable logging</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Non-zero exit codes of failed commands are recorded in the log</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Continues on errors — reports them at the end</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Continues on errors - reports them at the end</li>
                         </ul>
                     </div>
                 </div>
@@ -224,8 +224,8 @@ source ~/.bashrc</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light">A TOML file with one or more named blocks. Each block has:</p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>description</code> — optional string.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>commands</code> — required array of strings. Each string is one atomic command.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>description</code> - optional string.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>commands</code> - required array of strings. Each string is one atomic command.</li>
                         </ul>
                         <pre class="text-light small mt-2" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 [base]
@@ -255,7 +255,7 @@ commands = [
     "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
     "rustup component add clippy rustfmt",
 ]</pre>
-                        <p class="text-light small mt-2"><strong>Blocks run in this order:</strong> the order passed to <code>--run</code>, or — if <code>--run</code> is omitted — alphabetical order of block names.</p>
+                        <p class="text-light small mt-2"><strong>Blocks run in this order:</strong> the order passed to <code>--run</code>, or - if <code>--run</code> is omitted - alphabetical order of block names.</p>
                         <p class="text-light small"><strong>No <code>depends_on</code>, no inheritance, no macros.</strong> If block B needs block A, pass both: <code>--run a,b</code>. Explicit is better than magic.</p>
                     </div>
                 </div>
@@ -279,9 +279,9 @@ cmdrun --file &lt;FILE&gt; [OPTIONS]</pre>
                                     <tr><th>Option</th><th>Description</th><th>Default</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><code>-f, --file &lt;PATH&gt;</code></td><td>TOML file with blocks (required)</td><td>—</td></tr>
+                                    <tr><td><code>-f, --file &lt;PATH&gt;</code></td><td>TOML file with blocks (required)</td><td>-</td></tr>
                                     <tr><td><code>-r, --run &lt;LIST&gt;</code></td><td>Run only these blocks, in this order (comma-separated)</td><td>all blocks alphabetically</td></tr>
-                                    <tr><td><code>--list</code></td><td>Show blocks in the file and exit</td><td>—</td></tr>
+                                    <tr><td><code>--list</code></td><td>Show blocks in the file and exit</td><td>-</td></tr>
                                     <tr><td><code>-y, --yes</code></td><td>Run everything without asking</td><td><code>false</code></td></tr>
                                     <tr><td><code>-i, --interactive-block</code></td><td>Ask confirmation per block</td><td><code>false</code></td></tr>
                                     <tr><td><code>-c, --interactive-command</code></td><td>Ask confirmation per command</td><td><code>false</code></td></tr>
@@ -310,21 +310,21 @@ cmdrun --file &lt;FILE&gt; [OPTIONS]</pre>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="text-light mt-2"><strong>Interactive prompt — per block:</strong></p>
+                        <p class="text-light mt-2"><strong>Interactive prompt - per block:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-Block [base] — Common setup for all Linux systems
+Block [base] - Common setup for all Linux systems
   Commands: 3
 Run this block? [y/N/a/q]</pre>
-                        <p class="text-light mt-2"><strong>Interactive prompt — per command:</strong></p>
+                        <p class="text-light mt-2"><strong>Interactive prompt - per command:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
   [1/3] [base] sudo apt update -y? [y/N/a/q]</pre>
-                        <p class="text-light small mt-2"><strong>Answers:</strong> <code>y</code> — run this one · <code>n</code> or Enter — skip · <code>a</code> — run all remaining without asking · <code>q</code> — quit.</p>
+                        <p class="text-light small mt-2"><strong>Answers:</strong> <code>y</code> - run this one · <code>n</code> or Enter - skip · <code>a</code> - run all remaining without asking · <code>q</code> - quit.</p>
                         <p class="text-light mt-2"><strong>Examples:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 # List blocks
 cmdrun --file linux-setup.toml --list
 
-# Dry-run (default — nothing is executed)
+# Dry-run (default - nothing is executed)
 cmdrun --file linux-setup.toml
 
 # Run everything without questions
@@ -333,7 +333,7 @@ cmdrun --file linux-setup.toml --yes
 # Run only the common setup, then Manjaro-specific
 cmdrun --file linux-setup.toml --run base,manjaro --yes
 
-# First run — review every block, then every command
+# First run - review every block, then every command
 cmdrun --file linux-setup.toml -i -c
 
 # Custom log path
@@ -383,8 +383,8 @@ cmdrun --file linux-setup.toml --yes --no-log</pre>
                 <div id="collapseExit" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>0</code> — success (even if some commands failed; check the summary)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>1</code> — invalid arguments, file missing, TTY required but missing, or block name not found</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>0</code> - success (even if some commands failed; check the summary)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>1</code> - invalid arguments, file missing, TTY required but missing, or block name not found</li>
                         </ul>
                     </div>
                 </div>

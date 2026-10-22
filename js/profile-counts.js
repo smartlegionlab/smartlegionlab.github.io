@@ -1,5 +1,5 @@
 /**
- * Profile Counts — automatic element counting
+ * Profile Counts - automatic element counting
  * for profile accordions and the side card.
  */
 (function () {

@@ -1,5 +1,5 @@
 /**
- * Console Background — self-typing session log.
+ * Console Background - self-typing session log.
  * Multiple scenarios, random pick per session.
  * Activated only when <div id="background-trigger" hidden></div> is present.
  * v0.0.2

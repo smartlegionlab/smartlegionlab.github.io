@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>smart-dynamic-path · Smart Legion Lab</title>
-    <meta name="description" content="smart-dynamic-path — Dynamic, deterministic, time-dependent path generation. No storage. No database. No dependencies. Generate cryptographically secure paths that change automatically based on time.">
+    <meta name="description" content="smart-dynamic-path - Dynamic, deterministic, time-dependent path generation. No storage. No database. No dependencies. Generate cryptographically secure paths that change automatically based on time.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-dynamic-path.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -116,7 +116,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>smart-dynamic-path</strong> — dynamic, deterministic, time-dependent path generation.
+                    <strong>smart-dynamic-path</strong> - dynamic, deterministic, time-dependent path generation.
                     Generate cryptographically secure paths that change automatically based on time (day, month, hour) from a secret phrase.
                 </p>
                 <p class="text-light">
@@ -154,13 +154,13 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> — paths are regenerated, not stored</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Database</strong> — no persistence layer required</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Dependencies</strong> — pure Python, uses only hashlib</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> — same input always produces same output</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Time-Based Rotation</strong> — day, month, hour, or static</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLI & Python API</strong> — flexible usage options</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> — SHA-256 based</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> - paths are regenerated, not stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Database</strong> - no persistence layer required</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Dependencies</strong> - pure Python, uses only hashlib</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> - same input always produces same output</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Time-Based Rotation</strong> - day, month, hour, or static</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLI & Python API</strong> - flexible usage options</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cryptographically Secure</strong> - SHA-256 based</li>
                         </ul>
                     </div>
                 </div>
@@ -282,7 +282,7 @@ PATH = SHA256(SECRET_KEY + date)[:16].hex()        # 32 hex chars (128 bits)</pr
                 <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>1. Pointer-Based Security</strong></p>
-                        <p class="text-light small">The path is not stored anywhere. It is regenerated on demand from a secret phrase and current time. There is no stored "pointer" — only the ability to compute it.</p>
+                        <p class="text-light small">The path is not stored anywhere. It is regenerated on demand from a secret phrase and current time. There is no stored "pointer" - only the ability to compute it.</p>
                         <p class="text-light small"><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17204738" class="text-primary" target="_blank">10.5281/zenodo.17204738</a></p>
 
                         <p class="text-light mt-2"><strong>2. Local Data Regeneration</strong></p>
@@ -306,8 +306,8 @@ PATH = SHA256(SECRET_KEY + date)[:16].hex()        # 32 hex chars (128 bits)</pr
                 <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> — paths are regenerated, not stored</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> — same input always produces same output</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> - paths are regenerated, not stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> - same input always produces same output</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>32 hex chars</strong> = 2¹²⁸ possible paths (no brute force)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Time-based rotation</strong> limits exposure window</li>
                         </ul>

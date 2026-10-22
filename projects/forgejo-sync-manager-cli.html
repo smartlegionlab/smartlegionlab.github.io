@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgejo Sync Manager CLI · Smart Legion Lab</title>
-    <meta name="description" content="forgejo-sync-manager-cli — CLI tool for batch synchronization of Forgejo repositories to local machine. Automatic authentication, progress tracking, and update detection.">
+    <meta name="description" content="forgejo-sync-manager-cli - CLI tool for batch synchronization of Forgejo repositories to local machine. Automatic authentication, progress tracking, and update detection.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/forgejo-sync-manager-cli.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -116,7 +116,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>forgejo-sync-manager-cli</strong> — CLI tool for batch synchronization of Forgejo repositories to local machine.
+                    <strong>forgejo-sync-manager-cli</strong> - CLI tool for batch synchronization of Forgejo repositories to local machine.
                 </p>
                 <p class="text-light">
                     Automatic authentication via personal access token, repository cloning and updating with progress tracking, update detection via commit hash comparison, and full repository recloning option.
@@ -137,12 +137,12 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Automatic Authentication</strong> — via personal access token</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repository Cloning & Updating</strong> — with progress tracking</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Update Detection</strong> — via commit hash comparison</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full Recloning</strong> — option to delete and fresh clone</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Parallel Progress Display</strong> — for large repository sets</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Persistent Configuration</strong> — stored locally</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Automatic Authentication</strong> - via personal access token</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repository Cloning & Updating</strong> - with progress tracking</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Update Detection</strong> - via commit hash comparison</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full Recloning</strong> - option to delete and fresh clone</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Parallel Progress Display</strong> - for large repository sets</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Persistent Configuration</strong> - stored locally</li>
                         </ul>
                     </div>
                 </div>
@@ -237,11 +237,11 @@ python app.py</pre>
                 <div id="collapseHowItWorks" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Authentication</strong> — Token-based authentication via Forgejo API</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repository Discovery</strong> — Fetches complete repository list with pagination (50 per page)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Update Detection</strong> — Executes <code>git fetch</code> and compares <code>HEAD</code> with <code>FETCH_HEAD</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Sync Operations</strong> — Uses authenticated URLs with embedded token for Git operations</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Directory Structure</strong> — <code>~/forgejo-sync-manager/{username}/repositories/</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Authentication</strong> - Token-based authentication via Forgejo API</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repository Discovery</strong> - Fetches complete repository list with pagination (50 per page)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Update Detection</strong> - Executes <code>git fetch</code> and compares <code>HEAD</code> with <code>FETCH_HEAD</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Sync Operations</strong> - Uses authenticated URLs with embedded token for Git operations</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Directory Structure</strong> - <code>~/forgejo-sync-manager/{username}/repositories/</code></li>
                         </ul>
                     </div>
                 </div>
@@ -270,8 +270,8 @@ python app.py</pre>
                         </div>
                         <p class="text-light mt-2"><strong>Related Projects:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-gui" class="text-primary" target="_blank">forgejo-sync-manager-gui</a> — Desktop GUI application with dark theme</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="text-primary" target="_blank">forgejo-sync-manager-core</a> — Universal core library</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-gui" class="text-primary" target="_blank">forgejo-sync-manager-gui</a> - Desktop GUI application with dark theme</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/forgejo-sync-manager-core" class="text-primary" target="_blank">forgejo-sync-manager-core</a> - Universal core library</li>
                         </ul>
                     </div>
                 </div>
@@ -348,7 +348,7 @@ python app.py</pre>
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

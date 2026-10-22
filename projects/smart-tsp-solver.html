@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>smart-tsp-solver · Smart Legion Lab</title>
-    <meta name="description" content="smart-tsp-solver — A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by 25% on real-world clustered data.">
+    <meta name="description" content="smart-tsp-solver - A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by 25% on real-world clustered data.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-tsp-solver.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -116,7 +116,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>smart-tsp-solver</strong> — a high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by <strong>25%</strong> on real-world clustered data while maintaining practical computational efficiency.
+                    <strong>smart-tsp-solver</strong> - a high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by <strong>25%</strong> on real-world clustered data while maintaining practical computational efficiency.
                 </p>
                 <p class="text-light">
                     <strong>Research-driven design:</strong> This library implements cutting-edge spatial optimization techniques including <strong>dynamic gravitational attraction modeling</strong> and <strong>angular-radial spatial indexing</strong> for intelligent pathfinding.
@@ -137,10 +137,10 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Gravity Algorithms</strong> — Physics-inspired approach simulating momentum and gravitational attraction for natural, efficient routing</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Angular-Radial Methods</strong> — Space-partitioning heuristics with adaptive look-ahead for superior performance on geographical data</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Benchmarking Framework</strong> — Professional-grade testing infrastructure with configurable scenarios and detailed metrics</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>High-Performance Core</strong> — Numba JIT compilation with cache optimization for near-native execution speed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Gravity Algorithms</strong> - Physics-inspired approach simulating momentum and gravitational attraction for natural, efficient routing</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Angular-Radial Methods</strong> - Space-partitioning heuristics with adaptive look-ahead for superior performance on geographical data</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Benchmarking Framework</strong> - Professional-grade testing infrastructure with configurable scenarios and detailed metrics</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>High-Performance Core</strong> - Numba JIT compilation with cache optimization for near-native execution speed</li>
                         </ul>
                     </div>
                 </div>
@@ -155,13 +155,13 @@
                 </h2>
                 <div id="collapseAlgorithms" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Dynamic Gravity Approach</strong> — <code>O(n²)</code></p>
+                        <p class="text-light"><strong>Dynamic Gravity Approach</strong> - <code>O(n²)</code></p>
                         <p class="text-light small">This algorithm models a physical process of attraction, where the next point is selected based on a combination of proximity and current direction of movement. The <code>delta</code> parameter acts as an "inertia coefficient," preventing sharp turns and creating smooth, natural-looking routes.</p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Strengths:</strong> Predictable execution time, consistently high solution quality, efficient cluster traversal</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Ideal Use Case:</strong> The balance of speed and quality, processing medium-sized datasets</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>Angular-Radial Method</strong> — <code>O(n²)</code> <em>with near O(n·log n) practical performance</em></p>
+                        <p class="text-light mt-2"><strong>Angular-Radial Method</strong> - <code>O(n²)</code> <em>with near O(n·log n) practical performance</em></p>
                         <p class="text-light small">A "smart look-ahead" strategy (<code>look_ahead</code>). Points are pre-sorted in a polar coordinate system, which drastically narrows the search space for each subsequent choice.</p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Strengths:</strong> Best-in-class final route quality, near-linear practical performance, exceptional efficiency on clustered data</li>
@@ -433,9 +433,9 @@ Shortest: Angular-radial v1, Angular-radial v2 (2545.21 units)</pre>
                 <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="text-primary" target="_blank">Exact TSP Solver</a> — Dual-mode TSP solver in Go: exact Branch & Bound with proven optimality, plus heuristic threshold search with reference gap.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a> — Professional algorithm testing infrastructure</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://doi.org/10.5281/zenodo.17614888" class="text-primary" target="_blank">Position-Candidate-Hypothesis (PCH) Paradigm</a> — A New Research Direction for NP-Complete Problems</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/exact-tsp-solver" class="text-primary" target="_blank">Exact TSP Solver</a> - Dual-mode TSP solver in Go: exact Branch & Bound with proven optimality, plus heuristic threshold search with reference gap.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a> - Professional algorithm testing infrastructure</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://doi.org/10.5281/zenodo.17614888" class="text-primary" target="_blank">Position-Candidate-Hypothesis (PCH) Paradigm</a> - A New Research Direction for NP-Complete Problems</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Spatial Optimization:</strong> Computational geometry approaches for large-scale problems</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Heuristic Analysis:</strong> Comparative study of modern TSP approaches</li>
                         </ul>
@@ -517,7 +517,7 @@ Shortest: Angular-radial v1, Angular-radial v2 (2545.21 units)</pre>
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Repository Backup Tool · Smart Legion Lab</title>
-    <meta name="description" content="github-repos-downloader — A powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. Downloads code as ZIP archives with parallel processing for speed and detailed reporting.">
+    <meta name="description" content="github-repos-downloader - A powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. Downloads code as ZIP archives with parallel processing for speed and detailed reporting.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/github-repos-downloader.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -115,7 +115,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>github-repos-downloader</strong> — a powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. This tool downloads your code as <code>.zip</code> archives for safe keeping, with parallel processing for speed and detailed reporting for insight.
+                    <strong>github-repos-downloader</strong> - a powerful Python utility for automating comprehensive backups of your GitHub repositories and gists. This tool downloads your code as <code>.zip</code> archives for safe keeping, with parallel processing for speed and detailed reporting for insight.
                 </p>
                 <p class="text-light">
                     <strong>Complete Backup Solution:</strong> Downloads all your repositories and gists as <code>.zip</code> archives for safe keeping, with robust error handling and detailed reports.
@@ -136,12 +136,12 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Complete Backup</strong> — Downloads all your GitHub repositories and gists as <code>.zip</code> archives in a single operation</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Parallel Downloads</strong> — Speeds up the process by downloading multiple items simultaneously, automatically using your available CPU cores</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Detailed Reporting</strong> — Generates a quality report with success rates, sizes, and actionable insights after each backup</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>System Automation</strong> — Optionally schedules your computer to shut down or reboot after the backup completes</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Robust Error Handling</strong> — Implements retry logic, handles network timeouts, and protects against failed downloads</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secure Token Management</strong> — Stores your GitHub token securely in your system's configuration directory</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Complete Backup</strong> - Downloads all your GitHub repositories and gists as <code>.zip</code> archives in a single operation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Parallel Downloads</strong> - Speeds up the process by downloading multiple items simultaneously, automatically using your available CPU cores</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Detailed Reporting</strong> - Generates a quality report with success rates, sizes, and actionable insights after each backup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>System Automation</strong> - Optionally schedules your computer to shut down or reboot after the backup completes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Robust Error Handling</strong> - Implements retry logic, handles network timeouts, and protects against failed downloads</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secure Token Management</strong> - Stores your GitHub token securely in your system's configuration directory</li>
                         </ul>
                     </div>
                 </div>
@@ -199,8 +199,8 @@ python app.py -t</pre>
                         <p class="text-light"><strong>What Gets Backed Up?</strong></p>
                         <p class="text-light small">The tool creates snapshot <code>.zip</code> archives of your code at a specific point in time (does not include full Git history).</p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repositories</strong> — Saved as <code>[repository-name].zip</code> in the <code>repositories/</code> folder</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Gists</strong> — Saved as <code>[gist-id].zip</code> in the <code>gists/</code> folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Repositories</strong> - Saved as <code>[repository-name].zip</code> in the <code>repositories/</code> folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Gists</strong> - Saved as <code>[gist-id].zip</code> in the <code>gists/</code> folder</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Where Are Files Saved?</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
@@ -291,7 +291,7 @@ python app.py -t</pre>
                                 <tbody>
                                     <tr><td>Failed to authenticate</td><td>Token invalid, expired, or lacks scopes</td><td>Run <code>python app.py -t</code> to update token</td></tr>
                                     <tr><td>Download timeout</td><td>Network slow or repository large</td><td>Re-run with <code>--timeout 120</code></td></tr>
-                                    <tr><td>Some items fail to download</td><td>Repository renamed, deleted, or forked</td><td>Check report for failures — retries up to 3 times</td></tr>
+                                    <tr><td>Some items fail to download</td><td>Repository renamed, deleted, or forked</td><td>Check report for failures - retries up to 3 times</td></tr>
                                     <tr><td>"curl" command not found</td><td>curl not installed on system</td><td>Install curl: <code>apt install curl</code> (Ubuntu)</td></tr>
                                 </tbody>
                             </table>
@@ -310,11 +310,11 @@ python app.py -t</pre>
                 <div id="collapseReport" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Summary</strong> — Counts of successful/failed downloads for repos and gists</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Statistics</strong> — File sizes and success percentages</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Top Lists</strong> — Your 10 largest repositories and gists with the most files</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Failure Analysis</strong> — A list of items that couldn't be downloaded</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Insights & Recommendations</strong> — Actionable advice based on results</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Summary</strong> - Counts of successful/failed downloads for repos and gists</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Statistics</strong> - File sizes and success percentages</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Top Lists</strong> - Your 10 largest repositories and gists with the most files</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Failure Analysis</strong> - A list of items that couldn't be downloaded</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Insights & Recommendations</strong> - Actionable advice based on results</li>
                         </ul>
                     </div>
                 </div>
@@ -330,9 +330,9 @@ python app.py -t</pre>
                 <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Token Storage</strong> — Stored in encrypted format at <code>~/.config/github_repos_downloader/github_token.json</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Data Sent Elsewhere</strong> — Only communicates with GitHub's API</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clean Operations</strong> — Temporary files deleted after use, failed downloads cleaned up</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Token Storage</strong> - Stored in encrypted format at <code>~/.config/github_repos_downloader/github_token.json</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Data Sent Elsewhere</strong> - Only communicates with GitHub's API</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clean Operations</strong> - Temporary files deleted after use, failed downloads cleaned up</li>
                         </ul>
                     </div>
                 </div>
@@ -408,7 +408,7 @@ python app.py -t</pre>
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

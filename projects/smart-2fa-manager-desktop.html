@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart 2FA Manager Desktop · Smart Legion Lab</title>
-    <meta name="description" content="Smart 2FA Manager Desktop — Offline, independent TOTP 2FA manager for Linux with graphical interface. No cloud, no phone required. Store secrets locally, generate codes, create encrypted backups.">
+    <meta name="description" content="Smart 2FA Manager Desktop - Offline, independent TOTP 2FA manager for Linux with graphical interface. No cloud, no phone required. Store secrets locally, generate codes, create encrypted backups.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-2fa-manager-desktop.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -115,7 +115,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>Smart 2FA Manager Desktop</strong> — offline, independent TOTP 2FA manager for Linux with graphical interface.
+                    <strong>Smart 2FA Manager Desktop</strong> - offline, independent TOTP 2FA manager for Linux with graphical interface.
                 </p>
                 <p class="text-light">
                     No cloud, no phone required. Store your secrets locally, generate codes, create encrypted backups, and sync with Google Authenticator via QR codes.
@@ -136,13 +136,13 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Offline & Independent</strong> — no internet connection required</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>GPG Encrypted Storage</strong> — AES-256 encrypted secrets</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>QR Code Support</strong> — import secrets into Google Authenticator / Aegis</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Encrypted Backups</strong> — timestamped backups with same password</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Copy to Clipboard</strong> — one-click code copying</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Lock Storage</strong> — lock when leaving your computer</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Ecosystem Compatible</strong> — works with Bash, Python CLI, and Android versions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Offline & Independent</strong> - no internet connection required</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>GPG Encrypted Storage</strong> - AES-256 encrypted secrets</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>QR Code Support</strong> - import secrets into Google Authenticator / Aegis</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Encrypted Backups</strong> - timestamped backups with same password</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Copy to Clipboard</strong> - one-click code copying</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Lock Storage</strong> - lock when leaving your computer</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cross-Ecosystem Compatible</strong> - works with Bash, Python CLI, and Android versions</li>
                         </ul>
                     </div>
                 </div>
@@ -159,10 +159,10 @@
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Dependencies:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>python-pyqt5</strong> (PyQt5) — REQUIRED for GUI</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>gpg</strong> (GNU Privacy Guard) — REQUIRED for encryption</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>oathtool</strong> (OATH Toolkit) — REQUIRED for TOTP codes</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>qrencode</strong> (optional) — OPTIONAL for QR codes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>python-pyqt5</strong> (PyQt5) - REQUIRED for GUI</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>gpg</strong> (GNU Privacy Guard) - REQUIRED for encryption</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>oathtool</strong> (OATH Toolkit) - REQUIRED for TOTP codes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>qrencode</strong> (optional) - OPTIONAL for QR codes</li>
                         </ul>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 # Arch Linux
@@ -305,7 +305,7 @@ python app.py</pre>
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Secrets are stored locally in <code>~/.2fa/secrets.gpg</code> (AES-256 encrypted with GPG)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No internet connection required</strong> — codes generated locally using <code>oathtool</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No internet connection required</strong> - codes generated locally using <code>oathtool</code></li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Backups are encrypted with the same password</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>QR codes let you import secrets into Google Authenticator / Aegis</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Lost your phone? Just re-scan QR codes from your Linux machine</li>
@@ -428,7 +428,7 @@ python app.py
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

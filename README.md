@@ -1,4 +1,4 @@
-# Smart Legion Lab - Official Website <sup>v7.6.16</sup>
+# Smart Legion Lab - Official Website <sup>v7.6.17</sup>
 
 [![Live Site](https://img.shields.io/badge/Official%20Site-smartlegionlab.com-blue?style=for-the-badge&logo=github)](https://smartlegionlab.com)
 [![GitHub license](https://img.shields.io/github/license/smartlegionlab/smartlegionlab.github.io)](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/LICENSE)
@@ -6,7 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/smartlegionlab/smartlegionlab.github.io?style=social)](https://github.com/smartlegionlab/smartlegionlab.github.io/network/members)
 
-**The official website of Smart Legion Lab** — a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
+**The official website of Smart Legion Lab** - a comprehensive digital platform showcasing our work in **software architecture**, **open-source development**, **cross-platform ecosystems**, and **theoretical computer science research**.
 
 ---
 
@@ -183,7 +183,7 @@ An immersive 3D visualization of the entire website, accessible via the **"Site 
 ### Adaptive Background System
 
 The site ships an adaptive background engine that selects the right
-visual for the right context — desktop, mobile, or specific pages —
+visual for the right context - desktop, mobile, or specific pages -
 without loading unnecessary scripts.
 
 **How it works:**
@@ -205,15 +205,15 @@ without loading unnecessary scripts.
 
 **Engines:**
 
-- **TSP Background** — white dots drift slowly, a greedy route is
+- **TSP Background** - white dots drift slowly, a greedy route is
   built periodically (nearest neighbor) and animated with a glowing
   traveler leaving a fading trail. Cheaper than the particle engine:
   no `fillText`, no O(n²) per frame. Route is built once per cycle.
-- **Console Background** — self-typing coherent session log with five
+- **Console Background** - self-typing coherent session log with five
   scenarios (research, smartpasslib, TSP, 2FA, infrastructure),
   randomly picked per session. Uses only DOM + CSS. Loads on mobile
   and on the projects page.
-- **Particle Background** — floating tech words on canvas with color
+- **Particle Background** - floating tech words on canvas with color
   coding (paradigms yellow, security red, languages cyan), edge fade,
   breathing opacity, and soft repulsion. Loads on desktop pages that
   are not projects.
@@ -222,7 +222,7 @@ without loading unnecessary scripts.
 
 - Activated only when `<div id="background-trigger" hidden></div>`
   is present on the page.
-- `prefers-reduced-motion` is respected — animation stops completely.
+- `prefers-reduced-motion` is respected - animation stops completely.
 - `visibilitychange` pauses the animation when the tab is hidden.
 - Mobile scroll and address bar resize do not cause jitter.
 - `orientationchange` is handled with a short delay so the engines
@@ -240,7 +240,7 @@ without loading unnecessary scripts.
 }
 ```
 
-3. That's it — no other changes needed.
+3. That's it - no other changes needed.
 
 ---
 

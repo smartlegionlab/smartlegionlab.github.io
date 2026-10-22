@@ -1,390 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://smartlegionlab.com/</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartlegionlab.github.io.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/django-smart-dynamic-path.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-dynamic-path.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-desktop.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-repository-manager-cli.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-repository-manager-gui.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-repository-manager-core.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-2fa-manager-desktop.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/todo-app-cli.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/github-ssh-key.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/forgejo-sync-manager-gui.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/forgejo-sync-manager-cli.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/forgejo-sync-manager-core.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-project-manager.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-file-duplicate-manager.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartlegionlab.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-android.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-csharp-desktop.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-web.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-csharp-cli.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-generator-csharp-cli.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpasslib-csharp.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpasslib-js.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpasslib-kotlin.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpasslib-go.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/clipassman.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/clipassgen.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpasslib.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/position-candidate-hypothesis-paradigm.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/local-data-regeneration-paradigm.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/pointer-based-security-paradigm.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/blockchain.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-2fa-manager-android.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/clitodo.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/python-patterns.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/qr-codes-generator.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartauthen.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smarttextdecorator.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartrandom.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartcliapp.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/commandpack.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/climan.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartexecutorlib.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpathlibrary.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/commandman.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartprinter.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/commandex.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-2fa-manager-bash.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-2fa-manager-cli.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-2fa-secure.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/exact-tsp-solver.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-tsp-benchmark.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-generator.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/personal-telegram-bot.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/todo-app-tg-bot.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-redis-storage.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-tsp-oracle.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-legion-lab-library.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-todo-app-desktop.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-todo-app-local.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-tsp-solver.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-babylon-library.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/babylonian-image-library.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-task-manager.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-text-randomizer.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-pip-collector.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/github-repos-backup-tools.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-social-network.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/deterministic-game-engine-report.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/aixandrolab.github.io.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/simple-social-network.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/qr-code-scanner.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/aixandrolab.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/android-todo-app.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/cli-todo-manager.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/github-explorer.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/cli-files-manager.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/github-open-repos-copy-manager.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/calculator.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/web-app-tg-bot.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/snake.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/githubinformer.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/outputdecorator.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-guitar-tuner-android.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-bug-tracker.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/github-repos-downloader.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/official-tg-bot.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/get-ssh-ip.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/todo-tg-bot.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/todo-app-web-version.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smartpasslib-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-dynamic-gravity-tsp-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-pch-tsp.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-notebook.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/exact-tsp-solver-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/name-gender-nn-py.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/name-gender-nn-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-file-duplicate-manager-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-command-runner-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-todo-app-tui-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-tui-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-gui-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/projects/smart-password-manager-cli-rs.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/libraries.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/smart-passwords-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/deterministic-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/repository-management-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/2fa-management-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/research-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/ecosystems/todo-ecosystem.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/applications.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/team.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/profiles/smartlegionlab.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/profiles/aixandrolab.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/articles.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/articles/pointer-based-security-paradigm-article.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/articles/local-data-regeneration-paradigm-article.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/articles/deterministic-game-engine-tech-report-article.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/articles/position-candidate-hypothesis-paradigm-article.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/research.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/research/pointer-based-security-paradigm.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/research/local-data-regeneration-paradigm.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/research/deterministic-game-engine-tech-report.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/research/position-candidate-hypothesis-paradigm.html</loc>
-  </url>
-  <url>
-    <loc>https://smartlegionlab.com/smartlegionlab-map.html</loc>
-  </url>
+<url><loc>https://smartlegionlab.com/</loc></url>
+<url><loc>https://smartlegionlab.com/projects.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartlegionlab.github.io.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/django-smart-dynamic-path.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-dynamic-path.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-desktop.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-repository-manager-cli.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-repository-manager-gui.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-repository-manager-core.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-2fa-manager-desktop.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/todo-app-cli.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/github-ssh-key.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/forgejo-sync-manager-gui.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/forgejo-sync-manager-cli.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/forgejo-sync-manager-core.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-project-manager.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-file-duplicate-manager.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartlegionlab.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-android.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-csharp-desktop.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-web.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-csharp-cli.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-generator-csharp-cli.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpasslib-csharp.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpasslib-js.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpasslib-kotlin.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpasslib-go.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/clipassman.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/clipassgen.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpasslib.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/position-candidate-hypothesis-paradigm.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/local-data-regeneration-paradigm.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/pointer-based-security-paradigm.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/blockchain.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-2fa-manager-android.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/clitodo.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/python-patterns.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/qr-codes-generator.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartauthen.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smarttextdecorator.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartrandom.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartcliapp.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/commandpack.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/climan.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartexecutorlib.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpathlibrary.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/commandman.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartprinter.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/commandex.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-2fa-manager-bash.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-2fa-manager-cli.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-2fa-secure.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/exact-tsp-solver.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-tsp-benchmark.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-generator.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/personal-telegram-bot.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/todo-app-tg-bot.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-redis-storage.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-tsp-oracle.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-legion-lab-library.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-todo-app-desktop.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-todo-app-local.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-tsp-solver.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-babylon-library.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/babylonian-image-library.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-task-manager.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-text-randomizer.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-pip-collector.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/github-repos-backup-tools.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-social-network.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/deterministic-game-engine-report.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/aixandrolab.github.io.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/simple-social-network.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/qr-code-scanner.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/aixandrolab.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/android-todo-app.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/cli-todo-manager.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/github-explorer.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/cli-files-manager.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/github-open-repos-copy-manager.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/calculator.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/web-app-tg-bot.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/snake.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/githubinformer.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/outputdecorator.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-guitar-tuner-android.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-bug-tracker.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/github-repos-downloader.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/official-tg-bot.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/get-ssh-ip.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/todo-tg-bot.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/todo-app-web-version.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smartpasslib-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-dynamic-gravity-tsp-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-pch-tsp.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-notebook.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/exact-tsp-solver-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/name-gender-nn-py.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/name-gender-nn-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-file-duplicate-manager-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-command-runner-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-todo-app-tui-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-tui-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-gui-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/projects/smart-password-manager-cli-rs.html</loc></url>
+<url><loc>https://smartlegionlab.com/libraries.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/smart-passwords-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/deterministic-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/repository-management-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/2fa-management-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/research-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/ecosystems/todo-ecosystem.html</loc></url>
+<url><loc>https://smartlegionlab.com/applications.html</loc></url>
+<url><loc>https://smartlegionlab.com/team.html</loc></url>
+<url><loc>https://smartlegionlab.com/profiles/smartlegionlab.html</loc></url>
+<url><loc>https://smartlegionlab.com/profiles/aixandrolab.html</loc></url>
+<url><loc>https://smartlegionlab.com/articles.html</loc></url>
+<url><loc>https://smartlegionlab.com/articles/pointer-based-security-paradigm-article.html</loc></url>
+<url><loc>https://smartlegionlab.com/articles/local-data-regeneration-paradigm-article.html</loc></url>
+<url><loc>https://smartlegionlab.com/articles/deterministic-game-engine-tech-report-article.html</loc></url>
+<url><loc>https://smartlegionlab.com/articles/position-candidate-hypothesis-paradigm-article.html</loc></url>
+<url><loc>https://smartlegionlab.com/research.html</loc></url>
+<url><loc>https://smartlegionlab.com/research/pointer-based-security-paradigm.html</loc></url>
+<url><loc>https://smartlegionlab.com/research/local-data-regeneration-paradigm.html</loc></url>
+<url><loc>https://smartlegionlab.com/research/deterministic-game-engine-tech-report.html</loc></url>
+<url><loc>https://smartlegionlab.com/research/position-candidate-hypothesis-paradigm.html</loc></url>
+<url><loc>https://smartlegionlab.com/smartlegionlab-map.html</loc></url>
 </urlset>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>django-smart-dynamic-path · Smart Legion Lab</title>
-    <meta name="description" content="django-smart-dynamic-path — Dynamic secret admin URL for Django. Time-based, deterministic, no storage. Hide your Django admin behind a URL that changes daily/monthly.">
+    <meta name="description" content="django-smart-dynamic-path - Dynamic secret admin URL for Django. Time-based, deterministic, no storage. Hide your Django admin behind a URL that changes daily/monthly.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/django-smart-dynamic-path.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -116,7 +116,7 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>django-smart-dynamic-path</strong> — dynamic secret admin URL for Django. Hide your Django admin behind a URL that changes daily/monthly. Only you know the secret phrase to generate the current path.
+                    <strong>django-smart-dynamic-path</strong> - dynamic secret admin URL for Django. Hide your Django admin behind a URL that changes daily/monthly. Only you know the secret phrase to generate the current path.
                 </p>
                 <p class="text-light">
                     <strong>Standard Django admin:</strong> <code>/admin/</code> (always the same)
@@ -140,13 +140,13 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Admin URL</strong> — changes based on time period</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> — paths are regenerated, not stored</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> — same secret + same day = same path</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Configurable Period</strong> — day, month, or static</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Management Commands</strong> — generate secret key, get admin path</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Template Tag</strong> — <code>{% secret_admin_link %}</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python API</strong> — <code>get_admin_path()</code>, <code>get_admin_url()</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Dynamic Admin URL</strong> - changes based on time period</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Storage</strong> - paths are regenerated, not stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Deterministic</strong> - same secret + same day = same path</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Configurable Period</strong> - day, month, or static</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Management Commands</strong> - generate secret key, get admin path</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Template Tag</strong> - <code>{% secret_admin_link %}</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Python API</strong> - <code>get_admin_path()</code>, <code>get_admin_url()</code></li>
                         </ul>
                     </div>
                 </div>
@@ -335,7 +335,7 @@ python3 -m smart_dynamic_path.cli --secret "my secret phrase" --key-only</pre>
                 <div id="collapseResearch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>1. Pointer-Based Security</strong></p>
-                        <p class="text-light small">The admin URL is not stored anywhere. It is regenerated on demand from a secret phrase and current time. There is no stored "pointer" — only the ability to compute it.</p>
+                        <p class="text-light small">The admin URL is not stored anywhere. It is regenerated on demand from a secret phrase and current time. There is no stored "pointer" - only the ability to compute it.</p>
                         <p class="text-light small"><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17204738" class="text-primary" target="_blank">10.5281/zenodo.17204738</a></p>
 
                         <p class="text-light mt-2"><strong>2. Local Data Regeneration</strong></p>
@@ -359,8 +359,8 @@ python3 -m smart_dynamic_path.cli --secret "my secret phrase" --key-only</pre>
                 <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No additional secrets</strong> — uses only Django's existing SECRET_KEY</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secret phrase exists only in memory</strong> — never stored</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No additional secrets</strong> - uses only Django's existing SECRET_KEY</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Secret phrase exists only in memory</strong> - never stored</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>32 hex chars</strong> = 2¹²⁸ possible paths (no brute force)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Time-based rotation</strong> limits exposure window</li>
                         </ul>
@@ -419,7 +419,7 @@ python3 -m smart_dynamic_path.cli --secret "my secret phrase" --key-only</pre>
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

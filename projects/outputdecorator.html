@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>outputdecorator · Smart Legion Lab</title>
-    <meta name="description" content="outputdecorator — A lightweight Python library designed to enhance CLI application output with professional text decoration. Automatically adapts to your terminal width and provides simple methods for creating visually appealing formatted output.">
+    <meta name="description" content="outputdecorator - A lightweight Python library designed to enhance CLI application output with professional text decoration. Automatically adapts to your terminal width and provides simple methods for creating visually appealing formatted output.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/outputdecorator.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -134,11 +134,11 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🖥️ Terminal-aware</strong> — Automatically detects and uses your terminal width</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🎨 Flexible decoration</strong> — Customize border symbols for any style</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📝 Frame formatting</strong> — Create framed text blocks with different top/bottom borders</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🔧 Simple API</strong> — Clean, intuitive interface with minimal learning curve</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>⚡ Lightweight</strong> — No external dependencies beyond Python standard library</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🖥️ Terminal-aware</strong> - Automatically detects and uses your terminal width</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🎨 Flexible decoration</strong> - Customize border symbols for any style</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>📝 Frame formatting</strong> - Create framed text blocks with different top/bottom borders</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>🔧 Simple API</strong> - Clean, intuitive interface with minimal learning curve</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>⚡ Lightweight</strong> - No external dependencies beyond Python standard library</li>
                         </ul>
                     </div>
                 </div>
@@ -208,23 +208,23 @@ Python
                         <p class="text-light small">Creates a centered line of text padded with the specified symbol to fill the terminal width.</p>
                         <p class="text-light small"><strong>Parameters:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>text</code> (str) — The text to decorate (default: empty string)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>symbol</code> (str) — Character used for padding (default: '*')</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>print_flag</code> (bool) — If True, prints directly; if False, returns the string (default: True)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>text</code> (str) - The text to decorate (default: empty string)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>symbol</code> (str) - Character used for padding (default: '*')</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>print_flag</code> (bool) - If True, prints directly; if False, returns the string (default: True)</li>
                         </ul>
-                        <p class="text-light small"><strong>Returns:</strong> <code>str</code> or <code>None</code> — Decorated string if <code>print_flag=False</code>, otherwise <code>None</code></p>
+                        <p class="text-light small"><strong>Returns:</strong> <code>str</code> or <code>None</code> - Decorated string if <code>print_flag=False</code>, otherwise <code>None</code></p>
                         <p class="text-light mt-2"><strong><code>StringDecorator.framed_decorate(text='', top_symbol='-', bottom_symbol='-')</code></strong></p>
                         <p class="text-light small">Creates a framed text block with separate top and bottom borders.</p>
                         <p class="text-light small"><strong>Parameters:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>text</code> (str) — The text to frame (default: empty string)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>top_symbol</code> (str) — Character for the top border (default: '-')</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>bottom_symbol</code> (str) — Character for the bottom border (default: '-')</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>text</code> (str) - The text to frame (default: empty string)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>top_symbol</code> (str) - Character for the top border (default: '-')</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>bottom_symbol</code> (str) - Character for the bottom border (default: '-')</li>
                         </ul>
-                        <p class="text-light small"><strong>Returns:</strong> <code>str</code> — Formatted string with top border, text, and bottom border</p>
+                        <p class="text-light small"><strong>Returns:</strong> <code>str</code> - Formatted string with top border, text, and bottom border</p>
                         <p class="text-light mt-2"><strong><code>StringDecorator.term_width()</code></strong></p>
                         <p class="text-light small">Returns the current terminal width in columns.</p>
-                        <p class="text-light small"><strong>Returns:</strong> <code>int</code> — Terminal width</p>
+                        <p class="text-light small"><strong>Returns:</strong> <code>int</code> - Terminal width</p>
                     </div>
                 </div>
             </div>
@@ -267,11 +267,11 @@ print(StringDecorator.framed_decorate('✓ Success!', top_symbol='=', bottom_sym
                 <div id="collapseUseCases" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLI tools</strong> — Create visually distinct section headers</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Logging</strong> — Highlight important log entries</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reports</strong> — Format console output for better readability</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Installers/Setup scripts</strong> — Create professional-looking progress indicators</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Development tools</strong> — Debug output with clear visual separation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>CLI tools</strong> - Create visually distinct section headers</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Logging</strong> - Highlight important log entries</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reports</strong> - Format console output for better readability</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Installers/Setup scripts</strong> - Create professional-looking progress indicators</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Development tools</strong> - Debug output with clear visual separation</li>
                         </ul>
                     </div>
                 </div>
@@ -328,7 +328,7 @@ print(StringDecorator.framed_decorate('✓ Success!', top_symbol='=', bottom_sym
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart File Duplicate Manager RS · Smart Legion Lab</title>
-    <meta name="description" content="smart-file-duplicate-manager-rs — A safe, fast, and controllable duplicate file manager for the command line, written in Rust. Byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.">
+    <meta name="description" content="smart-file-duplicate-manager-rs - A safe, fast, and controllable duplicate file manager for the command line, written in Rust. Byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-file-duplicate-manager-rs.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -115,10 +115,10 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>smart-file-duplicate-manager-rs</strong> — a safe, fast, and controllable duplicate file manager for the command line, written in Rust.
+                    <strong>smart-file-duplicate-manager-rs</strong> - a safe, fast, and controllable duplicate file manager for the command line, written in Rust.
                 </p>
                 <p class="text-light">
-                    Not just a duplicate finder. It is a complete workflow for locating, reviewing, and cleaning duplicate files — with byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.
+                    Not just a duplicate finder. It is a complete workflow for locating, reviewing, and cleaning duplicate files - with byte-level accuracy, reversible actions, multi-stage detection, and full user control at every step.
                 </p>
             </div>
         </div>
@@ -129,14 +129,14 @@
                 <p class="text-light"><strong>Why this tool</strong></p>
                 <p class="text-light small">Most duplicate finders give you a list and expect you to figure out the rest. This one is built around <strong>control</strong> and <strong>safety</strong>:</p>
                 <ul class="list-unstyled">
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Nothing is deleted by default</strong> — every destructive action is a dry-run unless you pass <code>--yes</code> or <code>--interactive</code></li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Byte-level accuracy</strong> — duplicates confirmed by byte-by-byte comparison, not just a hash</li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reversible by default</strong> — <code>trash</code> action moves files to XDG trash, restorable at any time</li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Per-file confirmation</strong> — <code>--interactive</code> prompts before each deletion</li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reusable reports</strong> — scan once, inspect, act later without rescanning</li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reviewable scripts</strong> — <code>--output shell</code> produces a bash script you can read and edit before running</li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Fast on large files</strong> — optional sampling mode reads 3 chunks per file (start, middle, end) for 10–100× speedups</li>
-                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Human-readable sizes</strong> — write <code>300M</code>, <code>1.5G</code>, <code>500KB</code> instead of raw bytes</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Nothing is deleted by default</strong> - every destructive action is a dry-run unless you pass <code>--yes</code> or <code>--interactive</code></li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Byte-level accuracy</strong> - duplicates confirmed by byte-by-byte comparison, not just a hash</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reversible by default</strong> - <code>trash</code> action moves files to XDG trash, restorable at any time</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Per-file confirmation</strong> - <code>--interactive</code> prompts before each deletion</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reusable reports</strong> - scan once, inspect, act later without rescanning</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reviewable scripts</strong> - <code>--output shell</code> produces a bash script you can read and edit before running</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Fast on large files</strong> - optional sampling mode reads 3 chunks per file (start, middle, end) for 10–100× speedups</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Human-readable sizes</strong> - write <code>300M</code>, <code>1.5G</code>, <code>500KB</code> instead of raw bytes</li>
                 </ul>
             </div>
         </div>
@@ -171,11 +171,11 @@
                         </ul>
                         <p class="text-light fw-bold mt-2">Actions</p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>report</code> — show groups, delete nothing (default)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>trash</code> — move duplicates to XDG trash (reversible)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>move</code> — move duplicates to a chosen folder</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>delete</code> — permanently remove duplicates</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>hardlink</code> — replace duplicates with hard links to the kept file</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>report</code> - show groups, delete nothing (default)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>trash</code> - move duplicates to XDG trash (reversible)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>move</code> - move duplicates to a chosen folder</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>delete</code> - permanently remove duplicates</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>hardlink</code> - replace duplicates with hard links to the kept file</li>
                         </ul>
                         <p class="text-light fw-bold mt-2">Strategies &amp; Filters</p>
                         <ul class="list-unstyled">
@@ -216,11 +216,11 @@
                     <div class="accordion-body text-light">
                         <p class="text-light">Duplicate detection runs in <strong>five phases</strong>. Each phase filters the candidate set further, so that expensive operations run only on files that survived all previous checks.</p>
                         <ol class="text-light">
-                            <li class="mb-1"><strong>Scan</strong> — walk the directory tree, collect files (path, size, mtime)</li>
-                            <li class="mb-1"><strong>Group by size</strong> — files of different sizes cannot be duplicates</li>
-                            <li class="mb-1"><strong>Prefix hash</strong> — hash the first 4 KB of each candidate (fast filter)</li>
-                            <li class="mb-1"><strong>Full hash</strong> — BLAKE3 over full content, parallelized with <code>rayon</code></li>
-                            <li class="mb-1"><strong>Confirm</strong> — byte-by-byte comparison to rule out hash collisions</li>
+                            <li class="mb-1"><strong>Scan</strong> - walk the directory tree, collect files (path, size, mtime)</li>
+                            <li class="mb-1"><strong>Group by size</strong> - files of different sizes cannot be duplicates</li>
+                            <li class="mb-1"><strong>Prefix hash</strong> - hash the first 4 KB of each candidate (fast filter)</li>
+                            <li class="mb-1"><strong>Full hash</strong> - BLAKE3 over full content, parallelized with <code>rayon</code></li>
+                            <li class="mb-1"><strong>Confirm</strong> - byte-by-byte comparison to rule out hash collisions</li>
                         </ol>
                         <p class="text-light small mt-2">With the optional <code>--sample-chunk</code> flag, phases 4 and 5 read only three chunks per file (start, middle, end) instead of the whole file. This is a probabilistic check.</p>
                     </div>
@@ -277,26 +277,26 @@ smart_file_duplicate_manager -p ~/Pictures</pre>
                                     <tr><th>Option</th><th>Description</th><th>Default</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><code>-p, --path &lt;PATH&gt;</code></td><td>Directory to scan (required unless <code>--from-report</code> is used)</td><td>—</td></tr>
-                                    <tr><td><code>--from-report &lt;FILE&gt;</code></td><td>Load duplicate groups from a JSON report instead of scanning</td><td>—</td></tr>
+                                    <tr><td><code>-p, --path &lt;PATH&gt;</code></td><td>Directory to scan (required unless <code>--from-report</code> is used)</td><td>-</td></tr>
+                                    <tr><td><code>--from-report &lt;FILE&gt;</code></td><td>Load duplicate groups from a JSON report instead of scanning</td><td>-</td></tr>
                                     <tr><td><code>--min-size &lt;SIZE&gt;</code></td><td>Minimum file size (e.g. <code>1</code>, <code>100K</code>, <code>10M</code>, <code>1.5G</code>)</td><td><code>1</code></td></tr>
-                                    <tr><td><code>--max-size &lt;SIZE&gt;</code></td><td>Maximum file size</td><td>—</td></tr>
+                                    <tr><td><code>--max-size &lt;SIZE&gt;</code></td><td>Maximum file size</td><td>-</td></tr>
                                     <tr><td><code>--sample-chunk &lt;SIZE&gt;</code></td><td>Read only 3 chunks (0 = read fully)</td><td><code>0</code></td></tr>
                                     <tr><td><code>--sample-threshold &lt;SIZE&gt;</code></td><td>Apply sampling only to files at least this large</td><td><code>100M</code></td></tr>
-                                    <tr><td><code>--ext &lt;LIST&gt;</code></td><td>Only these extensions (comma-separated)</td><td>—</td></tr>
-                                    <tr><td><code>--exclude &lt;LIST&gt;</code></td><td>Skip paths containing these substrings</td><td>—</td></tr>
+                                    <tr><td><code>--ext &lt;LIST&gt;</code></td><td>Only these extensions (comma-separated)</td><td>-</td></tr>
+                                    <tr><td><code>--exclude &lt;LIST&gt;</code></td><td>Skip paths containing these substrings</td><td>-</td></tr>
                                     <tr><td><code>--hidden</code></td><td>Include hidden files</td><td><code>false</code></td></tr>
                                     <tr><td><code>--follow-links</code></td><td>Follow symbolic links</td><td><code>false</code></td></tr>
                                     <tr><td><code>--keep &lt;STRATEGY&gt;</code></td><td><code>first</code>, <code>newest</code>, <code>oldest</code>, <code>shortest</code></td><td><code>first</code></td></tr>
                                     <tr><td><code>--action &lt;ACTION&gt;</code></td><td><code>report</code>, <code>trash</code>, <code>move</code>, <code>delete</code>, <code>hardlink</code></td><td><code>report</code></td></tr>
-                                    <tr><td><code>--action-dir &lt;DIR&gt;</code></td><td>Destination for <code>move</code> action</td><td>—</td></tr>
+                                    <tr><td><code>--action-dir &lt;DIR&gt;</code></td><td>Destination for <code>move</code> action</td><td>-</td></tr>
                                     <tr><td><code>--yes</code></td><td>Execute destructive actions</td><td><code>false</code></td></tr>
                                     <tr><td><code>--dry-run</code></td><td>Force dry-run even with <code>--yes</code></td><td><code>false</code></td></tr>
                                     <tr><td><code>--interactive</code></td><td>Ask confirmation for each file (requires TTY)</td><td><code>false</code></td></tr>
-                                    <tr><td><code>--limit &lt;N&gt;</code></td><td>Show only top N groups in report</td><td>—</td></tr>
+                                    <tr><td><code>--limit &lt;N&gt;</code></td><td>Show only top N groups in report</td><td>-</td></tr>
                                     <tr><td><code>--group-by-dir</code></td><td>Show directories with most duplicates</td><td><code>false</code></td></tr>
                                     <tr><td><code>--output &lt;FORMAT&gt;</code></td><td><code>text</code>, <code>json</code>, or <code>shell</code></td><td><code>text</code></td></tr>
-                                    <tr><td><code>--output-file &lt;PATH&gt;</code></td><td>Write output to file</td><td>—</td></tr>
+                                    <tr><td><code>--output-file &lt;PATH&gt;</code></td><td>Write output to file</td><td>-</td></tr>
                                     <tr><td><code>--color &lt;WHEN&gt;</code></td><td><code>auto</code>, <code>always</code>, <code>never</code></td><td><code>auto</code></td></tr>
                                 </tbody>
                             </table>
@@ -424,7 +424,7 @@ smart_file_duplicate_manager --path ~/Downloads --action trash --interactive
 
 # Interactive with a saved report (no rescanning)
 smart_file_duplicate_manager --from-report /tmp/dupes.json --action trash --interactive</pre>
-                        <p class="text-light small mt-2"><strong>Prompt keys:</strong> <code>y</code> — do it · <code>n</code> or Enter — skip · <code>a</code> — apply to all remaining · <code>q</code> — quit</p>
+                        <p class="text-light small mt-2"><strong>Prompt keys:</strong> <code>y</code> - do it · <code>n</code> or Enter - skip · <code>a</code> - apply to all remaining · <code>q</code> - quit</p>
                         <p class="text-light fw-bold mt-2">Fast mode for large files</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 # Sample 3 chunks per large file (fast, not guaranteed)
@@ -529,8 +529,8 @@ bash /tmp/cleanup.sh     # execute when ready</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Exit codes:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>0</code> — success</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>1</code> — invalid arguments, path does not exist, or report cannot be loaded</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>0</code> - success</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>1</code> - invalid arguments, path does not exist, or report cannot be loaded</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Testing:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
@@ -610,7 +610,7 @@ cargo test</pre>
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

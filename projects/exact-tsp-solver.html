@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exact-tsp-solver · Smart Legion Lab</title>
-    <meta name="description" content="exact-tsp-solver — Dual-mode TSP solver in Go: exact Branch & Bound with proven optimality, plus heuristic threshold search with reference gap.">
+    <meta name="description" content="exact-tsp-solver - Dual-mode TSP solver in Go: exact Branch & Bound with proven optimality, plus heuristic threshold search with reference gap.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/exact-tsp-solver.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -115,12 +115,12 @@
         <div class="mb-4">
             <div class="smart-small-card">
                 <p class="text-light">
-                    <strong>exact-tsp-solver</strong> — a dual-mode solver for the Traveling Salesman Problem (TSP) written in Go.
+                    <strong>exact-tsp-solver</strong> - a dual-mode solver for the Traveling Salesman Problem (TSP) written in Go.
                 </p>
                 <ul class="text-light">
-                    <li><strong>Exact mode</strong> — proves the optimal tour via Branch &amp; Bound with MST+2-edge lower bound.</li>
-                    <li><strong>Heuristic mode</strong> — iterative threshold search; returns the best found tour and a reference lower bound, without claiming optimality.</li>
-                    <li><strong>Auto mode</strong> — selects exact for n ≤ 20, heuristic otherwise.</li>
+                    <li><strong>Exact mode</strong> - proves the optimal tour via Branch &amp; Bound with MST+2-edge lower bound.</li>
+                    <li><strong>Heuristic mode</strong> - iterative threshold search; returns the best found tour and a reference lower bound, without claiming optimality.</li>
+                    <li><strong>Auto mode</strong> - selects exact for n ≤ 20, heuristic otherwise.</li>
                 </ul>
                 <p class="text-light">
                     The solver never reports a result as optimal unless it has exhaustively proven optimality. Every run ends with one of three statuses:
@@ -151,15 +151,15 @@
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Two modes, one binary</strong> — exact for correctness, heuristic for scale</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Honest status reporting</strong> — optimality is either proven or explicitly not claimed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reference lower bound</strong> — Held-Karp 1-tree bound with subgradient descent is computed at the root and reported as a quality metric</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Timeout support</strong> — exact mode can be limited by wall-clock time</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Progress reporting</strong> — periodic output during long exact runs</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reproducible</strong> — deterministic point generation from a single seed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Structured output</strong> — result files are written to the <code>results/</code> directory, created automatically on the first run</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Standard library only</strong> — no external dependencies</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Single binary</strong> — <code>go build</code> produces a self-contained executable</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Two modes, one binary</strong> - exact for correctness, heuristic for scale</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Honest status reporting</strong> - optimality is either proven or explicitly not claimed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reference lower bound</strong> - Held-Karp 1-tree bound with subgradient descent is computed at the root and reported as a quality metric</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Timeout support</strong> - exact mode can be limited by wall-clock time</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Progress reporting</strong> - periodic output during long exact runs</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Reproducible</strong> - deterministic point generation from a single seed</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Structured output</strong> - result files are written to the <code>results/</code> directory, created automatically on the first run</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Standard library only</strong> - no external dependencies</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Single binary</strong> - <code>go build</code> produces a self-contained executable</li>
                         </ul>
                     </div>
                 </div>
@@ -176,16 +176,16 @@
                     <div class="accordion-body text-light">
                         <p class="text-primary"><strong>Exact mode</strong></p>
                         <ol class="text-light">
-                            <li><strong>Upper bound</strong> — multi-start greedy nearest-neighbor followed by 2-opt.</li>
-                            <li><strong>Reference lower bound at root</strong> — Held-Karp 1-tree bound with subgradient descent (informational; not used for pruning).</li>
-                            <li><strong>Branch &amp; Bound</strong> — depth-first search over partial tours. At every node:
+                            <li><strong>Upper bound</strong> - multi-start greedy nearest-neighbor followed by 2-opt.</li>
+                            <li><strong>Reference lower bound at root</strong> - Held-Karp 1-tree bound with subgradient descent (informational; not used for pruning).</li>
+                            <li><strong>Branch &amp; Bound</strong> - depth-first search over partial tours. At every node:
                                 <ul>
                                     <li>Lower bound = <code>partial_distance + MST(unvisited) + 2 × min_edge_to_path</code>.</li>
                                     <li>If <code>lower_bound ≥ best_known</code>, prune the subtree.</li>
                                     <li>Otherwise expand to the nearest unvisited vertex first.</li>
                                 </ul>
                             </li>
-                            <li><strong>Termination</strong> — either the search tree is exhausted (<code>OPTIMAL (proven)</code>) or the timeout fires (<code>TIMEOUT</code>).</li>
+                            <li><strong>Termination</strong> - either the search tree is exhausted (<code>OPTIMAL (proven)</code>) or the timeout fires (<code>TIMEOUT</code>).</li>
                         </ol>
                         <p class="text-light">
                             The MST-based lower bound is mathematically correct: the length of a minimum spanning tree over a set of vertices never exceeds the length of any Hamiltonian cycle over the same set. Therefore pruning never removes a subtree that could contain a better tour, and the algorithm is exact.
@@ -198,8 +198,8 @@
                                 <ul>
                                     <li>Start with threshold <code>T = 0.90 × greedy</code>.</li>
                                     <li>Run B&amp;B looking for any tour shorter than <code>T</code>.</li>
-                                    <li>If found — update <code>best</code> and lower <code>T</code> further.</li>
-                                    <li>If not found — raise <code>T</code> and try again.</li>
+                                    <li>If found - update <code>best</code> and lower <code>T</code> further.</li>
+                                    <li>If not found - raise <code>T</code> and try again.</li>
                                     <li>Stop when no improvement is found after a raise.</li>
                                 </ul>
                             </li>
@@ -256,9 +256,9 @@ go build -o exact-tsp-solver .</pre>
                         </div>
                         <p class="text-primary mt-3"><strong>Mode selection</strong></p>
                         <ul class="text-light">
-                            <li><code>-mode exact</code> — force exact mode. Recommended for n ≤ 25. Combine with <code>-timeout</code> for safety.</li>
-                            <li><code>-mode heuristic</code> — force heuristic. No proof of optimality.</li>
-                            <li><code>-mode auto</code> (default) — exact for n ≤ 20, heuristic for larger n.</li>
+                            <li><code>-mode exact</code> - force exact mode. Recommended for n ≤ 25. Combine with <code>-timeout</code> for safety.</li>
+                            <li><code>-mode heuristic</code> - force heuristic. No proof of optimality.</li>
+                            <li><code>-mode auto</code> (default) - exact for n ≤ 20, heuristic for larger n.</li>
                         </ul>
                         <p class="text-primary mt-3"><strong>Examples</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
@@ -408,15 +408,15 @@ Results saved to results/tsp_result_n20_seed1222.txt</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light">The solver is deterministic given <code>-n</code> and <code>-seed</code>.</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-# Small exact instances — expect OPTIMAL (proven)
+# Small exact instances - expect OPTIMAL (proven)
 go run . -n 15 -seed 1222 -mode exact
 go run . -n 20 -seed 1222 -mode exact
 go run . -n 24 -seed 1222 -mode exact
 
-# Larger exact with a time limit — expect OPTIMAL or TIMEOUT
+# Larger exact with a time limit - expect OPTIMAL or TIMEOUT
 go run . -n 35 -seed 1222 -mode exact -timeout 60
 
-# Heuristic — expect BEST FOUND
+# Heuristic - expect BEST FOUND
 go run . -n 30 -seed 1222 -mode heuristic
 go run . -n 40 -seed 1222 -mode heuristic</pre>
                     </div>
@@ -453,14 +453,14 @@ go run . -n 40 -seed 1222 -mode heuristic</pre>
                 <div id="collapseSeeAlso" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html" class="text-primary" target="_blank">NP Problem Ecosystem</a> — exact and heuristic solvers for the TSP, grounded in the Position-Candidate-Hypothesis (PCH) paradigm.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/exact-tsp-solver-rs" class="text-primary" target="_blank">Exact TSP Solver (Rust)</a> — Rust port with identical semantics.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-pch-tsp-rs" class="text-primary" target="_blank">smart-pch-tsp-rs</a> — Universal TSP path improver using the PCH paradigm.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-dynamic-gravity-tsp-rs" class="text-primary" target="_blank">smart-dynamic-gravity-tsp-rs</a> — Rust library using the novel Dynamic Gravity algorithm.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-oracle" class="text-primary" target="_blank">Smart TSP Oracle</a> — Python implementation of the same Branch &amp; Bound approach.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a> — professional algorithm testing infrastructure.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="text-primary" target="_blank">Angular-Radial &amp; Dynamic Gravity</a> — spatial intelligence algorithms for large-scale TSP routing.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" class="text-primary" target="_blank">Position-Candidate-Hypothesis Paradigm</a> — structural-statistical approach to NP-complete problems.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://smartlegionlab.com/ecosystems/np-problem-ecosystem.html" class="text-primary" target="_blank">NP Problem Ecosystem</a> - exact and heuristic solvers for the TSP, grounded in the Position-Candidate-Hypothesis (PCH) paradigm.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/exact-tsp-solver-rs" class="text-primary" target="_blank">Exact TSP Solver (Rust)</a> - Rust port with identical semantics.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-pch-tsp-rs" class="text-primary" target="_blank">smart-pch-tsp-rs</a> - Universal TSP path improver using the PCH paradigm.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-dynamic-gravity-tsp-rs" class="text-primary" target="_blank">smart-dynamic-gravity-tsp-rs</a> - Rust library using the novel Dynamic Gravity algorithm.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-oracle" class="text-primary" target="_blank">Smart TSP Oracle</a> - Python implementation of the same Branch &amp; Bound approach.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-benchmark" class="text-primary" target="_blank">Smart TSP Benchmark</a> - professional algorithm testing infrastructure.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/smart-tsp-solver" class="text-primary" target="_blank">Angular-Radial &amp; Dynamic Gravity</a> - spatial intelligence algorithms for large-scale TSP routing.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><a href="https://github.com/smartlegionlab/position-candidate-hypothesis-paradigm" class="text-primary" target="_blank">Position-Candidate-Hypothesis Paradigm</a> - structural-statistical approach to NP-complete problems.</li>
                         </ul>
                     </div>
                 </div>
@@ -519,7 +519,7 @@ go run . -n 40 -seed 1222 -mode heuristic</pre>
                 Smart Legion Lab
             </a> |
             <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
-                <span data-smart-version>v7.6.16</span>
+                <span data-smart-version>v7.6.17</span>
             </a> |
             <a href="/smartlegionlab-map.html" target="_blank">
                 Site Map

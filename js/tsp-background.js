@@ -1,5 +1,5 @@
 /**
- * TSP Background — traveling salesman path animation.
+ * TSP Background - traveling salesman path animation.
  * Dots drift slowly, greedy route is animated with a fading trail.
  */
 

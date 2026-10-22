@@ -1,5 +1,5 @@
 /**
- * Background Dispatcher — universal.
+ * Background Dispatcher - universal.
  * Loads the first matching background engine based on page context.
  * Requires: <div id="background-trigger" hidden></div>
  *
