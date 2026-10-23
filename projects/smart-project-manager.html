@@ -123,6 +123,19 @@
             </div>
         </div>
 
+        <!-- Screenshot -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="row g-2 justify-content-center">
+                    <div class="col-12 col-md-10">
+                        <a href="https://github.com/smartlegionlab/smart-project-manager/blob/master/data/images/smart-project-manager.png" target="_blank">
+                            <img src="https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/data/images/smart-project-manager.png" class="img-fluid rounded" alt="Smart Social Network" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Features Accordion -->
         <div class="accordion accordion-flush mb-4" id="featuresAccordion">
 
@@ -135,40 +148,54 @@
                 </h2>
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>1. Project Management</strong></p>
+                        <p class="text-light"><strong>1. Tab-Based Project Manager</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit, and delete projects with name, version, and description</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Projects open as tabs on the right side, one tab per project</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multiple projects can be open at the same time</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Close a project tab without deleting the project - it stays in the tree on the left</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks open as nested tabs below the task list, one tab per task</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multiple tasks can be open at the same time inside one project</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>2. Project Management</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit, and delete projects with name and description</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Hierarchical structure: <strong>Projects → Tasks → Subtasks</strong></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic progress calculation based on task completion</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic progress calculation per project based on task completion</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>2. Task & Subtask System</strong></p>
+                        <p class="text-light mt-2"><strong>3. Task & Subtask System</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create tasks and subtasks with titles, descriptions, priorities (High/Medium/Low), and due dates</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic completion logic - task marked complete when all subtasks are completed</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion status directly from main interface</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks with title, description, priority (High/Medium/Low) and optional due date</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtasks with the same fields, nested inside tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic completion logic: when all subtasks are completed, the parent task is marked complete</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion status for tasks and subtasks directly from the UI</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Drag and drop task rows to reorder them</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>3. Label System</strong></p>
+                        <p class="text-light mt-2"><strong>4. Label System</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create custom labels with name, color, and description</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Assign labels to tasks and subtasks for categorization</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dedicated Label Manager dialog</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Custom labels with name, color, text color and description</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Assign labels to tasks and subtasks for categorization and filtering</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dedicated Label Manager dialog for creating, editing and deleting labels</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>4. Progress Tracking & Statistics</strong></p>
+                        <p class="text-light mt-2"><strong>5. Progress Tracking & Statistics</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Visual progress bars for tasks, subtasks, and projects</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Real-time global statistics dashboard</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Detailed project progress panel</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Visual progress bars for tasks, subtasks and overall projects</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Global statistics panel with counts and completion rates</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-project progress panel with task/subtask counts and last update time</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>5. User Interface</strong></p>
+                        <p class="text-light mt-2"><strong>6. User Interface</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dark theme optimized for extended use</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Two-panel layout: Project tree on left, task table on right</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menus for quick task actions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Two-panel layout: project tree on the left, tabs and task details on the right</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menus for quick task actions (view, edit, mark complete, delete)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Search and filters by priority, label and completion status</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Built-in Keyboard Shortcuts dialog accessible from Help menu or <code>Ctrl+/</code></li>
                         </ul>
-                        <p class="text-light mt-2"><strong>6. Data Persistence</strong></p>
+                        <p class="text-light mt-2"><strong>7. Data Persistence</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic saving to <code>~/.smart_project_manager/projects.json</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON-based storage for projects, tasks, subtasks, and labels</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON-based storage for projects, tasks, subtasks and labels</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Data loaded automatically on application startup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Manual backups and automatic cleanup of backups older than 30 days</li>
                         </ul>
                     </div>
                 </div>
@@ -238,8 +265,10 @@ curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manage
                             <li>Refreshes the desktop database so the menu entry appears without a full re-login on most systems.</li>
                         </ol>
 
+                        <p class="text-light mt-2"><strong>Launch after install:</strong> Application menu → <strong>Smart Project Manager</strong></p>
+
                         <p class="text-light mt-2"><strong>Desktop shortcut (opt-in):</strong></p>
-                        <p class="text-light small">By default, no Desktop shortcut is created. This is intentional - on GNOME (default on Ubuntu), desktop icons are hidden by default. To also create a Desktop shortcut during install, pass the <code>SPM_CREATE_DESKTOP_SHORTCUT=1</code> environment variable to <strong>bash</strong> - the second command in the pipeline:</p>
+                        <p class="text-light small">By default, no Desktop shortcut is created. This is intentional - on GNOME (default on Ubuntu), desktop icons are hidden by default, which would make a shortcut invisible and confusing. To also create a Desktop shortcut during install, pass the <code>SPM_CREATE_DESKTOP_SHORTCUT=1</code> environment variable to <strong>bash</strong> - the second command in the pipeline:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/install.sh | SPM_CREATE_DESKTOP_SHORTCUT=1 bash</pre>
                         <p class="text-light small">Or export it first, then run the normal installer:</p>
@@ -248,10 +277,33 @@ export SPM_CREATE_DESKTOP_SHORTCUT=1
 curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/install.sh | bash</pre>
                         <p class="text-warning small"><strong>Note:</strong> Writing <code>SPM_CREATE_DESKTOP_SHORTCUT=1 curl ... | bash</code> does not work - in a shell pipeline, an environment variable prefix applies only to the command on the left side of the pipe. Pass it to <code>bash</code> directly, or export it beforehand.</p>
 
+                        <p class="text-light small"><strong>Notes:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>On GNOME (default on Ubuntu), desktop icons may be hidden by default. Enable Desktop Icons in GNOME Tweaks to see the shortcut.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The Desktop shortcut may show an <strong>"Unsecured Application Launcher"</strong> warning. Right-click → <strong>Allow Launching</strong> (one-time action).</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>If the menu entry does not appear immediately, log out and back in.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Alternative - install from a cloned repo</strong></p>
+                        <p class="text-light small">If you already cloned the repository, you can run the installer locally:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cd smart-project-manager
+./install.sh</pre>
+                        <p class="text-light small">It works the same way. It ignores any local <code>venv/</code> and creates its own under <code>~/.local/share/smart-project-manager/venv/</code>.</p>
+
                         <p class="text-light mt-2"><strong>Uninstall:</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/uninstall.sh | bash</pre>
-                        <p class="text-light small">The uninstaller removes the application, menu entry, and Desktop shortcut (if present). It <strong>never touches</strong> your projects data at <code>~/.smart_project_manager/projects.json</code>.</p>
+                        <p class="text-light small"><strong>What the uninstaller removes:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/.local/share/smart-project-manager/</code> - the application and its venv</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/.local/share/applications/smart-project-manager.desktop</code> - the menu entry</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/Desktop/smart-project-manager.desktop</code> - the Desktop shortcut (if present)</li>
+                        </ul>
+                        <p class="text-light small"><strong>What the uninstaller never touches:</strong> <code>~/.smart_project_manager/projects.json</code> - your projects, tasks, subtasks and labels. It is your data. Only you decide what to do with it.</p>
+                        <p class="text-light small">If you want to remove your data as well, run after uninstall:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+rm -rf ~/.smart_project_manager</pre>
 
                         <p class="text-light mt-3"><strong>Installation Paths:</strong></p>
                         <div class="table-responsive">
@@ -315,13 +367,39 @@ curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manage
                 </h2>
                 <div id="collapseHowToUse" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
+                        <p class="text-light"><strong>Getting Started</strong></p>
                         <ol class="text-light">
-                            <li class="mb-2"><strong>Create a Project:</strong> Use <code>File → New Project</code> or the "New Project" button</li>
-                            <li class="mb-2"><strong>Select a Project:</strong> Click on a project in the left panel to view and manage its tasks</li>
-                            <li class="mb-2"><strong>Create a Task:</strong> With a project selected, use <code>File → New Task</code> or the "New Task" button</li>
-                            <li class="mb-2"><strong>Add Subtasks:</strong> Edit a task and navigate to the "Subtasks" tab to add detailed steps</li>
-                            <li class="mb-2"><strong>Manage Labels:</strong> Use <code>Edit → Manage Labels</code> to create and organize your label system</li>
+                            <li class="mb-2"><strong>Create a project:</strong> <code>File → New Project</code> or the <strong>+ New Project</strong> button in the left panel.</li>
+                            <li class="mb-2"><strong>Open a project:</strong> click it in the tree on the left - it opens as a tab on the right.</li>
+                            <li class="mb-2"><strong>Create a task:</strong> with a project tab active, use <code>File → New Task</code> or the <strong>Add Task</strong> button.</li>
+                            <li class="mb-2"><strong>Open a task:</strong> double-click a task row - its subtasks open as a nested tab below the task list.</li>
+                            <li class="mb-2"><strong>Manage labels:</strong> <code>Edit → Manage Labels</code> to create, edit and delete labels.</li>
                         </ol>
+
+                        <p class="text-light mt-3"><strong>Working with Tabs</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each opened project has its own tab on the right. Switching between project tabs switches the whole working context.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Inside a project tab, double-clicking a task opens a subtask tab below the task table. Multiple subtask tabs can be open at the same time.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Closing a project tab does not delete the project - it stays in the tree on the left.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Closing a subtask tab does not delete the task - it stays in the task list.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Tasks and Subtasks</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks and subtasks support title, description, priority, due date and labels.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Marking all subtasks complete auto-marks the parent task complete.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Drag task rows up or down to reorder them inside a project.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Right-click a task for quick actions: view details, open subtasks, mark complete/pending, edit, delete.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Search and Filters</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Type into the search box to filter tasks by title and description.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Filter by priority using the Priority dropdown.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Filter by label using the Label dropdown.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle <strong>Show Completed</strong> to hide or show completed tasks.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Click <strong>Reset</strong> to clear all filters.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -343,18 +421,43 @@ curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manage
                                 <tbody>
                                     <tr><td><code>Ctrl+N</code></td><td>New Project</td></tr>
                                     <tr><td><code>Ctrl+T</code></td><td>New Task</td></tr>
-                                    <tr><td><code>Ctrl+B</code></td><td>Create BackUp</td></tr>
+                                    <tr><td><code>Ctrl+B</code></td><td>Create Backup</td></tr>
                                     <tr><td><code>Ctrl+I</code></td><td>Import</td></tr>
                                     <tr><td><code>Ctrl+Shift+E</code></td><td>Export</td></tr>
-                                    <tr><td><code>Ctrl+E</code></td><td>Edit Selected Project</td></tr>
-                                    <tr><td><code>Ctrl+D</code></td><td>Delete Selected Project</td></tr>
                                     <tr><td><code>Ctrl+L</code></td><td>Manage Labels</td></tr>
                                     <tr><td><code>F5</code></td><td>Refresh View</td></tr>
                                     <tr><td><code>F1</code></td><td>Open Help</td></tr>
+                                    <tr><td><code>Ctrl+/</code></td><td>Show Keyboard Shortcuts</td></tr>
+                                    <tr><td><code>Ctrl+A</code></td><td>Open About</td></tr>
                                     <tr><td><code>Ctrl+Q</code></td><td>Exit Application</td></tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Storage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDataStorage" aria-expanded="false">
+                        <i class="bi bi-database me-2 text-primary"></i> Data Storage
+                    </button>
+                </h2>
+                <div id="collapseDataStorage" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr><th>Item</th><th>Path</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Projects</td><td><code>~/.smart_project_manager/projects.json</code></td></tr>
+                                    <tr><td>Backups</td><td><code>~/.smart_project_manager/backups/</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light small">Backups older than 30 days are cleaned up automatically on application startup. Manual cleanup is also available from <code>File → Show Backups</code>.</p>
                     </div>
                 </div>
             </div>
@@ -372,26 +475,6 @@ curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manage
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Task Filtering System</strong> - The "Show Completed Tasks" toggle in the <code>View</code> menu is a placeholder. Future implementation will enable filtering of completed vs. pending tasks, with additional options by priority, due date, labels, and persistence between sessions</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Screenshots -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScreenshots" aria-expanded="false">
-                        <i class="bi bi-images me-2 text-primary"></i> Screenshots
-                    </button>
-                </h2>
-                <div id="collapseScreenshots" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body">
-                        <div class="row g-2 justify-content-center">
-                            <div class="col-12 col-md-8">
-                                <a href="https://github.com/smartlegionlab/smart-project-manager/blob/master/data/images/smart-project-manager.png" target="_blank">
-                                    <img src="https://raw.githubusercontent.com/smartlegionlab/smart-project-manager/master/data/images/smart-project-manager.png" class="img-fluid rounded" alt="Smart Project Manager" referrerpolicy="no-referrer">
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
