@@ -105,6 +105,7 @@
             <h1 class="text-primary">Smart Task Manager</h1>
             <p class="text-light">Modern desktop task management application</p>
             <p class="text-light">Built with <span class="text-primary">Python and PyQt5</span>, featuring an intuitive dark theme interface, priority-based organization, and automatic data persistence.</p>
+            <p class="text-light small">Version 1.2.0</p>
             <hr>
             <div class="mt-3">
                 <a target="_blank" href="https://github.com/smartlegionlab/smart-task-manager" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
@@ -125,15 +126,15 @@
             <div class="smart-small-card">
                 <div class="row g-2 justify-content-center">
                     <div class="col-12 col-md-10">
-                        <a href="https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/data/images/smart-task-manager.png" target="_blank">
-                            <img src="https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/data/images/smart-task-manager.png" class="img-fluid rounded" alt="Smart Task Manager" referrerpolicy="no-referrer">
+                        <a href="/data/images/projects/smart-task-manager/smart-task-manager.png" target="_blank">
+                            <img src="/data/images/projects/smart-task-manager/smart-task-manager.png" class="img-fluid rounded" alt="Smart Task Manager" referrerpolicy="no-referrer">
                         </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Features Accordion -->
+        <!-- Accordion -->
         <div class="accordion accordion-flush mb-4" id="featuresAccordion">
 
             <!-- Features -->
@@ -151,6 +152,7 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Edit tasks anytime with full detail modification</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>View task details in a dedicated dialog</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Delete tasks individually or clear completed tasks in bulk</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Double-click</strong> a task row or press <strong>Enter</strong> to open task details</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Priority System:</strong></p>
                         <ul class="list-unstyled">
@@ -159,7 +161,7 @@
                         </ul>
                         <p class="text-light mt-2"><strong>Task Status:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion status with one click</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion status with one click or <code>Space</code></li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Visual strikethrough for completed tasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Overdue task highlighting (red text for overdue items)</li>
                         </ul>
@@ -176,6 +178,9 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Responsive table layout with resizable columns</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menu for quick actions (right-click on tasks)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task statistics displayed in real-time</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Menu bar (File / Edit / View / Help) with keyboard shortcuts</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Status bar with live feedback</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Compact single-row filters (search + status + priority + due date + reset)</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Additional Features:</strong></p>
                         <ul class="list-unstyled">
@@ -183,6 +188,8 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task descriptions with word wrap</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Overdue task notifications (visual indicators)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Help documentation built into the application</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>About dialog with project information</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Keyboard shortcuts dialog</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Confirmation dialogs for destructive actions</li>
                         </ul>
                     </div>
@@ -198,20 +205,81 @@
                 </h2>
                 <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Prerequisites:</strong> Python 3.7+, PyQt5</p>
+                        <p class="text-light"><strong>Prerequisites:</strong> Python 3.7+, PyQt5, Git (installer only), curl (installer only)</p>
+
+                        <p class="text-light mt-3"><strong>Option 1 - Run from Source (no system install)</strong></p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-# Clone the repository
 git clone https://github.com/smartlegionlab/smart-task-manager.git
 cd smart-task-manager
-
-# Install required dependencies
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+python app.py</pre>
 
-# Run the application
-python task_manager.py</pre>
-                        <p class="text-light mt-2"><strong>One-line Installation:</strong></p>
+                        <p class="text-light mt-3"><strong>Option 2 - Install System-Wide (recommended)</strong></p>
+                        <p class="text-light small">One-command install:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-git clone https://github.com/smartlegionlab/smart-task-manager.git && cd smart-task-manager && pip install PyQt5 && python task_manager.py</pre>
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/install.sh | bash</pre>
+
+                        <p class="text-light mt-2"><strong>What the installer does:</strong></p>
+                        <ol class="text-light small">
+                            <li>Downloads the source code from GitHub.</li>
+                            <li>Installs the application to <code>~/.local/share/smart-task-manager/</code>. No root, no sudo - everything lives inside your home directory.</li>
+                            <li>Creates a dedicated Python virtual environment at <code>~/.local/share/smart-task-manager/venv/</code> and installs dependencies into it.</li>
+                            <li>Registers the app in your desktop environment by creating <code>~/.local/share/applications/smart-task-manager.desktop</code>.</li>
+                            <li>Refreshes the desktop database so the menu entry appears without a full re-login on most systems.</li>
+                        </ol>
+
+                        <p class="text-light mt-2"><strong>Launch after install:</strong> Application menu -> <strong>Smart Task Manager</strong></p>
+
+                        <p class="text-light mt-2"><strong>Desktop shortcut (opt-in):</strong></p>
+                        <p class="text-light small">By default, no Desktop shortcut is created. This is intentional - on GNOME (default on Ubuntu), desktop icons are hidden by default, which would make a shortcut invisible and confusing.</p>
+                        <p class="text-light small">To also create a Desktop shortcut during install, pass the <code>STM_CREATE_DESKTOP_SHORTCUT=1</code> environment variable to <strong>bash</strong> - the second command in the pipeline:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/install.sh | STM_CREATE_DESKTOP_SHORTCUT=1 bash</pre>
+                        <p class="text-light small">Or export it first, then run the normal installer:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+export STM_CREATE_DESKTOP_SHORTCUT=1
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/install.sh | bash</pre>
+                        <p class="text-light small"><strong>Note:</strong> Writing <code>STM_CREATE_DESKTOP_SHORTCUT=1 curl ... | bash</code> does <strong>not</strong> work - in a shell pipeline, an environment variable prefix applies only to the command on the <strong>left</strong> side of the <code>|</code>. The variable never reaches <code>bash</code>, which is on the right side. Pass it to <code>bash</code> directly, or <code>export</code> it beforehand.</p>
+
+                        <p class="text-light mt-2"><strong>Alternative - install from a cloned repo:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cd smart-task-manager
+./install.sh</pre>
+
+                        <p class="text-light mt-3"><strong>Uninstall</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-task-manager/master/uninstall.sh | bash</pre>
+                        <p class="text-light mt-2"><strong>What the uninstaller removes:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/.local/share/smart-task-manager/</code> - the application and its venv</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/.local/share/applications/smart-task-manager.desktop</code> - the menu entry</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/Desktop/smart-task-manager.desktop</code> - the Desktop shortcut (if present)</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>What the uninstaller never touches:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/.todos.json</code> - your tasks. It is your data. Only you decide what to do with it.</li>
+                        </ul>
+                        <p class="text-light small mt-2">If you want to remove your data as well, run after uninstall:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+rm -f ~/.todos.json</pre>
+
+                        <p class="text-light mt-3"><strong>Installation Paths</strong></p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm small">
+                                <thead>
+                                    <tr><th>Item</th><th>Path</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Application files</td><td><code>~/.local/share/smart-task-manager/</code></td></tr>
+                                    <tr><td>Virtual environment</td><td><code>~/.local/share/smart-task-manager/venv/</code></td></tr>
+                                    <tr><td>Application menu entry</td><td><code>~/.local/share/applications/smart-task-manager.desktop</code></td></tr>
+                                    <tr><td>Desktop shortcut (opt-in)</td><td><code>~/Desktop/smart-task-manager.desktop</code></td></tr>
+                                    <tr><td>User data (tasks)</td><td><code>~/.todos.json</code></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -227,7 +295,7 @@ git clone https://github.com/smartlegionlab/smart-task-manager.git && cd smart-t
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Creating a New Task:</strong></p>
                         <ol class="text-light small">
-                            <li>Click the <strong>"➕ Add Task"</strong> button</li>
+                            <li>Click the <strong>"+ Add Task"</strong> button or use <strong>File -> New Task</strong> (<code>Ctrl+N</code>)</li>
                             <li>Fill in the task details:
                                 <ul class="list-unstyled">
                                     <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Title</strong> (required): Brief description of the task</li>
@@ -240,10 +308,10 @@ git clone https://github.com/smartlegionlab/smart-task-manager.git && cd smart-t
                         </ol>
                         <p class="text-light mt-2"><strong>Managing Tasks:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Toggle Completion</strong>: Click the status button (⏳/✅)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>View Details</strong>: Click the "👁 View" button</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Edit Task</strong>: Click the "✏️ Edit" button</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Delete Task</strong>: Click the "🗑️" button</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Toggle Completion</strong>: Click the status button, or press <code>Space</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>View Details</strong>: Double-click the row, press <code>Enter</code>, or click "View"</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Edit Task</strong>: Click the "Edit" button, or press <code>Ctrl+E</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Delete Task</strong>: Click the "Delete" button, or press <code>Delete</code></li>
                         </ul>
                         <p class="text-light mt-2"><strong>Quick Actions (Context Menu):</strong></p>
                         <p class="text-light small">Right-click on any task in the table to access:</p>
@@ -255,8 +323,94 @@ git clone https://github.com/smartlegionlab/smart-task-manager.git && cd smart-t
                         </ul>
                         <p class="text-light mt-2"><strong>Bulk Operations:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clear Completed Tasks</strong>: Click "🗑️ Clear Completed" to remove all completed tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Clear Completed Tasks</strong>: Click "Clear Completed" or use <strong>File -> Clear Completed</strong> (<code>Ctrl+Shift+C</code>)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Exit Confirmation</strong>: Application warns if unsaved tasks exist on exit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Bar -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMenu" aria-expanded="false">
+                        <i class="bi bi-menu-button-wide me-2 text-primary"></i> Menu Bar
+                    </button>
+                </h2>
+                <div id="collapseMenu" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>File</strong>: Create Desktop Entry (<code>Ctrl+Shift+D</code>, Linux only), New Task (<code>Ctrl+N</code>), Clear Completed (<code>Ctrl+Shift+C</code>), Exit (<code>Ctrl+Q</code>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Edit</strong>: Edit Selected Task (<code>Ctrl+E</code>), Delete Selected Task (<code>Delete</code>), Toggle Completion (<code>Space</code>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>View</strong>: Focus Search (<code>Ctrl+F</code>), Refresh (<code>F5</code>), Reset Filters (<code>Ctrl+R</code>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Help</strong>: Help (<code>F1</code>), Keyboard Shortcuts (<code>Ctrl+/</code>), About (<code>Ctrl+A</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseShortcuts" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Keyboard Shortcuts
+                    </button>
+                </h2>
+                <div id="collapseShortcuts" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm small">
+                                <thead>
+                                    <tr><th>Shortcut</th><th>Action</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><code>Ctrl+N</code></td><td>New task</td></tr>
+                                    <tr><td><code>Ctrl+Shift+D</code></td><td>Create desktop entry (Linux)</td></tr>
+                                    <tr><td><code>Ctrl+Shift+C</code></td><td>Clear completed tasks</td></tr>
+                                    <tr><td><code>Ctrl+Q</code></td><td>Exit application</td></tr>
+                                    <tr><td><code>Ctrl+E</code></td><td>Edit selected task</td></tr>
+                                    <tr><td><code>Delete</code></td><td>Delete selected task</td></tr>
+                                    <tr><td><code>Space</code></td><td>Toggle completion of selection</td></tr>
+                                    <tr><td><code>Enter</code></td><td>View details of selected task</td></tr>
+                                    <tr><td><code>Ctrl+F</code></td><td>Focus search box</td></tr>
+                                    <tr><td><code>Ctrl+R</code></td><td>Reset filters</td></tr>
+                                    <tr><td><code>F5</code></td><td>Refresh view</td></tr>
+                                    <tr><td><code>F1</code></td><td>Open help</td></tr>
+                                    <tr><td><code>Ctrl+/</code></td><td>Show keyboard shortcuts dialog</td></tr>
+                                    <tr><td><code>Ctrl+A</code></td><td>Open about dialog</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Integration -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesktop" aria-expanded="false">
+                        <i class="bi bi-ubuntu me-2 text-primary"></i> Desktop Integration (Linux)
+                    </button>
+                </h2>
+                <div id="collapseDesktop" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>Note:</strong> If you installed the app via <code>install.sh</code>, the application menu entry is already created automatically. The in-app option described below is useful when you run the app manually from a custom location, or when you want to add a Desktop shortcut on demand. It is also the recommended way for development: it creates a shortcut pointing to the <strong>currently running instance</strong> (your working copy), not to a copy under <code>~/.local/share/</code>.</p>
+                        <p class="text-light mt-2"><strong>Creating Application Shortcuts:</strong></p>
+                        <p class="text-light small">The application allows you to create desktop entries directly from the menu:</p>
+                        <ol class="text-light small">
+                            <li>Go to <strong>File -> Create Desktop Entry</strong> (<code>Ctrl+Shift+D</code>)</li>
+                            <li>Choose locations:
+                                <ul class="list-unstyled">
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Application Menu (<code>~/.local/share/applications/</code>) - adds to system app menu</li>
+                                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Desktop (<code>~/Desktop/</code>) - creates shortcut on desktop</li>
+                                </ul>
+                            </li>
+                            <li>Click <strong>"Create Entry"</strong></li>
+                        </ol>
+                        <p class="text-light mt-2"><strong>After creation:</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Application Menu</strong>: log out and back in (or restart desktop) for the entry to appear</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Desktop shortcut</strong>: may show "Unsecured Application Launcher" warning. Right-click on shortcut -> "Allow Launching" or "Trust". This is a one-time security confirmation</li>
                         </ul>
                     </div>
                 </div>
@@ -295,56 +449,6 @@ git clone https://github.com/smartlegionlab/smart-task-manager.git && cd smart-t
                 </div>
             </div>
 
-            <!-- Windows Executable -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWindows" aria-expanded="false">
-                        <i class="bi bi-windows me-2 text-primary"></i> Windows Standalone Executable
-                    </button>
-                </h2>
-                <div id="collapseWindows" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light">Build a standalone <code>smart_task_manager.exe</code> that runs without Python installation:</p>
-                        <p class="text-light mt-2"><strong>Step 1: Get the Project Files</strong></p>
-                        <ol class="text-light small">
-                            <li>Download project ZIP from GitHub</li>
-                            <li>Extract to: <code>C:\smart-task-manager-master\</code></li>
-                        </ol>
-                        <p class="text-light mt-2"><strong>Step 2: Install Python</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Download from: <a href="https://python.org/downloads/" class="text-primary" target="_blank">python.org</a></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>IMPORTANT:</strong> Check "Add Python to PATH"</li>
-                        </ul>
-                        <p class="text-light mt-2"><strong>Step 3: Open Command Prompt</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-cd C:\smart-task-manager-master</pre>
-                        <p class="text-light mt-2"><strong>Step 4: Create Virtual Environment</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-python -m venv venv
-.\venv\Scripts\activate</pre>
-                        <p class="text-light mt-2"><strong>Step 5: Install Dependencies</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-pip install pyinstaller
-pip install PyQt5==5.15.9</pre>
-                        <p class="text-light mt-2"><strong>Step 6: Build Executable</strong></p>
-                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-pyinstaller --onefile --windowed --name "smart_task_manager.exe" --additional-hooks-dir=. app.py</pre>
-                        <p class="text-light mt-2"><strong>Step 7: Find and Use</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Location:</strong> <code>C:\smart-task-manager-master\dist\smart_task_manager.exe</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create desktop shortcut and rename to "Smart Task Manager"</li>
-                        </ul>
-                        <p class="text-light small mt-2"><strong>What you get:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Single file: <code>smart_task_manager.exe</code> (~50MB)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No Python required to run</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Works on any Windows 10/11 PC</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Can be copied to USB drive</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <!-- Technical Details -->
             <div class="accordion-item bg-transparent">
                 <h2 class="accordion-header">
@@ -362,9 +466,13 @@ pyinstaller --onefile --windowed --name "smart_task_manager.exe" --additional-ho
                         </ul>
                         <p class="text-light mt-2"><strong>Key Components:</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>MainWindow</strong>: Primary application interface with task table</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>MainWindow</strong>: Primary application interface with menu bar, filters, task table, status bar</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>TaskInputDialog</strong>: Modal dialog for creating/editing tasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>TaskDisplayDialog</strong>: Modal dialog for viewing task details</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>AboutDialog</strong>: Project information dialog</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>HelpDialog</strong>: Built-in help documentation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>ShortcutsDialog</strong>: Keyboard shortcuts reference</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>DesktopEntryDialog</strong>: Linux desktop integration</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Context Menu</strong>: Right-click menu for quick task operations</li>
                         </ul>
                         <p class="text-light mt-2"><strong>Dependencies:</strong></p>
