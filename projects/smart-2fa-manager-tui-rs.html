@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart 2FA Manager TUI · Smart Legion Lab</title>
+    <meta name="description" content="smart-2fa-manager-tui-rs - Offline, independent TOTP 2FA manager with a full-screen terminal interface. GPG-encrypted storage, real-time codes, full CRUD, system clipboard. No cloud, no phone required.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/smart-2fa-manager-tui-rs.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Smart 2FA Manager TUI · Smart Legion Lab">
+    <meta property="og:description" content="Offline, independent TOTP 2FA manager with a full-screen terminal interface. GPG-encrypted storage, real-time codes, full CRUD. No cloud, no phone required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/smart-2fa-manager-tui-rs.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<!-- nav -->
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light" aria-label="View Home">Home</a>
+            <a href="/research.html" class="small text-light" aria-label="View Research">Research</a>
+            <a href="/ecosystems.html" class="small text-light" aria-label="View Ecosystems">Ecosystems</a>
+            <a href="/applications.html" class="small text-light" aria-label="View Applications">Apps</a>
+            <a href="/projects.html" class="small text-primary" aria-label="View Projects">Projects</a>
+            <a href="/libraries.html" class="small text-light" aria-label="View Libraries">Libraries</a>
+            <a href="/articles.html" class="small text-light" aria-label="View Articles">Articles</a>
+            <a href="/team.html" class="small text-light" aria-label="View About and Team">About &amp; Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research &amp; Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About &amp; Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<!-- content -->
+<main class="container custom-margin-top">
+
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Smart 2FA Manager TUI</h1>
+            <p class="text-light">Offline, independent TOTP 2FA manager with a full-screen terminal interface</p>
+            <p class="text-light">GPG-encrypted storage, real-time codes, full CRUD. <span class="text-primary">No cloud, no phone required.</span></p>
+            <hr>
+            <div class="mt-3">
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-tui-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://crates.io/crates/smart-2fa-manager-tui" class="btn btn-outline-info btn-sm">crates.io <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light">
+                    <strong>smart-2fa-manager-tui-rs</strong> is a self-contained terminal application for managing TOTP 2FA codes. It stores your secrets locally in a GPG-encrypted file and generates codes in real time, with no cloud, no phone and no third-party trust required.
+                </p>
+                <p class="text-light">
+                    The application keeps only your service names and their base32 secrets, encrypted with AES-256 via GPG. Codes are recalculated whenever you need them, using standard RFC 6238 TOTP.
+                </p>
+                <p class="text-light">
+                    <strong>Decentralized by design:</strong> no cloud, no database, no third-party trust required. Your secrets never leave your device.
+                </p>
+            </div>
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="row g-2 justify-content-center">
+                    <div class="col-12 col-md-12 text-center">
+                        <a href="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-tui-rs/master/data/images/smart-2fa-manager-tui-rs.png" target="_blank" class="d-block">
+                            <img src="https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-tui-rs/master/data/images/smart-2fa-manager-tui-rs.png" class="img-fluid rounded mx-auto d-block" alt="smart-2fa-manager-tui-rs" referrerpolicy="no-referrer">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Principles -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>Core Principles</strong></p>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Offline by Design</strong> - no network access at runtime, codes generated locally</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Encrypted Storage</strong> - secrets stored in <code>~/.2fa/secrets.gpg</code> (AES-256)</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Real-Time Codes</strong> - TOTP codes refresh every 30 seconds with a countdown</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Ecosystem Compatible</strong> - same storage format as bash, Python CLI, PyQt and Android versions</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full CRUD</strong> - add, edit, delete services with confirmation</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>System Clipboard</strong> - copy codes via <code>arboard</code> on X11, Wayland, Windows and macOS</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What you can do -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>What you can do</strong></p>
+                <ol class="text-light small">
+                    <li class="mb-1"><strong>Add services</strong> - register a service name and its base32 TOTP secret</li>
+                    <li class="mb-1"><strong>View codes</strong> - select a service and see the current 6-digit code</li>
+                    <li class="mb-1"><strong>Copy codes</strong> - send the code to the system clipboard with one key press</li>
+                    <li class="mb-1"><strong>Edit services</strong> - change the service name or secret at any time</li>
+                    <li class="mb-1"><strong>Delete services</strong> - remove entries with a confirmation step</li>
+                    <li class="mb-1"><strong>Change master password</strong> - re-encrypt the storage without touching the secrets</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <p class="text-light"><strong>Key Features</strong></p>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full-Screen TUI</strong> - built with <code>ratatui</code> and <code>crossterm</code></li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>GPG-Encrypted Storage</strong> - AES-256, compatible with the Python, bash and Android versions</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Real-Time TOTP Codes</strong> - refresh themselves every 30 seconds</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Countdown Timer</strong> - color changes as the code approaches expiry</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Full CRUD</strong> - add, edit, delete services with confirmation</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Master Password Change</strong> - re-encrypt without touching the secret data</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Copy to Clipboard</strong> - system clipboard on X11, Wayland, Windows, macOS</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Help and About Screens</strong> - all key bindings documented in-app</li>
+                    <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>No Network Access</strong> - runs entirely offline, no runtime dependencies</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Accordion -->
+        <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+            <!-- Key Bindings -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKeys" aria-expanded="false">
+                        <i class="bi bi-keyboard me-2 text-primary"></i> Key Bindings
+                    </button>
+                </h2>
+                <div id="collapseKeys" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">List screen</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>j</code> / <code>Down</code></td><td>Move selection down</td></tr>
+                                    <tr><td><code>k</code> / <code>Up</code></td><td>Move selection up</td></tr>
+                                    <tr><td><code>Enter</code> / <code>g</code></td><td>Show code for selected service</td></tr>
+                                    <tr><td><code>c</code></td><td>Copy current code to system clipboard</td></tr>
+                                    <tr><td><code>a</code></td><td>Add a new service</td></tr>
+                                    <tr><td><code>e</code></td><td>Edit selected service</td></tr>
+                                    <tr><td><code>d</code></td><td>Delete selected service</td></tr>
+                                    <tr><td><code>p</code></td><td>Change master password</td></tr>
+                                    <tr><td><code>h</code> / <code>?</code></td><td>Help</td></tr>
+                                    <tr><td><code>i</code></td><td>About</td></tr>
+                                    <tr><td><code>q</code> / <code>Esc</code></td><td>Quit</td></tr>
+                                    <tr><td><code>Ctrl+C</code></td><td>Quit immediately</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-3">Form screen (add / edit)</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Tab</code> / <code>Down</code></td><td>Next field</td></tr>
+                                    <tr><td><code>Shift+Tab</code> / <code>Up</code></td><td>Previous field</td></tr>
+                                    <tr><td><code>Enter</code></td><td>Save</td></tr>
+                                    <tr><td><code>Esc</code></td><td>Cancel</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-3">Change password screen</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>Tab</code> / <code>Down</code></td><td>Next field</td></tr>
+                                    <tr><td><code>Shift+Tab</code> / <code>Up</code></td><td>Previous field</td></tr>
+                                    <tr><td><code>Enter</code></td><td>Apply</td></tr>
+                                    <tr><td><code>Esc</code></td><td>Cancel</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-3">Confirm delete screen</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>y</code></td><td>Delete</td></tr>
+                                    <tr><td><code>n</code> / <code>Esc</code></td><td>Cancel</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-3">Message screen</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-sm">
+                                <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>c</code></td><td>Copy code to system clipboard</td></tr>
+                                    <tr><td><code>Enter</code> / <code>Esc</code> / <code>Space</code></td><td>Close message</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-light fw-bold mt-3">Copy behavior</p>
+                        <p class="text-light small">When you press <code>c</code>, the application sends the code to the system clipboard via the <code>arboard</code> crate. This works on X11, Wayland (via <code>wayland-data-control</code>), Windows and macOS, without relying on terminal escape sequences.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuick" aria-expanded="false">
+                        <i class="bi bi-lightning-charge me-2 text-primary"></i> Quick Start
+                    </button>
+                </h2>
+                <div id="collapseQuick" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ol class="text-light small">
+                            <li><strong>First launch</strong> - the app asks you to create a master password. This password encrypts <code>~/.2fa/secrets.gpg</code>.</li>
+                            <li><strong>Add a service</strong> - press <code>a</code>, enter a service name and its base32 TOTP secret, then press <code>Enter</code>.</li>
+                            <li><strong>View a code</strong> - select the service with <code>j</code> / <code>k</code>, press <code>Enter</code> or <code>g</code>.</li>
+                            <li><strong>Copy a code</strong> - press <code>c</code> to copy the current code to the system clipboard.</li>
+                            <li><strong>Edit / delete</strong> - press <code>e</code> to edit, <code>d</code> to delete (requires confirmation).</li>
+                            <li><strong>Change master password</strong> - press <code>p</code>, enter the current and new passwords.</li>
+                            <li><strong>Help</strong> - press <code>h</code> for the full key binding reference.</li>
+                        </ol>
+                        <p class="text-light small mt-2">If <code>~/.2fa/secrets.gpg</code> already exists (from the Python, bash or Android version), the app opens directly to the unlock screen and reads the existing storage without conversion.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Storage -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseData" aria-expanded="false">
+                        <i class="bi bi-database me-2 text-primary"></i> Data Storage
+                    </button>
+                </h2>
+                <div id="collapseData" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light">Secrets are stored in a single file encrypted with GPG (AES-256):</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+~/.2fa/
+└── secrets.gpg</pre>
+                        <p class="text-light mt-2"><strong>Format before encryption:</strong></p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+service_name:base32secret
+another_service:base32secret</pre>
+                        <p class="text-light mt-2"><strong>Compatible with:</strong></p>
+                        <ul class="text-light small">
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="text-primary" target="_blank">smart-2fa-manager-bash</a></li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="text-primary" target="_blank">smart-2fa-manager-cli</a> (Python CLI)</li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="text-primary" target="_blank">smart-2fa-manager-desktop</a> (PyQt)</li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="text-primary" target="_blank">smart-2fa-manager-android</a></li>
+                        </ul>
+                        <p class="text-light small mt-2">You can switch between these applications without any conversion - just enter the same master password.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Notes -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSecurity" aria-expanded="false">
+                        <i class="bi bi-shield-lock me-2 text-primary"></i> Security Notes
+                    </button>
+                </h2>
+                <div id="collapseSecurity" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <ul class="text-light small">
+                            <li>Your master password is never stored on disk.</li>
+                            <li>GPG is called with <code>--passphrase</code> for compatibility with existing backups. For higher isolation, pass the password via <code>--passphrase-fd</code> if you modify the source.</li>
+                            <li>Lock your terminal when leaving the computer. The TUI keeps decrypted secrets in memory only while the app is running.</li>
+                            <li>Backups of <code>~/.2fa/secrets.gpg</code> are encrypted with the same master password - keep them in a safe place.</li>
+                            <li>On Wayland sessions, the clipboard works via <code>wayland-data-control</code>. On X11, the standard X11 clipboard is used. The <code>arboard</code> crate handles both automatically.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstall" aria-expanded="false">
+                        <i class="bi bi-gear me-2 text-primary"></i> Installation
+                    </button>
+                </h2>
+                <div id="collapseInstall" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light fw-bold">Dependencies</p>
+                        <ul class="text-light small">
+                            <li><code>gpg</code> (GNU Privacy Guard) - required for encryption</li>
+                            <li>Rust 1.88+ and Cargo - only for building from source</li>
+                        </ul>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+# Arch Linux
+sudo pacman -S gnupg
+
+# Debian / Ubuntu
+sudo apt install gpg
+
+# Fedora / RHEL
+sudo dnf install gnupg2</pre>
+
+                        <p class="text-light fw-bold mt-3">Option 1: Prebuilt binary</p>
+                        <p class="text-light small">Download the musl binary from the Releases page, then:</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+chmod +x smart-2fa-manager-tui-&lt;version&gt;-linux-x86_64-musl
+./smart-2fa-manager-tui-&lt;version&gt;-linux-x86_64-musl</pre>
+                        <p class="text-light small">The musl build is statically linked and runs on any modern Linux distribution.</p>
+
+                        <p class="text-light fw-bold mt-3">Option 2: Build from source</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/smart-2fa-manager-tui-rs.git
+cd smart-2fa-manager-tui-rs
+cargo build --release &amp;&amp; \
+install -Dm755 target/release/smart-2fa-manager-tui "$HOME/.local/bin/smart-2fa-manager-tui"</pre>
+                        <p class="text-light small">Make sure <code>~/.local/bin</code> is in your <code>PATH</code>.</p>
+
+                        <p class="text-light fw-bold mt-3">Option 3: One-command install</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-2fa-manager-tui-rs/master/install.sh | bash</pre>
+                        <p class="text-light small">Installs the binary to <code>~/.local/bin/</code> and registers the application in your desktop menu.</p>
+
+                        <p class="text-light fw-bold mt-3">Option 4: Cargo</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+cargo install smart-2fa-manager-tui</pre>
+
+                        <p class="text-light fw-bold mt-3">Uninstall</p>
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+rm -f ~/.local/bin/smart-2fa-manager-tui
+rm -f ~/.local/share/applications/smart-2fa-manager-tui.desktop</pre>
+                        <p class="text-light small">Your encrypted secrets in <code>~/.2fa/</code> are never touched by the uninstaller.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Layout -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false">
+                        <i class="bi bi-folder me-2 text-primary"></i> Project Layout
+                    </button>
+                </h2>
+                <div id="collapseLayout" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+smart-2fa-manager-tui-rs/
+├── Cargo.toml
+├── README.md
+├── LICENSE
+├── install.sh
+├── uninstall.sh
+└── src/
+    ├── main.rs
+    ├── app.rs
+    ├── ui.rs
+    └── screen/
+        ├── mod.rs
+        ├── unlock.rs
+        ├── list.rs
+        ├── form.rs
+        ├── confirm.rs
+        ├── message.rs
+        ├── help.rs
+        ├── about.rs
+        └── password.rs</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosystem -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEcosystem" aria-expanded="false">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i> Ecosystem
+                    </button>
+                </h2>
+                <div id="collapseEcosystem" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small">Part of the <a href="https://smartlegionlab.github.io/ecosystems/2fa-management-ecosystem.html" class="text-primary" target="_blank">Smart 2FA Management Ecosystem</a>:</p>
+                        <ul class="text-light small">
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-bash" class="text-primary" target="_blank">smart-2fa-manager-bash</a> - bash implementation</li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-cli" class="text-primary" target="_blank">smart-2fa-manager-cli</a> - Python CLI</li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-desktop" class="text-primary" target="_blank">smart-2fa-manager-desktop</a> - PyQt desktop</li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-android" class="text-primary" target="_blank">smart-2fa-manager-android</a> - Android app</li>
+                            <li><a href="https://github.com/smartlegionlab/smart-2fa-manager-tui-rs" class="text-primary" target="_blank">smart-2fa-manager-tui-rs</a> - this project (Rust TUI)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="false">
+                        <i class="bi bi-exclamation-triangle me-2 text-primary"></i> Disclaimer
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body text-light">
+                        <p class="text-light small"><strong>By using this software, you agree to the full disclaimer terms.</strong></p>
+                        <p class="text-light small">Software provided "AS IS" without warranty. You assume all risks.</p>
+                        <p class="text-light small"><strong>Full legal disclaimer:</strong> See <a href="https://github.com/smartlegionlab/smart-2fa-manager-tui-rs/blob/master/DISCLAIMER.md" class="text-primary" target="_blank">DISCLAIMER.md</a></p>
+                        <p class="text-light small"><strong>License:</strong> <a href="https://github.com/smartlegionlab/smart-2fa-manager-tui-rs/blob/master/LICENSE" class="text-primary" target="_blank">BSD 3-Clause License</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Author & Links -->
+        <div class="mb-4">
+            <div class="smart-small-card">
+                <div class="text-center">
+                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-tui-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
+                        <a target="_blank" href="https://crates.io/crates/smart-2fa-manager-tui" class="btn btn-outline-info btn-sm">crates.io</a>
+                        <a target="_blank" href="https://github.com/smartlegionlab/smart-2fa-manager-tui-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
+                        <a target="_blank" href="https://smartlegionlab.github.io/ecosystems/2fa-management-ecosystem.html" class="btn btn-outline-primary btn-sm">Ecosystem</a>
+                    </div>
+                    <hr class="border-secondary">
+                    <p class="text-light">
+                        <i class="bi bi-person-circle text-primary"></i> Created by
+                        <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+</main>
+
+<!-- footer -->
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">
+                Smart Legion Lab
+            </a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank">
+                <span data-smart-version>v7.6.20</span>
+            </a> |
+            <a href="/smartlegionlab-map.html" target="_blank">
+                Site Map
+            </a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
+        <span style="color: #00ff9d; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
