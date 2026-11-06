@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Project Manager · Smart Legion Lab</title>
-    <meta name="description" content="Smart Project Manager - Desktop application for comprehensive project and task management. Built with Python and PyQt5. Hierarchical system for organizing projects, tasks, and subtasks with visual labels and automatic progress tracking.">
+    <meta name="description" content="Smart Project Manager - Desktop application for comprehensive project and task management. Built with Python and PyQt5. Hierarchical system for organizing projects, tasks, and subtasks with automatic progress tracking.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-project-manager.html">
     <link rel="author" href="https://github.com/smartlegionlab">
     <meta property="og:title" content="Smart Project Manager · Smart Legion Lab">
-    <meta property="og:description" content="Desktop application for comprehensive project and task management. Hierarchical system for organizing projects, tasks, and subtasks with visual labels and automatic progress tracking.">
+    <meta property="og:description" content="Desktop application for comprehensive project and task management. Hierarchical system for organizing projects, tasks, and subtasks with automatic progress tracking.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/smart-project-manager.html">
     <meta property="og:site_name" content="Smart Legion Lab · Projects">
@@ -104,7 +104,8 @@
         <div class="text-center mb-4">
             <h1 class="text-primary">Smart Project Manager</h1>
             <p class="text-light">Desktop application for comprehensive project and task management</p>
-            <p class="text-light">Hierarchical system for organizing projects, tasks, and subtasks with <span class="text-primary">visual labels</span> and <span class="text-primary">automatic progress tracking</span>.</p>
+            <p class="text-light">Hierarchical system for organizing projects, tasks, and subtasks with <span class="text-primary">automatic progress tracking</span> and a dark-themed user interface.</p>
+            <p class="text-light small">Version 1.2.3</p>
             <hr>
             <div class="mt-3">
                 <a target="_blank" href="https://github.com/smartlegionlab/smart-project-manager" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
@@ -118,7 +119,7 @@
                     <strong>Smart Project Manager</strong> - desktop application for comprehensive project and task management, built with Python and PyQt5.
                 </p>
                 <p class="text-light">
-                    Provides a hierarchical system for organizing projects, tasks, and subtasks, featuring visual labels, automatic progress tracking, and a dark-themed user interface.
+                    Provides a hierarchical system for organizing projects, tasks, and subtasks, featuring automatic progress tracking and a dark-themed user interface.
                 </p>
             </div>
         </div>
@@ -148,54 +149,71 @@
                 </h2>
                 <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                     <div class="accordion-body text-light">
-                        <p class="text-light"><strong>1. Tab-Based Project Manager</strong></p>
+                        <p class="text-light"><strong>1. Three-Pane Splitter Workspace</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Projects open as tabs on the right side, one tab per project</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multiple projects can be open at the same time</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Close a project tab without deleting the project - it stays in the tree on the left</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks open as nested tabs below the task list, one tab per task</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multiple tasks can be open at the same time inside one project</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Left pane: project list</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Top-right: project card with status, counters and overall progress</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Bottom-right, two panes side by side: task list and the selected task with its subtasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Splitter handles are resizable; panes never collapse completely</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each pane has a strict uppercase label (<code>PROJECTS</code>, <code>PROJECT</code>, <code>TASKS</code>, <code>TASK</code>, <code>SUBTASKS</code>) with a live counter in parentheses</li>
                         </ul>
                         <p class="text-light mt-2"><strong>2. Project Management</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit, and delete projects with name and description</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Hierarchical structure: <strong>Projects → Tasks → Subtasks</strong></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic progress calculation per project based on task completion</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete projects with name, optional description, and optional link</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The link field is available only when editing an existing project, so project creation stays minimal</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Link input is validated: a scheme (for example <code>https://</code>) is required</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Project name is limited to 100 characters and description to 2000 characters, with live counters</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD for projects via context menu, Edit menu, and the project card buttons</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>3. Task & Subtask System</strong></p>
+                        <p class="text-light mt-2"><strong>3. Task Management</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks with title, description, priority (High/Medium/Low) and optional due date</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtasks with the same fields, nested inside tasks</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic completion logic: when all subtasks are completed, the parent task is marked complete</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion status for tasks and subtasks directly from the UI</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Drag and drop task rows to reorder them</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task list with inline visual state (status dot, title, priority, progress, due date)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete tasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task title limited to 100 characters and description to 2000 characters, with live counters</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task completion is manual: toggle the task yourself, subtask completion does not auto-complete the parent</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Clear completed tasks with the <code>Clear Completed (N)</code> button in the TASKS pane</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion, edit and delete directly from the task list context menu or the task header</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>4. Label System</strong></p>
+                        <p class="text-light mt-2"><strong>4. Subtasks</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Custom labels with name, color, text color and description</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Assign labels to tasks and subtasks for categorization and filtering</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dedicated Label Manager dialog for creating, editing and deleting labels</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Simplified subtasks: title and priority only</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtask title limited to 100 characters, with a live counter</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Mark as completed with a checkbox on the row, or via context menu</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete subtasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtask completion does not change the parent task status</li>
                         </ul>
                         <p class="text-light mt-2"><strong>5. Progress Tracking & Statistics</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Visual progress bars for tasks, subtasks and overall projects</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Global statistics panel with counts and completion rates</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-project progress panel with task/subtask counts and last update time</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-project progress bar in the project card</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-task progress based on subtasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Compact global statistics panel in the status bar (always visible): projects, tasks, subtasks, and completion rates</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>6. User Interface</strong></p>
+                        <p class="text-light mt-2"><strong>6. Export</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Export the entire dataset to a JSON file (<code>File → Export...</code>, <code>Ctrl+Shift+S</code>)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Import a JSON file back (<code>File → Import...</code>, <code>Ctrl+I</code>) with automatic temporary backup</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Export a single project to a Markdown document (<code>File → Export Project to Markdown...</code>, <code>Ctrl+Shift+M</code>), or via the project context menu</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The Markdown document includes the project name, description, link, creation and update dates, progress, status, all tasks with their fields, and all subtasks in a readable hierarchy</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>7. User Interface</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dark theme optimized for extended use</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Two-panel layout: project tree on the left, tabs and task details on the right</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menus for quick task actions (view, edit, mark complete, delete)</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Search and filters by priority, label and completion status</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Built-in Keyboard Shortcuts dialog accessible from Help menu or <code>Ctrl+/</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No decorative borders, only subtle background separation between panes</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Flat buttons, uppercase panel headers with live counters</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menus everywhere for CRUD actions</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Built-in Help, About and Keyboard Shortcuts dialogs accessible from the Help menu</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>7. Data Persistence</strong></p>
+                        <p class="text-light mt-2"><strong>8. Data Persistence</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic saving to <code>~/.smart_project_manager/projects.json</code></li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON-based storage for projects, tasks, subtasks and labels</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON-based storage for projects, tasks and subtasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Data loaded automatically on application startup</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Manual backups and automatic cleanup of backups older than 30 days</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>9. Stable Selection</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Selection in all three lists is preserved across any CRUD operation</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Programmatic selection updates do not emit change signals</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>A single reload path restores project, task and subtask selection consistently</li>
                         </ul>
                     </div>
                 </div>
@@ -285,7 +303,6 @@ curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manage
                         </ul>
 
                         <p class="text-light mt-3"><strong>Alternative - install from a cloned repo</strong></p>
-                        <p class="text-light small">If you already cloned the repository, you can run the installer locally:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 cd smart-project-manager
 ./install.sh</pre>
@@ -300,7 +317,7 @@ curl -fsSL https://raw.githubusercontent.com/smartlegionlab/smart-project-manage
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/.local/share/applications/smart-project-manager.desktop</code> - the menu entry</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>~/Desktop/smart-project-manager.desktop</code> - the Desktop shortcut (if present)</li>
                         </ul>
-                        <p class="text-light small"><strong>What the uninstaller never touches:</strong> <code>~/.smart_project_manager/projects.json</code> - your projects, tasks, subtasks and labels. It is your data. Only you decide what to do with it.</p>
+                        <p class="text-light small"><strong>What the uninstaller never touches:</strong> <code>~/.smart_project_manager/projects.json</code> - your projects, tasks and subtasks. It is your data. Only you decide what to do with it.</p>
                         <p class="text-light small">If you want to remove your data as well, run after uninstall:</p>
                         <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 rm -rf ~/.smart_project_manager</pre>
@@ -336,18 +353,11 @@ rm -rf ~/.smart_project_manager</pre>
                         <p class="text-light small"><strong>Note:</strong> If you installed the app via <code>install.sh</code>, the application menu entry is already created automatically. The in-app option described below is useful when you run the app manually from a custom location, or when you want to add a Desktop shortcut on demand. It is also the recommended way for development: it creates a shortcut pointing to the <strong>currently running instance</strong> (your working copy), not to a copy under <code>~/.local/share/</code>.</p>
 
                         <p class="text-light"><strong>Creating Application Shortcuts:</strong></p>
-                        <p class="text-light small">The application allows you to create desktop entries directly from the menu:</p>
                         <ol class="text-light small">
                             <li>Go to <strong>File → Create Desktop Entry</strong></li>
                             <li>Choose locations: Application Menu (<code>~/.local/share/applications/</code>) and/or Desktop (<code>~/Desktop/</code>)</li>
                             <li>Click <strong>Create Entry</strong></li>
                         </ol>
-                        <p class="text-light small"><strong>What happens:</strong></p>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Creates <code>.desktop</code> file(s) with proper configuration</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Sets executable permissions automatically</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Uses application icon if available</li>
-                        </ul>
                         <p class="text-light small"><strong>After creation:</strong></p>
                         <ul class="list-unstyled small">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Application Menu</strong>: Log out and back in (or restart desktop) for entry to appear</li>
@@ -369,36 +379,61 @@ rm -rf ~/.smart_project_manager</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Getting Started</strong></p>
                         <ol class="text-light">
-                            <li class="mb-2"><strong>Create a project:</strong> <code>File → New Project</code> or the <strong>+ New Project</strong> button in the left panel.</li>
-                            <li class="mb-2"><strong>Open a project:</strong> click it in the tree on the left - it opens as a tab on the right.</li>
-                            <li class="mb-2"><strong>Create a task:</strong> with a project tab active, use <code>File → New Task</code> or the <strong>Add Task</strong> button.</li>
-                            <li class="mb-2"><strong>Open a task:</strong> double-click a task row - its subtasks open as a nested tab below the task list.</li>
-                            <li class="mb-2"><strong>Manage labels:</strong> <code>Edit → Manage Labels</code> to create, edit and delete labels.</li>
+                            <li class="mb-2"><strong>Create a project:</strong> <code>File → New Project</code> (<code>Ctrl+N</code>) or the <strong>+ New</strong> button in the <code>PROJECTS</code> pane. Enter a name and, optionally, a description. The link field becomes available later, when you edit the project.</li>
+                            <li class="mb-2"><strong>Select a project:</strong> click it in the <code>PROJECTS</code> list on the left. The project card in the top-right and the task list in the bottom-left update automatically.</li>
+                            <li class="mb-2"><strong>Create a task:</strong> with a project selected, use <code>File → New Task</code> (<code>Ctrl+T</code>) or the <strong>+ Add</strong> button in the <code>TASKS</code> pane.</li>
+                            <li class="mb-2"><strong>Select a task:</strong> click it in the <code>TASKS</code> list. The <code>TASK</code> header and the <code>SUBTASKS</code> list update automatically.</li>
+                            <li class="mb-2"><strong>Create a subtask:</strong> with a task selected, use <code>File → New Subtask</code> (<code>Ctrl+Shift+T</code>) or the <strong>+ Add</strong> button in the <code>SUBTASKS</code> pane. Fill in title and priority.</li>
                         </ol>
 
-                        <p class="text-light mt-3"><strong>Working with Tabs</strong></p>
+                        <p class="text-light mt-3"><strong>Workspace Layout</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each opened project has its own tab on the right. Switching between project tabs switches the whole working context.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Inside a project tab, double-clicking a task opens a subtask tab below the task table. Multiple subtask tabs can be open at the same time.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Closing a project tab does not delete the project - it stays in the tree on the left.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Closing a subtask tab does not delete the task - it stays in the task list.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The window is split into three logical areas, each with its own header.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The vertical splitter on the left separates the project list from the workspace.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The workspace is split vertically into the project card (top) and the task/subtask area (bottom).</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The task/subtask area is split horizontally into the task list (left) and the selected task with its subtasks (right).</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>All splitter handles are draggable. Panes never collapse completely, so you cannot accidentally hide the project list or the task list.</li>
                         </ul>
 
-                        <p class="text-light mt-3"><strong>Tasks and Subtasks</strong></p>
+                        <p class="text-light mt-3"><strong>Projects</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks and subtasks support title, description, priority, due date and labels.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Marking all subtasks complete auto-marks the parent task complete.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Drag task rows up or down to reorder them inside a project.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Right-click a task for quick actions: view details, open subtasks, mark complete/pending, edit, delete.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Name is limited to 100 characters and description to 2000 characters. Both have live counters in the dialog.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The optional link is only shown in edit mode. It is validated: a scheme such as <code>https://</code> is required.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The project card shows the name, description, optional link, status badge, and five tiles: <code>TASKS</code>, <code>SUBTASKS</code>, <code>PROGRESS</code>, <code>CREATED</code>, <code>UPDATED</code>.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD: context menu in the project list, <code>Edit → Edit Project</code> (<code>Ctrl+E</code>), <code>Edit → Delete Project</code> (<code>Ctrl+D</code>), and the <code>Edit</code> / <code>Delete</code> buttons on the project card.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Right-click a project and choose <strong>Export to Markdown...</strong> to save it as a Markdown document.</li>
                         </ul>
 
-                        <p class="text-light mt-3"><strong>Search and Filters</strong></p>
+                        <p class="text-light mt-3"><strong>Tasks</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Type into the search box to filter tasks by title and description.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Filter by priority using the Priority dropdown.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Filter by label using the Label dropdown.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle <strong>Show Completed</strong> to hide or show completed tasks.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Click <strong>Reset</strong> to clear all filters.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Title is limited to 100 characters and description to 2000 characters. Both have live counters in the dialog.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The task list shows a status dot, the title, the priority, the progress and the due date.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task completion is manual. Click the toggle button in the <code>TASK</code> header, or right-click in the list and choose <code>Mark as Complete</code> / <code>Mark as Pending</code>. Subtask completion does not auto-complete the parent task.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The <code>Clear Completed (N)</code> button in the <code>TASKS</code> pane removes all completed tasks in the current project after a confirmation prompt.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD: context menu in the task list, <code>Edit → Edit Task</code> (<code>Ctrl+Shift+E</code>), <code>Edit → Delete Task</code> (<code>Ctrl+Shift+D</code>), and the buttons in the <code>TASK</code> header.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Subtasks</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtasks are simplified: title and priority only.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Title is limited to 100 characters, with a live counter in the dialog.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Mark a subtask complete with the checkbox on the row, or via the context menu.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD: context menu in the <code>SUBTASKS</code> list, or <strong>+ Add</strong> in the <code>SUBTASKS</code> pane header.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtask completion does not change the parent task status.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Export</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export to JSON:</strong> <code>File → Export...</code> (<code>Ctrl+Shift+S</code>) writes the whole dataset (projects, tasks, subtasks) to a single JSON file.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export project to Markdown:</strong> <code>File → Export Project to Markdown...</code> (<code>Ctrl+Shift+M</code>), or right-click a project in the list and choose <strong>Export to Markdown...</strong>. Saves the selected project as a readable <code>.md</code> document with name, description, link, dates, progress, status, all tasks and their subtasks.</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Stable Selection</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Selection in the three lists is preserved across every CRUD operation.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Select a project, select a task, then create a new subtask. The task and project selections stay in place.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Select a project, select a task, switch to another project, then come back. The previously selected task is restored.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle a task or subtask. The corresponding row remains selected.</li>
                         </ul>
                     </div>
                 </div>
@@ -419,17 +454,21 @@ rm -rf ~/.smart_project_manager</pre>
                                     <tr><th>Shortcut</th><th>Action</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><code>Ctrl+N</code></td><td>New Project</td></tr>
-                                    <tr><td><code>Ctrl+T</code></td><td>New Task</td></tr>
-                                    <tr><td><code>Ctrl+B</code></td><td>Create Backup</td></tr>
-                                    <tr><td><code>Ctrl+I</code></td><td>Import</td></tr>
-                                    <tr><td><code>Ctrl+Shift+E</code></td><td>Export</td></tr>
-                                    <tr><td><code>Ctrl+L</code></td><td>Manage Labels</td></tr>
-                                    <tr><td><code>F5</code></td><td>Refresh View</td></tr>
-                                    <tr><td><code>F1</code></td><td>Open Help</td></tr>
-                                    <tr><td><code>Ctrl+/</code></td><td>Show Keyboard Shortcuts</td></tr>
-                                    <tr><td><code>Ctrl+A</code></td><td>Open About</td></tr>
-                                    <tr><td><code>Ctrl+Q</code></td><td>Exit Application</td></tr>
+                                    <tr><td><code>Ctrl+N</code></td><td>New project</td></tr>
+                                    <tr><td><code>Ctrl+T</code></td><td>New task in the current project</td></tr>
+                                    <tr><td><code>Ctrl+Shift+T</code></td><td>New subtask in the current task</td></tr>
+                                    <tr><td><code>Ctrl+E</code></td><td>Edit current project</td></tr>
+                                    <tr><td><code>Ctrl+D</code></td><td>Delete current project</td></tr>
+                                    <tr><td><code>Ctrl+Shift+E</code></td><td>Edit current task</td></tr>
+                                    <tr><td><code>Ctrl+Shift+D</code></td><td>Delete current task</td></tr>
+                                    <tr><td><code>Ctrl+I</code></td><td>Import JSON</td></tr>
+                                    <tr><td><code>Ctrl+Shift+S</code></td><td>Export JSON</td></tr>
+                                    <tr><td><code>Ctrl+Shift+M</code></td><td>Export current project to Markdown</td></tr>
+                                    <tr><td><code>F5</code></td><td>Refresh view</td></tr>
+                                    <tr><td><code>F1</code></td><td>Open help</td></tr>
+                                    <tr><td><code>Ctrl+/</code></td><td>Show keyboard shortcuts dialog</td></tr>
+                                    <tr><td><code>Ctrl+A</code></td><td>Open about</td></tr>
+                                    <tr><td><code>Ctrl+Q</code></td><td>Exit application</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -453,27 +492,16 @@ rm -rf ~/.smart_project_manager</pre>
                                 </thead>
                                 <tbody>
                                     <tr><td>Projects</td><td><code>~/.smart_project_manager/projects.json</code></td></tr>
-                                    <tr><td>Backups</td><td><code>~/.smart_project_manager/backups/</code></td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="text-light small">Backups older than 30 days are cleaned up automatically on application startup. Manual cleanup is also available from <code>File → Show Backups</code>.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Future Development -->
-            <div class="accordion-item bg-transparent">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFuture" aria-expanded="false">
-                        <i class="bi bi-rocket me-2 text-primary"></i> Future Development Roadmap
-                    </button>
-                </h2>
-                <div id="collapseFuture" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
-                    <div class="accordion-body text-light">
-                        <p class="text-light"><strong>Planned Features:</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Task Filtering System</strong> - The "Show Completed Tasks" toggle in the <code>View</code> menu is a placeholder. Future implementation will enable filtering of completed vs. pending tasks, with additional options by priority, due date, labels, and persistence between sessions</li>
+                        <p class="text-light small"><strong>Data Format Notes:</strong></p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>projects</code> entries may contain <code>link</code> (optional string).</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>subtasks</code> entries contain only <code>id</code>, <code>title</code>, <code>priority</code>, <code>completed</code>, <code>task_id</code>, <code>project_id</code>, and timestamps.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Older data files with <code>labels</code> on tasks still load correctly; the <code>labels</code> field is ignored on import.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Exports from this version no longer include <code>labels</code> in the data.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Markdown export is read-only and does not affect the stored JSON data.</li>
                         </ul>
                     </div>
                 </div>
