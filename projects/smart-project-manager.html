@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Project Manager · Smart Legion Lab</title>
-    <meta name="description" content="Smart Project Manager - Desktop application for comprehensive project and task management. Built with Python and PyQt5. Hierarchical system for organizing projects, tasks, and subtasks with automatic progress tracking.">
+    <meta name="description" content="Smart Project Manager - Desktop application for comprehensive project and task management. Built with Python and PyQt5. Hierarchical system for organizing projects, tasks, and subtasks with automatic progress tracking and search.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-project-manager.html">
     <link rel="author" href="https://github.com/smartlegionlab">
     <meta property="og:title" content="Smart Project Manager · Smart Legion Lab">
-    <meta property="og:description" content="Desktop application for comprehensive project and task management. Hierarchical system for organizing projects, tasks, and subtasks with automatic progress tracking.">
+    <meta property="og:description" content="Desktop application for comprehensive project and task management. Hierarchical system for organizing projects, tasks, and subtasks with automatic progress tracking and search.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/smart-project-manager.html">
     <meta property="og:site_name" content="Smart Legion Lab · Projects">
@@ -105,7 +105,6 @@
             <h1 class="text-primary">Smart Project Manager</h1>
             <p class="text-light">Desktop application for comprehensive project and task management</p>
             <p class="text-light">Hierarchical system for organizing projects, tasks, and subtasks with <span class="text-primary">automatic progress tracking</span> and a dark-themed user interface.</p>
-            <p class="text-light small">Version 1.2.3</p>
             <hr>
             <div class="mt-3">
                 <a target="_blank" href="https://github.com/smartlegionlab/smart-project-manager" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
@@ -157,7 +156,22 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Splitter handles are resizable; panes never collapse completely</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each pane has a strict uppercase label (<code>PROJECTS</code>, <code>PROJECT</code>, <code>TASKS</code>, <code>TASK</code>, <code>SUBTASKS</code>) with a live counter in parentheses</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>2. Project Management</strong></p>
+                        <p class="text-light mt-2"><strong>2. Search</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dedicated search box in the <code>PROJECTS</code> pane, filters by project name and description</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dedicated search box in the <code>TASKS</code> pane, filters by task title and description</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dedicated search box in the <code>SUBTASKS</code> pane, filters by subtask title</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Case-insensitive, substring matching, built-in clear button</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Searches are independent of each other</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>3. Sorting</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Projects are ordered by creation time, oldest first</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks inside a project are ordered by creation time, oldest first</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtasks inside a task are ordered by creation time, oldest first</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Manual ordering is not supported</li>
+                        </ul>
+                        <p class="text-light mt-2"><strong>4. Project Management</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete projects with name, optional description, and optional link</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The link field is available only when editing an existing project, so project creation stays minimal</li>
@@ -165,7 +179,7 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Project name is limited to 100 characters and description to 2000 characters, with live counters</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD for projects via context menu, Edit menu, and the project card buttons</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>3. Task Management</strong></p>
+                        <p class="text-light mt-2"><strong>5. Task Management</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Task list with inline visual state (status dot, title, priority, progress, due date)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete tasks</li>
@@ -174,7 +188,7 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Clear completed tasks with the <code>Clear Completed (N)</code> button in the TASKS pane</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Toggle completion, edit and delete directly from the task list context menu or the task header</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>4. Subtasks</strong></p>
+                        <p class="text-light mt-2"><strong>6. Subtasks</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Simplified subtasks: title and priority only</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtask title limited to 100 characters, with a live counter</li>
@@ -182,20 +196,20 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete subtasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtask completion does not change the parent task status</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>5. Progress Tracking & Statistics</strong></p>
+                        <p class="text-light mt-2"><strong>7. Progress Tracking & Statistics</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-project progress bar in the project card</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Per-task progress based on subtasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Compact global statistics panel in the status bar (always visible): projects, tasks, subtasks, and completion rates</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>6. Export</strong></p>
+                        <p class="text-light mt-2"><strong>8. Export</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Export the entire dataset to a JSON file (<code>File → Export...</code>, <code>Ctrl+Shift+S</code>)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Import a JSON file back (<code>File → Import...</code>, <code>Ctrl+I</code>) with automatic temporary backup</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Export a single project to a Markdown document (<code>File → Export Project to Markdown...</code>, <code>Ctrl+Shift+M</code>), or via the project context menu</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The Markdown document includes the project name, description, link, creation and update dates, progress, status, all tasks with their fields, and all subtasks in a readable hierarchy</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>7. User Interface</strong></p>
+                        <p class="text-light mt-2"><strong>9. User Interface</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dark theme optimized for extended use</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>No decorative borders, only subtle background separation between panes</li>
@@ -203,13 +217,13 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Context menus everywhere for CRUD actions</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Built-in Help, About and Keyboard Shortcuts dialogs accessible from the Help menu</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>8. Data Persistence</strong></p>
+                        <p class="text-light mt-2"><strong>10. Data Persistence</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Automatic saving to <code>~/.smart_project_manager/projects.json</code></li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>JSON-based storage for projects, tasks and subtasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Data loaded automatically on application startup</li>
                         </ul>
-                        <p class="text-light mt-2"><strong>9. Stable Selection</strong></p>
+                        <p class="text-light mt-2"><strong>11. Stable Selection</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Selection in all three lists is preserved across any CRUD operation</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Programmatic selection updates do not emit change signals</li>
@@ -395,6 +409,24 @@ rm -rf ~/.smart_project_manager</pre>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>All splitter handles are draggable. Panes never collapse completely, so you cannot accidentally hide the project list or the task list.</li>
                         </ul>
 
+                        <p class="text-light mt-3"><strong>Search</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each pane has its own search box: <code>Search projects...</code>, <code>Search tasks...</code>, <code>Search subtasks...</code></li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Search is case-insensitive and matches substrings</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Projects filter by name and description, tasks by title and description, subtasks by title</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each search box has a built-in clear button</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Searches are independent, so you can narrow down projects, then tasks, then subtasks</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Panel counters always show the total count, not the filtered count</li>
+                        </ul>
+
+                        <p class="text-light mt-3"><strong>Sorting</strong></p>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Projects are ordered by creation time, oldest first</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tasks inside a project are ordered by creation time, oldest first</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Subtasks inside a task are ordered by creation time, oldest first</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Manual ordering is not supported</li>
+                        </ul>
+
                         <p class="text-light mt-3"><strong>Projects</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Name is limited to 100 characters and description to 2000 characters. Both have live counters in the dialog.</li>
@@ -500,7 +532,8 @@ rm -rf ~/.smart_project_manager</pre>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>projects</code> entries may contain <code>link</code> (optional string).</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>subtasks</code> entries contain only <code>id</code>, <code>title</code>, <code>priority</code>, <code>completed</code>, <code>task_id</code>, <code>project_id</code>, and timestamps.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Older data files with <code>labels</code> on tasks still load correctly; the <code>labels</code> field is ignored on import.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Exports from this version no longer include <code>labels</code> in the data.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Older data files with <code>task_order</code> on projects still load correctly; the <code>task_order</code> field is ignored. Manual task ordering is not supported.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Exports from this version no longer include <code>labels</code> or <code>task_order</code> in the data.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Markdown export is read-only and does not affect the stored JSON data.</li>
                         </ul>
                     </div>
