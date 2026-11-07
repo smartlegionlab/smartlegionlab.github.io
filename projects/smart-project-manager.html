@@ -151,7 +151,7 @@
                         <p class="text-light"><strong>1. Three-Pane Splitter Workspace</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Left pane: project list</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Top-right: project card with status, counters and overall progress</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Top-right: project card with status, counters, author and overall progress</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Bottom-right, two panes side by side: task list and the selected task with its subtasks</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Splitter handles are resizable; panes never collapse completely</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Each pane has a strict uppercase label (<code>PROJECTS</code>, <code>PROJECT</code>, <code>TASKS</code>, <code>TASK</code>, <code>SUBTASKS</code>) with a live counter in parentheses</li>
@@ -173,8 +173,9 @@
                         </ul>
                         <p class="text-light mt-2"><strong>4. Project Management</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete projects with name, optional description, and optional link</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The link field is available only when editing an existing project, so project creation stays minimal</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Create, edit and delete projects with name, optional description, optional author, and optional link</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Author and link can be set during creation and edited later</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Author is limited to 50 characters with a live counter; if empty, the card shows <b>Author: Not specified</b></li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Link input is validated: a scheme (for example <code>https://</code>) is required</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Project name is limited to 100 characters and description to 2000 characters, with live counters</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD for projects via context menu, Edit menu, and the project card buttons</li>
@@ -207,7 +208,7 @@
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Export the entire dataset to a JSON file (<code>File → Export...</code>, <code>Ctrl+Shift+S</code>)</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Import a JSON file back (<code>File → Import...</code>, <code>Ctrl+I</code>) with automatic temporary backup</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Export a single project to a Markdown document (<code>File → Export Project to Markdown...</code>, <code>Ctrl+Shift+M</code>), or via the project context menu</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The Markdown document includes the project name, description, link, creation and update dates, progress, status, all tasks with their fields, and all subtasks in a readable hierarchy</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The Markdown document includes the project name, author, description, link, creation and update dates, progress, status, all tasks with their fields, and all subtasks in a readable hierarchy</li>
                         </ul>
                         <p class="text-light mt-2"><strong>9. User Interface</strong></p>
                         <ul class="list-unstyled">
@@ -393,7 +394,7 @@ rm -rf ~/.smart_project_manager</pre>
                     <div class="accordion-body text-light">
                         <p class="text-light"><strong>Getting Started</strong></p>
                         <ol class="text-light">
-                            <li class="mb-2"><strong>Create a project:</strong> <code>File → New Project</code> (<code>Ctrl+N</code>) or the <strong>+ New</strong> button in the <code>PROJECTS</code> pane. Enter a name and, optionally, a description. The link field becomes available later, when you edit the project.</li>
+                            <li class="mb-2"><strong>Create a project:</strong> <code>File → New Project</code> (<code>Ctrl+N</code>) or the <strong>+ New</strong> button in the <code>PROJECTS</code> pane. Enter a name and, optionally, a description, author and link.</li>
                             <li class="mb-2"><strong>Select a project:</strong> click it in the <code>PROJECTS</code> list on the left. The project card in the top-right and the task list in the bottom-left update automatically.</li>
                             <li class="mb-2"><strong>Create a task:</strong> with a project selected, use <code>File → New Task</code> (<code>Ctrl+T</code>) or the <strong>+ Add</strong> button in the <code>TASKS</code> pane.</li>
                             <li class="mb-2"><strong>Select a task:</strong> click it in the <code>TASKS</code> list. The <code>TASK</code> header and the <code>SUBTASKS</code> list update automatically.</li>
@@ -429,9 +430,10 @@ rm -rf ~/.smart_project_manager</pre>
 
                         <p class="text-light mt-3"><strong>Projects</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Name is limited to 100 characters and description to 2000 characters. Both have live counters in the dialog.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The optional link is only shown in edit mode. It is validated: a scheme such as <code>https://</code> is required.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The project card shows the name, description, optional link, status badge, and five tiles: <code>TASKS</code>, <code>SUBTASKS</code>, <code>PROGRESS</code>, <code>CREATED</code>, <code>UPDATED</code>.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Name is limited to 100 characters, description to 2000 characters, author to 50 characters. All have live counters in the dialog.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Author and link are optional and can be set during creation and edited later.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The link is validated: a scheme such as <code>https://</code> is required.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>The project card shows the name, author (<b>Author: ...</b> or <b>Author: Not specified</b>), description, optional link, status badge, and five tiles: <code>TASKS</code>, <code>SUBTASKS</code>, <code>PROGRESS</code>, <code>CREATED</code>, <code>UPDATED</code>.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Full CRUD: context menu in the project list, <code>Edit → Edit Project</code> (<code>Ctrl+E</code>), <code>Edit → Delete Project</code> (<code>Ctrl+D</code>), and the <code>Edit</code> / <code>Delete</code> buttons on the project card.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Right-click a project and choose <strong>Export to Markdown...</strong> to save it as a Markdown document.</li>
                         </ul>
@@ -457,7 +459,7 @@ rm -rf ~/.smart_project_manager</pre>
                         <p class="text-light mt-3"><strong>Export</strong></p>
                         <ul class="list-unstyled">
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export to JSON:</strong> <code>File → Export...</code> (<code>Ctrl+Shift+S</code>) writes the whole dataset (projects, tasks, subtasks) to a single JSON file.</li>
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export project to Markdown:</strong> <code>File → Export Project to Markdown...</code> (<code>Ctrl+Shift+M</code>), or right-click a project in the list and choose <strong>Export to Markdown...</strong>. Saves the selected project as a readable <code>.md</code> document with name, description, link, dates, progress, status, all tasks and their subtasks.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export project to Markdown:</strong> <code>File → Export Project to Markdown...</code> (<code>Ctrl+Shift+M</code>), or right-click a project in the list and choose <strong>Export to Markdown...</strong>. Saves the selected project as a readable <code>.md</code> document with name, author, description, link, dates, progress, status, all tasks and their subtasks.</li>
                         </ul>
 
                         <p class="text-light mt-3"><strong>Stable Selection</strong></p>
@@ -529,10 +531,11 @@ rm -rf ~/.smart_project_manager</pre>
                         </div>
                         <p class="text-light small"><strong>Data Format Notes:</strong></p>
                         <ul class="list-unstyled small">
-                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>projects</code> entries may contain <code>link</code> (optional string).</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>projects</code> entries may contain <code>link</code> (optional string) and <code>author</code> (optional string, up to 50 characters).</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><code>subtasks</code> entries contain only <code>id</code>, <code>title</code>, <code>priority</code>, <code>completed</code>, <code>task_id</code>, <code>project_id</code>, and timestamps.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Older data files with <code>labels</code> on tasks still load correctly; the <code>labels</code> field is ignored on import.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Older data files with <code>task_order</code> on projects still load correctly; the <code>task_order</code> field is ignored. Manual task ordering is not supported.</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Older data files without <code>author</code> load correctly; the project gets <code>author = null</code> and the UI shows <b>Author: Not specified</b>.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Exports from this version no longer include <code>labels</code> or <code>task_order</code> in the data.</li>
                             <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i>Markdown export is read-only and does not affect the stored JSON data.</li>
                         </ul>
