@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>smart-command-runner-rs · Smart Legion Lab</title>
+    <title>smart-command-runner-rs · Alexander Suvorov Sr.</title>
     <meta name="description" content="smart-command-runner-rs - Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging. Dry-run by default.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/smart-command-runner-rs.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="smart-command-runner-rs · Smart Legion Lab">
+    <meta property="og:title" content="smart-command-runner-rs · Alexander Suvorov Sr.">
     <meta property="og:description" content="Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging. Dry-run by default.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/smart-command-runner-rs.html">
@@ -104,10 +104,11 @@
         <div class="text-center mb-4">
             <h1 class="text-primary">smart-command-runner-rs</h1>
             <p class="text-light">Run grouped shell commands from a TOML file with blocks, confirmation modes, and logging</p>
-            <p class="text-light"><span class="text-primary">Dry-run by default</span> - nothing runs unless you pass <code>--yes</code>, <code>--interactive-block</code>, or <code>--interactive-command</code>.</p>
             <hr>
-            <div class="mt-3">
+            <div class="d-flex flex-wrap justify-content-center gap-2">
                 <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/DISCLAIMER.md" class="btn btn-outline-warning btn-sm">Disclaimer <i class="bi bi-box-arrow-up-right ms-1"></i></a>
             </div>
         </div>
 
@@ -123,6 +124,9 @@
                 <p class="text-light small">
                     <strong>Origin:</strong> This project is a revival of an earlier tool called <strong>Commandoro</strong> (2018), which performed a similar job: read a declarative file of grouped shell commands and run them. The original repository was closed and the project was abandoned. <code>cmdrun</code> is a rewrite from scratch in Rust, with a stricter data model (atomic commands, independent blocks, explicit ordering on the command line) and proper logging.
                 </p>
+
+                <p class="text-light"><span class="text-primary">Dry-run by default</span> - nothing runs unless you pass <code>--yes</code>, <code>--interactive-block</code>, or <code>--interactive-command</code>.</p>
+
             </div>
         </div>
 
@@ -429,13 +433,8 @@ cargo test</pre>
         <div class="mb-4">
             <div class="smart-small-card">
                 <div class="text-center">
-                    <h4 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Links</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs" class="btn btn-outline-primary btn-sm">GitHub Repository</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/LICENSE" class="btn btn-outline-primary btn-sm">License (BSD 3-Clause)</a>
-                        <a target="_blank" href="https://github.com/smartlegionlab/smart-command-runner-rs/blob/master/DISCLAIMER.md" class="btn btn-outline-primary btn-sm">Disclaimer</a>
-                    </div>
-                    <hr class="border-secondary">
+                    <h5 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Author</h5>
+                    <hr>
                     <p class="text-light">
                         <i class="bi bi-person-circle text-primary"></i> Created by
                         <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
