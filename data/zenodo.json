@@ -1,21 +1,21 @@
 {
   "pointerParadigm": {
-    "unique_views": 582,
+    "unique_views": 583,
     "unique_downloads": 440,
-    "total_views": 832,
+    "total_views": 833,
     "total_downloads": 810
   },
   "localDataParadigm": {
-    "unique_views": 383,
-    "unique_downloads": 356,
-    "total_views": 488,
-    "total_downloads": 551
+    "unique_views": 384,
+    "unique_downloads": 358,
+    "total_views": 489,
+    "total_downloads": 553
   },
   "deterministicEngine": {
     "unique_views": 309,
-    "unique_downloads": 268,
+    "unique_downloads": 269,
     "total_views": 379,
-    "total_downloads": 407
+    "total_downloads": 408
   },
   "pchParadigm": {
     "unique_views": 216,
