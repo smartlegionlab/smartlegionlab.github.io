@@ -82,6 +82,7 @@ function addConsoleLine(text) {
     line.style.fontSize = '11px';
     line.style.wordWrap = 'break-word';
     line.style.whiteSpace = 'pre-wrap';
+    line.style.color = '#7ab3ff';
     line.innerHTML = text;
     consoleOutput.appendChild(line);
     consoleOutput.scrollTop = consoleOutput.scrollHeight;
@@ -124,7 +125,7 @@ function startRocketAnimation() {
     container.style.minHeight = '500px';
     container.style.background = '#0a0a0a';
     container.style.borderRadius = '4px';
-    container.style.border = '1px solid #1a1a1a';
+    container.style.border = '1px solid #1a2230';
     consoleOutput.appendChild(container);
 
     const groundDiv = document.createElement('div');
@@ -136,13 +137,13 @@ function startRocketAnimation() {
     groundDiv.style.display = 'flex';
     groundDiv.style.alignItems = 'flex-end';
     groundDiv.style.justifyContent = 'center';
-    groundDiv.style.color = '#00ff00';
+    groundDiv.style.color = '#0d6efd';
     groundDiv.style.fontSize = '13px';
     groundDiv.style.zIndex = '2';
 
     const groundLine = document.createElement('div');
     groundLine.textContent = '________________________________________________________________________________';
-    groundLine.style.color = '#00ff00';
+    groundLine.style.color = '#0d6efd';
     groundLine.style.opacity = '0.5';
     groundDiv.appendChild(groundLine);
     container.appendChild(groundDiv);
@@ -168,7 +169,7 @@ function startRocketAnimation() {
     statusDiv.style.marginBottom = '15px';
     statusDiv.style.fontWeight = 'bold';
     statusDiv.style.fontSize = '16px';
-    statusDiv.style.color = '#00ff00';
+    statusDiv.style.color = '#7ab3ff';
     statusDiv.style.position = 'relative';
     statusDiv.style.zIndex = '10';
     container.appendChild(statusDiv);
@@ -205,7 +206,7 @@ function startRocketAnimation() {
             star.style.position = 'absolute';
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 100 + '%';
-            star.style.color = ['#00ff00', '#ffff00', '#00ffff', '#ff00ff'][Math.floor(Math.random() * 4)];
+            star.style.color = ['#0d6efd', '#7ab3ff', '#0dcaf0', '#6f42c1'][Math.floor(Math.random() * 4)];
             star.style.fontSize = (Math.random() * 8 + 4) + 'px';
             star.style.opacity = Math.random() * 0.8 + 0.2;
             star.textContent = ['*', '✦', '✧', '•', '★'][Math.floor(Math.random() * 5)];
@@ -219,7 +220,7 @@ function startRocketAnimation() {
     function updateRocket(yOffset, showFlame = false) {
         let rocketHTML = '';
         rocket.forEach(line => {
-            rocketHTML += `<div style="margin: 1px 0; color: #00ff00;">${line}</div>`;
+            rocketHTML += `<div style="margin: 1px 0; color: #0d6efd;">${line}</div>`;
         });
         rocketDiv.innerHTML = rocketHTML;
         rocketDiv.style.transform = `translateY(${yOffset}px)`;
@@ -234,7 +235,7 @@ function startRocketAnimation() {
                 const char = flameChars[Math.floor(Math.random() * flameChars.length)];
                 const opacity = 0.4 + Math.random() * 0.6;
                 const flicker = Math.random() > 0.3 ? '' : 'opacity: 0.2;';
-                flameHTML += `<div style="margin: 0; color: #00ff00; opacity: ${opacity}; ${flicker}">${padding}${char}${char}${char}${char}${char}${char}</div>`;
+                flameHTML += `<div style="margin: 0; color: #0d6efd; opacity: ${opacity}; ${flicker}">${padding}${char}${char}${char}${char}${char}${char}</div>`;
             }
 
             flameDiv.innerHTML = flameHTML;
@@ -250,7 +251,7 @@ function startRocketAnimation() {
     function animateRocket() {
         if (countdown > 0) {
             statusDiv.textContent = `[SYSTEM] ROCKET PREPARING FOR LAUNCH... ${countdown}`;
-            statusDiv.style.color = countdown === 1 ? '#ff4444' : '#00ff00';
+            statusDiv.style.color = countdown === 1 ? '#ff4444' : '#7ab3ff';
 
             const shakeIntensity = (3 - countdown) * 3;
             if (shakeIntensity > 0) {
@@ -281,7 +282,7 @@ function startRocketAnimation() {
                     smoke.style.position = 'absolute';
                     smoke.style.bottom = '30px';
                     smoke.style.left = (Math.random() * 40 + 30) + '%';
-                    smoke.style.color = '#1a1a1a';
+                    smoke.style.color = '#1a2230';
                     smoke.style.fontSize = (Math.random() * 15 + 10) + 'px';
                     smoke.textContent = '░';
                     smoke.style.zIndex = '3';
@@ -301,8 +302,8 @@ function startRocketAnimation() {
                     mapAnimationInterval = null;
 
                     statusDiv.textContent = '[SYSTEM] ROCKET REACHED SPACE!';
-                    statusDiv.style.color = '#00ff00';
-                    statusDiv.style.textShadow = '0 0 20px rgba(0,255,0,0.5)';
+                    statusDiv.style.color = '#7ab3ff';
+                    statusDiv.style.textShadow = '0 0 20px rgba(13,110,253,0.6)';
 
                     flameDiv.style.display = 'none';
                     groundDiv.style.display = 'none';
@@ -313,7 +314,7 @@ function startRocketAnimation() {
 
                     mapAnimationTimeout = setTimeout(() => {
                         const redirectMsg = document.createElement('div');
-                        redirectMsg.style.color = '#ffff00';
+                        redirectMsg.style.color = '#7ab3ff';
                         redirectMsg.style.fontSize = '14px';
                         redirectMsg.style.marginTop = '15px';
                         redirectMsg.style.animation = 'blink 0.5s infinite';

@@ -102,7 +102,7 @@ function drawGame() {
     gameDiv.style.fontFamily = 'monospace';
     gameDiv.style.fontSize = '10px';
     gameDiv.style.whiteSpace = 'pre';
-    gameDiv.style.color = '#00ff9d';
+    gameDiv.style.color = '#7ab3ff';
     gameDiv.style.marginBottom = '10px';
     if (isMobile()) {
         gameDiv.style.cursor = 'pointer';
@@ -127,6 +127,7 @@ function addGameLine(text) {
     line.style.marginBottom = '4px';
     line.style.fontFamily = 'monospace';
     line.style.fontSize = '11px';
+    line.style.color = '#7ab3ff';
     line.innerHTML = text;
     gameOutput.appendChild(line);
     gameOutput.scrollTop = gameOutput.scrollHeight;

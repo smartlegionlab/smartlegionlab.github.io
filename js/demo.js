@@ -116,10 +116,10 @@ function startDemo() {
         gameDiv.style.fontFamily = 'monospace';
         gameDiv.style.fontSize = '11px';
         gameDiv.style.whiteSpace = 'pre';
-        gameDiv.style.color = '#00ff9d';
+        gameDiv.style.color = '#7ab3ff';
         gameDiv.style.marginBottom = '10px';
         gameDiv.style.padding = '4px';
-        gameDiv.style.border = '1px solid #00ff9d22';
+        gameDiv.style.border = '1px solid rgba(13,110,253,0.2)';
         gameDiv.style.borderRadius = '4px';
         gameDiv.innerHTML = output;
 
@@ -176,10 +176,10 @@ function startDemo() {
         gameDiv.style.fontFamily = 'monospace';
         gameDiv.style.fontSize = '11px';
         gameDiv.style.whiteSpace = 'pre';
-        gameDiv.style.color = '#00ff9d';
+        gameDiv.style.color = '#7ab3ff';
         gameDiv.style.marginBottom = '10px';
         gameDiv.style.padding = '8px';
-        gameDiv.style.border = '2px solid #00ff9d';
+        gameDiv.style.border = '2px solid #0d6efd';
         gameDiv.style.borderRadius = '4px';
         gameDiv.style.animation = 'glow 1s ease-in-out infinite alternate';
         gameDiv.innerHTML = output;
@@ -228,8 +228,8 @@ function startDemo() {
     const style = document.createElement('style');
     style.textContent = `
         @keyframes glow {
-            from { border-color: #00ff9d44; box-shadow: 0 0 10px #00ff9d11; }
-            to { border-color: #00ff9d; box-shadow: 0 0 20px #00ff9d44; }
+            from { border-color: rgba(13,110,253,0.27); box-shadow: 0 0 10px rgba(13,110,253,0.07); }
+            to   { border-color: #0d6efd;                box-shadow: 0 0 20px rgba(13,110,253,0.27); }
         }
     `;
     document.head.appendChild(style);

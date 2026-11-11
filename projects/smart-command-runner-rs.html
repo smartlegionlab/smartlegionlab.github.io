@@ -463,23 +463,24 @@ cargo test</pre>
     </div>
 </div>
 
-<button id="consoleToggle" class="btn btn-sm btn-outline-success position-fixed smart-console-toggle">
+<button id="consoleToggle" class="btn btn-sm btn-outline-primary position-fixed smart-console-toggle">
     <i class="bi bi-terminal"></i> Console
 </button>
 
 <div id="devConsole" class="smart-dev-console" style="display: none;">
-    <div style="padding: 8px 12px; background: rgba(0, 255, 157, 0.15); border-bottom: 1px solid #00ff9d;">
-        <span style="color: #00ff9d; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
         <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
     </div>
-    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #00ff9d; font-size: 11px; line-height: 1.4;">
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
         <div style="color: #666;">╰─$ Type 'help' for commands</div>
     </div>
-    <div style="padding: 6px 10px; border-top: 1px solid #00ff9d;">
-        <span style="color: #00ff9d; font-size: 11px;">$</span>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
         <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
     </div>
 </div>
+
 
 <div id="background-trigger" hidden></div>
 
