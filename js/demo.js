@@ -10,14 +10,25 @@ function startDemo() {
     const consoleOutput = document.getElementById('consoleOutput');
     if (!consoleOutput) return;
 
-    const initialStats = {
-        projects: 70,
-        libraries: 30,
+    const fallbackStats = {
+        projects: 106,
+        libraries: 36,
         research: 4,
-        ecosystems: 6,
-        applications: 26,
+        ecosystems: 8,
+        applications: 57,
         articles: 4
     };
+
+    const C = (typeof CONFIG !== 'undefined' && CONFIG.CONSTANTS) ? CONFIG.CONSTANTS : null;
+
+    const initialStats = C ? {
+        projects:     C.PROJECTS_COUNT,
+        libraries:    C.LIBRARIES_COUNT,
+        research:     C.PUBLICATIONS,
+        ecosystems:   C.ECOSYSTEMS_COUNT,
+        applications: C.APPLICATIONS,
+        articles:     C.ARTICLES_COUNT
+    } : fallbackStats;
 
     const displayStats = {
         projects: 0,
