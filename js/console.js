@@ -65,6 +65,8 @@ function clearConsole() {
     if (typeof stopDemo !== 'undefined') {
         stopDemo();
     }
+    consoleOutput.lastDemoDiv = null;
+    consoleOutput.lastGameDiv = null;
     if (mapAnimationInterval) {
         clearInterval(mapAnimationInterval);
         mapAnimationInterval = null;
