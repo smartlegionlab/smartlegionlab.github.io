@@ -1122,3 +1122,18 @@ hr {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+/* ============================================
+   16. BUTTON RENDERING STABILITY (Chrome/Brave)
+   ============================================ */
+button,
+.btn,
+.nav-btn,
+.mobile-nav-btn,
+.sidebar-toggle-btn,
+.nav-login-btn,
+.scroll-to-top {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
