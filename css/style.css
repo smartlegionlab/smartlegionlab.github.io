@@ -47,7 +47,8 @@ body {
     justify-content: center;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    /* BUTTON FIX: no box-shadow transition */
+    transition: background 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
@@ -60,7 +61,6 @@ body {
 
 .scroll-to-top:hover {
     background: var(--accent-dark);
-    /* transform removed - causes edge hover flicker */
     box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
 }
 
@@ -216,6 +216,7 @@ body {
     gap: 20px;
 }
 
+/* BUTTON FIX: no box-shadow transition */
 .sidebar-toggle-btn {
     background: rgba(13, 110, 253, 0.15);
     border: 1px solid var(--border);
@@ -234,7 +235,6 @@ body {
     background: var(--accent);
     color: white;
     border-color: var(--accent);
-    /* transform removed - causes edge hover flicker */
 }
 
 .nav-logo {
@@ -296,6 +296,7 @@ body {
     font-size: 0.9rem;
 }
 
+/* BUTTON FIX: no box-shadow transition */
 .nav-login-btn {
     display: flex;
     align-items: center;
@@ -313,7 +314,6 @@ body {
 .nav-login-btn:hover {
     background: var(--accent-dark);
     color: white;
-    /* transform removed - edge flicker on trackpads */
 }
 
 /* Progress bar under nav */
@@ -507,6 +507,7 @@ body {
     margin: 0 auto;
 }
 
+/* BUTTON FIX: no box-shadow transition */
 .mobile-nav-btn {
     display: flex;
     flex-direction: column;
@@ -521,8 +522,7 @@ body {
     font-size: 0.5rem;
     transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex: 1;
     min-width: 0;
     max-width: 55px;
@@ -556,7 +556,6 @@ body {
     border-color: var(--accent);
     color: white;
     box-shadow: 0 0 10px rgba(13, 110, 253, 0.9);
-    /* transform removed - causes edge hover flicker */
 }
 
 /* Tooltip on hover */
@@ -603,7 +602,6 @@ body {
 .mobile-nav-btn:hover::before {
     opacity: 1;
     visibility: visible;
-    /* translateY(0) keeps tooltip visible; no layout shift on the button itself */
     transform: translateX(-50%) translateY(0);
 }
 
@@ -619,8 +617,8 @@ body {
 .card-custom {
     margin: 5px;
     border-radius: 15px;
-    /* backface-visibility removed - caused box-shadow flicker on hover */
     transition: box-shadow 0.2s ease-out;
+    backface-visibility: hidden;
 }
 
 .card-custom:hover {
@@ -669,6 +667,7 @@ body {
     gap: 0.5rem;
 }
 
+/* BUTTON FIX: no box-shadow transition */
 .nav-btn {
     display: flex;
     align-items: center;
@@ -681,8 +680,7 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: background 0.3s ease, border-color 0.3s ease,
-                color 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     min-width: 100px;
     justify-content: center;
 }
@@ -691,7 +689,6 @@ body {
     background: rgba(13, 110, 253, 0.2);
     border-color: var(--accent);
     color: var(--accent);
-    /* transform removed - causes edge hover flicker */
 }
 
 .nav-btn.active,
@@ -1065,7 +1062,7 @@ hr {
 }
 
 .related-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     background: rgba(13, 110, 253, 0.03);
     border: 1px solid rgba(13, 110, 253, 0.15);
     border-radius: 20px;
