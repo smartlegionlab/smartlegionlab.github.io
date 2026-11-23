@@ -1,9 +1,14 @@
+/**
+ * Particle Background - floating tech-word particles with connections.
+ * Words drift, breathe and repel each other, forming a network.
+ * Activated only when loaded by the dispatcher.
+ * v0.1.1
+ */
 class ParticleBackground {
     constructor() {
         if (window.particleBackgroundInstance) {
             return window.particleBackgroundInstance;
         }
-
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.particlesArray = [];
@@ -11,7 +16,6 @@ class ParticleBackground {
         this.isPaused = false;
         this.lastWidth = 0;
         this.lastHeight = 0;
-
         this.techWords = [
             'Pointer-Based Security',
             'Local Data Regeneration',
@@ -19,14 +23,12 @@ class ParticleBackground {
             'Deterministic Systems',
             'Zero-Storage',
             'Data Non-Existence',
-
             'Smart Passwords',
             'NP Problem',
             '2FA Management',
             'Repository Management',
             'Deterministic',
             'Research',
-
             'SmartPassLib',
             'Smart TSP Solver',
             'Smart TSP Oracle',
@@ -36,14 +38,10 @@ class ParticleBackground {
             'Smart 2FA Manager',
             'Smart Password Manager',
             'Smart Social Network',
-
             'Python', 'Go', 'C#', 'Kotlin', 'JavaScript', 'Rust',
-
             'PyQt', 'Django', 'Flask', 'Android',
             'Redis', 'PostgreSQL', 'Docker', 'GitHub API',
-
             'SHA-256', 'TOTP', '2FA', 'Cryptography',
-
             'Smart Legion Lab',
             'Alexander Suvorov Sr.',
             'Alexander Suvorov Jr.',
@@ -55,11 +53,9 @@ class ParticleBackground {
             'Zero Trust',
             'Full-Cycle Development'
         ];
-
         window.particleBackgroundInstance = this;
         this.init();
     }
-
     init() {
         this.canvas.id = 'particle-canvas';
         this.canvas.style.cssText = `
@@ -68,38 +64,25 @@ class ParticleBackground {
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 0;
             pointer-events: none;
             transform: translateZ(0);
             will-change: transform;
             backface-visibility: hidden;
         `;
         document.body.prepend(this.canvas);
-
         this.handleResize();
         this.createParticles();
         this.startAnimation();
         this.setupEventListeners();
     }
-
     getParticleCount() {
         if (window.innerWidth < 1024) return 20;
         return 30;
     }
-
-    pickColor(text) {
-        if (/Paradigm|Zero-Storage|Data Non-Existence|Deterministic Systems/i.test(text)) {
-            return '255, 193, 7';
-        }
-        if (/Security|Cryptography|SHA|TOTP|2FA|Zero Trust/i.test(text)) {
-            return '220, 53, 69';
-        }
-        if (/^(Python|Go|C#|Kotlin|JavaScript|Rust|PyQt|Django|Flask|Android|Redis|PostgreSQL|Docker|GitHub API)$/.test(text)) {
-            return '13, 202, 240';
-        }
-        return '13, 110, 253';
+    pickColor() {
+        return '255, 255, 255';
     }
-
     getEdgeFade(x, y) {
         const w = this.canvas.width;
         const h = this.canvas.height;
@@ -108,16 +91,13 @@ class ParticleBackground {
         const fy = Math.min(y / edge, (h - y) / edge, 1);
         return Math.max(0, Math.min(1, Math.min(fx, fy)));
     }
-
     handleResize() {
         const oldWidth = this.canvas.width;
         const oldHeight = this.canvas.height;
         const newWidth = window.innerWidth;
         const newHeight = window.innerHeight;
-
         this.canvas.width = newWidth;
         this.canvas.height = newHeight;
-
         if (Math.abs(newWidth - oldWidth) > 10) {
             this.createParticles();
         } else {
@@ -129,11 +109,9 @@ class ParticleBackground {
             }
         }
     }
-
     createParticles() {
         this.particlesArray = [];
         const count = this.getParticleCount();
-
         for (let i = 0; i < count; i++) {
             const text = this.techWords[Math.floor(Math.random() * this.techWords.length)];
             this.particlesArray.push({
@@ -151,7 +129,6 @@ class ParticleBackground {
             });
         }
     }
-
     updateParticles() {
         for (let particle of this.particlesArray) {
             for (let other of this.particlesArray) {
@@ -166,10 +143,8 @@ class ParticleBackground {
                     particle.y += (dy / d) * force;
                 }
             }
-
             particle.x += particle.speedX;
             particle.y += particle.speedY;
-
             const margin = 100;
             if (particle.x > this.canvas.width + margin) {
                 particle.x = -margin;
@@ -189,23 +164,18 @@ class ParticleBackground {
                 particle.opacity = 0;
                 particle.targetOpacity = Math.random() * 0.15 + 0.05;
             }
-
             particle.breathPhase += particle.breathSpeed;
             const base = Math.min(0.2, Math.max(0.05, particle.targetOpacity));
             const target = base + Math.sin(particle.breathPhase) * 0.03;
             particle.opacity += (target - particle.opacity) * 0.01;
         }
     }
-
     drawParticles() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
         this.drawConnections();
-
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
         this.ctx.font = `500 ${this.getResponsiveFontSize()}px 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace`;
-
         for (let particle of this.particlesArray) {
             const edgeFade = this.getEdgeFade(particle.x, particle.y);
             if (edgeFade <= 0.01) continue;
@@ -213,13 +183,11 @@ class ParticleBackground {
             this.ctx.fillText(particle.text, particle.x, particle.y);
         }
     }
-
     getResponsiveFontSize() {
         if (window.innerWidth < 768) return 10;
         if (window.innerWidth < 1024) return 12;
         return 14;
     }
-
     drawConnections() {
         for (let i = 0; i < this.particlesArray.length; i++) {
             for (let j = i + 1; j < this.particlesArray.length; j++) {
@@ -228,7 +196,6 @@ class ParticleBackground {
                 const dx = a.x - b.x;
                 const dy = a.y - b.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-
                 if (distance < 150) {
                     const t = 1 - (distance / 150);
                     const fadeA = this.getEdgeFade(a.x, a.y);
@@ -246,15 +213,12 @@ class ParticleBackground {
             }
         }
     }
-
     animate() {
         if (this.isPaused) return;
-
         this.updateParticles();
         this.drawParticles();
         this.animationId = requestAnimationFrame(() => this.animate());
     }
-
     startAnimation() {
         this.isPaused = false;
         if (this.animationId) {
@@ -262,7 +226,6 @@ class ParticleBackground {
         }
         this.animate();
     }
-
     stopAnimation() {
         this.isPaused = true;
         if (this.animationId) {
@@ -270,18 +233,14 @@ class ParticleBackground {
             this.animationId = null;
         }
     }
-
     setupEventListeners() {
         this.lastWidth = window.innerWidth;
         this.lastHeight = window.innerHeight;
-
         const onResize = () => {
             const w = window.innerWidth;
             const h = window.innerHeight;
-
             const widthChanged = w !== this.lastWidth;
             const heightChangedALot = Math.abs(h - this.lastHeight) > 120;
-
             if (widthChanged || heightChangedALot) {
                 this.lastWidth = w;
                 this.lastHeight = h;
@@ -290,22 +249,18 @@ class ParticleBackground {
                 this.lastHeight = h;
             }
         };
-
         this.debouncedResize = this.debounce(() => this.handleResize(), 250);
         window.addEventListener('resize', onResize);
-
         document.addEventListener('visibilitychange', () => {
             this.isPaused = document.hidden;
             if (!this.isPaused) {
                 this.startAnimation();
             }
         });
-
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             this.stopAnimation();
         }
     }
-
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -317,7 +272,6 @@ class ParticleBackground {
             timeout = setTimeout(later, wait);
         };
     }
-
     destroy() {
         this.stopAnimation();
         if (this.canvas && this.canvas.parentNode) {
@@ -326,14 +280,12 @@ class ParticleBackground {
         window.particleBackgroundInstance = null;
     }
 }
-
 (function () {
     function start() {
         if (!window.particleBackgroundInstance) {
             new ParticleBackground();
         }
     }
-
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', start);
     } else {

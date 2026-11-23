@@ -10,55 +10,47 @@
 
 (function () {
     'use strict';
-
-    var DEFAULT_ENGINE = 'particle-background.js';
-
-    var RULES = [
-        {
-            test: function (ctx) { return ctx.isMobile; },
-            engine: 'console-background.js'
-        },
-        {
-            test: function (ctx) { return ctx.matchesPath(/projects/i); },
-            engine: 'console-background.js'
-        },
-        {
-            test: function (ctx) { return ctx.matchesPath(/research/i); },
-            engine: 'tsp-background.js'
-        }
+    var ENGINES = [
+        'console-background.js',
+        'particle-background.js',
+        'tsp-background.js'
     ];
-
-    function buildContext() {
-        var ua = navigator.userAgent || '';
-        var uaMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua);
-        var touchDevice =
-            window.matchMedia('(pointer: coarse)').matches ||
-            window.matchMedia('(hover: none)').matches;
-        var smallScreen = window.innerWidth < 768;
-
-        var pathname = window.location.pathname;
-
-        return {
-            isMobile: uaMobile || touchDevice || smallScreen,
-            isTouch: touchDevice,
-            isSmallScreen: smallScreen,
-            pathname: pathname,
-            matchesPath: function (re) { return re.test(pathname); }
-        };
-    }
-
-    function pickEngine(ctx) {
-        for (var i = 0; i < RULES.length; i++) {
-            var rule = RULES[i];
-            try {
-                if (rule.test(ctx)) return rule.engine;
-            } catch (e) {
-                console.warn('[background-dispatcher] rule failed', e);
-            }
+    var MOBILE_ENGINES = [
+        'console-background.js',
+        'tsp-background.js'
+    ];
+    var LAST_KEY = 'background-dispatcher.last-engine';
+    function isMobile() {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent || '')) {
+            return true;
         }
-        return DEFAULT_ENGINE;
+        if (window.matchMedia('(pointer: coarse)').matches) {
+            return true;
+        }
+        return window.innerWidth < 768;
     }
-
+    function pickEngine() {
+        if (isMobile()) {
+            return MOBILE_ENGINES[Math.floor(Math.random() * MOBILE_ENGINES.length)];
+        }
+        var candidates = ENGINES.slice();
+        var last = null;
+        try {
+            last = localStorage.getItem(LAST_KEY);
+        } catch (e) {
+            last = null;
+        }
+        if (last && candidates.length > 1) {
+            var idx = candidates.indexOf(last);
+            if (idx !== -1) candidates.splice(idx, 1);
+        }
+        var engine = candidates[Math.floor(Math.random() * candidates.length)];
+        try {
+            localStorage.setItem(LAST_KEY, engine);
+        } catch (e) {
+        }
+        return engine;
+    }
     function getBasePath() {
         var scripts = document.getElementsByTagName('script');
         for (var i = 0; i < scripts.length; i++) {
@@ -69,7 +61,6 @@
         }
         return 'js/';
     }
-
     function loadScript(src) {
         return new Promise(function (resolve, reject) {
             var s = document.createElement('script');
@@ -80,22 +71,23 @@
             document.head.appendChild(s);
         });
     }
-
     function boot() {
         if (!document.getElementById('background-trigger')) {
-            console.warn('[background-dispatcher] #background-trigger not found');
             return;
         }
-
-        var ctx = buildContext();
         var base = getBasePath();
-        var src = base + pickEngine(ctx);
-
-        loadScript(src).catch(function (err) {
-            console.error('[background-dispatcher]', err.message);
-        });
+        var tried = {};
+        function attempt() {
+            var engine = pickEngine();
+            if (tried[engine]) return;
+            tried[engine] = true;
+            loadScript(base + engine).catch(function (err) {
+                console.error('[background-dispatcher]', err.message);
+                attempt();
+            });
+        }
+        attempt();
     }
-
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', boot);
     } else {
