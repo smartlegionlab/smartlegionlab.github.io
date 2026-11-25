@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examples · Smart Legion Lab</title>
-    <meta name="description" content="Examples by Smart Legion Lab: interactive demos and ready-to-run applications built with pure JavaScript — from from-scratch neural networks to cross-platform tools. Try them live in your browser.">
+    <title>Interactive · Smart Legion Lab</title>
+    <meta name="description" content="Interactive by Smart Legion Lab: live browser demos and ready-to-run applications built with pure JavaScript — from-scratch neural networks, tools, and cross-platform utilities. No installs, no servers — open and try them.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <meta name="copyright" content="Smart Legion Lab">
-    <link rel="canonical" href="https://smartlegionlab.com/examples.html">
+    <link rel="canonical" href="https://smartlegionlab.com/interactive.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="Examples · Smart Legion Lab">
-    <meta property="og:description" content="Examples by Smart Legion Lab: interactive demos and ready-to-run applications built with pure JavaScript — from from-scratch neural networks to cross-platform tools.">
+    <meta property="og:title" content="Interactive · Smart Legion Lab">
+    <meta property="og:description" content="Interactive by Smart Legion Lab: browser-based demos and ready-to-run applications built with pure JavaScript — from-scratch neural networks, tools, and cross-platform utilities.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.com/examples.html">
+    <meta property="og:url" content="https://smartlegionlab.com/interactive.html">
     <meta property="og:site_name" content="Smart Legion Lab">
     <meta property="og:image" content="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png">
     <meta name="theme-color" content="#0d1117">
@@ -28,9 +28,9 @@
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Examples · Smart Legion Lab",
-        "description": "Interactive demos and ready-to-run examples by Smart Legion Lab, built with pure JavaScript and running entirely in the browser.",
-        "url": "https://smartlegionlab.com/examples.html",
+        "name": "Interactive · Smart Legion Lab",
+        "description": "Interactive demos, tools, and ready-to-run applications by Smart Legion Lab, built with pure JavaScript and running entirely in the browser.",
+        "url": "https://smartlegionlab.com/interactive.html",
         "isPartOf": {
             "@type": "WebSite",
             "name": "Smart Legion Lab",
@@ -61,7 +61,7 @@
             <a href="/research.html" class="small text-light">Research</a>
             <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
             <a href="/applications.html" class="small text-light">Apps</a>
-            <a href="/examples.html" class="small text-primary">Examples</a>
+            <a href="/interactive.html" class="small text-primary">Interactive</a>
             <a href="/projects.html" class="small text-light">Projects</a>
             <a href="/libraries.html" class="small text-light">Libraries</a>
             <a href="/articles.html" class="small text-light">Articles</a>
@@ -88,7 +88,7 @@
         <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
         <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
         <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
-        <a href="/examples.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Examples</span></a>
+        <a href="/interactive.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Interactive</span></a>
         <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
         <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
         <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
@@ -106,12 +106,11 @@
     <i class="bi bi-chevron-up" aria-hidden="true"></i>
 </button>
 <main class="container custom-margin-top">
-    <h1 class="text-center text-primary">Examples <sup class="text-warning"><span id="projectsCountBadge">0</span>+</sup></h1>
+    <h1 class="text-center text-primary">Interactive <sup class="text-warning"><span id="projectsCountBadge">0</span>+</sup></h1>
     <p class="text-center">
-        <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Examples</span> is a growing
+        <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Interactive</span> is a growing
         collection of interactive demos and ready-to-run applications that anyone can open
         <strong>directly in the browser</strong> — no installs, no servers, no build steps.
-        <br>
         Explore working samples built with pure JavaScript: from-scratch neural networks that learn live on screen,
         tools, and cross-platform utilities — each one fully self-contained and freely available.
     </p>
@@ -122,7 +121,7 @@
                 <span class="input-group-text">
                     <i class="bi bi-search"></i>
                 </span>
-                <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search examples...">
+                <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search...">
                 <button class="btn smart-clear-btn" id="clearSearch" type="button">
                     <i class="bi bi-x-lg"></i>
                 </button>
@@ -143,10 +142,10 @@
     </div>
     <div class="row mb-3">
         <div class="col-12">
-            <div id="projectsStatusText" class="font-monospace small text-light">
+            <div id="projectsStatusBar" class="font-monospace small">
                 <span class="text-success">$</span>
-                <span class="text-primary">smartlegion</span><span class="text-secondary">@</span><span class="text-primary">lab</span><span class="text-secondary">:</span><span class="text-info">~/examples</span><span class="text-secondary">$</span>
-                <span id="searchStats" class="text-light">loading…</span>
+                <span class="text-primary">smartlegion</span><span class="text-secondary">@</span><span class="text-primary">lab</span><span class="text-secondary">:</span><span class="text-info">~/interactive</span><span class="text-secondary">$</span>
+                <span id="projectsStatusText" class="text-light">loading…</span>
                 <span class="smart-cursor"></span>
             </div>
         </div>
@@ -185,7 +184,7 @@
                         <span class="badge bg-primary"><i class="bi bi-box-arrow-down me-1"></i>JSON export</span>
                     </div>
                     <div class="btn-group btn-group-sm justify-content-center w-100">
-                        <a href="/examples/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="/interactive/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
                         <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
                     </div>
                 </div>
@@ -222,7 +221,7 @@
                         <span class="badge bg-primary"><i class="bi bi-box-arrow-down me-1"></i>JSON export</span>
                     </div>
                     <div class="btn-group btn-group-sm justify-content-center w-100">
-                        <a href="/examples/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="/interactive/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
                         <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
                     </div>
                 </div>
@@ -259,7 +258,7 @@
                         <span class="badge bg-primary"><i class="bi bi-box-arrow-down me-1"></i>JSON export</span>
                     </div>
                     <div class="btn-group btn-group-sm justify-content-center w-100">
-                        <a href="/examples/logic-gates-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="/interactive/logic-gates-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
                         <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
                     </div>
                 </div>
@@ -296,7 +295,7 @@
                         <span class="badge bg-primary"><i class="bi bi-graph-down me-1"></i>Loss graph</span>
                     </div>
                     <div class="btn-group btn-group-sm justify-content-center w-100">
-                        <a href="/examples/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
                         <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
                     </div>
                 </div>
