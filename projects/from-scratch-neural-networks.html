@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>from-scratch-neural-networks · Alexander Suvorov Sr.</title>
+    <meta name="description" content="from-scratch-neural-networks - Real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="from-scratch-neural-networks · Alexander Suvorov Sr.">
+    <meta property="og:description" content="Collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no external libraries - train and run neural networks entirely in the browser with live visualization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light" aria-label="View Home">Home</a>
+            <a href="/research.html" class="small text-light" aria-label="View Research">Research</a>
+            <a href="/ecosystems.html" class="small text-light" aria-label="View Ecosystems">Ecosystems</a>
+            <a href="/applications.html" class="small text-light" aria-label="View Applications">Apps</a>
+            <a href="/interactive.html" class="small text-light">Interactive</a>
+            <a href="/projects.html" class="small text-primary" aria-label="View Projects">Projects</a>
+            <a href="/libraries.html" class="small text-light" aria-label="View Libraries">Libraries</a>
+            <a href="/articles.html" class="small text-light" aria-label="View Articles">Articles</a>
+            <a href="/team.html" class="small text-light" aria-label="View About and Team">About &amp; Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research &amp; Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/interactive.html" class="menu-item"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About &amp; Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<main class="container custom-margin-top">
+
+    <div class="text-center mb-4">
+        <h1 class="text-primary">From-Scratch Neural Networks</h1>
+        <p class="text-light">Collection of real multilayer perceptrons (MLPs) implemented <span class="text-primary">from scratch in pure JavaScript</span>.</p>
+        <p class="text-light">No frameworks, no external libraries, no runtime dependencies. Each app is a self-contained single HTML file that trains and runs a neural network entirely in the browser, with live visualization of the learning process.</p>
+        <hr>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a href="/interactive.html" class="btn btn-outline-secondary btn-sm">All Live Demos</a>
+            <a href="/interactive/logic-gates-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Boolean Logic</a>
+            <a href="/interactive/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Digit Recognition</a>
+            <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try X / O</a>
+            <a href="/interactive/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Name Classifier</a>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <p class="text-light">
+                <strong>from-scratch-neural-networks</strong> - a collection of four independent, ready-to-run applications.
+                Each one implements a complete training pipeline by hand: the forward pass, error backpropagation, and weight updates with gradient descent.
+                Everything runs client-side, so no server or build step is required.
+            </p>
+            <p class="text-light">
+                The apps are designed as an educational demonstration: they show, in real time, how a small network reorganizes its weights to solve a specific problem.
+                All values rendered on screen correspond to the actual state of the network.
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="row g-2 justify-content-center">
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Handwritten-Digit Recognition Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Boolean-Logic Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Name Gender Classifier Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="X / O Shape Recognition Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                    <i class="bi bi-list-check me-2 text-primary"></i> Features
+                </button>
+            </h2>
+            <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean app also offers Adam as an optimizer)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw, type, or flip values and watch predictions update live</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - neurons are rendered as pulsing orbs whose brightness reflects activation; synapse lines show the sign and relative magnitude of weights; loss graphs and decision maps reflect the real training dynamics</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - every app can export its trained weights to a JSON file and import them back, so trained models can be saved, shared, or reused without retraining</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - the interfaces adapt for desktop, tablet, and mobile, including touch drawing</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Help and About dialogs</strong> - in every application</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseApps" aria-expanded="false">
+                    <i class="bi bi-grid me-2 text-primary"></i> Applications
+                </button>
+            </h2>
+            <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">This repository contains four independent, ready-to-run applications:</p>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-sm">
+                            <thead>
+                                <tr><th>#</th><th>App</th><th>Network</th><th>Learns</th><th>Demo</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>Boolean-Logic Neural Network</td><td><code>2 → 3 → 1</code></td><td>XOR / AND / OR / NAND / XNOR</td><td><a href="/interactive/logic-gates-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>2</td><td>Handwritten-Digit Recognition</td><td><code>144 → 24 → 10</code></td><td>Handwritten digits 0-9</td><td><a href="/interactive/digit-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>3</td><td>X / O Shape Recognition</td><td><code>64 → 12 → 2</code></td><td>The letters X and O</td><td><a href="/interactive/x-o-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>4</td><td>Name Gender Classifier</td><td><code>2,746 → 48 → 1</code></td><td>Gender from RU/EN names</td><td><a href="/interactive/name-gender-classifier-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-light small mt-2">The published demos for this project live under the <code>/interactive/</code> path, with an index of all demonstrations at <a href="/interactive.html" class="text-primary">interactive.html</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted" aria-expanded="false">
+                    <i class="bi bi-rocket-takeoff me-2 text-primary"></i> Getting Started
+                </button>
+            </h2>
+            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">Every application is a single HTML file that runs entirely in the browser - <strong>a web server is not required</strong>.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Double-click</strong> - open the downloaded HTML file directly in any modern browser</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Static server (optional)</strong> - serve the folder, for example:</li>
+                    </ul>
+                    <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+python -m http.server 8000</pre>
+                    <p class="text-light small">then open <code>http://localhost:8000</code> in a browser and pick the HTML file.</p>
+                    <p class="text-light small mt-2">No build step, no package manager, and no internet connection is required - everything runs 100% client-side.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBoolean" aria-expanded="false">
+                    <i class="bi bi-diagram-3 me-2 text-primary"></i> Boolean-Logic Neural Network
+                </button>
+            </h2>
+            <div id="collapseBoolean" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A small <strong>2 → 3 → 1</strong> network that learns classic logic gates. It is a good introduction to why a hidden layer is necessary: a single-layer perceptron cannot learn XOR, because its two "true" inputs sit diagonally and cannot be separated by a straight line.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Choose a logic function: <strong>XOR, AND, OR, NAND or XNOR</strong>. Switching a function resets the network, so each gate trains from zero.</li>
+                        <li class="mb-1">Flip the <strong>a</strong> and <strong>b</strong> inputs (switches, or by clicking the input neurons in the network view). The answer is shown in green when correct and red when wrong, together with a confidence bar.</li>
+                        <li class="mb-1">Press <strong>Start Training</strong> or <strong>Fast Learn → 100%</strong>. Training stops automatically once all 4 of 4 cases are correct, which keeps the result stable.</li>
+                        <li class="mb-1">Optionally adjust the <strong>learning rate</strong> (Precise by default) and choose the <strong>optimizer</strong> (<strong>SGD + momentum</strong> by default, or <strong>Adam</strong>).</li>
+                        <li class="mb-1">Use <strong>Export / Import</strong> to save or load the trained brain as a JSON file.</li>
+                    </ol>
+                    <p class="text-light small mt-2">The right-hand panel shows a <strong>decision map</strong>: every pixel of the input space is fed through the network and colored by its output, so you can watch the boundary reshape as the network learns.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDigit" aria-expanded="false">
+                    <i class="bi bi-palette me-2 text-primary"></i> Handwritten-Digit Recognition
+                </button>
+            </h2>
+            <div id="collapseDigit" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A <strong>144 → 24 → 10</strong> network (12×12 grayscale input grid → 24 hidden neurons → 10 outputs) that recognizes the digits 0-9. Training uses mini-batch SGD with momentum and exact MSE backpropagation.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Draw a digit <strong>0-9</strong> on the grid with the mouse, finger, or stylus. Strokes are smoothed and anti-aliased.</li>
+                        <li class="mb-1">Tap the matching digit below - it becomes the active <strong>label</strong>.</li>
+                        <li class="mb-1">Press <strong>✓ Save</strong> to add the sample to the dataset (the grid clears automatically).</li>
+                        <li class="mb-1">Erase mistakes with the <strong>Eraser</strong> button, the <strong>E</strong> key, or by holding the <strong>right mouse button</strong>.</li>
+                        <li class="mb-1">Press <strong>Auto-gen</strong> to add 250 hand-styled samples (25 per digit) generated with random rotation, scale, shear, offset, bends, wobble, pen-lift gaps, and variable stroke thickness.</li>
+                        <li class="mb-1">Press <strong>Start Training</strong> or <strong>Fast Learn</strong>. The <strong>Acc</strong> figure shows the percentage of the dataset answered correctly in real time.</li>
+                    </ol>
+                    <p class="text-light small mt-2">While training, the network shows its guess for whatever is currently drawn, along with a confidence bar and per-class percentages.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseXO" aria-expanded="false">
+                    <i class="bi bi-shuffle me-2 text-primary"></i> X / O Shape Recognition
+                </button>
+            </h2>
+            <div id="collapseXO" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A minimal <strong>64 → 12 → 2</strong> dense network that learns to distinguish the letters <strong>X</strong> and <strong>O</strong> drawn on an 8×8 grid. It is a clear starting point for understanding image-style classification with a plain dense network.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Draw the letter <strong>X</strong> on the 8×8 grid.</li>
+                        <li class="mb-1">Press <strong>+ This is X</strong> to save it (the grid clears automatically).</li>
+                        <li class="mb-1">Draw the letter <strong>O</strong> (a ring near the edges of the cells).</li>
+                        <li class="mb-1">Press <strong>+ This is O</strong>.</li>
+                        <li class="mb-1">Repeat <strong>3-5 times per letter</strong>, varying size and position - more varied samples improve accuracy.</li>
+                        <li class="mb-1">Press <strong>Start Training</strong> and watch the loss graph go down.</li>
+                        <li class="mb-1">Draw a new X or O at any time - the network replies instantly with a guess and a confidence percentage.</li>
+                    </ol>
+                    <p class="text-light small mt-2">You can keep drawing while training runs; predictions update live.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseName" aria-expanded="false">
+                    <i class="bi bi-person-circle me-2 text-primary"></i> Name Gender Classifier
+                </button>
+            </h2>
+            <div id="collapseName" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A <strong>2,746 → 48 → 1</strong> network that guesses gender from names written in <strong>Russian, English, or transliteration</strong>. Names are normalized to a single 27-letter Latin alphabet and converted into sparse features: letter positions, reversed positions, first letter, final bigram/trigram, patronymic bigram/trigram, length bucket, vowel/consonant buckets, and diminutive markers. About 700 names are included in the dataset.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Press <strong>Start Training</strong> - the built-in name dataset is loaded automatically.</li>
+                        <li class="mb-1">Type a name in Russian, English, or translit (for example <strong>Александра</strong>, <strong>Анна Сергеевна</strong>, or <strong>Alexander</strong>).</li>
+                        <li class="mb-1">Add your own names with <strong>+ Is Female</strong> / <strong>+ Is Male</strong>.</li>
+                        <li class="mb-1"><strong>Resplit</strong> reshuffles the 80/20 train/validation split; the loss graph shows loss (green), train accuracy (blue), and validation accuracy (orange).</li>
+                        <li class="mb-1">Keep a name in the input for about one second to record it in the <strong>Guess History</strong>. Known names are marked OK/WRONG automatically; for unknown ones you mark them yourself.</li>
+                        <li class="mb-1">Use <strong>Export / Import</strong> to save or load the trained brain as a JSON file.</li>
+                    </ol>
+                    <p class="text-light small mt-2">The input orbs indicate <strong>connection strength</strong>: the brighter a letter or suffix, the more the network relies on that feature for its answer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExport" aria-expanded="false">
+                    <i class="bi bi-box-arrow-down me-2 text-primary"></i> Model Export and Import
+                </button>
+            </h2>
+            <div id="collapseExport" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">Every application includes <strong>Export</strong> and <strong>Import</strong> buttons in its network panel:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Export</strong> downloads the current network weights (and associated settings) as a JSON file</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Import</strong> loads such a file and applies the weights to the network, so a trained brain can be restored or shared without retraining</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLicense" aria-expanded="false">
+                    <i class="bi bi-award me-2 text-primary"></i> License
+                </button>
+            </h2>
+            <div id="collapseLicense" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">This project is licensed under the <strong>BSD 3-Clause License</strong> - see <a href="https://github.com/smartlegionlab/from-scratch-neural-networks/blob/master/LICENSE" class="text-primary" target="_blank">LICENSE</a>.</p>
+                    <p class="text-light small"><strong>Author:</strong> <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a></p>
+                    <p class="text-light small"><strong>Repository:</strong> <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="text-primary" target="_blank">github.com/smartlegionlab/from-scratch-neural-networks</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="text-center">
+                <h5 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Author</h5>
+                <hr>
+                <p class="text-light">
+                    <i class="bi bi-person-circle text-primary"></i> Created by
+                    <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.6.27</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="btn btn-sm btn-outline-primary position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
