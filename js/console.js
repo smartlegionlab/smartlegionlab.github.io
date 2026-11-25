@@ -2,6 +2,9 @@ let commandHistory = [];
 let historyIndex = -1;
 let mapAnimationInterval = null;
 let mapAnimationTimeout = null;
+let snakeActive = false;
+let snakeRaf = null;
+let snakeCleanup = null;
 
 const consoleToggle = document.getElementById('consoleToggle');
 const devConsole = document.getElementById('devConsole');
@@ -65,6 +68,7 @@ function clearConsole() {
     if (typeof stopDemo !== 'undefined') {
         stopDemo();
     }
+    stopSnake();
     consoleOutput.lastDemoDiv = null;
     consoleOutput.lastGameDiv = null;
     if (mapAnimationInterval) {
@@ -353,6 +357,168 @@ function startRocketAnimation() {
     animateRocket();
 }
 
+function stopSnake() {
+    if (snakeCleanup) {
+        snakeCleanup();
+    }
+    snakeCleanup = null;
+    snakeActive = false;
+    if (snakeRaf) {
+        cancelAnimationFrame(snakeRaf);
+        snakeRaf = null;
+    }
+}
+
+function startSnake() {
+    stopSnake();
+
+    const baseW = (consoleOutput.clientWidth || (window.innerWidth - 30)) - 66;
+    const baseH = (consoleOutput.clientHeight || 420) - 68;
+    const s = Math.max(120, Math.min(baseW, baseH));
+
+    const container = document.createElement('div');
+    container.style.textAlign = 'center';
+    container.style.fontFamily = 'monospace';
+    container.style.padding = '6px 0';
+    container.style.background = '#0d1117';
+    container.style.borderRadius = '4px';
+    container.style.border = '1px solid #30363d';
+    container.style.marginBottom = '4px';
+
+    const noteTop = document.createElement('div');
+    noteTop.textContent = 'SNAKE: arrows to move · Q - back to terminal';
+    noteTop.style.color = '#7ab3ff';
+    noteTop.style.fontSize = '12px';
+    noteTop.style.marginBottom = '6px';
+    container.appendChild(noteTop);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = s;
+    canvas.height = s;
+    canvas.style.width = s + 'px';
+    canvas.style.height = s + 'px';
+    canvas.style.display = 'block';
+    canvas.style.margin = '0 auto';
+    canvas.style.background = '#0d1117';
+    canvas.style.border = '1px solid #0d6efd';
+    canvas.style.borderRadius = '8px';
+    container.appendChild(canvas);
+
+    const noteBottom = document.createElement('div');
+    noteBottom.textContent = 'Q - back to terminal';
+    noteBottom.style.color = '#7ab3ff';
+    noteBottom.style.fontSize = '12px';
+    noteBottom.style.marginTop = '6px';
+    container.appendChild(noteBottom);
+
+    consoleOutput.appendChild(container);
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    consoleOutput.lastGameDiv = container;
+
+    const c = canvas.getContext('2d');
+    const N = 18;
+    const cell = s / N;
+    let snake = [{ x: 9, y: 9 }, { x: 8, y: 9 }];
+    let dir = { x: 1, y: 0 };
+    let next = dir;
+    let food = null;
+    let pts = 0;
+    let over = false;
+
+    function placeFood() {
+        do {
+            food = { x: Math.floor(Math.random() * N), y: Math.floor(Math.random() * N) };
+        } while (snake.some(seg => seg.x === food.x && seg.y === food.y));
+    }
+    placeFood();
+
+    let last = performance.now();
+    let acc = 0;
+
+        const frame = t => {
+        if (!snakeActive) return;
+        const dt = t - last;
+        last = t;
+        acc += dt;
+        if (!over && acc >= 120) {
+            acc = 0;
+            dir = next;
+            const h = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+            if (h.x < 0 || h.x >= N || h.y < 0 || h.y >= N || snake.some(seg => seg.x === h.x && seg.y === h.y)) {
+                over = true;
+            } else {
+                snake.unshift(h);
+                if (h.x === food.x && h.y === food.y) {
+                    pts += 10;
+                    placeFood();
+                } else {
+                    snake.pop();
+                }
+            }
+        }
+        c.fillStyle = '#0d1117';
+        c.fillRect(0, 0, s, s);
+        for (let i = 0; i < N; i++) {
+            c.strokeStyle = '#0b1a35';
+            c.strokeRect(i * cell, 0, cell, s);
+        }
+        snake.forEach((seg, i) => {
+            c.fillStyle = i === 0 ? '#0d6efd' : '#0b5ed7';
+            c.fillRect(seg.x * cell + 1, seg.y * cell + 1, cell - 2, cell - 2);
+        });
+        const anim = t / 1000;
+        const fx = food.x * cell + cell / 2;
+        const fy = food.y * cell + cell / 2;
+        const pulse = 1 + 0.14 * Math.sin(anim * 4.2);
+        const rad = (cell / 3) * pulse;
+        const halo = rad * 2.6;
+        let g = c.createRadialGradient(fx, fy, rad * 0.2, fx, fy, halo);
+        g.addColorStop(0, 'rgba(13,110,253,0.55)');
+        g.addColorStop(0.6, 'rgba(13,110,253,0.16)');
+        g.addColorStop(1, 'rgba(13,110,253,0)');
+        c.fillStyle = g;
+        c.beginPath();
+        c.arc(fx, fy, halo, 0, Math.PI * 2);
+        c.fill();
+        g = c.createRadialGradient(fx - rad * 0.3, fy - rad * 0.3, rad * 0.1, fx, fy, rad);
+        g.addColorStop(0, 'rgba(255,255,255,0.92)');
+        g.addColorStop(1, 'rgba(13,110,253,0.62)');
+        c.fillStyle = g;
+        c.beginPath();
+        c.arc(fx, fy, rad, 0, Math.PI * 2);
+        c.fill();
+        c.fillStyle = '#0d6efd';
+        c.font = '12px monospace';
+        c.fillText('score: ' + pts + (over ? '  ·  GAME OVER (Q)' : ''), 6, 14);
+        snakeRaf = requestAnimationFrame(frame);
+    };
+
+    const kd = e => {
+        const m = { ArrowUp: { x: 0, y: -1 }, ArrowDown: { x: 0, y: 1 }, ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 } };
+        if (m[e.key] && !(m[e.key].x === -dir.x && m[e.key].y === -dir.y)) {
+            next = m[e.key];
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (e.key === 'q' || e.key === 'Q' || e.key === 'Escape') {
+            stopSnake();
+            consoleInput.focus();
+        }
+    };
+    document.addEventListener('keydown', kd, true);
+
+    snakeCleanup = () => {
+        document.removeEventListener('keydown', kd, true);
+        if (container.parentNode) {
+            container.remove();
+        }
+    };
+
+    snakeActive = true;
+    consoleInput.blur();
+    snakeRaf = requestAnimationFrame(frame);
+}
+
 /* ============================================
    COMMAND PROCESSOR
    ============================================ */
@@ -366,6 +532,7 @@ async function processCommand(cmd) {
         addConsoleLine('  smartpass  - Generate smart password');
         addConsoleLine('  calc       - Calculate expression (calc 2+2)');
         addConsoleLine('  dino       - Play Dino Jump game');
+        addConsoleLine('  snake      - Play Snake game');
         addConsoleLine('  demo       - Smart Legion Lab DEMO');
         addConsoleLine('  map        - Go to Site Map');
         addConsoleLine('  history    - Show command history');
@@ -405,6 +572,15 @@ async function processCommand(cmd) {
             addConsoleLine('  Game started! Press SPACE to jump');
             startDinoGame(consoleOutput);
         }
+    }
+    else if (cmd === 'snake') {
+        if (typeof stopDinoGame !== 'undefined') {
+            stopDinoGame();
+        }
+        if (typeof stopDemo !== 'undefined') {
+            stopDemo();
+        }
+        startSnake();
     }
     else if (cmd === 'demo') {
         if (await ensureModule('demo.js', () => typeof startDemo !== 'undefined')) {
@@ -448,6 +624,7 @@ async function processCommand(cmd) {
         if (typeof stopDemo !== 'undefined') {
             stopDemo();
         }
+        stopSnake();
         if (mapAnimationInterval) {
             clearInterval(mapAnimationInterval);
             mapAnimationInterval = null;
@@ -519,6 +696,7 @@ if (consoleToggle) {
             if (typeof stopDemo !== 'undefined') {
                 stopDemo();
             }
+            stopSnake();
             if (mapAnimationInterval) {
                 clearInterval(mapAnimationInterval);
                 mapAnimationInterval = null;
@@ -540,6 +718,7 @@ if (consoleClose) {
         if (typeof stopDemo !== 'undefined') {
             stopDemo();
         }
+        stopSnake();
         if (mapAnimationInterval) {
             clearInterval(mapAnimationInterval);
             mapAnimationInterval = null;
