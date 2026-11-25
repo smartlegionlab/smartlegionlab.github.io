@@ -1356,3 +1356,10 @@ hr {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+#console-bg, #particle-canvas, #tsp-canvas {
+    opacity: 0.5 !important;
+}
+#console-bg {
+    opacity: 0.12 !important;
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples · Smart Legion Lab</title>
+    <meta name="description" content="Examples by Smart Legion Lab: interactive demos and ready-to-run applications built with pure JavaScript — from from-scratch neural networks to cross-platform tools. Try them live in your browser.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <meta name="copyright" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.com/examples.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Examples · Smart Legion Lab">
+    <meta property="og:description" content="Examples by Smart Legion Lab: interactive demos and ready-to-run applications built with pure JavaScript — from from-scratch neural networks to cross-platform tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/examples.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+    <meta property="og:image" content="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png">
+    <meta name="theme-color" content="#0d1117">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Examples · Smart Legion Lab",
+        "description": "Interactive demos and ready-to-run examples by Smart Legion Lab, built with pure JavaScript and running entirely in the browser.",
+        "url": "https://smartlegionlab.com/examples.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Smart Legion Lab",
+            "url": "https://smartlegionlab.com/"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Alexander Suvorov Sr.",
+            "url": "https://github.com/smartlegionlab"
+        }
+    }
+    </script>
+</head>
+<body>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/examples.html" class="small text-primary">Examples</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/examples.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Examples</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+<main class="container custom-margin-top">
+    <h1 class="text-center text-primary">Examples <sup class="text-warning"><span id="projectsCountBadge">0</span>+</sup></h1>
+    <p class="text-center">
+        <span class="text-primary">Smart Legion Lab</span> <span class="text-warning">Examples</span> is a growing
+        collection of interactive demos and ready-to-run applications that anyone can open
+        <strong>directly in the browser</strong> — no installs, no servers, no build steps.
+        <br>
+        Explore working samples built with pure JavaScript: from-scratch neural networks that learn live on screen,
+        tools, and cross-platform utilities — each one fully self-contained and freely available.
+    </p>
+    <hr>
+    <div class="row g-2 mb-4 align-items-center">
+        <div class="col-12 col-md-7">
+            <div class="input-group smart-input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control smart-search-input" placeholder="Search examples...">
+                <button class="btn smart-clear-btn" id="clearSearch" type="button">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="dropdown w-100" id="filterDropdownContainer">
+                <button class="btn smart-select dropdown-toggle text-start w-100" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="selectedFilterText">All Types</span>
+                </button>
+                <ul class="dropdown-menu smart-dropdown-menu w-100" aria-labelledby="filterDropdown" id="filterDropdownMenu">
+                    <li><button class="dropdown-item active" type="button" data-value="all">All Types</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="neural network">Neural Network</button></li>
+                    <li><button class="dropdown-item" type="button" data-value="application">Application</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div id="projectsStatusText" class="font-monospace small text-light">
+                <span class="text-success">$</span>
+                <span class="text-primary">smartlegion</span><span class="text-secondary">@</span><span class="text-primary">lab</span><span class="text-secondary">:</span><span class="text-info">~/examples</span><span class="text-secondary">$</span>
+                <span id="searchStats" class="text-light">loading…</span>
+                <span class="smart-cursor"></span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center" id="projectsGrid">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">Neural Network</span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">Boolean-Logic Neural Network</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">Alexander Suvorov Sr.</a>
+                        </div>
+                    </div>
+                    <div class="text-center flex-grow-1">
+                        <div class="mb-2">
+                            <div class="smart-small-card">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-12 col-md-12 text-center">
+                                        <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" target="_blank" class="d-block" referrerpolicy="no-referrer">
+                                            <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" class="img-fluid rounded mx-auto d-block" style="max-height: 140px;" alt="Boolean-Logic Neural Network" referrerpolicy="no-referrer">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="small text-center mb-0">A small <strong>2 → 3 → 1</strong> network that learns classic logic gates: XOR, AND, OR, NAND, XNOR.</p>
+                    </div>
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-diagram-3 me-1"></i><span class="text-warning">2 → 3 → 1</span> net</span>
+                        <span class="badge bg-primary"><i class="bi bi-stack me-1"></i><span class="text-warning">5</span> gates</span>
+                        <span class="badge bg-primary"><i class="bi bi-graph-up me-1"></i>SGD / Adam</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-arrow-down me-1"></i>JSON export</span>
+                    </div>
+                    <div class="btn-group btn-group-sm justify-content-center w-100">
+                        <a href="/examples/logic-gates-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">Neural Network</span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">Handwritten-Digit Recognition</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">Alexander Suvorov Sr.</a>
+                        </div>
+                    </div>
+                    <div class="text-center flex-grow-1">
+                        <div class="mb-2">
+                            <div class="smart-small-card">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-12 col-md-12 text-center">
+                                        <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" target="_blank" class="d-block" referrerpolicy="no-referrer">
+                                            <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" style="max-height: 140px;" alt="Handwritten-Digit Recognition" referrerpolicy="no-referrer">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="small text-center mb-0">A <strong>144 → 24 → 10</strong> network that recognizes handwritten digits 0–9 on a 12×12 grid.</p>
+                    </div>
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-diagram-3 me-1"></i><span class="text-warning">144 → 24 → 10</span> net</span>
+                        <span class="badge bg-primary"><i class="bi bi-palette me-1"></i>Touch draw</span>
+                        <span class="badge bg-primary"><i class="bi bi-magic me-1"></i>Auto-gen ×250</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-arrow-down me-1"></i>JSON export</span>
+                    </div>
+                    <div class="btn-group btn-group-sm justify-content-center w-100">
+                        <a href="/examples/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">Neural Network</span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">X / O Shape Recognition</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">Alexander Suvorov Sr.</a>
+                        </div>
+                    </div>
+                    <div class="text-center flex-grow-1">
+                        <div class="mb-2">
+                            <div class="smart-small-card">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-12 col-md-12 text-center">
+                                        <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" target="_blank" class="d-block" referrerpolicy="no-referrer">
+                                            <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" style="max-height: 140px;" alt="X / O Shape Recognition" referrerpolicy="no-referrer">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="small text-center mb-0">A minimal <strong>64 → 12 → 2</strong> dense network that learns to distinguish the letters X and O.</p>
+                    </div>
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-diagram-3 me-1"></i><span class="text-warning">64 → 12 → 2</span> net</span>
+                        <span class="badge bg-primary"><i class="bi bi-grid me-1"></i>8×8 grid</span>
+                        <span class="badge bg-primary"><i class="bi bi-palette me-1"></i>Live draw</span>
+                        <span class="badge bg-primary"><i class="bi bi-graph-down me-1"></i>Loss graph</span>
+                    </div>
+                    <div class="btn-group btn-group-sm justify-content-center w-100">
+                        <a href="/examples/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-4 d-flex">
+                <div class="p-3 card-custom position-relative explore-block-style w-100 d-flex flex-column h-100 rounded">
+                    <span class="badge text-light rounded-pill position-absolute smart-badge">Neural Network</span>
+                    <div class="mb-2">
+                        <h4 class="mt-2 text-light">Name Gender Classifier</h4>
+                        <div class="mt-1 mb-1">
+                            <i class="bi bi-person-circle text-secondary me-1"></i>
+                            <a href="/profiles/smartlegionlab.html" class="text-decoration-none small author">Alexander Suvorov Sr.</a>
+                        </div>
+                    </div>
+                    <div class="text-center flex-grow-1">
+                        <div class="mb-2">
+                            <div class="smart-small-card">
+                                <div class="row g-2 justify-content-center">
+                                    <div class="col-12 col-md-12 text-center">
+                                        <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" target="_blank" class="d-block" referrerpolicy="no-referrer">
+                                            <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" class="img-fluid rounded mx-auto d-block" style="max-height: 140px;" alt="Name Gender Classifier" referrerpolicy="no-referrer">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="small text-center mb-0">A <strong>2,746 → 48 → 1</strong> network that guesses gender from Russian, English, or transliterated names.</p>
+                    </div>
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        <span class="badge bg-primary"><i class="bi bi-diagram-3 me-1"></i><span class="text-warning">2746 → 48 → 1</span> net</span>
+                        <span class="badge bg-primary"><i class="bi bi-translate me-1"></i>RU / EN</span>
+                        <span class="badge bg-primary"><i class="bi bi-database me-1"></i>~750 names</span>
+                        <span class="badge bg-primary"><i class="bi bi-box-arrow-down me-1"></i>JSON export</span>
+                    </div>
+                    <div class="btn-group btn-group-sm justify-content-center w-100">
+                        <a href="/examples/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-success">Try it <i class="bi bi-box-arrow-in-up-right"></i></a>
+                        <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" class="btn btn-outline-primary">Repo <i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.6.26</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+<button id="consoleToggle" class="btn btn-sm btn-outline-primary position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+<div id="background-trigger" hidden></div>
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/background-dispatcher.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script src="/js/console.js"></script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/search-filter.js"></script>
+</body>
+</html>

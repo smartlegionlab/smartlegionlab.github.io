@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean-Logic Neural Network · Smart Legion Lab</title>
+    <meta name="description" content="Interactive Boolean-Logic Neural Network by Smart Legion Lab. A from-scratch MLP (2 → 3 → 1) in pure JavaScript that learns XOR, AND, OR, NAND and XNOR live in your browser.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <meta name="copyright" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.com/examples/logic-gates-neural-network.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Boolean-Logic Neural Network · Smart Legion Lab">
+    <meta property="og:description" content="A from-scratch MLP (2 → 3 → 1) in pure JavaScript that learns XOR, AND, OR, NAND and XNOR live in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/examples/logic-gates-neural-network.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+    <meta name="theme-color" content="#0d1117">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Boolean-Logic Neural Network",
+        "description": "A from-scratch MLP (2 → 3 → 1) in pure JavaScript that learns XOR, AND, OR, NAND and XNOR live in the browser.",
+        "url": "https://smartlegionlab.com/examples/logic-gates-neural-network.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "author": {
+            "@type": "Person",
+            "name": "Alexander Suvorov Sr.",
+            "url": "https://github.com/smartlegionlab",
+            "sameAs": [
+                "https://orcid.org/0009-0006-3427-9611",
+                "https://github.com/smartlegionlab",
+                "https://pypi.org/user/smartlegionlab",
+                "https://crates.io/users/smartlegionlab",
+                "https://zenodo.org/communities/smartlegionlab"
+            ]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Smart Legion Lab",
+            "url": "https://smartlegionlab.com/"
+        },
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Examples · Smart Legion Lab",
+            "url": "https://smartlegionlab.com/examples.html"
+        }
+    }
+    </script>
+    <style>
+      .app-scope, .app-scope * { box-sizing: border-box; font-family: sans-serif; -webkit-tap-highlight-color: transparent; }
+      .app-scope { background: #121212; color: #e0e0e0; padding: 20px;
+                   display: flex; flex-direction: column; align-items: center; border-radius: 6px; }
+      .app-scope .top-bar { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 18px; }
+      .app-scope h2 { margin: 0; color: #00d2ff; text-align: center; font-size: 22px; }
+      .app-scope .workspace { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+                   align-items: stretch; gap: 24px; width: 100%; max-width: 1500px; }
+      .app-scope .panel { background: #1e1e1e; padding: 18px; border-radius: 14px;
+           display: flex; flex-direction: column; align-items: center; min-height: 0; width: 100%; }
+      .app-scope .panel h3 { margin: 0 0 12px 0; font-size: 16px; color: #e0e0e0; text-align: center; }
+      .app-scope .canvas-area { display: flex; justify-content: center; align-items: center; width: 100%; }
+      .app-scope canvas { background: #141414; border-radius: 8px; border: 1px solid #333;
+           max-width: 100%; height: auto; display: block; }
+      .app-scope .btn-group { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; justify-content: center; align-items: center; }
+      .app-scope button { padding: 11px 16px; border: none; border-radius: 6px; font-weight: bold;
+           cursor: pointer; background: #2c2c2c; color: #fff; user-select: none;
+           transition: transform .05s, background .15s; }
+      .app-scope button:hover { background: #3d3d3d; }
+      .app-scope button:active { transform: scale(.96); }
+      .app-scope .btn-primary { background: #00d2ff; color: #000; }
+      .app-scope .btn-green { background: #00e676; color: #000; }
+      .app-scope .btn-red { background: #ff5252; color: #fff; }
+      .app-scope .btn-info { background: #444; }
+      .app-scope button.active { background: #00d2ff; color: #000; box-shadow: 0 0 12px rgba(0,210,255,.5); }
+      .app-scope .logic-btns { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+      .app-scope .logic-btns button { padding: 8px 14px; font-size: 14px; }
+      .app-scope table { border-collapse: collapse; font-size: 14px; width: 100%; max-width: 320px; }
+      .app-scope th, .app-scope td { border: 1px solid #333; padding: 6px 8px; text-align: center; }
+      .app-scope th { background: #262626; color: #00d2ff; }
+      .app-scope td.out { font-weight: bold; }
+      .app-scope td.good { color: #00e676; font-weight: bold; }
+      .app-scope td.bad { color: #ff5252; font-weight: bold; }
+      .app-scope .play { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 320px; margin-top: 10px; }
+      .app-scope .bit-row { display: flex; align-items: center; justify-content: space-between; gap: 8px;
+             background: #252525; padding: 8px 12px; border-radius: 8px; }
+      .app-scope .bit-row .lbl { font-weight: bold; color: #ccc; }
+      .app-scope .switch { display: flex; border-radius: 6px; overflow: hidden; }
+      .app-scope .switch button { padding: 6px 14px; font-size: 15px; border-radius: 0; }
+      .app-scope .switch button.on { background: #00d2ff; color: #000; }
+      .app-scope .switch button.off { background: #333; color: #aaa; }
+      .app-scope .prediction { font-size: 16px; font-weight: bold; margin-top: 10px; text-align: center;
+                min-height: 30px; line-height: 1.3; }
+      .app-scope .prediction .val { font-size: 28px; margin: 0 6px; }
+      .app-scope .prediction.good { color: #00e676; }
+      .app-scope .prediction.bad { color: #ff5252; }
+      .app-scope .prediction.idle { color: #888; }
+      .app-scope .confbar { width: 100%; height: 10px; border-radius: 5px; background: #1a1a1a;
+             overflow: hidden; margin-top: 8px; }
+      .app-scope .confbar span { display: block; height: 100%; transition: width .15s, background .2s; }
+      .app-scope .confbar span.good { background: linear-gradient(90deg,#00d2ff,#00e676); }
+      .app-scope .confbar span.bad { background: linear-gradient(90deg,#ff5252,#ff8a65); }
+      .app-scope .toast { opacity: 0; transform: translateY(4px); transition: opacity .2s, transform .2s;
+           background: #1f3227; border: 1px solid #00e676; color: #00e676; font-weight: bold;
+           border-radius: 8px; padding: 7px 13px; margin-top: 10px; font-size: 13px; text-align: center; }
+      .app-scope .toast.show { opacity: 1; transform: translateY(0); }
+      .app-scope .stats { margin-top: 10px; font-size: 13px; color: #aaa; text-align: center; line-height: 1.4; }
+      .app-scope .score { font-size: 15px; font-weight: bold; margin-top: 10px; color: #eee; text-align: center; }
+      .app-scope .score b.good { color: #00e676; }
+      .app-scope .score b.bad { color: #ff5252; }
+      .app-scope .hint { font-size: 12px; color: #888; margin-top: auto; padding-top: 12px; text-align: center; line-height: 1.5; }
+      .app-scope .hint b { color: #ccc; }
+      .app-scope .legend { display: flex; justify-content: space-between; font-size: 11px; color: #9aa; margin-top: 4px; }
+      .app-scope .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+               z-index: 99999; padding: 84px 16px 16px; overflow-y: auto; }
+      .app-scope .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+      .app-scope .app-modal { display: block; position: relative; background: #1e1e1e; border: 1px solid #444;
+           border-radius: 12px; max-width: 560px; width: 100%; padding: 20px; margin: 20px auto; max-height: calc(100vh - 40px); overflow-y: auto; }
+      .app-scope .app-modal h3 { color: #00d2ff; margin: 0 30px 12px 0; }
+      .app-scope .app-modal p, .app-scope .app-modal li { font-size: 14px; line-height: 1.55; color: #ccc; }
+      .app-scope .app-modal ol, .app-scope .app-modal ul { padding-left: 22px; margin: 8px 0; }
+      .app-scope .app-modal b { color: #fff; }
+      .app-scope .app-modal .accent { color: #00e676; font-weight: bold; }
+      .app-scope .modal-close { position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #333; font-size: 16px; }
+      .app-scope .ab-head { border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 12px; }
+      .app-scope .ab-name { font-size: 18px; font-weight: bold; color: #fff; }
+      .app-scope .ab-ver { font-size: 13px; color: #00d2ff; margin-top: 2px; }
+      .app-scope .ab-meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid #333; font-size: 13px; color: #ccc; line-height: 1.7; }
+      .app-scope .ab-meta a { color: #00d2ff; text-decoration: none; }
+      .app-scope .ab-meta a:hover { text-decoration: underline; }
+      @media (max-width: 1000px) {
+        .app-scope { padding: 10px; }
+        .app-scope .top-bar { margin-bottom: 12px; }
+        .app-scope .workspace { grid-template-columns: 1fr; gap: 16px; }
+        .app-scope .panel { padding: 14px; }
+        .app-scope button { padding: 14px 18px; font-size: 16px; }
+        .app-scope .logic-btns button { padding: 10px 12px; }
+        .app-scope .bit-row { padding: 10px 12px; }
+        .app-scope .switch button { padding: 8px 18px; }
+        .app-scope h2 { font-size: 19px; }
+      }
+    </style>
+</head>
+<body>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/examples.html" class="small text-primary">Examples</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/examples.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Examples</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+<main class="container-fluid custom-margin-top px-lg-4">
+    <div class="mb-3">
+        <a href="/examples.html" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Back to Examples
+        </a>
+    </div>
+    <div class="app-scope" id="logicApp">
+        <header class="top-bar">
+            <h2>Boolean-Logic Neural Network - learn XOR / AND / OR / NAND live</h2>
+            <div class="btn-group">
+                <button class="btn-info" onclick="openModal('helpModal')">? Help</button>
+                <button class="btn-info" onclick="openModal('aboutModal')">About</button>
+            </div>
+        </header>
+        <div class="workspace">
+            <div class="panel">
+                <h3>1. Logic &amp; Play</h3>
+                <div class="logic-btns" id="logicBtns"></div>
+                <table id="truthTable"></table>
+                <div class="play">
+                    <div class="bit-row">
+                        <span class="lbl">input a</span>
+                        <div class="switch" id="swA">
+                            <button class="off" onclick="setBit('a',0)">0</button>
+                            <button class="on" onclick="setBit('a',1)">1</button>
+                        </div>
+                    </div>
+                    <div class="bit-row">
+                        <span class="lbl">input b</span>
+                        <div class="switch" id="swB">
+                            <button class="off" onclick="setBit('b',0)">0</button>
+                            <button class="on" onclick="setBit('b',1)">1</button>
+                        </div>
+                    </div>
+                    <div class="btn-group" style="margin-top:2px">
+                        <button class="btn-info" onclick="randomTest()">🎲 Random</button>
+                        <button class="btn-info" onclick="testAll()">✔ Test all</button>
+                    </div>
+                </div>
+                <div class="toast" id="toast"></div>
+                <div class="prediction idle" id="predText">Toggle a / b to test the brain</div>
+                <div class="confbar"><span id="confFill"></span></div>
+                <div class="score" id="scoreText">correct: <b>-</b></div>
+                <div class="hint">flip <b>a</b> and <b>b</b>, or click the input neurons in block 2</div>
+            </div>
+            <div class="panel">
+                <h3>2. Network Brain (2 → 3 → 1)</h3>
+                <div class="canvas-area">
+                    <canvas id="netCanvas" width="640" height="400"></canvas>
+                </div>
+                <div class="btn-group">
+                    <button class="btn-primary" id="trainBtn" onclick="toggleTrain()">Start Training</button>
+                    <button class="btn-green" onclick="trainEpochs(3000)">Fast Learn → 100%</button>
+                    <button class="btn-red" onclick="resetNetwork()">Reset</button>
+                </div>
+                <div class="btn-group">
+                    <span style="color:#aaa;font-size:13px">learning rate</span>
+                    <button class="lr-btn" data-lr="0.6" onclick="setLR(0.6,this)">Med</button>
+                    <button class="lr-btn" data-lr="1.0" onclick="setLR(1.0,this)">Fast</button>
+                    <button class="lr-btn active" data-lr="0.3" onclick="setLR(0.3,this)">Precise</button>
+                </div>
+                <div class="btn-group">
+                    <span style="color:#aaa;font-size:13px">optimizer</span>
+                    <button class="opt-btn" data-opt="adam" onclick="setOpt('adam',this)">Adam</button>
+                    <button class="opt-btn active" data-opt="sgd" onclick="setOpt('sgd',this)">SGD</button>
+                </div>
+                <div class="btn-group">
+                    <span style="color:#aaa;font-size:13px">model</span>
+                    <button class="btn-info" onclick="exportModel()">Export</button>
+                    <button class="btn-info" onclick="importModel()">Import</button>
+                    <input type="file" id="modelFile" accept="application/json" style="display:none" onchange="onImportFile(event)">
+                </div>
+                <div class="stats" id="trainStats">Epoch: 0 | Loss: -</div>
+                <div class="hint">click the <b>a</b> / <b>b</b> neurons to flip them</div>
+            </div>
+            <div class="panel">
+                <h3>3. Learning Curve &amp; Space</h3>
+                <div class="canvas-area">
+                    <canvas id="lossCanvas" width="300" height="210"></canvas>
+                </div>
+                <div class="canvas-area">
+                    <canvas id="mapCanvas" width="300" height="210"></canvas>
+                </div>
+                <div class="legend"><span>0 / false</span><span>decision map</span><span>1 / true</span></div>
+                <div class="stats" id="lossStats">Current: - | Best: -</div>
+                <div class="hint">blue = false · red = true · dots = the 4 training points</div>
+            </div>
+        </div>
+        <div class="modal-overlay" id="helpModal">
+            <div class="app-modal">
+                <button class="modal-close" onclick="closeModal(this)">✕</button>
+                <h3>How to Use</h3>
+                <ol>
+                    <li>Pick a logic function: <b class="accent">XOR, AND, OR, NAND, XNOR</b> - switching resets the network, so you train it again from zero.</li>
+                    <li><b class="accent">Play:</b> flip <b>a</b> / <b>b</b> - the answer is green when right, red when wrong, with a confidence bar.</li>
+                    <li><b class="accent">🎲 Random / ✔ Test all</b> run quick checks; results flash in the toast.</li>
+                    <li>Press <b class="accent">Start Training</b> or <b class="accent">Fast Learn → 100%</b>. Training <b class="accent">auto-stops at 4/4 correct</b> and the weights freeze, so Random is always right afterwards.</li>
+                    <li>Adjust <b class="accent">learning rate</b> (Precise by default) and pick the <b class="accent">optimizer</b> (SGD by default, Adam also available). Press <b class="accent">Reset</b> or switch function to retrain.</li>
+                    <li><b class="accent">Export</b> saves the trained brain as a JSON file; <b class="accent">Import</b> loads one back - share or keep your trained models.</li>
+                </ol>
+                <p><b>Why XOR is special:</b> a single-layer perceptron cannot learn XOR - the two "on" corners sit diagonally, no straight line splits them. The hidden layer bends the space; watch the decision map reshape as it learns.</p>
+            </div>
+        </div>
+        <div class="modal-overlay" id="aboutModal">
+            <div class="app-modal">
+                <button class="modal-close" onclick="closeModal(this)">✕</button>
+                <h3>About</h3>
+                <div class="ab-head">
+                    <div class="ab-name">Boolean-Logic Neural Network</div>
+                    <div class="ab-ver">version 1.0.0</div>
+                </div>
+                <p><b>Boolean-Logic Neural Network</b> is a real multilayer perceptron (MLP) written from scratch in pure JavaScript, learning classic Boolean logic with full live visualization.</p>
+                <p><b>Architecture:</b> 2 inputs → 3 sigmoid hidden neurons → 1 sigmoid output (&gt; 0.5 = true). Trained by <b>stochastic mini-batch optimization</b> - <b>SGD with momentum (0.9)</b> (default) or <b>Adam</b>. Training <b>auto-stops at 4/4 correct</b>, and switching functions resets the network. Trained brains can be saved and loaded as JSON.</p>
+                <p><b>Decision map:</b> every pixel feeds continuous (a, b) through the brain and colors it by output - blue = false, red = true. As it trains, the map reshapes into the correct pattern before your eyes.</p>
+                <div class="ab-meta">
+                    <div><b>Author:</b> Alexander Suvorov</div>
+                    <div><b>License:</b> BSD 3-Clause</div>
+                    <div><b>Repository:</b> <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" rel="noopener">github.com/smartlegionlab/from-scratch-neural-networks</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.6.26</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+<button id="consoleToggle" class="btn btn-sm btn-outline-primary position-fixed smart-console-toggle">
+    <i class="bi bi-terminal"></i> Console
+</button>
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+<div id="background-trigger" hidden></div>
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/background-dispatcher.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script src="/js/console.js"></script>
+<script src="/js/sidebar.js"></script>
+<script>
+const LOGICS = {
+  XOR:  { rows: [[0,0,0],[0,1,1],[1,0,1],[1,1,0]] },
+  AND:  { rows: [[0,0,0],[0,1,0],[1,0,0],[1,1,1]] },
+  OR:   { rows: [[0,0,0],[0,1,1],[1,0,1],[1,1,1]] },
+  NAND: { rows: [[0,0,1],[0,1,1],[1,0,1],[1,1,0]] },
+  XNOR: { rows: [[0,0,1],[0,1,0],[1,0,0],[1,1,1]] }
+};
+const netCanvas = document.getElementById('netCanvas');
+const nCtx = netCanvas.getContext('2d');
+const lossCanvas = document.getElementById('lossCanvas');
+const lCtx = lossCanvas.getContext('2d');
+const mapCanvas = document.getElementById('mapCanvas');
+const mCtx = mapCanvas.getContext('2d');
+let currentLogic = 'XOR';
+let aVal = 0, bVal = 1;
+let epoch = 0, bestLoss = Infinity, isTraining = false;
+let lossHistory = [], smoothedLoss = null;
+let toastTimer = 0, suppressToast = false;
+let anim = 0;
+const sigmoid = x => 1 / (1 + Math.exp(-x));
+const dsigmoid = y => y * (1 - y);
+function rgba(r, g, b, a) {
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+}
+class NeuralNetwork {
+  constructor(inN, hidN, outN, lr) {
+    this.inN = inN; this.hidN = hidN; this.outN = outN; this.lr = lr;
+    this.mu = 0.9;
+    this.opt = 'sgd';
+    this.beta1 = 0.9;
+    this.beta2 = 0.999;
+    this.eps = 1e-8;
+    this.reset();
+  }
+  reset() {
+    const s1 = 1 / Math.sqrt(this.inN);
+    const s2 = 1 / Math.sqrt(this.hidN);
+    this.wIH = Array.from({ length: this.hidN }, () =>
+      Array.from({ length: this.inN }, () => (Math.random() * 2 - 1) * s1));
+    this.wHO = Array.from({ length: this.outN }, () =>
+      Array.from({ length: this.hidN }, () => (Math.random() * 2 - 1) * s2));
+    this.bH = new Array(this.hidN).fill(0);
+    this.bO = new Array(this.outN).fill(0);
+    this.vWIH = Array.from({ length: this.hidN }, () => new Array(this.inN).fill(0));
+    this.vWHO = Array.from({ length: this.outN }, () => new Array(this.hidN).fill(0));
+    this.vBH = new Array(this.hidN).fill(0);
+    this.vBO = new Array(this.outN).fill(0);
+    this.mWIH = Array.from({ length: this.hidN }, () => new Array(this.inN).fill(0));
+    this.sWIH = Array.from({ length: this.hidN }, () => new Array(this.inN).fill(0));
+    this.mWHO = Array.from({ length: this.outN }, () => new Array(this.hidN).fill(0));
+    this.sWHO = Array.from({ length: this.outN }, () => new Array(this.hidN).fill(0));
+    this.mBH = new Array(this.hidN).fill(0);
+    this.sBH = new Array(this.hidN).fill(0);
+    this.mBO = new Array(this.outN).fill(0);
+    this.sBO = new Array(this.outN).fill(0);
+    this.t = 0;
+    this.lastIn = new Array(this.inN).fill(0);
+    this.lastHid = new Array(this.hidN).fill(0);
+    this.lastOut = new Array(this.outN).fill(0);
+  }
+  predict(inputs) {
+    this.lastIn = [...inputs];
+    this.lastHid = this.wIH.map((w, i) =>
+      sigmoid(w.reduce((s, v, j) => s + v * inputs[j], this.bH[i])));
+    this.lastOut = this.wHO.map((w, i) =>
+      sigmoid(w.reduce((s, v, j) => s + v * this.lastHid[j], this.bO[i])));
+    return this.lastOut;
+  }
+  upd(p, i, g, m, s, v, lr, mu, bc1, bc2) {
+    if (this.opt === 'sgd') {
+      v[i] = mu * v[i] + lr * g;
+      p[i] += v[i];
+      return;
+    }
+    m[i] = this.beta1 * m[i] + (1 - this.beta1) * g;
+    s[i] = this.beta2 * s[i] + (1 - this.beta2) * g * g;
+    p[i] += lr * (m[i] / bc1) / (Math.sqrt(s[i] / bc2) + this.eps);
+  }
+  trainStep(inputs, target) {
+    const out = this.predict(inputs)[0];
+    const e = target - out;
+    const lr = this.lr, mu = this.mu;
+    if (this.opt === 'adam') this.t++;
+    const bc1 = this.opt === 'adam' ? 1 - Math.pow(this.beta1, this.t) : 1;
+    const bc2 = this.opt === 'adam' ? 1 - Math.pow(this.beta2, this.t) : 1;
+    const dO = e * dsigmoid(out);
+    this.upd(this.bO, 0, dO, this.mBO, this.sBO, this.vBO, lr, mu, bc1, bc2);
+    for (let j = 0; j < this.hidN; j++) {
+      this.upd(this.wHO[0], j, dO * this.lastHid[j], this.mWHO[0], this.sWHO[0], this.vWHO[0], lr, mu, bc1, bc2);
+    }
+    for (let i = 0; i < this.hidN; i++) {
+      const dH = this.wHO[0][i] * dO * dsigmoid(this.lastHid[i]);
+      this.upd(this.bH, i, dH, this.mBH, this.sBH, this.vBH, lr, mu, bc1, bc2);
+      for (let j = 0; j < this.inN; j++) {
+        this.upd(this.wIH[i], j, dH * inputs[j], this.mWIH[i], this.sWIH[i], this.vWIH[i], lr, mu, bc1, bc2);
+      }
+    }
+  }
+}
+const nn = new NeuralNetwork(2, 3, 1, 0.3);
+function getRows() { return LOGICS[currentLogic].rows; }
+function truthOf(a, b) { for (const r of getRows()) if (r[0] === a && r[1] === b) return r[2]; return 0; }
+function currentLoss() {
+  let s = 0;
+  for (const r of getRows()) { const o = nn.predict([r[0], r[1]])[0]; s += (r[2] - o) * (r[2] - o); }
+  return s / 4;
+}
+function correctCount() {
+  let c = 0;
+  for (const r of getRows()) if ((nn.predict([r[0], r[1]])[0] > 0.5) === (r[2] === 1)) c++;
+  return c;
+}
+function showToast(msg, ok) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.borderColor = ok === false ? '#ff5252' : '#00e676';
+  t.style.background = ok === false ? '#321f1f' : '#1f3227';
+  t.style.color = ok === false ? '#ff5252' : '#00e676';
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+}
+function toggleTrain() {
+  if (correctCount() === 4) {
+    showToast('Already 100% correct - Reset to retrain', true);
+    return;
+  }
+  isTraining = !isTraining;
+  document.getElementById('trainBtn').textContent = isTraining ? 'Pause' : 'Start Training';
+}
+function trainOneEpoch() {
+  for (const r of getRows()) nn.trainStep([r[0], r[1]], r[2]);
+  epoch++;
+  const k = currentLoss();
+  smoothedLoss = smoothedLoss === null ? k : smoothedLoss + (k - smoothedLoss) * 0.3;
+  if (k < bestLoss) bestLoss = k;
+  if (lossHistory.length === 0 || epoch % 5 === 0) {
+    lossHistory.push(smoothedLoss);
+    if (lossHistory.length > 200) lossHistory.shift();
+  }
+  if (correctCount() === 4) {
+    isTraining = false;
+    document.getElementById('trainBtn').textContent = 'Start Training';
+    if (!suppressToast) showToast('✓ 100% correct - training complete', true);
+    return true;
+  }
+  return false;
+}
+function trainEpochs(n) {
+  suppressToast = true;
+  let achieved = false;
+  for (let e = 0; e < n; e++) {
+    if (trainOneEpoch()) { achieved = true; break; }
+  }
+  suppressToast = false;
+  isTraining = false;
+  document.getElementById('trainBtn').textContent = 'Start Training';
+  if (achieved) showToast('✓ 100% correct in ' + epoch + ' epochs - loss ' + smoothedLoss.toFixed(4), true);
+  else showToast('Trained ' + n + ' epochs - loss ' + smoothedLoss.toFixed(4) + ' · not 100% yet', correctCount() === 4);
+}
+function resetNetwork() {
+  isTraining = false;
+  document.getElementById('trainBtn').textContent = 'Start Training';
+  nn.reset();
+  epoch = 0; bestLoss = Infinity; smoothedLoss = null; lossHistory = [];
+  showToast('Network reset - train again', true);
+}
+function setLR(v, btn) {
+  nn.lr = v;
+  document.querySelectorAll('.lr-btn').forEach(b => b.classList.toggle('active', b === btn));
+  showToast('Learning rate = ' + v, true);
+}
+function setOpt(name, btn) {
+  nn.opt = name;
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.toggle('active', b === btn));
+  if (name === 'adam') {
+    nn.t = 0;
+    nn.mWIH.forEach(a => a.fill(0));
+    nn.sWIH.forEach(a => a.fill(0));
+    nn.mWHO.forEach(a => a.fill(0));
+    nn.sWHO.forEach(a => a.fill(0));
+    nn.mBH.fill(0); nn.sBH.fill(0);
+    nn.mBO.fill(0); nn.sBO.fill(0);
+  } else {
+    nn.vWIH.forEach(a => a.fill(0));
+    nn.vWHO.forEach(a => a.fill(0));
+    nn.vBH.fill(0); nn.vBO.fill(0);
+  }
+  showToast('Optimizer: ' + name.toUpperCase(), true);
+}
+function exportModel() {
+  const data = {
+    kind: 'logic-gates',
+    arch: '2-3-1',
+    lr: nn.lr,
+    opt: nn.opt,
+    wIH: nn.wIH,
+    wHO: nn.wHO,
+    bH: nn.bH,
+    bO: nn.bO
+  };
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'logic-gates-model.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Model exported', true);
+}
+function importModel() {
+  document.getElementById('modelFile').click();
+}
+function onImportFile(e) {
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (!Array.isArray(data.wIH) || !Array.isArray(data.wHO)) throw new Error('bad');
+      isTraining = false;
+      document.getElementById('trainBtn').textContent = 'Start Training';
+      nn.lr = typeof data.lr === 'number' ? data.lr : nn.lr;
+      nn.opt = (data.opt === 'sgd' || data.opt === 'adam') ? data.opt : nn.opt;
+      nn.wIH = data.wIH;
+      nn.wHO = data.wHO;
+      nn.bH = Array.isArray(data.bH) ? data.bH : nn.bH;
+      nn.bO = Array.isArray(data.bO) ? data.bO : nn.bO;
+      nn.t = 0;
+      nn.vWIH.forEach(a => a.fill(0));
+      nn.vWHO.forEach(a => a.fill(0));
+      nn.vBH.fill(0); nn.vBO.fill(0);
+      nn.mWIH.forEach(a => a.fill(0));
+      nn.sWIH.forEach(a => a.fill(0));
+      nn.mWHO.forEach(a => a.fill(0));
+      nn.sWHO.forEach(a => a.fill(0));
+      nn.mBH.fill(0); nn.sBH.fill(0);
+      nn.mBO.fill(0); nn.sBO.fill(0);
+      epoch = 0; bestLoss = Infinity; smoothedLoss = null; lossHistory = [];
+      document.querySelectorAll('.lr-btn').forEach(b => b.classList.toggle('active', Math.abs(+b.dataset.lr - nn.lr) < 1e-9));
+      document.querySelectorAll('.opt-btn').forEach(b => b.classList.toggle('active', b.dataset.opt === nn.opt));
+      showToast('Model imported - trained brain loaded', true);
+    } catch (err) {
+      showToast('Import failed - bad file', false);
+    }
+  };
+  reader.readAsText(f);
+  e.target.value = '';
+}
+function logicButtons() {
+  const box = document.getElementById('logicBtns');
+  for (const name of Object.keys(LOGICS)) {
+    const b = document.createElement('button');
+    b.textContent = name;
+    b.dataset.logic = name;
+    b.onclick = () => selectLogic(name);
+    box.appendChild(b);
+  }
+}
+function selectLogic(name) {
+  currentLogic = name;
+  document.querySelectorAll('#logicBtns button').forEach(bb => bb.classList.toggle('active', bb.dataset.logic === name));
+  isTraining = false;
+  document.getElementById('trainBtn').textContent = 'Start Training';
+  nn.reset();
+  epoch = 0; bestLoss = Infinity; smoothedLoss = null; lossHistory = [];
+  showToast('Function: ' + name + ' - fresh start, train again', true);
+}
+function setBit(which, v) {
+  if (which === 'a') aVal = v; else bVal = v;
+  updateSwitches();
+}
+function updateSwitches() {
+  document.querySelectorAll('#swA button').forEach(b => b.classList.toggle('on', +b.textContent === aVal));
+  document.querySelectorAll('#swA button').forEach(b => b.classList.toggle('off', +b.textContent !== aVal));
+  document.querySelectorAll('#swB button').forEach(b => b.classList.toggle('on', +b.textContent === bVal));
+  document.querySelectorAll('#swB button').forEach(b => b.classList.toggle('off', +b.textContent !== bVal));
+}
+function randomTest() {
+  const r = getRows()[Math.floor(Math.random() * 4)];
+  aVal = r[0]; bVal = r[1];
+  updateSwitches();
+  const y = nn.predict([aVal, bVal])[0];
+  const pred = y > 0.5 ? 1 : 0;
+  const ok = pred === r[2];
+  showToast(currentLogic + '(' + aVal + ',' + bVal + ') = ' + r[2] + ' · brain: ' + pred + ' → ' + (ok ? 'correct' : 'wrong'), ok);
+}
+function testAll() {
+  const ok = correctCount();
+  showToast('All 4 rows: ' + ok + '/4 correct' + (ok === 4 ? ' · 100% ✓' : ''), ok === 4);
+}
+function renderTruth() {
+  let html = '<tr><th>a</th><th>b</th><th>y</th><th>hat</th></tr>';
+  for (const r of getRows()) {
+    const o = nn.predict([r[0], r[1]])[0];
+    const hat = o > 0.5 ? '1' : '0';
+    const ok = hat == r[2];
+    html += '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td class="out">' + r[2] + '</td>' +
+            '<td class="' + (ok ? 'good' : 'bad') + '">' + hat + '</td></tr>';
+  }
+  document.getElementById('truthTable').innerHTML = html;
+}
+function renderPrediction() {
+  const el = document.getElementById('predText');
+  const conf = document.getElementById('confFill');
+  const y = nn.predict([aVal, bVal])[0];
+  const pred = y > 0.5 ? 1 : 0;
+  const truth = truthOf(aVal, bVal);
+  const ok = pred === truth;
+  const pct = Math.round((y > 0.5 ? y : 1 - y) * 100);
+  el.classList.remove('good', 'bad', 'idle');
+  conf.classList.remove('good', 'bad');
+  if (ok) {
+    el.classList.add('good');
+    conf.classList.add('good');
+    el.innerHTML = 'y = <span class="val">' + pred + '</span> correct · ' + pct + '%';
+  } else {
+    el.classList.add('bad');
+    conf.classList.add('bad');
+    el.innerHTML = 'y = <span class="val">' + pred + '</span> wrong · target ' + truth + ' · ' + pct + '%';
+  }
+  conf.style.width = pct + '%';
+  const c = correctCount();
+  document.getElementById('scoreText').innerHTML =
+    'correct: <b class="' + (c === 4 ? 'good' : 'bad') + '">' + c + '/4 (' + (c * 25) + '%)</b>';
+}
+function drawSynapse(a, b, w, pos, neg, maxW) {
+  nCtx.beginPath();
+  nCtx.moveTo(a.x, a.y);
+  nCtx.lineTo(b.x, b.y);
+  nCtx.strokeStyle = w >= 0 ? pos : neg;
+  nCtx.lineWidth = Math.max(0.4, Math.min(maxW, Math.abs(w)));
+  nCtx.stroke();
+}
+function drawOrb(x, y, v, baseR, phase, col) {
+  const a = Math.max(0, Math.min(1, v));
+  const pulse = 1 + 0.1 * Math.sin(anim * 3.4 + phase);
+  const rad = Math.max(2, baseR * (0.6 + 0.85 * a) * pulse);
+  const halo = rad * 2.9;
+  let g = nCtx.createRadialGradient(x, y, rad * 0.2, x, y, halo);
+  g.addColorStop(0, rgba(col[0], col[1], col[2], 0.4 * a));
+  g.addColorStop(0.6, rgba(col[0], col[1], col[2], 0.12 * a));
+  g.addColorStop(1, rgba(col[0], col[1], col[2], 0));
+  nCtx.fillStyle = g;
+  nCtx.beginPath();
+  nCtx.arc(x, y, halo, 0, Math.PI * 2);
+  nCtx.fill();
+  g = nCtx.createRadialGradient(x - rad * 0.35, y - rad * 0.4, rad * 0.1, x, y, rad);
+  g.addColorStop(0, 'rgba(255,255,255,0.95)');
+  g.addColorStop(0.38, rgba(Math.min(255, col[0] + 80), Math.min(255, col[1] + 80), Math.min(255, col[2] + 80), 0.95));
+  g.addColorStop(1, rgba(col[0], col[1], col[2], 0.6));
+  nCtx.fillStyle = g;
+  nCtx.beginPath();
+  nCtx.arc(x, y, rad, 0, Math.PI * 2);
+  nCtx.fill();
+  nCtx.beginPath();
+  nCtx.arc(x, y, rad * 1.16, 0, Math.PI * 2);
+  nCtx.strokeStyle = rgba(col[0], col[1], col[2], 0.3 + 0.55 * a);
+  nCtx.lineWidth = 1 + 1.4 * a;
+  nCtx.stroke();
+}
+function drawOutputOrb(x, y, v, baseR, phase, col, winner) {
+  const a = Math.max(0, Math.min(1, v));
+  const pulse = 1 + 0.1 * Math.sin(anim * 2.8 + phase * 1.1) + (winner ? 0.1 * Math.sin(anim * 7) : 0);
+  const rad = baseR * (0.55 + 0.6 * a) * pulse;
+  const halo = rad * 2.1;
+  let g = nCtx.createRadialGradient(x, y, rad * 0.2, x, y, halo);
+  g.addColorStop(0, rgba(col[0], col[1], col[2], 0.32 * a));
+  g.addColorStop(1, rgba(col[0], col[1], col[2], 0));
+  nCtx.fillStyle = g;
+  nCtx.beginPath();
+  nCtx.arc(x, y, halo, 0, Math.PI * 2);
+  nCtx.fill();
+  g = nCtx.createRadialGradient(x - rad * 0.32, y - rad * 0.38, rad * 0.1, x, y, rad);
+  g.addColorStop(0, rgba(255, 255, 255, 0.3 + 0.4 * a));
+  g.addColorStop(0.5, rgba(col[0], col[1], col[2], 0.3 + 0.55 * a));
+  g.addColorStop(1, rgba(col[0], col[1], col[2], 0.2 + 0.45 * a));
+  nCtx.fillStyle = g;
+  nCtx.beginPath();
+  nCtx.arc(x, y, rad, 0, Math.PI * 2);
+  nCtx.fill();
+  nCtx.beginPath();
+  nCtx.arc(x, y, rad * 1.1, 0, Math.PI * 2);
+  nCtx.strokeStyle = rgba(col[0], col[1], col[2], 0.25 + 0.6 * a);
+  nCtx.lineWidth = 1 + 1.6 * a;
+  nCtx.stroke();
+  if (winner) {
+    const wr = rad * 1.34 + 2.5 * Math.sin(anim * 5);
+    nCtx.beginPath();
+    nCtx.arc(x, y, wr, 0, Math.PI * 2);
+    nCtx.strokeStyle = rgba(0, 230, 118, 0.45 + 0.3 * Math.sin(anim * 5));
+    nCtx.lineWidth = 2;
+    nCtx.stroke();
+  }
+}
+const IN_X = 110, HID_X = 320, OUT_X = 540, IN_Y = [130, 270], HID_Y = [80, 200, 320], OUT_Y = 200;
+function drawNetwork() {
+  nCtx.clearRect(0, 0, netCanvas.width, netCanvas.height);
+  nn.predict([aVal, bVal]);
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++)
+    drawSynapse({ x: IN_X, y: IN_Y[j] }, { x: HID_X, y: HID_Y[i] }, nn.wIH[i][j],
+      'rgba(0,210,255,0.35)', 'rgba(255,82,82,0.35)', 3);
+  for (let i = 0; i < 3; i++)
+    drawSynapse({ x: HID_X, y: HID_Y[i] }, { x: OUT_X, y: OUT_Y }, nn.wHO[0][i],
+      'rgba(0,230,118,0.6)', 'rgba(255,82,82,0.5)', 4);
+  for (let i = 0; i < 2; i++) {
+    const v = nn.lastIn[i];
+    const col = v > 0.5 ? [0, 210, 255] : [55, 75, 92];
+    drawOrb(IN_X, IN_Y[i], v, 20, i * 1.3, col);
+    nCtx.fillStyle = v > 0.5 ? '#000' : '#fff';
+    nCtx.font = 'bold 16px sans-serif';
+    nCtx.textAlign = 'center';
+    nCtx.textBaseline = 'middle';
+    nCtx.fillText(i === 0 ? 'a' : 'b', IN_X, IN_Y[i]);
+  }
+  for (let i = 0; i < 3; i++)
+    drawOrb(HID_X, HID_Y[i], nn.lastHid[i], 18, i * 0.7, [0, 190, 255]);
+  const o = nn.lastOut[0];
+  drawOutputOrb(OUT_X, OUT_Y, o, 32, 0, [0, 230, 118], true);
+  nCtx.fillStyle = o > 0.5 ? '#000' : '#fff';
+  nCtx.font = 'bold 18px sans-serif';
+  nCtx.textAlign = 'center';
+  nCtx.textBaseline = 'middle';
+  nCtx.fillText(o > 0.5 ? '1' : '0', OUT_X, OUT_Y);
+  nCtx.fillStyle = '#ccc';
+  nCtx.font = 'bold 12px sans-serif';
+  nCtx.fillText('y = ' + (o > 0.5 ? 'true' : 'false') + '  (' + Math.round(o * 100) + '%)', OUT_X, OUT_Y + 44);
+}
+netCanvas.addEventListener('click', e => {
+  const r = netCanvas.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width * netCanvas.width;
+  const y = (e.clientY - r.top) / r.height * netCanvas.height;
+  if (Math.hypot(x - IN_X, y - IN_Y[0]) < 28) { aVal = 1 - aVal; updateSwitches(); }
+  else if (Math.hypot(x - IN_X, y - IN_Y[1]) < 28) { bVal = 1 - bVal; updateSwitches(); }
+});
+function drawMap() {
+  const W = mapCanvas.width, H = mapCanvas.height;
+  mCtx.clearRect(0, 0, W, H);
+  for (let py = 0; py < H; py++) {
+    for (let px = 0; px < W; px++) {
+      const o = nn.predict([px / W, py / H])[0];
+      mCtx.fillStyle = 'rgb(' + Math.round(o * 200) + ',' + Math.round(o * 60) + ',' + Math.round((1 - o) * 200) + ')';
+      mCtx.fillRect(px, py, 1, 1);
+    }
+  }
+  const corners = [[0, 0], [1, 0], [0, 1], [1, 1]];
+  for (const [a, b] of corners) {
+    const cx = a * (W - 1), cy = b * (H - 1);
+    const tar = truthOf(a, b);
+    const ok = (nn.predict([a, b])[0] > 0.5) === (tar === 1);
+    mCtx.beginPath();
+    mCtx.arc(cx, cy, 9, 0, Math.PI * 2);
+    mCtx.fillStyle = ok ? '#00e676' : '#ff5252';
+    mCtx.fill();
+    mCtx.strokeStyle = '#fff';
+    mCtx.lineWidth = 1.5;
+    mCtx.stroke();
+    mCtx.beginPath();
+    mCtx.arc(cx, cy, 13, 0, Math.PI * 2);
+    mCtx.strokeStyle = tar ? '#fff' : 'rgba(255,255,255,0.3)';
+    mCtx.lineWidth = 1.2;
+    mCtx.stroke();
+  }
+}
+function drawLossGraph() {
+  const W = lossCanvas.width, H = lossCanvas.height, data = lossHistory;
+  lCtx.clearRect(0, 0, W, H);
+  lCtx.strokeStyle = '#242424';
+  lCtx.lineWidth = 1;
+  for (let i = 1; i < 4; i++) {
+    const y = Math.round(H * i / 4);
+    lCtx.beginPath();
+    lCtx.moveTo(0, y);
+    lCtx.lineTo(W, y);
+    lCtx.stroke();
+  }
+  if (data.length === 0) {
+    lCtx.fillStyle = '#8a8a8a';
+    lCtx.font = '12px sans-serif';
+    lCtx.textAlign = 'center';
+    lCtx.textBaseline = 'middle';
+    lCtx.fillText('Train to see the loss curve', W / 2, H / 2);
+    return;
+  }
+  let lo = Math.min(...data), hi = Math.max(...data), range = hi - lo;
+  if (range < 1e-6) { lo = Math.max(0, lo - 0.05); hi += 0.05; range = hi - lo; }
+  range = Math.max(range, 1e-6);
+  const padL = 8, padR = 8, padT = 22, padB = 22;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const xFor = i => padL + (data.length === 1 ? innerW : innerW * i / (data.length - 1));
+  const yFor = loss => padT + (1 - (loss - lo) / range) * innerH;
+  lCtx.fillStyle = '#9a9a9a';
+  lCtx.font = '11px sans-serif';
+  lCtx.textAlign = 'left';
+  lCtx.textBaseline = 'top';
+  lCtx.fillText(hi.toFixed(3), padL, 4);
+  lCtx.textBaseline = 'bottom';
+  lCtx.fillText(lo.toFixed(3), padL, H - 4);
+  lCtx.beginPath();
+  lCtx.strokeStyle = '#00e676';
+  lCtx.lineWidth = 2;
+  data.forEach((loss, idx) => {
+    const x = xFor(idx), y = yFor(loss);
+    idx === 0 ? lCtx.moveTo(x, y) : lCtx.lineTo(x, y);
+  });
+  lCtx.stroke();
+  lCtx.fillStyle = '#9a9a9a';
+  lCtx.font = '11px sans-serif';
+  lCtx.textAlign = 'right';
+  lCtx.textBaseline = 'bottom';
+  lCtx.fillText('epoch ' + epoch, W - 4, H - 4);
+}
+function stats() {
+  const curr = smoothedLoss === null ? currentLoss() : smoothedLoss;
+  document.getElementById('trainStats').textContent =
+    'Epoch: ' + epoch + ' | Loss: ' + curr.toFixed(4) + ' | ' + nn.opt.toUpperCase() + ' · lr ' + nn.lr;
+  document.getElementById('lossStats').textContent =
+    'Current: ' + curr.toFixed(4) + ' | Best: ' + (bestLoss === Infinity ? '-' : bestLoss.toFixed(4));
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(el) {
+  el.closest('.modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(o =>
+  o.addEventListener('click', e => {
+    if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; }
+  }));
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape')
+    document.querySelectorAll('.modal-overlay.open').forEach(o => {
+      o.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+});
+
+function loop() {
+  anim = performance.now() / 1000;
+  if (isTraining) trainOneEpoch();
+  renderTruth();
+  renderPrediction();
+  drawNetwork();
+  drawMap();
+  drawLossGraph();
+  stats();
+  requestAnimationFrame(loop);
+}
+
+logicButtons();
+selectLogic('XOR');
+updateSwitches();
+loop();
+</script>
+</body>
+</html>
