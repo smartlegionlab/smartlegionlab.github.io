@@ -1,50 +1,49 @@
 .app-scope, .app-scope * { box-sizing: border-box; font-family: sans-serif; -webkit-tap-highlight-color: transparent; }
-.app-scope { background: #121212; color: #e0e0e0; padding: 20px; display: flex; flex-direction: column; align-items: center; border-radius: 6px; }
-.app-scope .workspace { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 24px; width: 100%; max-width: 1500px; }
-.app-scope .panel { background: #1e1e1e; padding: 18px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; min-height: 0; width: 100%; }
-.app-scope .panel h3 { margin: 0 0 12px 0; font-size: 16px; color: #e0e0e0; text-align: center; }
+.app-scope { background: transparent; padding: 4px 0; display: flex; flex-direction: column; align-items: center; }
+.app-scope .workspace { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: 20px; width: 100%; max-width: 1500px; }
+.app-scope .panel { background: rgba(13, 110, 253, 0.06); border: 1px solid rgba(13, 110, 253, 0.22); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: stretch; min-height: 0; width: 100%; }
+.app-scope .panel h3 { margin: 0 0 12px 0; font-size: 16px; font-weight: 700; color: #f8f9fa; text-align: center; border-bottom: 1px solid rgba(13, 110, 253, 0.2); padding-bottom: 10px; }
 .app-scope .canvas-area { display: flex; justify-content: center; align-items: center; width: 100%; }
-.app-scope canvas { background: #141414; border-radius: 8px; border: 1px solid #333; max-width: 100%; height: auto; image-rendering: pixelated; touch-action: none; }
+.app-scope canvas { background: rgba(13, 17, 23, 0.6); border-radius: 8px; border: 1px solid rgba(13, 110, 253, 0.3); max-width: 100%; height: auto; image-rendering: pixelated; touch-action: none; }
 .app-scope .draw-btns { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; justify-content: center; align-items: center; }
 .app-scope .btn:active { transform: scale(.96); }
-.app-scope .btn-cyan { --bs-btn-color: #000; --bs-btn-bg: #00d2ff; --bs-btn-border-color: #00d2ff; --bs-btn-hover-color: #000; --bs-btn-hover-bg: #00b8e0; --bs-btn-hover-border-color: #00b8e0; --bs-btn-active-color: #000; --bs-btn-active-bg: #009ac4; --bs-btn-active-border-color: #009ac4; }
-.app-scope .btn-green { --bs-btn-color: #000; --bs-btn-bg: #00e676; --bs-btn-border-color: #00e676; --bs-btn-hover-color: #000; --bs-btn-hover-bg: #00cf68; --bs-btn-hover-border-color: #00cf68; --bs-btn-active-color: #000; --bs-btn-active-bg: #00b35a; --bs-btn-active-border-color: #00b35a; }
+.app-scope .btn-outline-secondary { --bs-btn-color: #7ab3ff; --bs-btn-border-color: #0d6efd; --bs-btn-hover-bg: #0d6efd; --bs-btn-hover-border-color: #0d6efd; --bs-btn-hover-color: #fff; --bs-btn-active-bg: #0b5ed7; --bs-btn-active-border-color: #0b5ed7; --bs-btn-active-color: #fff; }
+.app-scope .btn-cyan, .app-scope .btn-green { --bs-btn-color: #fff; --bs-btn-bg: #0d6efd; --bs-btn-border-color: #0d6efd; --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #0b5ed7; --bs-btn-hover-border-color: #0a58ca; --bs-btn-active-color: #fff; --bs-btn-active-bg: #0a58ca; --bs-btn-active-border-color: #0a53be; }
 .app-scope .btn-red { --bs-btn-color: #fff; --bs-btn-bg: #ff5252; --bs-btn-border-color: #ff5252; --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #e64545; --bs-btn-hover-border-color: #e64545; --bs-btn-active-color: #fff; --bs-btn-active-bg: #cf3b3b; --bs-btn-active-border-color: #cf3b3b; }
 .app-scope .draw-btns .btn-eraser.active { --bs-btn-bg: #ffb74d; --bs-btn-border-color: #ffb74d; --bs-btn-color: #000; box-shadow: 0 0 10px rgba(255,179,71,.5); }
 .app-scope .digit-btns { display: flex; flex-wrap: nowrap; gap: 4px; justify-content: center; margin-top: 10px; width: 100%; }
-.app-scope .digit-btns button { flex: 1 1 0; min-width: 0; padding: 8px 2px; font-size: 15px; position: relative; background: #2c2c2c; color: #fff; border: none; border-radius: 6px; cursor: pointer; user-select: none; }
-.app-scope .digit-btns button .cnt { position: absolute; top: -6px; right: -2px; min-width: 16px; height: 16px; border-radius: 8px; background: #555; color: #fff; font-size: 10px; line-height: 16px; padding: 0 3px; }
-.app-scope .digit-btns button.active { background: #00d2ff; color: #000; box-shadow: 0 0 12px rgba(0,210,255,.5); }
-.app-scope .digit-btns button.active .cnt { background: #0a0a0a; }
-.app-scope .prediction { font-size: 18px; font-weight: bold; margin-top: 10px; color: #00e676; min-height: 28px; text-align: center; }
-.app-scope .prediction .guess { color: #00d2ff; font-size: 30px; margin-right: 6px; }
-.app-scope .confbar { width: 100%; height: 10px; border-radius: 5px; background: #1a1a1a; overflow: hidden; margin-top: 8px; }
-.app-scope .confbar span { display: block; height: 100%; background: linear-gradient(90deg,#00d2ff,#00e676); transition: width .15s; }
+.app-scope .digit-btns button { flex: 1 1 0; min-width: 0; padding: 8px 2px; font-size: 15px; position: relative; background: rgba(13, 17, 23, 0.6); color: #c9d1d9; border: 1px solid rgba(13, 110, 253, 0.25); border-radius: 6px; cursor: pointer; user-select: none; }
+.app-scope .digit-btns button .cnt { position: absolute; top: -6px; right: -2px; min-width: 16px; height: 16px; border-radius: 8px; background: #0d6efd; color: #fff; font-size: 10px; line-height: 16px; padding: 0 3px; }
+.app-scope .digit-btns button.active { background: #0d6efd; color: #fff; box-shadow: 0 0 12px rgba(13, 110, 253, 0.5); }
+.app-scope .digit-btns button.active .cnt { background: #0a58ca; }
+.app-scope .prediction { font-size: 18px; font-weight: bold; margin-top: 10px; color: #7ab3ff; min-height: 28px; text-align: center; }
+.app-scope .prediction .guess { color: #0d6efd; font-size: 30px; margin-right: 6px; }
+.app-scope .confbar { width: 100%; height: 10px; border-radius: 5px; background: rgba(13, 17, 23, 0.6); overflow: hidden; margin-top: 8px; }
+.app-scope .confbar span { display: block; height: 100%; background: linear-gradient(90deg, #0d6efd, #00e676); transition: width .15s; }
 .app-scope .toast { opacity: 0; transform: translateY(4px); transition: opacity .2s, transform .2s; background: #1f3227; border: 1px solid #00e676; color: #00e676; font-weight: bold; border-radius: 8px; padding: 7px 13px; margin-top: 10px; font-size: 13px; text-align: center; }
 .app-scope .toast.show { opacity: 1; transform: translateY(0); }
-.app-scope .stats { margin-top: 10px; font-size: 13px; color: #aaa; text-align: center; line-height: 1.4; }
-.app-scope .hint { font-size: 12px; color: #888; margin-top: auto; padding-top: 12px; text-align: center; line-height: 1.5; }
-.app-scope .hint b { color: #ccc; }
+.app-scope .stats { margin-top: 10px; font-size: 13px; color: #8b949e; text-align: center; line-height: 1.4; }
+.app-scope .hint { font-size: 12px; color: #8b949e; margin-top: auto; padding-top: 12px; text-align: center; line-height: 1.5; }
+.app-scope .hint b { color: #c9d1d9; }
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
 .app-scope .digit-btns button.active.popping { animation: pop .3s ease; }
 .modal-backdrop.show { opacity: 0.75; }
 .modal { z-index: 10600; }
-.modal-content { background: #1e1e1e; border: 1px solid #444; color: #e0e0e0; border-radius: 12px; }
-.modal-header { border-bottom: 1px solid #444; }
-.modal-title { color: #00d2ff; }
-.modal-body p, .modal-body li { font-size: 14px; line-height: 1.55; color: #ccc; }
+.modal-content { background: #161b22; border: 1px solid rgba(13, 110, 253, 0.3); color: #f8f9fa; border-radius: 12px; }
+.modal-header { border-bottom: 1px solid rgba(13, 110, 253, 0.25); }
+.modal-title { color: #0d6efd; }
+.modal-body p, .modal-body li { font-size: 14px; line-height: 1.55; color: #c9d1d9; }
 .modal-body ol, .modal-body ul { padding-left: 22px; margin: 8px 0; }
 .modal-body b { color: #fff; }
-.accent { color: #00e676; font-weight: bold; }
-.ab-head { border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 12px; }
+.accent { color: #58a6ff; font-weight: bold; }
+.ab-head { border-bottom: 1px solid rgba(13, 110, 253, 0.25); padding-bottom: 10px; margin-bottom: 12px; }
 .ab-name { font-size: 18px; font-weight: bold; color: #fff; }
-.ab-ver { font-size: 13px; color: #00d2ff; margin-top: 2px; }
-.ab-meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid #333; font-size: 13px; color: #ccc; line-height: 1.7; }
-.ab-meta a { color: #00d2ff; text-decoration: none; }
+.ab-ver { font-size: 13px; color: #0d6efd; margin-top: 2px; }
+.ab-meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(13, 110, 253, 0.2); font-size: 13px; color: #c9d1d9; line-height: 1.7; }
+.ab-meta a { color: #7ab3ff; text-decoration: none; }
 .ab-meta a:hover { text-decoration: underline; }
 .btn-close { filter: invert(1); }
 @media (max-width: 1000px) {
-  .app-scope { padding: 10px; }
   .app-scope .panel { padding: 14px; }
   .app-scope .digit-btns { flex-wrap: wrap; }
   .app-scope .digit-btns button { flex: 0 1 auto; min-width: 32px; padding: 10px 12px; font-size: 17px; }
