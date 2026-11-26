@@ -372,13 +372,20 @@ function stopSnake() {
 function startSnake() {
     stopSnake();
 
+    const isTouch = window.matchMedia('(any-pointer: coarse)').matches ||
+                    ('ontouchstart' in window) ||
+                    navigator.maxTouchPoints > 0;
+
     const baseW = (consoleOutput.clientWidth || (window.innerWidth - 30)) - 66;
-    const baseH = (consoleOutput.clientHeight || 420) - 68;
+    const baseH = (consoleOutput.clientHeight || 420) - (isTouch ? 150 : 68);
     const s = Math.max(120, Math.min(baseW, baseH));
 
     const container = document.createElement('div');
     container.style.textAlign = 'center';
     container.style.fontFamily = 'monospace';
+    container.style.boxSizing = 'border-box';
+    container.style.maxWidth = '100%';
+    container.style.overflow = 'hidden';
     container.style.padding = '6px 0';
     container.style.background = '#0d1117';
     container.style.borderRadius = '4px';
@@ -386,9 +393,12 @@ function startSnake() {
     container.style.marginBottom = '4px';
 
     const noteTop = document.createElement('div');
-    noteTop.textContent = 'SNAKE: arrows to move · Q - back to terminal';
+    noteTop.textContent = isTouch
+        ? 'SNAKE: swipe the field or use the buttons'
+        : 'SNAKE: arrows to move · Q - back to terminal';
     noteTop.style.color = '#7ab3ff';
-    noteTop.style.fontSize = '12px';
+    noteTop.style.fontSize = isTouch ? '11px' : '12px';
+    noteTop.style.wordWrap = 'break-word';
     noteTop.style.marginBottom = '6px';
     container.appendChild(noteTop);
 
@@ -397,23 +407,14 @@ function startSnake() {
     canvas.height = s;
     canvas.style.width = s + 'px';
     canvas.style.height = s + 'px';
+    canvas.style.maxWidth = '100%';
     canvas.style.display = 'block';
     canvas.style.margin = '0 auto';
     canvas.style.background = '#0d1117';
     canvas.style.border = '1px solid #0d6efd';
     canvas.style.borderRadius = '8px';
+    if (isTouch) canvas.style.touchAction = 'none';
     container.appendChild(canvas);
-
-    const noteBottom = document.createElement('div');
-    noteBottom.textContent = 'Q - back to terminal';
-    noteBottom.style.color = '#7ab3ff';
-    noteBottom.style.fontSize = '12px';
-    noteBottom.style.marginTop = '6px';
-    container.appendChild(noteBottom);
-
-    consoleOutput.appendChild(container);
-    consoleOutput.scrollTop = consoleOutput.scrollHeight;
-    consoleOutput.lastGameDiv = container;
 
     const c = canvas.getContext('2d');
     const N = 18;
@@ -424,6 +425,8 @@ function startSnake() {
     let food = null;
     let pts = 0;
     let over = false;
+    let ready = false;
+    let countMs = 3800;
 
     function placeFood() {
         do {
@@ -432,6 +435,136 @@ function startSnake() {
     }
     placeFood();
 
+    const setDir = (dx, dy) => {
+        if (!(dx === -dir.x && dy === -dir.y)) next = { x: dx, y: dy };
+    };
+
+    if (isTouch) {
+        const pad = document.createElement('div');
+        pad.style.display = 'flex';
+        pad.style.flexDirection = 'column';
+        pad.style.alignItems = 'center';
+        pad.style.gap = '6px';
+        pad.style.marginTop = '8px';
+
+        const baseBtn = (label, w) => {
+            const b = document.createElement('div');
+            b.textContent = label;
+            b.style.boxSizing = 'border-box';
+            b.style.width = w + 'px';
+            b.style.height = '38px';
+            b.style.lineHeight = '36px';
+            b.style.textAlign = 'center';
+            b.style.fontFamily = 'monospace';
+            b.style.fontSize = '14px';
+            b.style.fontWeight = 'bold';
+            b.style.color = '#7ab3ff';
+            b.style.background = '#0d1117';
+            b.style.border = '1px solid #0d6efd';
+            b.style.borderRadius = '6px';
+            b.style.cursor = 'pointer';
+            b.style.userSelect = 'none';
+            b.style.webkitUserSelect = 'none';
+            b.style.webkitTapHighlightColor = 'transparent';
+            b.style.touchAction = 'manipulation';
+            return b;
+        };
+
+        const bindBtn = (b, dx, dy) => {
+            const press = e => {
+                e.preventDefault();
+                e.stopPropagation();
+                setDir(dx, dy);
+                b.style.background = '#1f6feb';
+                b.style.color = '#ffffff';
+            };
+            const release = e => {
+                e.preventDefault();
+                b.style.background = '#0d1117';
+                b.style.color = '#7ab3ff';
+            };
+            b.addEventListener('touchstart', press, { passive: false });
+            b.addEventListener('touchend', release, { passive: false });
+            b.addEventListener('touchcancel', release, { passive: false });
+            b.addEventListener('mousedown', press);
+            b.addEventListener('mouseup', release);
+        };
+
+        const rowTop = document.createElement('div');
+        rowTop.style.display = 'flex';
+        rowTop.style.justifyContent = 'center';
+        const up = baseBtn('▲', 44);
+        bindBtn(up, 0, -1);
+        rowTop.appendChild(up);
+        pad.appendChild(rowTop);
+
+        const rowMid = document.createElement('div');
+        rowMid.style.display = 'flex';
+        rowMid.style.gap = '6px';
+        const left = baseBtn('◀', 44);
+        bindBtn(left, -1, 0);
+        const down = baseBtn('▼', 44);
+        bindBtn(down, 0, 1);
+        const right = baseBtn('▶', 44);
+        bindBtn(right, 1, 0);
+        rowMid.append(left, down, right);
+        pad.appendChild(rowMid);
+
+        const back = baseBtn('← BACK', 110);
+        back.style.color = '#f85149';
+        back.style.borderColor = '#f85149';
+        const backRow = document.createElement('div');
+        backRow.style.display = 'flex';
+        backRow.style.justifyContent = 'center';
+        backRow.appendChild(back);
+        pad.appendChild(backRow);
+
+        const backHandler = e => {
+            e.preventDefault();
+            e.stopPropagation();
+            stopSnake();
+            consoleInput.focus();
+        };
+        back.addEventListener('touchstart', backHandler, { passive: false });
+        back.addEventListener('mousedown', backHandler);
+
+        container.appendChild(pad);
+    } else {
+        const noteBottom = document.createElement('div');
+        noteBottom.textContent = 'Q - back to terminal';
+        noteBottom.style.color = '#7ab3ff';
+        noteBottom.style.fontSize = '12px';
+        noteBottom.style.marginTop = '6px';
+        container.appendChild(noteBottom);
+    }
+
+    consoleOutput.appendChild(container);
+    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    consoleOutput.lastGameDiv = container;
+
+    let fit = null;
+    if (isTouch && devConsole) {
+        const desired = container.offsetHeight + 12;
+        const h = Math.max(140, Math.min(desired, window.innerHeight - 150));
+        fit = document.createElement('style');
+        fit.setAttribute('data-snake-fit', '1');
+        fit.textContent =
+            '#devConsole.snake-expanded #consoleOutput { height: ' + h + 'px !important; }' +
+            '@media (orientation: landscape) and (max-height: 560px) {' +
+            '  #devConsole.snake-expanded {' +
+            '    width: 100vw !important; height: 100vh !important;' +
+            '    left: 0 !important; right: 0 !important; top: 0 !important; bottom: 0 !important;' +
+            '    max-width: none !important; border: none !important; border-radius: 0 !important;' +
+            '    display: flex !important; flex-direction: column; z-index: 10000 !important;' +
+            '  }' +
+            '  #devConsole.snake-expanded #consoleOutput {' +
+            '    height: auto !important; flex: 1 1 auto;' +
+            '  }' +
+            '}';
+        document.head.appendChild(fit);
+        devConsole.classList.add('snake-expanded');
+    }
+
     let last = performance.now();
     let acc = 0;
 
@@ -439,23 +572,33 @@ function startSnake() {
         if (!snakeActive) return;
         const dt = t - last;
         last = t;
-        acc += dt;
-        if (!over && acc >= 120) {
-            acc = 0;
-            dir = next;
-            const h = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
-            if (h.x < 0 || h.x >= N || h.y < 0 || h.y >= N || snake.some(seg => seg.x === h.x && seg.y === h.y)) {
-                over = true;
-            } else {
-                snake.unshift(h);
-                if (h.x === food.x && h.y === food.y) {
-                    pts += 10;
-                    placeFood();
+
+        if (!ready) {
+            countMs -= dt;
+            if (countMs <= 0) {
+                ready = true;
+                acc = 0;
+            }
+        } else {
+            acc += dt;
+            if (!over && acc >= 120) {
+                acc = 0;
+                dir = next;
+                const hd = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+                if (hd.x < 0 || hd.x >= N || hd.y < 0 || hd.y >= N || snake.some(seg => seg.x === hd.x && seg.y === hd.y)) {
+                    over = true;
                 } else {
-                    snake.pop();
+                    snake.unshift(hd);
+                    if (hd.x === food.x && hd.y === food.y) {
+                        pts += 10;
+                        placeFood();
+                    } else {
+                        snake.pop();
+                    }
                 }
             }
         }
+
         c.fillStyle = '#0d1117';
         c.fillRect(0, 0, s, s);
         for (let i = 0; i < N; i++) {
@@ -487,9 +630,24 @@ function startSnake() {
         c.beginPath();
         c.arc(fx, fy, rad, 0, Math.PI * 2);
         c.fill();
+
+        if (!ready) {
+            c.fillStyle = 'rgba(13,17,23,0.55)';
+            c.fillRect(0, 0, s, s);
+            c.fillStyle = '#0d6efd';
+            c.textAlign = 'center';
+            c.textBaseline = 'middle';
+            c.font = 'bold ' + Math.floor(s * 0.3) + 'px monospace';
+            const elapsed = 3800 - countMs;
+            c.fillText(countMs > 800 ? String(3 - Math.floor(elapsed / 1000)) : 'GO!', s / 2, s / 2);
+            c.textAlign = 'left';
+            c.textBaseline = 'alphabetic';
+        }
+
         c.fillStyle = '#0d6efd';
-        c.font = '12px monospace';
-        c.fillText('score: ' + pts + (over ? '  ·  GAME OVER (Q)' : ''), 6, 14);
+        const scoreFont = isTouch ? Math.max(9, Math.min(12, Math.floor(s / 40))) : 12;
+        c.font = scoreFont + 'px monospace';
+        c.fillText('score: ' + pts + (over ? (isTouch ? '  ·  GAME OVER' : '  ·  GAME OVER (Q)') : ''), 6, 14);
         snakeRaf = requestAnimationFrame(frame);
     };
 
@@ -507,8 +665,42 @@ function startSnake() {
     };
     document.addEventListener('keydown', kd, true);
 
+    let swipeStart = null;
+    const onTouchStart = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const t = e.touches[0];
+        swipeStart = { x: t.clientX, y: t.clientY };
+    };
+    const onTouchMove = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!swipeStart) return;
+        const t = e.touches[0];
+        const dxx = t.clientX - swipeStart.x;
+        const dyy = t.clientY - swipeStart.y;
+        if (Math.abs(dxx) < 22 && Math.abs(dyy) < 22) return;
+        if (Math.abs(dxx) > Math.abs(dyy)) {
+            setDir(dxx > 0 ? 1 : -1, 0);
+        } else {
+            setDir(0, dyy > 0 ? 1 : -1);
+        }
+        swipeStart = { x: t.clientX, y: t.clientY };
+    };
+    const onTouchEnd = () => { swipeStart = null; };
+    canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+    canvas.addEventListener('touchend', onTouchEnd);
+    canvas.addEventListener('touchcancel', onTouchEnd);
+
     snakeCleanup = () => {
         document.removeEventListener('keydown', kd, true);
+        canvas.removeEventListener('touchstart', onTouchStart);
+        canvas.removeEventListener('touchmove', onTouchMove);
+        canvas.removeEventListener('touchend', onTouchEnd);
+        canvas.removeEventListener('touchcancel', onTouchEnd);
+        if (devConsole) devConsole.classList.remove('snake-expanded');
+        if (fit && fit.parentNode) fit.remove();
         if (container.parentNode) {
             container.remove();
         }
