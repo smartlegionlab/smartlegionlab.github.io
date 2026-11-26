@@ -71,5 +71,5 @@ const CONFIG = {
         }
     },
 
-    VERSION: 'v7.6.28'
+    VERSION: 'v7.7.0'
 };
