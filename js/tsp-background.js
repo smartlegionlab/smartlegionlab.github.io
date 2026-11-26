@@ -1,8 +1,3 @@
-/**
- * TSP Background - traveling salesman path animation.
- * Dots drift slowly, greedy route is animated with a fading trail.
- */
-
 const TSP_ROUTE_PAUSE = 2500;
 const TSP_DELTA = 0.9;
 const TSP_POST_OPTIMIZE = true;
@@ -10,13 +5,14 @@ const TSP_2OPT_ITER = 100;
 const TSP_ANGLE_PENALTY = 0.3;
 const TSP_USE_ANGLE = true;
 const TSP_2OPT_WINDOW = 50;
-
+const TSP_BASE_RGB = '30, 135, 240';
+const TSP_NEAR_DIST = 74;
+const TSP_CONSTELLATION_RADIUS = 130;
 function tspDistance(a, b) {
     const dx = a.x - b.x;
     const dy = a.y - b.y;
     return Math.sqrt(dx * dx + dy * dy);
 }
-
 function computeDistMatrix(points) {
     const n = points.length;
     const matrix = [];
@@ -32,7 +28,6 @@ function computeDistMatrix(points) {
     }
     return matrix;
 }
-
 function calculateCycleDistance(path, points) {
     let total = 0;
     for (let i = 0; i < path.length - 1; i++) {
@@ -40,7 +35,6 @@ function calculateCycleDistance(path, points) {
     }
     return total;
 }
-
 function fast2opt(route, distMatrix, maxIter, window) {
     const n = route.length;
     const bestRoute = route.slice();
@@ -71,7 +65,6 @@ function fast2opt(route, distMatrix, maxIter, window) {
     }
     return bestRoute;
 }
-
 function dynamicGravitySolve(points, delta, postOptimize, max2optIter, anglePenaltyWeight, useAnglePenalty, optWindow) {
     const n = points.length;
     if (n === 0) return { distance: 0, path: [] };
@@ -145,7 +138,6 @@ function dynamicGravitySolve(points, delta, postOptimize, max2optIter, anglePena
     }
     return { distance: calculateCycleDistance(finalRoute, points), path: finalRoute };
 }
-
 class TSPBackground {
     constructor() {
         if (window.tspBackgroundInstance) {
@@ -155,6 +147,8 @@ class TSPBackground {
         this.ctx = this.canvas.getContext('2d');
         this.points = [];
         this.trail = [];
+        this.sparks = [];
+        this.rings = [];
         this.traveler = null;
         this.route = [];
         this.routeIndex = 0;
@@ -174,7 +168,9 @@ class TSPBackground {
         window.tspBackgroundInstance = this;
         this.init();
     }
-
+    baseColor(alpha) {
+        return `rgba(${TSP_BASE_RGB}, ${alpha})`;
+    }
     init() {
         this.canvas.id = 'tsp-canvas';
         this.canvas.style.cssText = `
@@ -197,13 +193,11 @@ class TSPBackground {
         this.startAnimation();
         this.setupEventListeners();
     }
-
     getPointCount() {
         if (window.innerWidth < 768) return 25;
         if (window.innerWidth < 1024) return 40;
         return 55;
     }
-
     handleResize() {
         const oldWidth = this.canvas.width;
         const oldHeight = this.canvas.height;
@@ -222,7 +216,6 @@ class TSPBackground {
             this.travelerAlpha = Math.min(this.travelerAlpha, 0.5);
         }
     }
-
     createPoints() {
         const count = this.getPointCount();
         this.points = [];
@@ -240,11 +233,11 @@ class TSPBackground {
                 opacity: Math.random() * 0.25 + 0.15,
                 size: Math.random() * 1.2 + 1.0,
                 pulsePhase: Math.random() * Math.PI * 2,
-                pulseSpeed: 0.01 + Math.random() * 0.01
+                pulseSpeed: 0.01 + Math.random() * 0.01,
+                visited: false
             });
         }
     }
-
     updatePoints() {
         const w = this.canvas.width;
         const h = this.canvas.height;
@@ -268,11 +261,9 @@ class TSPBackground {
             }
         }
     }
-
     distance(a, b) {
         return tspDistance(a, b);
     }
-
     buildRoute() {
         if (this.points.length < 2) {
             this.route = [];
@@ -294,25 +285,30 @@ class TSPBackground {
         this.routeIndex = 0;
         this.segmentProgress = 0;
         this.trail.length = 0;
+        this.sparks.length = 0;
+        this.rings.length = 0;
         const p0 = this.points[this.route[0]];
         this.traveler = { x: p0.x, y: p0.y };
         this.travelerAlpha = 0;
+        for (const p of this.points) {
+            p.visited = false;
+        }
+        this.points[this.route[0]].visited = true;
     }
-
     finishRoute() {
         this.state = 'waiting';
         this.pointsVisited = this.totalPoints;
         this.travelerAlpha = 1;
+        const end = this.points[this.route[this.route.length - 1]];
+        if (end) this.explode(end.x, end.y);
         this.scheduleFadeOut(TSP_ROUTE_PAUSE);
     }
-
     scheduleFadeOut(delay) {
         if (this.routeTimer) clearTimeout(this.routeTimer);
         this.routeTimer = setTimeout(() => {
             if (!this.isPaused) this.state = 'fading-out';
         }, delay);
     }
-
     updateTrailLife() {
         for (let i = this.trail.length - 1; i >= 0; i--) {
             this.trail[i].life -= 0.002;
@@ -320,10 +316,71 @@ class TSPBackground {
         }
         if (this.trail.length > 400) this.trail.splice(0, this.trail.length - 400);
     }
-
+    updateEffects() {
+        for (let i = this.rings.length - 1; i >= 0; i--) {
+            const ring = this.rings[i];
+            ring.life -= ring.decay;
+            ring.radius += ring.growth;
+            if (ring.life <= 0) this.rings.splice(i, 1);
+        }
+        for (let i = this.sparks.length - 1; i >= 0; i--) {
+            const s = this.sparks[i];
+            s.x += s.vx;
+            s.y += s.vy;
+            s.vx *= 0.96;
+            s.vy *= 0.96;
+            s.life -= s.decay;
+            if (s.life <= 0) this.sparks.splice(i, 1);
+        }
+    }
+    emitRing(x, y, growth, decay) {
+        this.rings.push({
+            x: x,
+            y: y,
+            radius: 2,
+            growth: growth || 0.7 + Math.random() * 0.4,
+            life: 1,
+            decay: decay || 0.03
+        });
+    }
+    emitSparks(x, y) {
+        const count = 5 + Math.floor(Math.random() * 4);
+        for (let i = 0; i < count; i++) {
+            const a = Math.random() * Math.PI * 2;
+            const sp = Math.random() * 0.7 + 0.4;
+            this.sparks.push({
+                x: x,
+                y: y,
+                vx: Math.cos(a) * sp,
+                vy: Math.sin(a) * sp,
+                size: Math.random() * 1.2 + 0.6,
+                life: 1,
+                decay: 0.02 + Math.random() * 0.02
+            });
+        }
+    }
+    explode(x, y) {
+        this.emitRing(x, y, 2.2, 0.02);
+        this.emitRing(x, y, 1.4, 0.024);
+        this.emitRing(x, y, 0.8, 0.03);
+        for (let i = 0; i < 28; i++) {
+            const a = Math.random() * Math.PI * 2;
+            const sp = Math.random() * 2.2 + 0.8;
+            this.sparks.push({
+                x: x,
+                y: y,
+                vx: Math.cos(a) * sp,
+                vy: Math.sin(a) * sp,
+                size: Math.random() * 2 + 0.8,
+                life: 1,
+                decay: 0.012 + Math.random() * 0.02
+            });
+        }
+    }
     update() {
         this.updatePoints();
         this.updateTrailLife();
+        this.updateEffects();
         if (this.state === 'fading-out') {
             this.pointsAlpha = Math.max(0, this.pointsAlpha - this.fadeStep);
             this.travelerAlpha = Math.max(0, this.travelerAlpha - this.fadeStep);
@@ -331,6 +388,8 @@ class TSPBackground {
                 this.pointsAlpha = 0;
                 this.travelerAlpha = 0;
                 this.trail.length = 0;
+                this.sparks.length = 0;
+                this.rings.length = 0;
                 this.createPoints();
                 this.buildRoute();
                 this.state = 'fading-in';
@@ -359,7 +418,6 @@ class TSPBackground {
             this.updateTraveler();
         }
     }
-
     updateTraveler() {
         if (this.route.length === 0 || this.routeIndex >= this.route.length - 1) {
             this.finishRoute();
@@ -381,6 +439,9 @@ class TSPBackground {
                 bIdx: bIdx,
                 life: 1
             });
+            this.points[bIdx].visited = true;
+            this.emitRing(this.traveler.x, this.traveler.y, 0.7 + Math.random() * 0.4, 0.03);
+            this.emitSparks(this.traveler.x, this.traveler.y);
             this.traveler.x = b.x;
             this.traveler.y = b.y;
             if (this.routeIndex >= this.route.length - 1) {
@@ -392,20 +453,52 @@ class TSPBackground {
         this.traveler.x = a.x + (b.x - a.x) * t;
         this.traveler.y = a.y + (b.y - a.y) * t;
     }
-
+    drawPointLinks() {
+        if (this.points.length < 2) return;
+        const max = TSP_NEAR_DIST;
+        const maxSq = max * max;
+        const ctx = this.ctx;
+        const pts = this.points;
+        const n = pts.length;
+        let drawn = false;
+        for (let i = 0; i < n - 1; i++) {
+            const a = pts[i];
+            for (let j = i + 1; j < n; j++) {
+                const b = pts[j];
+                const dx = a.x - b.x;
+                const dy = a.y - b.y;
+                const distSq = dx * dx + dy * dy;
+                if (distSq >= maxSq) continue;
+                const alpha = (1 - Math.sqrt(distSq) / max) * 0.22 * this.pointsAlpha;
+                if (alpha <= 0.01) continue;
+                if (!drawn) {
+                    ctx.save();
+                    ctx.globalCompositeOperation = 'lighter';
+                    drawn = true;
+                }
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.strokeStyle = this.baseColor(alpha);
+                ctx.lineWidth = 0.7;
+                ctx.stroke();
+            }
+        }
+        if (drawn) ctx.restore();
+    }
     drawPoints(time) {
         for (const p of this.points) {
             p.pulsePhase += p.pulseSpeed;
             const pulse = 0.85 + Math.sin(p.pulsePhase) * 0.15;
-            const alpha = p.opacity * pulse * this.pointsAlpha;
+            const base = p.visited ? Math.min(0.85, p.opacity * 2.2) : p.opacity;
+            const alpha = base * pulse * this.pointsAlpha;
             if (alpha <= 0) continue;
             this.ctx.beginPath();
-            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            this.ctx.arc(p.x, p.y, p.visited ? p.size + 0.3 : p.size, 0, Math.PI * 2);
+            this.ctx.fillStyle = this.baseColor(alpha);
             this.ctx.fill();
         }
     }
-
     drawRoutePlan() {
         if (this.route.length < 2) return;
         const pts = this.route.map((idx) => this.points[idx]);
@@ -415,106 +508,167 @@ class TSPBackground {
             this.ctx.lineTo(pts[i].x, pts[i].y);
         }
         this.ctx.lineTo(pts[0].x, pts[0].y);
-        this.ctx.strokeStyle = `rgba(255, 215, 0, ${0.06 * this.pointsAlpha})`;
+        this.ctx.strokeStyle = this.baseColor(0.06 * this.pointsAlpha);
         this.ctx.lineWidth = 1;
         this.ctx.stroke();
     }
-
     drawTrail() {
         if (this.trail.length === 0) return;
+        const ctx = this.ctx;
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
         for (const seg of this.trail) {
-            const alpha = seg.life * 0.4 * this.pointsAlpha;
+            const alpha = seg.life * 0.3 * this.pointsAlpha;
             if (alpha <= 0.01) continue;
             const pa = this.points[seg.aIdx];
             const pb = this.points[seg.bIdx];
-            this.ctx.strokeStyle = `rgba(255, 215, 0, ${alpha})`;
-            this.ctx.lineWidth = 1.4 * seg.life;
-            this.ctx.beginPath();
-            this.ctx.moveTo(pa.x, pa.y);
-            this.ctx.lineTo(pb.x, pb.y);
-            this.ctx.stroke();
+            ctx.strokeStyle = this.baseColor(alpha);
+            ctx.lineWidth = 1.6 * seg.life;
+            ctx.beginPath();
+            ctx.moveTo(pa.x, pa.y);
+            ctx.lineTo(pb.x, pb.y);
+            ctx.stroke();
         }
+        ctx.restore();
     }
-
     drawCurrentSegment() {
         if (this.state !== 'traveling') return;
         if (this.routeIndex >= this.route.length - 1) return;
+        const ctx = this.ctx;
         const a = this.points[this.route[this.routeIndex]];
         const b = this.points[this.route[this.routeIndex + 1]];
         const t = this.segmentProgress;
-        this.ctx.strokeStyle = `rgba(255, 215, 0, ${0.3 * this.pointsAlpha})`;
-        this.ctx.lineWidth = 1.4;
-        this.ctx.beginPath();
-        this.ctx.moveTo(a.x, a.y);
-        this.ctx.lineTo(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
-        this.ctx.stroke();
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.baseColor(0.8);
+        ctx.strokeStyle = this.baseColor(0.45 * this.pointsAlpha);
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
+        ctx.stroke();
+        ctx.restore();
     }
-
     drawTraveler() {
         if (!this.traveler) return;
         const a = this.travelerAlpha;
         if (a <= 0) return;
-        const r = 1 + 3 * a;
-        const gradient = this.ctx.createRadialGradient(
+        const ctx = this.ctx;
+        const r = 1.3 + 3.2 * a;
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        const gradient = ctx.createRadialGradient(
             this.traveler.x, this.traveler.y, 0,
-            this.traveler.x, this.traveler.y, r * 4
+            this.traveler.x, this.traveler.y, r * 5
         );
-        gradient.addColorStop(0, `rgba(255, 215, 0, ${0.5 * a})`);
-        gradient.addColorStop(0.4, `rgba(255, 215, 0, ${0.15 * a})`);
-        gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
-        this.ctx.fillStyle = gradient;
-        this.ctx.beginPath();
-        this.ctx.arc(this.traveler.x, this.traveler.y, r * 4, 0, Math.PI * 2);
-        this.ctx.fill();
-        this.ctx.beginPath();
-        this.ctx.arc(this.traveler.x, this.traveler.y, r, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(255, 255, 255, ${0.9 * a})`;
-        this.ctx.fill();
+        gradient.addColorStop(0, this.baseColor(0.6 * a));
+        gradient.addColorStop(0.4, this.baseColor(0.18 * a));
+        gradient.addColorStop(1, this.baseColor(0));
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(this.traveler.x, this.traveler.y, r * 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = this.baseColor(0.9);
+        ctx.beginPath();
+        ctx.arc(this.traveler.x, this.traveler.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.95 * a})`;
+        ctx.fill();
+        ctx.restore();
     }
-
+    drawConstellation() {
+        if (!this.traveler) return;
+        if (this.travelerAlpha <= 0.01) return;
+        const maxDist = TSP_CONSTELLATION_RADIUS;
+        const maxDistSq = maxDist * maxDist;
+        const ctx = this.ctx;
+        let drawn = false;
+        for (const p of this.points) {
+            const dx = p.x - this.traveler.x;
+            const dy = p.y - this.traveler.y;
+            const distSq = dx * dx + dy * dy;
+            if (distSq > maxDistSq) continue;
+            const t = 1 - Math.sqrt(distSq) / maxDist;
+            const alpha = t * 0.3 * this.travelerAlpha;
+            if (alpha <= 0.01) continue;
+            if (!drawn) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+                drawn = true;
+            }
+            ctx.beginPath();
+            ctx.moveTo(this.traveler.x, this.traveler.y);
+            ctx.lineTo(p.x, p.y);
+            ctx.strokeStyle = this.baseColor(alpha);
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+        }
+        if (drawn) ctx.restore();
+    }
+    drawEffects() {
+        if (this.sparks.length === 0 && this.rings.length === 0) return;
+        const ctx = this.ctx;
+        ctx.globalCompositeOperation = 'lighter';
+        for (const ring of this.rings) {
+            const alpha = ring.life * 0.45 * this.travelerAlpha;
+            if (alpha <= 0.01) continue;
+            ctx.beginPath();
+            ctx.arc(ring.x, ring.y, ring.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = this.baseColor(alpha);
+            ctx.lineWidth = 1.6 * ring.life;
+            ctx.stroke();
+        }
+        for (const s of this.sparks) {
+            const alpha = s.life * 0.8;
+            if (alpha <= 0.01) continue;
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.baseColor(alpha);
+            ctx.fill();
+        }
+        ctx.globalCompositeOperation = 'source-over';
+    }
     drawHud() {
         if (this.totalPoints <= 0) return;
         const clamped = Math.min(this.pointsVisited, this.totalPoints);
         const percent = (clamped / this.totalPoints) * 100;
-
         const barW = 140;
         const barH = 2;
         const bx = (this.canvas.width - barW) / 2;
         const by = this.canvas.height - 22;
-
-        this.ctx.fillStyle = 'rgba(255, 215, 0, 0.12)';
+        this.ctx.fillStyle = this.baseColor(0.14);
         this.ctx.fillRect(bx, by, barW, barH);
-        this.ctx.fillStyle = 'rgba(255, 215, 0, 0.45)';
+        this.ctx.fillStyle = this.baseColor(0.5);
         this.ctx.fillRect(bx, by, barW * (percent / 100), barH);
-
         this.ctx.font = '11px monospace';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'bottom';
-        this.ctx.fillStyle = 'rgba(255, 215, 0, 0.5)';
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.72)';
         this.ctx.fillText(
             clamped + ' / ' + this.totalPoints + ' pts · ' + Math.round(percent) + '%',
             this.canvas.width / 2,
             by - 6
         );
     }
-
     draw(time) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawPointLinks();
         this.drawPoints(time);
         this.drawRoutePlan();
         this.drawTrail();
         this.drawCurrentSegment();
         this.drawTraveler();
+        this.drawConstellation();
+        this.drawEffects();
         this.drawHud();
     }
-
     animate(time) {
         if (this.isPaused) return;
         this.update();
         this.draw(time || 0);
         this.animationId = requestAnimationFrame((t) => this.animate(t));
     }
-
     startAnimation() {
         this.isPaused = false;
         if (this.animationId) {
@@ -522,7 +676,6 @@ class TSPBackground {
         }
         this.animationId = requestAnimationFrame((t) => this.animate(t));
     }
-
     stopAnimation() {
         this.isPaused = true;
         if (this.animationId) {
@@ -534,7 +687,6 @@ class TSPBackground {
             this.routeTimer = null;
         }
     }
-
     setupEventListeners() {
         this.lastWidth = window.innerWidth;
         this.lastHeight = window.innerHeight;
@@ -576,7 +728,6 @@ class TSPBackground {
             this.stopAnimation();
         }
     }
-
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -588,7 +739,6 @@ class TSPBackground {
             timeout = setTimeout(later, wait);
         };
     }
-
     destroy() {
         this.stopAnimation();
         if (this.canvas && this.canvas.parentNode) {
@@ -597,7 +747,6 @@ class TSPBackground {
         window.tspBackgroundInstance = null;
     }
 }
-
 (function () {
     function start() {
         if (!window.tspBackgroundInstance) {
