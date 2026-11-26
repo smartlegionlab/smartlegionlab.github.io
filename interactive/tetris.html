@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris · Smart Legion Lab</title>
+    <meta name="description" content="Tetris by Smart Legion Lab — classic block-stacking puzzle in pure JavaScript. Hold, ghost piece, 7-bag randomizer, levels and local high score. Runs entirely in the browser.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <meta name="copyright" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.com/interactive/tetris.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Tetris · Smart Legion Lab">
+    <meta property="og:description" content="Classic Tetris in pure JavaScript: hold, ghost piece, 7-bag randomizer, levels and local high score.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/interactive/tetris.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+    <meta property="og:image" content="/interactive/tetris.png">
+    <meta name="theme-color" content="#0d1117">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/tetris.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Tetris",
+        "description": "Classic Tetris in pure JavaScript: hold, ghost piece, 7-bag randomizer, levels and local high score.",
+        "url": "https://smartlegionlab.com/interactive/tetris.html",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "author": {
+            "@type": "Person",
+            "name": "Alexander Suvorov Sr.",
+            "url": "https://github.com/smartlegionlab"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Smart Legion Lab",
+            "url": "https://smartlegionlab.com/"
+        },
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Interactive · Smart Legion Lab",
+            "url": "https://smartlegionlab.com/interactive.html"
+        }
+    }
+    </script>
+</head>
+<body>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/interactive.html" class="small text-primary">Interactive</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/interactive.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+<main class="container-fluid custom-margin-top px-lg-4">
+    <div class="container">
+        <h1 class="text-center text-primary mb-1">Tetris <sup class="text-warning">Classic</sup></h1>
+        <p class="text-light text-center">
+            Classic block-stacking puzzle in pure JavaScript: <strong>7-bag randomizer</strong>,
+            <strong>hold</strong>, <strong>ghost piece</strong>, levels and a local high score.
+            Runs entirely in the browser.
+        </p>
+        <hr>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        <a href="/interactive.html" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Back
+        </a>
+        <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('helpModal')">
+            <i class="bi bi-question-circle me-1"></i> Help
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('aboutModal')">
+            <i class="bi bi-info-circle me-1"></i> About
+        </button>
+    </div>
+    <div class="tetris-app" id="tetrisApp">
+        <div class="wrap">
+            <div class="board-col">
+                <h1>🧩 TETRIS</h1>
+                <canvas id="game" width="300" height="600"></canvas>
+                <div class="hint">
+                    <kbd>←</kbd> <kbd>→</kbd> - move · <kbd>↓</kbd> - soft drop<br>
+                    <kbd>↑</kbd>/<kbd>X</kbd> - rotate · <kbd>Z</kbd> - rotate left<br>
+                    <kbd>Space</kbd> - hard drop · <kbd>C</kbd> - hold · <kbd>P</kbd> - pause
+                </div>
+            </div>
+            <div class="side-panel">
+                <div class="panel">
+                    <h3>Next</h3>
+                    <canvas id="nextCanvas" width="64" height="64"></canvas>
+                </div>
+                <div class="panel">
+                    <h3>Hold</h3>
+                    <canvas id="holdCanvas" width="64" height="64"></canvas>
+                </div>
+                <div class="panel">
+                    <h3>Stats</h3>
+                    <div class="stats-row"><span>Score:</span><b id="score">0</b></div>
+                    <div class="stats-row"><span>Lines:</span><b id="lines">0</b></div>
+                    <div class="stats-row"><span>Level:</span><b id="level">1</b></div>
+                    <div class="stats-row"><span>Best:</span><b id="best">0</b></div>
+                </div>
+                <button id="restartBtn" type="button">🔄 Restart</button>
+            </div>
+            <div class="touch-controls">
+                <button type="button" data-action="left">◀</button>
+                <button type="button" data-action="rotate">↻</button>
+                <button type="button" data-action="right">▶</button>
+                <button type="button" data-action="down">▼</button>
+                <button type="button" data-action="hold">⇄</button>
+                <button type="button" data-action="drop">⤓</button>
+                <button type="button" data-action="pause">⏸</button>
+            </div>
+            <div class="overlay active" id="startOverlay">
+                <h2>TETRIS</h2>
+                <p>Match lines and earn points!<br>Best: <b id="bestStart">0</b></p>
+                <button id="startBtn" type="button">▶ Start Game</button>
+            </div>
+            <div class="overlay" id="pauseOverlay">
+                <h2>⏸ PAUSE</h2>
+                <p>Press <kbd>P</kbd> or the button to resume</p>
+                <button id="resumeBtn" type="button">▶ Resume</button>
+            </div>
+            <div class="overlay" id="gameOverOverlay">
+                <h2>GAME OVER</h2>
+                <p class="final">Score: <span id="finalScore">0</span></p>
+                <p>Lines: <span id="finalLines">0</span> · Level: <span id="finalLevel">1</span></p>
+                <p id="newRecord">New record! 🏆</p>
+                <button id="playAgainBtn" type="button">🔄 Play Again</button>
+            </div>
+        </div>
+        <div class="rotate-overlay" id="rotateOverlay">
+            <div class="phone"></div>
+            <h2>Turn your phone</h2>
+            <p>This game plays in portrait orientation.<br>Rotate the device to continue</p>
+        </div>
+    </div>
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">How to Play</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>Stack falling pieces and <b class="accent">complete lines</b> to earn points.</li>
+                        <li>Use the <b class="accent">ghost piece</b> to see where the piece will land.</li>
+                        <li><b class="accent">Hold (C / ⇄)</b> stores a piece for later — one swap per drop.</li>
+                        <li>Score grows with <b class="accent">level</b>; every 10 lines the speed increases.</li>
+                        <li>Keyboard: <b class="accent">← →</b> move, <b class="accent">↑/X</b> rotate, <b class="accent">Z</b> rotate left, <b class="accent">↓</b> soft drop, <b class="accent">Space</b> hard drop, <b class="accent">C</b> hold, <b class="accent">P</b> pause.</li>
+                        <li>On your phone: <b class="accent">on-screen buttons</b> — row 1: move/rotate, row 2: drop/hold, row 3: pause. Hold to repeat.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">About</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ab-head">
+                        <div class="ab-name">Tetris</div>
+                        <div class="ab-ver">version 1.0.0</div>
+                    </div>
+                    <p><b>Tetris</b> is a classic block-stacking puzzle rendered on an HTML canvas with pure JavaScript.</p>
+                    <p><b>Randomizer:</b> 7-bag — each bag contains all seven tetrominoes, so pieces are fair.</p>
+                    <p><b>Features:</b> ghost piece, hold (one swap per drop), wall kicks, soft and hard drop, levels that speed up every 10 lines, local high score (localStorage).</p>
+                    <p><b>Controls:</b> keyboard (see Help) or on-screen buttons on touch devices.</p>
+                    <p><b>Everything is real:</b> gravity, collision, line clearing and scoring are simulated in pure JavaScript on an HTML canvas.</p>
+                    <div class="ab-meta">
+                        <div><b>Author:</b> Alexander Suvorov</div>
+                        <div><b>License:</b> BSD 3-Clause</div>
+                        <div><b>Repository:</b> <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank" rel="noopener">github.com/smartlegionlab</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.6.28</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+<button id="consoleToggle" class="smart-console-toggle" aria-label="Toggle console">
+    <i class="bi bi-terminal" aria-hidden="true"></i>
+</button>
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+<div id="background-trigger" hidden></div>
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/background-dispatcher.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script src="/js/console.js"></script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/tetris.js"></script>
+</body>
+</html>
