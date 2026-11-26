@@ -5,6 +5,7 @@
 .app-scope .panel h3 { margin: 0 0 12px 0; font-size: 17px; color: #e0e0e0; }
 .app-scope .canvas-area { display: flex; justify-content: center; align-items: center; }
 .app-scope canvas { background: #141414; border-radius: 8px; border: 1px solid #333; }
+.app-scope .btn:active { transform: scale(.96); }
 .app-scope .btn-cyan { --bs-btn-color: #000; --bs-btn-bg: #00d2ff; --bs-btn-border-color: #00d2ff; --bs-btn-hover-color: #000; --bs-btn-hover-bg: #00b8e0; --bs-btn-hover-border-color: #00b8e0; --bs-btn-active-color: #000; --bs-btn-active-bg: #009ac4; --bs-btn-active-border-color: #009ac4; }
 .app-scope .btn-pink { --bs-btn-color: #fff; --bs-btn-bg: #f06292; --bs-btn-border-color: #f06292; --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #e0537f; --bs-btn-hover-border-color: #e0537f; --bs-btn-active-color: #fff; --bs-btn-active-bg: #d04573; --bs-btn-active-border-color: #d04573; }
 .app-scope .btn-blue { --bs-btn-color: #000; --bs-btn-bg: #4fc3f7; --bs-btn-border-color: #4fc3f7; --bs-btn-hover-color: #000; --bs-btn-hover-bg: #3fb1e6; --bs-btn-hover-border-color: #3fb1e6; --bs-btn-active-color: #000; --bs-btn-active-bg: #2d9fd6; --bs-btn-active-border-color: #2d9fd6; }
@@ -44,10 +45,16 @@
 .btn-close { filter: invert(1); }
 @media (max-width: 1000px) {
   .app-scope { padding: 10px; }
-  .app-scope .workspace { flex-direction: column; align-items: center; gap: 16px; width: 100%; }
-  .app-scope .panel { width: 100%; padding: 12px; }
   .app-scope .canvas-area { width: 100%; }
   .app-scope canvas { width: 100%; height: auto; }
   .app-scope .panel h3 { margin: 4px 0 10px 0; font-size: 16px; }
   .app-scope .prediction { font-size: 16px; }
+}
+@media (max-width: 1000px) and (orientation: portrait) {
+  .app-scope .workspace { flex-direction: column; align-items: center; gap: 16px; width: 100%; }
+  .app-scope .panel { width: 100%; padding: 12px; }
+}
+@media (max-width: 1000px) and (orientation: landscape) {
+  .app-scope .workspace { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 100%; }
+  .app-scope .panel { padding: 12px; min-width: 0; }
 }

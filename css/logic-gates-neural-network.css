@@ -62,9 +62,11 @@
 .btn-close { filter: invert(1); }
 @media (max-width: 1000px) {
   .app-scope { padding: 10px; }
-  .app-scope .workspace { grid-template-columns: 1fr; gap: 16px; }
   .app-scope .panel { padding: 14px; }
   .app-scope .logic-btns button { padding: 10px 12px; }
   .app-scope .bit-row { padding: 10px 12px; }
   .app-scope .switch button { padding: 8px 18px; }
+}
+@media (max-width: 1000px) and (orientation: portrait) {
+  .app-scope .workspace { grid-template-columns: 1fr; gap: 16px; }
 }

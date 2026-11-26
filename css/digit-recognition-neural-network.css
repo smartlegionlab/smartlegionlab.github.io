@@ -45,8 +45,10 @@
 .btn-close { filter: invert(1); }
 @media (max-width: 1000px) {
   .app-scope { padding: 10px; }
-  .app-scope .workspace { grid-template-columns: 1fr; gap: 16px; }
   .app-scope .panel { padding: 14px; }
   .app-scope .digit-btns { flex-wrap: wrap; }
   .app-scope .digit-btns button { flex: 0 1 auto; min-width: 32px; padding: 10px 12px; font-size: 17px; }
+}
+@media (max-width: 1000px) and (orientation: portrait) {
+  .app-scope .workspace { grid-template-columns: 1fr; gap: 16px; }
 }

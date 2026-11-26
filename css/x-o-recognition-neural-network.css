@@ -32,10 +32,16 @@
 .btn-close { filter: invert(1); }
 @media (max-width: 1000px) {
   .app-scope { padding: 10px; }
-  .app-scope .workspace { flex-direction: column; align-items: center; gap: 16px; width: 100%; }
-  .app-scope .panel { width: 100%; padding: 12px; }
   .app-scope .canvas-area { width: 100%; }
   .app-scope canvas { width: 100%; height: auto; }
   .app-scope .panel h3 { margin: 4px 0 10px 0; font-size: 16px; }
   .app-scope .prediction { font-size: 16px; }
+}
+@media (max-width: 1000px) and (orientation: portrait) {
+  .app-scope .workspace { flex-direction: column; align-items: center; gap: 16px; width: 100%; }
+  .app-scope .panel { width: 100%; padding: 12px; }
+}
+@media (max-width: 1000px) and (orientation: landscape) {
+  .app-scope .workspace { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 100%; }
+  .app-scope .panel { padding: 12px; min-width: 0; }
 }
