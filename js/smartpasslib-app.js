@@ -20,6 +20,13 @@
     if (ok === true) el.classList.add('good');
     else if (ok === false) el.classList.add('bad');
   }
+  function setLabel(id, text) {
+    $(id).innerHTML = '<span class="dot"></span>' + text;
+  }
+  function pick(activeBtn, others) {
+    if (activeBtn) activeBtn.classList.add('active');
+    (others || []).forEach(function (b) { b.classList.remove('active'); });
+  }
   function flashCopied(btn) {
     if (!btn) return;
     if (!btn.dataset.orig) btn.dataset.orig = btn.innerHTML;
@@ -80,6 +87,7 @@
     var s = $('secretInput').value;
     var len = numVal('smartLen', 32);
     lib.generateSmartPassword(s, len).then(function (pw) {
+      setLabel('smartLabel', 'Smart password');
       setOut('smartOut', pw, true);
       showToast('Smart password generated', true);
     }, function (err) {
@@ -90,6 +98,8 @@
   function genPrivate() {
     if (!lib) return noLib();
     lib.generatePrivateKey($('secretInput').value).then(function (key) {
+      pick($('privBtn'), [$('pubBtn')]);
+      setLabel('keyLabel', 'Private key');
       setOut('keyOut', key, true);
       showToast('Private key generated', true);
     }, function (err) {
@@ -100,6 +110,8 @@
   function genPublic() {
     if (!lib) return noLib();
     lib.generatePublicKey($('secretInput').value).then(function (key) {
+      pick($('pubBtn'), [$('privBtn')]);
+      setLabel('keyLabel', 'Public key');
       setOut('keyOut', key, true);
       showToast('Public key generated', true);
     }, function (err) {
@@ -111,6 +123,8 @@
     if (!lib) return noLib();
     var len = numVal('randLen', 24);
     lib.generateStrongPassword(len).then(function (pw) {
+      pick($('strongBtn'), [$('baseBtn')]);
+      setLabel('randLabel', 'Strong random');
       setOut('randOut', pw, true);
       showToast('Strong random password generated', true);
     }, function (err) {
@@ -122,6 +136,8 @@
     if (!lib) return noLib();
     var len = numVal('randLen', 24);
     lib.generateBasePassword(len).then(function (pw) {
+      pick($('baseBtn'), [$('strongBtn')]);
+      setLabel('randLabel', 'Base random');
       setOut('randOut', pw, true);
       showToast('Base random password generated', true);
     }, function (err) {
@@ -133,6 +149,7 @@
     if (!lib) return noLib();
     var len = numVal('codeLen', 8);
     lib.generateCode(len).then(function (code) {
+      setLabel('codeLabel', '2FA code');
       setOut('codeOut', code, true);
       showToast('2FA code generated', true);
     }, function (err) {
@@ -143,11 +160,13 @@
   function verify() {
     if (!lib) return noLib();
     if (!$('verifySecret').value || !$('verifyPub').value.trim()) {
+      setLabel('verifyLabel', 'Verification');
       setOut('verifyOut', 'Enter a secret phrase and a public key', false);
       showToast('Fill secret and public key', false);
       return;
     }
     lib.verifySecret($('verifySecret').value, $('verifyPub').value.trim()).then(function (ok) {
+      setLabel('verifyLabel', 'Verification result');
       setOut('verifyOut', ok ? 'Valid: secret matches the public key' : 'Invalid: secret does not match', ok);
       showToast(ok ? 'Secret verified' : 'Verification failed', ok);
     }, function (err) {
@@ -168,6 +187,6 @@
   window.copyOut = copyOut;
   window.toggleSecret = toggleSecret;
   window.openModal = openModal;
-  var verEls = document.querySelectorAll('#libVersion');
+  var verEls = document.querySelectorAll('.lib-version');
   verEls.forEach(function (el) { el.textContent = lib ? lib.VERSION : '-'; });
 })();

@@ -122,7 +122,7 @@
 </button>
 <main class="container-fluid custom-margin-top px-lg-4">
     <div class="container">
-        <h1 class="text-center text-primary mb-1">SmartPassLib <sup class="text-warning">JS</sup> <span class="platform-badge">v<span id="libVersion">-</span></span></h1>
+        <h1 class="text-center text-primary mb-1">SmartPassLib <sup class="text-warning">JS</sup> <span class="platform-badge">v<span class="lib-version">-</span></span></h1>
         <p class="text-light text-center">
             Cryptographic password generation without storage. Deterministic smart passwords,
             random generators, 2FA codes and secret verification. 100% client-side,
@@ -137,7 +137,7 @@
         <a href="https://github.com/smartlegionlab/smartpasslib-js" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
             <i class="bi bi-github me-1"></i> Repo
         </a>
-        <a href="/ecosystems/smart-passwords-ecosystem.html" class="btn btn-sm btn-outline-warning">
+        <a href="/ecosystems.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
             <i class="bi bi-diagram-3 me-1"></i> Ecosystem
         </a>
         <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('helpModal')">
@@ -169,15 +169,17 @@
                         <i class="bi bi-clipboard me-1"></i>Copy
                     </button>
                 </div>
+                <div class="result-label" id="smartLabel"><span class="dot"></span>Smart password</div>
                 <div class="out" id="smartOut">-</div>
                 <hr class="sep">
                 <div class="btns">
-                    <button type="button" class="btn btn-outline-primary" onclick="genPrivate()">Private Key</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="genPublic()">Public Key</button>
+                    <button type="button" id="privBtn" class="btn btn-outline-primary" onclick="genPrivate()">Private Key</button>
+                    <button type="button" id="pubBtn" class="btn btn-outline-primary" onclick="genPublic()">Public Key</button>
                     <button type="button" class="btn btn-sm btn-outline-primary" onclick="copyOut('keyOut', this)">
                         <i class="bi bi-clipboard me-1"></i>Copy
                     </button>
                 </div>
+                <div class="result-label" id="keyLabel"><span class="dot"></span>Key</div>
                 <div class="out" id="keyOut">-</div>
                 <div class="hint"><b>Private key</b> is derived on-demand and never stored · <b>Public key</b> can be kept locally for verification</div>
             </section>
@@ -189,12 +191,13 @@
                 <label class="lbl" for="randLen">Length (12-100)</label>
                 <input type="number" id="randLen" class="inp" value="24" min="12" max="100">
                 <div class="btns">
-                    <button type="button" class="btn btn-primary" onclick="genStrong()">Strong Random</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="genBase()">Base Random</button>
+                    <button type="button" id="strongBtn" class="btn btn-outline-primary active" onclick="genStrong()">Strong Random</button>
+                    <button type="button" id="baseBtn" class="btn btn-outline-primary" onclick="genBase()">Base Random</button>
                     <button type="button" class="btn btn-sm btn-outline-primary" onclick="copyOut('randOut', this)">
                         <i class="bi bi-clipboard me-1"></i>Copy
                     </button>
                 </div>
+                <div class="result-label" id="randLabel"><span class="dot"></span>Strong Random</div>
                 <div class="out" id="randOut">-</div>
                 <div class="hint">One-time random strings via <b>crypto.getRandomValues</b></div>
             </section>
@@ -211,6 +214,7 @@
                         <i class="bi bi-clipboard me-1"></i>Copy
                     </button>
                 </div>
+                <div class="result-label" id="codeLabel"><span class="dot"></span>2FA Code</div>
                 <div class="out" id="codeOut">-</div>
                 <div class="hint">Short random code for 2FA / MFA style usage</div>
             </section>
@@ -229,6 +233,7 @@
                         <i class="bi bi-clipboard me-1"></i>Copy
                     </button>
                 </div>
+                <div class="result-label" id="verifyLabel"><span class="dot"></span>Verification</div>
                 <div class="out" id="verifyOut">-</div>
                 <div class="hint">Proof of knowledge - verifies without exposing the secret</div>
             </section>
@@ -244,8 +249,8 @@
                 <div class="modal-body">
                     <ol>
                         <li><b class="accent">Smart Password:</b> enter a secret phrase (min 12 chars) and a length, press Generate. The same secret and length always give the same password.</li>
-                        <li><b class="accent">Private / Public Key:</b> show the derived hex keys. The private key is regenerated on demand and never stored; the public key can be kept locally.</li>
-                        <li><b class="accent">Random:</b> Strong and Base create one-time cryptographically secure random passwords.</li>
+                        <li><b class="accent">Private / Public Key:</b> the label above the output shows which key is displayed, and the pressed button lights up. The private key is regenerated on demand and never stored; the public key can be kept locally.</li>
+                        <li><b class="accent">Random:</b> Strong and Base create one-time cryptographically secure random passwords. The active mode is highlighted.</li>
                         <li><b class="accent">2FA Code:</b> creates a short random code (4-100 chars).</li>
                         <li><b class="accent">Verifier:</b> proves a secret matches a stored public key without exposing it - useful for restoring access.</li>
                         <li>Press <b class="accent">Copy</b> on any result - it turns into a checkmark to confirm the copy, then reverts.</li>
@@ -264,7 +269,7 @@
                 <div class="modal-body">
                     <div class="ab-head">
                         <div class="ab-name">SmartPassLib</div>
-                        <div class="ab-ver">version <span id="libVersion">-</span></div>
+                        <div class="ab-ver">version <span class="lib-version">-</span></div>
                     </div>
                     <p><b>SmartPassLib</b> is a client-side, zero-storage smart password generator. It derives passwords deterministically from a secret phrase, so the same secret + same length produce identical passwords in JavaScript, C#, Python, Go, Kotlin, Rust and any language with SHA-256.</p>
                     <p><b>Decentralized:</b> no central servers, no cloud, no database. Nothing is ever stored or transmitted; passwords are regenerated on demand.</p>

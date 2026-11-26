@@ -13,9 +13,12 @@
 .app-scope .sec-row .inp { margin-bottom: 0; }
 .app-scope .btns { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 8px 0; }
 .app-scope .btn:active { transform: scale(.96); }
+.app-scope .btn-outline-primary.active { box-shadow: 0 0 8px rgba(13, 110, 253, 0.5); }
 .app-scope .btn.copied { border-color: #00e676 !important; color: #00e676 !important; background: rgba(0, 230, 118, 0.1) !important; }
 .app-scope .btn.copied .bi { color: #00e676 !important; }
-.app-scope .out { display: block; width: 100%; min-height: 46px; background: rgba(13, 17, 23, 0.6); border: 1px solid rgba(13, 110, 253, 0.25); border-left: 3px solid #0d6efd; border-radius: 8px; padding: 10px 12px; margin: 8px 0; font-family: 'Courier New', monospace; font-size: 13px; color: #7ab3ff; word-break: break-all; transition: border-color .2s, color .2s; }
+.app-scope .result-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #7ab3ff; font-weight: 700; margin: 6px 0 2px; text-transform: uppercase; letter-spacing: .04em; }
+.app-scope .result-label .dot { width: 8px; height: 8px; border-radius: 50%; background: #0d6efd; flex-shrink: 0; }
+.app-scope .out { display: block; width: 100%; min-height: 46px; background: rgba(13, 17, 23, 0.6); border: 1px solid rgba(13, 110, 253, 0.25); border-left: 3px solid #0d6efd; border-radius: 8px; padding: 10px 12px; margin: 0 0 8px; font-family: 'Courier New', monospace; font-size: 13px; color: #7ab3ff; word-break: break-all; transition: border-color .2s, color .2s; }
 .app-scope .out.good { color: #00e676; border-left-color: #00e676; }
 .app-scope .out.bad { color: #ff5252; border-left-color: #ff5252; }
 .app-scope .sep { border: 0; height: 1px; background: rgba(13, 110, 253, 0.2); margin: 14px 0; }
