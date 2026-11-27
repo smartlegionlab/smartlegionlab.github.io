@@ -3023,5 +3023,5 @@ const CONFIG = {
         }
     },
 
-    VERSION: 'v7.7.3'
+    VERSION: 'v7.7.4'
 };
