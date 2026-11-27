@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Quest · Terminal Quest · Smart Legion Lab</title>
+    <meta name="description" content="Linux Quest by Smart Legion Lab — an educational terminal quest with 18 missions that teach real Linux commands: whoami, ls, cat, grep, chmod, ps, sudo su, rm, reboot. Runs entirely in the browser.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <meta name="copyright" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.com/interactive/linux-quest.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Linux Quest · Terminal Quest · Smart Legion Lab">
+    <meta property="og:description" content="An educational terminal quest with 18 missions: XP, ranks, 3 difficulty levels and real Linux commands. Runs entirely in the browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/interactive/linux-quest.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+    <meta property="og:image" content="/interactive/linux-quest.png">
+    <meta name="theme-color" content="#0d1117">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/linux-quest.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Linux Quest",
+        "description": "An educational terminal quest with 18 missions that teach real Linux commands, XP, ranks and 3 difficulty levels.",
+        "url": "https://smartlegionlab.com/interactive/linux-quest.html",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "author": {
+            "@type": "Person",
+            "name": "Alexander Suvorov Sr.",
+            "url": "https://github.com/smartlegionlab"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Smart Legion Lab",
+            "url": "https://smartlegionlab.com/"
+        },
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Interactive · Smart Legion Lab",
+            "url": "https://smartlegionlab.com/interactive.html"
+        }
+    }
+    </script>
+</head>
+<body>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/interactive.html" class="small text-primary">Interactive</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/interactive.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+<main class="container-fluid custom-margin-top px-lg-4">
+    <div class="container">
+        <h1 class="text-center text-primary mb-1">Linux Quest <sup class="text-warning">Terminal Quest</sup></h1>
+        <p class="text-light text-center">
+            An educational <strong>terminal quest</strong>: <strong>18 missions</strong> built around real Linux commands —
+            whoami, ls, cat, grep, chmod, ps, sudo su, rm, reboot. Earn XP, grow your rank from
+            <strong>Newbie</strong> to <strong>IT-Hero</strong>. Runs entirely in the browser.
+        </p>
+        <hr>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        <a href="/interactive.html" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Back
+        </a>
+        <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('helpModal')">
+            <i class="bi bi-question-circle me-1"></i> Help
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('aboutModal')">
+            <i class="bi bi-info-circle me-1"></i> About
+        </button>
+    </div>
+    <div class="linux-quest-app" id="linuxQuestApp">
+        <div class="app">
+            <div class="hud">
+                <span class="logo">🐧 LINUX QUEST</span>
+                <span class="chip">Difficulty: <b id="diffChip">—</b></span>
+                <span class="chip">XP: <b id="xp">0</b></span>
+                <span class="chip">Rank: <b id="rank">Newbie</b></span>
+                <span class="chip">Best: <b id="best">0</b></span>
+                <span class="spacer"></span>
+                <span class="chip" id="who"><b>@it-server</b></span>
+            </div>
+            <div class="missions" id="missions"></div>
+            <div class="curhint" id="curHint"></div>
+            <div class="term" id="term"><div id="out"></div></div>
+            <div class="footer">Help: <b>help</b> · Hint: <b>hint</b> · Reset: <b>reset</b></div>
+            <div class="overlay active" id="startOverlay">
+                <pre>
+██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗
+██║     ██║████╗  ██║██║   ██║╚██╗██╔╝
+██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝
+██║     ██║██║╚██╗██║██║   ██║ ██╔██╗
+███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗
+╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝
+                </pre>
+                <h1>TERMINAL QUEST</h1>
+                <p>18 missions using real Linux commands. Choose difficulty:</p>
+                <div class="diff-row">
+                    <button class="diff-btn easy"   data-diff="1">🟢 Easy · ×1</button>
+                    <button class="diff-btn medium" data-diff="2">🟡 Medium · ×1.5</button>
+                    <button class="diff-btn hard"   data-diff="3">🔴 Hard · ×2</button>
+                </div>
+                <span class="hint">press any key during the boot to skip</span>
+            </div>
+            <div class="overlay" id="winOverlay">
+                <pre style="color:#ffe27a">🏆</pre>
+                <h1>MISSION COMPLETE!</h1>
+                <p>IT-HERO CERTIFICATE awarded to: <b class="gold" id="winUser">user</b></p>
+                <p>XP: <b class="gold" id="winXp">0</b> · Best: <b class="gold" id="winBest">0</b> · Time: <b class="gold" id="winTime">—</b></p>
+                <button id="againBtn">🔄 Play Again</button>
+            </div>
+        </div>
+        <div class="app-overlay" id="miniOverlay">
+            <div class="note" id="miniNote"></div>
+            <canvas id="miniCanvas"></canvas>
+            <div id="miniCtrl"></div>
+            <div class="note" id="miniHint">Q - back to terminal</div>
+        </div>
+    </div>
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">How to Play</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li>Complete all <b class="accent">18 missions</b> by typing real Linux commands into the terminal.</li>
+                        <li>Start with <b class="accent">whoami, pwd, ls, cat README.md</b>, then explore mkdir, cd, touch, echo, grep, chmod, bash and ps.</li>
+                        <li><b class="accent">help</b> lists all commands, <b class="accent">hint</b> gives a tip for the current mission (on Hard it costs XP).</li>
+                        <li>Difficulty: <b class="accent">Easy ×1</b>, <b class="accent">Medium ×1.5</b>, <b class="accent">Hard ×2</b> XP multiplier.</li>
+                        <li>Escalate: <b class="accent">sudo su</b> (password: linux), grab the flags, delete the virus and finish with <b class="accent">sudo reboot</b>.</li>
+                        <li>On your phone: the terminal works with the on-screen keyboard — tap the line at the bottom, type a command and press <b class="accent">Enter</b>. Play in portrait.</li>
+                        <li>Bonus commands: <b class="accent">neofetch, cowsay, fortune, cmatrix, snake</b>.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">About</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ab-head">
+                        <div class="ab-name">Linux Quest</div>
+                        <div class="ab-ver">version 1.0.0</div>
+                    </div>
+                    <p><b>Linux Quest</b> is an educational terminal quest with <b>18 missions</b> built around real Linux commands.</p>
+                    <p><b>Filesystem:</b> a virtual machine with /home, /etc, /opt, /tmp and /root. Commands like whoami, pwd, ls, cat, mkdir, cd, touch, echo, grep, chmod, bash, ps, sudo, rm and reboot are simulated.</p>
+                    <p><b>Progression:</b> each completed mission gives XP; ranks go from Newbie to IT-Hero. Difficulty changes the XP multiplier (Easy ×1, Medium ×1.5, Hard ×2).</p>
+                    <p><b>Goals:</b> follow the README plan, collect the flags, escalate to root, neutralize the virus and reboot. Hints are free on Easy/Medium and cost XP on Hard.</p>
+                    <p><b>Everything is real:</b> commands are parsed and executed in pure JavaScript inside a browser terminal.</p>
+                    <div class="ab-meta">
+                        <div><b>Author:</b> Alexander Suvorov</div>
+                        <div><b>License:</b> BSD 3-Clause</div>
+                        <div><b>Repository:</b> <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank" rel="noopener">github.com/smartlegionlab</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.3</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+<button id="consoleToggle" class="smart-console-toggle" aria-label="Toggle console">
+    <i class="bi bi-terminal" aria-hidden="true"></i>
+</button>
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+<div id="background-trigger" hidden></div>
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/background-dispatcher.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script src="/js/console.js"></script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/linux-quest.js"></script>
+</body>
+</html>
