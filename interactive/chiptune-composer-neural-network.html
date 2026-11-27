@@ -150,12 +150,12 @@
         <div class="workspace">
             <div class="panel">
                 <h3>1. Controls & Track</h3>
-                <div class="row">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Playback controls">
                     <button type="button" class="btn btn-primary" id="playBtn" onclick="togglePlay()">Play</button>
                     <button type="button" class="btn btn-green" onclick="retrainNow()">Retrain</button>
                 </div>
                 <div class="recbox">
-                    <div class="row">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Recording controls">
                         <button type="button" class="rec-btn" id="recBtn" onclick="recStart()">REC</button>
                         <button type="button" class="stop-btn" id="recStopBtn" onclick="stopWav()" disabled>Stop</button>
                         <button type="button" class="dl-btn" id="recDlBtn" onclick="downloadWav()" disabled>Download</button>
@@ -169,9 +169,7 @@
                     <label>Master Volume <b id="volVal">90</b></label>
                     <input type="range" id="volSlider" min="0" max="100" value="90" oninput="setMaster()">
                 </div>
-                <div class="row">
-                    <button type="button" class="btn btn-primary" id="muteAllBtn" onclick="toggleMaster()">Mute All</button>
-                </div>
+                <button type="button" class="btn btn-primary btn-sm w-100" id="muteAllBtn" onclick="toggleMaster()">Mute All</button>
                 <div class="slider">
                     <label>Key / Tonality <b id="keyName">A minor</b></label>
                     <select id="keySelect" onchange="setKey(+this.value)">
@@ -227,12 +225,15 @@
                 <div class="canvas-area">
                     <canvas id="netCanvas" width="640" height="540"></canvas>
                 </div>
-                <div class="row">
+                <div class="stats" id="trainStats">Epoch: 0 | Loss: - | Top3: -</div>
+                <div class="stats raw" id="rawStats" title="Click to copy" onclick="copyStats()"></div>
+                <div class="hint">green ring follows the note being played</div>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Training controls">
                     <button type="button" class="btn btn-primary" id="trainBtn" onclick="toggleTrain()">Start Training</button>
                     <button type="button" class="btn btn-green" onclick="trainEpochs(120)">Fast Learn</button>
                     <button type="button" class="btn btn-red" onclick="resetNetwork()">Reset</button>
                 </div>
-                <div class="row">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Optimizer and learning rate">
                     <span class="lbl">opt</span>
                     <button type="button" class="opt-btn" data-opt="adam" onclick="setOpt('adam',this)">Adam</button>
                     <button type="button" class="opt-btn active" data-opt="sgd" onclick="setOpt('sgd',this)">SGD</button>
@@ -241,15 +242,12 @@
                     <button type="button" class="lr-btn active" data-lr="0.2" onclick="setLR(0.2,this)">Precise</button>
                     <button type="button" class="lr-btn" data-lr="0.6" onclick="setLR(0.6,this)">Fast</button>
                 </div>
-                <div class="row">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Model controls">
                     <button type="button" class="btn btn-info" onclick="exportModel()">Export</button>
                     <button type="button" class="btn btn-info" onclick="importModel()">Import</button>
-                    <input type="file" id="modelFile" accept="application/json" style="display:none" onchange="onImportFile(event)">
                     <button type="button" class="btn btn-info" onclick="copyStats()">Copy Stats</button>
                 </div>
-                <div class="stats" id="trainStats">Epoch: 0 | Loss: - | Top3: -</div>
-                <div class="stats raw" id="rawStats" title="Click to copy" onclick="copyStats()"></div>
-                <div class="hint">green ring follows the note being played</div>
+                <input type="file" id="modelFile" accept="application/json" style="display:none" onchange="onImportFile(event)">
                 <div class="toast" id="toast"></div>
             </div>
             <div class="panel">

@@ -347,6 +347,22 @@ var netCanvas = document.getElementById('netCanvas'), nCtx = netCanvas.getContex
 var lossCanvas = document.getElementById('lossCanvas'), lCtx = lossCanvas.getContext('2d');
 var trackCanvas = document.getElementById('trackCanvas'), tCtx = trackCanvas.getContext('2d');
 var distCanvas = document.getElementById('distCanvas'), dCtx = distCanvas ? distCanvas.getContext('2d') : null;
+var DPR = window.devicePixelRatio || 1;
+var NET_W = netCanvas.width, NET_H = netCanvas.height;
+var fitTimer = 0;
+function fitCanvases() {
+    var r;
+    netCanvas.width = Math.round(NET_W * DPR);
+    netCanvas.height = Math.round(NET_H * DPR);
+    nCtx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    r = trackCanvas.getBoundingClientRect();
+    if (r.width > 0) { trackCanvas.width = Math.round(r.width * DPR); trackCanvas.height = Math.round(r.width * 220 / 620 * DPR); }
+    r = lossCanvas.getBoundingClientRect();
+    if (r.width > 0) { lossCanvas.width = Math.round(r.width * DPR); lossCanvas.height = Math.round(r.width * 170 / 300 * DPR); }
+    r = distCanvas.getBoundingClientRect();
+    if (r.width > 0) { distCanvas.width = Math.round(r.width * DPR); distCanvas.height = Math.round(r.width * 120 / 300 * DPR); }
+}
+window.addEventListener('resize', function () { clearTimeout(fitTimer); fitTimer = setTimeout(fitCanvases, 60); });
 var barsWrap = document.getElementById('barsWrap'), barEls = [];
 (function () {
     for (var i = 0; i < 6; i++) { var d = document.createElement('div'); d.className = 'bar'; d.setAttribute('data-ch', i); d.innerHTML = '<i></i>'; barsWrap.appendChild(d); }
@@ -419,12 +435,12 @@ function drawOutputOrb(x, y, v, baseR, phase, col, winner) {
     }
 }
 function drawNetwork() {
-    nCtx.clearRect(0, 0, netCanvas.width, netCanvas.height);
+    nCtx.clearRect(0, 0, NET_W, NET_H);
     var isMobile = window.innerWidth <= BREAKPOINT, cols = 14, rows = 4, cell = isMobile ? 16 : 19, gap = 3, gx0 = 24, gy0 = 66, inPts = [];
     for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) { var idx = r * cols + c; if (idx >= IN) break; inPts.push({ x: gx0 + c * (cell + gap), y: gy0 + r * (cell + gap), act: nn.lastIn[idx] }); }
-    var hidX = gx0 + cols * (cell + gap) + 32, hidStep = netCanvas.height / (HID + 1), hidY = [];
+    var hidX = gx0 + cols * (cell + gap) + 32, hidStep = NET_H / (HID + 1), hidY = [];
     for (var i = 0; i < HID; i++) hidY.push(hidStep * (i + 1));
-    var outX = hidX + 150, outStep = netCanvas.height / (OUT + 1), wMax = 0.001;
+    var outX = hidX + 150, outStep = NET_H / (OUT + 1), wMax = 0.001;
     for (var i = 0; i < HID; i++) for (var j = 0; j < IN; j++) { var aw = Math.abs(nn.wIH[i][j]); if (aw > wMax) wMax = aw; }
     for (var k = 0; k < OUT; k++) for (var j = 0; j < HID; j++) { var aw2 = Math.abs(nn.wHO[k][j]); if (aw2 > wMax) wMax = aw2; }
     for (var i = 0; i < HID; i++) for (var j = 0; j < inPts.length; j++) drawSynapse({ x: inPts[j].x + cell / 2, y: inPts[j].y + cell / 2 }, { x: hidX, y: hidY[i] }, nn.wIH[i][j], 'rgba(0,210,255,0.14)', 'rgba(255,82,82,0.14)', 1.8, wMax);
@@ -822,4 +838,5 @@ function startupTrain() {
 }
 updateRecUI();
 startupTrain();
+fitCanvases();
 loop();
