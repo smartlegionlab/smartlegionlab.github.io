@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiptune Composer Neural Network · Smart Legion Lab</title>
+    <meta name="description" content="Interactive Chiptune Composer Neural Network by Smart Legion Lab. A from-scratch MLP (53 → 48 → 12) in pure JavaScript that composes 8-bit chiptune live, powered by a neural network and a Web Audio API engine.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <meta name="copyright" content="Smart Legion Lab">
+    <link rel="canonical" href="https://smartlegionlab.com/interactive/chiptune-composer-neural-network.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="Chiptune Composer Neural Network · Smart Legion Lab">
+    <meta property="og:description" content="A from-scratch MLP (53 → 48 → 12) in pure JavaScript that composes 8-bit chiptune live: melody, rhythm, bass and drums via Web Audio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/interactive/chiptune-composer-neural-network.html">
+    <meta property="og:site_name" content="Smart Legion Lab">
+    <meta name="theme-color" content="#0d1117">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/chiptune-composer-neural-network.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Chiptune Composer Neural Network",
+        "description": "A from-scratch MLP (53 → 48 → 12) in pure JavaScript that composes 8-bit chiptune live in the browser.",
+        "url": "https://smartlegionlab.com/interactive/chiptune-composer-neural-network.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript and Web Audio",
+        "author": {
+            "@type": "Person",
+            "name": "Alexander Suvorov Sr.",
+            "url": "https://github.com/smartlegionlab",
+            "sameAs": [
+                "https://orcid.org/0009-0006-3427-9611",
+                "https://github.com/smartlegionlab",
+                "https://pypi.org/user/smartlegionlab",
+                "https://crates.io/users/smartlegionlab",
+                "https://zenodo.org/communities/smartlegionlab"
+            ]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Smart Legion Lab",
+            "url": "https://smartlegionlab.com/"
+        },
+        "isPartOf": {
+            "@type": "CollectionPage",
+            "name": "Interactive · Smart Legion Lab",
+            "url": "https://smartlegionlab.com/interactive.html"
+        }
+    }
+    </script>
+</head>
+<body>
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light">Home</a>
+            <a href="/research.html" class="small text-light">Research</a>
+            <a href="/ecosystems.html" class="small text-light">Ecosystems</a>
+            <a href="/applications.html" class="small text-light">Apps</a>
+            <a href="/interactive.html" class="small text-primary">Interactive</a>
+            <a href="/projects.html" class="small text-light">Projects</a>
+            <a href="/libraries.html" class="small text-light">Libraries</a>
+            <a href="/articles.html" class="small text-light">Articles</a>
+            <a href="/team.html" class="small text-light">About & Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research & Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/interactive.html" class="menu-item active"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/projects.html" class="menu-item"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About & Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="bi bi-chevron-up" aria-hidden="true"></i>
+</button>
+<main class="container-fluid custom-margin-top px-lg-4">
+    <div class="container">
+        <h1 class="text-center text-primary mb-1">Chiptune Composer <sup class="text-warning">Neural Network</sup></h1>
+        <p class="text-light text-center">
+            Interactive machine learning. A from-scratch MLP (53 -&gt; 48 -&gt; 12) in pure JavaScript
+            that composes 8-bit chiptune live with a melody, a rhythm (bass + drums) and a native Web Audio engine.
+        </p>
+        <hr>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        <a href="/interactive.html" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-arrow-left me-1"></i> Back
+        </a>
+        <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
+            <i class="bi bi-github me-1"></i> Repo
+        </a>
+        <a href="/projects/from-scratch-neural-networks.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
+            <i class="bi bi-box-arrow-up-right me-1"></i> Projects
+        </a>
+        <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('helpModal')">
+            <i class="bi bi-question-circle me-1"></i> Help
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('aboutModal')">
+            <i class="bi bi-info-circle me-1"></i> About
+        </button>
+    </div>
+    <div class="app-scope" id="chiptuneApp">
+        <div class="workspace">
+            <div class="panel">
+                <h3>1. Controls & Track</h3>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" id="playBtn" onclick="togglePlay()">Play</button>
+                    <button type="button" class="btn btn-green" onclick="retrainNow()">Retrain</button>
+                </div>
+                <div class="recbox">
+                    <div class="row">
+                        <button type="button" class="rec-btn" id="recBtn" onclick="recStart()">REC</button>
+                        <button type="button" class="stop-btn" id="recStopBtn" onclick="stopWav()" disabled>Stop</button>
+                        <button type="button" class="dl-btn" id="recDlBtn" onclick="downloadWav()" disabled>Download</button>
+                        <button type="button" class="reset-btn" onclick="clearWav()">Reset</button>
+                    </div>
+                    <div class="rec-status" id="recStatus">Ready to record</div>
+                    <div class="rec-time" id="recTime">0:00</div>
+                    <div class="rec-file" id="recFile"></div>
+                </div>
+                <div class="slider">
+                    <label>Master Volume <b id="volVal">90</b></label>
+                    <input type="range" id="volSlider" min="0" max="100" value="90" oninput="setMaster()">
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" id="muteAllBtn" onclick="toggleMaster()">Mute All</button>
+                </div>
+                <div class="slider">
+                    <label>Key / Tonality <b id="keyName">A minor</b></label>
+                    <select id="keySelect" onchange="setKey(+this.value)">
+                        <option value="9">A minor</option>
+                        <option value="0">C minor</option>
+                        <option value="2">D minor</option>
+                        <option value="4">E minor</option>
+                        <option value="5">F minor</option>
+                        <option value="7">G minor</option>
+                    </select>
+                </div>
+                <div class="slider">
+                    <label>Tempo (BPM) <b id="bpmVal">80</b></label>
+                    <input type="range" id="bpmSlider" min="40" max="220" value="80" oninput="bpmVal.textContent=this.value">
+                </div>
+                <div class="slider">
+                    <label>Temperature <b id="tempVal">1.10</b></label>
+                    <input type="range" id="tempSlider" min="0.3" max="1.8" step="0.05" value="1.1" oninput="tempVal.textContent=Number(this.value).toFixed(2)">
+                </div>
+                <div class="slider">
+                    <label>Lead Density <b id="densityVal">100</b></label>
+                    <input type="range" id="densitySlider" min="0" max="100" value="100" oninput="densityVal.textContent=this.value">
+                </div>
+                <div class="slider">
+                    <label>Model influence <b id="modelVal">0.50</b></label>
+                    <input type="range" id="modelSlider" min="0" max="1" step="0.05" value="0.5" oninput="modelVal.textContent=Number(this.value).toFixed(2)">
+                </div>
+                <div class="slider">
+                    <label>Echo / Delay <b id="echoVal">30</b></label>
+                    <input type="range" id="echoSlider" min="0" max="100" value="30" oninput="setEcho()">
+                </div>
+                <div class="mutes">
+                    <button type="button" class="mute on" data-ch="0" onclick="toggleMute(0)">Lead<span class="d">square + echo</span></button>
+                    <button type="button" class="mute on" data-ch="1" onclick="toggleMute(1)">Arp<span class="d">square</span></button>
+                    <button type="button" class="mute on" data-ch="2" onclick="toggleMute(2)">Bass<span class="d">triangle</span></button>
+                    <button type="button" class="mute on" data-ch="3" onclick="toggleMute(3)">Drums<span class="d">noise</span></button>
+                    <button type="button" class="mute on" data-ch="4" onclick="toggleMute(4)">Lead 2<span class="d">octave</span></button>
+                    <button type="button" class="mute on" data-ch="5" onclick="toggleMute(5)">Pad<span class="d">chord</span></button>
+                </div>
+                <div class="canvas-area"><canvas id="trackCanvas" width="620" height="220"></canvas></div>
+                <div class="legend">
+                    <span><i style="background:#0d6efd"></i>Lead</span>
+                    <span><i style="background:#58a6ff"></i>Arp</span>
+                    <span><i style="background:#f0ad4e"></i>Bass</span>
+                    <span><i style="background:#ff7b3a"></i>Drums</span>
+                    <span><i style="background:#2ee6a8"></i>Lead2</span>
+                    <span><i style="background:#b388ff"></i>Pad</span>
+                </div>
+                <div class="bars" id="barsWrap"></div>
+            </div>
+            <div class="panel">
+                <h3>2. Network Brain (53 → 48 → 12)</h3>
+                <div class="canvas-area">
+                    <canvas id="netCanvas" width="640" height="540"></canvas>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" id="trainBtn" onclick="toggleTrain()">Start Training</button>
+                    <button type="button" class="btn btn-green" onclick="trainEpochs(120)">Fast Learn</button>
+                    <button type="button" class="btn btn-red" onclick="resetNetwork()">Reset</button>
+                </div>
+                <div class="row">
+                    <span class="lbl">opt</span>
+                    <button type="button" class="opt-btn" data-opt="adam" onclick="setOpt('adam',this)">Adam</button>
+                    <button type="button" class="opt-btn active" data-opt="sgd" onclick="setOpt('sgd',this)">SGD</button>
+                    <span class="lbl">lr</span>
+                    <button type="button" class="lr-btn" data-lr="0.3" onclick="setLR(0.3,this)">Med</button>
+                    <button type="button" class="lr-btn active" data-lr="0.2" onclick="setLR(0.2,this)">Precise</button>
+                    <button type="button" class="lr-btn" data-lr="0.6" onclick="setLR(0.6,this)">Fast</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-info" onclick="exportModel()">Export</button>
+                    <button type="button" class="btn btn-info" onclick="importModel()">Import</button>
+                    <input type="file" id="modelFile" accept="application/json" style="display:none" onchange="onImportFile(event)">
+                    <button type="button" class="btn btn-info" onclick="copyStats()">Copy Stats</button>
+                </div>
+                <div class="stats" id="trainStats">Epoch: 0 | Loss: - | Top3: -</div>
+                <div class="stats raw" id="rawStats" title="Click to copy" onclick="copyStats()"></div>
+                <div class="hint">green ring follows the note being played</div>
+                <div class="toast" id="toast"></div>
+            </div>
+            <div class="panel">
+                <h3>3. Learning Curve & Watch</h3>
+                <div class="canvas-area"><canvas id="lossCanvas" width="300" height="170"></canvas></div>
+                <div class="status-box" id="statusBox">
+                    <div class="s-row"><span>Key</span><b id="sKey">A minor</b></div>
+                    <div class="s-row"><span>Bar / Groove</span><b id="sBar">-</b></div>
+                    <div class="s-row"><span>Chord</span><b id="sChord">-</b></div>
+                    <div class="s-row"><span>Lead / Bass</span><b id="sNotes">-</b></div>
+                </div>
+                <div class="canvas-area"><canvas id="distCanvas" width="300" height="120"></canvas></div>
+                <div class="stats" id="lossStats">Current: - | Best: -</div>
+                <div class="hint">loss + network output probabilities per pitch</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">How to Use</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li><b class="accent">Play</b> unlocks Audio and starts live composition.</li>
+                        <li>Record: <b class="accent">REC</b> - <b class="accent">Stop</b> - <b class="accent">Download</b> (.wav); <b class="accent">Reset</b> clears.</li>
+                        <li><b class="accent">Master Volume</b> and <b class="accent">Mute All / Unmute All</b>; each channel has its own Mute.</li>
+                        <li>Key, Tempo (40+), Temperature, Lead Density, Model influence, Echo.</li>
+                        <li>The network picks the melody and a per-bar rhythm groove for bass + drums.</li>
+                        <li><b class="accent">Copy Stats</b> / <b class="accent">Export / Import</b>.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">About</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ab-head">
+                        <div class="ab-name">Chiptune Composer Neural Network</div>
+                        <div class="ab-ver">version 1.2.0</div>
+                    </div>
+                    <p><b>Chiptune Composer Neural Network</b> is a from-scratch MLP (53 -&gt; 48 -&gt; 12 + rhythm) in pure JavaScript. No libraries, no samples.</p>
+                    <p>The network has two shared-hidden heads: it predicts the next pitch class and, per bar, one of four rhythm grooves for bass + drums. Trained by mini-batch SGD / Adam with cross-entropy, weight decay and clipping. Melody is locked to the chosen key / scale.</p>
+                    <p>An educational demo of live music generation: every note is synthesized in the browser with the Web Audio API, and the piece stays in key and follows a chord progression.</p>
+                    <p>6 channels: square lead (bright) with a dotted-eighth feedback delay + lowpass, square arpeggio, moving triangle bass, noise drums (kick / snare / hi-hat), second lead an octave down, and a sustained triangle pad. Records to 16-bit PCM .wav.</p>
+                    <div class="ab-meta">
+                        <div><b>Author:</b> Alexander Suvorov</div>
+                        <div><b>License:</b> BSD 3-Clause</div>
+                        <div><b>Repository:</b> <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" rel="noopener">github.com/smartlegionlab/from-scratch-neural-networks</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.0</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+<button id="consoleToggle" class="smart-console-toggle" aria-label="Toggle console">
+    <i class="bi bi-terminal" aria-hidden="true"></i>
+</button>
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+<div id="background-trigger" hidden></div>
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/stats-manager.js"></script>
+<script src="/js/background-dispatcher.js"></script>
+<script src="/js/scroll-manager.js"></script>
+<script src="/js/console.js"></script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/chiptune-composer-neural-network.js"></script>
+</body>
+</html>
