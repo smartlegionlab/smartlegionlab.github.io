@@ -19,7 +19,7 @@ Smart Legion Lab is a software research and development laboratory founded by Al
 - **4 foundational research paradigms** with DOI publications
 - **7 cross-platform ecosystems** (Smart Passwords, 2FA Management, NP Problem, etc.)
 - **36+ applications** (Desktop, Web, Mobile, CLI, Telegram Bots)
-- **Interactive browser demos** - neural networks, games and utilities that run live in the browser with zero setup
+- **Interactive browser demos** - neural networks (logic gates, digits, X/O, gender, chiptune, RGB colors, Morse), games and utilities that run live in the browser with zero setup
 - **Team of two** (Alexander Suvorov Sr. & Jr.)
 
 The site is designed to be a **static, secure, and comprehensive** showcase that requires **no database**, **no backend**, and can be hosted **anywhere** with zero maintenance overhead.
@@ -78,16 +78,24 @@ A complete showcase of all applications developed by Smart Legion Lab.
 ---
 
 ### 5. Interactive
-Live, in-browser applications that run with zero setup - no installs, no servers, no build steps. A growing hub of demos that anyone can open directly in the browser.
+Live, in-browser applications that run with zero setup - no installs, no servers, no build steps. A growing hub of demos that anyone can open directly in the browser. All neural networks are real multilayer perceptrons trained **from scratch in pure JavaScript** with live visualization, model export/import as JSON, and automatic stop when they reach the learning target.
 
 ![Interactive Page Screenshot](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/data/images/interactive.png)
 
 **Content:**
-- **Neural Network Demos** - real MLPs trained from scratch in pure JavaScript with live visualization: Boolean-Logic Neural Network, Handwritten-Digit Recognition, X / O Shape Recognition, Name Gender Classifier and Chiptune Composer (MLP 53 → 48 → 12 which composes 8-bit chiptune live with a Web Audio engine)
-- **Tools** - SmartPassLib, a deterministic zero-storage smart password generator
-- **Games** - Tanks (Battle City-style) and Tetris
-- **Search & Filter**: Filter demos by type (Neural Network / Application / Game)
-- **Live Status**: Each demo opens directly in the browser, and neural network demos support model export/import as JSON
+
+- **Neural Network Demos** - real MLPs trained live in the browser:
+  - **Boolean-Logic Neural Network** - `2 → 3 → 1`, learns XOR / AND / OR / NAND / XNOR with a live decision map.
+  - **Handwritten-Digit Recognition** - `144 → 24 → 10`, recognizes handwritten digits 0–9 on a 12×12 grid with auto-generated hand-style samples.
+  - **X / O Shape Recognition** - `64 → 12 → 2`, the minimal dense net that tells X and O apart on an 8×8 grid.
+  - **Name Gender Classifier** - `2,746 → 48 → 1`, guesses gender from Russian, English or transliterated names (~750 names in the dataset).
+  - **Chiptune Composer** - `53 → 48 → 12`, composes 8-bit chiptune live with melody, rhythm grooves, bass and drums on a native Web Audio engine.
+  - **RGB Color Name Guesser** - `3 → 24 → 12`, names any RGB color across 12 color classes (red, orange, yellow, green, cyan, blue, purple, pink, brown, gray, black, white); trains to ~100% and stops automatically.
+  - **Morse Decoder** - `10 → 16 → 36`, learns the full International Morse table (A-Z and 0-9) and decodes your telegraph key presses live, with realistic dit/dah sounds and a key click synthesized by Web Audio.
+- **Tools** - SmartPassLib, a deterministic zero-storage smart password generator (same secret + length gives the same password on any platform).
+- **Games** - Tanks (Battle City-style, 35 levels) and Tetris (7-bag randomizer, hold, ghost piece).
+- **Search & Filter**: Filter demos by type (Neural Network / Application / Game).
+- **Live Status**: Each demo opens directly in the browser, and every neural network demo supports training to 100%, live visualization (pulsing orbs, weight lines, loss graphs) and model export/import as JSON.
 
 ---
 
@@ -272,7 +280,6 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
   <br>
   <sub>© 2026 Smart Legion Lab. All rights reserved.</sub>
 </div>
-```
 
 ---
 
@@ -283,7 +290,4 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
 **Summary:** Software provided "AS IS" without warranty. You assume all risks.
 
 **Full legal disclaimer:** See [DISCLAIMER.md](https://github.com/smartlegionlab/smartlegionlab.github.io/blob/master/DISCLAIMER.md)
-
----
-
 
