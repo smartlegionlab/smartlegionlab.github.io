@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>from-scratch-neural-networks · Alexander Suvorov Sr.</title>
-    <meta name="description" content="from-scratch-neural-networks - Real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. Five independent apps: logic gates, digit recognition, X/O, name gender classifier and a live chiptune composer. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
+    <meta name="description" content="from-scratch-neural-networks - Real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. Eight independent apps: logic gates, digit recognition, X/O, name gender classifier, live chiptune composer, RGB color name guesser, Morse decoder and a tic-tac-toe brain. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
     <link rel="author" href="https://github.com/smartlegionlab">
     <meta property="og:title" content="from-scratch-neural-networks · Alexander Suvorov Sr.">
-    <meta property="og:description" content="Collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no external libraries - train and run neural networks entirely in the browser with live visualization.">
+    <meta property="og:description" content="Collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. Eight apps: logic gates, digits, X/O, name gender, chiptune, RGB colors, Morse decoder and tic-tac-toe brain. No frameworks - train and run neural networks in the browser with live visualization.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
     <meta property="og:site_name" content="Smart Legion Lab · Projects">
@@ -100,13 +100,16 @@
             <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try X / O</a>
             <a href="/interactive/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Name Classifier</a>
             <a href="/interactive/chiptune-composer-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Chiptune</a>
+            <a href="/interactive/rgb-color-name-guesser-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try RGB Color</a>
+            <a href="/interactive/morse-decoder-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Morse Decoder</a>
+            <a href="/interactive/tic-tac-toe-brain-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Tic-Tac-Toe</a>
         </div>
     </div>
 
     <div class="mb-4">
         <div class="smart-small-card">
             <p class="text-light">
-                <strong>from-scratch-neural-networks</strong> - a collection of five independent, ready-to-run applications.
+                <strong>from-scratch-neural-networks</strong> - a collection of eight independent, ready-to-run applications.
                 Each one implements a complete training pipeline by hand: the forward pass, error backpropagation, and weight updates with gradient descent.
                 Everything runs client-side, so no server or build step is required.
             </p>
@@ -146,6 +149,21 @@
                     </a>
                 </div>
                 <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/rgb-color-name-guesser-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/rgb-color-name-guesser-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="RGB Color Name Guesser Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/morse-decoder-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/morse-decoder-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Morse Decoder Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/tic-tac-toe-brain-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/tic-tac-toe-brain-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Tic-Tac-Toe Brain Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
                     <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" target="_blank" class="d-block">
                         <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Chiptune Composer Neural Network" referrerpolicy="no-referrer">
                     </a>
@@ -165,11 +183,14 @@
             <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
                     <ul class="list-unstyled">
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean and Chiptune apps also offer Adam as an optimizer)</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw, type, or flip values and watch predictions update live</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean, Chiptune, RGB Color, Morse and Tic-Tac-Toe apps also offer Adam as an optimizer)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw, type, flip values, press a telegraph key, play a board game, and watch predictions update live</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - neurons are rendered as pulsing orbs whose brightness reflects activation; synapse lines show the sign and relative magnitude of weights; loss graphs and decision maps reflect the real training dynamics</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Policy learning</strong> - the Tic-Tac-Toe app (27 → 48 → 32 → 9) learns a perfect policy from every reachable position labeled by a minimax teacher and never loses</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Multi-head output</strong> - the Chiptune app predicts both the next pitch class and a per-bar rhythm groove</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Audio</strong> - a native Web Audio API engine (no samples) with WAV recording in the browser</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Audio</strong> - a native Web Audio API engine (no samples) for chiptune with WAV recording, and realistic synthesized telegraph key sounds (dit, dah, key click) for the Morse app</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Debug console</strong> - the Tic-Tac-Toe app logs live training diagnostics and every move with its top-3 candidates, with one-click copy</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Auto-stop at the learning target</strong> - the Boolean, RGB Color, Morse and Tic-Tac-Toe apps freeze the weights the moment training reaches the target, so the result stays stable</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - every app can export its trained weights to a JSON file and import them back, so trained models can be saved, shared, or reused without retraining</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - the interfaces adapt for desktop, tablet, and mobile, including touch drawing</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Help and About dialogs</strong> - in every application</li>
@@ -186,7 +207,7 @@
             </h2>
             <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
-                    <p class="text-light">This repository contains five independent, ready-to-run applications:</p>
+                    <p class="text-light">This repository contains eight independent, ready-to-run applications:</p>
                     <div class="table-responsive">
                         <table class="table table-dark table-sm">
                             <thead>
@@ -198,6 +219,9 @@
                                 <tr><td>3</td><td>X / O Shape Recognition</td><td><code>64 → 12 → 2</code></td><td>The letters X and O</td><td><a href="/interactive/x-o-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
                                 <tr><td>4</td><td>Name Gender Classifier</td><td><code>2,746 → 48 → 1</code></td><td>Gender from RU/EN names</td><td><a href="/interactive/name-gender-classifier-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
                                 <tr><td>5</td><td>Chiptune Composer</td><td><code>53 → 48 → 12 + r</code></td><td>Compose 8-bit chiptune live</td><td><a href="/interactive/chiptune-composer-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>6</td><td>RGB Color Name Guesser</td><td><code>3 → 24 → 12</code></td><td>Names any RGB color</td><td><a href="/interactive/rgb-color-name-guesser-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>7</td><td>Morse Decoder</td><td><code>10 → 16 → 36</code></td><td>Morse code A-Z and 0-9</td><td><a href="/interactive/morse-decoder-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>8</td><td>Tic-Tac-Toe Brain</td><td><code>27 → 48 → 32 → 9</code></td><td>Perfect Tic-Tac-Toe play</td><td><a href="/interactive/tic-tac-toe-brain-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -337,6 +361,69 @@ python -m http.server 8000</pre>
                         <li class="mb-1"><strong>Copy Stats</strong> copies Epoch / Loss / Top3; <strong>Export / Import</strong> saves and loads the trained composer as JSON.</li>
                     </ol>
                     <p class="text-light small mt-2"><strong>Engine:</strong> 6 channels - a square lead with a dotted-eighth feedback delay + lowpass, a square arpeggio, a moving triangle bass, a noise drum kit (kick / snare / hi-hat) driven by the network-chosen groove, a second lead an octave down, and a sustained triangle pad holding the chord.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRGB" aria-expanded="false">
+                    <i class="bi bi-palette2 me-2 text-primary"></i> RGB Color Name Guesser
+                </button>
+            </h2>
+            <div id="collapseRGB" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A <strong>3 → 24 → 12</strong> network that learns to name any RGB color across 12 classes (red, orange, yellow, green, cyan, blue, purple, pink, brown, gray, black, white). The dataset is synthetic: tight clusters around prototype RGB colors, so it reliably trains to ~100% and stops automatically.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">The dataset is generated on load (~2,000 colors across 12 classes).</li>
+                        <li class="mb-1">Move the <strong>R, G, B</strong> sliders - the network names the color with a confidence percentage.</li>
+                        <li class="mb-1"><strong>Auto-gen</strong> regenerates; <strong>Start Training</strong> / <strong>Fast Learn</strong> trains to 100% and freezes.</li>
+                        <li class="mb-1">Teach it yourself with <strong>+ Save Sample</strong>; <strong>Export / Import</strong> saves the brain as JSON.</li>
+                    </ol>
+                    <p class="text-light small mt-2">In the network view the three input orbs glow with the power of the R, G, B channels, and the 12 output orbs are painted in the real colors they stand for.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMorse" aria-expanded="false">
+                    <i class="bi bi-morse me-2 text-primary"></i> Morse Decoder Neural Network
+                </button>
+            </h2>
+            <div id="collapseMorse" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A <strong>10 → 16 → 36</strong> network that learns the complete <strong>International Morse code</strong> (A-Z and 0-9) and decodes your telegraph key presses live, with realistic <strong>dit</strong> and <strong>dah</strong> sounds and a mechanical key click synthesized by Web Audio.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Press <strong>dot .</strong> / <strong>dash -</strong> (or <strong>A</strong> / <strong>S</strong>) - each press sounds like a real key.</li>
+                        <li class="mb-1"><strong>Space</strong> commits the letter into the decoded word; <strong>X</strong> deletes, <strong>C</strong> clears.</li>
+                        <li class="mb-1"><strong>Fast Learn</strong> memorizes all 36 codes to 100% and stops; <strong>Export / Import</strong> saves the brain.</li>
+                    </ol>
+                    <p class="text-light small mt-2">The top-3 candidates and a Morse reference table update live in panel 3.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTTT" aria-expanded="false">
+                    <i class="bi bi-grid-3x3 me-2 text-primary"></i> Tic-Tac-Toe Brain Neural Network
+                </button>
+            </h2>
+            <div id="collapseTTT" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A <strong>27 → 48 → 32 → 9</strong> policy network with two hidden layers that learns a perfect game of Tic-Tac-Toe. The dataset is every reachable board position (~4,400 non-terminal) labeled by a minimax solver, so each position trains a distribution over all its optimal moves. Training uses a low learning rate (0.02) with gradient clipping and per-epoch weight clipping for stability. Once trained to ~100% the brain <strong>never loses</strong> and blocks every fork.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Pick your side: <strong>X (first)</strong> or <strong>O (second)</strong>.</li>
+                        <li class="mb-1">Click an empty cell - the brain answers once, then the turn returns to you.</li>
+                        <li class="mb-1">Before training it plays randomly; after <strong>Fast Learn</strong> it plays perfectly.</li>
+                        <li class="mb-1">The right grid in the network view ranks all 9 moves for the current board.</li>
+                        <li class="mb-1">The bottom-left console logs live training diagnostics and every move with its top-3 candidates - press <strong>Copy</strong> to share the log.</li>
+                        <li class="mb-1"><strong>Export / Import</strong> saves and loads the trained brain as JSON.</li>
+                    </ol>
                 </div>
             </div>
         </div>

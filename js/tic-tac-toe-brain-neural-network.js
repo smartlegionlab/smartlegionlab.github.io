@@ -46,7 +46,7 @@ function log(msg) {
     if (!logBox) {
       logBox = document.createElement('div');
       logBox.id = 'logBox';
-      logBox.style.cssText = 'position:fixed;left:10px;bottom:48px;width:430px;max-height:320px;overflow:hidden;background:rgba(13,17,23,0.96);border:1px solid rgba(13,110,253,0.4);border-radius:8px;font-family:monospace;font-size:11px;color:#7ab3ff;z-index:80;display:flex;flex-direction:column;';
+      logBox.style.cssText = 'position:fixed;left:10px;bottom:10px;width:430px;max-height:320px;overflow:hidden;background:rgba(13,17,23,0.96);border:1px solid rgba(13,110,253,0.4);border-radius:8px;font-family:monospace;font-size:11px;color:#7ab3ff;z-index:80;display:flex;flex-direction:column;';
       const head = document.createElement('div');
       head.style.cssText = 'display:flex;justify-content:flex-end;gap:4px;padding:4px 8px;border-bottom:1px solid rgba(13,110,253,0.3);background:rgba(13,17,23,0.8);';
       const right = document.createElement('div');
@@ -588,9 +588,24 @@ function showToast(msg, ok) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
 }
 function openModal(id) {
-  const el = document.getElementById(id);
-  if (el) bootstrap.Modal.getOrCreateInstance(el).show();
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
+function closeModal(el) {
+  el.closest('.modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(o =>
+  o.addEventListener('click', e => {
+    if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; }
+  }));
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape')
+    document.querySelectorAll('.modal-overlay.open').forEach(o => {
+      o.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+});
 function rgba(r, g, b, a) {
   return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 }
@@ -702,8 +717,18 @@ function drawNetwork() {
   nCtx.textAlign = 'center';
   nCtx.fillText('best move', 490 + 2 * 56 + 22, 84);
 }
+const LOSS_W = 300;
+const LOSS_H = 230;
+function setupLoss() {
+  const dpr = window.devicePixelRatio || 1;
+  lossCanvas.width = Math.round(LOSS_W * dpr);
+  lossCanvas.height = Math.round(LOSS_H * dpr);
+  lossCanvas.style.width = LOSS_W + 'px';
+  lossCanvas.style.height = LOSS_H + 'px';
+  lCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
 function drawLossGraph() {
-  const W = lossCanvas.width, H = lossCanvas.height;
+  const W = LOSS_W, H = LOSS_H;
   const data = lossHistory, ac = accHistory;
   lCtx.clearRect(0, 0, W, H);
   lCtx.strokeStyle = '#242424';
@@ -716,8 +741,8 @@ function drawLossGraph() {
     lCtx.stroke();
   }
   if (data.length === 0) {
-    lCtx.fillStyle = '#8a8a8a';
-    lCtx.font = '12px sans-serif';
+    lCtx.fillStyle = '#9a9a9a';
+    lCtx.font = '13px sans-serif';
     lCtx.textAlign = 'center';
     lCtx.textBaseline = 'middle';
     lCtx.fillText('Train to draw the curves', W / 2, H / 2);
@@ -726,20 +751,33 @@ function drawLossGraph() {
   let lo = Math.min(...data), hi = Math.max(...data), range = hi - lo;
   if (range < 1e-6) { lo = Math.max(0, lo - 0.05); hi += 0.05; range = hi - lo; }
   range = Math.max(range, 1e-6);
-  const padL = 8, padR = 8, padT = 22, padB = 24;
+  const padL = 10, padR = 10, padT = 30, padB = 28;
   const innerW = W - padL - padR, innerH = H - padT - padB;
   const xFor = i => padL + (data.length === 1 ? innerW : innerW * i / (data.length - 1));
   const yFor = l => padT + (1 - (l - lo) / range) * innerH;
-  lCtx.fillStyle = '#9a9a9a';
-  lCtx.font = '10px sans-serif';
-  lCtx.textAlign = 'left';
   lCtx.textBaseline = 'top';
-  lCtx.fillText(hi.toFixed(3), padL, 4);
+  lCtx.textAlign = 'left';
+  lCtx.fillStyle = '#9a9a9a';
+  lCtx.font = '11px sans-serif';
+  lCtx.fillText(hi.toFixed(3), padL, 6);
+  lCtx.textAlign = 'right';
+  lCtx.fillStyle = '#00e676';
+  lCtx.fillText('loss', W - padR, 6);
+  lCtx.fillStyle = 'rgba(0,210,255,0.9)';
+  lCtx.fillText('acc', W - padR, 22);
   lCtx.textBaseline = 'bottom';
-  lCtx.fillText(lo.toFixed(3), padL, H - 4);
+  lCtx.textAlign = 'left';
+  lCtx.fillStyle = '#9a9a9a';
+  lCtx.fillText(lo.toFixed(3), padL, H - 8);
+  lCtx.textAlign = 'right';
+  lCtx.fillStyle = '#9a9a9a';
+  lCtx.fillText('epoch ' + epoch, W - padR, H - 22);
+  const lastAcc = ac.length ? ac[ac.length - 1] : accCache;
+  lCtx.fillStyle = 'rgba(0,210,255,0.9)';
+  lCtx.fillText(Math.round(lastAcc * 100) + '%', W - padR, H - 8);
   lCtx.beginPath();
   lCtx.strokeStyle = '#00e676';
-  lCtx.lineWidth = 2;
+  lCtx.lineWidth = 2.5;
   data.forEach((loss, idx) => {
     const x = xFor(idx), y = yFor(loss);
     idx === 0 ? lCtx.moveTo(x, y) : lCtx.lineTo(x, y);
@@ -757,19 +795,6 @@ function drawLossGraph() {
     lCtx.stroke();
     lCtx.setLineDash([]);
   }
-  lCtx.textAlign = 'left';
-  lCtx.textBaseline = 'bottom';
-  lCtx.font = '10px sans-serif';
-  lCtx.fillStyle = '#00e676';
-  lCtx.fillText('loss', padL, H - 6);
-  lCtx.fillStyle = 'rgba(0,210,255,0.9)';
-  lCtx.fillText('acc', padL + 36, H - 6);
-  const lastAcc = ac.length ? ac[ac.length - 1] : accCache;
-  lCtx.fillStyle = 'rgba(0,210,255,0.9)';
-  lCtx.textAlign = 'right';
-  lCtx.fillText(Math.round(lastAcc * 100) + '%', W - 4, H - 6);
-  lCtx.fillStyle = '#9a9a9a';
-  lCtx.fillText('epoch ' + epoch, W - 4, H - 18);
 }
 function updateStats() {
   document.getElementById('trainStats').textContent =
@@ -823,4 +848,5 @@ renderBoard();
 updateScore();
 updateStats();
 setStatus('Your turn - X');
+setupLoss();
 loop();
