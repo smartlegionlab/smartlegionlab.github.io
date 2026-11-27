@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>from-scratch-neural-networks · Alexander Suvorov Sr.</title>
-    <meta name="description" content="from-scratch-neural-networks - Collection hub of eight real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript, each in its own standalone repository: logic gates, digit recognition, X/O, name gender classifier, live chiptune composer, RGB color name guesser, Morse decoder and a tic-tac-toe brain. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
+    <title>chiptune-composer-neural-network · Alexander Suvorov Sr.</title>
+    <meta name="description" content="chiptune-composer-neural-network - A 53 → 48 → 12 multilayer perceptron plus a harmony net from scratch in pure JavaScript that composes 8-bit chiptune live: melody, rhythm grooves, bass and drums via Web Audio, with WAV recording.">
     <meta name="author" content="Alexander Suvorov Sr.">
-    <link rel="canonical" href="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/chiptune-composer-neural-network.html">
     <link rel="author" href="https://github.com/smartlegionlab">
-    <meta property="og:title" content="from-scratch-neural-networks · Alexander Suvorov Sr.">
-    <meta property="og:description" content="Collection hub of eight real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. Each app lives in its own standalone repository: logic gates, digits, X/O, name gender, chiptune, RGB colors, Morse decoder and tic-tac-toe brain. No frameworks - train and run neural networks in the browser with live visualization.">
+    <meta property="og:title" content="chiptune-composer-neural-network · Alexander Suvorov Sr.">
+    <meta property="og:description" content="A 53 → 48 → 12 multilayer perceptron plus a harmony net from scratch in pure JavaScript that composes 8-bit chiptune live: melody, rhythm grooves, bass and drums via Web Audio, with WAV recording.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/chiptune-composer-neural-network.html">
     <meta property="og:site_name" content="Smart Legion Lab · Projects">
     <meta name="theme-color" content="#0d1117">
     <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -87,117 +87,34 @@
 <main class="container custom-margin-top">
 
     <div class="text-center mb-4">
-        <h1 class="text-primary">From-Scratch Neural Networks</h1>
-        <p class="text-light">Collection of real multilayer perceptrons (MLPs) implemented <span class="text-primary">from scratch in pure JavaScript</span>.</p>
-        <p class="text-light">This repository is the <strong>collection hub</strong>. Each of the eight demos now lives in its <span class="text-primary">own standalone repository</span> (own releases, issues, docs and live demo), and this page links you to all of them. No frameworks, no external libraries, no runtime dependencies - train and run a neural network entirely in the browser with live visualization.</p>
+        <h1 class="text-primary">Chiptune Composer Neural Network</h1>
+        <p class="text-light"><span class="text-primary">53 → 48 → 12 + r</span> · composes 8-bit chiptune live</p>
+        <p class="text-light">A real multilayer perceptron plus a trainable harmony net written <span class="text-primary">from scratch in pure JavaScript</span> that composes 8-bit chiptune live in the browser. Every note is synthesized with the Web Audio API - no frameworks, no libraries, no audio samples. Current version: 1.0.2.</p>
         <hr>
         <div class="d-flex flex-wrap justify-content-center gap-2">
-            <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-            <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-            <a href="/interactive.html" class="btn btn-outline-secondary btn-sm">All Live Demos</a>
-            <a href="/interactive/logic-gates-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Boolean Logic</a>
-            <a href="/interactive/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Digit Recognition</a>
-            <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try X / O</a>
-            <a href="/interactive/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Name Classifier</a>
-            <a href="/interactive/chiptune-composer-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Chiptune</a>
-            <a href="/interactive/rgb-color-name-guesser-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try RGB Color</a>
-            <a href="/interactive/morse-decoder-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Morse Decoder</a>
-            <a href="/interactive/tic-tac-toe-brain-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Tic-Tac-Toe</a>
+            <a target="_blank" href="https://github.com/smartlegionlab/chiptune-composer-neural-network" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a target="_blank" href="https://github.com/smartlegionlab/chiptune-composer-neural-network/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a href="/interactive/chiptune-composer-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try it live <i class="bi bi-play-fill ms-1"></i></a>
         </div>
     </div>
 
     <div class="mb-4">
         <div class="smart-small-card">
             <p class="text-light">
-                <strong>from-scratch-neural-networks</strong> - a collection of eight independent applications. Each one implements a complete training pipeline by hand: the forward pass, error backpropagation, and weight updates with gradient descent. Everything runs client-side, so no server or build step is required.
+                <strong>chiptune-composer-neural-network</strong> - a standalone application that implements the full training pipeline by hand: forward pass, error backpropagation, weight updates with gradient descent. The main MLP (53 → 48 → 12) predicts the next pitch class and the groove for bass + drums, and a second harmony net learns chord transitions from classic minor progressions: Am-F-C-G, Am-Dm-Em-Am, Am-G-F-E (Andalusian) and more.
             </p>
             <p class="text-light">
-                Each application is maintained in its own repository and described on its own project page below. All values rendered on screen correspond to the actual state of the network - the demos show, in real time, how a small network reorganizes its weights to solve a specific problem.
+                Each new track starts with a randomly chosen key, tempo and arrangement, and every 4-bar phrase resolves through the dominant (V7 - i), so the song always lands on proper cadences. A pre-composed chiptune sample is included at <code>data/audio/example.mp3</code>.
             </p>
-            <p class="text-light small">
-                <i class="bi bi-box-arrow-up-right text-primary me-1"></i>Standalone repositories:
-                <a class="text-primary" href="/projects/logic-gates-neural-network.html">Boolean Logic</a> ·
-                <a class="text-primary" href="/projects/digit-recognition-neural-network.html">Digits</a> ·
-                <a class="text-primary" href="/projects/x-o-recognition-neural-network.html">X / O</a> ·
-                <a class="text-primary" href="/projects/name-gender-classifier-neural-network.html">Name Gender</a> ·
-                <a class="text-primary" href="/projects/chiptune-composer-neural-network.html">Chiptune</a> ·
-                <a class="text-primary" href="/projects/rgb-color-name-guesser-neural-network.html">RGB Color</a> ·
-                <a class="text-primary" href="/projects/morse-decoder-neural-network.html">Morse</a> ·
-                <a class="text-primary" href="/projects/tic-tac-toe-brain-neural-network.html">Tic-Tac-Toe</a>
-            </p>
-        </div>
-    </div>
-
-    <div class="mb-4">
-        <div class="smart-small-card">
-            <div class="text-center mb-3"><h5 class="text-primary mb-0"><i class="bi bi-grid me-2"></i>Applications</h5></div>
-            <div class="table-responsive">
-                <table class="table table-dark table-sm">
-                    <thead>
-                        <tr><th>#</th><th>App</th><th>Network</th><th>Learns</th><th>Page</th><th>Demo</th><th>Repo</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Boolean-Logic Neural Network</td><td><code>2 → 3 → 1</code></td><td>XOR / AND / OR / NAND / XNOR</td><td><a href="/projects/logic-gates-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/logic-gates-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/logic-gates-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>2</td><td>Handwritten-Digit Recognition</td><td><code>144 → 24 → 10</code></td><td>Handwritten digits 0-9</td><td><a href="/projects/digit-recognition-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/digit-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/digit-recognition-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>3</td><td>X / O Shape Recognition</td><td><code>64 → 12 → 2</code></td><td>The letters X and O</td><td><a href="/projects/x-o-recognition-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/x-o-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/x-o-recognition-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>4</td><td>Name Gender Classifier</td><td><code>2,746 → 48 → 1</code></td><td>Gender from RU/EN names</td><td><a href="/projects/name-gender-classifier-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/name-gender-classifier-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/name-gender-classifier-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>5</td><td>Chiptune Composer</td><td><code>53 → 48 → 12 + r</code></td><td>Compose 8-bit chiptune live</td><td><a href="/projects/chiptune-composer-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/chiptune-composer-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/chiptune-composer-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>6</td><td>RGB Color Name Guesser</td><td><code>3 → 24 → 12</code></td><td>Names any RGB color</td><td><a href="/projects/rgb-color-name-guesser-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/rgb-color-name-guesser-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/rgb-color-name-guesser-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>7</td><td>Morse Decoder</td><td><code>10 → 16 → 36</code></td><td>Morse code A-Z and 0-9</td><td><a href="/projects/morse-decoder-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/morse-decoder-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/morse-decoder-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                        <tr><td>8</td><td>Tic-Tac-Toe Brain</td><td><code>27 → 48 → 32 → 9</code></td><td>Perfect Tic-Tac-Toe play</td><td><a href="/projects/tic-tac-toe-brain-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/tic-tac-toe-brain-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/tic-tac-toe-brain-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="text-light small mt-2">Live demos live under <code>/interactive/</code>; the index of all demonstrations is at <a href="/interactive.html" class="text-primary">interactive.html</a>.</p>
         </div>
     </div>
 
     <div class="mb-4">
         <div class="smart-small-card">
             <div class="row g-2 justify-content-center">
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/index.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/index.png" class="img-fluid rounded mx-auto d-block" alt="Main Page - gallery index.html" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Handwritten-Digit Recognition Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Boolean-Logic Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Name Gender Classifier Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="X / O Shape Recognition Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/rgb-color-name-guesser-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/rgb-color-name-guesser-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="RGB Color Name Guesser Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/morse-decoder-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/morse-decoder-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Morse Decoder Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/tic-tac-toe-brain-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/tic-tac-toe-brain-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Tic-Tac-Toe Brain Neural Network" referrerpolicy="no-referrer">
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 text-center">
-                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" target="_blank" class="d-block">
-                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Chiptune Composer Neural Network" referrerpolicy="no-referrer">
+                <div class="col-12 col-md-8 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/chiptune-composer-neural-network/master/data/images/chiptune-composer-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/chiptune-composer-neural-network/master/data/images/chiptune-composer-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Chiptune Composer Neural Network" referrerpolicy="no-referrer">
                     </a>
                 </div>
             </div>
@@ -215,17 +132,18 @@
             <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
                     <ul class="list-unstyled">
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean, Chiptune, RGB Color, Morse and Tic-Tac-Toe apps also offer Adam as an optimizer)</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw, type, flip values, press a telegraph key, play a board game, and watch predictions update live</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - neurons rendered as pulsing orbs whose brightness reflects activation; synapse lines show weight sign and magnitude; loss graphs and decision maps reflect real training dynamics</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Policy learning</strong> - the Tic-Tac-Toe app (27 → 48 → 32 → 9) learns a perfect policy from every reachable position labeled by a minimax teacher and never loses</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Multi-head output</strong> - the Chiptune app predicts both the next pitch class and a per-bar rhythm groove</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Audio</strong> - a native Web Audio API engine (no samples) for chiptune with WAV recording, and synthesized telegraph key sounds (dit, dah, key click) for the Morse app</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Debug console</strong> - the Tic-Tac-Toe app logs live training diagnostics and every move with its top-3 candidates, with one-click copy</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Auto-stop at the learning target</strong> - the Boolean, RGB Color, Morse and Tic-Tac-Toe apps freeze the weights the moment training reaches the target</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - every app can export its trained weights to a JSON file and import them back</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - the interfaces adapt for desktop, tablet, and mobile, including touch drawing</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Help and About dialogs</strong> - in every application</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Two networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD with momentum): melody/groove MLP (53 → 48 → 12 + 4) and a harmony classifier (53 → 16 → 7 chord functions)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Song orchestrator</strong> - intro, verse, chorus, verse, bridge, final chorus, outro</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cadence grammar</strong> - every 4th bar resolves (V7 - i), the final bar lands on the tonic</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>12 minor keys</strong> - with strictly diatonic chords (Am, Dm, Em, F#m, Bm and more); the composer always stays in key</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Note Pad</strong> - play a melody with the mouse, save it as a training example, and teach the network your style</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Native Web Audio engine</strong> - square and triangle voices plus noise drums, echo/delay feedback, low-pass, per-channel mutes, master volume</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - pulsing neuron orbs, synapse lines, pitch-probability bars with scale degrees (1-7, x = off scale)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Record to .wav</strong> - capture a 16-bit PCM recording and download it</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Track Playlist</strong> - every composed track is auto-saved (max 3, oldest dropped); Play / Pause / Resume, Stop, Download or Delete; the composer and the playlist mute each other automatically</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - export / import the trained composer (including your examples) as JSON</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - 3-column panels on desktop/landscape, single column in portrait</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Help and About dialogs</strong></li>
                     </ul>
                 </div>
             </div>
@@ -233,19 +151,35 @@
 
         <div class="accordion-item bg-transparent">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted" aria-expanded="false">
-                    <i class="bi bi-rocket-takeoff me-2 text-primary"></i> Getting Started
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHow" aria-expanded="false">
+                    <i class="bi bi-play-circle me-2 text-primary"></i> How to Use
                 </button>
             </h2>
-            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+            <div id="collapseHow" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
-                    <p class="text-light">Each of the eight applications is now maintained in its <strong>own standalone repository</strong> listed in the Applications table above. To run any of them, clone that repository and serve its folder over HTTP:</p>
-                    <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
-git clone https://github.com/smartlegionlab/&lt;repo-name&gt;.git
-cd &lt;repo-name&gt;
-python -m http.server 8000</pre>
-                    <p class="text-light small">then open <code>http://localhost:8000</code>. Each app is split into an HTML file, a stylesheet (<code>css/</code>) and a script (<code>js/</code>), so <strong>opening the HTML file directly by double-click will not work</strong> - you must serve the folder over HTTP. Any static server works, for example <code>npx serve</code>, or a GitHub Pages deployment.</p>
-                    <p class="text-light small mt-2">No build step, no package manager, and no internet connection is required - everything runs 100% client-side once served.</p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Press <strong>Play</strong> - it unlocks Audio, the network decides a key and tempo, and composes a full structured song. Volume is controlled only by the <strong>Master Volume</strong> slider.</li>
+                        <li class="mb-1"><strong>New Song</strong> rolls another arrangement. <strong>Loop</strong> keeps generating new tracks forever.</li>
+                        <li class="mb-1">Track Playlist: each track the composer plays is auto-saved here (max 3). <strong>Play / Pause / Resume</strong> to listen, <strong>Stop</strong> to end, <strong>Download</strong> to save as .wav, <strong>Delete</strong> to remove. The composer and the playlist mute each other automatically.</li>
+                        <li class="mb-1">Note Pad: press <strong>Rec</strong>, click notes to play a beautiful melody, <strong>Save Ex</strong> adds it to the training set, <strong>Learn Ex</strong> teaches the network your style.</li>
+                        <li class="mb-1">Record your track: <strong>REC</strong> - <strong>Stop</strong> - <strong>Download</strong> (.wav); <strong>Reset</strong> clears. REC recordings stay separate from the Track Playlist.</li>
+                        <li class="mb-1">Adjust <strong>Master Volume</strong>, <strong>Mute All / Unmute All</strong> and each channel's own Mute (echo is shared by Lead, Arp and Lead2).</li>
+                        <li class="mb-1">Choose <strong>Key</strong>, <strong>Tempo</strong>, <strong>Temperature</strong>, <strong>Lead Density</strong>, <strong>Model influence</strong>, <strong>Echo</strong>.</li>
+                        <li class="mb-1"><strong>Copy Stats</strong> / <strong>Export / Import</strong> saves and loads the trained composer as JSON.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArch" aria-expanded="false">
+                    <i class="bi bi-diagram-3 me-2 text-primary"></i> Architecture
+                </button>
+            </h2>
+            <div id="collapseArch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">Melody/groove MLP: 53 inputs → 48 sigmoid hidden neurons → 12 pitch-class outputs + 4 groove outputs. Harmony MLP: 53 inputs → 16 sigmoid hidden neurons → 7 chord-function outputs, trained with label smoothing. Loss is cross-entropy with softmax for all heads, mini-batch SGD (momentum 0.9), weight decay, gradient and weight clipping. Features are relative to the key so the model transposes; melody is temperature-sampled and always stays in key.</p>
                 </div>
             </div>
         </div>
@@ -258,13 +192,37 @@ python -m http.server 8000</pre>
             </h2>
             <div id="collapseLicense" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
-                    <p class="text-light small">This project is licensed under the <strong>BSD 3-Clause License</strong> - see <a href="https://github.com/smartlegionlab/from-scratch-neural-networks/blob/master/LICENSE" class="text-primary" target="_blank">LICENSE</a>.</p>
+                    <p class="text-light small">Licensed under the <strong>BSD 3-Clause License</strong> - see <a href="https://github.com/smartlegionlab/chiptune-composer-neural-network/blob/master/LICENSE" class="text-primary" target="_blank">LICENSE</a>.</p>
                     <p class="text-light small"><strong>Author:</strong> <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a></p>
-                    <p class="text-light small"><strong>Collection:</strong> <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="text-primary" target="_blank">github.com/smartlegionlab/from-scratch-neural-networks</a></p>
+                    <p class="text-light small"><strong>Repository:</strong> <a href="https://github.com/smartlegionlab/chiptune-composer-neural-network" class="text-primary" target="_blank">github.com/smartlegionlab/chiptune-composer-neural-network</a></p>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="text-center mb-3"><h5 class="text-primary mb-0"><i class="bi bi-diagram-3 me-2"></i>Ecosystem</h5></div>
+            <p class="text-light small text-center">Part of the <strong>Smart Legion Lab</strong> from-scratch neural-network ecosystem - eight from-scratch MLPs in pure JavaScript with live visualization, model export/import and a responsive 3-column layout. Collection hub: <a class="text-primary" href="/projects/from-scratch-neural-networks.html">from-scratch-neural-networks</a> · index: <a class="text-primary" href="/interactive.html">interactive.html</a>.</p>
+            <div class="table-responsive">
+                <table class="table table-dark table-sm">
+                    <thead>
+                        <tr><th>#</th><th>Project</th><th>Network</th><th>Learns</th><th>Page</th><th>Demo</th><th>Repo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Boolean-Logic Neural Network</td><td><code>2 → 3 → 1</code></td><td>XOR / AND / OR / NAND / XNOR</td><td><a href="/projects/logic-gates-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/logic-gates-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/logic-gates-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>2</td><td>Handwritten-Digit Recognition</td><td><code>144 → 24 → 10</code></td><td>Handwritten digits 0-9</td><td><a href="/projects/digit-recognition-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/digit-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/digit-recognition-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>3</td><td>X / O Shape Recognition</td><td><code>64 → 12 → 2</code></td><td>The letters X and O</td><td><a href="/projects/x-o-recognition-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/x-o-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/x-o-recognition-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>4</td><td>Name Gender Classifier</td><td><code>2,746 → 48 → 1</code></td><td>Gender from RU/EN names</td><td><a href="/projects/name-gender-classifier-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/name-gender-classifier-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/name-gender-classifier-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>5</td><td>Chiptune Composer</td><td><code>53 → 48 → 12 + r</code></td><td>Compose 8-bit chiptune live</td><td><a href="/projects/chiptune-composer-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/chiptune-composer-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/chiptune-composer-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>6</td><td>RGB Color Name Guesser</td><td><code>3 → 24 → 12</code></td><td>Names any RGB color</td><td><a href="/projects/rgb-color-name-guesser-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/rgb-color-name-guesser-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/rgb-color-name-guesser-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>7</td><td>Morse Decoder</td><td><code>10 → 16 → 36</code></td><td>Morse code A-Z and 0-9</td><td><a href="/projects/morse-decoder-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/morse-decoder-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/morse-decoder-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>8</td><td>Tic-Tac-Toe Brain</td><td><code>27 → 48 → 32 → 9</code></td><td>Perfect Tic-Tac-Toe play</td><td><a href="/projects/tic-tac-toe-brain-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/tic-tac-toe-brain-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/tic-tac-toe-brain-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <div class="mb-4">
