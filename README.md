@@ -19,7 +19,7 @@ Smart Legion Lab is a software research and development laboratory founded by Al
 - **4 foundational research paradigms** with DOI publications
 - **7 cross-platform ecosystems** (Smart Passwords, 2FA Management, NP Problem, etc.)
 - **36+ applications** (Desktop, Web, Mobile, CLI, Telegram Bots)
-- **Interactive browser demos** - neural networks (logic gates, digits, X/O, gender, chiptune, RGB colors, Morse), games and utilities that run live in the browser with zero setup
+- **Interactive browser demos** - neural networks (logic gates, digits, X/O, gender, chiptune, RGB colors, Morse, tic-tac-toe), games and utilities that run live in the browser with zero setup
 - **Team of two** (Alexander Suvorov Sr. & Jr.)
 
 The site is designed to be a **static, secure, and comprehensive** showcase that requires **no database**, **no backend**, and can be hosted **anywhere** with zero maintenance overhead.
@@ -92,6 +92,7 @@ Live, in-browser applications that run with zero setup - no installs, no servers
   - **Chiptune Composer** - `53 → 48 → 12`, composes 8-bit chiptune live with melody, rhythm grooves, bass and drums on a native Web Audio engine.
   - **RGB Color Name Guesser** - `3 → 24 → 12`, names any RGB color across 12 color classes (red, orange, yellow, green, cyan, blue, purple, pink, brown, gray, black, white); trains to ~100% and stops automatically.
   - **Morse Decoder** - `10 → 16 → 36`, learns the full International Morse table (A-Z and 0-9) and decodes your telegraph key presses live, with realistic dit/dah sounds and a key click synthesized by Web Audio.
+  - **Tic-Tac-Toe Brain** - `27 → 48 → 32 → 9`, a two-hidden-layer policy network that learns a perfect game of Tic-Tac-Toe from every reachable board position labeled by a minimax teacher; once trained it blocks every fork and never loses (a bottom-left console logs training and every move with top-3 candidates).
 - **Tools** - SmartPassLib, a deterministic zero-storage smart password generator (same secret + length gives the same password on any platform).
 - **Games** - Tanks (Battle City-style, 35 levels) and Tetris (7-bag randomizer, hold, ghost piece).
 - **Search & Filter**: Filter demos by type (Neural Network / Application / Game).
