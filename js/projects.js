@@ -7,9 +7,10 @@
     const STATUS_TEXT_ID = 'projectsStatusText';
     const COUNT_BADGE_ID = 'projectsCountBadge';
 
-    const data = (typeof CONFIG !== 'undefined' && CONFIG.PROJECTS) ? CONFIG.PROJECTS : [];
-
     const grid = document.getElementById(GRID_ID);
+    const dataKey = (grid && grid.dataset.source) || 'PROJECTS';
+    const data = (typeof CONFIG !== 'undefined' && CONFIG[dataKey]) ? CONFIG[dataKey] : [];
+
     const searchInput = document.getElementById(SEARCH_ID);
     const clearBtn = document.getElementById(CLEAR_ID);
     const filterMenu = document.getElementById(FILTER_MENU_ID);
@@ -58,7 +59,8 @@
 
     function buildCard(p, index, animate) {
         const langCls = p.langDark ? 'text-dark' : 'text-light';
-        const badge = '<span class="badge ' + langCls + ' rounded-pill position-absolute smart-badge" style="background: ' + p.langColor + ';">' + esc(p.lang) + '</span>';
+        const langColor = p.langColor || 'rgba(13,110,253,0.3)';
+        const badge = '<span class="badge ' + langCls + ' rounded-pill position-absolute smart-badge" style="background: ' + langColor + ';">' + esc(p.lang) + '</span>';
 
         const titleTag = p.plainTitle ? 'p' : 'h4';
         const title = '<' + titleTag + ' class="mt-2 text-light">' + esc(p.title) + '</' + titleTag + '>';
