@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>from-scratch-neural-networks · Alexander Suvorov Sr.</title>
-    <meta name="description" content="from-scratch-neural-networks - Real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
+    <meta name="description" content="from-scratch-neural-networks - Real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. Five independent apps: logic gates, digit recognition, X/O, name gender classifier and a live chiptune composer. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <link rel="canonical" href="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
     <link rel="author" href="https://github.com/smartlegionlab">
@@ -89,7 +89,7 @@
     <div class="text-center mb-4">
         <h1 class="text-primary">From-Scratch Neural Networks</h1>
         <p class="text-light">Collection of real multilayer perceptrons (MLPs) implemented <span class="text-primary">from scratch in pure JavaScript</span>.</p>
-        <p class="text-light">No frameworks, no external libraries, no runtime dependencies. Each app is a self-contained single HTML file that trains and runs a neural network entirely in the browser, with live visualization of the learning process.</p>
+        <p class="text-light">No frameworks, no external libraries, no runtime dependencies. Each app is split into an HTML file, a stylesheet (<code>css/</code>) and a script (<code>js/</code>), and the gallery page <code>index.html</code> loads screenshots from <code>data/images/</code>. Each app trains and runs a neural network entirely in the browser, with live visualization of the learning process.</p>
         <hr>
         <div class="d-flex flex-wrap justify-content-center gap-2">
             <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
@@ -99,13 +99,14 @@
             <a href="/interactive/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Digit Recognition</a>
             <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try X / O</a>
             <a href="/interactive/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Name Classifier</a>
+            <a href="/interactive/chiptune-composer-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Chiptune</a>
         </div>
     </div>
 
     <div class="mb-4">
         <div class="smart-small-card">
             <p class="text-light">
-                <strong>from-scratch-neural-networks</strong> - a collection of four independent, ready-to-run applications.
+                <strong>from-scratch-neural-networks</strong> - a collection of five independent, ready-to-run applications.
                 Each one implements a complete training pipeline by hand: the forward pass, error backpropagation, and weight updates with gradient descent.
                 Everything runs client-side, so no server or build step is required.
             </p>
@@ -119,6 +120,11 @@
     <div class="mb-4">
         <div class="smart-small-card">
             <div class="row g-2 justify-content-center">
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/index.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/index.png" class="img-fluid rounded mx-auto d-block" alt="Main Page - gallery index.html" referrerpolicy="no-referrer">
+                    </a>
+                </div>
                 <div class="col-12 col-md-6 text-center">
                     <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" target="_blank" class="d-block">
                         <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Handwritten-Digit Recognition Neural Network" referrerpolicy="no-referrer">
@@ -139,6 +145,11 @@
                         <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="X / O Shape Recognition Neural Network" referrerpolicy="no-referrer">
                     </a>
                 </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Chiptune Composer Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -154,9 +165,11 @@
             <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
                     <ul class="list-unstyled">
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean app also offers Adam as an optimizer)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean and Chiptune apps also offer Adam as an optimizer)</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw, type, or flip values and watch predictions update live</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - neurons are rendered as pulsing orbs whose brightness reflects activation; synapse lines show the sign and relative magnitude of weights; loss graphs and decision maps reflect the real training dynamics</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Multi-head output</strong> - the Chiptune app predicts both the next pitch class and a per-bar rhythm groove</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Audio</strong> - a native Web Audio API engine (no samples) with WAV recording in the browser</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - every app can export its trained weights to a JSON file and import them back, so trained models can be saved, shared, or reused without retraining</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - the interfaces adapt for desktop, tablet, and mobile, including touch drawing</li>
                         <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Help and About dialogs</strong> - in every application</li>
@@ -173,7 +186,7 @@
             </h2>
             <div id="collapseApps" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
-                    <p class="text-light">This repository contains four independent, ready-to-run applications:</p>
+                    <p class="text-light">This repository contains five independent, ready-to-run applications:</p>
                     <div class="table-responsive">
                         <table class="table table-dark table-sm">
                             <thead>
@@ -184,6 +197,7 @@
                                 <tr><td>2</td><td>Handwritten-Digit Recognition</td><td><code>144 → 24 → 10</code></td><td>Handwritten digits 0-9</td><td><a href="/interactive/digit-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
                                 <tr><td>3</td><td>X / O Shape Recognition</td><td><code>64 → 12 → 2</code></td><td>The letters X and O</td><td><a href="/interactive/x-o-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
                                 <tr><td>4</td><td>Name Gender Classifier</td><td><code>2,746 → 48 → 1</code></td><td>Gender from RU/EN names</td><td><a href="/interactive/name-gender-classifier-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
+                                <tr><td>5</td><td>Chiptune Composer</td><td><code>53 → 48 → 12 + r</code></td><td>Compose 8-bit chiptune live</td><td><a href="/interactive/chiptune-composer-neural-network.html" class="text-primary" target="_blank">try it</a></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -200,15 +214,11 @@
             </h2>
             <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
                 <div class="accordion-body text-light">
-                    <p class="text-light">Every application is a single HTML file that runs entirely in the browser - <strong>a web server is not required</strong>.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Double-click</strong> - open the downloaded HTML file directly in any modern browser</li>
-                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Static server (optional)</strong> - serve the folder, for example:</li>
-                    </ul>
+                    <p class="text-light">The applications are <strong>no longer single-file</strong>. Each app is split into an HTML file, a stylesheet (<code>css/</code>) and a script (<code>js/</code>), and the gallery page <code>index.html</code> loads screenshots from <code>data/images/</code>. Because of this, <strong>opening the HTML files directly by double-click will not work</strong> - you must serve the folder over HTTP:</p>
                     <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
 python -m http.server 8000</pre>
-                    <p class="text-light small">then open <code>http://localhost:8000</code> in a browser and pick the HTML file.</p>
-                    <p class="text-light small mt-2">No build step, no package manager, and no internet connection is required - everything runs 100% client-side.</p>
+                    <p class="text-light small">then open <code>http://localhost:8000</code> in a browser and pick <code>index.html</code> (or one of the application pages). Any static server works, for example <code>npx serve</code>, or a GitHub Pages deployment.</p>
+                    <p class="text-light small mt-2">No build step, no package manager, and no internet connection is required - everything runs 100% client-side once served.</p>
                 </div>
             </div>
         </div>
@@ -307,6 +317,32 @@ python -m http.server 8000</pre>
 
         <div class="accordion-item bg-transparent">
             <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChiptune" aria-expanded="false">
+                    <i class="bi bi-music-note-beamed me-2 text-primary"></i> Chiptune Composer Neural Network
+                </button>
+            </h2>
+            <div id="collapseChiptune" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">A <strong>53 → 48 → 12 + rhythm</strong> network that composes 8-bit chiptune live - retro chip-music that imitates a classic 8-bit synthesizer: a bright square-wave lead, an arpeggio, a moving bass and a small drum kit. It has two output heads on one shared hidden layer: it predicts the next pitch class for the melody and, per bar, one of four rhythm grooves that drive the bass and drums. Trained by mini-batch SGD / Adam with cross-entropy, weight decay and clipping.</p>
+                    <p class="text-light"><strong>What it is:</strong> an educational demo that shows a small MLP composing music in real time entirely in the browser, with no audio samples - every note is synthesized live with the Web Audio API.</p>
+                    <p class="text-light"><strong>Why:</strong> to demonstrate live generation: a network learns musical patterns and composes an endless, non-repeating piece that stays in key and follows a chord progression.</p>
+                    <p class="text-light"><strong>How it works:</strong> a hybrid. A hand-written harmony grammar (chord tones, stepwise motion, and a ii - V7 - i progression that resolves to the tonic) guarantees the music always sounds coherent, while the MLP learns to imitate that same material and shapes it. Each next pitch is sampled from a blend of the template and the network, locked to the chosen key / scale.</p>
+                    <p class="text-light"><strong>How to use:</strong></p>
+                    <ol class="text-light small">
+                        <li class="mb-1">Press <strong>Play</strong> - the browser unlocks Audio and starts live composition.</li>
+                        <li class="mb-1">Pick a <strong>Key</strong> (A / C / D / E / F / G minor), <strong>Tempo</strong> (40+), <strong>Temperature</strong>, <strong>Lead Density</strong> (how often the lead changes note), <strong>Model influence</strong>, <strong>Echo</strong>.</li>
+                        <li class="mb-1"><strong>Master Volume</strong> and <strong>Mute All / Unmute All</strong> control the sound; each of the 6 channels (Lead, Arp, Bass, Drums, Lead 2, Pad) has its own Mute.</li>
+                        <li class="mb-1">Record to a 16-bit PCM <strong>.wav</strong>: <strong>REC</strong> → <strong>Stop</strong> → <strong>Download</strong>; <strong>Reset</strong> clears.</li>
+                        <li class="mb-1">Watch the <strong>loss curve</strong>, the live composer status (key / bar / groove / chord / notes) and the network output distribution.</li>
+                        <li class="mb-1"><strong>Copy Stats</strong> copies Epoch / Loss / Top3; <strong>Export / Import</strong> saves and loads the trained composer as JSON.</li>
+                    </ol>
+                    <p class="text-light small mt-2"><strong>Engine:</strong> 6 channels - a square lead with a dotted-eighth feedback delay + lowpass, a square arpeggio, a moving triangle bass, a noise drum kit (kick / snare / hi-hat) driven by the network-chosen groove, a second lead an octave down, and a sustained triangle pad holding the chord.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExport" aria-expanded="false">
                     <i class="bi bi-box-arrow-down me-2 text-primary"></i> Model Export and Import
                 </button>
@@ -359,7 +395,7 @@ python -m http.server 8000</pre>
         <p>©
             <span id="currentYear">2026</span>
             <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
-            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.0</span></a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.1</span></a> |
             <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
         </p>
     </div>
