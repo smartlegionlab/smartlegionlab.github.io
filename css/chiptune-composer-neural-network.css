@@ -37,13 +37,6 @@
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(13, 110, 253, 0.2);
 }
-.app-scope .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-}
 .app-scope .btn-group {
     width: 100%;
 }
@@ -86,19 +79,27 @@
     transform: scale(.97);
 }
 .app-scope .btn {
-    padding: .4rem .6rem;
-    font-size: .85rem;
+    padding: 9px 12px;
+    font-size: 14px;
 }
 .app-scope .btn-primary {
     background: #0d6efd;
     color: #fff;
 }
 .app-scope .btn-green {
-    background: #0d6efd;
+    background: #00c853;
+    color: #fff;
+}
+.app-scope .btn-green:hover {
+    background: #00b248;
     color: #fff;
 }
 .app-scope .btn-red {
     background: #ff5252;
+    color: #fff;
+}
+.app-scope .btn-red:hover {
+    background: #e64545;
     color: #fff;
 }
 .app-scope .btn-info {
@@ -133,13 +134,58 @@
     background: #0d6efd;
     color: #fff;
 }
+.app-scope .opt-btn.active {
+    box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+}
+.app-scope .lr-btn.active {
+    background: #7c4dff;
+    color: #fff;
+    border-color: #7c4dff;
+    box-shadow: 0 0 8px rgba(124, 77, 255, 0.5);
+}
 .app-scope .lbl {
-    display: inline-flex;
-    align-items: center;
-    padding: 0 .4rem;
     color: #8b949e;
-    font-size: .8rem;
+    font-size: 12px;
     white-space: nowrap;
+}
+.app-scope .notepad {
+    border: 1px solid rgba(13, 110, 253, 0.22);
+    border-radius: 10px;
+    padding: 8px;
+    background: rgba(13, 17, 23, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.app-scope .np-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.app-scope .np-keys {
+    display: flex;
+    gap: 3px;
+}
+.app-scope .np-key {
+    flex: 1;
+    height: 46px;
+    background: rgba(13, 110, 253, 0.18);
+    color: #dfe6ee;
+    border: 1px solid rgba(13, 110, 253, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 9px;
+    text-align: center;
+    line-height: 46px;
+    user-select: none;
+}
+.app-scope .np-key:hover {
+    background: rgba(13, 110, 253, 0.4);
+}
+.app-scope .np-key.off {
+    background: rgba(17, 22, 28, 0.6);
+    color: #6b7280;
+    border-color: rgba(90, 100, 110, 0.3);
 }
 .app-scope .recbox {
     border: 1px solid rgba(13, 110, 253, 0.22);
@@ -196,6 +242,71 @@
     color: #7ab3ff;
     text-align: center;
     font-family: monospace;
+}
+.app-scope .plbox {
+    border: 1px solid rgba(13, 110, 253, 0.22);
+    border-radius: 10px;
+    padding: 8px;
+    background: rgba(13, 17, 23, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.app-scope .pl-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+.app-scope .pl-head .lbl {
+    color: #8b949e;
+    padding: 0;
+}
+.app-scope .pl-head b {
+    color: #7ab3ff;
+}
+.app-scope .pl-item {
+    border: 1px solid rgba(13, 110, 253, 0.18);
+    border-radius: 8px;
+    padding: 6px;
+    background: rgba(13, 17, 23, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.app-scope .pl-item-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+.app-scope .pl-item-head b {
+    color: #7ab3ff;
+    font-family: monospace;
+}
+.app-scope .pl-item-head span {
+    color: #8b949e;
+    font-family: monospace;
+}
+.app-scope .pl-hint {
+    font-size: 11px;
+    color: #8b949e;
+    text-align: center;
+    line-height: 1.4;
+}
+.app-scope .pl-chk {
+    font-size: 12px;
+    color: #8b949e;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1 1 0;
+    white-space: nowrap;
+    padding: 6px 8px;
+    border: 1px solid rgba(13, 110, 253, 0.25);
+    border-radius: 8px;
 }
 .app-scope .slider label {
     display: flex;
@@ -438,6 +549,9 @@
     .app-scope .mutes {
         grid-template-columns: repeat(2, 1fr);
     }
+    .app-scope .np-keys {
+        flex-wrap: wrap;
+    }
 }
 @media (max-width: 1350px) and (min-width: 1001px) {
     .app-scope .workspace {
@@ -457,5 +571,8 @@
     }
     .app-scope .mutes {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .app-scope .np-keys {
+        flex-wrap: wrap;
     }
 }

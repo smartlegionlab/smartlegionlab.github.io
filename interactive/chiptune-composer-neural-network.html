@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chiptune Composer Neural Network · Smart Legion Lab</title>
-    <meta name="description" content="Interactive Chiptune Composer Neural Network by Smart Legion Lab. A from-scratch MLP (53 → 48 → 12) in pure JavaScript that composes 8-bit chiptune live, powered by a neural network and a Web Audio API engine.">
+    <meta name="description" content="Interactive Chiptune Composer Neural Network by Smart Legion Lab. A from-scratch MLP (53 → 48 → 12 + rhythm + harmony) in pure JavaScript that composes 8-bit chiptune live: New Song, Loop, Note Pad, Track Playlist, Web Audio engine.">
     <meta name="author" content="Alexander Suvorov Sr.">
     <meta name="copyright" content="Smart Legion Lab">
     <link rel="canonical" href="https://smartlegionlab.com/interactive/chiptune-composer-neural-network.html">
     <link rel="author" href="https://github.com/smartlegionlab">
     <meta property="og:title" content="Chiptune Composer Neural Network · Smart Legion Lab">
-    <meta property="og:description" content="A from-scratch MLP (53 → 48 → 12) in pure JavaScript that composes 8-bit chiptune live: melody, rhythm, bass and drums via Web Audio.">
+    <meta property="og:description" content="A from-scratch MLP (53 → 48 → 12 + rhythm + harmony) in pure JavaScript that composes 8-bit chiptune live: melody, rhythm, bass and drums via Web Audio.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://smartlegionlab.com/interactive/chiptune-composer-neural-network.html">
     <meta property="og:site_name" content="Smart Legion Lab">
@@ -29,7 +29,7 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Chiptune Composer Neural Network",
-        "description": "A from-scratch MLP (53 → 48 → 12) in pure JavaScript that composes 8-bit chiptune live in the browser.",
+        "description": "A from-scratch MLP (53 → 48 → 12 + rhythm + harmony) in pure JavaScript that composes 8-bit chiptune live in the browser.",
         "url": "https://smartlegionlab.com/interactive/chiptune-composer-neural-network.html",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -124,7 +124,7 @@
     <div class="container">
         <h1 class="text-center text-primary mb-1">Chiptune Composer <sup class="text-warning">Neural Network</sup></h1>
         <p class="text-light text-center">
-            Interactive machine learning. A from-scratch MLP (53 -&gt; 48 -&gt; 12) in pure JavaScript
+            Interactive machine learning. A from-scratch MLP (53 -&gt; 48 -&gt; 12 + rhythm + harmony) in pure JavaScript
             that composes 8-bit chiptune live with a melody, a rhythm (bass + drums) and a native Web Audio engine.
         </p>
         <hr>
@@ -133,10 +133,10 @@
         <a href="/interactive.html" class="btn btn-sm btn-outline-primary">
             <i class="bi bi-arrow-left me-1"></i> Back
         </a>
-        <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
+        <a href="https://github.com/smartlegionlab/chiptune-composer-neural-network" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
             <i class="bi bi-github me-1"></i> Repo
         </a>
-        <a href="/projects/from-scratch-neural-networks.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
+        <a href="/projects/chiptune-composer-neural-network.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline-warning">
             <i class="bi bi-box-arrow-up-right me-1"></i> Projects
         </a>
         <button type="button" class="btn btn-sm btn-outline-primary" onclick="openModal('helpModal')">
@@ -149,10 +149,27 @@
     <div class="app-scope" id="chiptuneApp">
         <div class="workspace">
             <div class="panel">
-                <h3>1. Controls & Track</h3>
+                <h3>1. Controls &amp; Track</h3>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Playback controls">
                     <button type="button" class="btn btn-primary" id="playBtn" onclick="togglePlay()">Play</button>
-                    <button type="button" class="btn btn-green" onclick="retrainNow()">Retrain</button>
+                    <button type="button" class="btn btn-info" onclick="newSong()">New Song</button>
+                    <button type="button" class="btn btn-info" onclick="retrainNow()">Retrain</button>
+                </div>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Auto key and loop">
+                    <label class="pl-chk"><input type="checkbox" id="autoKey" checked onchange="setAuto(this.checked)"> Auto key</label>
+                    <label class="pl-chk"><input type="checkbox" id="loopChk"> Loop</label>
+                </div>
+                <div class="notepad">
+                    <div class="np-head">
+                        <span class="lbl">Note Pad (teach it)</span>
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Note pad controls">
+                            <button type="button" class="rec-btn" id="npRecBtn" onclick="npRec()">Rec</button>
+                            <button type="button" class="btn btn-info" onclick="npSave()">Save Ex</button>
+                            <button type="button" class="btn btn-green" onclick="npLearn()">Learn Ex</button>
+                        </div>
+                    </div>
+                    <div class="np-keys" id="npKeys"></div>
+                    <div class="stats raw" id="npStats">examples: 0 | new: 0</div>
                 </div>
                 <div class="recbox">
                     <div class="btn-group btn-group-sm" role="group" aria-label="Recording controls">
@@ -164,6 +181,17 @@
                     <div class="rec-status" id="recStatus">Ready to record</div>
                     <div class="rec-time" id="recTime">0:00</div>
                     <div class="rec-file" id="recFile"></div>
+                </div>
+                <div class="plbox">
+                    <div class="pl-head">
+                        <span class="lbl">Track Playlist</span>
+                        <span style="display:inline-flex;align-items:center;gap:8px;">
+                            <button type="button" class="btn btn-sm btn-info" onclick="plStop()">Stop</button>
+                            <b id="plCount">0/3</b>
+                        </span>
+                    </div>
+                    <div id="plList"></div>
+                    <div class="pl-hint">Every track the composer plays is auto-saved here (max 3). Play / Pause to listen, Stop to end. The composer and the playlist mute each other automatically.</div>
                 </div>
                 <div class="slider">
                     <label>Master Volume <b id="volVal">90</b></label>
@@ -182,8 +210,8 @@
                     </select>
                 </div>
                 <div class="slider">
-                    <label>Tempo (BPM) <b id="bpmVal">80</b></label>
-                    <input type="range" id="bpmSlider" min="40" max="220" value="80" oninput="bpmVal.textContent=this.value">
+                    <label>Tempo (BPM) <b id="bpmVal">96</b></label>
+                    <input type="range" id="bpmSlider" min="40" max="220" value="96" oninput="bpmVal.textContent=this.value">
                 </div>
                 <div class="slider">
                     <label>Temperature <b id="tempVal">1.10</b></label>
@@ -194,8 +222,8 @@
                     <input type="range" id="densitySlider" min="0" max="100" value="100" oninput="densityVal.textContent=this.value">
                 </div>
                 <div class="slider">
-                    <label>Model influence <b id="modelVal">0.50</b></label>
-                    <input type="range" id="modelSlider" min="0" max="1" step="0.05" value="0.5" oninput="modelVal.textContent=Number(this.value).toFixed(2)">
+                    <label>Model influence <b id="modelVal">0.30</b></label>
+                    <input type="range" id="modelSlider" min="0" max="1" step="0.05" value="0.3" oninput="modelVal.textContent=Number(this.value).toFixed(2)">
                 </div>
                 <div class="slider">
                     <label>Echo / Delay <b id="echoVal">30</b></label>
@@ -221,16 +249,16 @@
                 <div class="bars" id="barsWrap"></div>
             </div>
             <div class="panel">
-                <h3>2. Network Brain (53 → 48 → 12)</h3>
+                <h3>2. Network Brain (53 → 48 → 12+r+h)</h3>
                 <div class="canvas-area">
                     <canvas id="netCanvas" width="640" height="540"></canvas>
                 </div>
-                <div class="stats" id="trainStats">Epoch: 0 | Loss: - | Top3: -</div>
+                <div class="stats" id="trainStats">Epoch: 0 | Loss: - | Top3: - | Harm: -</div>
                 <div class="stats raw" id="rawStats" title="Click to copy" onclick="copyStats()"></div>
-                <div class="hint">green ring follows the note being played</div>
+                <div class="hint">green ring follows the note being played (x = off scale)</div>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Training controls">
                     <button type="button" class="btn btn-primary" id="trainBtn" onclick="toggleTrain()">Start Training</button>
-                    <button type="button" class="btn btn-green" onclick="trainEpochs(120)">Fast Learn</button>
+                    <button type="button" class="btn btn-green" onclick="trainEpochs(300)">Fast Learn</button>
                     <button type="button" class="btn btn-red" onclick="resetNetwork()">Reset</button>
                 </div>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Optimizer and learning rate">
@@ -251,17 +279,19 @@
                 <div class="toast" id="toast"></div>
             </div>
             <div class="panel">
-                <h3>3. Learning Curve & Watch</h3>
+                <h3>3. Learning Curve &amp; Watch</h3>
                 <div class="canvas-area"><canvas id="lossCanvas" width="300" height="170"></canvas></div>
                 <div class="status-box" id="statusBox">
                     <div class="s-row"><span>Key</span><b id="sKey">A minor</b></div>
+                    <div class="s-row"><span>Tempo</span><b id="sTempo">-</b></div>
+                    <div class="s-row"><span>Section</span><b id="sSection">-</b></div>
                     <div class="s-row"><span>Bar / Groove</span><b id="sBar">-</b></div>
                     <div class="s-row"><span>Chord</span><b id="sChord">-</b></div>
                     <div class="s-row"><span>Lead / Bass</span><b id="sNotes">-</b></div>
                 </div>
                 <div class="canvas-area"><canvas id="distCanvas" width="300" height="120"></canvas></div>
                 <div class="stats" id="lossStats">Current: - | Best: -</div>
-                <div class="hint">loss + network output probabilities per pitch</div>
+                <div class="hint">scale degrees 1-7, x = off scale</div>
             </div>
         </div>
     </div>
@@ -274,11 +304,12 @@
                 </div>
                 <div class="modal-body">
                     <ol>
-                        <li><b class="accent">Play</b> unlocks Audio and starts live composition.</li>
+                        <li><b class="accent">Play</b> composes a whole song: intro, verses, choruses, bridge and finale. Auto key picks the tonality.</li>
+                        <li><b class="accent">New Song</b> rolls a new arrangement. <b class="accent">Loop</b> keeps going forever.</li>
+                        <li>Track Playlist: every track the composer plays is auto-saved (max 3). <b class="accent">Play / Pause</b> to listen, <b class="accent">Stop</b> to end, <b class="accent">Download</b> or <b class="accent">Delete</b>. The composer and the playlist mute each other automatically.</li>
+                        <li>Note Pad: press <b class="accent">Rec</b>, click notes to play a melody, <b class="accent">Save Ex</b> adds it to training, <b class="accent">Learn Ex</b> teaches the network your style.</li>
                         <li>Record: <b class="accent">REC</b> - <b class="accent">Stop</b> - <b class="accent">Download</b> (.wav); <b class="accent">Reset</b> clears.</li>
-                        <li><b class="accent">Master Volume</b> and <b class="accent">Mute All / Unmute All</b>; each channel has its own Mute.</li>
-                        <li>Key, Tempo (40+), Temperature, Lead Density, Model influence, Echo.</li>
-                        <li>The network picks the melody and a per-bar rhythm groove for bass + drums.</li>
+                        <li>Key, Tempo, Temperature, Lead Density, Model influence, Echo; each channel has Mute. Volume is controlled only by the Master Volume slider.</li>
                         <li><b class="accent">Copy Stats</b> / <b class="accent">Export / Import</b>.</li>
                     </ol>
                 </div>
@@ -295,16 +326,15 @@
                 <div class="modal-body">
                     <div class="ab-head">
                         <div class="ab-name">Chiptune Composer Neural Network</div>
-                        <div class="ab-ver">version 1.2.0</div>
+                        <div class="ab-ver">version 1.0.2</div>
                     </div>
-                    <p><b>Chiptune Composer Neural Network</b> is a from-scratch MLP (53 -&gt; 48 -&gt; 12 + rhythm) in pure JavaScript. No libraries, no samples.</p>
-                    <p>The network has two shared-hidden heads: it predicts the next pitch class and, per bar, one of four rhythm grooves for bass + drums. Trained by mini-batch SGD / Adam with cross-entropy, weight decay and clipping. Melody is locked to the chosen key / scale.</p>
-                    <p>An educational demo of live music generation: every note is synthesized in the browser with the Web Audio API, and the piece stays in key and follows a chord progression.</p>
-                    <p>6 channels: square lead (bright) with a dotted-eighth feedback delay + lowpass, square arpeggio, moving triangle bass, noise drums (kick / snare / hi-hat), second lead an octave down, and a sustained triangle pad. Records to 16-bit PCM .wav.</p>
+                    <p><b>Chiptune Composer Neural Network</b> is a from-scratch MLP (53 -&gt; 48 -&gt; 12 + rhythm + harmony) in pure JavaScript. No libraries, no samples.</p>
+                    <p>It learns chord progressions, rhythm grooves and melodic taste. The Note Pad lets you play examples with the mouse and teach it your style: Rec, Save Ex, Learn Ex.</p>
+                    <p>Every Play builds a structured track: intro, verses, choruses, a calm bridge and a big finale - synthesized live with the Web Audio API and recordable to 16-bit PCM .wav. Tracks you hear are auto-saved to the Track Playlist.</p>
                     <div class="ab-meta">
                         <div><b>Author:</b> Alexander Suvorov</div>
                         <div><b>License:</b> BSD 3-Clause</div>
-                        <div><b>Repository:</b> <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" target="_blank" rel="noopener">github.com/smartlegionlab/from-scratch-neural-networks</a></div>
+                        <div><b>Repository:</b> <a href="https://github.com/smartlegionlab/chiptune-composer-neural-network" target="_blank" rel="noopener">github.com/smartlegionlab/chiptune-composer-neural-network</a></div>
                     </div>
                 </div>
             </div>
