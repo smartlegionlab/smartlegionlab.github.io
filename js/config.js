@@ -648,7 +648,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Web',
             title: 'Simple Social Network',
@@ -659,7 +659,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Desktop',
             title: 'Smart Bug Tracker',
@@ -670,7 +670,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'GitHub Repos Downloader',
@@ -681,7 +681,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Mobile',
             title: 'Smart Guitar Tuner Android',
@@ -692,7 +692,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'CLI Files Manager',
@@ -703,7 +703,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'CLI ToDo Manager',
@@ -714,7 +714,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Web',
             title: 'ToDo app Web Version',
@@ -725,7 +725,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Mobile',
             title: 'Android Todo App',
@@ -736,7 +736,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Bot',
             title: 'Get SSH IP',
@@ -747,7 +747,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Mobile',
             title: 'Smart Notebook',
@@ -758,7 +758,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Mobile',
             title: 'QR Code Scanner',
@@ -769,7 +769,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'GitHub Explorer',
@@ -780,7 +780,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'GitHub Open Repos Copy Manager',
@@ -791,7 +791,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Desktop',
             title: 'Modern Calculator',
@@ -802,7 +802,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Desktop',
             title: 'Old Snake Game',
@@ -813,7 +813,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'GitHub Informer',
@@ -824,7 +824,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'CLI',
             title: 'QR Codes Generator',
@@ -1260,7 +1260,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             title: 'outputdecorator',
@@ -2415,7 +2415,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'HTML',
             langColor: '#6f42c1',
@@ -2429,7 +2429,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'HTML',
             langColor: '#6f42c1',
@@ -2442,7 +2442,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Kotlin',
             langColor: '#7F52FF',
@@ -2455,7 +2455,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Markdown',
             langColor: '#6f42c1',
@@ -2468,7 +2468,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Kotlin',
             langColor: '#7F52FF',
@@ -2481,7 +2481,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2494,7 +2494,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2507,7 +2507,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2520,7 +2520,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2533,7 +2533,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2546,7 +2546,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2559,7 +2559,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2572,7 +2572,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2585,7 +2585,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2598,7 +2598,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2611,7 +2611,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Kotlin',
             langColor: '#7F52FF',
@@ -2624,7 +2624,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2637,7 +2637,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2650,7 +2650,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2663,7 +2663,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2676,7 +2676,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Python',
             langColor: '#3572A5',
@@ -2689,7 +2689,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'HTML',
             langColor: '#6f42c1',
@@ -2702,7 +2702,7 @@ const CONFIG = {
         },
         {
             owner: 'aixandrolab',
-            author: '@aixandrolab',
+            author: 'Alexander Suvorov Jr.',
             authorLink: '/profiles/aixandrolab.html',
             lang: 'Kotlin',
             langColor: '#6f42c1',
