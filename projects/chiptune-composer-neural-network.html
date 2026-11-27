@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>from-scratch-neural-networks · Alexander Suvorov Sr.</title>
+    <meta name="description" content="from-scratch-neural-networks - Collection hub of eight real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript, each in its own standalone repository: logic gates, digit recognition, X/O, name gender classifier, live chiptune composer, RGB color name guesser, Morse decoder and a tic-tac-toe brain. No frameworks, no dependencies - train and run neural networks entirely in the browser with live visualization.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="from-scratch-neural-networks · Alexander Suvorov Sr.">
+    <meta property="og:description" content="Collection hub of eight real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. Each app lives in its own standalone repository: logic gates, digits, X/O, name gender, chiptune, RGB colors, Morse decoder and tic-tac-toe brain. No frameworks - train and run neural networks in the browser with live visualization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/from-scratch-neural-networks.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light" aria-label="View Home">Home</a>
+            <a href="/research.html" class="small text-light" aria-label="View Research">Research</a>
+            <a href="/ecosystems.html" class="small text-light" aria-label="View Ecosystems">Ecosystems</a>
+            <a href="/applications.html" class="small text-light" aria-label="View Applications">Apps</a>
+            <a href="/interactive.html" class="small text-light">Interactive</a>
+            <a href="/projects.html" class="small text-primary" aria-label="View Projects">Projects</a>
+            <a href="/libraries.html" class="small text-light" aria-label="View Libraries">Libraries</a>
+            <a href="/articles.html" class="small text-light" aria-label="View Articles">Articles</a>
+            <a href="/team.html" class="small text-light" aria-label="View About and Team">About &amp; Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research &amp; Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/interactive.html" class="menu-item"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About &amp; Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<main class="container custom-margin-top">
+
+    <div class="text-center mb-4">
+        <h1 class="text-primary">From-Scratch Neural Networks</h1>
+        <p class="text-light">Collection of real multilayer perceptrons (MLPs) implemented <span class="text-primary">from scratch in pure JavaScript</span>.</p>
+        <p class="text-light">This repository is the <strong>collection hub</strong>. Each of the eight demos now lives in its <span class="text-primary">own standalone repository</span> (own releases, issues, docs and live demo), and this page links you to all of them. No frameworks, no external libraries, no runtime dependencies - train and run a neural network entirely in the browser with live visualization.</p>
+        <hr>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a target="_blank" href="https://github.com/smartlegionlab/from-scratch-neural-networks/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a href="/interactive.html" class="btn btn-outline-secondary btn-sm">All Live Demos</a>
+            <a href="/interactive/logic-gates-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Boolean Logic</a>
+            <a href="/interactive/digit-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Digit Recognition</a>
+            <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try X / O</a>
+            <a href="/interactive/name-gender-classifier-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Name Classifier</a>
+            <a href="/interactive/chiptune-composer-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Chiptune</a>
+            <a href="/interactive/rgb-color-name-guesser-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try RGB Color</a>
+            <a href="/interactive/morse-decoder-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Morse Decoder</a>
+            <a href="/interactive/tic-tac-toe-brain-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try Tic-Tac-Toe</a>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <p class="text-light">
+                <strong>from-scratch-neural-networks</strong> - a collection of eight independent applications. Each one implements a complete training pipeline by hand: the forward pass, error backpropagation, and weight updates with gradient descent. Everything runs client-side, so no server or build step is required.
+            </p>
+            <p class="text-light">
+                Each application is maintained in its own repository and described on its own project page below. All values rendered on screen correspond to the actual state of the network - the demos show, in real time, how a small network reorganizes its weights to solve a specific problem.
+            </p>
+            <p class="text-light small">
+                <i class="bi bi-box-arrow-up-right text-primary me-1"></i>Standalone repositories:
+                <a class="text-primary" href="/projects/logic-gates-neural-network.html">Boolean Logic</a> ·
+                <a class="text-primary" href="/projects/digit-recognition-neural-network.html">Digits</a> ·
+                <a class="text-primary" href="/projects/x-o-recognition-neural-network.html">X / O</a> ·
+                <a class="text-primary" href="/projects/name-gender-classifier-neural-network.html">Name Gender</a> ·
+                <a class="text-primary" href="/projects/chiptune-composer-neural-network.html">Chiptune</a> ·
+                <a class="text-primary" href="/projects/rgb-color-name-guesser-neural-network.html">RGB Color</a> ·
+                <a class="text-primary" href="/projects/morse-decoder-neural-network.html">Morse</a> ·
+                <a class="text-primary" href="/projects/tic-tac-toe-brain-neural-network.html">Tic-Tac-Toe</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="text-center mb-3"><h5 class="text-primary mb-0"><i class="bi bi-grid me-2"></i>Applications</h5></div>
+            <div class="table-responsive">
+                <table class="table table-dark table-sm">
+                    <thead>
+                        <tr><th>#</th><th>App</th><th>Network</th><th>Learns</th><th>Page</th><th>Demo</th><th>Repo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Boolean-Logic Neural Network</td><td><code>2 → 3 → 1</code></td><td>XOR / AND / OR / NAND / XNOR</td><td><a href="/projects/logic-gates-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/logic-gates-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/logic-gates-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>2</td><td>Handwritten-Digit Recognition</td><td><code>144 → 24 → 10</code></td><td>Handwritten digits 0-9</td><td><a href="/projects/digit-recognition-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/digit-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/digit-recognition-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>3</td><td>X / O Shape Recognition</td><td><code>64 → 12 → 2</code></td><td>The letters X and O</td><td><a href="/projects/x-o-recognition-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/x-o-recognition-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/x-o-recognition-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>4</td><td>Name Gender Classifier</td><td><code>2,746 → 48 → 1</code></td><td>Gender from RU/EN names</td><td><a href="/projects/name-gender-classifier-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/name-gender-classifier-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/name-gender-classifier-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>5</td><td>Chiptune Composer</td><td><code>53 → 48 → 12 + r</code></td><td>Compose 8-bit chiptune live</td><td><a href="/projects/chiptune-composer-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/chiptune-composer-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/chiptune-composer-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>6</td><td>RGB Color Name Guesser</td><td><code>3 → 24 → 12</code></td><td>Names any RGB color</td><td><a href="/projects/rgb-color-name-guesser-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/rgb-color-name-guesser-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/rgb-color-name-guesser-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>7</td><td>Morse Decoder</td><td><code>10 → 16 → 36</code></td><td>Morse code A-Z and 0-9</td><td><a href="/projects/morse-decoder-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/morse-decoder-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/morse-decoder-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                        <tr><td>8</td><td>Tic-Tac-Toe Brain</td><td><code>27 → 48 → 32 → 9</code></td><td>Perfect Tic-Tac-Toe play</td><td><a href="/projects/tic-tac-toe-brain-neural-network.html" class="text-primary">page</a></td><td><a href="/interactive/tic-tac-toe-brain-neural-network.html" class="text-primary" target="_blank">try it</a></td><td><a href="https://github.com/smartlegionlab/tic-tac-toe-brain-neural-network" class="text-primary" target="_blank">repo</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-light small mt-2">Live demos live under <code>/interactive/</code>; the index of all demonstrations is at <a href="/interactive.html" class="text-primary">interactive.html</a>.</p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="row g-2 justify-content-center">
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/index.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/index.png" class="img-fluid rounded mx-auto d-block" alt="Main Page - gallery index.html" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/digit-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Handwritten-Digit Recognition Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/logic-gates-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Boolean-Logic Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/name-gender-classifier-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Name Gender Classifier Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/x-o-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="X / O Shape Recognition Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/rgb-color-name-guesser-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/rgb-color-name-guesser-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="RGB Color Name Guesser Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/morse-decoder-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/morse-decoder-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Morse Decoder Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/tic-tac-toe-brain-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/tic-tac-toe-brain-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Tic-Tac-Toe Brain Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/from-scratch-neural-networks/master/data/images/chiptune-composer-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Chiptune Composer Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                    <i class="bi bi-list-check me-2 text-primary"></i> Features
+                </button>
+            </h2>
+            <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Networks trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD; the Boolean, Chiptune, RGB Color, Morse and Tic-Tac-Toe apps also offer Adam as an optimizer)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw, type, flip values, press a telegraph key, play a board game, and watch predictions update live</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - neurons rendered as pulsing orbs whose brightness reflects activation; synapse lines show weight sign and magnitude; loss graphs and decision maps reflect real training dynamics</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Policy learning</strong> - the Tic-Tac-Toe app (27 → 48 → 32 → 9) learns a perfect policy from every reachable position labeled by a minimax teacher and never loses</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Multi-head output</strong> - the Chiptune app predicts both the next pitch class and a per-bar rhythm groove</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Audio</strong> - a native Web Audio API engine (no samples) for chiptune with WAV recording, and synthesized telegraph key sounds (dit, dah, key click) for the Morse app</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Debug console</strong> - the Tic-Tac-Toe app logs live training diagnostics and every move with its top-3 candidates, with one-click copy</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Auto-stop at the learning target</strong> - the Boolean, RGB Color, Morse and Tic-Tac-Toe apps freeze the weights the moment training reaches the target</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - every app can export its trained weights to a JSON file and import them back</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - the interfaces adapt for desktop, tablet, and mobile, including touch drawing</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Built-in Help and About dialogs</strong> - in every application</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGettingStarted" aria-expanded="false">
+                    <i class="bi bi-rocket-takeoff me-2 text-primary"></i> Getting Started
+                </button>
+            </h2>
+            <div id="collapseGettingStarted" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light">Each of the eight applications is now maintained in its <strong>own standalone repository</strong> listed in the Applications table above. To run any of them, clone that repository and serve its folder over HTTP:</p>
+                    <pre class="text-light small" style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">
+git clone https://github.com/smartlegionlab/&lt;repo-name&gt;.git
+cd &lt;repo-name&gt;
+python -m http.server 8000</pre>
+                    <p class="text-light small">then open <code>http://localhost:8000</code>. Each app is split into an HTML file, a stylesheet (<code>css/</code>) and a script (<code>js/</code>), so <strong>opening the HTML file directly by double-click will not work</strong> - you must serve the folder over HTTP. Any static server works, for example <code>npx serve</code>, or a GitHub Pages deployment.</p>
+                    <p class="text-light small mt-2">No build step, no package manager, and no internet connection is required - everything runs 100% client-side once served.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLicense" aria-expanded="false">
+                    <i class="bi bi-award me-2 text-primary"></i> License
+                </button>
+            </h2>
+            <div id="collapseLicense" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">This project is licensed under the <strong>BSD 3-Clause License</strong> - see <a href="https://github.com/smartlegionlab/from-scratch-neural-networks/blob/master/LICENSE" class="text-primary" target="_blank">LICENSE</a>.</p>
+                    <p class="text-light small"><strong>Author:</strong> <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a></p>
+                    <p class="text-light small"><strong>Collection:</strong> <a href="https://github.com/smartlegionlab/from-scratch-neural-networks" class="text-primary" target="_blank">github.com/smartlegionlab/from-scratch-neural-networks</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="text-center">
+                <h5 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Author</h5>
+                <hr>
+                <p class="text-light">
+                    <i class="bi bi-person-circle text-primary"></i> Created by
+                    <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.1</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="smart-console-toggle" aria-label="Toggle console">
+    <i class="bi bi-terminal" aria-hidden="true"></i>
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>

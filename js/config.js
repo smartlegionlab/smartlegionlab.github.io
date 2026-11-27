@@ -32,7 +32,33 @@ const CONFIG = {
                 { title: 'Position-Candidate-Hypothesis Paradigm', href: '/articles/position-candidate-hypothesis-paradigm-article.html', desc: 'Structural-statistical approach to NP-complete' }
             ],
             applications: [
-                { title: 'From Scratch Neural Networks', href: '/projects/from-scratch-neural-networks.html', desc: 'A collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no external libraries, no runtime dependencies. Each app is a self-contained single HTML file that trains and runs a neural network entirely in the browser, with live visualization of the learning process.' },
+                {
+                    title: 'From Scratch Neural Networks', href: '/projects/from-scratch-neural-networks.html', desc: 'A collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no external libraries, no runtime dependencies. Each app is a self-contained single HTML file that trains and runs a neural network entirely in the browser, with live visualization of the learning process.'
+                },
+                {
+                    title: 'Boolean-Logic Neural Network', href: '/projects/logic-gates-neural-network.html', desc: 'A 2 → 3 → 1 network from scratch that learns XOR / AND / OR / NAND / XNOR live in the browser, with a decision map and auto-stop at 4/4 correct.'
+                },
+                {
+                    title: 'Handwritten-Digit Recognition', href: '/projects/digit-recognition-neural-network.html', desc: 'A 144 → 24 → 10 network from scratch that recognizes handwritten digits 0-9 on a 12×12 grid, with hand-style auto-gen and live accuracy.'
+                },
+                {
+                    title: 'X / O Shape Recognition', href: '/projects/x-o-recognition-neural-network.html', desc: 'A 64 → 12 → 2 network from scratch that learns to distinguish the letters X and O drawn on an 8×8 grid, with live predictions and confidence.'
+                },
+                {
+                    title: 'Name Gender Classifier', href: '/projects/name-gender-classifier-neural-network.html', desc: 'A 2,746 → 48 → 1 network from scratch that guesses gender from Russian, English or transliterated names using sparse features over a 27-letter alphabet.'
+                },
+                {
+                    title: 'Chiptune Composer Neural Network', href: '/projects/chiptune-composer-neural-network.html', desc: 'A 53 → 48 → 12 + rhythm network from scratch that composes 8-bit chiptune live on a native Web Audio engine, with WAV recording.'
+                },
+                {
+                    title: 'RGB Color Name Guesser', href: '/projects/rgb-color-name-guesser-neural-network.html', desc: 'A 3 → 12-output network from scratch that learns to name any RGB color across 12 classes, trained to ~100% with live confidence bars.'
+                },
+                {
+                    title: 'Morse Decoder Neural Network', href: '/projects/morse-decoder-neural-network.html', desc: 'A 10 → 16 → 36 network from scratch that learns the International Morse code (A-Z and 0-9) and decodes key presses live with Web Audio sound.'
+                },
+                {
+                    title: 'Tic-Tac-Toe Brain', href: '/projects/tic-tac-toe-brain-neural-network.html', desc: 'A 27 → 48 → 32 → 9 policy network from scratch that learns a perfect Tic-Tac-Toe policy from every reachable position labeled by minimax, and never loses.'
+                },
                 { title: 'Smart Password Manager CLI (Rust)', href: '/projects/smart-password-manager-cli-rs.html', desc: 'Command line interface for smart password management built on smartpasslib. Generate deterministic passwords from secret phrases without storing them. No cloud, no database, no trust required.' },
                 { title: 'Smart Password Manager TUI (Rust)', href: '/projects/smart-password-manager-tui-rs.html', desc: 'A terminal user interface for smart password management built on smartpasslib. Generate deterministic passwords from secret phrases without storing them. No cloud, no database, no trust required.' },
                 { title: 'Smart 2FA Manager TUI', href: '/projects/smart-2fa-manager-tui-rs.html', desc: 'Offline, independent TOTP 2FA manager for Linux with a full-screen terminal interface.' },
@@ -70,7 +96,33 @@ const CONFIG = {
                 { title: 'Todo App Telegram Bot', href: '/projects/todo-app-tg-bot.html', desc: 'Task management via Telegram' }
             ],
             projects: [
-                { title: 'from-scratch-neural-networks', href: '/projects/from-scratch-neural-networks.html', desc: 'A collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript.' },
+                {
+                    title: 'from-scratch-neural-networks', href: '/projects/from-scratch-neural-networks.html', desc: 'A collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript.'
+                },
+                {
+                    title: 'logic-gates-neural-network', href: '/projects/logic-gates-neural-network.html', desc: 'A 2 → 3 → 1 MLP from scratch that learns XOR / AND / OR / NAND / XNOR live in the browser.'
+                },
+                {
+                    title: 'digit-recognition-neural-network', href: '/projects/digit-recognition-neural-network.html', desc: 'A 144 → 24 → 10 MLP from scratch that recognizes handwritten digits 0-9 on a 12×12 grid.'
+                },
+                {
+                    title: 'x-o-recognition-neural-network', href: '/projects/x-o-recognition-neural-network.html', desc: 'A 64 → 12 → 2 MLP from scratch that distinguishes the letters X and O drawn on an 8×8 grid.'
+                },
+                {
+                    title: 'name-gender-classifier-neural-network', href: '/projects/name-gender-classifier-neural-network.html', desc: 'A 2,746 → 48 → 1 MLP from scratch that guesses gender from Russian, English or transliterated names.'
+                },
+                {
+                    title: 'chiptune-composer-neural-network', href: '/projects/chiptune-composer-neural-network.html', desc: 'A 53 → 48 → 12 + rhythm MLP from scratch that composes 8-bit chiptune live.'
+                },
+                {
+                    title: 'rgb-color-name-guesser-neural-network', href: '/projects/rgb-color-name-guesser-neural-network.html', desc: 'A 3 → 12-output MLP from scratch that names any RGB color across 12 classes.'
+                },
+                {
+                    title: 'morse-decoder-neural-network', href: '/projects/morse-decoder-neural-network.html', desc: 'A 10 → 16 → 36 MLP from scratch that decodes Morse code A-Z and 0-9 live.'
+                },
+                {
+                    title: 'tic-tac-toe-brain-neural-network', href: '/projects/tic-tac-toe-brain-neural-network.html', desc: 'A 27 → 48 → 32 → 9 policy network from scratch that never loses at Tic-Tac-Toe.'
+                },
                 { title: 'smart-password-manager-cli-rs', href: '/projects/smart-password-manager-cli-rs.html', desc: 'Command line interface for smart password management built on smartpasslib. Generate deterministic passwords from secret phrases without storing them. No cloud, no database, no trust required.' },
                 { title: 'smart-password-manager-tui-rs', href: '/projects/smart-password-manager-tui-rs.html', desc: 'A terminal user interface for smart password management built on smartpasslib. Generate deterministic passwords from secret phrases without storing them. No cloud, no database, no trust required.' },
                 { title: 'smart-2fa-manager-tui-rs', href: '/projects/smart-2fa-manager-tui-rs.html', desc: 'Offline, independent TOTP 2FA manager for Linux with a full-screen terminal interface.' },
@@ -194,17 +246,105 @@ const CONFIG = {
         }
     },
         APPLICATIONS: [
-        {
-            owner: 'smartlegionlab',
-            author: 'Alexander Suvorov Sr.',
-            authorLink: '/profiles/smartlegionlab.html',
-            lang: 'Web',
-            title: 'From Scratch Neural Networks',
-            description: 'A collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no external libraries, no runtime dependencies. Each app is a self-contained single HTML file that trains and runs a neural network entirely in the browser, with live visualization of the learning process.',
-            tags: ['neural-networks', 'machine-learning', 'js'],
-            viewLink: '/projects/from-scratch-neural-networks.html',
-            github: 'https://github.com/smartlegionlab/from-scratch-neural-networks'
-        },
+            {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'From Scratch Neural Networks',
+        description: 'A collection of real multilayer perceptrons (MLPs) implemented from scratch in pure JavaScript. No frameworks, no external libraries, no runtime dependencies. Each app is a self-contained single HTML file that trains and runs a neural network entirely in the browser, with live visualization of the learning process.',
+        tags: ['neural-networks', 'machine-learning', 'js'],
+        viewLink: '/projects/from-scratch-neural-networks.html',
+        github: 'https://github.com/smartlegionlab/from-scratch-neural-networks'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'Boolean-Logic Neural Network',
+        description: 'A 2 → 3 → 1 network from scratch that learns XOR / AND / OR / NAND / XNOR live in the browser, with a decision map and auto-stop at 4/4 correct.',
+        tags: ['neural-networks', 'machine-learning', 'logic-gates'],
+        viewLink: '/projects/logic-gates-neural-network.html',
+        github: 'https://github.com/smartlegionlab/logic-gates-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'Handwritten-Digit Recognition',
+        description: 'A 144 → 24 → 10 network from scratch that recognizes handwritten digits 0-9 on a 12×12 grid, with hand-style auto-gen and live accuracy.',
+        tags: ['neural-networks', 'machine-learning', 'digit-recognition'],
+        viewLink: '/projects/digit-recognition-neural-network.html',
+        github: 'https://github.com/smartlegionlab/digit-recognition-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'X / O Shape Recognition',
+        description: 'A 64 → 12 → 2 network from scratch that learns to distinguish the letters X and O drawn on an 8×8 grid, with live predictions and confidence.',
+        tags: ['neural-networks', 'machine-learning', 'shape-recognition'],
+        viewLink: '/projects/x-o-recognition-neural-network.html',
+        github: 'https://github.com/smartlegionlab/x-o-recognition-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'Name Gender Classifier',
+        description: 'A 2,746 → 48 → 1 network from scratch that guesses gender from Russian, English or transliterated names using sparse features over a 27-letter alphabet.',
+        tags: ['neural-networks', 'machine-learning', 'nlp'],
+        viewLink: '/projects/name-gender-classifier-neural-network.html',
+        github: 'https://github.com/smartlegionlab/name-gender-classifier-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'Chiptune Composer Neural Network',
+        description: 'A 53 → 48 → 12 + rhythm network from scratch that composes 8-bit chiptune live on a native Web Audio engine, with WAV recording.',
+        tags: ['neural-networks', 'machine-learning', 'music-generation'],
+        viewLink: '/projects/chiptune-composer-neural-network.html',
+        github: 'https://github.com/smartlegionlab/chiptune-composer-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'RGB Color Name Guesser',
+        description: 'A 3 → 12-output network from scratch that learns to name any RGB color across 12 classes, trained to ~100% with live confidence bars.',
+        tags: ['neural-networks', 'machine-learning', 'color-recognition'],
+        viewLink: '/projects/rgb-color-name-guesser-neural-network.html',
+        github: 'https://github.com/smartlegionlab/rgb-color-name-guesser-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'Morse Decoder Neural Network',
+        description: 'A 10 → 16 → 36 network from scratch that learns the International Morse code (A-Z and 0-9) and decodes key presses live with Web Audio sound.',
+        tags: ['neural-networks', 'machine-learning', 'morse-code'],
+        viewLink: '/projects/morse-decoder-neural-network.html',
+        github: 'https://github.com/smartlegionlab/morse-decoder-neural-network'
+    },
+    {
+        owner: 'smartlegionlab',
+        author: 'Alexander Suvorov Sr.',
+        authorLink: '/profiles/smartlegionlab.html',
+        lang: 'Web',
+        title: 'Tic-Tac-Toe Brain',
+        description: 'A 27 → 48 → 32 → 9 policy network from scratch that learns a perfect Tic-Tac-Toe policy from every reachable position labeled by minimax, and never loses.',
+        tags: ['neural-networks', 'machine-learning', 'game-ai'],
+        viewLink: '/projects/tic-tac-toe-brain-neural-network.html',
+        github: 'https://github.com/smartlegionlab/tic-tac-toe-brain-neural-network'
+    },
         {
             owner: 'smartlegionlab',
             author: 'Alexander Suvorov Sr.',
@@ -1273,7 +1413,7 @@ const CONFIG = {
     ],
 
         PROJECTS: [
-        {
+                {
             owner: 'smartlegionlab',
             author: 'Alexander Suvorov Sr.',
             authorLink: '/profiles/smartlegionlab.html',
@@ -1285,6 +1425,110 @@ const CONFIG = {
             tags: ['neural-networks', 'machine-learning', 'web'],
             viewLink: '/projects/from-scratch-neural-networks.html',
             github: 'https://github.com/smartlegionlab/from-scratch-neural-networks'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'logic-gates-neural-network',
+            description: 'A 2 → 3 → 1 multilayer perceptron from scratch in pure JavaScript that learns classic logic gates XOR / AND / OR / NAND / XNOR live, with a decision map and auto-stop at 4/4 correct.',
+            tags: ['neural-networks', 'machine-learning', 'logic-gates'],
+            viewLink: '/projects/logic-gates-neural-network.html',
+            github: 'https://github.com/smartlegionlab/logic-gates-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'digit-recognition-neural-network',
+            description: 'A 144 → 24 → 10 multilayer perceptron from scratch in pure JavaScript that recognizes handwritten digits 0-9 on a 12×12 grid, with hand-style auto-gen and exact MSE backpropagation.',
+            tags: ['neural-networks', 'machine-learning', 'digit-recognition'],
+            viewLink: '/projects/digit-recognition-neural-network.html',
+            github: 'https://github.com/smartlegionlab/digit-recognition-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'x-o-recognition-neural-network',
+            description: 'A minimal 64 → 12 → 2 dense network from scratch in pure JavaScript that learns to distinguish the letters X and O drawn on an 8×8 grid, with live predictions and confidence.',
+            tags: ['neural-networks', 'machine-learning', 'shape-recognition'],
+            viewLink: '/projects/x-o-recognition-neural-network.html',
+            github: 'https://github.com/smartlegionlab/x-o-recognition-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'name-gender-classifier-neural-network',
+            description: 'A 2,746 → 48 → 1 multilayer perceptron from scratch in pure JavaScript that guesses gender from Russian, English or transliterated names using sparse features over a 27-letter alphabet.',
+            tags: ['neural-networks', 'machine-learning', 'nlp'],
+            viewLink: '/projects/name-gender-classifier-neural-network.html',
+            github: 'https://github.com/smartlegionlab/name-gender-classifier-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'chiptune-composer-neural-network',
+            description: 'A 53 → 48 → 12 + rhythm multilayer perceptron from scratch in pure JavaScript that composes 8-bit chiptune live on a native Web Audio engine, with WAV recording and per-channel mutes.',
+            tags: ['neural-networks', 'machine-learning', 'music-generation'],
+            viewLink: '/projects/chiptune-composer-neural-network.html',
+            github: 'https://github.com/smartlegionlab/chiptune-composer-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'rgb-color-name-guesser-neural-network',
+            description: 'A 3 → 12-output multilayer perceptron from scratch in pure JavaScript that learns to name any RGB color across 12 classes, trained to ~100% with live confidence bars.',
+            tags: ['neural-networks', 'machine-learning', 'color-recognition'],
+            viewLink: '/projects/rgb-color-name-guesser-neural-network.html',
+            github: 'https://github.com/smartlegionlab/rgb-color-name-guesser-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'morse-decoder-neural-network',
+            description: 'A 10 → 16 → 36 multilayer perceptron from scratch in pure JavaScript that learns the International Morse code (A-Z and 0-9) and decodes key presses live with Web Audio sound.',
+            tags: ['neural-networks', 'machine-learning', 'morse-code'],
+            viewLink: '/projects/morse-decoder-neural-network.html',
+            github: 'https://github.com/smartlegionlab/morse-decoder-neural-network'
+        },
+        {
+            owner: 'smartlegionlab',
+            author: 'Alexander Suvorov Sr.',
+            authorLink: '/profiles/smartlegionlab.html',
+            lang: 'JS',
+            langColor: '#3572A5',
+            langDark: false,
+            title: 'tic-tac-toe-brain-neural-network',
+            description: 'A 27 → 48 → 32 → 9 policy network from scratch in pure JavaScript that learns a perfect Tic-Tac-Toe policy from every reachable position labeled by minimax, and never loses.',
+            tags: ['neural-networks', 'machine-learning', 'game-ai'],
+            viewLink: '/projects/tic-tac-toe-brain-neural-network.html',
+            github: 'https://github.com/smartlegionlab/tic-tac-toe-brain-neural-network'
         },
         {
             owner: 'smartlegionlab',

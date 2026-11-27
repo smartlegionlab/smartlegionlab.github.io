@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>morse-decoder-neural-network · Alexander Suvorov Sr.</title>
+    <meta name="description" content="morse-decoder-neural-network - A 10 → 16 → 36 multilayer perceptron from scratch in pure JavaScript that learns the International Morse code (A-Z and 0-9) and decodes key presses live with Web Audio sound.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/morse-decoder-neural-network.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="morse-decoder-neural-network · Alexander Suvorov Sr.">
+    <meta property="og:description" content="A 10 → 16 → 36 multilayer perceptron from scratch in pure JavaScript that learns the International Morse code (A-Z and 0-9) and decodes key presses live with Web Audio sound.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/morse-decoder-neural-network.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light" aria-label="View Home">Home</a>
+            <a href="/research.html" class="small text-light" aria-label="View Research">Research</a>
+            <a href="/ecosystems.html" class="small text-light" aria-label="View Ecosystems">Ecosystems</a>
+            <a href="/applications.html" class="small text-light" aria-label="View Applications">Apps</a>
+            <a href="/interactive.html" class="small text-light">Interactive</a>
+            <a href="/projects.html" class="small text-primary" aria-label="View Projects">Projects</a>
+            <a href="/libraries.html" class="small text-light" aria-label="View Libraries">Libraries</a>
+            <a href="/articles.html" class="small text-light" aria-label="View Articles">Articles</a>
+            <a href="/team.html" class="small text-light" aria-label="View About and Team">About &amp; Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research &amp; Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/interactive.html" class="menu-item"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About &amp; Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<main class="container custom-margin-top">
+
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Morse Decoder Neural Network</h1>
+        <p class="text-light"><span class="text-primary">10 → 16 → 36</span> · Morse code A-Z and 0-9</p>
+        <p class="text-light">A real multilayer perceptron written <span class="text-primary">from scratch in pure JavaScript</span> that learns the complete International Morse code and decodes your telegraph key presses live, with realistic dit and dah sounds synthesized by the Web Audio API.</p>
+        <hr>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a target="_blank" href="https://github.com/smartlegionlab/morse-decoder-neural-network" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a target="_blank" href="https://github.com/smartlegionlab/morse-decoder-neural-network/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a href="/interactive/morse-decoder-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try it live <i class="bi bi-play-fill ms-1"></i></a>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <p class="text-light">
+                <strong>morse-decoder-neural-network</strong> - a standalone application that implements the full training pipeline by hand: forward pass, error backpropagation, weight updates with gradient descent. Once trained to ~100%, the brain answers live for any dot-dash sequence of up to 5 symbols.
+            </p>
+            <p class="text-light">
+                Every key press sounds like a real telegraph key: dit, dah and a mechanical click are generated natively in the browser, no samples needed.
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="row g-2 justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/morse-decoder-neural-network/master/data/images/morse-decoder-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/morse-decoder-neural-network/master/data/images/morse-decoder-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="Morse Decoder Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                    <i class="bi bi-list-check me-2 text-primary"></i> Features
+                </button>
+            </h2>
+            <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Network trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, mini-batch SGD / Adam)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Complete Morse table</strong> - 36 symbols (A-Z and 0-9), encoded with blank padding; answers live for any sequence of up to 5 symbols</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live decoding</strong> - press dot / dash and watch the network guess the letter, with the top-3 candidates shown</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Realistic sound</strong> - a native Web Audio engine synthesizes dit, dah and the mechanical key click; no samples</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Word building</strong> - Space commits a letter, X deletes the last symbol, C clears everything</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live visualization</strong> - neuron orbs, weight synapses, and the full Morse reference table rendered on screen</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - export / import the trained brain as a JSON file</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - 3-column panels on desktop/landscape, single column in portrait</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHow" aria-expanded="false">
+                    <i class="bi bi-play-circle me-2 text-primary"></i> How to Use
+                </button>
+            </h2>
+            <div id="collapseHow" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <ol class="text-light small">
+                        <li class="mb-1">Press the big <strong>dot .</strong> and <strong>dash -</strong> keys (or keyboard <strong>A</strong> / <strong>S</strong>) - each press sounds like a real telegraph key.</li>
+                        <li class="mb-1">The network guesses the letter live, with the top 3 candidates in panel 3.</li>
+                        <li class="mb-1">Press <strong>Space</strong> (or the space bar) to commit the current code into the decoded word.</li>
+                        <li class="mb-1"><strong>X</strong> deletes the last symbol, <strong>C</strong> clears everything.</li>
+                        <li class="mb-1">Press <strong>Fast Learn</strong> - the net memorizes all 36 Morse codes to 100% and stops.</li>
+                        <li class="mb-1"><strong>Export / Import</strong> saves and loads the trained brain as a JSON file.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArch" aria-expanded="false">
+                    <i class="bi bi-diagram-3 me-2 text-primary"></i> Architecture
+                </button>
+            </h2>
+            <div id="collapseArch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">10 inputs (5 Morse slots, each encoded as a dot/dash pair) → 16 sigmoid hidden neurons → 36 softmax outputs (A-Z and 0-9). Loss is cross-entropy with softmax, trained by mini-batch SGD with momentum (default) or Adam, stopping automatically at 100%. The dataset is the complete International Morse table, so the network answers live for any dot-dash sequence of up to 5 symbols.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLicense" aria-expanded="false">
+                    <i class="bi bi-award me-2 text-primary"></i> License
+                </button>
+            </h2>
+            <div id="collapseLicense" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">Licensed under the <strong>BSD 3-Clause License</strong> - see <a href="https://github.com/smartlegionlab/morse-decoder-neural-network/blob/master/LICENSE" class="text-primary" target="_blank">LICENSE</a>.</p>
+                    <p class="text-light small"><strong>Author:</strong> <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a></p>
+                    <p class="text-light small"><strong>Repository:</strong> <a href="https://github.com/smartlegionlab/morse-decoder-neural-network" class="text-primary" target="_blank">github.com/smartlegionlab/morse-decoder-neural-network</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="text-center">
+                <h5 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Author</h5>
+                <hr>
+                <p class="text-light">
+                    <i class="bi bi-person-circle text-primary"></i> Created by
+                    <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.1</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="smart-console-toggle" aria-label="Toggle console">
+    <i class="bi bi-terminal" aria-hidden="true"></i>
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>

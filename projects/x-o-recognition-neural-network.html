@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-o-recognition-neural-network · Alexander Suvorov Sr.</title>
+    <meta name="description" content="x-o-recognition-neural-network - A minimal 64 → 12 → 2 dense network from scratch in pure JavaScript that learns to distinguish the letters X and O drawn on an 8×8 grid, with live predictions and confidence.">
+    <meta name="author" content="Alexander Suvorov Sr.">
+    <link rel="canonical" href="https://smartlegionlab.com/projects/x-o-recognition-neural-network.html">
+    <link rel="author" href="https://github.com/smartlegionlab">
+    <meta property="og:title" content="x-o-recognition-neural-network · Alexander Suvorov Sr.">
+    <meta property="og:description" content="A minimal 64 → 12 → 2 dense network from scratch in pure JavaScript that learns to distinguish the letters X and O drawn on an 8×8 grid, with live predictions and confidence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartlegionlab.com/projects/x-o-recognition-neural-network.html">
+    <meta property="og:site_name" content="Smart Legion Lab · Projects">
+    <meta name="theme-color" content="#0d1117">
+    <link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap/bootstrap_icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/site.webmanifest?v=5">
+</head>
+<body>
+
+<nav class="fixed-top-nav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle navigation menu">
+                <i class="bi bi-list" aria-hidden="true"></i>
+            </button>
+            <a href="/" class="nav-logo">
+                <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+                <span class="logo-text">Smart Legion Lab</span>
+            </a>
+        </div>
+        <div class="d-none d-lg-flex gap-3 mx-auto main-links">
+            <a href="/" class="small text-light" aria-label="View Home">Home</a>
+            <a href="/research.html" class="small text-light" aria-label="View Research">Research</a>
+            <a href="/ecosystems.html" class="small text-light" aria-label="View Ecosystems">Ecosystems</a>
+            <a href="/applications.html" class="small text-light" aria-label="View Applications">Apps</a>
+            <a href="/interactive.html" class="small text-light">Interactive</a>
+            <a href="/projects.html" class="small text-primary" aria-label="View Projects">Projects</a>
+            <a href="/libraries.html" class="small text-light" aria-label="View Libraries">Libraries</a>
+            <a href="/articles.html" class="small text-light" aria-label="View Articles">Articles</a>
+            <a href="/team.html" class="small text-light" aria-label="View About and Team">About &amp; Team</a>
+        </div>
+    </div>
+    <div class="nav-progress">
+        <div class="nav-progress-bar"></div>
+        <div class="nav-progress-ball">0%</div>
+    </div>
+</nav>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="boot-sidebar" id="bootSidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div class="sidebar-header">
+        <a href="/" class="nav-logo">
+            <img alt="logo" src="/android-chrome-192x192.png" style="width: 36px">
+            <span class="logo-text">Smart Legion Lab</span>
+        </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="/" class="menu-item"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/research.html" class="menu-item"><i class="bi bi-mortarboard"></i><span>Research &amp; Publications</span></a>
+        <a href="/ecosystems.html" class="menu-item"><i class="bi bi-diagram-3"></i><span>Ecosystems</span></a>
+        <a href="/applications.html" class="menu-item"><i class="bi bi-grid-3x3-gap-fill"></i><span>Applications</span></a>
+        <a href="/interactive.html" class="menu-item"><i class="bi bi-cpu"></i><span>Interactive</span></a>
+        <a href="/projects.html" class="menu-item active"><i class="bi bi-code-slash"></i><span>Projects</span></a>
+        <a href="/libraries.html" class="menu-item"><i class="bi bi-box-seam"></i><span>Libraries</span></a>
+        <a href="/articles.html" class="menu-item"><i class="bi bi-newspaper"></i><span>Articles</span></a>
+        <a href="/team.html" class="menu-item"><i class="bi bi-people"></i><span>About &amp; Team</span></a>
+    </div>
+    <div class="sidebar-footer">
+        <p>© <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a></p>
+    </div>
+</div>
+
+<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></button>
+
+<main class="container custom-margin-top">
+
+    <div class="text-center mb-4">
+        <h1 class="text-primary">X / O Shape Recognition</h1>
+        <p class="text-light"><span class="text-primary">64 → 12 → 2</span> · the letters X and O</p>
+        <p class="text-light">A minimal dense network written <span class="text-primary">from scratch in pure JavaScript</span> that learns to distinguish the letters <span class="text-primary">X</span> and <span class="text-primary">O</span> drawn on an 8×8 grid. A clear starting point for understanding image-style classification with a plain dense network.</p>
+        <hr>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a target="_blank" href="https://github.com/smartlegionlab/x-o-recognition-neural-network" class="btn btn-outline-primary btn-sm">GitHub <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a target="_blank" href="https://github.com/smartlegionlab/x-o-recognition-neural-network/blob/master/LICENSE" class="btn btn-outline-success btn-sm">License <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            <a href="/interactive/x-o-recognition-neural-network.html" target="_blank" class="btn btn-outline-warning btn-sm">Try it live <i class="bi bi-play-fill ms-1"></i></a>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <p class="text-light">
+                <strong>x-o-recognition-neural-network</strong> - a standalone application that implements the full training pipeline by hand: forward pass, error backpropagation, weight updates with gradient descent. Draw letters on an 8×8 grid, teach the network with a few samples per letter, and watch it reorganize its weights until it recognizes your handwriting.
+            </p>
+            <p class="text-light">
+                Everything rendered on screen corresponds to the actual state of the network: neuron brightness = activation, line thickness = weight magnitude, the loss graph = the true error decreasing as weights update.
+            </p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="row g-2 justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <a href="https://raw.githubusercontent.com/smartlegionlab/x-o-recognition-neural-network/master/data/images/x-o-recognition-neural-network.png" target="_blank" class="d-block">
+                        <img src="https://raw.githubusercontent.com/smartlegionlab/x-o-recognition-neural-network/master/data/images/x-o-recognition-neural-network.png" class="img-fluid rounded mx-auto d-block" alt="X / O Shape Recognition Neural Network" referrerpolicy="no-referrer">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion accordion-flush mb-4" id="featuresAccordion">
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeatures" aria-expanded="false">
+                    <i class="bi bi-list-check me-2 text-primary"></i> Features
+                </button>
+            </h2>
+            <div id="collapseFeatures" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <ul class="list-unstyled">
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Network trained from scratch</strong> - plain JavaScript (sigmoid activation, backpropagation, gradient descent)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>64 → 12 → 2 architecture</strong> - one input per grid cell, 12 hidden neurons, 2 outputs (X and O)</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Interactive input</strong> - draw with mouse or finger; + This is X / + This is O add samples and clear the grid automatically</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Live prediction</strong> - every stroke triggers an instant guess with a confidence percentage</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Scale-aware rendering</strong> - all 64 inputs on wide screens, every 4th input (16 of 64) on narrow screens</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Model persistence</strong> - export / import the trained brain as a JSON file</li>
+                        <li class="mb-1"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Responsive layout</strong> - 3-column panels on desktop/landscape, single column in portrait</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHow" aria-expanded="false">
+                    <i class="bi bi-play-circle me-2 text-primary"></i> How to Use
+                </button>
+            </h2>
+            <div id="collapseHow" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <ol class="text-light small">
+                        <li class="mb-1">Draw the letter <strong>X</strong> on the 8×8 grid using your finger or mouse.</li>
+                        <li class="mb-1">Press <strong>+ This is X</strong> - the drawing is saved to the dataset and the grid clears automatically.</li>
+                        <li class="mb-1">Now draw a letter <strong>O</strong> (a ring near the edges of the cells).</li>
+                        <li class="mb-1">Press <strong>+ This is O</strong>.</li>
+                        <li class="mb-1">Repeat <strong>3-5 times for each letter</strong>, varying the size and position.</li>
+                        <li class="mb-1">Press <strong>Start Training</strong>. Watch the loss graph go down.</li>
+                        <li class="mb-1">Draw any new X or O - the network instantly shows its guess with a confidence percentage.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArch" aria-expanded="false">
+                    <i class="bi bi-diagram-3 me-2 text-primary"></i> Architecture
+                </button>
+            </h2>
+            <div id="collapseArch" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">64 inputs (one per grid cell) → 12 sigmoid hidden neurons → 2 sigmoid outputs (X and O). Trained by backpropagation with gradient descent, learning rate 0.2, online (sample-by-sample) updates. The network shows live how a handful of numbers reorganize until they recognize your handwriting.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLicense" aria-expanded="false">
+                    <i class="bi bi-award me-2 text-primary"></i> License
+                </button>
+            </h2>
+            <div id="collapseLicense" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                <div class="accordion-body text-light">
+                    <p class="text-light small">Licensed under the <strong>BSD 3-Clause License</strong> - see <a href="https://github.com/smartlegionlab/x-o-recognition-neural-network/blob/master/LICENSE" class="text-primary" target="_blank">LICENSE</a>.</p>
+                    <p class="text-light small"><strong>Author:</strong> <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a></p>
+                    <p class="text-light small"><strong>Repository:</strong> <a href="https://github.com/smartlegionlab/x-o-recognition-neural-network" class="text-primary" target="_blank">github.com/smartlegionlab/x-o-recognition-neural-network</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mb-4">
+        <div class="smart-small-card">
+            <div class="text-center">
+                <h5 class="text-primary"><i class="bi bi-link-45deg me-2"></i>Author</h5>
+                <hr>
+                <p class="text-light">
+                    <i class="bi bi-person-circle text-primary"></i> Created by
+                    <a href="/profiles/smartlegionlab.html" class="text-primary text-decoration-none">Alexander Suvorov Sr.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<div class="content-section">
+    <div class="sidebar-footer">
+        <p>©
+            <span id="currentYear">2026</span>
+            <a class="author-link" target="_blank" href="https://github.com/smartlegionlab">Smart Legion Lab</a> |
+            <a href="https://github.com/smartlegionlab/smartlegionlab.github.io" target="_blank"><span data-smart-version>v7.7.1</span></a> |
+            <a href="/smartlegionlab-map.html" target="_blank">Site Map</a>
+        </p>
+    </div>
+</div>
+
+<button id="consoleToggle" class="smart-console-toggle" aria-label="Toggle console">
+    <i class="bi bi-terminal" aria-hidden="true"></i>
+</button>
+
+<div id="devConsole" class="smart-dev-console" style="display: none;">
+    <div style="padding: 8px 12px; background: rgba(13,110,253,0.15); border-bottom: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 12px;">╭─[Smart Legion Lab Console]</span>
+        <button id="consoleClose" aria-label="Close console" style="float: right; background: none; border: none; color: #ff4444; cursor: pointer; font-size: 16px;"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="consoleOutput" style="height: 300px; overflow-y: auto; padding: 8px; color: #7ab3ff; font-size: 11px; line-height: 1.4;">
+        <div style="color: #666;">╰─$ Type 'help' for commands</div>
+    </div>
+    <div style="padding: 6px 10px; border-top: 1px solid #0d6efd;">
+        <span style="color: #7ab3ff; font-size: 11px;">$</span>
+        <input type="text" id="consoleInput" placeholder="command" class="smart-console-input">
+    </div>
+</div>
+
+<div id="background-trigger" hidden></div>
+
+<script src="../css/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/stats-manager.js"></script>
+<script src="../js/background-dispatcher.js"></script>
+<script src="../js/scroll-manager.js"></script>
+<script src="../js/console.js"></script>
+<script src="../js/sidebar.js"></script>
+
+</body>
+</html>
